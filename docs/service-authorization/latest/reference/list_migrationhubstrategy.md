@@ -1,103 +1,211 @@
-# Actions, resources, and condition keys for AWS Migration Hub Strategy Recommendations
 
-AWS Migration Hub Strategy Recommendations (service prefix: `migrationhub-strategy`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Migration Hub Strategy Recommendations
+<a name="list_migrationhubstrategy"></a>
+
+AWS Migration Hub Strategy Recommendations (service prefix: `migrationhub-strategy`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/migrationhub-strategy/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/Welcome.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/migrationhub-strategy/latest/userguide/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/migrationhub-strategy/migrationhub-strategy.json) for this service.
 
-- Learn how to [configure this service](../../../migrationhub-strategy/latest/userguide.md "../../../migrationhub-strategy/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../migrationhub-strategy/latest/APIReference/Welcome.md "../../../migrationhub-strategy/latest/APIReference/Welcome.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../migrationhub-strategy/latest/userguide/security-iam.md "../../../migrationhub-strategy/latest/userguide/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/migrationhub-strategy/migrationhub-strategy.json "https://servicereference.us-east-1.amazonaws.com/v1/migrationhub-strategy/migrationhub-strategy.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Migration Hub Strategy Recommendations](#list_migrationhubstrategy-operations "#list_migrationhubstrategy-operations")
-- [Actions defined by AWS Migration Hub Strategy Recommendations](#list_migrationhubstrategy-actions-as-permissions "#list_migrationhubstrategy-actions-as-permissions")
-- [Resource types defined by AWS Migration Hub Strategy Recommendations](#list_migrationhubstrategy-resources-for-iam-policies "#list_migrationhubstrategy-resources-for-iam-policies")
-- [Condition keys for AWS Migration Hub Strategy Recommendations](#list_migrationhubstrategy-policy-keys "#list_migrationhubstrategy-policy-keys")
+**Topics**
++ [API operations defined by AWS Migration Hub Strategy Recommendations](#list_migrationhubstrategy-operations)
++ [Actions defined by AWS Migration Hub Strategy Recommendations](#list_migrationhubstrategy-actions-as-permissions)
++ [Resource types defined by AWS Migration Hub Strategy Recommendations](#list_migrationhubstrategy-resources-for-iam-policies)
++ [Condition keys for AWS Migration Hub Strategy Recommendations](#list_migrationhubstrategy-policy-keys)
 
 ## API operations defined by AWS Migration Hub Strategy Recommendations
+<a name="list_migrationhubstrategy-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_migrationhubstrategy-actions-as-permissions "#list_migrationhubstrategy-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_migrationhubstrategy-actions-as-permissions).
 
-| Operation                           | IAM action                                                                                                                                                                                                 | Condition key | Possible value(s) | Access level |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------- | ------------ |
-| GetApplicationComponentDetails      | [migrationhub-strategy:GetApplicationComponentDetails](#list_migrationhubstrategy-action-GetApplicationComponentDetails "#list_migrationhubstrategy-action-GetApplicationComponentDetails")                |               |                   | Read         |
-| GetApplicationComponentStrategies   | [migrationhub-strategy:GetApplicationComponentStrategies](#list_migrationhubstrategy-action-GetApplicationComponentStrategies "#list_migrationhubstrategy-action-GetApplicationComponentStrategies")       |               |                   | Read         |
-| GetAssessment                       | [migrationhub-strategy:GetAssessment](#list_migrationhubstrategy-action-GetAssessment "#list_migrationhubstrategy-action-GetAssessment")                                                                   |               |                   | Read         |
-| GetImportFileTask                   | [migrationhub-strategy:GetImportFileTask](#list_migrationhubstrategy-action-GetImportFileTask "#list_migrationhubstrategy-action-GetImportFileTask")                                                       |               |                   | Read         |
-| GetLatestAssessmentId               | [migrationhub-strategy:GetLatestAssessmentId](#list_migrationhubstrategy-action-GetLatestAssessmentId "#list_migrationhubstrategy-action-GetLatestAssessmentId")                                           |               |                   | Read         |
-| GetPortfolioPreferences             | [migrationhub-strategy:GetPortfolioPreferences](#list_migrationhubstrategy-action-GetPortfolioPreferences "#list_migrationhubstrategy-action-GetPortfolioPreferences")                                     |               |                   | Read         |
-| GetPortfolioSummary                 | [migrationhub-strategy:GetPortfolioSummary](#list_migrationhubstrategy-action-GetPortfolioSummary "#list_migrationhubstrategy-action-GetPortfolioSummary")                                                 |               |                   | Read         |
-| GetRecommendationReportDetails      | [migrationhub-strategy:GetRecommendationReportDetails](#list_migrationhubstrategy-action-GetRecommendationReportDetails "#list_migrationhubstrategy-action-GetRecommendationReportDetails")                |               |                   | Read         |
-| GetServerDetails                    | [migrationhub-strategy:GetServerDetails](#list_migrationhubstrategy-action-GetServerDetails "#list_migrationhubstrategy-action-GetServerDetails")                                                          |               |                   | Read         |
-| GetServerStrategies                 | [migrationhub-strategy:GetServerStrategies](#list_migrationhubstrategy-action-GetServerStrategies "#list_migrationhubstrategy-action-GetServerStrategies")                                                 |               |                   | Read         |
-| ListAnalyzableServers               | [migrationhub-strategy:ListAnalyzableServers](#list_migrationhubstrategy-action-ListAnalyzableServers "#list_migrationhubstrategy-action-ListAnalyzableServers")                                           |               |                   | List         |
-| ListApplicationComponents           | [migrationhub-strategy:ListApplicationComponents](#list_migrationhubstrategy-action-ListApplicationComponents "#list_migrationhubstrategy-action-ListApplicationComponents")                               |               |                   | List         |
-| ListCollectors                      | [migrationhub-strategy:ListCollectors](#list_migrationhubstrategy-action-ListCollectors "#list_migrationhubstrategy-action-ListCollectors")                                                                |               |                   | List         |
-| ListImportFileTask                  | [migrationhub-strategy:ListImportFileTask](#list_migrationhubstrategy-action-ListImportFileTask "#list_migrationhubstrategy-action-ListImportFileTask")                                                    |               |                   | List         |
-| ListServers                         | [migrationhub-strategy:ListServers](#list_migrationhubstrategy-action-ListServers "#list_migrationhubstrategy-action-ListServers")                                                                         |               |                   | List         |
-| PutPortfolioPreferences             | [migrationhub-strategy:PutPortfolioPreferences](#list_migrationhubstrategy-action-PutPortfolioPreferences "#list_migrationhubstrategy-action-PutPortfolioPreferences")                                     |               |                   | Write        |
-| StartAssessment                     | [migrationhub-strategy:StartAssessment](#list_migrationhubstrategy-action-StartAssessment "#list_migrationhubstrategy-action-StartAssessment")                                                             |               |                   | Write        |
-| StartImportFileTask                 | [migrationhub-strategy:StartImportFileTask](#list_migrationhubstrategy-action-StartImportFileTask "#list_migrationhubstrategy-action-StartImportFileTask")                                                 |               |                   | Write        |
-| StartRecommendationReportGeneration | [migrationhub-strategy:StartRecommendationReportGeneration](#list_migrationhubstrategy-action-StartRecommendationReportGeneration "#list_migrationhubstrategy-action-StartRecommendationReportGeneration") |               |                   | Write        |
-| StopAssessment                      | [migrationhub-strategy:StopAssessment](#list_migrationhubstrategy-action-StopAssessment "#list_migrationhubstrategy-action-StopAssessment")                                                                |               |                   | Write        |
-| UpdateApplicationComponentConfig    | [migrationhub-strategy:UpdateApplicationComponentConfig](#list_migrationhubstrategy-action-UpdateApplicationComponentConfig "#list_migrationhubstrategy-action-UpdateApplicationComponentConfig")          |               |                   | Write        |
-| UpdateServerConfig                  | [migrationhub-strategy:UpdateServerConfig](#list_migrationhubstrategy-action-UpdateServerConfig "#list_migrationhubstrategy-action-UpdateServerConfig")                                                    |               |                   | Write        |
+
+
+
+- **   GetApplicationComponentDetails  **
+  - **IAM action:**  [migrationhub-strategy:GetApplicationComponentDetails](#list_migrationhubstrategy-action-GetApplicationComponentDetails) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetApplicationComponentStrategies  **
+  - **IAM action:**  [migrationhub-strategy:GetApplicationComponentStrategies](#list_migrationhubstrategy-action-GetApplicationComponentStrategies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAssessment  **
+  - **IAM action:**  [migrationhub-strategy:GetAssessment](#list_migrationhubstrategy-action-GetAssessment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetImportFileTask  **
+  - **IAM action:**  [migrationhub-strategy:GetImportFileTask](#list_migrationhubstrategy-action-GetImportFileTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetLatestAssessmentId  **
+  - **IAM action:**  [migrationhub-strategy:GetLatestAssessmentId](#list_migrationhubstrategy-action-GetLatestAssessmentId) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPortfolioPreferences  **
+  - **IAM action:**  [migrationhub-strategy:GetPortfolioPreferences](#list_migrationhubstrategy-action-GetPortfolioPreferences) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPortfolioSummary  **
+  - **IAM action:**  [migrationhub-strategy:GetPortfolioSummary](#list_migrationhubstrategy-action-GetPortfolioSummary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRecommendationReportDetails  **
+  - **IAM action:**  [migrationhub-strategy:GetRecommendationReportDetails](#list_migrationhubstrategy-action-GetRecommendationReportDetails) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetServerDetails  **
+  - **IAM action:**  [migrationhub-strategy:GetServerDetails](#list_migrationhubstrategy-action-GetServerDetails) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetServerStrategies  **
+  - **IAM action:**  [migrationhub-strategy:GetServerStrategies](#list_migrationhubstrategy-action-GetServerStrategies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAnalyzableServers  **
+  - **IAM action:**  [migrationhub-strategy:ListAnalyzableServers](#list_migrationhubstrategy-action-ListAnalyzableServers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListApplicationComponents  **
+  - **IAM action:**  [migrationhub-strategy:ListApplicationComponents](#list_migrationhubstrategy-action-ListApplicationComponents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCollectors  **
+  - **IAM action:**  [migrationhub-strategy:ListCollectors](#list_migrationhubstrategy-action-ListCollectors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListImportFileTask  **
+  - **IAM action:**  [migrationhub-strategy:ListImportFileTask](#list_migrationhubstrategy-action-ListImportFileTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListServers  **
+  - **IAM action:**  [migrationhub-strategy:ListServers](#list_migrationhubstrategy-action-ListServers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PutPortfolioPreferences  **
+  - **IAM action:**  [migrationhub-strategy:PutPortfolioPreferences](#list_migrationhubstrategy-action-PutPortfolioPreferences) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartAssessment  **
+  - **IAM action:**  [migrationhub-strategy:StartAssessment](#list_migrationhubstrategy-action-StartAssessment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartImportFileTask  **
+  - **IAM action:**  [migrationhub-strategy:StartImportFileTask](#list_migrationhubstrategy-action-StartImportFileTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartRecommendationReportGeneration  **
+  - **IAM action:**  [migrationhub-strategy:StartRecommendationReportGeneration](#list_migrationhubstrategy-action-StartRecommendationReportGeneration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopAssessment  **
+  - **IAM action:**  [migrationhub-strategy:StopAssessment](#list_migrationhubstrategy-action-StopAssessment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateApplicationComponentConfig  **
+  - **IAM action:**  [migrationhub-strategy:UpdateApplicationComponentConfig](#list_migrationhubstrategy-action-UpdateApplicationComponentConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateServerConfig  **
+  - **IAM action:**  [migrationhub-strategy:UpdateServerConfig](#list_migrationhubstrategy-action-UpdateServerConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS Migration Hub Strategy Recommendations
+<a name="list_migrationhubstrategy-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                              | Description                                                                                                                   | Resource types (\*required) | Condition keys | Access level |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------- | -------------- | ------------ |
-| [GetAntiPattern](../../../migrationhub-strategy/latest/APIReference/API_GetAntiPattern.md "../../../migrationhub-strategy/latest/APIReference/API_GetAntiPattern.md")                                                                | Grants permission to get details of each anti pattern that collector should look at in a customer's environment               |                             |                | Read         |
-| [GetApplicationComponentDetails](../../../migrationhub-strategy/latest/APIReference/API_GetApplicationComponentDetails.md "../../../migrationhub-strategy/latest/APIReference/API_GetApplicationComponentDetails.md")                | Grants permission to get details of an application                                                                            |                             |                | Read         |
-| [GetApplicationComponentStrategies](../../../migrationhub-strategy/latest/APIReference/API_GetApplicationComponentStrategies.md "../../../migrationhub-strategy/latest/APIReference/API_GetApplicationComponentStrategies.md")       | Grants permission to get a list of all recommended strategies and tools for an application running in a server                |                             |                | Read         |
-| [GetAssessment](../../../migrationhub-strategy/latest/APIReference/API_GetAssessment.md "../../../migrationhub-strategy/latest/APIReference/API_GetAssessment.md")                                                                   | Grants permission to retrieve status of an on-going assessment                                                                |                             |                | Read         |
-| [GetImportFileTask](../../../migrationhub-strategy/latest/APIReference/API_GetImportFileTask.md "../../../migrationhub-strategy/latest/APIReference/API_GetImportFileTask.md")                                                       | Grants permission to get details of a specific import task                                                                    |                             |                | Read         |
-| [GetLatestAssessmentId](../../../migrationhub-strategy/latest/APIReference/API_GetLatestAssessmentId.md "../../../migrationhub-strategy/latest/APIReference/API_GetLatestAssessmentId.md")                                           | Grants permission to retrieve the latest assessment id                                                                        |                             |                | Read         |
-| [GetMessage](../../../migrationhub-strategy/latest/APIReference/API_GetMessage.md "../../../migrationhub-strategy/latest/APIReference/API_GetMessage.md")                                                                            | Grants permission to the collector to receive information from the service                                                    |                             |                | Read         |
-| [GetPortfolioPreferences](../../../migrationhub-strategy/latest/APIReference/API_GetPortfolioPreferences.md "../../../migrationhub-strategy/latest/APIReference/API_GetPortfolioPreferences.md")                                     | Grants permission to retrieve customer migration/Modernization preferences                                                    |                             |                | Read         |
-| [GetPortfolioSummary](../../../migrationhub-strategy/latest/APIReference/API_GetPortfolioSummary.md "../../../migrationhub-strategy/latest/APIReference/API_GetPortfolioSummary.md")                                                 | Grants permission to retrieve overall summary (number-of servers to rehost etc as well as overall number of anti patterns)    |                             |                | Read         |
-| [GetRecommendationReportDetails](../../../migrationhub-strategy/latest/APIReference/API_GetRecommendationReportDetails.md "../../../migrationhub-strategy/latest/APIReference/API_GetRecommendationReportDetails.md")                | Grants permission to retrieve detailed information about a recommendation report                                              |                             |                | Read         |
-| [GetServerDetails](../../../migrationhub-strategy/latest/APIReference/API_GetServerDetails.md "../../../migrationhub-strategy/latest/APIReference/API_GetServerDetails.md")                                                          | Grants permission to get info about a specific server                                                                         |                             |                | Read         |
-| [GetServerStrategies](../../../migrationhub-strategy/latest/APIReference/API_GetServerStrategies.md "../../../migrationhub-strategy/latest/APIReference/API_GetServerStrategies.md")                                                 | Grants permission to get recommended strategies and tools for a specific server                                               |                             |                | Read         |
-| [ListAnalyzableServers](../../../migrationhub-strategy/latest/APIReference/API_ListAnalyzableServers.md "../../../migrationhub-strategy/latest/APIReference/API_ListAnalyzableServers.md")                                           | Grants permission to get a list of all analyzable servers in a customer's vcenter environment                                 |                             |                | List         |
-| [ListAntiPatterns](../../../migrationhub-strategy/latest/APIReference/API_ListAntiPatterns.md "../../../migrationhub-strategy/latest/APIReference/API_ListAntiPatterns.md")                                                          | Grants permission to get a list of all anti patterns that collector should look for in a customer's environment               |                             |                | List         |
-| [ListApplicationComponents](../../../migrationhub-strategy/latest/APIReference/API_ListApplicationComponents.md "../../../migrationhub-strategy/latest/APIReference/API_ListApplicationComponents.md")                               | Grants permission to get a list of all applications running on servers on customer's servers                                  |                             |                | List         |
-| [ListCollectors](../../../migrationhub-strategy/latest/APIReference/API_ListCollectors.md "../../../migrationhub-strategy/latest/APIReference/API_ListCollectors.md")                                                                | Grants permission to get a list of all collectors installed by the customer                                                   |                             |                | List         |
-| [ListImportFileTask](../../../migrationhub-strategy/latest/APIReference/API_ListImportFileTask.md "../../../migrationhub-strategy/latest/APIReference/API_ListImportFileTask.md")                                                    | Grants permission to get list of all imports performed by the customer                                                        |                             |                | List         |
-| [ListJarArtifacts](../../../migrationhub-strategy/latest/APIReference/API_ListJarArtifacts.md "../../../migrationhub-strategy/latest/APIReference/API_ListJarArtifacts.md")                                                          | Grants permission to get a list of binaries that collector should assess                                                      |                             |                | List         |
-| [ListServers](../../../migrationhub-strategy/latest/APIReference/API_ListServers.md "../../../migrationhub-strategy/latest/APIReference/API_ListServers.md")                                                                         | Grants permission to get a list of all servers in a customer's environment                                                    |                             |                | List         |
-| [PutLogData](../../../migrationhub-strategy/latest/APIReference/API_PutLogData.md "../../../migrationhub-strategy/latest/APIReference/API_PutLogData.md")                                                                            | Grants permission to the collector to send logs to the service                                                                |                             |                | Write        |
-| [PutMetricData](../../../migrationhub-strategy/latest/APIReference/API_PutMetricData.md "../../../migrationhub-strategy/latest/APIReference/API_PutMetricData.md")                                                                   | Grants permission to the collector to send metrics to the service                                                             |                             |                | Write        |
-| [PutPortfolioPreferences](../../../migrationhub-strategy/latest/APIReference/API_PutPortfolioPreferences.md "../../../migrationhub-strategy/latest/APIReference/API_PutPortfolioPreferences.md")                                     | Grants permission to save customer's Migration/Modernization preferences                                                      |                             |                | Write        |
-| [RegisterCollector](../../../migrationhub-strategy/latest/APIReference/API_RegisterCollector.md "../../../migrationhub-strategy/latest/APIReference/API_RegisterCollector.md")                                                       | Grants permission to register the collector to receive an ID and to start receiving messages from the service                 |                             |                | Write        |
-| [SendMessage](../../../migrationhub-strategy/latest/APIReference/API_SendMessage.md "../../../migrationhub-strategy/latest/APIReference/API_SendMessage.md")                                                                         | Grants permission to the collector to send information to the service                                                         |                             |                | Write        |
-| [StartAssessment](../../../migrationhub-strategy/latest/APIReference/API_StartAssessment.md "../../../migrationhub-strategy/latest/APIReference/API_StartAssessment.md")                                                             | Grants permission to start assessment in a customer's environment (collect data from all servers and provide recommendations) |                             |                | Write        |
-| [StartImportFileTask](../../../migrationhub-strategy/latest/APIReference/API_StartImportFileTask.md "../../../migrationhub-strategy/latest/APIReference/API_StartImportFileTask.md")                                                 | Grants permission to start importing data from a file provided by customer                                                    |                             |                | Write        |
-| [StartRecommendationReportGeneration](../../../migrationhub-strategy/latest/APIReference/API_StartRecommendationReportGeneration.md "../../../migrationhub-strategy/latest/APIReference/API_StartRecommendationReportGeneration.md") | Grants permission to start generating a recommendation report                                                                 |                             |                | Write        |
-| [StopAssessment](../../../migrationhub-strategy/latest/APIReference/API_StopAssessment.md "../../../migrationhub-strategy/latest/APIReference/API_StopAssessment.md")                                                                | Grants permission to stop an on-going assessment                                                                              |                             |                | Write        |
-| [UpdateApplicationComponentConfig](../../../migrationhub-strategy/latest/APIReference/API_UpdateApplicationComponentConfig.md "../../../migrationhub-strategy/latest/APIReference/API_UpdateApplicationComponentConfig.md")          | Grants permission to update details for an application                                                                        |                             |                | Write        |
-| [UpdateCollectorConfiguration](../../../migrationhub-strategy/latest/APIReference/API_UpdateCollectorConfiguration.md "../../../migrationhub-strategy/latest/APIReference/API_UpdateCollectorConfiguration.md")                      | Grants permission to the collector to send configuration information to the service                                           |                             |                | Write        |
-| [UpdateServerConfig](../../../migrationhub-strategy/latest/APIReference/API_UpdateServerConfig.md "../../../migrationhub-strategy/latest/APIReference/API_UpdateServerConfig.md")                                                    | Grants permission to update info on a server along with the recommended strategy                                              |                             |                | Write        |
+
+
+| Actions | Description | Resource types (\*required) | Condition keys | Access level | 
+| --- | --- | --- | --- | --- | 
+|   [GetAntiPattern](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_GetAntiPattern.html)  | Grants permission to get details of each anti pattern that collector should look at in a customer's environment |  |   | Read | 
+|   [GetApplicationComponentDetails](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_GetApplicationComponentDetails.html)  | Grants permission to get details of an application |  |   | Read | 
+|   [GetApplicationComponentStrategies](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_GetApplicationComponentStrategies.html)  | Grants permission to get a list of all recommended strategies and tools for an application running in a server |  |   | Read | 
+|   [GetAssessment](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_GetAssessment.html)  | Grants permission to retrieve status of an on-going assessment |  |   | Read | 
+|   [GetImportFileTask](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_GetImportFileTask.html)  | Grants permission to get details of a specific import task |  |   | Read | 
+|   [GetLatestAssessmentId](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_GetLatestAssessmentId.html)  | Grants permission to retrieve the latest assessment id |  |   | Read | 
+|   [GetMessage](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_GetMessage.html)  | Grants permission to the collector to receive information from the service |  |   | Read | 
+|   [GetPortfolioPreferences](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_GetPortfolioPreferences.html)  | Grants permission to retrieve customer migration/Modernization preferences |  |   | Read | 
+|   [GetPortfolioSummary](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_GetPortfolioSummary.html)  | Grants permission to retrieve overall summary (number-of servers to rehost etc as well as overall number of anti patterns) |  |   | Read | 
+|   [GetRecommendationReportDetails](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_GetRecommendationReportDetails.html)  | Grants permission to retrieve detailed information about a recommendation report |  |   | Read | 
+|   [GetServerDetails](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_GetServerDetails.html)  | Grants permission to get info about a specific server |  |   | Read | 
+|   [GetServerStrategies](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_GetServerStrategies.html)  | Grants permission to get recommended strategies and tools for a specific server |  |   | Read | 
+|   [ListAnalyzableServers](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_ListAnalyzableServers.html)  | Grants permission to get a list of all analyzable servers in a customer's vcenter environment |  |   | List | 
+|   [ListAntiPatterns](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_ListAntiPatterns.html)  | Grants permission to get a list of all anti patterns that collector should look for in a customer's environment |  |   | List | 
+|   [ListApplicationComponents](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_ListApplicationComponents.html)  | Grants permission to get a list of all applications running on servers on customer's servers |  |   | List | 
+|   [ListCollectors](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_ListCollectors.html)  | Grants permission to get a list of all collectors installed by the customer |  |   | List | 
+|   [ListImportFileTask](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_ListImportFileTask.html)  | Grants permission to get list of all imports performed by the customer |  |   | List | 
+|   [ListJarArtifacts](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_ListJarArtifacts.html)  | Grants permission to get a list of binaries that collector should assess |  |   | List | 
+|   [ListServers](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_ListServers.html)  | Grants permission to get a list of all servers in a customer's environment |  |   | List | 
+|   [PutLogData](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_PutLogData.html)  | Grants permission to the collector to send logs to the service |  |   | Write | 
+|   [PutMetricData](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_PutMetricData.html)  | Grants permission to the collector to send metrics to the service |  |   | Write | 
+|   [PutPortfolioPreferences](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_PutPortfolioPreferences.html)  | Grants permission to save customer's Migration/Modernization preferences |  |   | Write | 
+|   [RegisterCollector](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_RegisterCollector.html)  | Grants permission to register the collector to receive an ID and to start receiving messages from the service |  |   | Write | 
+|   [SendMessage](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_SendMessage.html)  | Grants permission to the collector to send information to the service |  |   | Write | 
+|   [StartAssessment](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_StartAssessment.html)  | Grants permission to start assessment in a customer's environment (collect data from all servers and provide recommendations) |  |   | Write | 
+|   [StartImportFileTask](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_StartImportFileTask.html)  | Grants permission to start importing data from a file provided by customer |  |   | Write | 
+|   [StartRecommendationReportGeneration](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_StartRecommendationReportGeneration.html)  | Grants permission to start generating a recommendation report |  |   | Write | 
+|   [StopAssessment](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_StopAssessment.html)  | Grants permission to stop an on-going assessment |  |   | Write | 
+|   [UpdateApplicationComponentConfig](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_UpdateApplicationComponentConfig.html)  | Grants permission to update details for an application |  |   | Write | 
+|   [UpdateCollectorConfiguration](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_UpdateCollectorConfiguration.html)  | Grants permission to the collector to send configuration information to the service |  |   | Write | 
+|   [UpdateServerConfig](https://docs.aws.amazon.com/migrationhub-strategy/latest/APIReference/API_UpdateServerConfig.html)  | Grants permission to update info on a server along with the recommended strategy |  |   | Write | 
 
 ## Resource types defined by AWS Migration Hub Strategy Recommendations
+<a name="list_migrationhubstrategy-resources-for-iam-policies"></a>
 
-AWS Migration Hub Strategy Recommendations does not support specifying a resource ARN in the
-`Resource` element of an IAM policy statement.
+AWS Migration Hub Strategy Recommendations does not support specifying a resource ARN in the `Resource` element of an IAM policy statement.
 
 ## Condition keys for AWS Migration Hub Strategy Recommendations
+<a name="list_migrationhubstrategy-policy-keys"></a>
 
-AWS Migration Hub Strategy Recommendations has no service-specific condition keys that can be used in the
-`Condition` element of policy statements.
+AWS Migration Hub Strategy Recommendations has no service-specific condition keys that can be used in the `Condition` element of policy statements.

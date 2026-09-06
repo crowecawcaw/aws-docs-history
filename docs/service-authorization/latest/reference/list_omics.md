@@ -1,364 +1,1366 @@
-# Actions, resources, and condition keys for AWS HealthOmics
 
-AWS HealthOmics (service prefix: `omics`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS HealthOmics
+<a name="list_omics"></a>
+
+AWS HealthOmics (service prefix: `omics`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/omics/latest/dev/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/omics/latest/api/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/omics/latest/dev/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/omics/omics.json) for this service.
 
-- Learn how to [configure this service](../../../omics/latest/dev.md "../../../omics/latest/dev.md").
-- View a list of the [API operations available for
-  this service](../../../omics/latest/api.md "../../../omics/latest/api.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../omics/latest/dev/security-iam.md "../../../omics/latest/dev/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/omics/omics.json "https://servicereference.us-east-1.amazonaws.com/v1/omics/omics.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS HealthOmics](#list_omics-operations "#list_omics-operations")
-- [Actions defined by AWS HealthOmics](#list_omics-actions-as-permissions "#list_omics-actions-as-permissions")
-- [Resource types defined by AWS HealthOmics](#list_omics-resources-for-iam-policies "#list_omics-resources-for-iam-policies")
-- [Condition keys for AWS HealthOmics](#list_omics-policy-keys "#list_omics-policy-keys")
+**Topics**
++ [API operations defined by AWS HealthOmics](#list_omics-operations)
++ [Actions defined by AWS HealthOmics](#list_omics-actions-as-permissions)
++ [Resource types defined by AWS HealthOmics](#list_omics-resources-for-iam-policies)
++ [Condition keys for AWS HealthOmics](#list_omics-policy-keys)
 
 ## API operations defined by AWS HealthOmics
+<a name="list_omics-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_omics-actions-as-permissions "#list_omics-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_omics-actions-as-permissions).
 
-| Operation                                                                                                                                                                                                                                     | IAM action                                                                                                                                    | Condition key       | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----------------- | -------------- |
-| AbortMultipartReadSetUpload                                                                                                                                                                                                                   | [omics:AbortMultipartReadSetUpload](#list_omics-action-AbortMultipartReadSetUpload "#list_omics-action-AbortMultipartReadSetUpload")          |                     |                   | Write          |
-| AcceptShare                                                                                                                                                                                                                                   | [omics:AcceptShare](#list_omics-action-AcceptShare "#list_omics-action-AcceptShare")                                                          |                     |                   | Write          |
-| BatchDeleteReadSet                                                                                                                                                                                                                            | [omics:BatchDeleteReadSet](#list_omics-action-BatchDeleteReadSet "#list_omics-action-BatchDeleteReadSet")                                     |                     |                   | Write          |
-| CancelAnnotationImportJob                                                                                                                                                                                                                     | [omics:CancelAnnotationImportJob](#list_omics-action-CancelAnnotationImportJob "#list_omics-action-CancelAnnotationImportJob")                |                     |                   | Write          |
-| CancelRun                                                                                                                                                                                                                                     | [omics:CancelRun](#list_omics-action-CancelRun "#list_omics-action-CancelRun")                                                                |                     |                   | Write          |
-| CancelRunBatch                                                                                                                                                                                                                                | [omics:CancelRunBatch](#list_omics-action-CancelRunBatch "#list_omics-action-CancelRunBatch")                                                 |                     |                   | Write          |
-| CancelVariantImportJob                                                                                                                                                                                                                        | [omics:CancelVariantImportJob](#list_omics-action-CancelVariantImportJob "#list_omics-action-CancelVariantImportJob")                         |                     |                   | Write          |
-| CompleteMultipartReadSetUpload                                                                                                                                                                                                                | [omics:CompleteMultipartReadSetUpload](#list_omics-action-CompleteMultipartReadSetUpload "#list_omics-action-CompleteMultipartReadSetUpload") |                     |                   | Write          |
-| CreateAnnotationStore                                                                                                                                                                                                                         | [omics:CreateAnnotationStore](#list_omics-action-CreateAnnotationStore "#list_omics-action-CreateAnnotationStore")                            |                     |                   | Write          |
-| [omics:TagResource](#list_omics-action-TagResource "#list_omics-action-TagResource")                                                                                                                                                          |                                                                                                                                               |                     | Tagging, Write    |
-| CreateAnnotationStoreVersion                                                                                                                                                                                                                  | [omics:CreateAnnotationStoreVersion](#list_omics-action-CreateAnnotationStoreVersion "#list_omics-action-CreateAnnotationStoreVersion")       |                     |                   | Write          |
-| [omics:TagResource](#list_omics-action-TagResource "#list_omics-action-TagResource")                                                                                                                                                          |                                                                                                                                               |                     | Tagging, Write    |
-| CreateConfiguration                                                                                                                                                                                                                           | [omics:CreateConfiguration](#list_omics-action-CreateConfiguration "#list_omics-action-CreateConfiguration")                                  |                     |                   | Write          |
-| [omics:TagResource](#list_omics-action-TagResource "#list_omics-action-TagResource")                                                                                                                                                          |                                                                                                                                               |                     | Tagging, Write    |
-| [codeconnections:PassConnection](../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections-passconnection "../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections-passconnection") |                                                                                                                                               |                     | Read              |
-| [ec2:DescribeSecurityGroups](../../../AWSEC2/latest/APIReference/API_DescribeSecurityGroups.md "../../../AWSEC2/latest/APIReference/API_DescribeSecurityGroups.md")                                                                           |                                                                                                                                               |                     | List              |
-| [ec2:DescribeSubnets](../../../AWSEC2/latest/APIReference/API_DescribeSubnets.md "../../../AWSEC2/latest/APIReference/API_DescribeSubnets.md")                                                                                                |                                                                                                                                               |                     | List              |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                                               | iam:PassedToService                                                                                                                           | omics.amazonaws.com | Write             |
-| CreateMultipartReadSetUpload                                                                                                                                                                                                                  | [omics:CreateMultipartReadSetUpload](#list_omics-action-CreateMultipartReadSetUpload "#list_omics-action-CreateMultipartReadSetUpload")       |                     |                   | Write          |
-| [omics:TagResource](#list_omics-action-TagResource "#list_omics-action-TagResource")                                                                                                                                                          |                                                                                                                                               |                     | Tagging, Write    |
-| CreateReferenceStore                                                                                                                                                                                                                          | [omics:CreateReferenceStore](#list_omics-action-CreateReferenceStore "#list_omics-action-CreateReferenceStore")                               |                     |                   | Write          |
-| [omics:TagResource](#list_omics-action-TagResource "#list_omics-action-TagResource")                                                                                                                                                          |                                                                                                                                               |                     | Tagging, Write    |
-| CreateRunCache                                                                                                                                                                                                                                | [omics:CreateRunCache](#list_omics-action-CreateRunCache "#list_omics-action-CreateRunCache")                                                 |                     |                   | Write          |
-| [omics:TagResource](#list_omics-action-TagResource "#list_omics-action-TagResource")                                                                                                                                                          |                                                                                                                                               |                     | Tagging, Write    |
-| CreateRunGroup                                                                                                                                                                                                                                | [omics:CreateRunGroup](#list_omics-action-CreateRunGroup "#list_omics-action-CreateRunGroup")                                                 |                     |                   | Write          |
-| [omics:TagResource](#list_omics-action-TagResource "#list_omics-action-TagResource")                                                                                                                                                          |                                                                                                                                               |                     | Tagging, Write    |
-| CreateSequenceStore                                                                                                                                                                                                                           | [omics:CreateSequenceStore](#list_omics-action-CreateSequenceStore "#list_omics-action-CreateSequenceStore")                                  |                     |                   | Write          |
-| [omics:TagResource](#list_omics-action-TagResource "#list_omics-action-TagResource")                                                                                                                                                          |                                                                                                                                               |                     | Tagging, Write    |
-| CreateShare                                                                                                                                                                                                                                   | [omics:CreateShare](#list_omics-action-CreateShare "#list_omics-action-CreateShare")                                                          |                     |                   | Write          |
-| CreateVariantStore                                                                                                                                                                                                                            | [omics:CreateVariantStore](#list_omics-action-CreateVariantStore "#list_omics-action-CreateVariantStore")                                     |                     |                   | Write          |
-| [omics:TagResource](#list_omics-action-TagResource "#list_omics-action-TagResource")                                                                                                                                                          |                                                                                                                                               |                     | Tagging, Write    |
-| CreateWorkflow                                                                                                                                                                                                                                | [omics:CreateWorkflow](#list_omics-action-CreateWorkflow "#list_omics-action-CreateWorkflow")                                                 |                     |                   | Write          |
-| [omics:TagResource](#list_omics-action-TagResource "#list_omics-action-TagResource")                                                                                                                                                          |                                                                                                                                               |                     | Tagging, Write    |
-| [codeconnections:PassConnection](../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections-passconnection "../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections-passconnection") |                                                                                                                                               |                     | Read              |
-| CreateWorkflowVersion                                                                                                                                                                                                                         | [omics:CreateWorkflowVersion](#list_omics-action-CreateWorkflowVersion "#list_omics-action-CreateWorkflowVersion")                            |                     |                   | Write          |
-| [omics:TagResource](#list_omics-action-TagResource "#list_omics-action-TagResource")                                                                                                                                                          |                                                                                                                                               |                     | Tagging, Write    |
-| [codeconnections:PassConnection](../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections-passconnection "../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections-passconnection") |                                                                                                                                               |                     | Read              |
-| DeleteAnnotationStore                                                                                                                                                                                                                         | [omics:DeleteAnnotationStore](#list_omics-action-DeleteAnnotationStore "#list_omics-action-DeleteAnnotationStore")                            |                     |                   | Write          |
-| DeleteAnnotationStoreVersions                                                                                                                                                                                                                 | [omics:DeleteAnnotationStoreVersions](#list_omics-action-DeleteAnnotationStoreVersions "#list_omics-action-DeleteAnnotationStoreVersions")    |                     |                   | Write          |
-| DeleteBatch                                                                                                                                                                                                                                   | [omics:DeleteBatch](#list_omics-action-DeleteBatch "#list_omics-action-DeleteBatch")                                                          |                     |                   | Write          |
-| DeleteConfiguration                                                                                                                                                                                                                           | [omics:DeleteConfiguration](#list_omics-action-DeleteConfiguration "#list_omics-action-DeleteConfiguration")                                  |                     |                   | Write          |
-| DeleteReference                                                                                                                                                                                                                               | [omics:DeleteReference](#list_omics-action-DeleteReference "#list_omics-action-DeleteReference")                                              |                     |                   | Write          |
-| DeleteReferenceStore                                                                                                                                                                                                                          | [omics:DeleteReferenceStore](#list_omics-action-DeleteReferenceStore "#list_omics-action-DeleteReferenceStore")                               |                     |                   | Write          |
-| DeleteRun                                                                                                                                                                                                                                     | [omics:DeleteRun](#list_omics-action-DeleteRun "#list_omics-action-DeleteRun")                                                                |                     |                   | Write          |
-| DeleteRunBatch                                                                                                                                                                                                                                | [omics:DeleteRunBatch](#list_omics-action-DeleteRunBatch "#list_omics-action-DeleteRunBatch")                                                 |                     |                   | Write          |
-| DeleteRunCache                                                                                                                                                                                                                                | [omics:DeleteRunCache](#list_omics-action-DeleteRunCache "#list_omics-action-DeleteRunCache")                                                 |                     |                   | Write          |
-| DeleteRunGroup                                                                                                                                                                                                                                | [omics:DeleteRunGroup](#list_omics-action-DeleteRunGroup "#list_omics-action-DeleteRunGroup")                                                 |                     |                   | Write          |
-| DeleteS3AccessPolicy                                                                                                                                                                                                                          | [omics:DeleteS3AccessPolicy](#list_omics-action-DeleteS3AccessPolicy "#list_omics-action-DeleteS3AccessPolicy")                               |                     |                   | Write          |
-| DeleteSequenceStore                                                                                                                                                                                                                           | [omics:DeleteSequenceStore](#list_omics-action-DeleteSequenceStore "#list_omics-action-DeleteSequenceStore")                                  |                     |                   | Write          |
-| DeleteShare                                                                                                                                                                                                                                   | [omics:DeleteShare](#list_omics-action-DeleteShare "#list_omics-action-DeleteShare")                                                          |                     |                   | Write          |
-| DeleteVariantStore                                                                                                                                                                                                                            | [omics:DeleteVariantStore](#list_omics-action-DeleteVariantStore "#list_omics-action-DeleteVariantStore")                                     |                     |                   | Write          |
-| DeleteWorkflow                                                                                                                                                                                                                                | [omics:DeleteWorkflow](#list_omics-action-DeleteWorkflow "#list_omics-action-DeleteWorkflow")                                                 |                     |                   | Write          |
-| DeleteWorkflowVersion                                                                                                                                                                                                                         | [omics:DeleteWorkflowVersion](#list_omics-action-DeleteWorkflowVersion "#list_omics-action-DeleteWorkflowVersion")                            |                     |                   | Write          |
-| GetAnnotationImportJob                                                                                                                                                                                                                        | [omics:GetAnnotationImportJob](#list_omics-action-GetAnnotationImportJob "#list_omics-action-GetAnnotationImportJob")                         |                     |                   | Read           |
-| GetAnnotationStore                                                                                                                                                                                                                            | [omics:GetAnnotationStore](#list_omics-action-GetAnnotationStore "#list_omics-action-GetAnnotationStore")                                     |                     |                   | Read           |
-| GetAnnotationStoreVersion                                                                                                                                                                                                                     | [omics:GetAnnotationStoreVersion](#list_omics-action-GetAnnotationStoreVersion "#list_omics-action-GetAnnotationStoreVersion")                |                     |                   | Read           |
-| GetBatch                                                                                                                                                                                                                                      | [omics:GetBatch](#list_omics-action-GetBatch "#list_omics-action-GetBatch")                                                                   |                     |                   | Read           |
-| GetConfiguration                                                                                                                                                                                                                              | [omics:GetConfiguration](#list_omics-action-GetConfiguration "#list_omics-action-GetConfiguration")                                           |                     |                   | Read           |
-| GetReadSet                                                                                                                                                                                                                                    | [omics:GetReadSet](#list_omics-action-GetReadSet "#list_omics-action-GetReadSet")                                                             |                     |                   | Read           |
-| GetReadSetActivationJob                                                                                                                                                                                                                       | [omics:GetReadSetActivationJob](#list_omics-action-GetReadSetActivationJob "#list_omics-action-GetReadSetActivationJob")                      |                     |                   | Read           |
-| GetReadSetExportJob                                                                                                                                                                                                                           | [omics:GetReadSetExportJob](#list_omics-action-GetReadSetExportJob "#list_omics-action-GetReadSetExportJob")                                  |                     |                   | Read           |
-| GetReadSetImportJob                                                                                                                                                                                                                           | [omics:GetReadSetImportJob](#list_omics-action-GetReadSetImportJob "#list_omics-action-GetReadSetImportJob")                                  |                     |                   | Read           |
-| GetReadSetMetadata                                                                                                                                                                                                                            | [omics:GetReadSetMetadata](#list_omics-action-GetReadSetMetadata "#list_omics-action-GetReadSetMetadata")                                     |                     |                   | Read           |
-| GetReference                                                                                                                                                                                                                                  | [omics:GetReference](#list_omics-action-GetReference "#list_omics-action-GetReference")                                                       |                     |                   | Read           |
-| GetReferenceImportJob                                                                                                                                                                                                                         | [omics:GetReferenceImportJob](#list_omics-action-GetReferenceImportJob "#list_omics-action-GetReferenceImportJob")                            |                     |                   | Read           |
-| GetReferenceMetadata                                                                                                                                                                                                                          | [omics:GetReferenceMetadata](#list_omics-action-GetReferenceMetadata "#list_omics-action-GetReferenceMetadata")                               |                     |                   | Read           |
-| GetReferenceStore                                                                                                                                                                                                                             | [omics:GetReferenceStore](#list_omics-action-GetReferenceStore "#list_omics-action-GetReferenceStore")                                        |                     |                   | Read           |
-| GetRun                                                                                                                                                                                                                                        | [omics:GetRun](#list_omics-action-GetRun "#list_omics-action-GetRun")                                                                         |                     |                   | Read           |
-| GetRunCache                                                                                                                                                                                                                                   | [omics:GetRunCache](#list_omics-action-GetRunCache "#list_omics-action-GetRunCache")                                                          |                     |                   | Read           |
-| GetRunGroup                                                                                                                                                                                                                                   | [omics:GetRunGroup](#list_omics-action-GetRunGroup "#list_omics-action-GetRunGroup")                                                          |                     |                   | Read           |
-| GetRunTask                                                                                                                                                                                                                                    | [omics:GetRunTask](#list_omics-action-GetRunTask "#list_omics-action-GetRunTask")                                                             |                     |                   | Read           |
-| GetS3AccessPolicy                                                                                                                                                                                                                             | [omics:GetS3AccessPolicy](#list_omics-action-GetS3AccessPolicy "#list_omics-action-GetS3AccessPolicy")                                        |                     |                   | Read           |
-| GetSequenceStore                                                                                                                                                                                                                              | [omics:GetSequenceStore](#list_omics-action-GetSequenceStore "#list_omics-action-GetSequenceStore")                                           |                     |                   | Read           |
-| GetShare                                                                                                                                                                                                                                      | [omics:GetShare](#list_omics-action-GetShare "#list_omics-action-GetShare")                                                                   |                     |                   | Read           |
-| GetVariantImportJob                                                                                                                                                                                                                           | [omics:GetVariantImportJob](#list_omics-action-GetVariantImportJob "#list_omics-action-GetVariantImportJob")                                  |                     |                   | Read           |
-| GetVariantStore                                                                                                                                                                                                                               | [omics:GetVariantStore](#list_omics-action-GetVariantStore "#list_omics-action-GetVariantStore")                                              |                     |                   | Read           |
-| GetWorkflow                                                                                                                                                                                                                                   | [omics:GetWorkflow](#list_omics-action-GetWorkflow "#list_omics-action-GetWorkflow")                                                          |                     |                   | Read           |
-| GetWorkflowVersion                                                                                                                                                                                                                            | [omics:GetWorkflowVersion](#list_omics-action-GetWorkflowVersion "#list_omics-action-GetWorkflowVersion")                                     |                     |                   | Read           |
-| ListAnnotationImportJobs                                                                                                                                                                                                                      | [omics:ListAnnotationImportJobs](#list_omics-action-ListAnnotationImportJobs "#list_omics-action-ListAnnotationImportJobs")                   |                     |                   | List           |
-| ListAnnotationStoreVersions                                                                                                                                                                                                                   | [omics:ListAnnotationStoreVersions](#list_omics-action-ListAnnotationStoreVersions "#list_omics-action-ListAnnotationStoreVersions")          |                     |                   | List           |
-| ListAnnotationStores                                                                                                                                                                                                                          | [omics:ListAnnotationStores](#list_omics-action-ListAnnotationStores "#list_omics-action-ListAnnotationStores")                               |                     |                   | List           |
-| ListBatch                                                                                                                                                                                                                                     | [omics:ListBatch](#list_omics-action-ListBatch "#list_omics-action-ListBatch")                                                                |                     |                   | List           |
-| ListConfigurations                                                                                                                                                                                                                            | [omics:ListConfigurations](#list_omics-action-ListConfigurations "#list_omics-action-ListConfigurations")                                     |                     |                   | List           |
-| ListMultipartReadSetUploads                                                                                                                                                                                                                   | [omics:ListMultipartReadSetUploads](#list_omics-action-ListMultipartReadSetUploads "#list_omics-action-ListMultipartReadSetUploads")          |                     |                   | List           |
-| ListReadSetActivationJobs                                                                                                                                                                                                                     | [omics:ListReadSetActivationJobs](#list_omics-action-ListReadSetActivationJobs "#list_omics-action-ListReadSetActivationJobs")                |                     |                   | List           |
-| ListReadSetExportJobs                                                                                                                                                                                                                         | [omics:ListReadSetExportJobs](#list_omics-action-ListReadSetExportJobs "#list_omics-action-ListReadSetExportJobs")                            |                     |                   | List           |
-| ListReadSetImportJobs                                                                                                                                                                                                                         | [omics:ListReadSetImportJobs](#list_omics-action-ListReadSetImportJobs "#list_omics-action-ListReadSetImportJobs")                            |                     |                   | List           |
-| ListReadSetUploadParts                                                                                                                                                                                                                        | [omics:ListReadSetUploadParts](#list_omics-action-ListReadSetUploadParts "#list_omics-action-ListReadSetUploadParts")                         |                     |                   | List           |
-| ListReadSets                                                                                                                                                                                                                                  | [omics:ListReadSets](#list_omics-action-ListReadSets "#list_omics-action-ListReadSets")                                                       |                     |                   | List           |
-| ListReferenceImportJobs                                                                                                                                                                                                                       | [omics:ListReferenceImportJobs](#list_omics-action-ListReferenceImportJobs "#list_omics-action-ListReferenceImportJobs")                      |                     |                   | List           |
-| ListReferenceStores                                                                                                                                                                                                                           | [omics:ListReferenceStores](#list_omics-action-ListReferenceStores "#list_omics-action-ListReferenceStores")                                  |                     |                   | List           |
-| ListReferences                                                                                                                                                                                                                                | [omics:ListReferences](#list_omics-action-ListReferences "#list_omics-action-ListReferences")                                                 |                     |                   | List           |
-| ListRunCaches                                                                                                                                                                                                                                 | [omics:ListRunCaches](#list_omics-action-ListRunCaches "#list_omics-action-ListRunCaches")                                                    |                     |                   | List           |
-| ListRunGroups                                                                                                                                                                                                                                 | [omics:ListRunGroups](#list_omics-action-ListRunGroups "#list_omics-action-ListRunGroups")                                                    |                     |                   | List           |
-| ListRunTasks                                                                                                                                                                                                                                  | [omics:ListRunTasks](#list_omics-action-ListRunTasks "#list_omics-action-ListRunTasks")                                                       |                     |                   | List           |
-| ListRuns                                                                                                                                                                                                                                      | [omics:ListRuns](#list_omics-action-ListRuns "#list_omics-action-ListRuns")                                                                   |                     |                   | List           |
-| ListRunsInBatch                                                                                                                                                                                                                               | [omics:ListRunsInBatch](#list_omics-action-ListRunsInBatch "#list_omics-action-ListRunsInBatch")                                              |                     |                   | List           |
-| ListSequenceStores                                                                                                                                                                                                                            | [omics:ListSequenceStores](#list_omics-action-ListSequenceStores "#list_omics-action-ListSequenceStores")                                     |                     |                   | List           |
-| ListShares                                                                                                                                                                                                                                    | [omics:ListShares](#list_omics-action-ListShares "#list_omics-action-ListShares")                                                             |                     |                   | List           |
-| ListTagsForResource                                                                                                                                                                                                                           | [omics:ListTagsForResource](#list_omics-action-ListTagsForResource "#list_omics-action-ListTagsForResource")                                  |                     |                   | List           |
-| ListVariantImportJobs                                                                                                                                                                                                                         | [omics:ListVariantImportJobs](#list_omics-action-ListVariantImportJobs "#list_omics-action-ListVariantImportJobs")                            |                     |                   | List           |
-| ListVariantStores                                                                                                                                                                                                                             | [omics:ListVariantStores](#list_omics-action-ListVariantStores "#list_omics-action-ListVariantStores")                                        |                     |                   | List           |
-| ListWorkflowVersions                                                                                                                                                                                                                          | [omics:ListWorkflowVersions](#list_omics-action-ListWorkflowVersions "#list_omics-action-ListWorkflowVersions")                               |                     |                   | List           |
-| ListWorkflows                                                                                                                                                                                                                                 | [omics:ListWorkflows](#list_omics-action-ListWorkflows "#list_omics-action-ListWorkflows")                                                    |                     |                   | List           |
-| PutS3AccessPolicy                                                                                                                                                                                                                             | [omics:PutS3AccessPolicy](#list_omics-action-PutS3AccessPolicy "#list_omics-action-PutS3AccessPolicy")                                        |                     |                   | Write          |
-| StartAnnotationImportJob                                                                                                                                                                                                                      | [omics:StartAnnotationImportJob](#list_omics-action-StartAnnotationImportJob "#list_omics-action-StartAnnotationImportJob")                   |                     |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                                               | iam:PassedToService                                                                                                                           | omics.amazonaws.com | Write             |
-| StartReadSetActivationJob                                                                                                                                                                                                                     | [omics:StartReadSetActivationJob](#list_omics-action-StartReadSetActivationJob "#list_omics-action-StartReadSetActivationJob")                |                     |                   | Write          |
-| StartReadSetExportJob                                                                                                                                                                                                                         | [omics:StartReadSetExportJob](#list_omics-action-StartReadSetExportJob "#list_omics-action-StartReadSetExportJob")                            |                     |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                                               | iam:PassedToService                                                                                                                           | omics.amazonaws.com | Write             |
-| StartReadSetImportJob                                                                                                                                                                                                                         | [omics:StartReadSetImportJob](#list_omics-action-StartReadSetImportJob "#list_omics-action-StartReadSetImportJob")                            |                     |                   | Write          |
-| [omics:TagResource](#list_omics-action-TagResource "#list_omics-action-TagResource")                                                                                                                                                          |                                                                                                                                               |                     | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                                               | iam:PassedToService                                                                                                                           | omics.amazonaws.com | Write             |
-| StartReferenceImportJob                                                                                                                                                                                                                       | [omics:StartReferenceImportJob](#list_omics-action-StartReferenceImportJob "#list_omics-action-StartReferenceImportJob")                      |                     |                   | Write          |
-| [omics:TagResource](#list_omics-action-TagResource "#list_omics-action-TagResource")                                                                                                                                                          |                                                                                                                                               |                     | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                                               | iam:PassedToService                                                                                                                           | omics.amazonaws.com | Write             |
-| StartRun                                                                                                                                                                                                                                      | [omics:StartRun](#list_omics-action-StartRun "#list_omics-action-StartRun")                                                                   |                     |                   | Write          |
-| [omics:TagResource](#list_omics-action-TagResource "#list_omics-action-TagResource")                                                                                                                                                          |                                                                                                                                               |                     | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                                               | iam:PassedToService                                                                                                                           | omics.amazonaws.com | Write             |
-| StartRunBatch                                                                                                                                                                                                                                 | [omics:StartRun](#list_omics-action-StartRun "#list_omics-action-StartRun")                                                                   |                     |                   | Write          |
-| [omics:StartRunBatch](#list_omics-action-StartRunBatch "#list_omics-action-StartRunBatch")                                                                                                                                                    |                                                                                                                                               |                     | Write             |
-| [omics:TagResource](#list_omics-action-TagResource "#list_omics-action-TagResource")                                                                                                                                                          |                                                                                                                                               |                     | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                                               | iam:PassedToService                                                                                                                           | omics.amazonaws.com | Write             |
-| StartVariantImportJob                                                                                                                                                                                                                         | [omics:StartVariantImportJob](#list_omics-action-StartVariantImportJob "#list_omics-action-StartVariantImportJob")                            |                     |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                                               | iam:PassedToService                                                                                                                           | omics.amazonaws.com | Write             |
-| TagResource                                                                                                                                                                                                                                   | [omics:TagResource](#list_omics-action-TagResource "#list_omics-action-TagResource")                                                          |                     |                   | Tagging, Write |
-| UntagResource                                                                                                                                                                                                                                 | [omics:UntagResource](#list_omics-action-UntagResource "#list_omics-action-UntagResource")                                                    |                     |                   | Tagging, Write |
-| UpdateAnnotationStore                                                                                                                                                                                                                         | [omics:UpdateAnnotationStore](#list_omics-action-UpdateAnnotationStore "#list_omics-action-UpdateAnnotationStore")                            |                     |                   | Write          |
-| UpdateAnnotationStoreVersion                                                                                                                                                                                                                  | [omics:UpdateAnnotationStoreVersion](#list_omics-action-UpdateAnnotationStoreVersion "#list_omics-action-UpdateAnnotationStoreVersion")       |                     |                   | Write          |
-| UpdateRunCache                                                                                                                                                                                                                                | [omics:UpdateRunCache](#list_omics-action-UpdateRunCache "#list_omics-action-UpdateRunCache")                                                 |                     |                   | Write          |
-| UpdateRunGroup                                                                                                                                                                                                                                | [omics:UpdateRunGroup](#list_omics-action-UpdateRunGroup "#list_omics-action-UpdateRunGroup")                                                 |                     |                   | Write          |
-| UpdateSequenceStore                                                                                                                                                                                                                           | [omics:UpdateSequenceStore](#list_omics-action-UpdateSequenceStore "#list_omics-action-UpdateSequenceStore")                                  |                     |                   | Write          |
-| UpdateVariantStore                                                                                                                                                                                                                            | [omics:UpdateVariantStore](#list_omics-action-UpdateVariantStore "#list_omics-action-UpdateVariantStore")                                     |                     |                   | Write          |
-| UpdateWorkflow                                                                                                                                                                                                                                | [omics:UpdateWorkflow](#list_omics-action-UpdateWorkflow "#list_omics-action-UpdateWorkflow")                                                 |                     |                   | Write          |
-| UpdateWorkflowVersion                                                                                                                                                                                                                         | [omics:UpdateWorkflowVersion](#list_omics-action-UpdateWorkflowVersion "#list_omics-action-UpdateWorkflowVersion")                            |                     |                   | Write          |
-| UploadReadSetPart                                                                                                                                                                                                                             | [omics:UploadReadSetPart](#list_omics-action-UploadReadSetPart "#list_omics-action-UploadReadSetPart")                                        |                     |                   | Write          |
+
+
+
+- **   AbortMultipartReadSetUpload  **
+  - **IAM action:**  [omics:AbortMultipartReadSetUpload](#list_omics-action-AbortMultipartReadSetUpload) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AcceptShare  **
+  - **IAM action:**  [omics:AcceptShare](#list_omics-action-AcceptShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchDeleteReadSet  **
+  - **IAM action:**  [omics:BatchDeleteReadSet](#list_omics-action-BatchDeleteReadSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CancelAnnotationImportJob  **
+  - **IAM action:**  [omics:CancelAnnotationImportJob](#list_omics-action-CancelAnnotationImportJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CancelRun  **
+  - **IAM action:**  [omics:CancelRun](#list_omics-action-CancelRun) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CancelRunBatch  **
+  - **IAM action:**  [omics:CancelRunBatch](#list_omics-action-CancelRunBatch) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CancelVariantImportJob  **
+  - **IAM action:**  [omics:CancelVariantImportJob](#list_omics-action-CancelVariantImportJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CompleteMultipartReadSetUpload  **
+  - **IAM action:**  [omics:CompleteMultipartReadSetUpload](#list_omics-action-CompleteMultipartReadSetUpload) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAnnotationStore  **
+  - **IAM action:**  [omics:CreateAnnotationStore](#list_omics-action-CreateAnnotationStore)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [omics:TagResource](#list_omics-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateAnnotationStoreVersion  **
+  - **IAM action:**  [omics:CreateAnnotationStoreVersion](#list_omics-action-CreateAnnotationStoreVersion)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [omics:TagResource](#list_omics-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateConfiguration  **
+  - **IAM action:**  [omics:CreateConfiguration](#list_omics-action-CreateConfiguration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [omics:TagResource](#list_omics-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [codeconnections:PassConnection](https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#permissions-reference-connections-passconnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [ec2:DescribeSecurityGroups](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [ec2:DescribeSubnets](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** omics.amazonaws.com / **Access level:** Write
+
+- **   CreateMultipartReadSetUpload  **
+  - **IAM action:**  [omics:CreateMultipartReadSetUpload](#list_omics-action-CreateMultipartReadSetUpload)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [omics:TagResource](#list_omics-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateReferenceStore  **
+  - **IAM action:**  [omics:CreateReferenceStore](#list_omics-action-CreateReferenceStore)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [omics:TagResource](#list_omics-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateRunCache  **
+  - **IAM action:**  [omics:CreateRunCache](#list_omics-action-CreateRunCache)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [omics:TagResource](#list_omics-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateRunGroup  **
+  - **IAM action:**  [omics:CreateRunGroup](#list_omics-action-CreateRunGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [omics:TagResource](#list_omics-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateSequenceStore  **
+  - **IAM action:**  [omics:CreateSequenceStore](#list_omics-action-CreateSequenceStore)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [omics:TagResource](#list_omics-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateShare  **
+  - **IAM action:**  [omics:CreateShare](#list_omics-action-CreateShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateVariantStore  **
+  - **IAM action:**  [omics:CreateVariantStore](#list_omics-action-CreateVariantStore)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [omics:TagResource](#list_omics-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateWorkflow  **
+  - **IAM action:**  [omics:CreateWorkflow](#list_omics-action-CreateWorkflow)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [omics:TagResource](#list_omics-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [codeconnections:PassConnection](https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#permissions-reference-connections-passconnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   CreateWorkflowVersion  **
+  - **IAM action:**  [omics:CreateWorkflowVersion](#list_omics-action-CreateWorkflowVersion)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [omics:TagResource](#list_omics-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [codeconnections:PassConnection](https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#permissions-reference-connections-passconnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   DeleteAnnotationStore  **
+  - **IAM action:**  [omics:DeleteAnnotationStore](#list_omics-action-DeleteAnnotationStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAnnotationStoreVersions  **
+  - **IAM action:**  [omics:DeleteAnnotationStoreVersions](#list_omics-action-DeleteAnnotationStoreVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteBatch  **
+  - **IAM action:**  [omics:DeleteBatch](#list_omics-action-DeleteBatch) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConfiguration  **
+  - **IAM action:**  [omics:DeleteConfiguration](#list_omics-action-DeleteConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteReference  **
+  - **IAM action:**  [omics:DeleteReference](#list_omics-action-DeleteReference) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteReferenceStore  **
+  - **IAM action:**  [omics:DeleteReferenceStore](#list_omics-action-DeleteReferenceStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRun  **
+  - **IAM action:**  [omics:DeleteRun](#list_omics-action-DeleteRun) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRunBatch  **
+  - **IAM action:**  [omics:DeleteRunBatch](#list_omics-action-DeleteRunBatch) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRunCache  **
+  - **IAM action:**  [omics:DeleteRunCache](#list_omics-action-DeleteRunCache) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRunGroup  **
+  - **IAM action:**  [omics:DeleteRunGroup](#list_omics-action-DeleteRunGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteS3AccessPolicy  **
+  - **IAM action:**  [omics:DeleteS3AccessPolicy](#list_omics-action-DeleteS3AccessPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSequenceStore  **
+  - **IAM action:**  [omics:DeleteSequenceStore](#list_omics-action-DeleteSequenceStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteShare  **
+  - **IAM action:**  [omics:DeleteShare](#list_omics-action-DeleteShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVariantStore  **
+  - **IAM action:**  [omics:DeleteVariantStore](#list_omics-action-DeleteVariantStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteWorkflow  **
+  - **IAM action:**  [omics:DeleteWorkflow](#list_omics-action-DeleteWorkflow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteWorkflowVersion  **
+  - **IAM action:**  [omics:DeleteWorkflowVersion](#list_omics-action-DeleteWorkflowVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAnnotationImportJob  **
+  - **IAM action:**  [omics:GetAnnotationImportJob](#list_omics-action-GetAnnotationImportJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAnnotationStore  **
+  - **IAM action:**  [omics:GetAnnotationStore](#list_omics-action-GetAnnotationStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAnnotationStoreVersion  **
+  - **IAM action:**  [omics:GetAnnotationStoreVersion](#list_omics-action-GetAnnotationStoreVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetBatch  **
+  - **IAM action:**  [omics:GetBatch](#list_omics-action-GetBatch) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetConfiguration  **
+  - **IAM action:**  [omics:GetConfiguration](#list_omics-action-GetConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReadSet  **
+  - **IAM action:**  [omics:GetReadSet](#list_omics-action-GetReadSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReadSetActivationJob  **
+  - **IAM action:**  [omics:GetReadSetActivationJob](#list_omics-action-GetReadSetActivationJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReadSetExportJob  **
+  - **IAM action:**  [omics:GetReadSetExportJob](#list_omics-action-GetReadSetExportJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReadSetImportJob  **
+  - **IAM action:**  [omics:GetReadSetImportJob](#list_omics-action-GetReadSetImportJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReadSetMetadata  **
+  - **IAM action:**  [omics:GetReadSetMetadata](#list_omics-action-GetReadSetMetadata) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReference  **
+  - **IAM action:**  [omics:GetReference](#list_omics-action-GetReference) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReferenceImportJob  **
+  - **IAM action:**  [omics:GetReferenceImportJob](#list_omics-action-GetReferenceImportJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReferenceMetadata  **
+  - **IAM action:**  [omics:GetReferenceMetadata](#list_omics-action-GetReferenceMetadata) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReferenceStore  **
+  - **IAM action:**  [omics:GetReferenceStore](#list_omics-action-GetReferenceStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRun  **
+  - **IAM action:**  [omics:GetRun](#list_omics-action-GetRun) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRunCache  **
+  - **IAM action:**  [omics:GetRunCache](#list_omics-action-GetRunCache) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRunGroup  **
+  - **IAM action:**  [omics:GetRunGroup](#list_omics-action-GetRunGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRunTask  **
+  - **IAM action:**  [omics:GetRunTask](#list_omics-action-GetRunTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetS3AccessPolicy  **
+  - **IAM action:**  [omics:GetS3AccessPolicy](#list_omics-action-GetS3AccessPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSequenceStore  **
+  - **IAM action:**  [omics:GetSequenceStore](#list_omics-action-GetSequenceStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetShare  **
+  - **IAM action:**  [omics:GetShare](#list_omics-action-GetShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetVariantImportJob  **
+  - **IAM action:**  [omics:GetVariantImportJob](#list_omics-action-GetVariantImportJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetVariantStore  **
+  - **IAM action:**  [omics:GetVariantStore](#list_omics-action-GetVariantStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetWorkflow  **
+  - **IAM action:**  [omics:GetWorkflow](#list_omics-action-GetWorkflow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetWorkflowVersion  **
+  - **IAM action:**  [omics:GetWorkflowVersion](#list_omics-action-GetWorkflowVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAnnotationImportJobs  **
+  - **IAM action:**  [omics:ListAnnotationImportJobs](#list_omics-action-ListAnnotationImportJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAnnotationStoreVersions  **
+  - **IAM action:**  [omics:ListAnnotationStoreVersions](#list_omics-action-ListAnnotationStoreVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAnnotationStores  **
+  - **IAM action:**  [omics:ListAnnotationStores](#list_omics-action-ListAnnotationStores) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListBatch  **
+  - **IAM action:**  [omics:ListBatch](#list_omics-action-ListBatch) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConfigurations  **
+  - **IAM action:**  [omics:ListConfigurations](#list_omics-action-ListConfigurations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMultipartReadSetUploads  **
+  - **IAM action:**  [omics:ListMultipartReadSetUploads](#list_omics-action-ListMultipartReadSetUploads) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListReadSetActivationJobs  **
+  - **IAM action:**  [omics:ListReadSetActivationJobs](#list_omics-action-ListReadSetActivationJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListReadSetExportJobs  **
+  - **IAM action:**  [omics:ListReadSetExportJobs](#list_omics-action-ListReadSetExportJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListReadSetImportJobs  **
+  - **IAM action:**  [omics:ListReadSetImportJobs](#list_omics-action-ListReadSetImportJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListReadSetUploadParts  **
+  - **IAM action:**  [omics:ListReadSetUploadParts](#list_omics-action-ListReadSetUploadParts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListReadSets  **
+  - **IAM action:**  [omics:ListReadSets](#list_omics-action-ListReadSets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListReferenceImportJobs  **
+  - **IAM action:**  [omics:ListReferenceImportJobs](#list_omics-action-ListReferenceImportJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListReferenceStores  **
+  - **IAM action:**  [omics:ListReferenceStores](#list_omics-action-ListReferenceStores) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListReferences  **
+  - **IAM action:**  [omics:ListReferences](#list_omics-action-ListReferences) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRunCaches  **
+  - **IAM action:**  [omics:ListRunCaches](#list_omics-action-ListRunCaches) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRunGroups  **
+  - **IAM action:**  [omics:ListRunGroups](#list_omics-action-ListRunGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRunTasks  **
+  - **IAM action:**  [omics:ListRunTasks](#list_omics-action-ListRunTasks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRuns  **
+  - **IAM action:**  [omics:ListRuns](#list_omics-action-ListRuns) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRunsInBatch  **
+  - **IAM action:**  [omics:ListRunsInBatch](#list_omics-action-ListRunsInBatch) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSequenceStores  **
+  - **IAM action:**  [omics:ListSequenceStores](#list_omics-action-ListSequenceStores) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListShares  **
+  - **IAM action:**  [omics:ListShares](#list_omics-action-ListShares) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [omics:ListTagsForResource](#list_omics-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListVariantImportJobs  **
+  - **IAM action:**  [omics:ListVariantImportJobs](#list_omics-action-ListVariantImportJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListVariantStores  **
+  - **IAM action:**  [omics:ListVariantStores](#list_omics-action-ListVariantStores) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListWorkflowVersions  **
+  - **IAM action:**  [omics:ListWorkflowVersions](#list_omics-action-ListWorkflowVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListWorkflows  **
+  - **IAM action:**  [omics:ListWorkflows](#list_omics-action-ListWorkflows) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PutS3AccessPolicy  **
+  - **IAM action:**  [omics:PutS3AccessPolicy](#list_omics-action-PutS3AccessPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartAnnotationImportJob  **
+  - **IAM action:**  [omics:StartAnnotationImportJob](#list_omics-action-StartAnnotationImportJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** omics.amazonaws.com / **Access level:** Write
+
+- **   StartReadSetActivationJob  **
+  - **IAM action:**  [omics:StartReadSetActivationJob](#list_omics-action-StartReadSetActivationJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartReadSetExportJob  **
+  - **IAM action:**  [omics:StartReadSetExportJob](#list_omics-action-StartReadSetExportJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** omics.amazonaws.com / **Access level:** Write
+
+- **   StartReadSetImportJob  **
+  - **IAM action:**  [omics:StartReadSetImportJob](#list_omics-action-StartReadSetImportJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [omics:TagResource](#list_omics-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** omics.amazonaws.com / **Access level:** Write
+
+- **   StartReferenceImportJob  **
+  - **IAM action:**  [omics:StartReferenceImportJob](#list_omics-action-StartReferenceImportJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [omics:TagResource](#list_omics-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** omics.amazonaws.com / **Access level:** Write
+
+- **   StartRun  **
+  - **IAM action:**  [omics:StartRun](#list_omics-action-StartRun)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [omics:TagResource](#list_omics-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** omics.amazonaws.com / **Access level:** Write
+
+- **   StartRunBatch  **
+  - **IAM action:**  [omics:StartRun](#list_omics-action-StartRun)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [omics:StartRunBatch](#list_omics-action-StartRunBatch)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [omics:TagResource](#list_omics-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** omics.amazonaws.com / **Access level:** Write
+
+- **   StartVariantImportJob  **
+  - **IAM action:**  [omics:StartVariantImportJob](#list_omics-action-StartVariantImportJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** omics.amazonaws.com / **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [omics:TagResource](#list_omics-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [omics:UntagResource](#list_omics-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAnnotationStore  **
+  - **IAM action:**  [omics:UpdateAnnotationStore](#list_omics-action-UpdateAnnotationStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAnnotationStoreVersion  **
+  - **IAM action:**  [omics:UpdateAnnotationStoreVersion](#list_omics-action-UpdateAnnotationStoreVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRunCache  **
+  - **IAM action:**  [omics:UpdateRunCache](#list_omics-action-UpdateRunCache) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRunGroup  **
+  - **IAM action:**  [omics:UpdateRunGroup](#list_omics-action-UpdateRunGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSequenceStore  **
+  - **IAM action:**  [omics:UpdateSequenceStore](#list_omics-action-UpdateSequenceStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateVariantStore  **
+  - **IAM action:**  [omics:UpdateVariantStore](#list_omics-action-UpdateVariantStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateWorkflow  **
+  - **IAM action:**  [omics:UpdateWorkflow](#list_omics-action-UpdateWorkflow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateWorkflowVersion  **
+  - **IAM action:**  [omics:UpdateWorkflowVersion](#list_omics-action-UpdateWorkflowVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UploadReadSetPart  **
+  - **IAM action:**  [omics:UploadReadSetPart](#list_omics-action-UploadReadSetPart) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS HealthOmics
+<a name="list_omics-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                             | Description                                                                                                                                                                                                                                                                               | Resource types (\*required)                                                                                           | Condition keys                                                                                                                                                                                                                                                                            | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AbortMultipartReadSetUpload](../../../omics/latest/api/API_AbortMultipartReadSetUpload.md "../../../omics/latest/api/API_AbortMultipartReadSetUpload.md")          | Grants permission to abort multipart read set uploads                                                                                                                                                                                                                                     | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [AcceptShare](../../../omics/latest/api/API_AcceptShare.md "../../../omics/latest/api/API_AcceptShare.md")                                                          | Grants permission to accept a share                                                                                                                                                                                                                                                       |                                                                                                                       |                                                                                                                                                                                                                                                                                           | Write          |
-| [BatchDeleteReadSet](../../../omics/latest/api/API_BatchDeleteReadSet.md "../../../omics/latest/api/API_BatchDeleteReadSet.md")                                     | Grants permission to batch delete Read Sets in the given Sequence Store                                                                                                                                                                                                                   | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [CancelAnnotationImportJob](../../../omics/latest/api/API_CancelAnnotationImportJob.md "../../../omics/latest/api/API_CancelAnnotationImportJob.md")                | Grants permission to cancel an Annotation Import Job                                                                                                                                                                                                                                      |                                                                                                                       |                                                                                                                                                                                                                                                                                           | Write          |
-| [CancelRun](../../../omics/latest/api/API_CancelRun.md "../../../omics/latest/api/API_CancelRun.md")                                                                | Grants permission to cancel a workflow run and stop all workflow tasks                                                                                                                                                                                                                    | [run\*](#list_omics-resource-run "#list_omics-resource-run")                                                          | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [CancelRunBatch](../../../omics/latest/api/API_CancelRunBatch.md "../../../omics/latest/api/API_CancelRunBatch.md")                                                 | Grants permission to cancel a batch of workflow runs                                                                                                                                                                                                                                      | [runBatch\*](#list_omics-resource-runBatch "#list_omics-resource-runBatch")                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [CancelVariantImportJob](../../../omics/latest/api/API_CancelVariantImportJob.md "../../../omics/latest/api/API_CancelVariantImportJob.md")                         | Grants permission to cancel a Variant Import Job                                                                                                                                                                                                                                          |                                                                                                                       |                                                                                                                                                                                                                                                                                           | Write          |
-| [CompleteMultipartReadSetUpload](../../../omics/latest/api/API_CompleteMultipartReadSetUpload.md "../../../omics/latest/api/API_CompleteMultipartReadSetUpload.md") | Grants permission to complete a multipart read set upload                                                                                                                                                                                                                                 | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [CreateAnnotationStore](../../../omics/latest/api/API_CreateAnnotationStore.md "../../../omics/latest/api/API_CreateAnnotationStore.md")                            | Grants permission to create an Annotation Store                                                                                                                                                                                                                                           |                                                                                                                       | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                               | Write          |
-| [CreateAnnotationStoreVersion](../../../omics/latest/api/API_CreateAnnotationStoreVersion.md "../../../omics/latest/api/API_CreateAnnotationStoreVersion.md")       | Grants permission to create a Version in an Annotation Store                                                                                                                                                                                                                              | [AnnotationStore\*](#list_omics-resource-AnnotationStore "#list_omics-resource-AnnotationStore")                      | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") | Write          |
-| [CreateConfiguration](../../../omics/latest/api/API_CreateConfiguration.md "../../../omics/latest/api/API_CreateConfiguration.md")                                  | Grants permission to create a new configuration                                                                                                                                                                                                                                           |                                                                                                                       | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                               | Write          |
-| [CreateMultipartReadSetUpload](../../../omics/latest/api/API_CreateMultipartReadSetUpload.md "../../../omics/latest/api/API_CreateMultipartReadSetUpload.md")       | Grants permission to create a multipart read set upload                                                                                                                                                                                                                                   | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [CreateReferenceStore](../../../omics/latest/api/API_CreateReferenceStore.md "../../../omics/latest/api/API_CreateReferenceStore.md")                               | Grants permission to create a Reference Store                                                                                                                                                                                                                                             |                                                                                                                       | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                               | Write          |
-| [CreateRunCache](../../../omics/latest/api/API_CreateRunCache.md "../../../omics/latest/api/API_CreateRunCache.md")                                                 | Grants permission to create a new workflow run cache                                                                                                                                                                                                                                      |                                                                                                                       | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                               | Write          |
-| [CreateRunGroup](../../../omics/latest/api/API_CreateRunGroup.md "../../../omics/latest/api/API_CreateRunGroup.md")                                                 | Grants permission to create a new workflow run group                                                                                                                                                                                                                                      |                                                                                                                       | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                               | Write          |
-| [CreateSequenceStore](../../../omics/latest/api/API_CreateSequenceStore.md "../../../omics/latest/api/API_CreateSequenceStore.md")                                  | Grants permission to create a Sequence Store                                                                                                                                                                                                                                              |                                                                                                                       | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                               | Write          |
-| [CreateShare](../../../omics/latest/api/API_CreateShare.md "../../../omics/latest/api/API_CreateShare.md")                                                          | Grants permission to create a share                                                                                                                                                                                                                                                       |                                                                                                                       |                                                                                                                                                                                                                                                                                           | Write          |
-| [CreateVariantStore](../../../omics/latest/api/API_CreateVariantStore.md "../../../omics/latest/api/API_CreateVariantStore.md")                                     | Grants permission to create a Variant Store                                                                                                                                                                                                                                               |                                                                                                                       | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                               | Write          |
-| [CreateWorkflow](../../../omics/latest/api/API_CreateWorkflow.md "../../../omics/latest/api/API_CreateWorkflow.md")                                                 | Grants permission to create a new workflow with a workflow definition and template of workflow parameters                                                                                                                                                                                 |                                                                                                                       | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                               | Write          |
-| [CreateWorkflowVersion](../../../omics/latest/api/API_CreateWorkflowVersion.md "../../../omics/latest/api/API_CreateWorkflowVersion.md")                            | Grants permission to create a new workflow version with a workflow definition and template of workflow parameters                                                                                                                                                                         | [workflow\*](#list_omics-resource-workflow "#list_omics-resource-workflow")                                           | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") | Write          |
-| [DeleteAnnotationStore](../../../omics/latest/api/API_DeleteAnnotationStore.md "../../../omics/latest/api/API_DeleteAnnotationStore.md")                            | Grants permission to delete an Annotation Store                                                                                                                                                                                                                                           | [AnnotationStore\*](#list_omics-resource-AnnotationStore "#list_omics-resource-AnnotationStore")                      | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteAnnotationStoreVersions](../../../omics/latest/api/API_DeleteAnnotationStoreVersions.md "../../../omics/latest/api/API_DeleteAnnotationStoreVersions.md")    | Grants permission to delete Versions in an Annotation Store                                                                                                                                                                                                                               | [AnnotationStore\*](#list_omics-resource-AnnotationStore "#list_omics-resource-AnnotationStore")                      | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [AnnotationStoreVersion\*](#list_omics-resource-AnnotationStoreVersion "#list_omics-resource-AnnotationStoreVersion")                                               | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DeleteBatch](../../../omics/latest/api/API_DeleteBatch.md "../../../omics/latest/api/API_DeleteBatch.md")                                                          | Grants permission to delete a batch                                                                                                                                                                                                                                                       | [runBatch\*](#list_omics-resource-runBatch "#list_omics-resource-runBatch")                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteConfiguration](../../../omics/latest/api/API_DeleteConfiguration.md "../../../omics/latest/api/API_DeleteConfiguration.md")                                  | Grants permission to delete a configuration                                                                                                                                                                                                                                               | [configuration\*](#list_omics-resource-configuration "#list_omics-resource-configuration")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteReference](../../../omics/latest/api/API_DeleteReference.md "../../../omics/latest/api/API_DeleteReference.md")                                              | Grants permission to delete a Reference in the given Reference Store                                                                                                                                                                                                                      | [reference\*](#list_omics-resource-reference "#list_omics-resource-reference")                                        | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [referenceStore\*](#list_omics-resource-referenceStore "#list_omics-resource-referenceStore")                                                                       | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DeleteReferenceStore](../../../omics/latest/api/API_DeleteReferenceStore.md "../../../omics/latest/api/API_DeleteReferenceStore.md")                               | Grants permission to delete a Reference Store                                                                                                                                                                                                                                             | [referenceStore\*](#list_omics-resource-referenceStore "#list_omics-resource-referenceStore")                         | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteRun](../../../omics/latest/api/API_DeleteRun.md "../../../omics/latest/api/API_DeleteRun.md")                                                                | Grants permission to delete a workflow run                                                                                                                                                                                                                                                | [run\*](#list_omics-resource-run "#list_omics-resource-run")                                                          | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteRunBatch](../../../omics/latest/api/API_DeleteRunBatch.md "../../../omics/latest/api/API_DeleteRunBatch.md")                                                 | Grants permission to delete a batch of workflow runs                                                                                                                                                                                                                                      | [run\*](#list_omics-resource-run "#list_omics-resource-run")                                                          | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [runBatch\*](#list_omics-resource-runBatch "#list_omics-resource-runBatch")                                                                                         | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DeleteRunCache](../../../omics/latest/api/API_DeleteRunCache.md "../../../omics/latest/api/API_DeleteRunCache.md")                                                 | Grants permission to delete a workflow run cache                                                                                                                                                                                                                                          | [runCache\*](#list_omics-resource-runCache "#list_omics-resource-runCache")                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteRunGroup](../../../omics/latest/api/API_DeleteRunGroup.md "../../../omics/latest/api/API_DeleteRunGroup.md")                                                 | Grants permission to delete a workflow run group                                                                                                                                                                                                                                          | [runGroup\*](#list_omics-resource-runGroup "#list_omics-resource-runGroup")                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteS3AccessPolicy](../../../omics/latest/api/API_DeleteS3AccessPolicy.md "../../../omics/latest/api/API_DeleteS3AccessPolicy.md")                               | Grants permission to delete an access policy on a given store                                                                                                                                                                                                                             | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteSequenceStore](../../../omics/latest/api/API_DeleteSequenceStore.md "../../../omics/latest/api/API_DeleteSequenceStore.md")                                  | Grants permission to delete a Sequence Store                                                                                                                                                                                                                                              | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteShare](../../../omics/latest/api/API_DeleteShare.md "../../../omics/latest/api/API_DeleteShare.md")                                                          | Grants permission to delete a share                                                                                                                                                                                                                                                       |                                                                                                                       |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteVariantStore](../../../omics/latest/api/API_DeleteVariantStore.md "../../../omics/latest/api/API_DeleteVariantStore.md")                                     | Grants permission to delete a Variant Store                                                                                                                                                                                                                                               | [VariantStore\*](#list_omics-resource-VariantStore "#list_omics-resource-VariantStore")                               | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteWorkflow](../../../omics/latest/api/API_DeleteWorkflow.md "../../../omics/latest/api/API_DeleteWorkflow.md")                                                 | Grants permission to delete a workflow                                                                                                                                                                                                                                                    | [workflow\*](#list_omics-resource-workflow "#list_omics-resource-workflow")                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteWorkflowVersion](../../../omics/latest/api/API_DeleteWorkflowVersion.md "../../../omics/latest/api/API_DeleteWorkflowVersion.md")                            | Grants permission to delete a workflow version                                                                                                                                                                                                                                            | [WorkflowVersion\*](#list_omics-resource-WorkflowVersion "#list_omics-resource-WorkflowVersion")                      | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [workflow\*](#list_omics-resource-workflow "#list_omics-resource-workflow")                                                                                         | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [GetAnnotationImportJob](../../../omics/latest/api/API_GetAnnotationImportJob.md "../../../omics/latest/api/API_GetAnnotationImportJob.md")                         | Grants permission to get the status of an Annotation Import Job                                                                                                                                                                                                                           |                                                                                                                       |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetAnnotationStore](../../../omics/latest/api/API_GetAnnotationStore.md "../../../omics/latest/api/API_GetAnnotationStore.md")                                     | Grants permission to get detailed information about an Annotation Store                                                                                                                                                                                                                   | [AnnotationStore\*](#list_omics-resource-AnnotationStore "#list_omics-resource-AnnotationStore")                      | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetAnnotationStoreVersion](../../../omics/latest/api/API_GetAnnotationStoreVersion.md "../../../omics/latest/api/API_GetAnnotationStoreVersion.md")                | Grants permission to get detailed information about a version in an Annotation Store                                                                                                                                                                                                      | [AnnotationStoreVersion\*](#list_omics-resource-AnnotationStoreVersion "#list_omics-resource-AnnotationStoreVersion") | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetBatch](../../../omics/latest/api/API_GetBatch.md "../../../omics/latest/api/API_GetBatch.md")                                                                   | Grants permission to retrieve batch details and status                                                                                                                                                                                                                                    | [runBatch\*](#list_omics-resource-runBatch "#list_omics-resource-runBatch")                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetConfiguration](../../../omics/latest/api/API_GetConfiguration.md "../../../omics/latest/api/API_GetConfiguration.md")                                           | Grants permission to retrieve configuration details                                                                                                                                                                                                                                       | [configuration\*](#list_omics-resource-configuration "#list_omics-resource-configuration")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetReadSet](../../../omics/latest/api/API_GetReadSet.md "../../../omics/latest/api/API_GetReadSet.md")                                                             | Grants permission to get a Read Set in the given Sequence Store                                                                                                                                                                                                                           | [readSet\*](#list_omics-resource-readSet "#list_omics-resource-readSet")                                              | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                                                                          | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [GetReadSetActivationJob](../../../omics/latest/api/API_GetReadSetActivationJob.md "../../../omics/latest/api/API_GetReadSetActivationJob.md")                      | Grants permission to get details about a Read Set activation job for the given Sequence Store                                                                                                                                                                                             | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetReadSetExportJob](../../../omics/latest/api/API_GetReadSetExportJob.md "../../../omics/latest/api/API_GetReadSetExportJob.md")                                  | Grants permission to get details about a Read Set export job for the given Sequence Store                                                                                                                                                                                                 | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetReadSetImportJob](../../../omics/latest/api/API_GetReadSetImportJob.md "../../../omics/latest/api/API_GetReadSetImportJob.md")                                  | Grants permission to get details about a Read Set import job for the given Sequence Store                                                                                                                                                                                                 | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetReadSetMetadata](../../../omics/latest/api/API_GetReadSetMetadata.md "../../../omics/latest/api/API_GetReadSetMetadata.md")                                     | Grants permission to get details about a Read Set in the given Sequence Store                                                                                                                                                                                                             | [readSet\*](#list_omics-resource-readSet "#list_omics-resource-readSet")                                              | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                                                                          | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [GetReference](../../../omics/latest/api/API_GetReference.md "../../../omics/latest/api/API_GetReference.md")                                                       | Grants permission to get a Reference in the given Reference Store                                                                                                                                                                                                                         | [reference\*](#list_omics-resource-reference "#list_omics-resource-reference")                                        | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [referenceStore\*](#list_omics-resource-referenceStore "#list_omics-resource-referenceStore")                                                                       | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [GetReferenceImportJob](../../../omics/latest/api/API_GetReferenceImportJob.md "../../../omics/latest/api/API_GetReferenceImportJob.md")                            | Grants permission to get details about a Reference import job for the given Reference Store                                                                                                                                                                                               | [referenceStore\*](#list_omics-resource-referenceStore "#list_omics-resource-referenceStore")                         | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetReferenceMetadata](../../../omics/latest/api/API_GetReferenceMetadata.md "../../../omics/latest/api/API_GetReferenceMetadata.md")                               | Grants permission to get details about a Reference in the given Reference Store                                                                                                                                                                                                           | [reference\*](#list_omics-resource-reference "#list_omics-resource-reference")                                        | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [referenceStore\*](#list_omics-resource-referenceStore "#list_omics-resource-referenceStore")                                                                       | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [GetReferenceStore](../../../omics/latest/api/API_GetReferenceStore.md "../../../omics/latest/api/API_GetReferenceStore.md")                                        | Grants permission to get details about a Reference Store                                                                                                                                                                                                                                  | [referenceStore\*](#list_omics-resource-referenceStore "#list_omics-resource-referenceStore")                         | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetRun](../../../omics/latest/api/API_GetRun.md "../../../omics/latest/api/API_GetRun.md")                                                                         | Grants permission to retrieve workflow run details                                                                                                                                                                                                                                        | [run\*](#list_omics-resource-run "#list_omics-resource-run")                                                          | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetRunCache](../../../omics/latest/api/API_GetRunCache.md "../../../omics/latest/api/API_GetRunCache.md")                                                          | Grants permission to retrieve workflow run cache details                                                                                                                                                                                                                                  | [runCache\*](#list_omics-resource-runCache "#list_omics-resource-runCache")                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetRunGroup](../../../omics/latest/api/API_GetRunGroup.md "../../../omics/latest/api/API_GetRunGroup.md")                                                          | Grants permission to retrieve workflow run group details                                                                                                                                                                                                                                  | [runGroup\*](#list_omics-resource-runGroup "#list_omics-resource-runGroup")                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetRunTask](../../../omics/latest/api/API_GetRunTask.md "../../../omics/latest/api/API_GetRunTask.md")                                                             | Grants permission to retrieve workflow task details                                                                                                                                                                                                                                       | [TaskResource\*](#list_omics-resource-TaskResource "#list_omics-resource-TaskResource")                               |                                                                                                                                                                                                                                                                                           | Read           |
-| [run\*](#list_omics-resource-run "#list_omics-resource-run")                                                                                                        | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [GetS3AccessPolicy](../../../omics/latest/api/API_GetS3AccessPolicy.md "../../../omics/latest/api/API_GetS3AccessPolicy.md")                                        | Grants permission to get details about an access policy on a given store                                                                                                                                                                                                                  | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetSequenceStore](../../../omics/latest/api/API_GetSequenceStore.md "../../../omics/latest/api/API_GetSequenceStore.md")                                           | Grants permission to get details about a Sequence Store                                                                                                                                                                                                                                   | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetShare](../../../omics/latest/api/API_GetShare.md "../../../omics/latest/api/API_GetShare.md")                                                                   | Grants permission to get detailed information about a Share                                                                                                                                                                                                                               |                                                                                                                       |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetVariantImportJob](../../../omics/latest/api/API_GetVariantImportJob.md "../../../omics/latest/api/API_GetVariantImportJob.md")                                  | Grants permission to get the status of a Variant Import Job                                                                                                                                                                                                                               |                                                                                                                       |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetVariantStore](../../../omics/latest/api/API_GetVariantStore.md "../../../omics/latest/api/API_GetVariantStore.md")                                              | Grants permission to get detailed information about a Variant Store                                                                                                                                                                                                                       | [VariantStore\*](#list_omics-resource-VariantStore "#list_omics-resource-VariantStore")                               | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetWorkflow](../../../omics/latest/api/API_GetWorkflow.md "../../../omics/latest/api/API_GetWorkflow.md")                                                          | Grants permission to retrieve workflow details                                                                                                                                                                                                                                            | [workflow\*](#list_omics-resource-workflow "#list_omics-resource-workflow")                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetWorkflowVersion](../../../omics/latest/api/API_GetWorkflowVersion.md "../../../omics/latest/api/API_GetWorkflowVersion.md")                                     | Grants permission to retrieve workflow version details                                                                                                                                                                                                                                    | [WorkflowVersion\*](#list_omics-resource-WorkflowVersion "#list_omics-resource-WorkflowVersion")                      | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [workflow\*](#list_omics-resource-workflow "#list_omics-resource-workflow")                                                                                         | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [ListAnnotationImportJobs](../../../omics/latest/api/API_ListAnnotationImportJobs.md "../../../omics/latest/api/API_ListAnnotationImportJobs.md")                   | Grants permission to get a list of Annotation Import Jobs                                                                                                                                                                                                                                 |                                                                                                                       |                                                                                                                                                                                                                                                                                           | List           |
-| [ListAnnotationStoreVersions](../../../omics/latest/api/API_ListAnnotationStoreVersions.md "../../../omics/latest/api/API_ListAnnotationStoreVersions.md")          | Grants permission to retrieve a list of information about Versions in an Annotation Store                                                                                                                                                                                                 | [AnnotationStore\*](#list_omics-resource-AnnotationStore "#list_omics-resource-AnnotationStore")                      | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListAnnotationStores](../../../omics/latest/api/API_ListAnnotationStores.md "../../../omics/latest/api/API_ListAnnotationStores.md")                               | Grants permission to retrieve a list of information about Annotation Stores                                                                                                                                                                                                               |                                                                                                                       |                                                                                                                                                                                                                                                                                           | List           |
-| [ListBatch](../../../omics/latest/api/API_ListBatch.md "../../../omics/latest/api/API_ListBatch.md")                                                                | Grants permission to retrieve list of batches                                                                                                                                                                                                                                             |                                                                                                                       |                                                                                                                                                                                                                                                                                           | List           |
-| [ListConfigurations](../../../omics/latest/api/API_ListConfigurations.md "../../../omics/latest/api/API_ListConfigurations.md")                                     | Grants permission to retrieve a list of configurations                                                                                                                                                                                                                                    |                                                                                                                       |                                                                                                                                                                                                                                                                                           | List           |
-| [ListMultipartReadSetUploads](../../../omics/latest/api/API_ListMultipartReadSetUploads.md "../../../omics/latest/api/API_ListMultipartReadSetUploads.md")          | Grants permission to list multipart read set uploads                                                                                                                                                                                                                                      | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListReadSetActivationJobs](../../../omics/latest/api/API_ListReadSetActivationJobs.md "../../../omics/latest/api/API_ListReadSetActivationJobs.md")                | Grants permission to list Read Set activation jobs for the given Sequence Store                                                                                                                                                                                                           | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListReadSetExportJobs](../../../omics/latest/api/API_ListReadSetExportJobs.md "../../../omics/latest/api/API_ListReadSetExportJobs.md")                            | Grants permission to list Read Set export jobs for the given Sequence Store                                                                                                                                                                                                               | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListReadSetImportJobs](../../../omics/latest/api/API_ListReadSetImportJobs.md "../../../omics/latest/api/API_ListReadSetImportJobs.md")                            | Grants permission to list Read Set import jobs for the given Sequence Store                                                                                                                                                                                                               | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListReadSetUploadParts](../../../omics/latest/api/API_ListReadSetUploadParts.md "../../../omics/latest/api/API_ListReadSetUploadParts.md")                         | Grants permission to list read set upload parts                                                                                                                                                                                                                                           | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListReadSets](../../../omics/latest/api/API_ListReadSets.md "../../../omics/latest/api/API_ListReadSets.md")                                                       | Grants permission to list Read Sets in the given Sequence Store                                                                                                                                                                                                                           | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListReferenceImportJobs](../../../omics/latest/api/API_ListReferenceImportJobs.md "../../../omics/latest/api/API_ListReferenceImportJobs.md")                      | Grants permission to list Reference import jobs for the given Reference Store                                                                                                                                                                                                             | [referenceStore\*](#list_omics-resource-referenceStore "#list_omics-resource-referenceStore")                         | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListReferenceStores](../../../omics/latest/api/API_ListReferenceStores.md "../../../omics/latest/api/API_ListReferenceStores.md")                                  | Grants permission to list Reference Stores                                                                                                                                                                                                                                                |                                                                                                                       |                                                                                                                                                                                                                                                                                           | List           |
-| [ListReferences](../../../omics/latest/api/API_ListReferences.md "../../../omics/latest/api/API_ListReferences.md")                                                 | Grants permission to list References in the given Reference Store                                                                                                                                                                                                                         | [referenceStore\*](#list_omics-resource-referenceStore "#list_omics-resource-referenceStore")                         | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListRunCaches](../../../omics/latest/api/API_ListRunCaches.md "../../../omics/latest/api/API_ListRunCaches.md")                                                    | Grants permission to retrieve a list of workflow run caches                                                                                                                                                                                                                               |                                                                                                                       |                                                                                                                                                                                                                                                                                           | List           |
-| [ListRunGroups](../../../omics/latest/api/API_ListRunGroups.md "../../../omics/latest/api/API_ListRunGroups.md")                                                    | Grants permission to retrieve a list of workflow run groups                                                                                                                                                                                                                               |                                                                                                                       |                                                                                                                                                                                                                                                                                           | List           |
-| [ListRunTasks](../../../omics/latest/api/API_ListRunTasks.md "../../../omics/latest/api/API_ListRunTasks.md")                                                       | Grants permission to retrieve a list of tasks for a workflow run                                                                                                                                                                                                                          | [run\*](#list_omics-resource-run "#list_omics-resource-run")                                                          | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListRuns](../../../omics/latest/api/API_ListRuns.md "../../../omics/latest/api/API_ListRuns.md")                                                                   | Grants permission to retrieve a list of workflow runs                                                                                                                                                                                                                                     |                                                                                                                       |                                                                                                                                                                                                                                                                                           | List           |
-| [ListRunsInBatch](../../../omics/latest/api/API_ListRunsInBatch.md "../../../omics/latest/api/API_ListRunsInBatch.md")                                              | Grants permission to retrieve list of workflow runs in batch                                                                                                                                                                                                                              | [runBatch\*](#list_omics-resource-runBatch "#list_omics-resource-runBatch")                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListSequenceStores](../../../omics/latest/api/API_ListSequenceStores.md "../../../omics/latest/api/API_ListSequenceStores.md")                                     | Grants permission to list Sequence Stores                                                                                                                                                                                                                                                 |                                                                                                                       |                                                                                                                                                                                                                                                                                           | List           |
-| [ListShares](../../../omics/latest/api/API_ListShares.md "../../../omics/latest/api/API_ListShares.md")                                                             | Grants permission to retrieve a list of information about shares                                                                                                                                                                                                                          |                                                                                                                       |                                                                                                                                                                                                                                                                                           | List           |
-| [ListTagsForResource](../../../omics/latest/api/API_ListTagsForResource.md "../../../omics/latest/api/API_ListTagsForResource.md")                                  | Grants permission to retrieve a list of resource AWS tags                                                                                                                                                                                                                                 |                                                                                                                       |                                                                                                                                                                                                                                                                                           | List           |
-| [ListVariantImportJobs](../../../omics/latest/api/API_ListVariantImportJobs.md "../../../omics/latest/api/API_ListVariantImportJobs.md")                            | Grants permission to get a list of Variant Import Jobs                                                                                                                                                                                                                                    |                                                                                                                       |                                                                                                                                                                                                                                                                                           | List           |
-| [ListVariantStores](../../../omics/latest/api/API_ListVariantStores.md "../../../omics/latest/api/API_ListVariantStores.md")                                        | Grants permission to retrieve a list of metadata for Variant Stores                                                                                                                                                                                                                       |                                                                                                                       |                                                                                                                                                                                                                                                                                           | List           |
-| [ListWorkflowVersions](../../../omics/latest/api/API_ListWorkflowVersions.md "../../../omics/latest/api/API_ListWorkflowVersions.md")                               | Grants permission to retrieve a list of available versions for a workflow                                                                                                                                                                                                                 | [workflow\*](#list_omics-resource-workflow "#list_omics-resource-workflow")                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListWorkflows](../../../omics/latest/api/API_ListWorkflows.md "../../../omics/latest/api/API_ListWorkflows.md")                                                    | Grants permission to retrieve a list of available workflows                                                                                                                                                                                                                               |                                                                                                                       |                                                                                                                                                                                                                                                                                           | List           |
-| [PutS3AccessPolicy](../../../omics/latest/api/API_PutS3AccessPolicy.md "../../../omics/latest/api/API_PutS3AccessPolicy.md")                                        | Grants permission to put an access policy on a given store                                                                                                                                                                                                                                | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [StartAnnotationImportJob](../../../omics/latest/api/API_StartAnnotationImportJob.md "../../../omics/latest/api/API_StartAnnotationImportJob.md")                   | Grants permission to import a list of Annotation files to an Annotation Store                                                                                                                                                                                                             | [AnnotationStore\*](#list_omics-resource-AnnotationStore "#list_omics-resource-AnnotationStore")                      | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [AnnotationStoreVersion\*](#list_omics-resource-AnnotationStoreVersion "#list_omics-resource-AnnotationStoreVersion")                                               | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [StartReadSetActivationJob](../../../omics/latest/api/API_StartReadSetActivationJob.md "../../../omics/latest/api/API_StartReadSetActivationJob.md")                | Grants permission to start a Read Set activation job from the given Sequence Store                                                                                                                                                                                                        | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [StartReadSetExportJob](../../../omics/latest/api/API_StartReadSetExportJob.md "../../../omics/latest/api/API_StartReadSetExportJob.md")                            | Grants permission to start a Read Set export job from the given Sequence Store                                                                                                                                                                                                            | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [StartReadSetImportJob](../../../omics/latest/api/API_StartReadSetImportJob.md "../../../omics/latest/api/API_StartReadSetImportJob.md")                            | Grants permission to start a Read Set import job into the given Sequence Store                                                                                                                                                                                                            | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [StartReferenceImportJob](../../../omics/latest/api/API_StartReferenceImportJob.md "../../../omics/latest/api/API_StartReferenceImportJob.md")                      | Grants permission to start a Reference import job into the given Reference Store                                                                                                                                                                                                          | [referenceStore\*](#list_omics-resource-referenceStore "#list_omics-resource-referenceStore")                         | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [StartRun](../../../omics/latest/api/API_StartRun.md "../../../omics/latest/api/API_StartRun.md")                                                                   | Grants permission to start a workflow run                                                                                                                                                                                                                                                 | [configuration](#list_omics-resource-configuration "#list_omics-resource-configuration")                              | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") | Write          |
-| [run\*](#list_omics-resource-run "#list_omics-resource-run")                                                                                                        | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [runBatch](#list_omics-resource-runBatch "#list_omics-resource-runBatch")                                                                                           | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [runCache](#list_omics-resource-runCache "#list_omics-resource-runCache")                                                                                           | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [runGroup](#list_omics-resource-runGroup "#list_omics-resource-runGroup")                                                                                           | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [workflow](#list_omics-resource-workflow "#list_omics-resource-workflow")                                                                                           | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [StartRunBatch](../../../omics/latest/api/API_StartRunBatch.md "../../../omics/latest/api/API_StartRunBatch.md")                                                    | Grants permission to start batch of workflow runs                                                                                                                                                                                                                                         | [run\*](#list_omics-resource-run "#list_omics-resource-run")                                                          | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") | Write          |
-| [runBatch\*](#list_omics-resource-runBatch "#list_omics-resource-runBatch")                                                                                         | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [runCache](#list_omics-resource-runCache "#list_omics-resource-runCache")                                                                                           | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [runGroup](#list_omics-resource-runGroup "#list_omics-resource-runGroup")                                                                                           | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [workflow](#list_omics-resource-workflow "#list_omics-resource-workflow")                                                                                           | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [StartVariantImportJob](../../../omics/latest/api/API_StartVariantImportJob.md "../../../omics/latest/api/API_StartVariantImportJob.md")                            | Grants permission to import a list of variant files to an Variant Store                                                                                                                                                                                                                   | [VariantStore\*](#list_omics-resource-VariantStore "#list_omics-resource-VariantStore")                               | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [TagResource](../../../omics/latest/api/API_TagResource.md "../../../omics/latest/api/API_TagResource.md")                                                          | Grants permission to add AWS tags to a resource                                                                                                                                                                                                                                           | [AnnotationStore](#list_omics-resource-AnnotationStore "#list_omics-resource-AnnotationStore")                        | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") | Tagging, Write |
-| [AnnotationStoreVersion](#list_omics-resource-AnnotationStoreVersion "#list_omics-resource-AnnotationStoreVersion")                                                 | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [VariantStore](#list_omics-resource-VariantStore "#list_omics-resource-VariantStore")                                                                               | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [WorkflowVersion](#list_omics-resource-WorkflowVersion "#list_omics-resource-WorkflowVersion")                                                                      | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [configuration](#list_omics-resource-configuration "#list_omics-resource-configuration")                                                                            | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [readSet](#list_omics-resource-readSet "#list_omics-resource-readSet")                                                                                              | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [reference](#list_omics-resource-reference "#list_omics-resource-reference")                                                                                        | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [referenceStore](#list_omics-resource-referenceStore "#list_omics-resource-referenceStore")                                                                         | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [run](#list_omics-resource-run "#list_omics-resource-run")                                                                                                          | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [runBatch](#list_omics-resource-runBatch "#list_omics-resource-runBatch")                                                                                           | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [runCache](#list_omics-resource-runCache "#list_omics-resource-runCache")                                                                                           | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [runGroup](#list_omics-resource-runGroup "#list_omics-resource-runGroup")                                                                                           | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [sequenceStore](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                                                                            | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [workflow](#list_omics-resource-workflow "#list_omics-resource-workflow")                                                                                           | [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_ "#list_omics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys") |
-| [UntagResource](../../../omics/latest/api/API_UntagResource.md "../../../omics/latest/api/API_UntagResource.md")                                                    | Grants permission to remove resource AWS tags                                                                                                                                                                                                                                             | [AnnotationStore](#list_omics-resource-AnnotationStore "#list_omics-resource-AnnotationStore")                        | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                            | Tagging, Write |
-| [AnnotationStoreVersion](#list_omics-resource-AnnotationStoreVersion "#list_omics-resource-AnnotationStoreVersion")                                                 | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                            |
-| [VariantStore](#list_omics-resource-VariantStore "#list_omics-resource-VariantStore")                                                                               | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                            |
-| [WorkflowVersion](#list_omics-resource-WorkflowVersion "#list_omics-resource-WorkflowVersion")                                                                      | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                            |
-| [configuration](#list_omics-resource-configuration "#list_omics-resource-configuration")                                                                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                            |
-| [readSet](#list_omics-resource-readSet "#list_omics-resource-readSet")                                                                                              | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                            |
-| [reference](#list_omics-resource-reference "#list_omics-resource-reference")                                                                                        | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                            |
-| [referenceStore](#list_omics-resource-referenceStore "#list_omics-resource-referenceStore")                                                                         | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                            |
-| [run](#list_omics-resource-run "#list_omics-resource-run")                                                                                                          | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                            |
-| [runBatch](#list_omics-resource-runBatch "#list_omics-resource-runBatch")                                                                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                            |
-| [runCache](#list_omics-resource-runCache "#list_omics-resource-runCache")                                                                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                            |
-| [runGroup](#list_omics-resource-runGroup "#list_omics-resource-runGroup")                                                                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                            |
-| [sequenceStore](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                                                                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                            |
-| [workflow](#list_omics-resource-workflow "#list_omics-resource-workflow")                                                                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_omics-aws_TagKeys "#list_omics-aws_TagKeys")                                                                                                            |
-| [UpdateAnnotationStore](../../../omics/latest/api/API_UpdateAnnotationStore.md "../../../omics/latest/api/API_UpdateAnnotationStore.md")                            | Grants permission to update information about the Annotation Store                                                                                                                                                                                                                        | [AnnotationStore\*](#list_omics-resource-AnnotationStore "#list_omics-resource-AnnotationStore")                      | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateAnnotationStoreVersion](../../../omics/latest/api/API_UpdateAnnotationStoreVersion.md "../../../omics/latest/api/API_UpdateAnnotationStoreVersion.md")       | Grants permission to update information about the Version in an Annotation Store                                                                                                                                                                                                          | [AnnotationStoreVersion\*](#list_omics-resource-AnnotationStoreVersion "#list_omics-resource-AnnotationStoreVersion") | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateRunCache](../../../omics/latest/api/API_UpdateRunCache.md "../../../omics/latest/api/API_UpdateRunCache.md")                                                 | Grants permission to update a workflow run cache                                                                                                                                                                                                                                          | [runCache\*](#list_omics-resource-runCache "#list_omics-resource-runCache")                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateRunGroup](../../../omics/latest/api/API_UpdateRunGroup.md "../../../omics/latest/api/API_UpdateRunGroup.md")                                                 | Grants permission to update a workflow run group                                                                                                                                                                                                                                          | [runGroup\*](#list_omics-resource-runGroup "#list_omics-resource-runGroup")                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateSequenceStore](../../../omics/latest/api/API_UpdateSequenceStore.md "../../../omics/latest/api/API_UpdateSequenceStore.md")                                  | Grants permission to update details about a Sequence Store                                                                                                                                                                                                                                | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateVariantStore](../../../omics/latest/api/API_UpdateVariantStore.md "../../../omics/latest/api/API_UpdateVariantStore.md")                                     | Grants permission to update metadata about the Variant Store                                                                                                                                                                                                                              | [VariantStore\*](#list_omics-resource-VariantStore "#list_omics-resource-VariantStore")                               | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateWorkflow](../../../omics/latest/api/API_UpdateWorkflow.md "../../../omics/latest/api/API_UpdateWorkflow.md")                                                 | Grants permission to update workflow details                                                                                                                                                                                                                                              | [workflow\*](#list_omics-resource-workflow "#list_omics-resource-workflow")                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateWorkflowVersion](../../../omics/latest/api/API_UpdateWorkflowVersion.md "../../../omics/latest/api/API_UpdateWorkflowVersion.md")                            | Grants permission to update workflow version details                                                                                                                                                                                                                                      | [WorkflowVersion\*](#list_omics-resource-WorkflowVersion "#list_omics-resource-WorkflowVersion")                      | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [workflow\*](#list_omics-resource-workflow "#list_omics-resource-workflow")                                                                                         | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [UploadReadSetPart](../../../omics/latest/api/API_UploadReadSetPart.md "../../../omics/latest/api/API_UploadReadSetPart.md")                                        | Grants permission to upload read set parts                                                                                                                                                                                                                                                | [sequenceStore\*](#list_omics-resource-sequenceStore "#list_omics-resource-sequenceStore")                            | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
+
+
+
+- **   [AbortMultipartReadSetUpload](https://docs.aws.amazon.com/omics/latest/api/API_AbortMultipartReadSetUpload.html)  **
+  - **Description:** Grants permission to abort multipart read set uploads
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AcceptShare](https://docs.aws.amazon.com/omics/latest/api/API_AcceptShare.html)  **
+  - **Description:** Grants permission to accept a share
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [BatchDeleteReadSet](https://docs.aws.amazon.com/omics/latest/api/API_BatchDeleteReadSet.html)  **
+  - **Description:** Grants permission to batch delete Read Sets in the given Sequence Store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelAnnotationImportJob](https://docs.aws.amazon.com/omics/latest/api/API_CancelAnnotationImportJob.html)  **
+  - **Description:** Grants permission to cancel an Annotation Import Job 
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CancelRun](https://docs.aws.amazon.com/omics/latest/api/API_CancelRun.html)  **
+  - **Description:** Grants permission to cancel a workflow run and stop all workflow tasks
+  - **Resource types (\*required):** [run\*](#list_omics-resource-run)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelRunBatch](https://docs.aws.amazon.com/omics/latest/api/API_CancelRunBatch.html)  **
+  - **Description:** Grants permission to cancel a batch of workflow runs
+  - **Resource types (\*required):** [runBatch\*](#list_omics-resource-runBatch)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelVariantImportJob](https://docs.aws.amazon.com/omics/latest/api/API_CancelVariantImportJob.html)  **
+  - **Description:** Grants permission to cancel a Variant Import Job 
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CompleteMultipartReadSetUpload](https://docs.aws.amazon.com/omics/latest/api/API_CompleteMultipartReadSetUpload.html)  **
+  - **Description:** Grants permission to complete a multipart read set upload
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAnnotationStore](https://docs.aws.amazon.com/omics/latest/api/API_CreateAnnotationStore.html)  **
+  - **Description:** Grants permission to create an Annotation Store
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAnnotationStoreVersion](https://docs.aws.amazon.com/omics/latest/api/API_CreateAnnotationStoreVersion.html)  **
+  - **Description:** Grants permission to create a Version in an Annotation Store
+  - **Resource types (\*required):** [AnnotationStore\*](#list_omics-resource-AnnotationStore)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateConfiguration](https://docs.aws.amazon.com/omics/latest/api/API_CreateConfiguration.html)  **
+  - **Description:** Grants permission to create a new configuration
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMultipartReadSetUpload](https://docs.aws.amazon.com/omics/latest/api/API_CreateMultipartReadSetUpload.html)  **
+  - **Description:** Grants permission to create a multipart read set upload
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateReferenceStore](https://docs.aws.amazon.com/omics/latest/api/API_CreateReferenceStore.html)  **
+  - **Description:** Grants permission to create a Reference Store
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRunCache](https://docs.aws.amazon.com/omics/latest/api/API_CreateRunCache.html)  **
+  - **Description:** Grants permission to create a new workflow run cache
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRunGroup](https://docs.aws.amazon.com/omics/latest/api/API_CreateRunGroup.html)  **
+  - **Description:** Grants permission to create a new workflow run group
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateSequenceStore](https://docs.aws.amazon.com/omics/latest/api/API_CreateSequenceStore.html)  **
+  - **Description:** Grants permission to create a Sequence Store
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateShare](https://docs.aws.amazon.com/omics/latest/api/API_CreateShare.html)  **
+  - **Description:** Grants permission to create a share
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateVariantStore](https://docs.aws.amazon.com/omics/latest/api/API_CreateVariantStore.html)  **
+  - **Description:** Grants permission to create a Variant Store
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateWorkflow](https://docs.aws.amazon.com/omics/latest/api/API_CreateWorkflow.html)  **
+  - **Description:** Grants permission to create a new workflow with a workflow definition and template of workflow parameters
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateWorkflowVersion](https://docs.aws.amazon.com/omics/latest/api/API_CreateWorkflowVersion.html)  **
+  - **Description:** Grants permission to create a new workflow version with a workflow definition and template of workflow parameters
+  - **Resource types (\*required):** [workflow\*](#list_omics-resource-workflow)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteAnnotationStore](https://docs.aws.amazon.com/omics/latest/api/API_DeleteAnnotationStore.html)  **
+  - **Description:** Grants permission to delete an Annotation Store
+  - **Resource types (\*required):** [AnnotationStore\*](#list_omics-resource-AnnotationStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAnnotationStoreVersions](https://docs.aws.amazon.com/omics/latest/api/API_DeleteAnnotationStoreVersions.html)  **
+  - **Description:** Grants permission to delete Versions in an Annotation Store
+  - **Resource types (\*required):** [AnnotationStore\*](#list_omics-resource-AnnotationStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [AnnotationStoreVersion\*](#list_omics-resource-AnnotationStoreVersion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteBatch](https://docs.aws.amazon.com/omics/latest/api/API_DeleteBatch.html)  **
+  - **Description:** Grants permission to delete a batch
+  - **Resource types (\*required):** [runBatch\*](#list_omics-resource-runBatch)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConfiguration](https://docs.aws.amazon.com/omics/latest/api/API_DeleteConfiguration.html)  **
+  - **Description:** Grants permission to delete a configuration
+  - **Resource types (\*required):** [configuration\*](#list_omics-resource-configuration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteReference](https://docs.aws.amazon.com/omics/latest/api/API_DeleteReference.html)  **
+  - **Description:** Grants permission to delete a Reference in the given Reference Store
+  - **Resource types (\*required):** [reference\*](#list_omics-resource-reference) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [referenceStore\*](#list_omics-resource-referenceStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteReferenceStore](https://docs.aws.amazon.com/omics/latest/api/API_DeleteReferenceStore.html)  **
+  - **Description:** Grants permission to delete a Reference Store
+  - **Resource types (\*required):** [referenceStore\*](#list_omics-resource-referenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRun](https://docs.aws.amazon.com/omics/latest/api/API_DeleteRun.html)  **
+  - **Description:** Grants permission to delete a workflow run
+  - **Resource types (\*required):** [run\*](#list_omics-resource-run)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRunBatch](https://docs.aws.amazon.com/omics/latest/api/API_DeleteRunBatch.html)  **
+  - **Description:** Grants permission to delete a batch of workflow runs
+  - **Resource types (\*required):** [run\*](#list_omics-resource-run) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [runBatch\*](#list_omics-resource-runBatch) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRunCache](https://docs.aws.amazon.com/omics/latest/api/API_DeleteRunCache.html)  **
+  - **Description:** Grants permission to delete a workflow run cache
+  - **Resource types (\*required):** [runCache\*](#list_omics-resource-runCache)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRunGroup](https://docs.aws.amazon.com/omics/latest/api/API_DeleteRunGroup.html)  **
+  - **Description:** Grants permission to delete a workflow run group
+  - **Resource types (\*required):** [runGroup\*](#list_omics-resource-runGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteS3AccessPolicy](https://docs.aws.amazon.com/omics/latest/api/API_DeleteS3AccessPolicy.html)  **
+  - **Description:** Grants permission to delete an access policy on a given store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteSequenceStore](https://docs.aws.amazon.com/omics/latest/api/API_DeleteSequenceStore.html)  **
+  - **Description:** Grants permission to delete a Sequence Store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteShare](https://docs.aws.amazon.com/omics/latest/api/API_DeleteShare.html)  **
+  - **Description:** Grants permission to delete a share
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteVariantStore](https://docs.aws.amazon.com/omics/latest/api/API_DeleteVariantStore.html)  **
+  - **Description:** Grants permission to delete a Variant Store
+  - **Resource types (\*required):** [VariantStore\*](#list_omics-resource-VariantStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteWorkflow](https://docs.aws.amazon.com/omics/latest/api/API_DeleteWorkflow.html)  **
+  - **Description:** Grants permission to delete a workflow
+  - **Resource types (\*required):** [workflow\*](#list_omics-resource-workflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteWorkflowVersion](https://docs.aws.amazon.com/omics/latest/api/API_DeleteWorkflowVersion.html)  **
+  - **Description:** Grants permission to delete a workflow version
+  - **Resource types (\*required):** [WorkflowVersion\*](#list_omics-resource-WorkflowVersion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [workflow\*](#list_omics-resource-workflow) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetAnnotationImportJob](https://docs.aws.amazon.com/omics/latest/api/API_GetAnnotationImportJob.html)  **
+  - **Description:** Grants permission to get the status of an Annotation Import Job
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAnnotationStore](https://docs.aws.amazon.com/omics/latest/api/API_GetAnnotationStore.html)  **
+  - **Description:** Grants permission to get detailed information about an Annotation Store
+  - **Resource types (\*required):** [AnnotationStore\*](#list_omics-resource-AnnotationStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAnnotationStoreVersion](https://docs.aws.amazon.com/omics/latest/api/API_GetAnnotationStoreVersion.html)  **
+  - **Description:** Grants permission to get detailed information about a version in an Annotation Store
+  - **Resource types (\*required):** [AnnotationStoreVersion\*](#list_omics-resource-AnnotationStoreVersion)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetBatch](https://docs.aws.amazon.com/omics/latest/api/API_GetBatch.html)  **
+  - **Description:** Grants permission to retrieve batch details and status
+  - **Resource types (\*required):** [runBatch\*](#list_omics-resource-runBatch)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetConfiguration](https://docs.aws.amazon.com/omics/latest/api/API_GetConfiguration.html)  **
+  - **Description:** Grants permission to retrieve configuration details
+  - **Resource types (\*required):** [configuration\*](#list_omics-resource-configuration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetReadSet](https://docs.aws.amazon.com/omics/latest/api/API_GetReadSet.html)  **
+  - **Description:** Grants permission to get a Read Set in the given Sequence Store
+  - **Resource types (\*required):** [readSet\*](#list_omics-resource-readSet) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetReadSetActivationJob](https://docs.aws.amazon.com/omics/latest/api/API_GetReadSetActivationJob.html)  **
+  - **Description:** Grants permission to get details about a Read Set activation job for the given Sequence Store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetReadSetExportJob](https://docs.aws.amazon.com/omics/latest/api/API_GetReadSetExportJob.html)  **
+  - **Description:** Grants permission to get details about a Read Set export job for the given Sequence Store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetReadSetImportJob](https://docs.aws.amazon.com/omics/latest/api/API_GetReadSetImportJob.html)  **
+  - **Description:** Grants permission to get details about a Read Set import job for the given Sequence Store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetReadSetMetadata](https://docs.aws.amazon.com/omics/latest/api/API_GetReadSetMetadata.html)  **
+  - **Description:** Grants permission to get details about a Read Set in the given Sequence Store
+  - **Resource types (\*required):** [readSet\*](#list_omics-resource-readSet) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetReference](https://docs.aws.amazon.com/omics/latest/api/API_GetReference.html)  **
+  - **Description:** Grants permission to get a Reference in the given Reference Store
+  - **Resource types (\*required):** [reference\*](#list_omics-resource-reference) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [referenceStore\*](#list_omics-resource-referenceStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetReferenceImportJob](https://docs.aws.amazon.com/omics/latest/api/API_GetReferenceImportJob.html)  **
+  - **Description:** Grants permission to get details about a Reference import job for the given Reference Store
+  - **Resource types (\*required):** [referenceStore\*](#list_omics-resource-referenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetReferenceMetadata](https://docs.aws.amazon.com/omics/latest/api/API_GetReferenceMetadata.html)  **
+  - **Description:** Grants permission to get details about a Reference in the given Reference Store
+  - **Resource types (\*required):** [reference\*](#list_omics-resource-reference) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [referenceStore\*](#list_omics-resource-referenceStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetReferenceStore](https://docs.aws.amazon.com/omics/latest/api/API_GetReferenceStore.html)  **
+  - **Description:** Grants permission to get details about a Reference Store
+  - **Resource types (\*required):** [referenceStore\*](#list_omics-resource-referenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRun](https://docs.aws.amazon.com/omics/latest/api/API_GetRun.html)  **
+  - **Description:** Grants permission to retrieve workflow run details
+  - **Resource types (\*required):** [run\*](#list_omics-resource-run)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRunCache](https://docs.aws.amazon.com/omics/latest/api/API_GetRunCache.html)  **
+  - **Description:** Grants permission to retrieve workflow run cache details
+  - **Resource types (\*required):** [runCache\*](#list_omics-resource-runCache)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRunGroup](https://docs.aws.amazon.com/omics/latest/api/API_GetRunGroup.html)  **
+  - **Description:** Grants permission to retrieve workflow run group details
+  - **Resource types (\*required):** [runGroup\*](#list_omics-resource-runGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRunTask](https://docs.aws.amazon.com/omics/latest/api/API_GetRunTask.html)  **
+  - **Description:** Grants permission to retrieve workflow task details
+  - **Resource types (\*required):** [TaskResource\*](#list_omics-resource-TaskResource) / **Condition keys:**  
+  - **Resource types (\*required):** [run\*](#list_omics-resource-run) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetS3AccessPolicy](https://docs.aws.amazon.com/omics/latest/api/API_GetS3AccessPolicy.html)  **
+  - **Description:** Grants permission to get details about an access policy on a given store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSequenceStore](https://docs.aws.amazon.com/omics/latest/api/API_GetSequenceStore.html)  **
+  - **Description:** Grants permission to get details about a Sequence Store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetShare](https://docs.aws.amazon.com/omics/latest/api/API_GetShare.html)  **
+  - **Description:** Grants permission to get detailed information about a Share
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetVariantImportJob](https://docs.aws.amazon.com/omics/latest/api/API_GetVariantImportJob.html)  **
+  - **Description:** Grants permission to get the status of a Variant Import Job
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetVariantStore](https://docs.aws.amazon.com/omics/latest/api/API_GetVariantStore.html)  **
+  - **Description:** Grants permission to get detailed information about a Variant Store
+  - **Resource types (\*required):** [VariantStore\*](#list_omics-resource-VariantStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetWorkflow](https://docs.aws.amazon.com/omics/latest/api/API_GetWorkflow.html)  **
+  - **Description:** Grants permission to retrieve workflow details
+  - **Resource types (\*required):** [workflow\*](#list_omics-resource-workflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetWorkflowVersion](https://docs.aws.amazon.com/omics/latest/api/API_GetWorkflowVersion.html)  **
+  - **Description:** Grants permission to retrieve workflow version details
+  - **Resource types (\*required):** [WorkflowVersion\*](#list_omics-resource-WorkflowVersion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [workflow\*](#list_omics-resource-workflow) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListAnnotationImportJobs](https://docs.aws.amazon.com/omics/latest/api/API_ListAnnotationImportJobs.html)  **
+  - **Description:** Grants permission to get a list of Annotation Import Jobs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAnnotationStoreVersions](https://docs.aws.amazon.com/omics/latest/api/API_ListAnnotationStoreVersions.html)  **
+  - **Description:** Grants permission to retrieve a list of information about Versions in an Annotation Store
+  - **Resource types (\*required):** [AnnotationStore\*](#list_omics-resource-AnnotationStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAnnotationStores](https://docs.aws.amazon.com/omics/latest/api/API_ListAnnotationStores.html)  **
+  - **Description:** Grants permission to retrieve a list of information about Annotation Stores
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListBatch](https://docs.aws.amazon.com/omics/latest/api/API_ListBatch.html)  **
+  - **Description:** Grants permission to retrieve list of batches
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListConfigurations](https://docs.aws.amazon.com/omics/latest/api/API_ListConfigurations.html)  **
+  - **Description:** Grants permission to retrieve a list of configurations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMultipartReadSetUploads](https://docs.aws.amazon.com/omics/latest/api/API_ListMultipartReadSetUploads.html)  **
+  - **Description:** Grants permission to list multipart read set uploads
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListReadSetActivationJobs](https://docs.aws.amazon.com/omics/latest/api/API_ListReadSetActivationJobs.html)  **
+  - **Description:** Grants permission to list Read Set activation jobs for the given Sequence Store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListReadSetExportJobs](https://docs.aws.amazon.com/omics/latest/api/API_ListReadSetExportJobs.html)  **
+  - **Description:** Grants permission to list Read Set export jobs for the given Sequence Store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListReadSetImportJobs](https://docs.aws.amazon.com/omics/latest/api/API_ListReadSetImportJobs.html)  **
+  - **Description:** Grants permission to list Read Set import jobs for the given Sequence Store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListReadSetUploadParts](https://docs.aws.amazon.com/omics/latest/api/API_ListReadSetUploadParts.html)  **
+  - **Description:** Grants permission to list read set upload parts
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListReadSets](https://docs.aws.amazon.com/omics/latest/api/API_ListReadSets.html)  **
+  - **Description:** Grants permission to list Read Sets in the given Sequence Store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListReferenceImportJobs](https://docs.aws.amazon.com/omics/latest/api/API_ListReferenceImportJobs.html)  **
+  - **Description:** Grants permission to list Reference import jobs for the given Reference Store
+  - **Resource types (\*required):** [referenceStore\*](#list_omics-resource-referenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListReferenceStores](https://docs.aws.amazon.com/omics/latest/api/API_ListReferenceStores.html)  **
+  - **Description:** Grants permission to list Reference Stores
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListReferences](https://docs.aws.amazon.com/omics/latest/api/API_ListReferences.html)  **
+  - **Description:** Grants permission to list References in the given Reference Store
+  - **Resource types (\*required):** [referenceStore\*](#list_omics-resource-referenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRunCaches](https://docs.aws.amazon.com/omics/latest/api/API_ListRunCaches.html)  **
+  - **Description:** Grants permission to retrieve a list of workflow run caches
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRunGroups](https://docs.aws.amazon.com/omics/latest/api/API_ListRunGroups.html)  **
+  - **Description:** Grants permission to retrieve a list of workflow run groups
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRunTasks](https://docs.aws.amazon.com/omics/latest/api/API_ListRunTasks.html)  **
+  - **Description:** Grants permission to retrieve a list of tasks for a workflow run
+  - **Resource types (\*required):** [run\*](#list_omics-resource-run)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRuns](https://docs.aws.amazon.com/omics/latest/api/API_ListRuns.html)  **
+  - **Description:** Grants permission to retrieve a list of workflow runs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRunsInBatch](https://docs.aws.amazon.com/omics/latest/api/API_ListRunsInBatch.html)  **
+  - **Description:** Grants permission to retrieve list of workflow runs in batch
+  - **Resource types (\*required):** [runBatch\*](#list_omics-resource-runBatch)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSequenceStores](https://docs.aws.amazon.com/omics/latest/api/API_ListSequenceStores.html)  **
+  - **Description:** Grants permission to list Sequence Stores
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListShares](https://docs.aws.amazon.com/omics/latest/api/API_ListShares.html)  **
+  - **Description:** Grants permission to retrieve a list of information about shares
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/omics/latest/api/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to retrieve a list of resource AWS tags
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListVariantImportJobs](https://docs.aws.amazon.com/omics/latest/api/API_ListVariantImportJobs.html)  **
+  - **Description:** Grants permission to get a list of Variant Import Jobs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListVariantStores](https://docs.aws.amazon.com/omics/latest/api/API_ListVariantStores.html)  **
+  - **Description:** Grants permission to retrieve a list of metadata for Variant Stores
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListWorkflowVersions](https://docs.aws.amazon.com/omics/latest/api/API_ListWorkflowVersions.html)  **
+  - **Description:** Grants permission to retrieve a list of available versions for a workflow
+  - **Resource types (\*required):** [workflow\*](#list_omics-resource-workflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListWorkflows](https://docs.aws.amazon.com/omics/latest/api/API_ListWorkflows.html)  **
+  - **Description:** Grants permission to retrieve a list of available workflows
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [PutS3AccessPolicy](https://docs.aws.amazon.com/omics/latest/api/API_PutS3AccessPolicy.html)  **
+  - **Description:** Grants permission to put an access policy on a given store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartAnnotationImportJob](https://docs.aws.amazon.com/omics/latest/api/API_StartAnnotationImportJob.html)  **
+  - **Description:** Grants permission to import a list of Annotation files to an Annotation Store
+  - **Resource types (\*required):** [AnnotationStore\*](#list_omics-resource-AnnotationStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [AnnotationStoreVersion\*](#list_omics-resource-AnnotationStoreVersion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartReadSetActivationJob](https://docs.aws.amazon.com/omics/latest/api/API_StartReadSetActivationJob.html)  **
+  - **Description:** Grants permission to start a Read Set activation job from the given Sequence Store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartReadSetExportJob](https://docs.aws.amazon.com/omics/latest/api/API_StartReadSetExportJob.html)  **
+  - **Description:** Grants permission to start a Read Set export job from the given Sequence Store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartReadSetImportJob](https://docs.aws.amazon.com/omics/latest/api/API_StartReadSetImportJob.html)  **
+  - **Description:** Grants permission to start a Read Set import job into the given Sequence Store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartReferenceImportJob](https://docs.aws.amazon.com/omics/latest/api/API_StartReferenceImportJob.html)  **
+  - **Description:** Grants permission to start a Reference import job into the given Reference Store
+  - **Resource types (\*required):** [referenceStore\*](#list_omics-resource-referenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartRun](https://docs.aws.amazon.com/omics/latest/api/API_StartRun.html)  **
+  - **Description:** Grants permission to start a workflow run
+  - **Resource types (\*required):** [configuration](#list_omics-resource-configuration) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [run\*](#list_omics-resource-run) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [runBatch](#list_omics-resource-runBatch) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [runCache](#list_omics-resource-runCache) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [runGroup](#list_omics-resource-runGroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [workflow](#list_omics-resource-workflow) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [StartRunBatch](https://docs.aws.amazon.com/omics/latest/api/API_StartRunBatch.html)  **
+  - **Description:** Grants permission to start batch of workflow runs
+  - **Resource types (\*required):** [run\*](#list_omics-resource-run) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [runBatch\*](#list_omics-resource-runBatch) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [runCache](#list_omics-resource-runCache) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [runGroup](#list_omics-resource-runGroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [workflow](#list_omics-resource-workflow) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [StartVariantImportJob](https://docs.aws.amazon.com/omics/latest/api/API_StartVariantImportJob.html)  **
+  - **Description:** Grants permission to import a list of variant files to an Variant Store
+  - **Resource types (\*required):** [VariantStore\*](#list_omics-resource-VariantStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/omics/latest/api/API_TagResource.html)  **
+  - **Description:** Grants permission to add AWS tags to a resource
+  - **Resource types (\*required):** [AnnotationStore](#list_omics-resource-AnnotationStore) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [AnnotationStoreVersion](#list_omics-resource-AnnotationStoreVersion) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [VariantStore](#list_omics-resource-VariantStore) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [WorkflowVersion](#list_omics-resource-WorkflowVersion) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [configuration](#list_omics-resource-configuration) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [readSet](#list_omics-resource-readSet) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [reference](#list_omics-resource-reference) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [referenceStore](#list_omics-resource-referenceStore) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [run](#list_omics-resource-run) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [runBatch](#list_omics-resource-runBatch) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [runCache](#list_omics-resource-runCache) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [runGroup](#list_omics-resource-runGroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [sequenceStore](#list_omics-resource-sequenceStore) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [workflow](#list_omics-resource-workflow) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_omics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/omics/latest/api/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove resource AWS tags
+  - **Resource types (\*required):** [AnnotationStore](#list_omics-resource-AnnotationStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [AnnotationStoreVersion](#list_omics-resource-AnnotationStoreVersion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [VariantStore](#list_omics-resource-VariantStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [WorkflowVersion](#list_omics-resource-WorkflowVersion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [configuration](#list_omics-resource-configuration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [readSet](#list_omics-resource-readSet) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [reference](#list_omics-resource-reference) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [referenceStore](#list_omics-resource-referenceStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [run](#list_omics-resource-run) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [runBatch](#list_omics-resource-runBatch) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [runCache](#list_omics-resource-runCache) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [runGroup](#list_omics-resource-runGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [sequenceStore](#list_omics-resource-sequenceStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Resource types (\*required):** [workflow](#list_omics-resource-workflow) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_omics-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAnnotationStore](https://docs.aws.amazon.com/omics/latest/api/API_UpdateAnnotationStore.html)  **
+  - **Description:** Grants permission to update information about the Annotation Store
+  - **Resource types (\*required):** [AnnotationStore\*](#list_omics-resource-AnnotationStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAnnotationStoreVersion](https://docs.aws.amazon.com/omics/latest/api/API_UpdateAnnotationStoreVersion.html)  **
+  - **Description:** Grants permission to update information about the Version in an Annotation Store
+  - **Resource types (\*required):** [AnnotationStoreVersion\*](#list_omics-resource-AnnotationStoreVersion)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRunCache](https://docs.aws.amazon.com/omics/latest/api/API_UpdateRunCache.html)  **
+  - **Description:** Grants permission to update a workflow run cache
+  - **Resource types (\*required):** [runCache\*](#list_omics-resource-runCache)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRunGroup](https://docs.aws.amazon.com/omics/latest/api/API_UpdateRunGroup.html)  **
+  - **Description:** Grants permission to update a workflow run group
+  - **Resource types (\*required):** [runGroup\*](#list_omics-resource-runGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSequenceStore](https://docs.aws.amazon.com/omics/latest/api/API_UpdateSequenceStore.html)  **
+  - **Description:** Grants permission to update details about a Sequence Store
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateVariantStore](https://docs.aws.amazon.com/omics/latest/api/API_UpdateVariantStore.html)  **
+  - **Description:** Grants permission to update metadata about the Variant Store
+  - **Resource types (\*required):** [VariantStore\*](#list_omics-resource-VariantStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateWorkflow](https://docs.aws.amazon.com/omics/latest/api/API_UpdateWorkflow.html)  **
+  - **Description:** Grants permission to update workflow details
+  - **Resource types (\*required):** [workflow\*](#list_omics-resource-workflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateWorkflowVersion](https://docs.aws.amazon.com/omics/latest/api/API_UpdateWorkflowVersion.html)  **
+  - **Description:** Grants permission to update workflow version details
+  - **Resource types (\*required):** [WorkflowVersion\*](#list_omics-resource-WorkflowVersion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [workflow\*](#list_omics-resource-workflow) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UploadReadSetPart](https://docs.aws.amazon.com/omics/latest/api/API_UploadReadSetPart.html)  **
+  - **Description:** Grants permission to upload read set parts
+  - **Resource types (\*required):** [sequenceStore\*](#list_omics-resource-sequenceStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS HealthOmics
+<a name="list_omics-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                      | ARN                                                                                                                      | Condition keys                                                                                             |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
-| [AnnotationStore](../../../omics/latest/api/API_AnnotationStoreItem.md "../../../omics/latest/api/API_AnnotationStoreItem.md")                      | arn:${Partition}:omics:${Region}:${Account}:annotationStore/${AnnotationStoreName}                                       | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_") |
-| [AnnotationStoreVersion](../../../omics/latest/api/API_AnnotationStoreVersionItem.md "../../../omics/latest/api/API_AnnotationStoreVersionItem.md") | arn:${Partition}:omics:${Region}:${Account}:annotationStore/${AnnotationStoreName}/version/${AnnotationStoreVersionName} | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_") |
-| [TaskResource](../../../omics/latest/api/API_TaskListItem.md "../../../omics/latest/api/API_TaskListItem.md")                                       | arn:${Partition}:omics:${Region}:${Account}:task/${Id}                                                                   |                                                                                                            |
-| [VariantStore](../../../omics/latest/api/API_VariantStoreItem.md "../../../omics/latest/api/API_VariantStoreItem.md")                               | arn:${Partition}:omics:${Region}:${Account}:variantStore/${VariantStoreName}                                             | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_") |
-| [WorkflowVersion](../../../omics/latest/api/API_WorkflowVersionListItem.md "../../../omics/latest/api/API_WorkflowVersionListItem.md")              | arn:${Partition}:omics:${Region}:${Account}:workflow/${Id}/version/${VersionName}                                        | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_") |
-| [configuration](../../../omics/latest/api/API_ConfigurationListItem.md "../../../omics/latest/api/API_ConfigurationListItem.md")                    | arn:${Partition}:omics:${Region}:${Account}:configuration/${Name}                                                        | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_") |
-| [readSet](../../../omics/latest/api/API_ReadSetFiles.md "../../../omics/latest/api/API_ReadSetFiles.md")                                            | arn:${Partition}:omics:${Region}:${Account}:sequenceStore/${SequenceStoreId}/readSet/${ReadSetId}                        | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_") |
-| [reference](../../../omics/latest/api/API_ReferenceFiles.md "../../../omics/latest/api/API_ReferenceFiles.md")                                      | arn:${Partition}:omics:${Region}:${Account}:referenceStore/${ReferenceStoreId}/reference/${ReferenceId}                  | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_") |
-| [referenceStore](../../../omics/latest/api/API_ReferenceStoreDetail.md "../../../omics/latest/api/API_ReferenceStoreDetail.md")                     | arn:${Partition}:omics:${Region}:${Account}:referenceStore/${ReferenceStoreId}                                           | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_") |
-| [run](../../../omics/latest/api/API_RunListItem.md "../../../omics/latest/api/API_RunListItem.md")                                                  | arn:${Partition}:omics:${Region}:${Account}:run/${Id}                                                                    | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_") |
-| [runBatch](../../../omics/latest/api/API_BatchListItem.md "../../../omics/latest/api/API_BatchListItem.md")                                         | arn:${Partition}:omics:${Region}:${Account}:runBatch/${BatchId}                                                          | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_") |
-| [runCache](../../../omics/latest/api/API_RunCacheListItem.md "../../../omics/latest/api/API_RunCacheListItem.md")                                   | arn:${Partition}:omics:${Region}:${Account}:runCache/${Id}                                                               | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_") |
-| [runGroup](../../../omics/latest/api/API_RunGroupListItem.md "../../../omics/latest/api/API_RunGroupListItem.md")                                   | arn:${Partition}:omics:${Region}:${Account}:runGroup/${Id}                                                               | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_") |
-| [sequenceStore](../../../omics/latest/api/API_SequenceStoreDetail.md "../../../omics/latest/api/API_SequenceStoreDetail.md")                        | arn:${Partition}:omics:${Region}:${Account}:sequenceStore/${SequenceStoreId}                                             | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_") |
-| [workflow](../../../omics/latest/api/API_WorkflowListItem.md "../../../omics/latest/api/API_WorkflowListItem.md")                                   | arn:${Partition}:omics:${Region}:${Account}:workflow/${Id}                                                               | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_ "#list_omics-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [AnnotationStore](https://docs.aws.amazon.com/omics/latest/api/API_AnnotationStoreItem.html)  | arn:${Partition}:omics:${Region}:${Account}:annotationStore/${AnnotationStoreName} | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_) | 
+|  [AnnotationStoreVersion](https://docs.aws.amazon.com/omics/latest/api/API_AnnotationStoreVersionItem.html)  | arn:${Partition}:omics:${Region}:${Account}:annotationStore/${AnnotationStoreName}/version/${AnnotationStoreVersionName} | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_) | 
+|  [TaskResource](https://docs.aws.amazon.com/omics/latest/api/API_TaskListItem.html)  | arn:${Partition}:omics:${Region}:${Account}:task/${Id} |   | 
+|  [VariantStore](https://docs.aws.amazon.com/omics/latest/api/API_VariantStoreItem.html)  | arn:${Partition}:omics:${Region}:${Account}:variantStore/${VariantStoreName} | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_) | 
+|  [WorkflowVersion](https://docs.aws.amazon.com/omics/latest/api/API_WorkflowVersionListItem.html)  | arn:${Partition}:omics:${Region}:${Account}:workflow/${Id}/version/${VersionName} | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_) | 
+|  [configuration](https://docs.aws.amazon.com/omics/latest/api/API_ConfigurationListItem.html)  | arn:${Partition}:omics:${Region}:${Account}:configuration/${Name} | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_) | 
+|  [readSet](https://docs.aws.amazon.com/omics/latest/api/API_ReadSetFiles.html)  | arn:${Partition}:omics:${Region}:${Account}:sequenceStore/${SequenceStoreId}/readSet/${ReadSetId} | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_) | 
+|  [reference](https://docs.aws.amazon.com/omics/latest/api/API_ReferenceFiles.html)  | arn:${Partition}:omics:${Region}:${Account}:referenceStore/${ReferenceStoreId}/reference/${ReferenceId} | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_) | 
+|  [referenceStore](https://docs.aws.amazon.com/omics/latest/api/API_ReferenceStoreDetail.html)  | arn:${Partition}:omics:${Region}:${Account}:referenceStore/${ReferenceStoreId} | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_) | 
+|  [run](https://docs.aws.amazon.com/omics/latest/api/API_RunListItem.html)  | arn:${Partition}:omics:${Region}:${Account}:run/${Id} | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_) | 
+|  [runBatch](https://docs.aws.amazon.com/omics/latest/api/API_BatchListItem.html)  | arn:${Partition}:omics:${Region}:${Account}:runBatch/${BatchId} | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_) | 
+|  [runCache](https://docs.aws.amazon.com/omics/latest/api/API_RunCacheListItem.html)  | arn:${Partition}:omics:${Region}:${Account}:runCache/${Id} | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_) | 
+|  [runGroup](https://docs.aws.amazon.com/omics/latest/api/API_RunGroupListItem.html)  | arn:${Partition}:omics:${Region}:${Account}:runGroup/${Id} | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_) | 
+|  [sequenceStore](https://docs.aws.amazon.com/omics/latest/api/API_SequenceStoreDetail.html)  | arn:${Partition}:omics:${Region}:${Account}:sequenceStore/${SequenceStoreId} | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_) | 
+|  [workflow](https://docs.aws.amazon.com/omics/latest/api/API_WorkflowListItem.html)  | arn:${Partition}:omics:${Region}:${Account}:workflow/${Id} | [aws:ResourceTag/${TagKey}](#list_omics-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS HealthOmics
+<a name="list_omics-policy-keys"></a>
 
-AWS HealthOmics defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS HealthOmics defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                                    | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the presence of tag key-value pairs in the request           | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by the presence of tag key-value pairs attached to the resource | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the presence of tag keys in the request                      | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the presence of tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the presence of tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the presence of tag keys in the request | ArrayOfString | 

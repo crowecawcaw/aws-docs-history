@@ -1,147 +1,458 @@
-# Actions, resources, and condition keys for Amazon Neptune Analytics
 
-Amazon Neptune Analytics (service prefix: `neptune-graph`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Neptune Analytics
+<a name="list_neptune-graph"></a>
+
+Amazon Neptune Analytics (service prefix: `neptune-graph`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/Welcome.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/security.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/neptune-graph/neptune-graph.json) for this service.
 
-- Learn how to [configure this service](../../../neptune-analytics/latest/userguide.md "../../../neptune-analytics/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../neptune-analytics/latest/apiref/Welcome.md "../../../neptune-analytics/latest/apiref/Welcome.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../neptune-analytics/latest/userguide/security.md "../../../neptune-analytics/latest/userguide/security.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/neptune-graph/neptune-graph.json "https://servicereference.us-east-1.amazonaws.com/v1/neptune-graph/neptune-graph.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon Neptune Analytics](#list_neptune-graph-operations "#list_neptune-graph-operations")
-- [Actions defined by Amazon Neptune Analytics](#list_neptune-graph-actions-as-permissions "#list_neptune-graph-actions-as-permissions")
-- [Resource types defined by Amazon Neptune Analytics](#list_neptune-graph-resources-for-iam-policies "#list_neptune-graph-resources-for-iam-policies")
-- [Condition keys for Amazon Neptune Analytics](#list_neptune-graph-policy-keys "#list_neptune-graph-policy-keys")
+**Topics**
++ [API operations defined by Amazon Neptune Analytics](#list_neptune-graph-operations)
++ [Actions defined by Amazon Neptune Analytics](#list_neptune-graph-actions-as-permissions)
++ [Resource types defined by Amazon Neptune Analytics](#list_neptune-graph-resources-for-iam-policies)
++ [Condition keys for Amazon Neptune Analytics](#list_neptune-graph-policy-keys)
 
 ## API operations defined by Amazon Neptune Analytics
+<a name="list_neptune-graph-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_neptune-graph-actions-as-permissions "#list_neptune-graph-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_neptune-graph-actions-as-permissions).
 
-| Operation                                                                                                                       | IAM action                                                                                                                                                | Condition key               | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ----------------- | -------------- |
-| CancelExportTask                                                                                                                | [neptune-graph:CancelExportTask](#list_neptune-graph-action-CancelExportTask "#list_neptune-graph-action-CancelExportTask")                               |                             |                   | Write          |
-| CancelImportTask                                                                                                                | [neptune-graph:CancelImportTask](#list_neptune-graph-action-CancelImportTask "#list_neptune-graph-action-CancelImportTask")                               |                             |                   | Write          |
-| CreateGraph                                                                                                                     | [neptune-graph:CreateGraph](#list_neptune-graph-action-CreateGraph "#list_neptune-graph-action-CreateGraph")                                              |                             |                   | Write          |
-| [neptune-graph:TagResource](#list_neptune-graph-action-TagResource "#list_neptune-graph-action-TagResource")                    |                                                                                                                                                           |                             | Tagging, Write    |
-| CreateGraphSnapshot                                                                                                             | [neptune-graph:CreateGraphSnapshot](#list_neptune-graph-action-CreateGraphSnapshot "#list_neptune-graph-action-CreateGraphSnapshot")                      |                             |                   | Write          |
-| [neptune-graph:TagResource](#list_neptune-graph-action-TagResource "#list_neptune-graph-action-TagResource")                    |                                                                                                                                                           |                             | Tagging, Write    |
-| CreateGraphUsingImportTask                                                                                                      | [neptune-graph:CreateGraphUsingImportTask](#list_neptune-graph-action-CreateGraphUsingImportTask "#list_neptune-graph-action-CreateGraphUsingImportTask") |                             |                   | Write          |
-| [neptune-graph:TagResource](#list_neptune-graph-action-TagResource "#list_neptune-graph-action-TagResource")                    |                                                                                                                                                           |                             | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                       | neptune-graph.amazonaws.com | Write             |
-| CreatePrivateGraphEndpoint                                                                                                      | [neptune-graph:CreatePrivateGraphEndpoint](#list_neptune-graph-action-CreatePrivateGraphEndpoint "#list_neptune-graph-action-CreatePrivateGraphEndpoint") |                             |                   | Write          |
-| DeleteGraph                                                                                                                     | [neptune-graph:DeleteGraph](#list_neptune-graph-action-DeleteGraph "#list_neptune-graph-action-DeleteGraph")                                              |                             |                   | Write          |
-| DeleteGraphSnapshot                                                                                                             | [neptune-graph:DeleteGraphSnapshot](#list_neptune-graph-action-DeleteGraphSnapshot "#list_neptune-graph-action-DeleteGraphSnapshot")                      |                             |                   | Write          |
-| DeletePrivateGraphEndpoint                                                                                                      | [neptune-graph:DeletePrivateGraphEndpoint](#list_neptune-graph-action-DeletePrivateGraphEndpoint "#list_neptune-graph-action-DeletePrivateGraphEndpoint") |                             |                   | Write          |
-| GetExportTask                                                                                                                   | [neptune-graph:GetExportTask](#list_neptune-graph-action-GetExportTask "#list_neptune-graph-action-GetExportTask")                                        |                             |                   | Read           |
-| GetGraph                                                                                                                        | [neptune-graph:GetGraph](#list_neptune-graph-action-GetGraph "#list_neptune-graph-action-GetGraph")                                                       |                             |                   | Read           |
-| GetGraphSnapshot                                                                                                                | [neptune-graph:GetGraphSnapshot](#list_neptune-graph-action-GetGraphSnapshot "#list_neptune-graph-action-GetGraphSnapshot")                               |                             |                   | Read           |
-| GetImportTask                                                                                                                   | [neptune-graph:GetImportTask](#list_neptune-graph-action-GetImportTask "#list_neptune-graph-action-GetImportTask")                                        |                             |                   | Read           |
-| GetPrivateGraphEndpoint                                                                                                         | [neptune-graph:GetPrivateGraphEndpoint](#list_neptune-graph-action-GetPrivateGraphEndpoint "#list_neptune-graph-action-GetPrivateGraphEndpoint")          |                             |                   | Read           |
-| ListExportTasks                                                                                                                 | [neptune-graph:ListExportTasks](#list_neptune-graph-action-ListExportTasks "#list_neptune-graph-action-ListExportTasks")                                  |                             |                   | Read           |
-| ListGraphSnapshots                                                                                                              | [neptune-graph:ListGraphSnapshots](#list_neptune-graph-action-ListGraphSnapshots "#list_neptune-graph-action-ListGraphSnapshots")                         |                             |                   | Read           |
-| ListGraphs                                                                                                                      | [neptune-graph:ListGraphs](#list_neptune-graph-action-ListGraphs "#list_neptune-graph-action-ListGraphs")                                                 |                             |                   | Read           |
-| ListImportTasks                                                                                                                 | [neptune-graph:ListImportTasks](#list_neptune-graph-action-ListImportTasks "#list_neptune-graph-action-ListImportTasks")                                  |                             |                   | Read           |
-| ListPrivateGraphEndpoints                                                                                                       | [neptune-graph:ListPrivateGraphEndpoints](#list_neptune-graph-action-ListPrivateGraphEndpoints "#list_neptune-graph-action-ListPrivateGraphEndpoints")    |                             |                   | Read           |
-| ListTagsForResource                                                                                                             | [neptune-graph:ListTagsForResource](#list_neptune-graph-action-ListTagsForResource "#list_neptune-graph-action-ListTagsForResource")                      |                             |                   | Read           |
-| ResetGraph                                                                                                                      | [neptune-graph:ResetGraph](#list_neptune-graph-action-ResetGraph "#list_neptune-graph-action-ResetGraph")                                                 |                             |                   | Write          |
-| RestoreGraphFromSnapshot                                                                                                        | [neptune-graph:RestoreGraphFromSnapshot](#list_neptune-graph-action-RestoreGraphFromSnapshot "#list_neptune-graph-action-RestoreGraphFromSnapshot")       |                             |                   | Write          |
-| [neptune-graph:TagResource](#list_neptune-graph-action-TagResource "#list_neptune-graph-action-TagResource")                    |                                                                                                                                                           |                             | Tagging, Write    |
-| StartExportTask                                                                                                                 | [neptune-graph:StartExportTask](#list_neptune-graph-action-StartExportTask "#list_neptune-graph-action-StartExportTask")                                  |                             |                   | Write          |
-| [neptune-graph:TagResource](#list_neptune-graph-action-TagResource "#list_neptune-graph-action-TagResource")                    |                                                                                                                                                           |                             | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                       | neptune-graph.amazonaws.com | Write             |
-| StartGraph                                                                                                                      | [neptune-graph:StartGraph](#list_neptune-graph-action-StartGraph "#list_neptune-graph-action-StartGraph")                                                 |                             |                   | Write          |
-| StartImportTask                                                                                                                 | [neptune-graph:StartImportTask](#list_neptune-graph-action-StartImportTask "#list_neptune-graph-action-StartImportTask")                                  |                             |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                       | neptune-graph.amazonaws.com | Write             |
-| StopGraph                                                                                                                       | [neptune-graph:StopGraph](#list_neptune-graph-action-StopGraph "#list_neptune-graph-action-StopGraph")                                                    |                             |                   | Write          |
-| TagResource                                                                                                                     | [neptune-graph:TagResource](#list_neptune-graph-action-TagResource "#list_neptune-graph-action-TagResource")                                              |                             |                   | Tagging, Write |
-| UntagResource                                                                                                                   | [neptune-graph:UntagResource](#list_neptune-graph-action-UntagResource "#list_neptune-graph-action-UntagResource")                                        |                             |                   | Tagging, Write |
-| UpdateGraph                                                                                                                     | [neptune-graph:UpdateGraph](#list_neptune-graph-action-UpdateGraph "#list_neptune-graph-action-UpdateGraph")                                              |                             |                   | Write          |
+
+
+
+- **   CancelExportTask  **
+  - **IAM action:**  [neptune-graph:CancelExportTask](#list_neptune-graph-action-CancelExportTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CancelImportTask  **
+  - **IAM action:**  [neptune-graph:CancelImportTask](#list_neptune-graph-action-CancelImportTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateGraph  **
+  - **IAM action:**  [neptune-graph:CreateGraph](#list_neptune-graph-action-CreateGraph)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [neptune-graph:TagResource](#list_neptune-graph-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateGraphSnapshot  **
+  - **IAM action:**  [neptune-graph:CreateGraphSnapshot](#list_neptune-graph-action-CreateGraphSnapshot)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [neptune-graph:TagResource](#list_neptune-graph-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateGraphUsingImportTask  **
+  - **IAM action:**  [neptune-graph:CreateGraphUsingImportTask](#list_neptune-graph-action-CreateGraphUsingImportTask)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [neptune-graph:TagResource](#list_neptune-graph-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** neptune-graph.amazonaws.com / **Access level:** Write
+
+- **   CreatePrivateGraphEndpoint  **
+  - **IAM action:**  [neptune-graph:CreatePrivateGraphEndpoint](#list_neptune-graph-action-CreatePrivateGraphEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteGraph  **
+  - **IAM action:**  [neptune-graph:DeleteGraph](#list_neptune-graph-action-DeleteGraph) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteGraphSnapshot  **
+  - **IAM action:**  [neptune-graph:DeleteGraphSnapshot](#list_neptune-graph-action-DeleteGraphSnapshot) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeletePrivateGraphEndpoint  **
+  - **IAM action:**  [neptune-graph:DeletePrivateGraphEndpoint](#list_neptune-graph-action-DeletePrivateGraphEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetExportTask  **
+  - **IAM action:**  [neptune-graph:GetExportTask](#list_neptune-graph-action-GetExportTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetGraph  **
+  - **IAM action:**  [neptune-graph:GetGraph](#list_neptune-graph-action-GetGraph) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetGraphSnapshot  **
+  - **IAM action:**  [neptune-graph:GetGraphSnapshot](#list_neptune-graph-action-GetGraphSnapshot) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetImportTask  **
+  - **IAM action:**  [neptune-graph:GetImportTask](#list_neptune-graph-action-GetImportTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPrivateGraphEndpoint  **
+  - **IAM action:**  [neptune-graph:GetPrivateGraphEndpoint](#list_neptune-graph-action-GetPrivateGraphEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListExportTasks  **
+  - **IAM action:**  [neptune-graph:ListExportTasks](#list_neptune-graph-action-ListExportTasks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListGraphSnapshots  **
+  - **IAM action:**  [neptune-graph:ListGraphSnapshots](#list_neptune-graph-action-ListGraphSnapshots) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListGraphs  **
+  - **IAM action:**  [neptune-graph:ListGraphs](#list_neptune-graph-action-ListGraphs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListImportTasks  **
+  - **IAM action:**  [neptune-graph:ListImportTasks](#list_neptune-graph-action-ListImportTasks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListPrivateGraphEndpoints  **
+  - **IAM action:**  [neptune-graph:ListPrivateGraphEndpoints](#list_neptune-graph-action-ListPrivateGraphEndpoints) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [neptune-graph:ListTagsForResource](#list_neptune-graph-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ResetGraph  **
+  - **IAM action:**  [neptune-graph:ResetGraph](#list_neptune-graph-action-ResetGraph) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RestoreGraphFromSnapshot  **
+  - **IAM action:**  [neptune-graph:RestoreGraphFromSnapshot](#list_neptune-graph-action-RestoreGraphFromSnapshot)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [neptune-graph:TagResource](#list_neptune-graph-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   StartExportTask  **
+  - **IAM action:**  [neptune-graph:StartExportTask](#list_neptune-graph-action-StartExportTask)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [neptune-graph:TagResource](#list_neptune-graph-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** neptune-graph.amazonaws.com / **Access level:** Write
+
+- **   StartGraph  **
+  - **IAM action:**  [neptune-graph:StartGraph](#list_neptune-graph-action-StartGraph) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartImportTask  **
+  - **IAM action:**  [neptune-graph:StartImportTask](#list_neptune-graph-action-StartImportTask)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** neptune-graph.amazonaws.com / **Access level:** Write
+
+- **   StopGraph  **
+  - **IAM action:**  [neptune-graph:StopGraph](#list_neptune-graph-action-StopGraph) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [neptune-graph:TagResource](#list_neptune-graph-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [neptune-graph:UntagResource](#list_neptune-graph-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateGraph  **
+  - **IAM action:**  [neptune-graph:UpdateGraph](#list_neptune-graph-action-UpdateGraph) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon Neptune Analytics
+<a name="list_neptune-graph-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Resource types (\*required)                                                                                   | Condition keys                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [CancelExportTask](../../../neptune-analytics/latest/apiref/API_CancelExportTask.md "../../../neptune-analytics/latest/apiref/API_CancelExportTask.md")                               | Grants permission to cancel an ongoing export task                                                                                                                                                                                                                                                                                                                                                                                                                                           | [export-task\*](#list_neptune-graph-resource-export-task "#list_neptune-graph-resource-export-task")          | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Write          |
-| [CancelImportTask](../../../neptune-analytics/latest/apiref/API_CancelImportTask.md "../../../neptune-analytics/latest/apiref/API_CancelImportTask.md")                               | Grants permission to cancel an ongoing import task                                                                                                                                                                                                                                                                                                                                                                                                                                           | [import-task\*](#list_neptune-graph-resource-import-task "#list_neptune-graph-resource-import-task")          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Write          |
-| [CancelQuery](../../../neptune-analytics/latest/apiref/API_CancelQuery.md "../../../neptune-analytics/latest/apiref/API_CancelQuery.md")                                              | Grants permission to cancel a query                                                                                                                                                                                                                                                                                                                                                                                                                                                          | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Write          |
-| [CreateGraph](../../../neptune-analytics/latest/apiref/API_CreateGraph.md "../../../neptune-analytics/latest/apiref/API_CreateGraph.md")                                              | Grants permission to create a new graph                                                                                                                                                                                                                                                                                                                                                                                                                                                      | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_ "#list_neptune-graph-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_neptune-graph-aws_TagKeys "#list_neptune-graph-aws_TagKeys")<br>[neptune-graph:PublicConnectivity](#list_neptune-graph-neptune-graph_PublicConnectivity "#list_neptune-graph-neptune-graph_PublicConnectivity") | Write          |
-| [CreateGraphSnapshot](../../../neptune-analytics/latest/apiref/API_CreateGraphSnapshot.md "../../../neptune-analytics/latest/apiref/API_CreateGraphSnapshot.md")                      | Grants permission to create a new snapshot from an existing graph                                                                                                                                                                                                                                                                                                                                                                                                                            | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_ "#list_neptune-graph-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_neptune-graph-aws_TagKeys "#list_neptune-graph-aws_TagKeys")                                                                                                                                                    | Write          |
-| [graph-snapshot\*](#list_neptune-graph-resource-graph-snapshot "#list_neptune-graph-resource-graph-snapshot")                                                                         | [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_ "#list_neptune-graph-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_neptune-graph-aws_TagKeys "#list_neptune-graph-aws_TagKeys")                                                                                                                                                    |
-| [CreateGraphUsingImportTask](../../../neptune-analytics/latest/apiref/API_CreateGraphUsingImportTask.md "../../../neptune-analytics/latest/apiref/API_CreateGraphUsingImportTask.md") | Grants permission to create a new graph while importing data into the new graph                                                                                                                                                                                                                                                                                                                                                                                                              | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_ "#list_neptune-graph-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_neptune-graph-aws_TagKeys "#list_neptune-graph-aws_TagKeys")<br>[neptune-graph:PublicConnectivity](#list_neptune-graph-neptune-graph_PublicConnectivity "#list_neptune-graph-neptune-graph_PublicConnectivity") | Write          |
-| [import-task\*](#list_neptune-graph-resource-import-task "#list_neptune-graph-resource-import-task")                                                                                  | [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_ "#list_neptune-graph-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_neptune-graph-aws_TagKeys "#list_neptune-graph-aws_TagKeys")<br>[neptune-graph:PublicConnectivity](#list_neptune-graph-neptune-graph_PublicConnectivity "#list_neptune-graph-neptune-graph_PublicConnectivity")                                                                                                                               |
-| [CreatePrivateGraphEndpoint](../../../neptune-analytics/latest/apiref/API_CreatePrivateGraphEndpoint.md "../../../neptune-analytics/latest/apiref/API_CreatePrivateGraphEndpoint.md") | Grants permission to create a new private graph endpoint to access the graph from within a vpc                                                                                                                                                                                                                                                                                                                                                                                               | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_ "#list_neptune-graph-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_neptune-graph-aws_TagKeys "#list_neptune-graph-aws_TagKeys")                                                                                                                                                    | Write          |
-| [DeleteDataViaQuery](../../../neptune-analytics/latest/apiref/API_ExecuteQuery.md "../../../neptune-analytics/latest/apiref/API_ExecuteQuery.md")                                     | Grants permission to delete data via query APIs on the graph                                                                                                                                                                                                                                                                                                                                                                                                                                 | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Write          |
-| [DeleteGraph](../../../neptune-analytics/latest/apiref/API_DeleteGraph.md "../../../neptune-analytics/latest/apiref/API_DeleteGraph.md")                                              | Grants permission to delete a graph                                                                                                                                                                                                                                                                                                                                                                                                                                                          | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Write          |
-| [DeleteGraphSnapshot](../../../neptune-analytics/latest/apiref/API_DeleteGraphSnapshot.md "../../../neptune-analytics/latest/apiref/API_DeleteGraphSnapshot.md")                      | Grants permission to delete a snapshot                                                                                                                                                                                                                                                                                                                                                                                                                                                       | [graph-snapshot\*](#list_neptune-graph-resource-graph-snapshot "#list_neptune-graph-resource-graph-snapshot") | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Write          |
-| [DeletePrivateGraphEndpoint](../../../neptune-analytics/latest/apiref/API_DeletePrivateGraphEndpoint.md "../../../neptune-analytics/latest/apiref/API_DeletePrivateGraphEndpoint.md") | Grants permission to delete a private graph endpoint of a graph                                                                                                                                                                                                                                                                                                                                                                                                                              | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Write          |
-| [GetEngineStatus](../../../neptune-analytics/latest/apiref.md#GetEngineStatus "../../../neptune-analytics/latest/apiref.md#GetEngineStatus")                                          | Grants permission to get the engine status of the graph                                                                                                                                                                                                                                                                                                                                                                                                                                      | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetExportTask](../../../neptune-analytics/latest/apiref/API_GetExportTask.md "../../../neptune-analytics/latest/apiref/API_GetExportTask.md")                                        | Grants permission to get details about an export task                                                                                                                                                                                                                                                                                                                                                                                                                                        | [export-task\*](#list_neptune-graph-resource-export-task "#list_neptune-graph-resource-export-task")          | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetGraph](../../../neptune-analytics/latest/apiref/API_GetGraph.md "../../../neptune-analytics/latest/apiref/API_GetGraph.md")                                                       | Grants permission to get details about a graph                                                                                                                                                                                                                                                                                                                                                                                                                                               | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetGraphSnapshot](../../../neptune-analytics/latest/apiref/API_GetGraphSnapshot.md "../../../neptune-analytics/latest/apiref/API_GetGraphSnapshot.md")                               | Grants permission to get details about a snapshot                                                                                                                                                                                                                                                                                                                                                                                                                                            | [graph-snapshot\*](#list_neptune-graph-resource-graph-snapshot "#list_neptune-graph-resource-graph-snapshot") | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetGraphSummary](../../../neptune-analytics/latest/apiref/API_GetGraphSummary.md "../../../neptune-analytics/latest/apiref/API_GetGraphSummary.md")                                  | Grants permission to get the summary for the data in the graph                                                                                                                                                                                                                                                                                                                                                                                                                               | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetImportTask](../../../neptune-analytics/latest/apiref/API_GetImportTask.md "../../../neptune-analytics/latest/apiref/API_GetImportTask.md")                                        | Grants permission to get details about an import task                                                                                                                                                                                                                                                                                                                                                                                                                                        | [import-task\*](#list_neptune-graph-resource-import-task "#list_neptune-graph-resource-import-task")          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Read           |
-| [GetPrivateGraphEndpoint](../../../neptune-analytics/latest/apiref/API_GetPrivateGraphEndpoint.md "../../../neptune-analytics/latest/apiref/API_GetPrivateGraphEndpoint.md")          | Grants permission to get details about a private graph endpoint of a graph                                                                                                                                                                                                                                                                                                                                                                                                                   | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetQueryStatus](../../../neptune-analytics/latest/apiref/API_GetQuery.md "../../../neptune-analytics/latest/apiref/API_GetQuery.md")                                                 | Grants permission to check the status of a given query                                                                                                                                                                                                                                                                                                                                                                                                                                       | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetStatisticsStatus](../../../neptune-analytics/latest/apiref.md#GetStatisticsStatus "../../../neptune-analytics/latest/apiref.md#GetStatisticsStatus")                              | Grants permission to get the statistics for the data in the graph                                                                                                                                                                                                                                                                                                                                                                                                                            | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Read           |
-| [ListExportTasks](../../../neptune-analytics/latest/apiref/API_ListExportTasks.md "../../../neptune-analytics/latest/apiref/API_ListExportTasks.md")                                  | Grants permission to list the export tasks in your account                                                                                                                                                                                                                                                                                                                                                                                                                                   | [export-task\*](#list_neptune-graph-resource-export-task "#list_neptune-graph-resource-export-task")          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Read           |
-| [ListGraphSnapshots](../../../neptune-analytics/latest/apiref/API_ListGraphSnapshots.md "../../../neptune-analytics/latest/apiref/API_ListGraphSnapshots.md")                         | Grants permission to list the snapshots in your account                                                                                                                                                                                                                                                                                                                                                                                                                                      | [graph-snapshot\*](#list_neptune-graph-resource-graph-snapshot "#list_neptune-graph-resource-graph-snapshot") | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Read           |
-| [ListGraphs](../../../neptune-analytics/latest/apiref/API_ListGraphs.md "../../../neptune-analytics/latest/apiref/API_ListGraphs.md")                                                 | Grants permission to list the graphs in your account                                                                                                                                                                                                                                                                                                                                                                                                                                         | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Read           |
-| [ListImportTasks](../../../neptune-analytics/latest/apiref/API_ListImportTasks.md "../../../neptune-analytics/latest/apiref/API_ListImportTasks.md")                                  | Grants permission to list the import tasks in your account                                                                                                                                                                                                                                                                                                                                                                                                                                   | [import-task\*](#list_neptune-graph-resource-import-task "#list_neptune-graph-resource-import-task")          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Read           |
-| [ListPrivateGraphEndpoints](../../../neptune-analytics/latest/apiref/API_ListPrivateGraphEndpoints.md "../../../neptune-analytics/latest/apiref/API_ListPrivateGraphEndpoints.md")    | Grants permission to list the private graph endpoints for a given graph                                                                                                                                                                                                                                                                                                                                                                                                                      | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Read           |
-| [ListQueries](../../../neptune-analytics/latest/apiref/API_ListQueries.md "../../../neptune-analytics/latest/apiref/API_ListQueries.md")                                              | Grants permission to check the status of all active queries                                                                                                                                                                                                                                                                                                                                                                                                                                  | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Read           |
-| [ListTagsForResource](../../../neptune-analytics/latest/apiref/API_ListTagsForResource.md "../../../neptune-analytics/latest/apiref/API_ListTagsForResource.md")                      | Grants permission to lists tag for a Neptune Analytics resource                                                                                                                                                                                                                                                                                                                                                                                                                              | [graph](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                              | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Read           |
-| [graph-snapshot](#list_neptune-graph-resource-graph-snapshot "#list_neptune-graph-resource-graph-snapshot")                                                                           | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   |
-| [ReadDataViaQuery](../../../neptune-analytics/latest/apiref/API_ExecuteQuery.md "../../../neptune-analytics/latest/apiref/API_ExecuteQuery.md")                                       | Grants permission to read data via query APIs on the graph                                                                                                                                                                                                                                                                                                                                                                                                                                   | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Read           |
-| [ResetGraph](../../../neptune-analytics/latest/apiref/API_ResetGraph.md "../../../neptune-analytics/latest/apiref/API_ResetGraph.md")                                                 | Grants permission to reset a graph which deletes all data within the graph                                                                                                                                                                                                                                                                                                                                                                                                                   | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Write          |
-| [RestoreGraphFromSnapshot](../../../neptune-analytics/latest/apiref/API_RestoreGraphFromSnapshot.md "../../../neptune-analytics/latest/apiref/API_RestoreGraphFromSnapshot.md")       | Grants permission to create a new graph from an existing snapshot                                                                                                                                                                                                                                                                                                                                                                                                                            | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_ "#list_neptune-graph-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_neptune-graph-aws_TagKeys "#list_neptune-graph-aws_TagKeys")<br>[neptune-graph:PublicConnectivity](#list_neptune-graph-neptune-graph_PublicConnectivity "#list_neptune-graph-neptune-graph_PublicConnectivity") | Write          |
-| [graph-snapshot\*](#list_neptune-graph-resource-graph-snapshot "#list_neptune-graph-resource-graph-snapshot")                                                                         | [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_ "#list_neptune-graph-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_neptune-graph-aws_TagKeys "#list_neptune-graph-aws_TagKeys")<br>[neptune-graph:PublicConnectivity](#list_neptune-graph-neptune-graph_PublicConnectivity "#list_neptune-graph-neptune-graph_PublicConnectivity") |
-| [StartExportTask](../../../neptune-analytics/latest/apiref/API_StartExportTask.md "../../../neptune-analytics/latest/apiref/API_StartExportTask.md")                                  | Grants permission to export data from an existing graph                                                                                                                                                                                                                                                                                                                                                                                                                                      | [export-task\*](#list_neptune-graph-resource-export-task "#list_neptune-graph-resource-export-task")          | [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_ "#list_neptune-graph-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_neptune-graph-aws_TagKeys "#list_neptune-graph-aws_TagKeys")                                                                                                                                                    | Write          |
-| [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                                                                                                    | [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_ "#list_neptune-graph-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_neptune-graph-aws_TagKeys "#list_neptune-graph-aws_TagKeys")                                                                                                                                                    |
-| [StartGraph](../../../neptune-analytics/latest/apiref/API_StartGraph.md "../../../neptune-analytics/latest/apiref/API_StartGraph.md")                                                 | Grants permission to start a graph                                                                                                                                                                                                                                                                                                                                                                                                                                                           | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Write          |
-| [StartImportTask](../../../neptune-analytics/latest/apiref/API_StartImportTask.md "../../../neptune-analytics/latest/apiref/API_StartImportTask.md")                                  | Grants permission to import data into an existing graph                                                                                                                                                                                                                                                                                                                                                                                                                                      | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Write          |
-| [import-task\*](#list_neptune-graph-resource-import-task "#list_neptune-graph-resource-import-task")                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| [StopGraph](../../../neptune-analytics/latest/apiref/API_StopGraph.md "../../../neptune-analytics/latest/apiref/API_StopGraph.md")                                                    | Grants permission to stop a graph                                                                                                                                                                                                                                                                                                                                                                                                                                                            | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Write          |
-| [TagResource](../../../neptune-analytics/latest/apiref/API_TagResource.md "../../../neptune-analytics/latest/apiref/API_TagResource.md")                                              | Grants permission to tag a Neptune Analytics resource                                                                                                                                                                                                                                                                                                                                                                                                                                        | [graph](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                              | [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_ "#list_neptune-graph-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_neptune-graph-aws_TagKeys "#list_neptune-graph-aws_TagKeys")                                                                                                                                                    | Tagging, Write |
-| [graph-snapshot](#list_neptune-graph-resource-graph-snapshot "#list_neptune-graph-resource-graph-snapshot")                                                                           | [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_ "#list_neptune-graph-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_neptune-graph-aws_TagKeys "#list_neptune-graph-aws_TagKeys")                                                                                                                                                    |
-| [UntagResource](../../../neptune-analytics/latest/apiref/API_UntagResource.md "../../../neptune-analytics/latest/apiref/API_UntagResource.md")                                        | Grants permission to untag a Neptune Analytics resource                                                                                                                                                                                                                                                                                                                                                                                                                                      | [graph](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                              | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_neptune-graph-aws_TagKeys "#list_neptune-graph-aws_TagKeys")                                                                                                                                                                                                                                                                               | Tagging, Write |
-| [graph-snapshot](#list_neptune-graph-resource-graph-snapshot "#list_neptune-graph-resource-graph-snapshot")                                                                           | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_neptune-graph-aws_TagKeys "#list_neptune-graph-aws_TagKeys")                                                                                                                                                                                                                                                                               |
-| [UpdateGraph](../../../neptune-analytics/latest/apiref/API_UpdateGraph.md "../../../neptune-analytics/latest/apiref/API_UpdateGraph.md")                                              | Grants permission to modify a graph                                                                                                                                                                                                                                                                                                                                                                                                                                                          | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")<br>[neptune-graph:PublicConnectivity](#list_neptune-graph-neptune-graph_PublicConnectivity "#list_neptune-graph-neptune-graph_PublicConnectivity")                                                                                                                                                                                                                | Write          |
-| [WriteDataViaQuery](../../../neptune-analytics/latest/apiref/API_ExecuteQuery.md "../../../neptune-analytics/latest/apiref/API_ExecuteQuery.md")                                      | Grants permission to write data via query APIs on the graph                                                                                                                                                                                                                                                                                                                                                                                                                                  | [graph\*](#list_neptune-graph-resource-graph "#list_neptune-graph-resource-graph")                            | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                   | Write          |
+
+
+
+- **   [CancelExportTask](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_CancelExportTask.html)  **
+  - **Description:** Grants permission to cancel an ongoing export task
+  - **Resource types (\*required):** [export-task\*](#list_neptune-graph-resource-export-task)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelImportTask](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_CancelImportTask.html)  **
+  - **Description:** Grants permission to cancel an ongoing import task
+  - **Resource types (\*required):** [import-task\*](#list_neptune-graph-resource-import-task)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CancelQuery](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_CancelQuery.html)  **
+  - **Description:** Grants permission to cancel a query
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateGraph](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_CreateGraph.html)  **
+  - **Description:** Grants permission to create a new graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_neptune-graph-aws_TagKeys)<br />[neptune-graph:PublicConnectivity](#list_neptune-graph-neptune-graph_PublicConnectivity)
+  - **Access level:** Write
+
+- **   [CreateGraphSnapshot](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_CreateGraphSnapshot.html)  **
+  - **Description:** Grants permission to create a new snapshot from an existing graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_neptune-graph-aws_TagKeys)
+  - **Resource types (\*required):** [graph-snapshot\*](#list_neptune-graph-resource-graph-snapshot) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_neptune-graph-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateGraphUsingImportTask](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_CreateGraphUsingImportTask.html)  **
+  - **Description:** Grants permission to create a new graph while importing data into the new graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_neptune-graph-aws_TagKeys)<br />[neptune-graph:PublicConnectivity](#list_neptune-graph-neptune-graph_PublicConnectivity)
+  - **Resource types (\*required):** [import-task\*](#list_neptune-graph-resource-import-task) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_neptune-graph-aws_TagKeys)<br />[neptune-graph:PublicConnectivity](#list_neptune-graph-neptune-graph_PublicConnectivity)
+  - **Access level:** Write
+
+- **   [CreatePrivateGraphEndpoint](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_CreatePrivateGraphEndpoint.html)  **
+  - **Description:** Grants permission to create a new private graph endpoint to access the graph from within a vpc
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_neptune-graph-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteDataViaQuery](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_ExecuteQuery.html)  **
+  - **Description:** Grants permission to delete data via query APIs on the graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteGraph](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_DeleteGraph.html)  **
+  - **Description:** Grants permission to delete a graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteGraphSnapshot](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_DeleteGraphSnapshot.html)  **
+  - **Description:** Grants permission to delete a snapshot
+  - **Resource types (\*required):** [graph-snapshot\*](#list_neptune-graph-resource-graph-snapshot)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeletePrivateGraphEndpoint](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_DeletePrivateGraphEndpoint.html)  **
+  - **Description:** Grants permission to delete a private graph endpoint of a graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetEngineStatus](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/#GetEngineStatus)  **
+  - **Description:** Grants permission to get the engine status of the graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetExportTask](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_GetExportTask.html)  **
+  - **Description:** Grants permission to get details about an export task
+  - **Resource types (\*required):** [export-task\*](#list_neptune-graph-resource-export-task)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetGraph](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_GetGraph.html)  **
+  - **Description:** Grants permission to get details about a graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetGraphSnapshot](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_GetGraphSnapshot.html)  **
+  - **Description:** Grants permission to get details about a snapshot
+  - **Resource types (\*required):** [graph-snapshot\*](#list_neptune-graph-resource-graph-snapshot)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetGraphSummary](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_GetGraphSummary.html)  **
+  - **Description:** Grants permission to get the summary for the data in the graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetImportTask](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_GetImportTask.html)  **
+  - **Description:** Grants permission to get details about an import task
+  - **Resource types (\*required):** [import-task\*](#list_neptune-graph-resource-import-task)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetPrivateGraphEndpoint](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_GetPrivateGraphEndpoint.html)  **
+  - **Description:** Grants permission to get details about a private graph endpoint of a graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetQueryStatus](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_GetQuery.html)  **
+  - **Description:** Grants permission to check the status of a given query
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetStatisticsStatus](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/#GetStatisticsStatus)  **
+  - **Description:** Grants permission to get the statistics for the data in the graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListExportTasks](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_ListExportTasks.html)  **
+  - **Description:** Grants permission to list the export tasks in your account
+  - **Resource types (\*required):** [export-task\*](#list_neptune-graph-resource-export-task)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListGraphSnapshots](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_ListGraphSnapshots.html)  **
+  - **Description:** Grants permission to list the snapshots in your account
+  - **Resource types (\*required):** [graph-snapshot\*](#list_neptune-graph-resource-graph-snapshot)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListGraphs](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_ListGraphs.html)  **
+  - **Description:** Grants permission to list the graphs in your account
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListImportTasks](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_ListImportTasks.html)  **
+  - **Description:** Grants permission to list the import tasks in your account
+  - **Resource types (\*required):** [import-task\*](#list_neptune-graph-resource-import-task)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListPrivateGraphEndpoints](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_ListPrivateGraphEndpoints.html)  **
+  - **Description:** Grants permission to list the private graph endpoints for a given graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListQueries](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_ListQueries.html)  **
+  - **Description:** Grants permission to check the status of all active queries
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to lists tag for a Neptune Analytics resource
+  - **Resource types (\*required):** [graph](#list_neptune-graph-resource-graph) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [graph-snapshot](#list_neptune-graph-resource-graph-snapshot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ReadDataViaQuery](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_ExecuteQuery.html)  **
+  - **Description:** Grants permission to read data via query APIs on the graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ResetGraph](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_ResetGraph.html)  **
+  - **Description:** Grants permission to reset a graph which deletes all data within the graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RestoreGraphFromSnapshot](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_RestoreGraphFromSnapshot.html)  **
+  - **Description:** Grants permission to create a new graph from an existing snapshot
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_neptune-graph-aws_TagKeys)<br />[neptune-graph:PublicConnectivity](#list_neptune-graph-neptune-graph_PublicConnectivity)
+  - **Resource types (\*required):** [graph-snapshot\*](#list_neptune-graph-resource-graph-snapshot) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_neptune-graph-aws_TagKeys)<br />[neptune-graph:PublicConnectivity](#list_neptune-graph-neptune-graph_PublicConnectivity)
+  - **Access level:** Write
+
+- **   [StartExportTask](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_StartExportTask.html)  **
+  - **Description:** Grants permission to export data from an existing graph
+  - **Resource types (\*required):** [export-task\*](#list_neptune-graph-resource-export-task) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_neptune-graph-aws_TagKeys)
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_neptune-graph-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [StartGraph](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_StartGraph.html)  **
+  - **Description:** Grants permission to start a graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartImportTask](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_StartImportTask.html)  **
+  - **Description:** Grants permission to import data into an existing graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [import-task\*](#list_neptune-graph-resource-import-task) / **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StopGraph](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_StopGraph.html)  **
+  - **Description:** Grants permission to stop a graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_TagResource.html)  **
+  - **Description:** Grants permission to tag a Neptune Analytics resource
+  - **Resource types (\*required):** [graph](#list_neptune-graph-resource-graph) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_neptune-graph-aws_TagKeys)
+  - **Resource types (\*required):** [graph-snapshot](#list_neptune-graph-resource-graph-snapshot) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_neptune-graph-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_neptune-graph-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag a Neptune Analytics resource
+  - **Resource types (\*required):** [graph](#list_neptune-graph-resource-graph) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_neptune-graph-aws_TagKeys)
+  - **Resource types (\*required):** [graph-snapshot](#list_neptune-graph-resource-graph-snapshot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_neptune-graph-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateGraph](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_UpdateGraph.html)  **
+  - **Description:** Grants permission to modify a graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)<br />[neptune-graph:PublicConnectivity](#list_neptune-graph-neptune-graph_PublicConnectivity)
+  - **Access level:** Write
+
+- **   [WriteDataViaQuery](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_ExecuteQuery.html)  **
+  - **Description:** Grants permission to write data via query APIs on the graph
+  - **Resource types (\*required):** [graph\*](#list_neptune-graph-resource-graph)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon Neptune Analytics
+<a name="list_neptune-graph-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                              | ARN                                                                              | Condition keys                                                                                                             |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| [export-task](../../../neptune-analytics/latest/userguide/iam-resources.md#export-task "../../../neptune-analytics/latest/userguide/iam-resources.md#export-task")          | arn:${Partition}:neptune-graph:${Region}:${Account}:export-task/${ResourceId}    |                                                                                                                            |
-| [graph](../../../neptune-analytics/latest/userguide/iam-resources.md#graph "../../../neptune-analytics/latest/userguide/iam-resources.md#graph")                            | arn:${Partition}:neptune-graph:${Region}:${Account}:graph/${ResourceId}          | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_") |
-| [graph-snapshot](../../../neptune-analytics/latest/userguide/iam-resources.md#graph-snapshot "../../../neptune-analytics/latest/userguide/iam-resources.md#graph-snapshot") | arn:${Partition}:neptune-graph:${Region}:${Account}:graph-snapshot/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_ "#list_neptune-graph-aws_ResourceTag___TagKey_") |
-| [import-task](../../../neptune-analytics/latest/userguide/iam-resources.md#import-task "../../../neptune-analytics/latest/userguide/iam-resources.md#import-task")          | arn:${Partition}:neptune-graph:${Region}:${Account}:import-task/${ResourceId}    |                                                                                                                            |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [export-task](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/iam-resources.html#export-task)  | arn:${Partition}:neptune-graph:${Region}:${Account}:export-task/${ResourceId} |   | 
+|  [graph](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/iam-resources.html#graph)  | arn:${Partition}:neptune-graph:${Region}:${Account}:graph/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_) | 
+|  [graph-snapshot](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/iam-resources.html#graph-snapshot)  | arn:${Partition}:neptune-graph:${Region}:${Account}:graph-snapshot/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_neptune-graph-aws_ResourceTag___TagKey_) | 
+|  [import-task](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/iam-resources.html#import-task)  | arn:${Partition}:neptune-graph:${Region}:${Account}:import-task/${ResourceId} |   | 
 
 ## Condition keys for Amazon Neptune Analytics
+<a name="list_neptune-graph-policy-keys"></a>
 
-Amazon Neptune Analytics defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Neptune Analytics defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                                                                                                                              | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by a tag's key and value in a request                                                                                                                     | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by the presence of tag key-value pairs in the request                                                                                                     | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the tag keys in a request                                                                                                                              | ArrayOfString |
-| [neptune-graph:PublicConnectivity](../../../neptune-analytics/latest/userguide/iam-condition-keys.md#publicconnectivity "../../../neptune-analytics/latest/userguide/iam-condition-keys.md#publicconnectivity")            | Filters access by the value of the public connectivity parameter provided in the request or its default value, if unspecified. All access to graphs is IAM authenticated | Bool          |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by a tag's key and value in a request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the presence of tag key-value pairs in the request | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys in a request | ArrayOfString | 
+|   [neptune-graph:PublicConnectivity](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/iam-condition-keys.html#publicconnectivity)  | Filters access by the value of the public connectivity parameter provided in the request or its default value, if unspecified. All access to graphs is IAM authenticated | Bool | 

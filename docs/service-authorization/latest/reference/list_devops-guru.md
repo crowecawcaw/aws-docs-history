@@ -1,120 +1,432 @@
-# Actions, resources, and condition keys for Amazon DevOps Guru
 
-Amazon DevOps Guru (service prefix: `devops-guru`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon DevOps Guru
+<a name="list_devops-guru"></a>
+
+Amazon DevOps Guru (service prefix: `devops-guru`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/devops-guru/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/devops-guru/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/devops-guru/latest/userguide/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/devops-guru/devops-guru.json) for this service.
 
-- Learn how to [configure this service](../../../devops-guru/latest/userguide.md "../../../devops-guru/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../devops-guru/latest/APIReference.md "../../../devops-guru/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../devops-guru/latest/userguide/security-iam.md "../../../devops-guru/latest/userguide/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/devops-guru/devops-guru.json "https://servicereference.us-east-1.amazonaws.com/v1/devops-guru/devops-guru.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon DevOps Guru](#list_devops-guru-operations "#list_devops-guru-operations")
-- [Actions defined by Amazon DevOps Guru](#list_devops-guru-actions-as-permissions "#list_devops-guru-actions-as-permissions")
-- [Resource types defined by Amazon DevOps Guru](#list_devops-guru-resources-for-iam-policies "#list_devops-guru-resources-for-iam-policies")
-- [Condition keys for Amazon DevOps Guru](#list_devops-guru-policy-keys "#list_devops-guru-policy-keys")
+**Topics**
++ [API operations defined by Amazon DevOps Guru](#list_devops-guru-operations)
++ [Actions defined by Amazon DevOps Guru](#list_devops-guru-actions-as-permissions)
++ [Resource types defined by Amazon DevOps Guru](#list_devops-guru-resources-for-iam-policies)
++ [Condition keys for Amazon DevOps Guru](#list_devops-guru-policy-keys)
 
 ## API operations defined by Amazon DevOps Guru
+<a name="list_devops-guru-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_devops-guru-actions-as-permissions "#list_devops-guru-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_devops-guru-actions-as-permissions).
 
-| Operation                                    | IAM action                                                                                                                                                                                                | Condition key | Possible value(s) | Access level |
-| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------- | ------------ |
-| AddNotificationChannel                       | [devops-guru:AddNotificationChannel](#list_devops-guru-action-AddNotificationChannel "#list_devops-guru-action-AddNotificationChannel")                                                                   |               |                   | Write        |
-| DeleteInsight                                | [devops-guru:DeleteInsight](#list_devops-guru-action-DeleteInsight "#list_devops-guru-action-DeleteInsight")                                                                                              |               |                   | Write        |
-| DescribeAccountHealth                        | [devops-guru:DescribeAccountHealth](#list_devops-guru-action-DescribeAccountHealth "#list_devops-guru-action-DescribeAccountHealth")                                                                      |               |                   | Read         |
-| DescribeAccountOverview                      | [devops-guru:DescribeAccountOverview](#list_devops-guru-action-DescribeAccountOverview "#list_devops-guru-action-DescribeAccountOverview")                                                                |               |                   | Read         |
-| DescribeAnomaly                              | [devops-guru:DescribeAnomaly](#list_devops-guru-action-DescribeAnomaly "#list_devops-guru-action-DescribeAnomaly")                                                                                        |               |                   | Read         |
-| DescribeEventSourcesConfig                   | [devops-guru:DescribeEventSourcesConfig](#list_devops-guru-action-DescribeEventSourcesConfig "#list_devops-guru-action-DescribeEventSourcesConfig")                                                       |               |                   | Read         |
-| DescribeFeedback                             | [devops-guru:DescribeFeedback](#list_devops-guru-action-DescribeFeedback "#list_devops-guru-action-DescribeFeedback")                                                                                     |               |                   | Read         |
-| DescribeInsight                              | [devops-guru:DescribeInsight](#list_devops-guru-action-DescribeInsight "#list_devops-guru-action-DescribeInsight")                                                                                        |               |                   | Read         |
-| DescribeOrganizationHealth                   | [devops-guru:DescribeOrganizationHealth](#list_devops-guru-action-DescribeOrganizationHealth "#list_devops-guru-action-DescribeOrganizationHealth")                                                       |               |                   | Read         |
-| DescribeOrganizationOverview                 | [devops-guru:DescribeOrganizationOverview](#list_devops-guru-action-DescribeOrganizationOverview "#list_devops-guru-action-DescribeOrganizationOverview")                                                 |               |                   | Read         |
-| DescribeOrganizationResourceCollectionHealth | [devops-guru:DescribeOrganizationResourceCollectionHealth](#list_devops-guru-action-DescribeOrganizationResourceCollectionHealth "#list_devops-guru-action-DescribeOrganizationResourceCollectionHealth") |               |                   | Read         |
-| DescribeResourceCollectionHealth             | [devops-guru:DescribeResourceCollectionHealth](#list_devops-guru-action-DescribeResourceCollectionHealth "#list_devops-guru-action-DescribeResourceCollectionHealth")                                     |               |                   | Read         |
-| DescribeServiceIntegration                   | [devops-guru:DescribeServiceIntegration](#list_devops-guru-action-DescribeServiceIntegration "#list_devops-guru-action-DescribeServiceIntegration")                                                       |               |                   | Read         |
-| GetCostEstimation                            | [devops-guru:GetCostEstimation](#list_devops-guru-action-GetCostEstimation "#list_devops-guru-action-GetCostEstimation")                                                                                  |               |                   | Read         |
-| GetResourceCollection                        | [devops-guru:GetResourceCollection](#list_devops-guru-action-GetResourceCollection "#list_devops-guru-action-GetResourceCollection")                                                                      |               |                   | Read         |
-| ListAnomaliesForInsight                      | [devops-guru:ListAnomaliesForInsight](#list_devops-guru-action-ListAnomaliesForInsight "#list_devops-guru-action-ListAnomaliesForInsight")                                                                |               |                   | List         |
-| ListAnomalousLogGroups                       | [devops-guru:ListAnomalousLogGroups](#list_devops-guru-action-ListAnomalousLogGroups "#list_devops-guru-action-ListAnomalousLogGroups")                                                                   |               |                   | List         |
-| ListEvents                                   | [devops-guru:ListEvents](#list_devops-guru-action-ListEvents "#list_devops-guru-action-ListEvents")                                                                                                       |               |                   | List         |
-| ListInsights                                 | [devops-guru:ListInsights](#list_devops-guru-action-ListInsights "#list_devops-guru-action-ListInsights")                                                                                                 |               |                   | List         |
-| ListMonitoredResources                       | [devops-guru:ListMonitoredResources](#list_devops-guru-action-ListMonitoredResources "#list_devops-guru-action-ListMonitoredResources")                                                                   |               |                   | List         |
-| ListNotificationChannels                     | [devops-guru:ListNotificationChannels](#list_devops-guru-action-ListNotificationChannels "#list_devops-guru-action-ListNotificationChannels")                                                             |               |                   | List         |
-| ListOrganizationInsights                     | [devops-guru:ListOrganizationInsights](#list_devops-guru-action-ListOrganizationInsights "#list_devops-guru-action-ListOrganizationInsights")                                                             |               |                   | List         |
-| ListRecommendations                          | [devops-guru:ListRecommendations](#list_devops-guru-action-ListRecommendations "#list_devops-guru-action-ListRecommendations")                                                                            |               |                   | List         |
-| PutFeedback                                  | [devops-guru:PutFeedback](#list_devops-guru-action-PutFeedback "#list_devops-guru-action-PutFeedback")                                                                                                    |               |                   | Write        |
-| RemoveNotificationChannel                    | [devops-guru:RemoveNotificationChannel](#list_devops-guru-action-RemoveNotificationChannel "#list_devops-guru-action-RemoveNotificationChannel")                                                          |               |                   | Write        |
-| SearchInsights                               | [devops-guru:SearchInsights](#list_devops-guru-action-SearchInsights "#list_devops-guru-action-SearchInsights")                                                                                           |               |                   | List         |
-| SearchOrganizationInsights                   | [devops-guru:SearchOrganizationInsights](#list_devops-guru-action-SearchOrganizationInsights "#list_devops-guru-action-SearchOrganizationInsights")                                                       |               |                   | List         |
-| StartCostEstimation                          | [devops-guru:StartCostEstimation](#list_devops-guru-action-StartCostEstimation "#list_devops-guru-action-StartCostEstimation")                                                                            |               |                   | Read         |
-| UpdateEventSourcesConfig                     | [devops-guru:UpdateEventSourcesConfig](#list_devops-guru-action-UpdateEventSourcesConfig "#list_devops-guru-action-UpdateEventSourcesConfig")                                                             |               |                   | Write        |
-| UpdateResourceCollection                     | [devops-guru:UpdateResourceCollection](#list_devops-guru-action-UpdateResourceCollection "#list_devops-guru-action-UpdateResourceCollection")                                                             |               |                   | Write        |
-| UpdateServiceIntegration                     | [devops-guru:UpdateServiceIntegration](#list_devops-guru-action-UpdateServiceIntegration "#list_devops-guru-action-UpdateServiceIntegration")                                                             |               |                   | Write        |
+
+
+
+- **   AddNotificationChannel  **
+  - **IAM action:**  [devops-guru:AddNotificationChannel](#list_devops-guru-action-AddNotificationChannel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteInsight  **
+  - **IAM action:**  [devops-guru:DeleteInsight](#list_devops-guru-action-DeleteInsight) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeAccountHealth  **
+  - **IAM action:**  [devops-guru:DescribeAccountHealth](#list_devops-guru-action-DescribeAccountHealth) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeAccountOverview  **
+  - **IAM action:**  [devops-guru:DescribeAccountOverview](#list_devops-guru-action-DescribeAccountOverview) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeAnomaly  **
+  - **IAM action:**  [devops-guru:DescribeAnomaly](#list_devops-guru-action-DescribeAnomaly) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeEventSourcesConfig  **
+  - **IAM action:**  [devops-guru:DescribeEventSourcesConfig](#list_devops-guru-action-DescribeEventSourcesConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeFeedback  **
+  - **IAM action:**  [devops-guru:DescribeFeedback](#list_devops-guru-action-DescribeFeedback) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeInsight  **
+  - **IAM action:**  [devops-guru:DescribeInsight](#list_devops-guru-action-DescribeInsight) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeOrganizationHealth  **
+  - **IAM action:**  [devops-guru:DescribeOrganizationHealth](#list_devops-guru-action-DescribeOrganizationHealth) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeOrganizationOverview  **
+  - **IAM action:**  [devops-guru:DescribeOrganizationOverview](#list_devops-guru-action-DescribeOrganizationOverview) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeOrganizationResourceCollectionHealth  **
+  - **IAM action:**  [devops-guru:DescribeOrganizationResourceCollectionHealth](#list_devops-guru-action-DescribeOrganizationResourceCollectionHealth) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeResourceCollectionHealth  **
+  - **IAM action:**  [devops-guru:DescribeResourceCollectionHealth](#list_devops-guru-action-DescribeResourceCollectionHealth) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeServiceIntegration  **
+  - **IAM action:**  [devops-guru:DescribeServiceIntegration](#list_devops-guru-action-DescribeServiceIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCostEstimation  **
+  - **IAM action:**  [devops-guru:GetCostEstimation](#list_devops-guru-action-GetCostEstimation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetResourceCollection  **
+  - **IAM action:**  [devops-guru:GetResourceCollection](#list_devops-guru-action-GetResourceCollection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAnomaliesForInsight  **
+  - **IAM action:**  [devops-guru:ListAnomaliesForInsight](#list_devops-guru-action-ListAnomaliesForInsight) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAnomalousLogGroups  **
+  - **IAM action:**  [devops-guru:ListAnomalousLogGroups](#list_devops-guru-action-ListAnomalousLogGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEvents  **
+  - **IAM action:**  [devops-guru:ListEvents](#list_devops-guru-action-ListEvents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListInsights  **
+  - **IAM action:**  [devops-guru:ListInsights](#list_devops-guru-action-ListInsights) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMonitoredResources  **
+  - **IAM action:**  [devops-guru:ListMonitoredResources](#list_devops-guru-action-ListMonitoredResources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListNotificationChannels  **
+  - **IAM action:**  [devops-guru:ListNotificationChannels](#list_devops-guru-action-ListNotificationChannels) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListOrganizationInsights  **
+  - **IAM action:**  [devops-guru:ListOrganizationInsights](#list_devops-guru-action-ListOrganizationInsights) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRecommendations  **
+  - **IAM action:**  [devops-guru:ListRecommendations](#list_devops-guru-action-ListRecommendations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PutFeedback  **
+  - **IAM action:**  [devops-guru:PutFeedback](#list_devops-guru-action-PutFeedback) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RemoveNotificationChannel  **
+  - **IAM action:**  [devops-guru:RemoveNotificationChannel](#list_devops-guru-action-RemoveNotificationChannel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SearchInsights  **
+  - **IAM action:**  [devops-guru:SearchInsights](#list_devops-guru-action-SearchInsights) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   SearchOrganizationInsights  **
+  - **IAM action:**  [devops-guru:SearchOrganizationInsights](#list_devops-guru-action-SearchOrganizationInsights) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   StartCostEstimation  **
+  - **IAM action:**  [devops-guru:StartCostEstimation](#list_devops-guru-action-StartCostEstimation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   UpdateEventSourcesConfig  **
+  - **IAM action:**  [devops-guru:UpdateEventSourcesConfig](#list_devops-guru-action-UpdateEventSourcesConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateResourceCollection  **
+  - **IAM action:**  [devops-guru:UpdateResourceCollection](#list_devops-guru-action-UpdateResourceCollection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateServiceIntegration  **
+  - **IAM action:**  [devops-guru:UpdateServiceIntegration](#list_devops-guru-action-UpdateServiceIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon DevOps Guru
+<a name="list_devops-guru-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                                     | Description                                                                                                                                                    | Resource types (\*required)                                                    | Condition keys                                                                                                      | Access level |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [AddNotificationChannel](../../../devops-guru/latest/APIReference/API_AddNotificationChannel.md "../../../devops-guru/latest/APIReference/API_AddNotificationChannel.md")                                                                   | Grants permission to add a notification channel to DevOps Guru                                                                                                 | [topic\*](#list_devops-guru-resource-topic "#list_devops-guru-resource-topic") |                                                                                                                     | Write        |
-| [DeleteInsight](../../../devops-guru/latest/APIReference/API_DeleteInsight.md "../../../devops-guru/latest/APIReference/API_DeleteInsight.md")                                                                                              | Grants permission to delete specified insight in your account                                                                                                  |                                                                                |                                                                                                                     | Write        |
-| [DescribeAccountHealth](../../../devops-guru/latest/APIReference/API_DescribeAccountHealth.md "../../../devops-guru/latest/APIReference/API_DescribeAccountHealth.md")                                                                      | Grants permission to view the health of operations in your AWS account                                                                                         |                                                                                |                                                                                                                     | Read         |
-| [DescribeAccountOverview](../../../devops-guru/latest/APIReference/API_DescribeAccountOverview.md "../../../devops-guru/latest/APIReference/API_DescribeAccountOverview.md")                                                                | Grants permission to view the health of operations within a time range in your AWS account                                                                     |                                                                                |                                                                                                                     | Read         |
-| [DescribeAnomaly](../../../devops-guru/latest/APIReference/API_DescribeAnomaly.md "../../../devops-guru/latest/APIReference/API_DescribeAnomaly.md")                                                                                        | Grants permission to list the details of a specified anomaly                                                                                                   |                                                                                |                                                                                                                     | Read         |
-| [DescribeEventSourcesConfig](../../../devops-guru/latest/APIReference/API_DescribeEventSourcesConfig.md "../../../devops-guru/latest/APIReference/API_DescribeEventSourcesConfig.md")                                                       | Grants permission to retrieve details about event sources for DevOps Guru                                                                                      |                                                                                |                                                                                                                     | Read         |
-| [DescribeFeedback](../../../devops-guru/latest/APIReference/API_DescribeFeedback.md "../../../devops-guru/latest/APIReference/API_DescribeFeedback.md")                                                                                     | Grants permission to view the feedback details of a specified insight                                                                                          |                                                                                |                                                                                                                     | Read         |
-| [DescribeInsight](../../../devops-guru/latest/APIReference/API_DescribeInsight.md "../../../devops-guru/latest/APIReference/API_DescribeInsight.md")                                                                                        | Grants permission to list the details of a specified insight                                                                                                   |                                                                                |                                                                                                                     | Read         |
-| [DescribeOrganizationHealth](../../../devops-guru/latest/APIReference/API_DescribeOrganizationHealth.md "../../../devops-guru/latest/APIReference/API_DescribeOrganizationHealth.md")                                                       | Grants permission to view the health of operations in your organization                                                                                        |                                                                                |                                                                                                                     | Read         |
-| [DescribeOrganizationOverview](../../../devops-guru/latest/APIReference/API_DescribeOrganizationOverview.md "../../../devops-guru/latest/APIReference/API_DescribeOrganizationOverview.md")                                                 | Grants permission to view the health of operations within a time range in your organization                                                                    |                                                                                |                                                                                                                     | Read         |
-| [DescribeOrganizationResourceCollectionHealth](../../../devops-guru/latest/APIReference/API_DescribeOrganizationResourceCollectionHealth.md "../../../devops-guru/latest/APIReference/API_DescribeOrganizationResourceCollectionHealth.md") | Grants permission to view the health of operations for each AWS CloudFormation stack or AWS Services or accounts specified in DevOps Guru in your organization |                                                                                |                                                                                                                     | Read         |
-| [DescribeResourceCollectionHealth](../../../devops-guru/latest/APIReference/API_DescribeResourceCollectionHealth.md "../../../devops-guru/latest/APIReference/API_DescribeResourceCollectionHealth.md")                                     | Grants permission to view the health of operations for each AWS CloudFormation stack specified in DevOps Guru                                                  |                                                                                |                                                                                                                     | Read         |
-| [DescribeServiceIntegration](../../../devops-guru/latest/APIReference/API_DescribeServiceIntegration.md "../../../devops-guru/latest/APIReference/API_DescribeServiceIntegration.md")                                                       | Grants permission to view the integration status of services that can be integrated with DevOps Guru                                                           |                                                                                |                                                                                                                     | Read         |
-| [GetCostEstimation](../../../devops-guru/latest/APIReference/API_GetCostEstimation.md "../../../devops-guru/latest/APIReference/API_GetCostEstimation.md")                                                                                  | Grants permission to list service resource cost estimates                                                                                                      |                                                                                |                                                                                                                     | Read         |
-| [GetResourceCollection](../../../devops-guru/latest/APIReference/API_GetResourceCollection.md "../../../devops-guru/latest/APIReference/API_GetResourceCollection.md")                                                                      | Grants permission to list AWS CloudFormation stacks that DevOps Guru is configured to use                                                                      |                                                                                |                                                                                                                     | Read         |
-| [ListAnomaliesForInsight](../../../devops-guru/latest/APIReference/API_ListAnomaliesForInsight.md "../../../devops-guru/latest/APIReference/API_ListAnomaliesForInsight.md")                                                                | Grants permission to list anomalies of a given insight in your account                                                                                         |                                                                                | [devops-guru:ServiceNames](#list_devops-guru-devops-guru_ServiceNames "#list_devops-guru-devops-guru_ServiceNames") | List         |
-| [ListAnomalousLogGroups](../../../devops-guru/latest/APIReference/API_ListAnomalousLogGroups.md "../../../devops-guru/latest/APIReference/API_ListAnomalousLogGroups.md")                                                                   | Grants permission to list log anomalies of a given insight in your account                                                                                     |                                                                                |                                                                                                                     | List         |
-| [ListEvents](../../../devops-guru/latest/APIReference/API_ListEvents.md "../../../devops-guru/latest/APIReference/API_ListEvents.md")                                                                                                       | Grants permission to list resource events that are evaluated by DevOps Guru                                                                                    |                                                                                |                                                                                                                     | List         |
-| [ListInsights](../../../devops-guru/latest/APIReference/API_ListInsights.md "../../../devops-guru/latest/APIReference/API_ListInsights.md")                                                                                                 | Grants permission to list insights in your account                                                                                                             |                                                                                |                                                                                                                     | List         |
-| [ListMonitoredResources](../../../devops-guru/latest/APIReference/API_ListMonitoredResources.md "../../../devops-guru/latest/APIReference/API_ListMonitoredResources.md")                                                                   | Grants permission to list resource monitored by DevOps Guru in your account                                                                                    |                                                                                |                                                                                                                     | List         |
-| [ListNotificationChannels](../../../devops-guru/latest/APIReference/API_ListNotificationChannels.md "../../../devops-guru/latest/APIReference/API_ListNotificationChannels.md")                                                             | Grants permission to list notification channels configured for DevOps Guru in your account                                                                     |                                                                                |                                                                                                                     | List         |
-| [ListOrganizationInsights](../../../devops-guru/latest/APIReference/API_ListOrganizationInsights.md "../../../devops-guru/latest/APIReference/API_ListOrganizationInsights.md")                                                             | Grants permission to list insights in your organization                                                                                                        |                                                                                |                                                                                                                     | List         |
-| [ListRecommendations](../../../devops-guru/latest/APIReference/API_ListRecommendations.md "../../../devops-guru/latest/APIReference/API_ListRecommendations.md")                                                                            | Grants permission to list a specified insight's recommendations                                                                                                |                                                                                |                                                                                                                     | List         |
-| [PutFeedback](../../../devops-guru/latest/APIReference/API_PutFeedback.md "../../../devops-guru/latest/APIReference/API_PutFeedback.md")                                                                                                    | Grants permission to submit a feedback to DevOps Guru                                                                                                          |                                                                                |                                                                                                                     | Write        |
-| [RemoveNotificationChannel](../../../devops-guru/latest/APIReference/API_RemoveNotificationChannel.md "../../../devops-guru/latest/APIReference/API_RemoveNotificationChannel.md")                                                          | Grants permission to remove a notification channel from DevOps Guru                                                                                            | [topic\*](#list_devops-guru-resource-topic "#list_devops-guru-resource-topic") |                                                                                                                     | Write        |
-| [SearchInsights](../../../devops-guru/latest/APIReference/API_SearchInsights.md "../../../devops-guru/latest/APIReference/API_SearchInsights.md")                                                                                           | Grants permission to search insights in your account                                                                                                           |                                                                                | [devops-guru:ServiceNames](#list_devops-guru-devops-guru_ServiceNames "#list_devops-guru-devops-guru_ServiceNames") | List         |
-| [SearchOrganizationInsights](../../../devops-guru/latest/APIReference/API_SearchOrganizationInsights.md "../../../devops-guru/latest/APIReference/API_SearchOrganizationInsights.md")                                                       | Grants permission to search insights in your organization                                                                                                      |                                                                                |                                                                                                                     | List         |
-| [StartCostEstimation](../../../devops-guru/latest/APIReference/API_StartCostEstimation.md "../../../devops-guru/latest/APIReference/API_StartCostEstimation.md")                                                                            | Grants permission to start the creation of an estimate of the monthly cost                                                                                     |                                                                                |                                                                                                                     | Read         |
-| [UpdateEventSourcesConfig](../../../devops-guru/latest/APIReference/API_UpdateEventSourcesConfig.md "../../../devops-guru/latest/APIReference/API_UpdateEventSourcesConfig.md")                                                             | Grants permission to update an event source for DevOps Guru                                                                                                    |                                                                                |                                                                                                                     | Write        |
-| [UpdateResourceCollection](../../../devops-guru/latest/APIReference/API_UpdateResourceCollection.md "../../../devops-guru/latest/APIReference/API_UpdateResourceCollection.md")                                                             | Grants permission to update the list of AWS CloudFormation stacks that are used to specify which AWS resources in your account are analyzed by DevOps Guru     |                                                                                |                                                                                                                     | Write        |
-| [UpdateServiceIntegration](../../../devops-guru/latest/APIReference/API_UpdateServiceIntegration.md "../../../devops-guru/latest/APIReference/API_UpdateServiceIntegration.md")                                                             | Grants permission to enable or disable a service that integrates with DevOps Guru                                                                              |                                                                                |                                                                                                                     | Write        |
+
+
+
+- **   [AddNotificationChannel](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_AddNotificationChannel.html)  **
+  - **Description:** Grants permission to add a notification channel to DevOps Guru
+  - **Resource types (\*required):** [topic\*](#list_devops-guru-resource-topic)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteInsight](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_DeleteInsight.html)  **
+  - **Description:** Grants permission to delete specified insight in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DescribeAccountHealth](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_DescribeAccountHealth.html)  **
+  - **Description:** Grants permission to view the health of operations in your AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeAccountOverview](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_DescribeAccountOverview.html)  **
+  - **Description:** Grants permission to view the health of operations within a time range in your AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeAnomaly](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_DescribeAnomaly.html)  **
+  - **Description:** Grants permission to list the details of a specified anomaly
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeEventSourcesConfig](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_DescribeEventSourcesConfig.html)  **
+  - **Description:** Grants permission to retrieve details about event sources for DevOps Guru
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeFeedback](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_DescribeFeedback.html)  **
+  - **Description:** Grants permission to view the feedback details of a specified insight
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeInsight](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_DescribeInsight.html)  **
+  - **Description:** Grants permission to list the details of a specified insight
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeOrganizationHealth](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_DescribeOrganizationHealth.html)  **
+  - **Description:** Grants permission to view the health of operations in your organization
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeOrganizationOverview](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_DescribeOrganizationOverview.html)  **
+  - **Description:** Grants permission to view the health of operations within a time range in your organization
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeOrganizationResourceCollectionHealth](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_DescribeOrganizationResourceCollectionHealth.html)  **
+  - **Description:** Grants permission to view the health of operations for each AWS CloudFormation stack or AWS Services or accounts specified in DevOps Guru in your organization
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeResourceCollectionHealth](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_DescribeResourceCollectionHealth.html)  **
+  - **Description:** Grants permission to view the health of operations for each AWS CloudFormation stack specified in DevOps Guru
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeServiceIntegration](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_DescribeServiceIntegration.html)  **
+  - **Description:** Grants permission to view the integration status of services that can be integrated with DevOps Guru
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetCostEstimation](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_GetCostEstimation.html)  **
+  - **Description:** Grants permission to list service resource cost estimates
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetResourceCollection](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_GetResourceCollection.html)  **
+  - **Description:** Grants permission to list AWS CloudFormation stacks that DevOps Guru is configured to use
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListAnomaliesForInsight](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_ListAnomaliesForInsight.html)  **
+  - **Description:** Grants permission to list anomalies of a given insight in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [devops-guru:ServiceNames](#list_devops-guru-devops-guru_ServiceNames)
+  - **Access level:** List
+
+- **   [ListAnomalousLogGroups](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_ListAnomalousLogGroups.html)  **
+  - **Description:** Grants permission to list log anomalies of a given insight in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListEvents](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_ListEvents.html)  **
+  - **Description:** Grants permission to list resource events that are evaluated by DevOps Guru
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListInsights](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_ListInsights.html)  **
+  - **Description:** Grants permission to list insights in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMonitoredResources](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_ListMonitoredResources.html)  **
+  - **Description:** Grants permission to list resource monitored by DevOps Guru in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListNotificationChannels](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_ListNotificationChannels.html)  **
+  - **Description:** Grants permission to list notification channels configured for DevOps Guru in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListOrganizationInsights](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_ListOrganizationInsights.html)  **
+  - **Description:** Grants permission to list insights in your organization
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRecommendations](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_ListRecommendations.html)  **
+  - **Description:** Grants permission to list a specified insight's recommendations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [PutFeedback](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PutFeedback.html)  **
+  - **Description:** Grants permission to submit a feedback to DevOps Guru
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RemoveNotificationChannel](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_RemoveNotificationChannel.html)  **
+  - **Description:** Grants permission to remove a notification channel from DevOps Guru
+  - **Resource types (\*required):** [topic\*](#list_devops-guru-resource-topic)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SearchInsights](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_SearchInsights.html)  **
+  - **Description:** Grants permission to search insights in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [devops-guru:ServiceNames](#list_devops-guru-devops-guru_ServiceNames)
+  - **Access level:** List
+
+- **   [SearchOrganizationInsights](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_SearchOrganizationInsights.html)  **
+  - **Description:** Grants permission to search insights in your organization
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [StartCostEstimation](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_StartCostEstimation.html)  **
+  - **Description:** Grants permission to start the creation of an estimate of the monthly cost
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [UpdateEventSourcesConfig](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_UpdateEventSourcesConfig.html)  **
+  - **Description:** Grants permission to update an event source for DevOps Guru
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateResourceCollection](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_UpdateResourceCollection.html)  **
+  - **Description:** Grants permission to update the list of AWS CloudFormation stacks that are used to specify which AWS resources in your account are analyzed by DevOps Guru
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateServiceIntegration](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_UpdateServiceIntegration.html)  **
+  - **Description:** Grants permission to enable or disable a service that integrates with DevOps Guru
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon DevOps Guru
+<a name="list_devops-guru-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                       | ARN                                                    | Condition keys |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------------- |
-| [topic](../../../devops-guru/latest/userguide/setting-up.md#setting-up-notifications "../../../devops-guru/latest/userguide/setting-up.md#setting-up-notifications") | arn:${Partition}:sns:${Region}:${Account}:${TopicName} |                |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [topic](https://docs.aws.amazon.com/devops-guru/latest/userguide/setting-up.html#setting-up-notifications)  | arn:${Partition}:sns:${Region}:${Account}:${TopicName} |   | 
 
 ## Condition keys for Amazon DevOps Guru
+<a name="list_devops-guru-policy-keys"></a>
 
-Amazon DevOps Guru defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon DevOps Guru defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                    | Description                                                         | Type          |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------- |
-| [devops-guru:ServiceNames](../../../devops-guru/latest/APIReference/API_ServiceCollection.md "../../../devops-guru/latest/APIReference/API_ServiceCollection.md") | Filters access by API to restrict access to given AWS service names | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [devops-guru:ServiceNames](https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_ServiceCollection.html)  | Filters access by API to restrict access to given AWS service names | ArrayOfString | 

@@ -1,123 +1,355 @@
-# Actions, resources, and condition keys for Multi-party approval
 
-Multi-party approval (service prefix: `mpa`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Multi-party approval
+<a name="list_mpa"></a>
+
+Multi-party approval (service prefix: `mpa`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/mpa/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/mpa/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/mpa/latest/userguide/security_iam_service-with-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/mpa/mpa.json) for this service.
 
-- Learn how to [configure this service](../../../mpa/latest/userguide.md "../../../mpa/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../mpa/latest/APIReference.md "../../../mpa/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../mpa/latest/userguide/security_iam_service-with-iam.md "../../../mpa/latest/userguide/security_iam_service-with-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/mpa/mpa.json "https://servicereference.us-east-1.amazonaws.com/v1/mpa/mpa.json") for this service.
-
-###### Topics
-
-- [API operations defined by Multi-party approval](#list_mpa-operations "#list_mpa-operations")
-- [Actions defined by Multi-party approval](#list_mpa-actions-as-permissions "#list_mpa-actions-as-permissions")
-- [Permission-only actions for Multi-party approval](#list_mpa-permission-only-actions "#list_mpa-permission-only-actions")
-- [Resource types defined by Multi-party approval](#list_mpa-resources-for-iam-policies "#list_mpa-resources-for-iam-policies")
-- [Condition keys for Multi-party approval](#list_mpa-policy-keys "#list_mpa-policy-keys")
+**Topics**
++ [API operations defined by Multi-party approval](#list_mpa-operations)
++ [Actions defined by Multi-party approval](#list_mpa-actions-as-permissions)
++ [Permission-only actions for Multi-party approval](#list_mpa-permission-only-actions)
++ [Resource types defined by Multi-party approval](#list_mpa-resources-for-iam-policies)
++ [Condition keys for Multi-party approval](#list_mpa-policy-keys)
 
 ## API operations defined by Multi-party approval
+<a name="list_mpa-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_mpa-actions-as-permissions "#list_mpa-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_mpa-actions-as-permissions).
 
-| Operation                                                                      | IAM action                                                                                                                                       | Condition key | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | ----------------- | -------------- |
-| CancelSession                                                                  | [mpa:CancelSession](#list_mpa-action-CancelSession "#list_mpa-action-CancelSession")                                                             |               |                   | Write          |
-| CreateApprovalTeam                                                             | [mpa:CreateApprovalTeam](#list_mpa-action-CreateApprovalTeam "#list_mpa-action-CreateApprovalTeam")                                              |               |                   | Write          |
-| [mpa:TagResource](#list_mpa-action-TagResource "#list_mpa-action-TagResource") |                                                                                                                                                  |               | Tagging, Write    |
-| CreateIdentitySource                                                           | [mpa:CreateIdentitySource](#list_mpa-action-CreateIdentitySource "#list_mpa-action-CreateIdentitySource")                                        |               |                   | Write          |
-| [mpa:TagResource](#list_mpa-action-TagResource "#list_mpa-action-TagResource") |                                                                                                                                                  |               | Tagging, Write    |
-| DeleteIdentitySource                                                           | [mpa:DeleteIdentitySource](#list_mpa-action-DeleteIdentitySource "#list_mpa-action-DeleteIdentitySource")                                        |               |                   | Write          |
-| DeleteInactiveApprovalTeamVersion                                              | [mpa:DeleteInactiveApprovalTeamVersion](#list_mpa-action-DeleteInactiveApprovalTeamVersion "#list_mpa-action-DeleteInactiveApprovalTeamVersion") |               |                   | Write          |
-| GetApprovalTeam                                                                | [mpa:GetApprovalTeam](#list_mpa-action-GetApprovalTeam "#list_mpa-action-GetApprovalTeam")                                                       |               |                   | Read           |
-| GetIdentitySource                                                              | [mpa:GetIdentitySource](#list_mpa-action-GetIdentitySource "#list_mpa-action-GetIdentitySource")                                                 |               |                   | Read           |
-| GetPolicyVersion                                                               | [mpa:GetPolicyVersion](#list_mpa-action-GetPolicyVersion "#list_mpa-action-GetPolicyVersion")                                                    |               |                   | Read           |
-| GetResourcePolicy                                                              | [mpa:GetResourcePolicy](#list_mpa-action-GetResourcePolicy "#list_mpa-action-GetResourcePolicy")                                                 |               |                   | Read           |
-| GetSession                                                                     | [mpa:GetSession](#list_mpa-action-GetSession "#list_mpa-action-GetSession")                                                                      |               |                   | Read           |
-| ListApprovalTeams                                                              | [mpa:ListApprovalTeams](#list_mpa-action-ListApprovalTeams "#list_mpa-action-ListApprovalTeams")                                                 |               |                   | List           |
-| ListIdentitySources                                                            | [mpa:ListIdentitySources](#list_mpa-action-ListIdentitySources "#list_mpa-action-ListIdentitySources")                                           |               |                   | List           |
-| ListPolicies                                                                   | [mpa:ListPolicies](#list_mpa-action-ListPolicies "#list_mpa-action-ListPolicies")                                                                |               |                   | List           |
-| ListPolicyVersions                                                             | [mpa:ListPolicyVersions](#list_mpa-action-ListPolicyVersions "#list_mpa-action-ListPolicyVersions")                                              |               |                   | List           |
-| ListResourcePolicies                                                           | [mpa:ListResourcePolicies](#list_mpa-action-ListResourcePolicies "#list_mpa-action-ListResourcePolicies")                                        |               |                   | List           |
-| ListSessions                                                                   | [mpa:ListSessions](#list_mpa-action-ListSessions "#list_mpa-action-ListSessions")                                                                |               |                   | List           |
-| ListTagsForResource                                                            | [mpa:ListTagsForResource](#list_mpa-action-ListTagsForResource "#list_mpa-action-ListTagsForResource")                                           |               |                   | List           |
-| StartActiveApprovalTeamDeletion                                                | [mpa:StartActiveApprovalTeamDeletion](#list_mpa-action-StartActiveApprovalTeamDeletion "#list_mpa-action-StartActiveApprovalTeamDeletion")       |               |                   | Write          |
-| StartApprovalTeamBaseline                                                      | [mpa:StartApprovalTeamBaseline](#list_mpa-action-StartApprovalTeamBaseline "#list_mpa-action-StartApprovalTeamBaseline")                         |               |                   | Write          |
-| TagResource                                                                    | [mpa:TagResource](#list_mpa-action-TagResource "#list_mpa-action-TagResource")                                                                   |               |                   | Tagging, Write |
-| UntagResource                                                                  | [mpa:UntagResource](#list_mpa-action-UntagResource "#list_mpa-action-UntagResource")                                                             |               |                   | Tagging, Write |
-| UpdateApprovalTeam                                                             | [mpa:UpdateApprovalTeam](#list_mpa-action-UpdateApprovalTeam "#list_mpa-action-UpdateApprovalTeam")                                              |               |                   | Write          |
+
+
+
+- **   CancelSession  **
+  - **IAM action:**  [mpa:CancelSession](#list_mpa-action-CancelSession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateApprovalTeam  **
+  - **IAM action:**  [mpa:CreateApprovalTeam](#list_mpa-action-CreateApprovalTeam)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mpa:TagResource](#list_mpa-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateIdentitySource  **
+  - **IAM action:**  [mpa:CreateIdentitySource](#list_mpa-action-CreateIdentitySource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mpa:TagResource](#list_mpa-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteIdentitySource  **
+  - **IAM action:**  [mpa:DeleteIdentitySource](#list_mpa-action-DeleteIdentitySource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteInactiveApprovalTeamVersion  **
+  - **IAM action:**  [mpa:DeleteInactiveApprovalTeamVersion](#list_mpa-action-DeleteInactiveApprovalTeamVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetApprovalTeam  **
+  - **IAM action:**  [mpa:GetApprovalTeam](#list_mpa-action-GetApprovalTeam) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIdentitySource  **
+  - **IAM action:**  [mpa:GetIdentitySource](#list_mpa-action-GetIdentitySource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPolicyVersion  **
+  - **IAM action:**  [mpa:GetPolicyVersion](#list_mpa-action-GetPolicyVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetResourcePolicy  **
+  - **IAM action:**  [mpa:GetResourcePolicy](#list_mpa-action-GetResourcePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSession  **
+  - **IAM action:**  [mpa:GetSession](#list_mpa-action-GetSession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListApprovalTeams  **
+  - **IAM action:**  [mpa:ListApprovalTeams](#list_mpa-action-ListApprovalTeams) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListIdentitySources  **
+  - **IAM action:**  [mpa:ListIdentitySources](#list_mpa-action-ListIdentitySources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPolicies  **
+  - **IAM action:**  [mpa:ListPolicies](#list_mpa-action-ListPolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPolicyVersions  **
+  - **IAM action:**  [mpa:ListPolicyVersions](#list_mpa-action-ListPolicyVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListResourcePolicies  **
+  - **IAM action:**  [mpa:ListResourcePolicies](#list_mpa-action-ListResourcePolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSessions  **
+  - **IAM action:**  [mpa:ListSessions](#list_mpa-action-ListSessions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [mpa:ListTagsForResource](#list_mpa-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   StartActiveApprovalTeamDeletion  **
+  - **IAM action:**  [mpa:StartActiveApprovalTeamDeletion](#list_mpa-action-StartActiveApprovalTeamDeletion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartApprovalTeamBaseline  **
+  - **IAM action:**  [mpa:StartApprovalTeamBaseline](#list_mpa-action-StartApprovalTeamBaseline) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [mpa:TagResource](#list_mpa-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [mpa:UntagResource](#list_mpa-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateApprovalTeam  **
+  - **IAM action:**  [mpa:UpdateApprovalTeam](#list_mpa-action-UpdateApprovalTeam) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Multi-party approval
+<a name="list_mpa-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                    | Description                                                                 | Resource types (\*required)                                                                  | Condition keys                                                                                                                                                                                                                                                                                                             | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [CancelSession](../../../mpa/latest/APIReference/API_CancelSession.md "../../../mpa/latest/APIReference/API_CancelSession.md")                                                             | Grants permission to cancel an approval session                             | [session\*](#list_mpa-resource-session "#list_mpa-resource-session")                         | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_")<br>[mpa:ProtectedResourceAccount](#list_mpa-mpa_ProtectedResourceAccount "#list_mpa-mpa_ProtectedResourceAccount")<br>[mpa:RequestedOperation](#list_mpa-mpa_RequestedOperation "#list_mpa-mpa_RequestedOperation") | Write          |
-| [CreateApprovalTeam](../../../mpa/latest/APIReference/API_CreateApprovalTeam.md "../../../mpa/latest/APIReference/API_CreateApprovalTeam.md")                                              | Grants permission to create an approval team                                | [approval-team\*](#list_mpa-resource-approval-team "#list_mpa-resource-approval-team")       | [aws:RequestTag/${TagKey}](#list_mpa-aws_RequestTag___TagKey_ "#list_mpa-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mpa-aws_TagKeys "#list_mpa-aws_TagKeys")                                              | Write          |
-| [CreateIdentitySource](../../../mpa/latest/APIReference/API_CreateIdentitySource.md "../../../mpa/latest/APIReference/API_CreateIdentitySource.md")                                        | Grants permission to create an identity source                              | [identity-source\*](#list_mpa-resource-identity-source "#list_mpa-resource-identity-source") | [aws:RequestTag/${TagKey}](#list_mpa-aws_RequestTag___TagKey_ "#list_mpa-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mpa-aws_TagKeys "#list_mpa-aws_TagKeys")                                              | Write          |
-| [DeleteIdentitySource](../../../mpa/latest/APIReference/API_DeleteIdentitySource.md "../../../mpa/latest/APIReference/API_DeleteIdentitySource.md")                                        | Grants permission to delete an identity source                              | [identity-source\*](#list_mpa-resource-identity-source "#list_mpa-resource-identity-source") | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                     | Write          |
-| [DeleteInactiveApprovalTeamVersion](../../../mpa/latest/APIReference/API_DeleteInactiveApprovalTeamVersion.md "../../../mpa/latest/APIReference/API_DeleteInactiveApprovalTeamVersion.md") | Grants permission to delete an inactive approval team                       | [approval-team\*](#list_mpa-resource-approval-team "#list_mpa-resource-approval-team")       | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                     | Write          |
-| [GetApprovalTeam](../../../mpa/latest/APIReference/API_GetApprovalTeam.md "../../../mpa/latest/APIReference/API_GetApprovalTeam.md")                                                       | Grants permission to retrieve details for an approval team                  | [approval-team\*](#list_mpa-resource-approval-team "#list_mpa-resource-approval-team")       | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                     | Read           |
-| [GetIdentitySource](../../../mpa/latest/APIReference/API_GetIdentitySource.md "../../../mpa/latest/APIReference/API_GetIdentitySource.md")                                                 | Grants permission to retrieve details for an identity source                | [identity-source\*](#list_mpa-resource-identity-source "#list_mpa-resource-identity-source") | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                     | Read           |
-| [GetPolicyVersion](../../../mpa/latest/APIReference/API_GetPolicyVersion.md "../../../mpa/latest/APIReference/API_GetPolicyVersion.md")                                                    | Grants permission to retrieve details for a policy                          |                                                                                              |                                                                                                                                                                                                                                                                                                                            | Read           |
-| [GetResourcePolicy](../../../mpa/latest/APIReference/API_GetResourcePolicy.md "../../../mpa/latest/APIReference/API_GetResourcePolicy.md")                                                 | Grants permission to retrieve details for a specific resource               |                                                                                              |                                                                                                                                                                                                                                                                                                                            | Read           |
-| [GetSession](../../../mpa/latest/APIReference/API_GetSession.md "../../../mpa/latest/APIReference/API_GetSession.md")                                                                      | Grants permission to retrieve details for an approval session               | [session\*](#list_mpa-resource-session "#list_mpa-resource-session")                         | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_")<br>[mpa:ProtectedResourceAccount](#list_mpa-mpa_ProtectedResourceAccount "#list_mpa-mpa_ProtectedResourceAccount")<br>[mpa:RequestedOperation](#list_mpa-mpa_RequestedOperation "#list_mpa-mpa_RequestedOperation") | Read           |
-| [ListApprovalTeams](../../../mpa/latest/APIReference/API_ListApprovalTeams.md "../../../mpa/latest/APIReference/API_ListApprovalTeams.md")                                                 | Grants permission to list approval teams                                    |                                                                                              |                                                                                                                                                                                                                                                                                                                            | List           |
-| [ListIdentitySources](../../../mpa/latest/APIReference/API_ListIdentitySources.md "../../../mpa/latest/APIReference/API_ListIdentitySources.md")                                           | Grants permission to list identity sources                                  |                                                                                              |                                                                                                                                                                                                                                                                                                                            | List           |
-| [ListPolicies](../../../mpa/latest/APIReference/API_ListPolicies.md "../../../mpa/latest/APIReference/API_ListPolicies.md")                                                                | Grants permission to list policies                                          |                                                                                              |                                                                                                                                                                                                                                                                                                                            | List           |
-| [ListPolicyVersions](../../../mpa/latest/APIReference/API_ListPolicyVersions.md "../../../mpa/latest/APIReference/API_ListPolicyVersions.md")                                              | Grants permission to list the versions for policies                         |                                                                                              |                                                                                                                                                                                                                                                                                                                            | List           |
-| [ListResourcePolicies](../../../mpa/latest/APIReference/API_ListResourcePolicies.md "../../../mpa/latest/APIReference/API_ListResourcePolicies.md")                                        | Grants permission to list policies for a resource                           |                                                                                              |                                                                                                                                                                                                                                                                                                                            | List           |
-| [ListSessions](../../../mpa/latest/APIReference/API_ListSessions.md "../../../mpa/latest/APIReference/API_ListSessions.md")                                                                | Grants permission to list approval sessions                                 |                                                                                              |                                                                                                                                                                                                                                                                                                                            | List           |
-| [ListTagsForResource](../../../mpa/latest/APIReference/API_ListTagsForResource.md "../../../mpa/latest/APIReference/API_ListTagsForResource.md")                                           | Grants permission to list tags for a resource                               |                                                                                              |                                                                                                                                                                                                                                                                                                                            | List           |
-| [StartActiveApprovalTeamDeletion](../../../mpa/latest/APIReference/API_StartActiveApprovalTeamDeletion.md "../../../mpa/latest/APIReference/API_StartActiveApprovalTeamDeletion.md")       | Grants permission to start the deletion process for an active approval team | [approval-team\*](#list_mpa-resource-approval-team "#list_mpa-resource-approval-team")       | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                     | Write          |
-| [StartApprovalTeamBaseline](../../../mpa/latest/APIReference/API_StartApprovalTeamBaseline.md "../../../mpa/latest/APIReference/API_StartApprovalTeamBaseline.md")                         | Grants permission to start a baseline for an active approval team           | [approval-team\*](#list_mpa-resource-approval-team "#list_mpa-resource-approval-team")       | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                     | Write          |
-| [TagResource](../../../mpa/latest/APIReference/API_TagResource.md "../../../mpa/latest/APIReference/API_TagResource.md")                                                                   | Grants permission to tag a resource                                         |                                                                                              | [aws:RequestTag/${TagKey}](#list_mpa-aws_RequestTag___TagKey_ "#list_mpa-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mpa-aws_TagKeys "#list_mpa-aws_TagKeys")                                              | Tagging, Write |
-| [UntagResource](../../../mpa/latest/APIReference/API_UntagResource.md "../../../mpa/latest/APIReference/API_UntagResource.md")                                                             | Grants permission to untag a resource                                       |                                                                                              | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mpa-aws_TagKeys "#list_mpa-aws_TagKeys")                                                                                                                                                     | Tagging, Write |
-| [UpdateApprovalTeam](../../../mpa/latest/APIReference/API_UpdateApprovalTeam.md "../../../mpa/latest/APIReference/API_UpdateApprovalTeam.md")                                              | Grants permission to update approval team                                   | [approval-team\*](#list_mpa-resource-approval-team "#list_mpa-resource-approval-team")       | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                     | Write          |
+
+
+
+- **   [CancelSession](https://docs.aws.amazon.com/mpa/latest/APIReference/API_CancelSession.html)  **
+  - **Description:** Grants permission to cancel an approval session
+  - **Resource types (\*required):** [session\*](#list_mpa-resource-session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_)<br />[mpa:ProtectedResourceAccount](#list_mpa-mpa_ProtectedResourceAccount)<br />[mpa:RequestedOperation](#list_mpa-mpa_RequestedOperation)
+  - **Access level:** Write
+
+- **   [CreateApprovalTeam](https://docs.aws.amazon.com/mpa/latest/APIReference/API_CreateApprovalTeam.html)  **
+  - **Description:** Grants permission to create an approval team
+  - **Resource types (\*required):** [approval-team\*](#list_mpa-resource-approval-team)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mpa-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mpa-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateIdentitySource](https://docs.aws.amazon.com/mpa/latest/APIReference/API_CreateIdentitySource.html)  **
+  - **Description:** Grants permission to create an identity source
+  - **Resource types (\*required):** [identity-source\*](#list_mpa-resource-identity-source)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mpa-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mpa-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteIdentitySource](https://docs.aws.amazon.com/mpa/latest/APIReference/API_DeleteIdentitySource.html)  **
+  - **Description:** Grants permission to delete an identity source
+  - **Resource types (\*required):** [identity-source\*](#list_mpa-resource-identity-source)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteInactiveApprovalTeamVersion](https://docs.aws.amazon.com/mpa/latest/APIReference/API_DeleteInactiveApprovalTeamVersion.html)  **
+  - **Description:** Grants permission to delete an inactive approval team
+  - **Resource types (\*required):** [approval-team\*](#list_mpa-resource-approval-team)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetApprovalTeam](https://docs.aws.amazon.com/mpa/latest/APIReference/API_GetApprovalTeam.html)  **
+  - **Description:** Grants permission to retrieve details for an approval team
+  - **Resource types (\*required):** [approval-team\*](#list_mpa-resource-approval-team)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetIdentitySource](https://docs.aws.amazon.com/mpa/latest/APIReference/API_GetIdentitySource.html)  **
+  - **Description:** Grants permission to retrieve details for an identity source
+  - **Resource types (\*required):** [identity-source\*](#list_mpa-resource-identity-source)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPolicyVersion](https://docs.aws.amazon.com/mpa/latest/APIReference/API_GetPolicyVersion.html)  **
+  - **Description:** Grants permission to retrieve details for a policy
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetResourcePolicy](https://docs.aws.amazon.com/mpa/latest/APIReference/API_GetResourcePolicy.html)  **
+  - **Description:** Grants permission to retrieve details for a specific resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetSession](https://docs.aws.amazon.com/mpa/latest/APIReference/API_GetSession.html)  **
+  - **Description:** Grants permission to retrieve details for an approval session
+  - **Resource types (\*required):** [session\*](#list_mpa-resource-session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_)<br />[mpa:ProtectedResourceAccount](#list_mpa-mpa_ProtectedResourceAccount)<br />[mpa:RequestedOperation](#list_mpa-mpa_RequestedOperation)
+  - **Access level:** Read
+
+- **   [ListApprovalTeams](https://docs.aws.amazon.com/mpa/latest/APIReference/API_ListApprovalTeams.html)  **
+  - **Description:** Grants permission to list approval teams
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListIdentitySources](https://docs.aws.amazon.com/mpa/latest/APIReference/API_ListIdentitySources.html)  **
+  - **Description:** Grants permission to list identity sources
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListPolicies](https://docs.aws.amazon.com/mpa/latest/APIReference/API_ListPolicies.html)  **
+  - **Description:** Grants permission to list policies
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListPolicyVersions](https://docs.aws.amazon.com/mpa/latest/APIReference/API_ListPolicyVersions.html)  **
+  - **Description:** Grants permission to list the versions for policies
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListResourcePolicies](https://docs.aws.amazon.com/mpa/latest/APIReference/API_ListResourcePolicies.html)  **
+  - **Description:** Grants permission to list policies for a resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSessions](https://docs.aws.amazon.com/mpa/latest/APIReference/API_ListSessions.html)  **
+  - **Description:** Grants permission to list approval sessions
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/mpa/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for a resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [StartActiveApprovalTeamDeletion](https://docs.aws.amazon.com/mpa/latest/APIReference/API_StartActiveApprovalTeamDeletion.html)  **
+  - **Description:** Grants permission to start the deletion process for an active approval team
+  - **Resource types (\*required):** [approval-team\*](#list_mpa-resource-approval-team)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartApprovalTeamBaseline](https://docs.aws.amazon.com/mpa/latest/APIReference/API_StartApprovalTeamBaseline.html)  **
+  - **Description:** Grants permission to start a baseline for an active approval team
+  - **Resource types (\*required):** [approval-team\*](#list_mpa-resource-approval-team)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/mpa/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag a resource
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mpa-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mpa-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/mpa/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag a resource
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mpa-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateApprovalTeam](https://docs.aws.amazon.com/mpa/latest/APIReference/API_UpdateApprovalTeam.html)  **
+  - **Description:** Grants permission to update approval team
+  - **Resource types (\*required):** [approval-team\*](#list_mpa-resource-approval-team)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for Multi-party approval
+<a name="list_mpa-permission-only-actions"></a>
 
-The following actions are defined by Multi-party approval but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by Multi-party approval but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                             | Description                                                   | Resource types (\*required)                                          | Condition keys                                                                                                                                                                                                                                                                                                             | Access level                  |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| [DeleteResourcePolicy](../../../mpa/latest/APIReference/API_DeleteResourcePolicy.md "../../../mpa/latest/APIReference/API_DeleteResourcePolicy.md") | Grants permission to delete a resource policy                 |                                                                      |                                                                                                                                                                                                                                                                                                                            | Permissions management, Write |
-| [PutResourcePolicy](../../../mpa/latest/APIReference/API_PutResourcePolicy.md "../../../mpa/latest/APIReference/API_PutResourcePolicy.md")          | Grants permission to create or update policies for a resource |                                                                      |                                                                                                                                                                                                                                                                                                                            | Permissions management, Write |
-| [StartSession](../../../mpa/latest/APIReference/API_StartSessionInternal.md "../../../mpa/latest/APIReference/API_StartSessionInternal.md")         | Grants permission to start an approval session                | [session\*](#list_mpa-resource-session "#list_mpa-resource-session") | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_")<br>[mpa:ProtectedResourceAccount](#list_mpa-mpa_ProtectedResourceAccount "#list_mpa-mpa_ProtectedResourceAccount")<br>[mpa:RequestedOperation](#list_mpa-mpa_RequestedOperation "#list_mpa-mpa_RequestedOperation") | Write                         |
+
+
+
+- **   [DeleteResourcePolicy](https://docs.aws.amazon.com/mpa/latest/APIReference/API_DeleteResourcePolicy.html)  **
+  - **Description:** Grants permission to delete a resource policy
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+- **   [PutResourcePolicy](https://docs.aws.amazon.com/mpa/latest/APIReference/API_PutResourcePolicy.html)  **
+  - **Description:** Grants permission to create or update policies for a resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+- **   [StartSession](https://docs.aws.amazon.com/mpa/latest/APIReference/API_StartSessionInternal.html)  **
+  - **Description:** Grants permission to start an approval session
+  - **Resource types (\*required):** [session\*](#list_mpa-resource-session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_)<br />[mpa:ProtectedResourceAccount](#list_mpa-mpa_ProtectedResourceAccount)<br />[mpa:RequestedOperation](#list_mpa-mpa_RequestedOperation)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Multi-party approval
+<a name="list_mpa-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                   | ARN                                                                           | Condition keys                                                                                         |
-| ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| [approval-team](../../../mpa/latest/userguide/mpa-concepts.md "../../../mpa/latest/userguide/mpa-concepts.md")   | arn:${Partition}:mpa:${Region}:${Account}:approval-team/${ApprovalTeamId}     | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_") |
-| [identity-source](../../../mpa/latest/userguide/mpa-concepts.md "../../../mpa/latest/userguide/mpa-concepts.md") | arn:${Partition}:mpa:${Region}:${Account}:identity-source/${IdentitySourceId} | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_") |
-| [session](../../../mpa/latest/userguide/mpa-concepts.md "../../../mpa/latest/userguide/mpa-concepts.md")         | arn:${Partition}:mpa:${Region}:${Account}:session/${SessionId}                | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_ "#list_mpa-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [approval-team](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html)  | arn:${Partition}:mpa:${Region}:${Account}:approval-team/${ApprovalTeamId} | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_) | 
+|  [identity-source](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html)  | arn:${Partition}:mpa:${Region}:${Account}:identity-source/${IdentitySourceId} | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_) | 
+|  [session](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html)  | arn:${Partition}:mpa:${Region}:${Account}:session/${SessionId} | [aws:ResourceTag/${TagKey}](#list_mpa-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Multi-party approval
+<a name="list_mpa-policy-keys"></a>
 
-Multi-party approval defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Multi-party approval defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                                                                     | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by a tag key and value pair that is allowed in the request                                       | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by a tag key and value pair of a resource                                                        | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by a list of tag keys that are allowed in the request                                            | ArrayOfString |
-| [mpa:ProtectedResourceAccount](../../../mpa/latest/userguide/mpa-concepts.md "../../../mpa/latest/userguide/mpa-concepts.md")                                                                                              | Filters access by the account that owns the resource that is the target of the operation that requires approval | String        |
-| [mpa:RequestedOperation](../../../mpa/latest/userguide/mpa-concepts.md "../../../mpa/latest/userguide/mpa-concepts.md")                                                                                                    | Filters access by a requested operation that requires team approval before it can be executed                   | String        |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by a tag key and value pair that is allowed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by a tag key and value pair of a resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by a list of tag keys that are allowed in the request | ArrayOfString | 
+|   [mpa:ProtectedResourceAccount](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html)  | Filters access by the account that owns the resource that is the target of the operation that requires approval | String | 
+|   [mpa:RequestedOperation](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html)  | Filters access by a requested operation that requires team approval before it can be executed | String | 

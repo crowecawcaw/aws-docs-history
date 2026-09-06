@@ -1,162 +1,528 @@
-# Actions, resources, and condition keys for AWS Entity Resolution
 
-AWS Entity Resolution (service prefix: `entityresolution`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Entity Resolution
+<a name="list_entityresolution"></a>
+
+AWS Entity Resolution (service prefix: `entityresolution`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/entityresolution/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/entityresolution/latest/apireference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/entityresolution/entityresolution.json) for this service.
 
-- Learn how to [configure this service](../../../entityresolution/latest/userguide.md "../../../entityresolution/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../entityresolution/latest/apireference.md "../../../entityresolution/latest/apireference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../entityresolution/latest/userguide/what-is-service.md "../../../entityresolution/latest/userguide/what-is-service.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/entityresolution/entityresolution.json "https://servicereference.us-east-1.amazonaws.com/v1/entityresolution/entityresolution.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Entity Resolution](#list_entityresolution-operations "#list_entityresolution-operations")
-- [Actions defined by AWS Entity Resolution](#list_entityresolution-actions-as-permissions "#list_entityresolution-actions-as-permissions")
-- [Resource types defined by AWS Entity Resolution](#list_entityresolution-resources-for-iam-policies "#list_entityresolution-resources-for-iam-policies")
-- [Condition keys for AWS Entity Resolution](#list_entityresolution-policy-keys "#list_entityresolution-policy-keys")
+**Topics**
++ [API operations defined by AWS Entity Resolution](#list_entityresolution-operations)
++ [Actions defined by AWS Entity Resolution](#list_entityresolution-actions-as-permissions)
++ [Resource types defined by AWS Entity Resolution](#list_entityresolution-resources-for-iam-policies)
++ [Condition keys for AWS Entity Resolution](#list_entityresolution-policy-keys)
 
 ## API operations defined by AWS Entity Resolution
+<a name="list_entityresolution-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_entityresolution-actions-as-permissions "#list_entityresolution-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_entityresolution-actions-as-permissions).
 
-| Operation                                                                                                                       | IAM action                                                                                                                                                | Condition key                  | Possible value(s)             | Access level                  |
-| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ----------------------------- | ----------------------------- |
-| AddPolicyStatement                                                                                                              | [entityresolution:AddPolicyStatement](#list_entityresolution-action-AddPolicyStatement "#list_entityresolution-action-AddPolicyStatement")                |                                |                               | Permissions management, Write |
-| BatchDeleteUniqueId                                                                                                             | [entityresolution:BatchDeleteUniqueId](#list_entityresolution-action-BatchDeleteUniqueId "#list_entityresolution-action-BatchDeleteUniqueId")             |                                |                               | Write                         |
-| CreateIdMappingWorkflow                                                                                                         | [entityresolution:CreateIdMappingWorkflow](#list_entityresolution-action-CreateIdMappingWorkflow "#list_entityresolution-action-CreateIdMappingWorkflow") |                                |                               | Write                         |
-| [entityresolution:TagResource](#list_entityresolution-action-TagResource "#list_entityresolution-action-TagResource")           |                                                                                                                                                           |                                | Tagging, Write                |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                       | entityresolution.amazonaws.com | Write                         |
-| CreateIdNamespace                                                                                                               | [entityresolution:CreateIdNamespace](#list_entityresolution-action-CreateIdNamespace "#list_entityresolution-action-CreateIdNamespace")                   |                                |                               | Write                         |
-| [entityresolution:TagResource](#list_entityresolution-action-TagResource "#list_entityresolution-action-TagResource")           |                                                                                                                                                           |                                | Tagging, Write                |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                       | entityresolution.amazonaws.com | Write                         |
-| CreateMatchingWorkflow                                                                                                          | [entityresolution:CreateMatchingWorkflow](#list_entityresolution-action-CreateMatchingWorkflow "#list_entityresolution-action-CreateMatchingWorkflow")    |                                |                               | Write                         |
-| [entityresolution:TagResource](#list_entityresolution-action-TagResource "#list_entityresolution-action-TagResource")           |                                                                                                                                                           |                                | Tagging, Write                |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                       | entityresolution.amazonaws.com | Write                         |
-| CreateSchemaMapping                                                                                                             | [entityresolution:CreateSchemaMapping](#list_entityresolution-action-CreateSchemaMapping "#list_entityresolution-action-CreateSchemaMapping")             |                                |                               | Write                         |
-| [entityresolution:TagResource](#list_entityresolution-action-TagResource "#list_entityresolution-action-TagResource")           |                                                                                                                                                           |                                | Tagging, Write                |
-| DeleteIdMappingWorkflow                                                                                                         | [entityresolution:DeleteIdMappingWorkflow](#list_entityresolution-action-DeleteIdMappingWorkflow "#list_entityresolution-action-DeleteIdMappingWorkflow") |                                |                               | Write                         |
-| DeleteIdNamespace                                                                                                               | [entityresolution:DeleteIdNamespace](#list_entityresolution-action-DeleteIdNamespace "#list_entityresolution-action-DeleteIdNamespace")                   |                                |                               | Write                         |
-| DeleteMatchingWorkflow                                                                                                          | [entityresolution:DeleteMatchingWorkflow](#list_entityresolution-action-DeleteMatchingWorkflow "#list_entityresolution-action-DeleteMatchingWorkflow")    |                                |                               | Write                         |
-| DeletePolicyStatement                                                                                                           | [entityresolution:DeletePolicyStatement](#list_entityresolution-action-DeletePolicyStatement "#list_entityresolution-action-DeletePolicyStatement")       |                                |                               | Permissions management, Write |
-| DeleteSchemaMapping                                                                                                             | [entityresolution:DeleteSchemaMapping](#list_entityresolution-action-DeleteSchemaMapping "#list_entityresolution-action-DeleteSchemaMapping")             |                                |                               | Write                         |
-| GenerateMatchId                                                                                                                 | [entityresolution:GenerateMatchId](#list_entityresolution-action-GenerateMatchId "#list_entityresolution-action-GenerateMatchId")                         |                                |                               | Write                         |
-| GetIdMappingJob                                                                                                                 | [entityresolution:GetIdMappingJob](#list_entityresolution-action-GetIdMappingJob "#list_entityresolution-action-GetIdMappingJob")                         |                                |                               | Read                          |
-| GetIdMappingWorkflow                                                                                                            | [entityresolution:GetIdMappingWorkflow](#list_entityresolution-action-GetIdMappingWorkflow "#list_entityresolution-action-GetIdMappingWorkflow")          |                                |                               | Read                          |
-| GetIdNamespace                                                                                                                  | [entityresolution:GetIdNamespace](#list_entityresolution-action-GetIdNamespace "#list_entityresolution-action-GetIdNamespace")                            |                                |                               | Read                          |
-| GetMatchId                                                                                                                      | [entityresolution:GetMatchId](#list_entityresolution-action-GetMatchId "#list_entityresolution-action-GetMatchId")                                        |                                |                               | Read                          |
-| GetMatchingJob                                                                                                                  | [entityresolution:GetMatchingJob](#list_entityresolution-action-GetMatchingJob "#list_entityresolution-action-GetMatchingJob")                            |                                |                               | Read                          |
-| GetMatchingWorkflow                                                                                                             | [entityresolution:GetMatchingWorkflow](#list_entityresolution-action-GetMatchingWorkflow "#list_entityresolution-action-GetMatchingWorkflow")             |                                |                               | Read                          |
-| GetPolicy                                                                                                                       | [entityresolution:GetPolicy](#list_entityresolution-action-GetPolicy "#list_entityresolution-action-GetPolicy")                                           |                                |                               | Read                          |
-| GetProviderService                                                                                                              | [entityresolution:GetProviderService](#list_entityresolution-action-GetProviderService "#list_entityresolution-action-GetProviderService")                |                                |                               | Read                          |
-| GetSchemaMapping                                                                                                                | [entityresolution:GetSchemaMapping](#list_entityresolution-action-GetSchemaMapping "#list_entityresolution-action-GetSchemaMapping")                      |                                |                               | Read                          |
-| ListIdMappingJobs                                                                                                               | [entityresolution:ListIdMappingJobs](#list_entityresolution-action-ListIdMappingJobs "#list_entityresolution-action-ListIdMappingJobs")                   |                                |                               | List                          |
-| ListIdMappingWorkflows                                                                                                          | [entityresolution:ListIdMappingWorkflows](#list_entityresolution-action-ListIdMappingWorkflows "#list_entityresolution-action-ListIdMappingWorkflows")    |                                |                               | List                          |
-| ListIdNamespaces                                                                                                                | [entityresolution:ListIdNamespaces](#list_entityresolution-action-ListIdNamespaces "#list_entityresolution-action-ListIdNamespaces")                      |                                |                               | List                          |
-| ListMatchingJobs                                                                                                                | [entityresolution:ListMatchingJobs](#list_entityresolution-action-ListMatchingJobs "#list_entityresolution-action-ListMatchingJobs")                      |                                |                               | List                          |
-| ListMatchingWorkflows                                                                                                           | [entityresolution:ListMatchingWorkflows](#list_entityresolution-action-ListMatchingWorkflows "#list_entityresolution-action-ListMatchingWorkflows")       |                                |                               | List                          |
-| ListProviderServices                                                                                                            | [entityresolution:ListProviderServices](#list_entityresolution-action-ListProviderServices "#list_entityresolution-action-ListProviderServices")          |                                |                               | List                          |
-| ListSchemaMappings                                                                                                              | [entityresolution:ListSchemaMappings](#list_entityresolution-action-ListSchemaMappings "#list_entityresolution-action-ListSchemaMappings")                |                                |                               | List                          |
-| ListTagsForResource                                                                                                             | [entityresolution:ListTagsForResource](#list_entityresolution-action-ListTagsForResource "#list_entityresolution-action-ListTagsForResource")             |                                |                               | Read                          |
-| PutPolicy                                                                                                                       | [entityresolution:PutPolicy](#list_entityresolution-action-PutPolicy "#list_entityresolution-action-PutPolicy")                                           |                                |                               | Permissions management, Write |
-| StartIdMappingJob                                                                                                               | [entityresolution:StartIdMappingJob](#list_entityresolution-action-StartIdMappingJob "#list_entityresolution-action-StartIdMappingJob")                   |                                |                               | Write                         |
-| [entityresolution:UseIdNamespace](#list_entityresolution-action-UseIdNamespace "#list_entityresolution-action-UseIdNamespace")  |                                                                                                                                                           |                                | Permissions management, Write |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                       | entityresolution.amazonaws.com | Write                         |
-| StartMatchingJob                                                                                                                | [entityresolution:StartMatchingJob](#list_entityresolution-action-StartMatchingJob "#list_entityresolution-action-StartMatchingJob")                      |                                |                               | Write                         |
-| TagResource                                                                                                                     | [entityresolution:TagResource](#list_entityresolution-action-TagResource "#list_entityresolution-action-TagResource")                                     |                                |                               | Tagging, Write                |
-| UntagResource                                                                                                                   | [entityresolution:UntagResource](#list_entityresolution-action-UntagResource "#list_entityresolution-action-UntagResource")                               |                                |                               | Tagging, Write                |
-| UpdateIdMappingWorkflow                                                                                                         | [entityresolution:UpdateIdMappingWorkflow](#list_entityresolution-action-UpdateIdMappingWorkflow "#list_entityresolution-action-UpdateIdMappingWorkflow") |                                |                               | Write                         |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                       | entityresolution.amazonaws.com | Write                         |
-| UpdateIdNamespace                                                                                                               | [entityresolution:UpdateIdNamespace](#list_entityresolution-action-UpdateIdNamespace "#list_entityresolution-action-UpdateIdNamespace")                   |                                |                               | Write                         |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                       | entityresolution.amazonaws.com | Write                         |
-| UpdateMatchingWorkflow                                                                                                          | [entityresolution:UpdateMatchingWorkflow](#list_entityresolution-action-UpdateMatchingWorkflow "#list_entityresolution-action-UpdateMatchingWorkflow")    |                                |                               | Write                         |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                       | entityresolution.amazonaws.com | Write                         |
-| UpdateSchemaMapping                                                                                                             | [entityresolution:UpdateSchemaMapping](#list_entityresolution-action-UpdateSchemaMapping "#list_entityresolution-action-UpdateSchemaMapping")             |                                |                               | Write                         |
+
+
+
+- **   AddPolicyStatement  **
+  - **IAM action:**  [entityresolution:AddPolicyStatement](#list_entityresolution-action-AddPolicyStatement) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   BatchDeleteUniqueId  **
+  - **IAM action:**  [entityresolution:BatchDeleteUniqueId](#list_entityresolution-action-BatchDeleteUniqueId) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateIdMappingWorkflow  **
+  - **IAM action:**  [entityresolution:CreateIdMappingWorkflow](#list_entityresolution-action-CreateIdMappingWorkflow)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [entityresolution:TagResource](#list_entityresolution-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** entityresolution.amazonaws.com / **Access level:** Write
+
+- **   CreateIdNamespace  **
+  - **IAM action:**  [entityresolution:CreateIdNamespace](#list_entityresolution-action-CreateIdNamespace)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [entityresolution:TagResource](#list_entityresolution-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** entityresolution.amazonaws.com / **Access level:** Write
+
+- **   CreateMatchingWorkflow  **
+  - **IAM action:**  [entityresolution:CreateMatchingWorkflow](#list_entityresolution-action-CreateMatchingWorkflow)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [entityresolution:TagResource](#list_entityresolution-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** entityresolution.amazonaws.com / **Access level:** Write
+
+- **   CreateSchemaMapping  **
+  - **IAM action:**  [entityresolution:CreateSchemaMapping](#list_entityresolution-action-CreateSchemaMapping)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [entityresolution:TagResource](#list_entityresolution-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteIdMappingWorkflow  **
+  - **IAM action:**  [entityresolution:DeleteIdMappingWorkflow](#list_entityresolution-action-DeleteIdMappingWorkflow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteIdNamespace  **
+  - **IAM action:**  [entityresolution:DeleteIdNamespace](#list_entityresolution-action-DeleteIdNamespace) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteMatchingWorkflow  **
+  - **IAM action:**  [entityresolution:DeleteMatchingWorkflow](#list_entityresolution-action-DeleteMatchingWorkflow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeletePolicyStatement  **
+  - **IAM action:**  [entityresolution:DeletePolicyStatement](#list_entityresolution-action-DeletePolicyStatement) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   DeleteSchemaMapping  **
+  - **IAM action:**  [entityresolution:DeleteSchemaMapping](#list_entityresolution-action-DeleteSchemaMapping) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GenerateMatchId  **
+  - **IAM action:**  [entityresolution:GenerateMatchId](#list_entityresolution-action-GenerateMatchId) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetIdMappingJob  **
+  - **IAM action:**  [entityresolution:GetIdMappingJob](#list_entityresolution-action-GetIdMappingJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIdMappingWorkflow  **
+  - **IAM action:**  [entityresolution:GetIdMappingWorkflow](#list_entityresolution-action-GetIdMappingWorkflow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIdNamespace  **
+  - **IAM action:**  [entityresolution:GetIdNamespace](#list_entityresolution-action-GetIdNamespace) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMatchId  **
+  - **IAM action:**  [entityresolution:GetMatchId](#list_entityresolution-action-GetMatchId) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMatchingJob  **
+  - **IAM action:**  [entityresolution:GetMatchingJob](#list_entityresolution-action-GetMatchingJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMatchingWorkflow  **
+  - **IAM action:**  [entityresolution:GetMatchingWorkflow](#list_entityresolution-action-GetMatchingWorkflow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPolicy  **
+  - **IAM action:**  [entityresolution:GetPolicy](#list_entityresolution-action-GetPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetProviderService  **
+  - **IAM action:**  [entityresolution:GetProviderService](#list_entityresolution-action-GetProviderService) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSchemaMapping  **
+  - **IAM action:**  [entityresolution:GetSchemaMapping](#list_entityresolution-action-GetSchemaMapping) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListIdMappingJobs  **
+  - **IAM action:**  [entityresolution:ListIdMappingJobs](#list_entityresolution-action-ListIdMappingJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListIdMappingWorkflows  **
+  - **IAM action:**  [entityresolution:ListIdMappingWorkflows](#list_entityresolution-action-ListIdMappingWorkflows) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListIdNamespaces  **
+  - **IAM action:**  [entityresolution:ListIdNamespaces](#list_entityresolution-action-ListIdNamespaces) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMatchingJobs  **
+  - **IAM action:**  [entityresolution:ListMatchingJobs](#list_entityresolution-action-ListMatchingJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMatchingWorkflows  **
+  - **IAM action:**  [entityresolution:ListMatchingWorkflows](#list_entityresolution-action-ListMatchingWorkflows) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListProviderServices  **
+  - **IAM action:**  [entityresolution:ListProviderServices](#list_entityresolution-action-ListProviderServices) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSchemaMappings  **
+  - **IAM action:**  [entityresolution:ListSchemaMappings](#list_entityresolution-action-ListSchemaMappings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [entityresolution:ListTagsForResource](#list_entityresolution-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   PutPolicy  **
+  - **IAM action:**  [entityresolution:PutPolicy](#list_entityresolution-action-PutPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   StartIdMappingJob  **
+  - **IAM action:**  [entityresolution:StartIdMappingJob](#list_entityresolution-action-StartIdMappingJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [entityresolution:UseIdNamespace](#list_entityresolution-action-UseIdNamespace)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** entityresolution.amazonaws.com / **Access level:** Write
+
+- **   StartMatchingJob  **
+  - **IAM action:**  [entityresolution:StartMatchingJob](#list_entityresolution-action-StartMatchingJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [entityresolution:TagResource](#list_entityresolution-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [entityresolution:UntagResource](#list_entityresolution-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateIdMappingWorkflow  **
+  - **IAM action:**  [entityresolution:UpdateIdMappingWorkflow](#list_entityresolution-action-UpdateIdMappingWorkflow)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** entityresolution.amazonaws.com / **Access level:** Write
+
+- **   UpdateIdNamespace  **
+  - **IAM action:**  [entityresolution:UpdateIdNamespace](#list_entityresolution-action-UpdateIdNamespace)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** entityresolution.amazonaws.com / **Access level:** Write
+
+- **   UpdateMatchingWorkflow  **
+  - **IAM action:**  [entityresolution:UpdateMatchingWorkflow](#list_entityresolution-action-UpdateMatchingWorkflow)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** entityresolution.amazonaws.com / **Access level:** Write
+
+- **   UpdateSchemaMapping  **
+  - **IAM action:**  [entityresolution:UpdateSchemaMapping](#list_entityresolution-action-UpdateSchemaMapping) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS Entity Resolution
+<a name="list_entityresolution-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                 | Resource types (\*required)                                                                                                  | Condition keys                                                                                                                                                                                                                                                                                                                                              | Access level                  |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| [AddPolicyStatement](../../../entityresolution/latest/apireference/API_AddPolicyStatement.md "../../../entityresolution/latest/apireference/API_AddPolicyStatement.md")                | Grants permission to give an AWS service or another account permission to use an AWS Entity Resolution resources                                                                                                                                                                                                                                            |                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                             | Permissions management, Write |
-| [BatchDeleteUniqueId](../../../entityresolution/latest/apireference/API_BatchDeleteUniqueId.md "../../../entityresolution/latest/apireference/API_BatchDeleteUniqueId.md")             | Grants permission to batch delete unique Id                                                                                                                                                                                                                                                                                                                 | [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow "#list_entityresolution-resource-MatchingWorkflow")    | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [CreateIdMappingWorkflow](../../../entityresolution/latest/apireference/API_CreateIdMappingWorkflow.md "../../../entityresolution/latest/apireference/API_CreateIdMappingWorkflow.md") | Grants permission to create a idmapping workflow                                                                                                                                                                                                                                                                                                            |                                                                                                                              | [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_ "#list_entityresolution-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_entityresolution-aws_TagKeys "#list_entityresolution-aws_TagKeys")                                                                                                                                     | Write                         |
-| [CreateIdNamespace](../../../entityresolution/latest/apireference/API_CreateIdNamespace.md "../../../entityresolution/latest/apireference/API_CreateIdNamespace.md")                   | Grants permission to create a IdNamespace                                                                                                                                                                                                                                                                                                                   |                                                                                                                              | [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_ "#list_entityresolution-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_entityresolution-aws_TagKeys "#list_entityresolution-aws_TagKeys")                                                                                                                                     | Write                         |
-| [CreateMatchingWorkflow](../../../entityresolution/latest/apireference/API_CreateMatchingWorkflow.md "../../../entityresolution/latest/apireference/API_CreateMatchingWorkflow.md")    | Grants permission to create a matching workflow                                                                                                                                                                                                                                                                                                             |                                                                                                                              | [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_ "#list_entityresolution-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_entityresolution-aws_TagKeys "#list_entityresolution-aws_TagKeys")                                                                                                                                     | Write                         |
-| [CreateSchemaMapping](../../../entityresolution/latest/apireference/API_CreateSchemaMapping.md "../../../entityresolution/latest/apireference/API_CreateSchemaMapping.md")             | Grants permission to create a schema mapping                                                                                                                                                                                                                                                                                                                |                                                                                                                              | [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_ "#list_entityresolution-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_entityresolution-aws_TagKeys "#list_entityresolution-aws_TagKeys")                                                                                                                                     | Write                         |
-| [DeleteIdMappingWorkflow](../../../entityresolution/latest/apireference/API_DeleteIdMappingWorkflow.md "../../../entityresolution/latest/apireference/API_DeleteIdMappingWorkflow.md") | Grants permission to delete a idmapping workflow                                                                                                                                                                                                                                                                                                            | [IdMappingWorkflow\*](#list_entityresolution-resource-IdMappingWorkflow "#list_entityresolution-resource-IdMappingWorkflow") | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [DeleteIdNamespace](../../../entityresolution/latest/apireference/API_DeleteIdNamespace.md "../../../entityresolution/latest/apireference/API_DeleteIdNamespace.md")                   | Grants permission to delete a IdNamespace                                                                                                                                                                                                                                                                                                                   | [IdNamespace\*](#list_entityresolution-resource-IdNamespace "#list_entityresolution-resource-IdNamespace")                   | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [DeleteMatchingWorkflow](../../../entityresolution/latest/apireference/API_DeleteMatchingWorkflow.md "../../../entityresolution/latest/apireference/API_DeleteMatchingWorkflow.md")    | Grants permission to delete a matching workflow                                                                                                                                                                                                                                                                                                             | [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow "#list_entityresolution-resource-MatchingWorkflow")    | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [DeletePolicyStatement](../../../entityresolution/latest/apireference/API_DeletePolicyStatement.md "../../../entityresolution/latest/apireference/API_DeletePolicyStatement.md")       | Grants permission to delete permission given to an AWS service or another account permission to use an AWS Entity Resolution resources                                                                                                                                                                                                                      |                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                             | Permissions management, Write |
-| [DeleteSchemaMapping](../../../entityresolution/latest/apireference/API_DeleteSchemaMapping.md "../../../entityresolution/latest/apireference/API_DeleteSchemaMapping.md")             | Grants permission to delete a schema mapping                                                                                                                                                                                                                                                                                                                | [SchemaMapping\*](#list_entityresolution-resource-SchemaMapping "#list_entityresolution-resource-SchemaMapping")             | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [GenerateMatchId](../../../entityresolution/latest/apireference/API_GenerateMatchId.md "../../../entityresolution/latest/apireference/API_GenerateMatchId.md")                         | Grants permission to generate match Id                                                                                                                                                                                                                                                                                                                      | [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow "#list_entityresolution-resource-MatchingWorkflow")    | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [GetIdMappingJob](../../../entityresolution/latest/apireference/API_GetIdMappingJob.md "../../../entityresolution/latest/apireference/API_GetIdMappingJob.md")                         | Grants permission to get a idmapping job                                                                                                                                                                                                                                                                                                                    | [IdMappingWorkflow\*](#list_entityresolution-resource-IdMappingWorkflow "#list_entityresolution-resource-IdMappingWorkflow") | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read                          |
-| [GetIdMappingWorkflow](../../../entityresolution/latest/apireference/API_GetIdMappingWorkflow.md "../../../entityresolution/latest/apireference/API_GetIdMappingWorkflow.md")          | Grants permission to get a idmapping workflow                                                                                                                                                                                                                                                                                                               | [IdMappingWorkflow\*](#list_entityresolution-resource-IdMappingWorkflow "#list_entityresolution-resource-IdMappingWorkflow") | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read                          |
-| [GetIdNamespace](../../../entityresolution/latest/apireference/API_GetIdNamespace.md "../../../entityresolution/latest/apireference/API_GetIdNamespace.md")                            | Grants permission to get a IdNamespace                                                                                                                                                                                                                                                                                                                      | [IdNamespace\*](#list_entityresolution-resource-IdNamespace "#list_entityresolution-resource-IdNamespace")                   | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read                          |
-| [GetMatchId](../../../entityresolution/latest/apireference/API_GetMatchId.md "../../../entityresolution/latest/apireference/API_GetMatchId.md")                                        | Grants permission to get match Id                                                                                                                                                                                                                                                                                                                           | [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow "#list_entityresolution-resource-MatchingWorkflow")    | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read                          |
-| [GetMatchingJob](../../../entityresolution/latest/apireference/API_GetMatchingJob.md "../../../entityresolution/latest/apireference/API_GetMatchingJob.md")                            | Grants permission to get a matching job                                                                                                                                                                                                                                                                                                                     | [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow "#list_entityresolution-resource-MatchingWorkflow")    | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read                          |
-| [GetMatchingWorkflow](../../../entityresolution/latest/apireference/API_GetMatchingWorkflow.md "../../../entityresolution/latest/apireference/API_GetMatchingWorkflow.md")             | Grants permission to get a matching workflow                                                                                                                                                                                                                                                                                                                | [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow "#list_entityresolution-resource-MatchingWorkflow")    | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read                          |
-| [GetPolicy](../../../entityresolution/latest/apireference/API_GetPolicy.md "../../../entityresolution/latest/apireference/API_GetPolicy.md")                                           | Grants permission to get a resource policy for an AWS Entity Resolution resources                                                                                                                                                                                                                                                                           |                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                             | Read                          |
-| [GetProviderService](../../../entityresolution/latest/apireference/API_GetProviderService.md "../../../entityresolution/latest/apireference/API_GetProviderService.md")                | Grants permission to get provider service                                                                                                                                                                                                                                                                                                                   | [ProviderService\*](#list_entityresolution-resource-ProviderService "#list_entityresolution-resource-ProviderService")       | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read                          |
-| [GetSchemaMapping](../../../entityresolution/latest/apireference/API_GetSchemaMapping.md "../../../entityresolution/latest/apireference/API_GetSchemaMapping.md")                      | Grants permission to get a schema mapping                                                                                                                                                                                                                                                                                                                   | [SchemaMapping\*](#list_entityresolution-resource-SchemaMapping "#list_entityresolution-resource-SchemaMapping")             | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read                          |
-| [ListIdMappingJobs](../../../entityresolution/latest/apireference/API_ListIdMappingJobs.md "../../../entityresolution/latest/apireference/API_ListIdMappingJobs.md")                   | Grants permission to list idmapping jobs                                                                                                                                                                                                                                                                                                                    | [IdMappingWorkflow\*](#list_entityresolution-resource-IdMappingWorkflow "#list_entityresolution-resource-IdMappingWorkflow") | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | List                          |
-| [ListIdMappingWorkflows](../../../entityresolution/latest/apireference/API_ListIdMappingWorkflows.md "../../../entityresolution/latest/apireference/API_ListIdMappingWorkflows.md")    | Grants permission to list idmapping workflows                                                                                                                                                                                                                                                                                                               |                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                             | List                          |
-| [ListIdNamespaces](../../../entityresolution/latest/apireference/API_ListIdNamespaces.md "../../../entityresolution/latest/apireference/API_ListIdNamespaces.md")                      | Grants permission to list IdNamespaces                                                                                                                                                                                                                                                                                                                      |                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                             | List                          |
-| [ListMatchingJobs](../../../entityresolution/latest/apireference/API_ListMatchingJobs.md "../../../entityresolution/latest/apireference/API_ListMatchingJobs.md")                      | Grants permission to list matching jobs                                                                                                                                                                                                                                                                                                                     | [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow "#list_entityresolution-resource-MatchingWorkflow")    | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | List                          |
-| [ListMatchingWorkflows](../../../entityresolution/latest/apireference/API_ListMatchingWorkflows.md "../../../entityresolution/latest/apireference/API_ListMatchingWorkflows.md")       | Grants permission to list matching workflows                                                                                                                                                                                                                                                                                                                |                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                             | List                          |
-| [ListProviderServices](../../../entityresolution/latest/apireference/API_ListProviderServices.md "../../../entityresolution/latest/apireference/API_ListProviderServices.md")          | Grants permission to list provider service                                                                                                                                                                                                                                                                                                                  |                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                             | List                          |
-| [ListSchemaMappings](../../../entityresolution/latest/apireference/API_ListSchemaMappings.md "../../../entityresolution/latest/apireference/API_ListSchemaMappings.md")                | Grants permission to list schema mappings                                                                                                                                                                                                                                                                                                                   |                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                             | List                          |
-| [ListTagsForResource](../../../entityresolution/latest/apireference/API_ListTagsForResource.md "../../../entityresolution/latest/apireference/API_ListTagsForResource.md")             | Grants permission to List tags for a resource                                                                                                                                                                                                                                                                                                               |                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                             | Read                          |
-| [PutPolicy](../../../entityresolution/latest/apireference/API_PutPolicy.md "../../../entityresolution/latest/apireference/API_PutPolicy.md")                                           | Grants permission to put a resource policy for an AWS Entity Resolution resources                                                                                                                                                                                                                                                                           |                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                             | Permissions management, Write |
-| [StartIdMappingJob](../../../entityresolution/latest/apireference/API_StartIdMappingJob.md "../../../entityresolution/latest/apireference/API_StartIdMappingJob.md")                   | Grants permission to start a idmapping job                                                                                                                                                                                                                                                                                                                  | [IdMappingWorkflow\*](#list_entityresolution-resource-IdMappingWorkflow "#list_entityresolution-resource-IdMappingWorkflow") | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [StartMatchingJob](../../../entityresolution/latest/apireference/API_StartMatchingJob.md "../../../entityresolution/latest/apireference/API_StartMatchingJob.md")                      | Grants permission to start a matching job                                                                                                                                                                                                                                                                                                                   | [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow "#list_entityresolution-resource-MatchingWorkflow")    | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [TagResource](../../../entityresolution/latest/apireference/API_TagResource.md "../../../entityresolution/latest/apireference/API_TagResource.md")                                     | Grants permission to adds tags to a resource                                                                                                                                                                                                                                                                                                                | [IdMappingWorkflow](#list_entityresolution-resource-IdMappingWorkflow "#list_entityresolution-resource-IdMappingWorkflow")   | [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_ "#list_entityresolution-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_entityresolution-aws_TagKeys "#list_entityresolution-aws_TagKeys") | Tagging, Write                |
-| [IdNamespace](#list_entityresolution-resource-IdNamespace "#list_entityresolution-resource-IdNamespace")                                                                               | [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_ "#list_entityresolution-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_entityresolution-aws_TagKeys "#list_entityresolution-aws_TagKeys") |
-| [MatchingWorkflow](#list_entityresolution-resource-MatchingWorkflow "#list_entityresolution-resource-MatchingWorkflow")                                                                | [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_ "#list_entityresolution-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_entityresolution-aws_TagKeys "#list_entityresolution-aws_TagKeys") |
-| [ProviderService](#list_entityresolution-resource-ProviderService "#list_entityresolution-resource-ProviderService")                                                                   | [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_ "#list_entityresolution-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_entityresolution-aws_TagKeys "#list_entityresolution-aws_TagKeys") |
-| [SchemaMapping](#list_entityresolution-resource-SchemaMapping "#list_entityresolution-resource-SchemaMapping")                                                                         | [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_ "#list_entityresolution-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_entityresolution-aws_TagKeys "#list_entityresolution-aws_TagKeys") |
-| [UntagResource](../../../entityresolution/latest/apireference/API_UntagResource.md "../../../entityresolution/latest/apireference/API_UntagResource.md")                               | Grants permission to untag a resource                                                                                                                                                                                                                                                                                                                       | [IdMappingWorkflow](#list_entityresolution-resource-IdMappingWorkflow "#list_entityresolution-resource-IdMappingWorkflow")   | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_entityresolution-aws_TagKeys "#list_entityresolution-aws_TagKeys")                                                                                                                                  | Tagging, Write                |
-| [IdNamespace](#list_entityresolution-resource-IdNamespace "#list_entityresolution-resource-IdNamespace")                                                                               | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_entityresolution-aws_TagKeys "#list_entityresolution-aws_TagKeys")                                                                                                                                  |
-| [MatchingWorkflow](#list_entityresolution-resource-MatchingWorkflow "#list_entityresolution-resource-MatchingWorkflow")                                                                | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_entityresolution-aws_TagKeys "#list_entityresolution-aws_TagKeys")                                                                                                                                  |
-| [ProviderService](#list_entityresolution-resource-ProviderService "#list_entityresolution-resource-ProviderService")                                                                   | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_entityresolution-aws_TagKeys "#list_entityresolution-aws_TagKeys")                                                                                                                                  |
-| [SchemaMapping](#list_entityresolution-resource-SchemaMapping "#list_entityresolution-resource-SchemaMapping")                                                                         | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_entityresolution-aws_TagKeys "#list_entityresolution-aws_TagKeys")                                                                                                                                  |
-| [UpdateIdMappingWorkflow](../../../entityresolution/latest/apireference/API_UpdateIdMappingWorkflow.md "../../../entityresolution/latest/apireference/API_UpdateIdMappingWorkflow.md") | Grants permission to update a idmapping workflow                                                                                                                                                                                                                                                                                                            | [IdMappingWorkflow\*](#list_entityresolution-resource-IdMappingWorkflow "#list_entityresolution-resource-IdMappingWorkflow") | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [UpdateIdNamespace](../../../entityresolution/latest/apireference/API_UpdateIdNamespace.md "../../../entityresolution/latest/apireference/API_UpdateIdNamespace.md")                   | Grants permission to update a IdNamespace                                                                                                                                                                                                                                                                                                                   | [IdNamespace\*](#list_entityresolution-resource-IdNamespace "#list_entityresolution-resource-IdNamespace")                   | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [UpdateMatchingWorkflow](../../../entityresolution/latest/apireference/API_UpdateMatchingWorkflow.md "../../../entityresolution/latest/apireference/API_UpdateMatchingWorkflow.md")    | Grants permission to update a matching workflow                                                                                                                                                                                                                                                                                                             | [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow "#list_entityresolution-resource-MatchingWorkflow")    | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [UpdateSchemaMapping](../../../entityresolution/latest/apireference/API_UpdateSchemaMapping.md "../../../entityresolution/latest/apireference/API_UpdateSchemaMapping.md")             | Grants permission to update a schema mapping                                                                                                                                                                                                                                                                                                                | [SchemaMapping\*](#list_entityresolution-resource-SchemaMapping "#list_entityresolution-resource-SchemaMapping")             | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [UseIdNamespace](../../../entityresolution/latest/apireference/API_UseIdNamespace.md "../../../entityresolution/latest/apireference/API_UseIdNamespace.md")                            | Grants permission to give an AWS service or another account permission to use IdNamespace within a workflow                                                                                                                                                                                                                                                 |                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                             | Permissions management, Write |
-| [UseWorkflow](../../../entityresolution/latest/apireference/API_UseWorkflow.md "../../../entityresolution/latest/apireference/API_UseWorkflow.md")                                     | Grants permission to give an AWS service or another account permission to use workflow within a IdNamespace                                                                                                                                                                                                                                                 |                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                             | Permissions management, Write |
+
+
+
+- **   [AddPolicyStatement](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_AddPolicyStatement.html)  **
+  - **Description:** Grants permission to give an AWS service or another account permission to use an AWS Entity Resolution resources
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+- **   [BatchDeleteUniqueId](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_BatchDeleteUniqueId.html)  **
+  - **Description:** Grants permission to batch delete unique Id
+  - **Resource types (\*required):** [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateIdMappingWorkflow](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_CreateIdMappingWorkflow.html)  **
+  - **Description:** Grants permission to create a idmapping workflow
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_entityresolution-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateIdNamespace](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_CreateIdNamespace.html)  **
+  - **Description:** Grants permission to create a IdNamespace
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_entityresolution-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMatchingWorkflow](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_CreateMatchingWorkflow.html)  **
+  - **Description:** Grants permission to create a matching workflow
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_entityresolution-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateSchemaMapping](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_CreateSchemaMapping.html)  **
+  - **Description:** Grants permission to create a schema mapping
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_entityresolution-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteIdMappingWorkflow](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_DeleteIdMappingWorkflow.html)  **
+  - **Description:** Grants permission to delete a idmapping workflow
+  - **Resource types (\*required):** [IdMappingWorkflow\*](#list_entityresolution-resource-IdMappingWorkflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteIdNamespace](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_DeleteIdNamespace.html)  **
+  - **Description:** Grants permission to delete a IdNamespace
+  - **Resource types (\*required):** [IdNamespace\*](#list_entityresolution-resource-IdNamespace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteMatchingWorkflow](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_DeleteMatchingWorkflow.html)  **
+  - **Description:** Grants permission to delete a matching workflow
+  - **Resource types (\*required):** [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeletePolicyStatement](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_DeletePolicyStatement.html)  **
+  - **Description:** Grants permission to delete permission given to an AWS service or another account permission to use an AWS Entity Resolution resources
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+- **   [DeleteSchemaMapping](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_DeleteSchemaMapping.html)  **
+  - **Description:** Grants permission to delete a schema mapping
+  - **Resource types (\*required):** [SchemaMapping\*](#list_entityresolution-resource-SchemaMapping)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GenerateMatchId](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GenerateMatchId.html)  **
+  - **Description:** Grants permission to generate match Id
+  - **Resource types (\*required):** [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetIdMappingJob](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetIdMappingJob.html)  **
+  - **Description:** Grants permission to get a idmapping job
+  - **Resource types (\*required):** [IdMappingWorkflow\*](#list_entityresolution-resource-IdMappingWorkflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetIdMappingWorkflow](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetIdMappingWorkflow.html)  **
+  - **Description:** Grants permission to get a idmapping workflow
+  - **Resource types (\*required):** [IdMappingWorkflow\*](#list_entityresolution-resource-IdMappingWorkflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetIdNamespace](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetIdNamespace.html)  **
+  - **Description:** Grants permission to get a IdNamespace
+  - **Resource types (\*required):** [IdNamespace\*](#list_entityresolution-resource-IdNamespace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMatchId](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetMatchId.html)  **
+  - **Description:** Grants permission to get match Id
+  - **Resource types (\*required):** [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMatchingJob](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetMatchingJob.html)  **
+  - **Description:** Grants permission to get a matching job
+  - **Resource types (\*required):** [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMatchingWorkflow](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetMatchingWorkflow.html)  **
+  - **Description:** Grants permission to get a matching workflow
+  - **Resource types (\*required):** [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPolicy](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetPolicy.html)  **
+  - **Description:** Grants permission to get a resource policy for an AWS Entity Resolution resources
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetProviderService](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetProviderService.html)  **
+  - **Description:** Grants permission to get provider service
+  - **Resource types (\*required):** [ProviderService\*](#list_entityresolution-resource-ProviderService)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSchemaMapping](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetSchemaMapping.html)  **
+  - **Description:** Grants permission to get a schema mapping
+  - **Resource types (\*required):** [SchemaMapping\*](#list_entityresolution-resource-SchemaMapping)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListIdMappingJobs](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListIdMappingJobs.html)  **
+  - **Description:** Grants permission to list idmapping jobs
+  - **Resource types (\*required):** [IdMappingWorkflow\*](#list_entityresolution-resource-IdMappingWorkflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListIdMappingWorkflows](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListIdMappingWorkflows.html)  **
+  - **Description:** Grants permission to list idmapping workflows
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListIdNamespaces](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListIdNamespaces.html)  **
+  - **Description:** Grants permission to list IdNamespaces
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMatchingJobs](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListMatchingJobs.html)  **
+  - **Description:** Grants permission to list matching jobs
+  - **Resource types (\*required):** [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListMatchingWorkflows](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListMatchingWorkflows.html)  **
+  - **Description:** Grants permission to list matching workflows
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListProviderServices](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListProviderServices.html)  **
+  - **Description:** Grants permission to list provider service
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSchemaMappings](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListSchemaMappings.html)  **
+  - **Description:** Grants permission to list schema mappings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to List tags for a resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [PutPolicy](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_PutPolicy.html)  **
+  - **Description:** Grants permission to put a resource policy for an AWS Entity Resolution resources
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+- **   [StartIdMappingJob](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_StartIdMappingJob.html)  **
+  - **Description:** Grants permission to start a idmapping job
+  - **Resource types (\*required):** [IdMappingWorkflow\*](#list_entityresolution-resource-IdMappingWorkflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartMatchingJob](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_StartMatchingJob.html)  **
+  - **Description:** Grants permission to start a matching job
+  - **Resource types (\*required):** [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_TagResource.html)  **
+  - **Description:** Grants permission to adds tags to a resource
+  - **Resource types (\*required):** [IdMappingWorkflow](#list_entityresolution-resource-IdMappingWorkflow) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_entityresolution-aws_TagKeys)
+  - **Resource types (\*required):** [IdNamespace](#list_entityresolution-resource-IdNamespace) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_entityresolution-aws_TagKeys)
+  - **Resource types (\*required):** [MatchingWorkflow](#list_entityresolution-resource-MatchingWorkflow) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_entityresolution-aws_TagKeys)
+  - **Resource types (\*required):** [ProviderService](#list_entityresolution-resource-ProviderService) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_entityresolution-aws_TagKeys)
+  - **Resource types (\*required):** [SchemaMapping](#list_entityresolution-resource-SchemaMapping) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_entityresolution-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_entityresolution-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag a resource
+  - **Resource types (\*required):** [IdMappingWorkflow](#list_entityresolution-resource-IdMappingWorkflow) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_entityresolution-aws_TagKeys)
+  - **Resource types (\*required):** [IdNamespace](#list_entityresolution-resource-IdNamespace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_entityresolution-aws_TagKeys)
+  - **Resource types (\*required):** [MatchingWorkflow](#list_entityresolution-resource-MatchingWorkflow) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_entityresolution-aws_TagKeys)
+  - **Resource types (\*required):** [ProviderService](#list_entityresolution-resource-ProviderService) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_entityresolution-aws_TagKeys)
+  - **Resource types (\*required):** [SchemaMapping](#list_entityresolution-resource-SchemaMapping) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_entityresolution-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateIdMappingWorkflow](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_UpdateIdMappingWorkflow.html)  **
+  - **Description:** Grants permission to update a idmapping workflow
+  - **Resource types (\*required):** [IdMappingWorkflow\*](#list_entityresolution-resource-IdMappingWorkflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateIdNamespace](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_UpdateIdNamespace.html)  **
+  - **Description:** Grants permission to update a IdNamespace
+  - **Resource types (\*required):** [IdNamespace\*](#list_entityresolution-resource-IdNamespace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateMatchingWorkflow](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_UpdateMatchingWorkflow.html)  **
+  - **Description:** Grants permission to update a matching workflow
+  - **Resource types (\*required):** [MatchingWorkflow\*](#list_entityresolution-resource-MatchingWorkflow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSchemaMapping](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_UpdateSchemaMapping.html)  **
+  - **Description:** Grants permission to update a schema mapping
+  - **Resource types (\*required):** [SchemaMapping\*](#list_entityresolution-resource-SchemaMapping)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UseIdNamespace](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_UseIdNamespace.html)  **
+  - **Description:** Grants permission to give an AWS service or another account permission to use IdNamespace within a workflow
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+- **   [UseWorkflow](https://docs.aws.amazon.com/entityresolution/latest/apireference/API_UseWorkflow.html)  **
+  - **Description:** Grants permission to give an AWS service or another account permission to use workflow within a IdNamespace
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+
 
 ## Resource types defined by AWS Entity Resolution
+<a name="list_entityresolution-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                     | ARN                                                                                                           | Condition keys                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| [IdMappingWorkflow](../../../entityresolution/latest/userguide.md "../../../entityresolution/latest/userguide.md") | arn:${Partition}:entityresolution:${Region}:${Account}:idmappingworkflow/${WorkflowName}                      | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_") |
-| [IdNamespace](../../../entityresolution/latest/userguide.md "../../../entityresolution/latest/userguide.md")       | arn:${Partition}:entityresolution:${Region}:${Account}:idnamespace/${IdNamespaceName}                         | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_") |
-| [MatchingWorkflow](../../../entityresolution/latest/userguide.md "../../../entityresolution/latest/userguide.md")  | arn:${Partition}:entityresolution:${Region}:${Account}:matchingworkflow/${WorkflowName}                       | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_") |
-| [ProviderService](../../../entityresolution/latest/userguide.md "../../../entityresolution/latest/userguide.md")   | arn:${Partition}:entityresolution:${Region}:${Account}:providerservice/${ProviderName}/${ProviderServiceName} | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_") |
-| [SchemaMapping](../../../entityresolution/latest/userguide.md "../../../entityresolution/latest/userguide.md")     | arn:${Partition}:entityresolution:${Region}:${Account}:schemamapping/${SchemaName}                            | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_ "#list_entityresolution-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [IdMappingWorkflow](https://docs.aws.amazon.com/entityresolution/latest/userguide/)  | arn:${Partition}:entityresolution:${Region}:${Account}:idmappingworkflow/${WorkflowName} | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_) | 
+|  [IdNamespace](https://docs.aws.amazon.com/entityresolution/latest/userguide/)  | arn:${Partition}:entityresolution:${Region}:${Account}:idnamespace/${IdNamespaceName} | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_) | 
+|  [MatchingWorkflow](https://docs.aws.amazon.com/entityresolution/latest/userguide/)  | arn:${Partition}:entityresolution:${Region}:${Account}:matchingworkflow/${WorkflowName} | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_) | 
+|  [ProviderService](https://docs.aws.amazon.com/entityresolution/latest/userguide/)  | arn:${Partition}:entityresolution:${Region}:${Account}:providerservice/${ProviderName}/${ProviderServiceName} | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_) | 
+|  [SchemaMapping](https://docs.aws.amazon.com/entityresolution/latest/userguide/)  | arn:${Partition}:entityresolution:${Region}:${Account}:schemamapping/${SchemaName} | [aws:ResourceTag/${TagKey}](#list_entityresolution-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Entity Resolution
+<a name="list_entityresolution-policy-keys"></a>
 
-AWS Entity Resolution defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Entity Resolution defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                       | Description                                                                                                                | Type          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_iam-permissions.md#iam-contextkeys "../../../IAM/latest/UserGuide/reference_iam-permissions.md#iam-contextkeys")  | Filters access by a key that is present in the request the user makes to the entity resolution service                     | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_iam-permissions.md#iam-contextkeys "../../../IAM/latest/UserGuide/reference_iam-permissions.md#iam-contextkeys") | Filters access by a tag key and value pair                                                                                 | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_iam-permissions.md#iam-contextkeys "../../../IAM/latest/UserGuide/reference_iam-permissions.md#iam-contextkeys")               | Filters access by the list of all the tag key names present in the request the user makes to the entity resolution service | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-permissions.html#iam-contextkeys)  | Filters access by a key that is present in the request the user makes to the entity resolution service | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-permissions.html#iam-contextkeys)  | Filters access by a tag key and value pair | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-permissions.html#iam-contextkeys)  | Filters access by the list of all the tag key names present in the request the user makes to the entity resolution service | ArrayOfString | 

@@ -1,74 +1,165 @@
-# Actions, resources, and condition keys for Amazon Monitron
 
-Amazon Monitron (service prefix: `monitron`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Monitron
+<a name="list_monitron"></a>
+
+Amazon Monitron (service prefix: `monitron`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/Monitron/latest/user-guide/what-is-monitron.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/Monitron/latest/user-guide/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/Monitron/latest/user-guide/security_iam_service-with-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/monitron/monitron.json) for this service.
 
-- Learn how to [configure this service](../../../Monitron/latest/user-guide/what-is-monitron.md "../../../Monitron/latest/user-guide/what-is-monitron.md").
-- View a list of the [API operations available for
-  this service](../../../Monitron/latest/user-guide.md "../../../Monitron/latest/user-guide.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../Monitron/latest/user-guide/security_iam_service-with-iam.md "../../../Monitron/latest/user-guide/security_iam_service-with-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/monitron/monitron.json "https://servicereference.us-east-1.amazonaws.com/v1/monitron/monitron.json") for this service.
-
-###### Topics
-
-- [Actions defined by Amazon Monitron](#list_monitron-actions-as-permissions "#list_monitron-actions-as-permissions")
-- [Permission-only actions for Amazon Monitron](#list_monitron-permission-only-actions "#list_monitron-permission-only-actions")
-- [Resource types defined by Amazon Monitron](#list_monitron-resources-for-iam-policies "#list_monitron-resources-for-iam-policies")
-- [Condition keys for Amazon Monitron](#list_monitron-policy-keys "#list_monitron-policy-keys")
+**Topics**
++ [Actions defined by Amazon Monitron](#list_monitron-actions-as-permissions)
++ [Permission-only actions for Amazon Monitron](#list_monitron-permission-only-actions)
++ [Resource types defined by Amazon Monitron](#list_monitron-resources-for-iam-policies)
++ [Condition keys for Amazon Monitron](#list_monitron-policy-keys)
 
 ## Actions defined by Amazon Monitron
+<a name="list_monitron-actions-as-permissions"></a>
 
-Amazon Monitron has no API operations that can be used in the
-`Actions` element of an IAM policy statement.
+Amazon Monitron has no API operations that can be used in the `Actions` element of an IAM policy statement.
 
 ## Permission-only actions for Amazon Monitron
+<a name="list_monitron-permission-only-actions"></a>
 
-The following actions are defined by Amazon Monitron but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by Amazon Monitron but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                                           | Description                                                                       | Resource types (\*required)                                                    | Condition keys                                                                                                                                                                                                                                                                                              | Access level                  |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| [AssociateProjectAdminUser](../../../Monitron/latest/user-guide/user-management-chapter.md "../../../Monitron/latest/user-guide/user-management-chapter.md")      | Grants permission to associate a user with the project as an administrator        | [project\*](#list_monitron-resource-project "#list_monitron-resource-project") | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Permissions management, Write |
-| [CreateProject](../../../Monitron/latest/user-guide/mp-creating-project.md "../../../Monitron/latest/user-guide/mp-creating-project.md")                          | Grants permission to create a project                                             |                                                                                | [aws:RequestTag/${TagKey}](#list_monitron-aws_RequestTag___TagKey_ "#list_monitron-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_monitron-aws_TagKeys "#list_monitron-aws_TagKeys")                                                                                                                     | Write                         |
-| [CreateProjectUserAssociation](../../../Monitron/latest/user-guide/adding-user.md "../../../Monitron/latest/user-guide/adding-user.md")                           | Grants permission to associate a user with the project                            | [project\*](#list_monitron-resource-project "#list_monitron-resource-project") | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Permissions management, Write |
-| [CreateUserAccessRoleAssociation](../../../Monitron/latest/user-guide/adding-user.md "../../../Monitron/latest/user-guide/adding-user.md")                        | Grants permission to associate an access role with the user                       | [project\*](#list_monitron-resource-project "#list_monitron-resource-project") | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Permissions management, Write |
-| [DeleteProject](../../../Monitron/latest/user-guide/mp-delete-project.md "../../../Monitron/latest/user-guide/mp-delete-project.md")                              | Grants permission to delete a project                                             | [project\*](#list_monitron-resource-project "#list_monitron-resource-project") | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write                         |
-| [DeleteProjectUserAssociation](../../../Monitron/latest/user-guide/deleting-user.md "../../../Monitron/latest/user-guide/deleting-user.md")                       | Grants permission to disassociate a user from the project                         | [project\*](#list_monitron-resource-project "#list_monitron-resource-project") | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Permissions management, Write |
-| [DeleteUserAccessRoleAssociation](../../../Monitron/latest/user-guide/deleting-user.md "../../../Monitron/latest/user-guide/deleting-user.md")                    | Grants permission to disassociate an access role from the user                    | [project\*](#list_monitron-resource-project "#list_monitron-resource-project") | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Permissions management, Write |
-| [DisassociateProjectAdminUser](../../../Monitron/latest/user-guide/mu-remove-project-admin.md "../../../Monitron/latest/user-guide/mu-remove-project-admin.md")   | Grants permission to disassociate an administrator from the project               | [project\*](#list_monitron-resource-project "#list_monitron-resource-project") | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Permissions management, Write |
-| [GetProject](../../../Monitron/latest/user-guide/mp-project-tasks.md "../../../Monitron/latest/user-guide/mp-project-tasks.md")                                   | Grants permission to get information about a project                              | [project\*](#list_monitron-resource-project "#list_monitron-resource-project") | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read                          |
-| [GetProjectAdminUser](../../../Monitron/latest/user-guide/mp-project-tasks.md "../../../Monitron/latest/user-guide/mp-project-tasks.md")                          | Grants permission to describe an administrator who is associated with the project | [project\*](#list_monitron-resource-project "#list_monitron-resource-project") | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read                          |
-| [ListProjectAdminUsers](../../../Monitron/latest/user-guide/user-management-chapter.md "../../../Monitron/latest/user-guide/user-management-chapter.md")          | Grants permission to list all administrators associated with the project          | [project\*](#list_monitron-resource-project "#list_monitron-resource-project") | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Permissions management, Write |
-| [ListProjectUserAssociations](../../../Monitron/latest/user-guide/user-management-chapter.md "../../../Monitron/latest/user-guide/user-management-chapter.md")    | Grants permission to list all users associated with the project                   | [project\*](#list_monitron-resource-project "#list_monitron-resource-project") | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | List                          |
-| [ListProjects](../../../Monitron/latest/user-guide/mp-project-tasks.md "../../../Monitron/latest/user-guide/mp-project-tasks.md")                                 | Grants permission to list all projects                                            |                                                                                |                                                                                                                                                                                                                                                                                                             | List                          |
-| [ListTagsForResource](../../../Monitron/latest/user-guide/tagging.md "../../../Monitron/latest/user-guide/tagging.md")                                            | Grants permission to list all tags for a resource                                 | [project](#list_monitron-resource-project "#list_monitron-resource-project")   | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read                          |
-| [ListUserAccessRoleAssociations](../../../Monitron/latest/user-guide/user-management-chapter.md "../../../Monitron/latest/user-guide/user-management-chapter.md") | Grants permission to list all access roles associated with the user               | [project\*](#list_monitron-resource-project "#list_monitron-resource-project") | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | List                          |
-| [TagResource](../../../Monitron/latest/user-guide/tagging.md "../../../Monitron/latest/user-guide/tagging.md")                                                    | Grants permission to tag a resource                                               | [project](#list_monitron-resource-project "#list_monitron-resource-project")   | [aws:RequestTag/${TagKey}](#list_monitron-aws_RequestTag___TagKey_ "#list_monitron-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_monitron-aws_TagKeys "#list_monitron-aws_TagKeys") | Tagging, Write                |
-| [UntagResource](../../../Monitron/latest/user-guide/tagging.md#modify-tag-1 "../../../Monitron/latest/user-guide/tagging.md#modify-tag-1")                        | Grants permission to untag a resource                                             | [project](#list_monitron-resource-project "#list_monitron-resource-project")   | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_monitron-aws_TagKeys "#list_monitron-aws_TagKeys")                                                                                                                  | Tagging, Write                |
-| [UpdateProject](../../../Monitron/latest/user-guide/mp-updating-project.md "../../../Monitron/latest/user-guide/mp-updating-project.md")                          | Grants permission to update a project                                             | [project\*](#list_monitron-resource-project "#list_monitron-resource-project") | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write                         |
+
+
+
+- **   [AssociateProjectAdminUser](https://docs.aws.amazon.com/Monitron/latest/user-guide/user-management-chapter.html)  **
+  - **Description:** Grants permission to associate a user with the project as an administrator
+  - **Resource types (\*required):** [project\*](#list_monitron-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [CreateProject](https://docs.aws.amazon.com/Monitron/latest/user-guide/mp-creating-project.html)  **
+  - **Description:** Grants permission to create a project
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_monitron-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_monitron-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateProjectUserAssociation](https://docs.aws.amazon.com/Monitron/latest/user-guide/adding-user.html)  **
+  - **Description:** Grants permission to associate a user with the project
+  - **Resource types (\*required):** [project\*](#list_monitron-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [CreateUserAccessRoleAssociation](https://docs.aws.amazon.com/Monitron/latest/user-guide/adding-user.html)  **
+  - **Description:** Grants permission to associate an access role with the user
+  - **Resource types (\*required):** [project\*](#list_monitron-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [DeleteProject](https://docs.aws.amazon.com/Monitron/latest/user-guide/mp-delete-project.html)  **
+  - **Description:** Grants permission to delete a project
+  - **Resource types (\*required):** [project\*](#list_monitron-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteProjectUserAssociation](https://docs.aws.amazon.com/Monitron/latest/user-guide/deleting-user.html)  **
+  - **Description:** Grants permission to disassociate a user from the project
+  - **Resource types (\*required):** [project\*](#list_monitron-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [DeleteUserAccessRoleAssociation](https://docs.aws.amazon.com/Monitron/latest/user-guide/deleting-user.html)  **
+  - **Description:** Grants permission to disassociate an access role from the user
+  - **Resource types (\*required):** [project\*](#list_monitron-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [DisassociateProjectAdminUser](https://docs.aws.amazon.com/Monitron/latest/user-guide/mu-remove-project-admin.html)  **
+  - **Description:** Grants permission to disassociate an administrator from the project
+  - **Resource types (\*required):** [project\*](#list_monitron-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [GetProject](https://docs.aws.amazon.com/Monitron/latest/user-guide/mp-project-tasks.html)  **
+  - **Description:** Grants permission to get information about a project
+  - **Resource types (\*required):** [project\*](#list_monitron-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetProjectAdminUser](https://docs.aws.amazon.com/Monitron/latest/user-guide/mp-project-tasks.html)  **
+  - **Description:** Grants permission to describe an administrator who is associated with the project
+  - **Resource types (\*required):** [project\*](#list_monitron-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListProjectAdminUsers](https://docs.aws.amazon.com/Monitron/latest/user-guide/user-management-chapter.html)  **
+  - **Description:** Grants permission to list all administrators associated with the project
+  - **Resource types (\*required):** [project\*](#list_monitron-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [ListProjectUserAssociations](https://docs.aws.amazon.com/Monitron/latest/user-guide/user-management-chapter.html)  **
+  - **Description:** Grants permission to list all users associated with the project
+  - **Resource types (\*required):** [project\*](#list_monitron-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListProjects](https://docs.aws.amazon.com/Monitron/latest/user-guide/mp-project-tasks.html)  **
+  - **Description:** Grants permission to list all projects
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/Monitron/latest/user-guide/tagging.html)  **
+  - **Description:** Grants permission to list all tags for a resource
+  - **Resource types (\*required):** [project](#list_monitron-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListUserAccessRoleAssociations](https://docs.aws.amazon.com/Monitron/latest/user-guide/user-management-chapter.html)  **
+  - **Description:** Grants permission to list all access roles associated with the user
+  - **Resource types (\*required):** [project\*](#list_monitron-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [TagResource](https://docs.aws.amazon.com/Monitron/latest/user-guide/tagging.html)  **
+  - **Description:** Grants permission to tag a resource
+  - **Resource types (\*required):** [project](#list_monitron-resource-project)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_monitron-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_monitron-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/Monitron/latest/user-guide/tagging.html#modify-tag-1)  **
+  - **Description:** Grants permission to untag a resource
+  - **Resource types (\*required):** [project](#list_monitron-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_monitron-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateProject](https://docs.aws.amazon.com/Monitron/latest/user-guide/mp-updating-project.html)  **
+  - **Description:** Grants permission to update a project
+  - **Resource types (\*required):** [project\*](#list_monitron-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon Monitron
+<a name="list_monitron-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                               | ARN                                                                  | Condition keys                                                                                                   |
-| ---------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| [project](../../../Monitron/latest/user-guide/projects-chapter.md "../../../Monitron/latest/user-guide/projects-chapter.md") | arn:${Partition}:monitron:${Region}:${Account}:project/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_ "#list_monitron-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [project](https://docs.aws.amazon.com/Monitron/latest/user-guide/projects-chapter.html)  | arn:${Partition}:monitron:${Region}:${Account}:project/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_monitron-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Monitron
+<a name="list_monitron-policy-keys"></a>
 
-Amazon Monitron defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Monitron defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                   | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the tag key-value pairs in the request      | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by the tags attached to the resource           | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 

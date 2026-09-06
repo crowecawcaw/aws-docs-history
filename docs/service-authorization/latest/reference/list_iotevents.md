@@ -1,100 +1,291 @@
-# Actions, resources, and condition keys for AWS IoT Events
 
-AWS IoT Events (service prefix: `iotevents`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS IoT Events
+<a name="list_iotevents"></a>
+
+AWS IoT Events (service prefix: `iotevents`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/iotevents/index.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/iotevents/latest/apireference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/iotevents/latest/developerguide/auth-and-access-control.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/iotevents/iotevents.json) for this service.
 
-- Learn how to [configure this service](../../../iotevents/index.md "../../../iotevents/index.md").
-- View a list of the [API operations available for
-  this service](../../../iotevents/latest/apireference.md "../../../iotevents/latest/apireference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../iotevents/latest/developerguide/auth-and-access-control.md "../../../iotevents/latest/developerguide/auth-and-access-control.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/iotevents/iotevents.json "https://servicereference.us-east-1.amazonaws.com/v1/iotevents/iotevents.json") for this service.
-
-###### Topics
-
-- [Actions defined by AWS IoT Events](#list_iotevents-actions-as-permissions "#list_iotevents-actions-as-permissions")
-- [Resource types defined by AWS IoT Events](#list_iotevents-resources-for-iam-policies "#list_iotevents-resources-for-iam-policies")
-- [Condition keys for AWS IoT Events](#list_iotevents-policy-keys "#list_iotevents-policy-keys")
+**Topics**
++ [Actions defined by AWS IoT Events](#list_iotevents-actions-as-permissions)
++ [Resource types defined by AWS IoT Events](#list_iotevents-resources-for-iam-policies)
++ [Condition keys for AWS IoT Events](#list_iotevents-policy-keys)
 
 ## Actions defined by AWS IoT Events
+<a name="list_iotevents-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                          | Description                                                                                                                                                                                                                                                                                                       | Resource types (\*required)                                                                        | Condition keys                                                                                                                                                                                                                                                                                                    | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [BatchAcknowledgeAlarm](../../../iotevents/latest/apireference/API_iotevents-data_BatchAcknowledgeAlarm.md "../../../iotevents/latest/apireference/API_iotevents-data_BatchAcknowledgeAlarm.md") | Grants permission to send one or more acknowledge action requests to AWS IoT Events                                                                                                                                                                                                                               | [alarmModel\*](#list_iotevents-resource-alarmModel "#list_iotevents-resource-alarmModel")          | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [BatchDeleteDetector](../../../iotevents/latest/apireference/API_iotevents-data_BatchDeleteDetector.md "../../../iotevents/latest/apireference/API_iotevents-data_BatchDeleteDetector.md")       | Grants permission to delete a detector instance within the AWS IoT Events system                                                                                                                                                                                                                                  | [detectorModel\*](#list_iotevents-resource-detectorModel "#list_iotevents-resource-detectorModel") | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [BatchDisableAlarm](../../../iotevents/latest/apireference/API_iotevents-data_BatchDisableAlarm.md "../../../iotevents/latest/apireference/API_iotevents-data_BatchDisableAlarm.md")             | Grants permission to disable one or more alarm instances                                                                                                                                                                                                                                                          | [alarmModel\*](#list_iotevents-resource-alarmModel "#list_iotevents-resource-alarmModel")          | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [BatchEnableAlarm](../../../iotevents/latest/apireference/API_iotevents-data_BatchEnableAlarm.md "../../../iotevents/latest/apireference/API_iotevents-data_BatchEnableAlarm.md")                | Grants permission to enable one or more alarm instances                                                                                                                                                                                                                                                           | [alarmModel\*](#list_iotevents-resource-alarmModel "#list_iotevents-resource-alarmModel")          | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [BatchPutMessage](../../../iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.md "../../../iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.md")                   | Grants permission to send a set of messages to the AWS IoT Events system                                                                                                                                                                                                                                          | [input\*](#list_iotevents-resource-input "#list_iotevents-resource-input")                         | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [BatchResetAlarm](../../../iotevents/latest/apireference/API_iotevents-data_BatchResetAlarm.md "../../../iotevents/latest/apireference/API_iotevents-data_BatchResetAlarm.md")                   | Grants permission to reset one or more alarm instances                                                                                                                                                                                                                                                            | [alarmModel\*](#list_iotevents-resource-alarmModel "#list_iotevents-resource-alarmModel")          | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [BatchSnoozeAlarm](../../../iotevents/latest/apireference/API_iotevents-data_BatchSnoozeAlarm.md "../../../iotevents/latest/apireference/API_iotevents-data_BatchSnoozeAlarm.md")                | Grants permission to change one or more alarm instances to the snooze mode                                                                                                                                                                                                                                        | [alarmModel\*](#list_iotevents-resource-alarmModel "#list_iotevents-resource-alarmModel")          | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [BatchUpdateDetector](../../../iotevents/latest/apireference/API_iotevents-data_BatchUpdateDetector.md "../../../iotevents/latest/apireference/API_iotevents-data_BatchUpdateDetector.md")       | Grants permission to update a detector instance within the AWS IoT Events system                                                                                                                                                                                                                                  | [detectorModel\*](#list_iotevents-resource-detectorModel "#list_iotevents-resource-detectorModel") | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [CreateAlarmModel](../../../iotevents/latest/apireference/API_CreateAlarmModel.md "../../../iotevents/latest/apireference/API_CreateAlarmModel.md")                                              | Grants permission to create an alarm model to monitor an AWS IoT Events input attribute or an AWS IoT SiteWise asset property                                                                                                                                                                                     | [alarmModel\*](#list_iotevents-resource-alarmModel "#list_iotevents-resource-alarmModel")          | [aws:RequestTag/${TagKey}](#list_iotevents-aws_RequestTag___TagKey_ "#list_iotevents-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iotevents-aws_TagKeys "#list_iotevents-aws_TagKeys") | Write          |
-| [CreateDetectorModel](../../../iotevents/latest/apireference/API_CreateDetectorModel.md "../../../iotevents/latest/apireference/API_CreateDetectorModel.md")                                     | Grants permission to create a detector model to monitor an AWS IoT Events input attribute                                                                                                                                                                                                                         | [detectorModel\*](#list_iotevents-resource-detectorModel "#list_iotevents-resource-detectorModel") | [aws:RequestTag/${TagKey}](#list_iotevents-aws_RequestTag___TagKey_ "#list_iotevents-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iotevents-aws_TagKeys "#list_iotevents-aws_TagKeys") | Write          |
-| [CreateInput](../../../iotevents/latest/apireference/API_CreateInput.md "../../../iotevents/latest/apireference/API_CreateInput.md")                                                             | Grants permission to create an Input in IotEvents                                                                                                                                                                                                                                                                 | [input\*](#list_iotevents-resource-input "#list_iotevents-resource-input")                         | [aws:RequestTag/${TagKey}](#list_iotevents-aws_RequestTag___TagKey_ "#list_iotevents-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iotevents-aws_TagKeys "#list_iotevents-aws_TagKeys") | Write          |
-| [DeleteAlarmModel](../../../iotevents/latest/apireference/API_DeleteAlarmModel.md "../../../iotevents/latest/apireference/API_DeleteAlarmModel.md")                                              | Grants permission to delete an alarm model                                                                                                                                                                                                                                                                        | [alarmModel\*](#list_iotevents-resource-alarmModel "#list_iotevents-resource-alarmModel")          | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteDetectorModel](../../../iotevents/latest/apireference/API_DeleteDetectorModel.md "../../../iotevents/latest/apireference/API_DeleteDetectorModel.md")                                     | Grants permission to delete a detector model                                                                                                                                                                                                                                                                      | [detectorModel\*](#list_iotevents-resource-detectorModel "#list_iotevents-resource-detectorModel") | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteInput](../../../iotevents/latest/apireference/API_DeleteInput.md "../../../iotevents/latest/apireference/API_DeleteInput.md")                                                             | Grants permission to delete an input                                                                                                                                                                                                                                                                              | [input\*](#list_iotevents-resource-input "#list_iotevents-resource-input")                         | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DescribeAlarm](../../../iotevents/latest/apireference/API_iotevents-data_DescribeAlarm.md "../../../iotevents/latest/apireference/API_iotevents-data_DescribeAlarm.md")                         | Grants permission to retrieve information about an alarm instance                                                                                                                                                                                                                                                 | [alarmModel\*](#list_iotevents-resource-alarmModel "#list_iotevents-resource-alarmModel")          | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [DescribeAlarmModel](../../../iotevents/latest/apireference/API_DescribeAlarmModel.md "../../../iotevents/latest/apireference/API_DescribeAlarmModel.md")                                        | Grants permission to retrieve information about an alarm model                                                                                                                                                                                                                                                    | [alarmModel\*](#list_iotevents-resource-alarmModel "#list_iotevents-resource-alarmModel")          | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [DescribeDetector](../../../iotevents/latest/apireference/API_iotevents-data_DescribeDetector.md "../../../iotevents/latest/apireference/API_iotevents-data_DescribeDetector.md")                | Grants permission to retriev information about a detector instance                                                                                                                                                                                                                                                | [detectorModel\*](#list_iotevents-resource-detectorModel "#list_iotevents-resource-detectorModel") | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [DescribeDetectorModel](../../../iotevents/latest/apireference/API_DescribeDetectorModel.md "../../../iotevents/latest/apireference/API_DescribeDetectorModel.md")                               | Grants permission to retrieve information about a detector model                                                                                                                                                                                                                                                  | [detectorModel\*](#list_iotevents-resource-detectorModel "#list_iotevents-resource-detectorModel") | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [DescribeDetectorModelAnalysis](../../../iotevents/latest/apireference/API_DescribeDetectorModelAnalysis.md "../../../iotevents/latest/apireference/API_DescribeDetectorModelAnalysis.md")       | Grants permission to retrieve the detector model analysis information                                                                                                                                                                                                                                             |                                                                                                    |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [DescribeInput](../../../iotevents/latest/apireference/API_DescribeInput.md "../../../iotevents/latest/apireference/API_DescribeInput.md")                                                       | Grants permission to retrieve an information about Input                                                                                                                                                                                                                                                          | [input\*](#list_iotevents-resource-input "#list_iotevents-resource-input")                         | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [DescribeLoggingOptions](../../../iotevents/latest/apireference/API_DescribeLoggingOptions.md "../../../iotevents/latest/apireference/API_DescribeLoggingOptions.md")                            | Grants permission to retrieve the current settings of the AWS IoT Events logging options                                                                                                                                                                                                                          |                                                                                                    |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetDetectorModelAnalysisResults](../../../iotevents/latest/apireference/API_GetDetectorModelAnalysisResults.md "../../../iotevents/latest/apireference/API_GetDetectorModelAnalysisResults.md") | Grants permission to retrieve the detector model analysis results                                                                                                                                                                                                                                                 |                                                                                                    |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [ListAlarmModelVersions](../../../iotevents/latest/apireference/API_ListAlarmModelVersions.md "../../../iotevents/latest/apireference/API_ListAlarmModelVersions.md")                            | Grants permission to list all the versions of an alarm model                                                                                                                                                                                                                                                      | [alarmModel\*](#list_iotevents-resource-alarmModel "#list_iotevents-resource-alarmModel")          | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | List           |
-| [ListAlarmModels](../../../iotevents/latest/apireference/API_ListAlarmModels.md "../../../iotevents/latest/apireference/API_ListAlarmModels.md")                                                 | Grants permission to list the alarm models that you created                                                                                                                                                                                                                                                       |                                                                                                    |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListAlarms](../../../iotevents/latest/apireference/API_iotevents-data_ListAlarms.md "../../../iotevents/latest/apireference/API_iotevents-data_ListAlarms.md")                                  | Grants permission to retrieve information about all alarm instances per alarmModel                                                                                                                                                                                                                                | [alarmModel\*](#list_iotevents-resource-alarmModel "#list_iotevents-resource-alarmModel")          | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | List           |
-| [ListDetectorModelVersions](../../../iotevents/latest/apireference/API_ListDetectorModelVersions.md "../../../iotevents/latest/apireference/API_ListDetectorModelVersions.md")                   | Grants permission to list all the versions of a detector model                                                                                                                                                                                                                                                    | [detectorModel\*](#list_iotevents-resource-detectorModel "#list_iotevents-resource-detectorModel") | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | List           |
-| [ListDetectorModels](../../../iotevents/latest/apireference/API_ListDetectorModels.md "../../../iotevents/latest/apireference/API_ListDetectorModels.md")                                        | Grants permission to list the detector models that you created                                                                                                                                                                                                                                                    |                                                                                                    |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListDetectors](../../../iotevents/latest/apireference/API_iotevents-data_ListDetectors.md "../../../iotevents/latest/apireference/API_iotevents-data_ListDetectors.md")                         | Grants permission to retrieve information about all detector instances per detectormodel                                                                                                                                                                                                                          | [detectorModel\*](#list_iotevents-resource-detectorModel "#list_iotevents-resource-detectorModel") | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | List           |
-| [ListInputRoutings](../../../iotevents/latest/apireference/API_ListInputRoutings.md "../../../iotevents/latest/apireference/API_ListInputRoutings.md")                                           | Grants permission to list one or more input routings                                                                                                                                                                                                                                                              |                                                                                                    |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListInputs](../../../iotevents/latest/apireference/API_ListInputs.md "../../../iotevents/latest/apireference/API_ListInputs.md")                                                                | Grants permission to lists the inputs you have created                                                                                                                                                                                                                                                            |                                                                                                    |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListTagsForResource](../../../iotevents/latest/apireference/API_ListTagsForResource.md "../../../iotevents/latest/apireference/API_ListTagsForResource.md")                                     | Grants permission to list the tags (metadata) which you have assigned to the resource                                                                                                                                                                                                                             | [alarmModel](#list_iotevents-resource-alarmModel "#list_iotevents-resource-alarmModel")            | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [detectorModel](#list_iotevents-resource-detectorModel "#list_iotevents-resource-detectorModel")                                                                                                 | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [input](#list_iotevents-resource-input "#list_iotevents-resource-input")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [PutLoggingOptions](../../../iotevents/latest/apireference/API_PutLoggingOptions.md "../../../iotevents/latest/apireference/API_PutLoggingOptions.md")                                           | Grants permission to set or update the AWS IoT Events logging options                                                                                                                                                                                                                                             |                                                                                                    |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [StartDetectorModelAnalysis](../../../iotevents/latest/apireference/API_StartDetectorModelAnalysis.md "../../../iotevents/latest/apireference/API_StartDetectorModelAnalysis.md")                | Grants permission to start the detector model analysis                                                                                                                                                                                                                                                            |                                                                                                    |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [TagResource](../../../iotevents/latest/apireference/API_TagResource.md "../../../iotevents/latest/apireference/API_TagResource.md")                                                             | Grants permission to adds to or modifies the tags of the given resource.Tags are metadata which can be used to manage a resource                                                                                                                                                                                  | [alarmModel](#list_iotevents-resource-alarmModel "#list_iotevents-resource-alarmModel")            | [aws:RequestTag/${TagKey}](#list_iotevents-aws_RequestTag___TagKey_ "#list_iotevents-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iotevents-aws_TagKeys "#list_iotevents-aws_TagKeys") | Tagging, Write |
-| [detectorModel](#list_iotevents-resource-detectorModel "#list_iotevents-resource-detectorModel")                                                                                                 | [aws:RequestTag/${TagKey}](#list_iotevents-aws_RequestTag___TagKey_ "#list_iotevents-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iotevents-aws_TagKeys "#list_iotevents-aws_TagKeys") |
-| [input](#list_iotevents-resource-input "#list_iotevents-resource-input")                                                                                                                         | [aws:RequestTag/${TagKey}](#list_iotevents-aws_RequestTag___TagKey_ "#list_iotevents-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iotevents-aws_TagKeys "#list_iotevents-aws_TagKeys") |
-| [UntagResource](../../../iotevents/latest/apireference/API_UntagResource.md "../../../iotevents/latest/apireference/API_UntagResource.md")                                                       | Grants permission to remove the given tags (metadata) from the resource                                                                                                                                                                                                                                           | [alarmModel](#list_iotevents-resource-alarmModel "#list_iotevents-resource-alarmModel")            | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iotevents-aws_TagKeys "#list_iotevents-aws_TagKeys")                                                                                                                    | Tagging, Write |
-| [detectorModel](#list_iotevents-resource-detectorModel "#list_iotevents-resource-detectorModel")                                                                                                 | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iotevents-aws_TagKeys "#list_iotevents-aws_TagKeys")                                                                                                                    |
-| [input](#list_iotevents-resource-input "#list_iotevents-resource-input")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iotevents-aws_TagKeys "#list_iotevents-aws_TagKeys")                                                                                                                    |
-| [UpdateAlarmModel](../../../iotevents/latest/apireference/API_UpdateAlarmModel.md "../../../iotevents/latest/apireference/API_UpdateAlarmModel.md")                                              | Grants permission to update an alarm model                                                                                                                                                                                                                                                                        | [alarmModel\*](#list_iotevents-resource-alarmModel "#list_iotevents-resource-alarmModel")          | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [UpdateDetectorModel](../../../iotevents/latest/apireference/API_UpdateDetectorModel.md "../../../iotevents/latest/apireference/API_UpdateDetectorModel.md")                                     | Grants permission to update a detector model                                                                                                                                                                                                                                                                      | [detectorModel\*](#list_iotevents-resource-detectorModel "#list_iotevents-resource-detectorModel") | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [UpdateInput](../../../iotevents/latest/apireference/API_UpdateInput.md "../../../iotevents/latest/apireference/API_UpdateInput.md")                                                             | Grants permission to update an input                                                                                                                                                                                                                                                                              | [input\*](#list_iotevents-resource-input "#list_iotevents-resource-input")                         | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [UpdateInputRouting](../../../iotevents/latest/apireference/API_UpdateInputRouting.md "../../../iotevents/latest/apireference/API_UpdateInputRouting.md")                                        | Grants permission to update input routing                                                                                                                                                                                                                                                                         | [input\*](#list_iotevents-resource-input "#list_iotevents-resource-input")                         | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
+
+
+
+- **   [BatchAcknowledgeAlarm](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchAcknowledgeAlarm.html)  **
+  - **Description:** Grants permission to send one or more acknowledge action requests to AWS IoT Events
+  - **Resource types (\*required):** [alarmModel\*](#list_iotevents-resource-alarmModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDeleteDetector](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchDeleteDetector.html)  **
+  - **Description:** Grants permission to delete a detector instance within the AWS IoT Events system
+  - **Resource types (\*required):** [detectorModel\*](#list_iotevents-resource-detectorModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDisableAlarm](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchDisableAlarm.html)  **
+  - **Description:** Grants permission to disable one or more alarm instances
+  - **Resource types (\*required):** [alarmModel\*](#list_iotevents-resource-alarmModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchEnableAlarm](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchEnableAlarm.html)  **
+  - **Description:** Grants permission to enable one or more alarm instances
+  - **Resource types (\*required):** [alarmModel\*](#list_iotevents-resource-alarmModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchPutMessage](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchPutMessage.html)  **
+  - **Description:** Grants permission to send a set of messages to the AWS IoT Events system
+  - **Resource types (\*required):** [input\*](#list_iotevents-resource-input)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchResetAlarm](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchResetAlarm.html)  **
+  - **Description:** Grants permission to reset one or more alarm instances
+  - **Resource types (\*required):** [alarmModel\*](#list_iotevents-resource-alarmModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchSnoozeAlarm](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchSnoozeAlarm.html)  **
+  - **Description:** Grants permission to change one or more alarm instances to the snooze mode
+  - **Resource types (\*required):** [alarmModel\*](#list_iotevents-resource-alarmModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchUpdateDetector](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchUpdateDetector.html)  **
+  - **Description:** Grants permission to update a detector instance within the AWS IoT Events system
+  - **Resource types (\*required):** [detectorModel\*](#list_iotevents-resource-detectorModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAlarmModel](https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html)  **
+  - **Description:** Grants permission to create an alarm model to monitor an AWS IoT Events input attribute or an AWS IoT SiteWise asset property
+  - **Resource types (\*required):** [alarmModel\*](#list_iotevents-resource-alarmModel)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iotevents-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iotevents-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDetectorModel](https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateDetectorModel.html)  **
+  - **Description:** Grants permission to create a detector model to monitor an AWS IoT Events input attribute
+  - **Resource types (\*required):** [detectorModel\*](#list_iotevents-resource-detectorModel)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iotevents-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iotevents-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateInput](https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateInput.html)  **
+  - **Description:** Grants permission to create an Input in IotEvents
+  - **Resource types (\*required):** [input\*](#list_iotevents-resource-input)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iotevents-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iotevents-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteAlarmModel](https://docs.aws.amazon.com/iotevents/latest/apireference/API_DeleteAlarmModel.html)  **
+  - **Description:** Grants permission to delete an alarm model
+  - **Resource types (\*required):** [alarmModel\*](#list_iotevents-resource-alarmModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDetectorModel](https://docs.aws.amazon.com/iotevents/latest/apireference/API_DeleteDetectorModel.html)  **
+  - **Description:** Grants permission to delete a detector model
+  - **Resource types (\*required):** [detectorModel\*](#list_iotevents-resource-detectorModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteInput](https://docs.aws.amazon.com/iotevents/latest/apireference/API_DeleteInput.html)  **
+  - **Description:** Grants permission to delete an input
+  - **Resource types (\*required):** [input\*](#list_iotevents-resource-input)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeAlarm](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_DescribeAlarm.html)  **
+  - **Description:** Grants permission to retrieve information about an alarm instance
+  - **Resource types (\*required):** [alarmModel\*](#list_iotevents-resource-alarmModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeAlarmModel](https://docs.aws.amazon.com/iotevents/latest/apireference/API_DescribeAlarmModel.html)  **
+  - **Description:** Grants permission to retrieve information about an alarm model
+  - **Resource types (\*required):** [alarmModel\*](#list_iotevents-resource-alarmModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeDetector](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_DescribeDetector.html)  **
+  - **Description:** Grants permission to retriev information about a detector instance
+  - **Resource types (\*required):** [detectorModel\*](#list_iotevents-resource-detectorModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeDetectorModel](https://docs.aws.amazon.com/iotevents/latest/apireference/API_DescribeDetectorModel.html)  **
+  - **Description:** Grants permission to retrieve information about a detector model
+  - **Resource types (\*required):** [detectorModel\*](#list_iotevents-resource-detectorModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeDetectorModelAnalysis](https://docs.aws.amazon.com/iotevents/latest/apireference/API_DescribeDetectorModelAnalysis.html)  **
+  - **Description:** Grants permission to retrieve the detector model analysis information
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeInput](https://docs.aws.amazon.com/iotevents/latest/apireference/API_DescribeInput.html)  **
+  - **Description:** Grants permission to retrieve an information about Input
+  - **Resource types (\*required):** [input\*](#list_iotevents-resource-input)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeLoggingOptions](https://docs.aws.amazon.com/iotevents/latest/apireference/API_DescribeLoggingOptions.html)  **
+  - **Description:** Grants permission to retrieve the current settings of the AWS IoT Events logging options
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetDetectorModelAnalysisResults](https://docs.aws.amazon.com/iotevents/latest/apireference/API_GetDetectorModelAnalysisResults.html)  **
+  - **Description:** Grants permission to retrieve the detector model analysis results
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListAlarmModelVersions](https://docs.aws.amazon.com/iotevents/latest/apireference/API_ListAlarmModelVersions.html)  **
+  - **Description:** Grants permission to list all the versions of an alarm model
+  - **Resource types (\*required):** [alarmModel\*](#list_iotevents-resource-alarmModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAlarmModels](https://docs.aws.amazon.com/iotevents/latest/apireference/API_ListAlarmModels.html)  **
+  - **Description:** Grants permission to list the alarm models that you created
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAlarms](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_ListAlarms.html)  **
+  - **Description:** Grants permission to retrieve information about all alarm instances per alarmModel
+  - **Resource types (\*required):** [alarmModel\*](#list_iotevents-resource-alarmModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDetectorModelVersions](https://docs.aws.amazon.com/iotevents/latest/apireference/API_ListDetectorModelVersions.html)  **
+  - **Description:** Grants permission to list all the versions of a detector model
+  - **Resource types (\*required):** [detectorModel\*](#list_iotevents-resource-detectorModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDetectorModels](https://docs.aws.amazon.com/iotevents/latest/apireference/API_ListDetectorModels.html)  **
+  - **Description:** Grants permission to list the detector models that you created
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDetectors](https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_ListDetectors.html)  **
+  - **Description:** Grants permission to retrieve information about all detector instances per detectormodel
+  - **Resource types (\*required):** [detectorModel\*](#list_iotevents-resource-detectorModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListInputRoutings](https://docs.aws.amazon.com/iotevents/latest/apireference/API_ListInputRoutings.html)  **
+  - **Description:** Grants permission to list one or more input routings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListInputs](https://docs.aws.amazon.com/iotevents/latest/apireference/API_ListInputs.html)  **
+  - **Description:** Grants permission to lists the inputs you have created
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/iotevents/latest/apireference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list the tags (metadata) which you have assigned to the resource
+  - **Resource types (\*required):** [alarmModel](#list_iotevents-resource-alarmModel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [detectorModel](#list_iotevents-resource-detectorModel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [input](#list_iotevents-resource-input) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [PutLoggingOptions](https://docs.aws.amazon.com/iotevents/latest/apireference/API_PutLoggingOptions.html)  **
+  - **Description:** Grants permission to set or update the AWS IoT Events logging options
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartDetectorModelAnalysis](https://docs.aws.amazon.com/iotevents/latest/apireference/API_StartDetectorModelAnalysis.html)  **
+  - **Description:** Grants permission to start the detector model analysis
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/iotevents/latest/apireference/API_TagResource.html)  **
+  - **Description:** Grants permission to adds to or modifies the tags of the given resource.Tags are metadata which can be used to manage a resource
+  - **Resource types (\*required):** [alarmModel](#list_iotevents-resource-alarmModel) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_iotevents-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iotevents-aws_TagKeys)
+  - **Resource types (\*required):** [detectorModel](#list_iotevents-resource-detectorModel) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_iotevents-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iotevents-aws_TagKeys)
+  - **Resource types (\*required):** [input](#list_iotevents-resource-input) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_iotevents-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iotevents-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/iotevents/latest/apireference/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove the given tags (metadata) from the resource
+  - **Resource types (\*required):** [alarmModel](#list_iotevents-resource-alarmModel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iotevents-aws_TagKeys)
+  - **Resource types (\*required):** [detectorModel](#list_iotevents-resource-detectorModel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iotevents-aws_TagKeys)
+  - **Resource types (\*required):** [input](#list_iotevents-resource-input) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iotevents-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAlarmModel](https://docs.aws.amazon.com/iotevents/latest/apireference/API_UpdateAlarmModel.html)  **
+  - **Description:** Grants permission to update an alarm model
+  - **Resource types (\*required):** [alarmModel\*](#list_iotevents-resource-alarmModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDetectorModel](https://docs.aws.amazon.com/iotevents/latest/apireference/API_UpdateDetectorModel.html)  **
+  - **Description:** Grants permission to update a detector model
+  - **Resource types (\*required):** [detectorModel\*](#list_iotevents-resource-detectorModel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateInput](https://docs.aws.amazon.com/iotevents/latest/apireference/API_UpdateInput.html)  **
+  - **Description:** Grants permission to update an input
+  - **Resource types (\*required):** [input\*](#list_iotevents-resource-input)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateInputRouting](https://docs.aws.amazon.com/iotevents/latest/apireference/API_UpdateInputRouting.html)  **
+  - **Description:** Grants permission to update input routing
+  - **Resource types (\*required):** [input\*](#list_iotevents-resource-input)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS IoT Events
+<a name="list_iotevents-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                 | ARN                                                                                | Condition keys                                                                                                     |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [alarmModel](../../../iotevents/latest/developerguide/iotevents-getting-started.md "../../../iotevents/latest/developerguide/iotevents-getting-started.md")    | arn:${Partition}:iotevents:${Region}:${Account}:alarmModel/${AlarmModelName}       | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_") |
-| [detectorModel](../../../iotevents/latest/developerguide/iotevents-getting-started.md "../../../iotevents/latest/developerguide/iotevents-getting-started.md") | arn:${Partition}:iotevents:${Region}:${Account}:detectorModel/${DetectorModelName} | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_") |
-| [input](../../../iotevents/latest/developerguide/iotevents-getting-started.md "../../../iotevents/latest/developerguide/iotevents-getting-started.md")         | arn:${Partition}:iotevents:${Region}:${Account}:input/${InputName}                 | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_ "#list_iotevents-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [alarmModel](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-getting-started.html)  | arn:${Partition}:iotevents:${Region}:${Account}:alarmModel/${AlarmModelName} | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_) | 
+|  [detectorModel](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-getting-started.html)  | arn:${Partition}:iotevents:${Region}:${Account}:detectorModel/${DetectorModelName} | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_) | 
+|  [input](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-getting-started.html)  | arn:${Partition}:iotevents:${Region}:${Account}:input/${InputName} | [aws:ResourceTag/${TagKey}](#list_iotevents-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS IoT Events
+<a name="list_iotevents-policy-keys"></a>
 
-AWS IoT Events defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS IoT Events defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                                                                                                          | Description                                                 | Type          |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")                                                                                                 | Filters access by the tag key-value pairs in the request    | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag")                                                                                              | Filters access by the tags attached to the resource         | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                                                                                                                    | Filters actions by the tag keys in the request              | ArrayOfString |
-| [iotevents:keyValue](../../../iotevents/latest/developerguide/security_iam_id-based-policy-examples.md#security_iam_service-with-iam-id-based-policies-conditionkeys "../../../iotevents/latest/developerguide/security_iam_id-based-policy-examples.md#security_iam_service-with-iam-id-based-policies-conditionkeys") | Filters access by the instanceId (key-value) of the message | String        |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters actions by the tag keys in the request | ArrayOfString | 
+|   [iotevents:keyValue](https://docs.aws.amazon.com/iotevents/latest/developerguide/security_iam_id-based-policy-examples.html#security_iam_service-with-iam-id-based-policies-conditionkeys)  | Filters access by the instanceId (key-value) of the message | String | 

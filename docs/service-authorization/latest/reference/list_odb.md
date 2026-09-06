@@ -1,302 +1,1090 @@
-# Actions, resources, and condition keys for AWS Service - Oracle Database@AWS
 
-AWS Service - Oracle Database@AWS (service prefix: `odb`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Service - Oracle Database@AWS
+<a name="list_odb"></a>
+
+AWS Service - Oracle Database@AWS (service prefix: `odb`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/odb/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/odb/latest/UserGuide/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/odb/odb.json) for this service.
 
-- Learn how to [configure this service](../../../odb/latest/UserGuide/what-is-odb.md "../../../odb/latest/UserGuide/what-is-odb.md").
-- View a list of the [API operations available for
-  this service](../../../odb/latest/APIReference.md "../../../odb/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../odb/latest/UserGuide/security-iam.md "../../../odb/latest/UserGuide/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/odb/odb.json "https://servicereference.us-east-1.amazonaws.com/v1/odb/odb.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Service - Oracle Database@AWS](#list_odb-operations "#list_odb-operations")
-- [Actions defined by AWS Service - Oracle Database@AWS](#list_odb-actions-as-permissions "#list_odb-actions-as-permissions")
-- [Permission-only actions for AWS Service - Oracle Database@AWS](#list_odb-permission-only-actions "#list_odb-permission-only-actions")
-- [Resource types defined by AWS Service - Oracle Database@AWS](#list_odb-resources-for-iam-policies "#list_odb-resources-for-iam-policies")
-- [Condition keys for AWS Service - Oracle Database@AWS](#list_odb-policy-keys "#list_odb-policy-keys")
+**Topics**
++ [API operations defined by AWS Service - Oracle Database@AWS](#list_odb-operations)
++ [Actions defined by AWS Service - Oracle Database@AWS](#list_odb-actions-as-permissions)
++ [Permission-only actions for AWS Service - Oracle Database@AWS](#list_odb-permission-only-actions)
++ [Resource types defined by AWS Service - Oracle Database@AWS](#list_odb-resources-for-iam-policies)
++ [Condition keys for AWS Service - Oracle Database@AWS](#list_odb-policy-keys)
 
 ## API operations defined by AWS Service - Oracle Database@AWS
+<a name="list_odb-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_odb-actions-as-permissions "#list_odb-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_odb-actions-as-permissions).
 
-| Operation                                                                                                                       | IAM action                                                                                                                                                                                       | Condition key     | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | ----------------- | -------------- |
-| AcceptMarketplaceRegistration                                                                                                   | [odb:AcceptMarketplaceRegistration](#list_odb-action-AcceptMarketplaceRegistration "#list_odb-action-AcceptMarketplaceRegistration")                                                             |                   |                   | Write          |
-| AssociateIamRoleToResource                                                                                                      | [odb:AssociateIamRoleToResource](#list_odb-action-AssociateIamRoleToResource "#list_odb-action-AssociateIamRoleToResource")                                                                      |                   |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                              | odb.amazonaws.com | Write             |
-| CreateAutonomousDatabase                                                                                                        | [odb:CreateAutonomousDatabase](#list_odb-action-CreateAutonomousDatabase "#list_odb-action-CreateAutonomousDatabase")                                                                            |                   |                   | Write          |
-| [odb:TagResource](#list_odb-action-TagResource "#list_odb-action-TagResource")                                                  |                                                                                                                                                                                                  |                   | Tagging, Write    |
-| CreateAutonomousDatabaseBackup                                                                                                  | [odb:CreateAutonomousDatabaseBackup](#list_odb-action-CreateAutonomousDatabaseBackup "#list_odb-action-CreateAutonomousDatabaseBackup")                                                          |                   |                   | Write          |
-| CreateAutonomousDatabaseWallet                                                                                                  | [odb:CreateAutonomousDatabaseWallet](#list_odb-action-CreateAutonomousDatabaseWallet "#list_odb-action-CreateAutonomousDatabaseWallet")                                                          |                   |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                              | odb.amazonaws.com | Write             |
-| CreateCloudAutonomousVmCluster                                                                                                  | [odb:CreateCloudAutonomousVmCluster](#list_odb-action-CreateCloudAutonomousVmCluster "#list_odb-action-CreateCloudAutonomousVmCluster")                                                          |                   |                   | Write          |
-| [odb:TagResource](#list_odb-action-TagResource "#list_odb-action-TagResource")                                                  |                                                                                                                                                                                                  |                   | Tagging, Write    |
-| CreateCloudExadataInfrastructure                                                                                                | [odb:CreateCloudExadataInfrastructure](#list_odb-action-CreateCloudExadataInfrastructure "#list_odb-action-CreateCloudExadataInfrastructure")                                                    |                   |                   | Write          |
-| [odb:TagResource](#list_odb-action-TagResource "#list_odb-action-TagResource")                                                  |                                                                                                                                                                                                  |                   | Tagging, Write    |
-| CreateCloudVmCluster                                                                                                            | [odb:CreateCloudVmCluster](#list_odb-action-CreateCloudVmCluster "#list_odb-action-CreateCloudVmCluster")                                                                                        |                   |                   | Write          |
-| [odb:CreateDbNode](#list_odb-action-CreateDbNode "#list_odb-action-CreateDbNode")                                               |                                                                                                                                                                                                  |                   | Write             |
-| [odb:TagResource](#list_odb-action-TagResource "#list_odb-action-TagResource")                                                  |                                                                                                                                                                                                  |                   | Tagging, Write    |
-| CreateExascaleDbStorageVault                                                                                                    | [odb:CreateExascaleDbStorageVault](#list_odb-action-CreateExascaleDbStorageVault "#list_odb-action-CreateExascaleDbStorageVault")                                                                |                   |                   | Write          |
-| [odb:TagResource](#list_odb-action-TagResource "#list_odb-action-TagResource")                                                  |                                                                                                                                                                                                  |                   | Tagging, Write    |
-| CreateOdbNetwork                                                                                                                | [odb:CreateOdbNetwork](#list_odb-action-CreateOdbNetwork "#list_odb-action-CreateOdbNetwork")                                                                                                    |                   |                   | Write          |
-| [odb:TagResource](#list_odb-action-TagResource "#list_odb-action-TagResource")                                                  |                                                                                                                                                                                                  |                   | Tagging, Write    |
-| CreateOdbPeeringConnection                                                                                                      | [odb:CreateOdbPeeringConnection](#list_odb-action-CreateOdbPeeringConnection "#list_odb-action-CreateOdbPeeringConnection")                                                                      |                   |                   | Write          |
-| [odb:TagResource](#list_odb-action-TagResource "#list_odb-action-TagResource")                                                  |                                                                                                                                                                                                  |                   | Tagging, Write    |
-| DeleteAutonomousDatabase                                                                                                        | [odb:DeleteAutonomousDatabase](#list_odb-action-DeleteAutonomousDatabase "#list_odb-action-DeleteAutonomousDatabase")                                                                            |                   |                   | Write          |
-| DeleteAutonomousDatabaseBackup                                                                                                  | [odb:DeleteAutonomousDatabaseBackup](#list_odb-action-DeleteAutonomousDatabaseBackup "#list_odb-action-DeleteAutonomousDatabaseBackup")                                                          |                   |                   | Write          |
-| DeleteCloudAutonomousVmCluster                                                                                                  | [odb:DeleteCloudAutonomousVmCluster](#list_odb-action-DeleteCloudAutonomousVmCluster "#list_odb-action-DeleteCloudAutonomousVmCluster")                                                          |                   |                   | Write          |
-| DeleteCloudExadataInfrastructure                                                                                                | [odb:DeleteCloudExadataInfrastructure](#list_odb-action-DeleteCloudExadataInfrastructure "#list_odb-action-DeleteCloudExadataInfrastructure")                                                    |                   |                   | Write          |
-| DeleteCloudVmCluster                                                                                                            | [odb:DeleteCloudVmCluster](#list_odb-action-DeleteCloudVmCluster "#list_odb-action-DeleteCloudVmCluster")                                                                                        |                   |                   | Write          |
-| [odb:DeleteDbNode](#list_odb-action-DeleteDbNode "#list_odb-action-DeleteDbNode")                                               |                                                                                                                                                                                                  |                   | Write             |
-| DeleteExascaleDbStorageVault                                                                                                    | [odb:DeleteExascaleDbStorageVault](#list_odb-action-DeleteExascaleDbStorageVault "#list_odb-action-DeleteExascaleDbStorageVault")                                                                |                   |                   | Write          |
-| DeleteOdbNetwork                                                                                                                | [odb:DeleteOdbNetwork](#list_odb-action-DeleteOdbNetwork "#list_odb-action-DeleteOdbNetwork")                                                                                                    |                   |                   | Write          |
-| DeleteOdbPeeringConnection                                                                                                      | [odb:DeleteOdbPeeringConnection](#list_odb-action-DeleteOdbPeeringConnection "#list_odb-action-DeleteOdbPeeringConnection")                                                                      |                   |                   | Write          |
-| DisassociateIamRoleFromResource                                                                                                 | [odb:DisassociateIamRoleFromResource](#list_odb-action-DisassociateIamRoleFromResource "#list_odb-action-DisassociateIamRoleFromResource")                                                       |                   |                   | Write          |
-| DisassociateVirtualMachinesFromExadbVmCluster                                                                                   | [odb:DisassociateVirtualMachinesFromExadbVmCluster](#list_odb-action-DisassociateVirtualMachinesFromExadbVmCluster "#list_odb-action-DisassociateVirtualMachinesFromExadbVmCluster")             |                   |                   | Write          |
-| FailoverAutonomousDatabase                                                                                                      | [odb:FailoverAutonomousDatabase](#list_odb-action-FailoverAutonomousDatabase "#list_odb-action-FailoverAutonomousDatabase")                                                                      |                   |                   | Write          |
-| GetAutonomousDatabase                                                                                                           | [odb:GetAutonomousDatabase](#list_odb-action-GetAutonomousDatabase "#list_odb-action-GetAutonomousDatabase")                                                                                     |                   |                   | Read           |
-| GetAutonomousDatabaseBackup                                                                                                     | [odb:GetAutonomousDatabaseBackup](#list_odb-action-GetAutonomousDatabaseBackup "#list_odb-action-GetAutonomousDatabaseBackup")                                                                   |                   |                   | Read           |
-| GetAutonomousDatabaseWalletDetails                                                                                              | [odb:GetAutonomousDatabaseWalletDetails](#list_odb-action-GetAutonomousDatabaseWalletDetails "#list_odb-action-GetAutonomousDatabaseWalletDetails")                                              |                   |                   | Read           |
-| GetCloudAutonomousVmCluster                                                                                                     | [odb:GetCloudAutonomousVmCluster](#list_odb-action-GetCloudAutonomousVmCluster "#list_odb-action-GetCloudAutonomousVmCluster")                                                                   |                   |                   | Read           |
-| GetCloudExadataInfrastructure                                                                                                   | [odb:GetCloudExadataInfrastructure](#list_odb-action-GetCloudExadataInfrastructure "#list_odb-action-GetCloudExadataInfrastructure")                                                             |                   |                   | Read           |
-| GetCloudExadataInfrastructureUnallocatedResources                                                                               | [odb:GetCloudExadataInfrastructureUnallocatedResources](#list_odb-action-GetCloudExadataInfrastructureUnallocatedResources "#list_odb-action-GetCloudExadataInfrastructureUnallocatedResources") |                   |                   | Read           |
-| GetCloudVmCluster                                                                                                               | [odb:GetCloudVmCluster](#list_odb-action-GetCloudVmCluster "#list_odb-action-GetCloudVmCluster")                                                                                                 |                   |                   | Read           |
-| GetDbNode                                                                                                                       | [odb:GetDbNode](#list_odb-action-GetDbNode "#list_odb-action-GetDbNode")                                                                                                                         |                   |                   | Read           |
-| GetDbServer                                                                                                                     | [odb:GetDbServer](#list_odb-action-GetDbServer "#list_odb-action-GetDbServer")                                                                                                                   |                   |                   | Read           |
-| GetExadbVmCluster                                                                                                               | [odb:GetExadbVmCluster](#list_odb-action-GetExadbVmCluster "#list_odb-action-GetExadbVmCluster")                                                                                                 |                   |                   | Read           |
-| GetExascaleDbStorageVault                                                                                                       | [odb:GetExascaleDbStorageVault](#list_odb-action-GetExascaleDbStorageVault "#list_odb-action-GetExascaleDbStorageVault")                                                                         |                   |                   | Read           |
-| GetOciOnboardingStatus                                                                                                          | [odb:GetOciOnboardingStatus](#list_odb-action-GetOciOnboardingStatus "#list_odb-action-GetOciOnboardingStatus")                                                                                  |                   |                   | Read           |
-| GetOdbNetwork                                                                                                                   | [odb:GetOdbNetwork](#list_odb-action-GetOdbNetwork "#list_odb-action-GetOdbNetwork")                                                                                                             |                   |                   | Read           |
-| GetOdbPeeringConnection                                                                                                         | [odb:GetOdbPeeringConnection](#list_odb-action-GetOdbPeeringConnection "#list_odb-action-GetOdbPeeringConnection")                                                                               |                   |                   | Read           |
-| InitializeService                                                                                                               | [odb:InitializeService](#list_odb-action-InitializeService "#list_odb-action-InitializeService")                                                                                                 |                   |                   | Write          |
-| ListAutonomousDatabaseBackups                                                                                                   | [odb:ListAutonomousDatabaseBackups](#list_odb-action-ListAutonomousDatabaseBackups "#list_odb-action-ListAutonomousDatabaseBackups")                                                             |                   |                   | List           |
-| ListAutonomousDatabaseCharacterSets                                                                                             | [odb:ListAutonomousDatabaseCharacterSets](#list_odb-action-ListAutonomousDatabaseCharacterSets "#list_odb-action-ListAutonomousDatabaseCharacterSets")                                           |                   |                   | List           |
-| ListAutonomousDatabaseClones                                                                                                    | [odb:ListAutonomousDatabaseClones](#list_odb-action-ListAutonomousDatabaseClones "#list_odb-action-ListAutonomousDatabaseClones")                                                                |                   |                   | List           |
-| ListAutonomousDatabasePeers                                                                                                     | [odb:ListAutonomousDatabasePeers](#list_odb-action-ListAutonomousDatabasePeers "#list_odb-action-ListAutonomousDatabasePeers")                                                                   |                   |                   | List           |
-| ListAutonomousDatabaseVersions                                                                                                  | [odb:ListAutonomousDatabaseVersions](#list_odb-action-ListAutonomousDatabaseVersions "#list_odb-action-ListAutonomousDatabaseVersions")                                                          |                   |                   | List           |
-| ListAutonomousDatabases                                                                                                         | [odb:ListAutonomousDatabases](#list_odb-action-ListAutonomousDatabases "#list_odb-action-ListAutonomousDatabases")                                                                               |                   |                   | List           |
-| ListAutonomousVirtualMachines                                                                                                   | [odb:ListAutonomousVirtualMachines](#list_odb-action-ListAutonomousVirtualMachines "#list_odb-action-ListAutonomousVirtualMachines")                                                             |                   |                   | List           |
-| ListCloudAutonomousVmClusters                                                                                                   | [odb:ListCloudAutonomousVmClusters](#list_odb-action-ListCloudAutonomousVmClusters "#list_odb-action-ListCloudAutonomousVmClusters")                                                             |                   |                   | List           |
-| ListCloudExadataInfrastructures                                                                                                 | [odb:ListCloudExadataInfrastructures](#list_odb-action-ListCloudExadataInfrastructures "#list_odb-action-ListCloudExadataInfrastructures")                                                       |                   |                   | List           |
-| ListCloudVmClusters                                                                                                             | [odb:ListCloudVmClusters](#list_odb-action-ListCloudVmClusters "#list_odb-action-ListCloudVmClusters")                                                                                           |                   |                   | List           |
-| ListDbNodes                                                                                                                     | [odb:ListDbNodes](#list_odb-action-ListDbNodes "#list_odb-action-ListDbNodes")                                                                                                                   |                   |                   | List           |
-| ListDbServers                                                                                                                   | [odb:ListDbServers](#list_odb-action-ListDbServers "#list_odb-action-ListDbServers")                                                                                                             |                   |                   | List           |
-| ListDbSystemShapes                                                                                                              | [odb:ListDbSystemShapes](#list_odb-action-ListDbSystemShapes "#list_odb-action-ListDbSystemShapes")                                                                                              |                   |                   | List           |
-| ListExadbVmClusters                                                                                                             | [odb:ListExadbVmClusters](#list_odb-action-ListExadbVmClusters "#list_odb-action-ListExadbVmClusters")                                                                                           |                   |                   | List           |
-| ListExascaleDbStorageVaults                                                                                                     | [odb:ListExascaleDbStorageVaults](#list_odb-action-ListExascaleDbStorageVaults "#list_odb-action-ListExascaleDbStorageVaults")                                                                   |                   |                   | List           |
-| ListFlexComponents                                                                                                              | [odb:ListFlexComponents](#list_odb-action-ListFlexComponents "#list_odb-action-ListFlexComponents")                                                                                              |                   |                   | List           |
-| ListGiMinorVersions                                                                                                             | [odb:ListGiMinorVersions](#list_odb-action-ListGiMinorVersions "#list_odb-action-ListGiMinorVersions")                                                                                           |                   |                   | List           |
-| ListGiVersions                                                                                                                  | [odb:ListGiVersions](#list_odb-action-ListGiVersions "#list_odb-action-ListGiVersions")                                                                                                          |                   |                   | List           |
-| ListOdbNetworks                                                                                                                 | [odb:ListOdbNetworks](#list_odb-action-ListOdbNetworks "#list_odb-action-ListOdbNetworks")                                                                                                       |                   |                   | List           |
-| ListOdbPeeringConnections                                                                                                       | [odb:ListOdbPeeringConnections](#list_odb-action-ListOdbPeeringConnections "#list_odb-action-ListOdbPeeringConnections")                                                                         |                   |                   | List           |
-| ListSystemVersions                                                                                                              | [odb:ListSystemVersions](#list_odb-action-ListSystemVersions "#list_odb-action-ListSystemVersions")                                                                                              |                   |                   | List           |
-| ListTagsForResource                                                                                                             | [odb:ListTagsForResource](#list_odb-action-ListTagsForResource "#list_odb-action-ListTagsForResource")                                                                                           |                   |                   | Read           |
-| RebootAutonomousDatabase                                                                                                        | [odb:RebootAutonomousDatabase](#list_odb-action-RebootAutonomousDatabase "#list_odb-action-RebootAutonomousDatabase")                                                                            |                   |                   | Write          |
-| RebootDbNode                                                                                                                    | [odb:RebootDbNode](#list_odb-action-RebootDbNode "#list_odb-action-RebootDbNode")                                                                                                                |                   |                   | Write          |
-| RestoreAutonomousDatabase                                                                                                       | [odb:RestoreAutonomousDatabase](#list_odb-action-RestoreAutonomousDatabase "#list_odb-action-RestoreAutonomousDatabase")                                                                         |                   |                   | Write          |
-| ShrinkAutonomousDatabase                                                                                                        | [odb:ShrinkAutonomousDatabase](#list_odb-action-ShrinkAutonomousDatabase "#list_odb-action-ShrinkAutonomousDatabase")                                                                            |                   |                   | Write          |
-| StartAutonomousDatabase                                                                                                         | [odb:StartAutonomousDatabase](#list_odb-action-StartAutonomousDatabase "#list_odb-action-StartAutonomousDatabase")                                                                               |                   |                   | Write          |
-| StartDbNode                                                                                                                     | [odb:StartDbNode](#list_odb-action-StartDbNode "#list_odb-action-StartDbNode")                                                                                                                   |                   |                   | Write          |
-| StopAutonomousDatabase                                                                                                          | [odb:StopAutonomousDatabase](#list_odb-action-StopAutonomousDatabase "#list_odb-action-StopAutonomousDatabase")                                                                                  |                   |                   | Write          |
-| StopDbNode                                                                                                                      | [odb:StopDbNode](#list_odb-action-StopDbNode "#list_odb-action-StopDbNode")                                                                                                                      |                   |                   | Write          |
-| SwitchoverAutonomousDatabase                                                                                                    | [odb:SwitchoverAutonomousDatabase](#list_odb-action-SwitchoverAutonomousDatabase "#list_odb-action-SwitchoverAutonomousDatabase")                                                                |                   |                   | Write          |
-| TagResource                                                                                                                     | [odb:TagResource](#list_odb-action-TagResource "#list_odb-action-TagResource")                                                                                                                   |                   |                   | Tagging, Write |
-| UntagResource                                                                                                                   | [odb:UntagResource](#list_odb-action-UntagResource "#list_odb-action-UntagResource")                                                                                                             |                   |                   | Tagging, Write |
-| UpdateAutonomousDatabase                                                                                                        | [odb:UpdateAutonomousDatabase](#list_odb-action-UpdateAutonomousDatabase "#list_odb-action-UpdateAutonomousDatabase")                                                                            |                   |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                              | odb.amazonaws.com | Write             |
-| UpdateAutonomousDatabaseBackup                                                                                                  | [odb:UpdateAutonomousDatabaseBackup](#list_odb-action-UpdateAutonomousDatabaseBackup "#list_odb-action-UpdateAutonomousDatabaseBackup")                                                          |                   |                   | Write          |
-| UpdateCloudExadataInfrastructure                                                                                                | [odb:UpdateCloudExadataInfrastructure](#list_odb-action-UpdateCloudExadataInfrastructure "#list_odb-action-UpdateCloudExadataInfrastructure")                                                    |                   |                   | Write          |
-| UpdateExadbVmCluster                                                                                                            | [odb:UpdateExadbVmCluster](#list_odb-action-UpdateExadbVmCluster "#list_odb-action-UpdateExadbVmCluster")                                                                                        |                   |                   | Write          |
-| UpdateExascaleDbStorageVault                                                                                                    | [odb:UpdateExascaleDbStorageVault](#list_odb-action-UpdateExascaleDbStorageVault "#list_odb-action-UpdateExascaleDbStorageVault")                                                                |                   |                   | Write          |
-| UpdateOdbNetwork                                                                                                                | [odb:UpdateOdbNetwork](#list_odb-action-UpdateOdbNetwork "#list_odb-action-UpdateOdbNetwork")                                                                                                    |                   |                   | Write          |
-| UpdateOdbPeeringConnection                                                                                                      | [odb:UpdateOdbPeeringConnection](#list_odb-action-UpdateOdbPeeringConnection "#list_odb-action-UpdateOdbPeeringConnection")                                                                      |                   |                   | Write          |
+
+
+
+- **   AcceptMarketplaceRegistration  **
+  - **IAM action:**  [odb:AcceptMarketplaceRegistration](#list_odb-action-AcceptMarketplaceRegistration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateIamRoleToResource  **
+  - **IAM action:**  [odb:AssociateIamRoleToResource](#list_odb-action-AssociateIamRoleToResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** odb.amazonaws.com / **Access level:** Write
+
+- **   CreateAutonomousDatabase  **
+  - **IAM action:**  [odb:CreateAutonomousDatabase](#list_odb-action-CreateAutonomousDatabase)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [odb:TagResource](#list_odb-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateAutonomousDatabaseBackup  **
+  - **IAM action:**  [odb:CreateAutonomousDatabaseBackup](#list_odb-action-CreateAutonomousDatabaseBackup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAutonomousDatabaseWallet  **
+  - **IAM action:**  [odb:CreateAutonomousDatabaseWallet](#list_odb-action-CreateAutonomousDatabaseWallet)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** odb.amazonaws.com / **Access level:** Write
+
+- **   CreateCloudAutonomousVmCluster  **
+  - **IAM action:**  [odb:CreateCloudAutonomousVmCluster](#list_odb-action-CreateCloudAutonomousVmCluster)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [odb:TagResource](#list_odb-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateCloudExadataInfrastructure  **
+  - **IAM action:**  [odb:CreateCloudExadataInfrastructure](#list_odb-action-CreateCloudExadataInfrastructure)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [odb:TagResource](#list_odb-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateCloudVmCluster  **
+  - **IAM action:**  [odb:CreateCloudVmCluster](#list_odb-action-CreateCloudVmCluster)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [odb:CreateDbNode](#list_odb-action-CreateDbNode)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [odb:TagResource](#list_odb-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateExascaleDbStorageVault  **
+  - **IAM action:**  [odb:CreateExascaleDbStorageVault](#list_odb-action-CreateExascaleDbStorageVault)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [odb:TagResource](#list_odb-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateOdbNetwork  **
+  - **IAM action:**  [odb:CreateOdbNetwork](#list_odb-action-CreateOdbNetwork)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [odb:TagResource](#list_odb-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateOdbPeeringConnection  **
+  - **IAM action:**  [odb:CreateOdbPeeringConnection](#list_odb-action-CreateOdbPeeringConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [odb:TagResource](#list_odb-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteAutonomousDatabase  **
+  - **IAM action:**  [odb:DeleteAutonomousDatabase](#list_odb-action-DeleteAutonomousDatabase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAutonomousDatabaseBackup  **
+  - **IAM action:**  [odb:DeleteAutonomousDatabaseBackup](#list_odb-action-DeleteAutonomousDatabaseBackup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteCloudAutonomousVmCluster  **
+  - **IAM action:**  [odb:DeleteCloudAutonomousVmCluster](#list_odb-action-DeleteCloudAutonomousVmCluster) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteCloudExadataInfrastructure  **
+  - **IAM action:**  [odb:DeleteCloudExadataInfrastructure](#list_odb-action-DeleteCloudExadataInfrastructure) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteCloudVmCluster  **
+  - **IAM action:**  [odb:DeleteCloudVmCluster](#list_odb-action-DeleteCloudVmCluster)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [odb:DeleteDbNode](#list_odb-action-DeleteDbNode)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   DeleteExascaleDbStorageVault  **
+  - **IAM action:**  [odb:DeleteExascaleDbStorageVault](#list_odb-action-DeleteExascaleDbStorageVault) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteOdbNetwork  **
+  - **IAM action:**  [odb:DeleteOdbNetwork](#list_odb-action-DeleteOdbNetwork) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteOdbPeeringConnection  **
+  - **IAM action:**  [odb:DeleteOdbPeeringConnection](#list_odb-action-DeleteOdbPeeringConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateIamRoleFromResource  **
+  - **IAM action:**  [odb:DisassociateIamRoleFromResource](#list_odb-action-DisassociateIamRoleFromResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateVirtualMachinesFromExadbVmCluster  **
+  - **IAM action:**  [odb:DisassociateVirtualMachinesFromExadbVmCluster](#list_odb-action-DisassociateVirtualMachinesFromExadbVmCluster) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   FailoverAutonomousDatabase  **
+  - **IAM action:**  [odb:FailoverAutonomousDatabase](#list_odb-action-FailoverAutonomousDatabase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAutonomousDatabase  **
+  - **IAM action:**  [odb:GetAutonomousDatabase](#list_odb-action-GetAutonomousDatabase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAutonomousDatabaseBackup  **
+  - **IAM action:**  [odb:GetAutonomousDatabaseBackup](#list_odb-action-GetAutonomousDatabaseBackup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAutonomousDatabaseWalletDetails  **
+  - **IAM action:**  [odb:GetAutonomousDatabaseWalletDetails](#list_odb-action-GetAutonomousDatabaseWalletDetails) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCloudAutonomousVmCluster  **
+  - **IAM action:**  [odb:GetCloudAutonomousVmCluster](#list_odb-action-GetCloudAutonomousVmCluster) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCloudExadataInfrastructure  **
+  - **IAM action:**  [odb:GetCloudExadataInfrastructure](#list_odb-action-GetCloudExadataInfrastructure) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCloudExadataInfrastructureUnallocatedResources  **
+  - **IAM action:**  [odb:GetCloudExadataInfrastructureUnallocatedResources](#list_odb-action-GetCloudExadataInfrastructureUnallocatedResources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCloudVmCluster  **
+  - **IAM action:**  [odb:GetCloudVmCluster](#list_odb-action-GetCloudVmCluster) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDbNode  **
+  - **IAM action:**  [odb:GetDbNode](#list_odb-action-GetDbNode) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDbServer  **
+  - **IAM action:**  [odb:GetDbServer](#list_odb-action-GetDbServer) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetExadbVmCluster  **
+  - **IAM action:**  [odb:GetExadbVmCluster](#list_odb-action-GetExadbVmCluster) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetExascaleDbStorageVault  **
+  - **IAM action:**  [odb:GetExascaleDbStorageVault](#list_odb-action-GetExascaleDbStorageVault) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetOciOnboardingStatus  **
+  - **IAM action:**  [odb:GetOciOnboardingStatus](#list_odb-action-GetOciOnboardingStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetOdbNetwork  **
+  - **IAM action:**  [odb:GetOdbNetwork](#list_odb-action-GetOdbNetwork) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetOdbPeeringConnection  **
+  - **IAM action:**  [odb:GetOdbPeeringConnection](#list_odb-action-GetOdbPeeringConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   InitializeService  **
+  - **IAM action:**  [odb:InitializeService](#list_odb-action-InitializeService) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ListAutonomousDatabaseBackups  **
+  - **IAM action:**  [odb:ListAutonomousDatabaseBackups](#list_odb-action-ListAutonomousDatabaseBackups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAutonomousDatabaseCharacterSets  **
+  - **IAM action:**  [odb:ListAutonomousDatabaseCharacterSets](#list_odb-action-ListAutonomousDatabaseCharacterSets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAutonomousDatabaseClones  **
+  - **IAM action:**  [odb:ListAutonomousDatabaseClones](#list_odb-action-ListAutonomousDatabaseClones) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAutonomousDatabasePeers  **
+  - **IAM action:**  [odb:ListAutonomousDatabasePeers](#list_odb-action-ListAutonomousDatabasePeers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAutonomousDatabaseVersions  **
+  - **IAM action:**  [odb:ListAutonomousDatabaseVersions](#list_odb-action-ListAutonomousDatabaseVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAutonomousDatabases  **
+  - **IAM action:**  [odb:ListAutonomousDatabases](#list_odb-action-ListAutonomousDatabases) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAutonomousVirtualMachines  **
+  - **IAM action:**  [odb:ListAutonomousVirtualMachines](#list_odb-action-ListAutonomousVirtualMachines) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCloudAutonomousVmClusters  **
+  - **IAM action:**  [odb:ListCloudAutonomousVmClusters](#list_odb-action-ListCloudAutonomousVmClusters) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCloudExadataInfrastructures  **
+  - **IAM action:**  [odb:ListCloudExadataInfrastructures](#list_odb-action-ListCloudExadataInfrastructures) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCloudVmClusters  **
+  - **IAM action:**  [odb:ListCloudVmClusters](#list_odb-action-ListCloudVmClusters) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDbNodes  **
+  - **IAM action:**  [odb:ListDbNodes](#list_odb-action-ListDbNodes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDbServers  **
+  - **IAM action:**  [odb:ListDbServers](#list_odb-action-ListDbServers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDbSystemShapes  **
+  - **IAM action:**  [odb:ListDbSystemShapes](#list_odb-action-ListDbSystemShapes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListExadbVmClusters  **
+  - **IAM action:**  [odb:ListExadbVmClusters](#list_odb-action-ListExadbVmClusters) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListExascaleDbStorageVaults  **
+  - **IAM action:**  [odb:ListExascaleDbStorageVaults](#list_odb-action-ListExascaleDbStorageVaults) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListFlexComponents  **
+  - **IAM action:**  [odb:ListFlexComponents](#list_odb-action-ListFlexComponents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListGiMinorVersions  **
+  - **IAM action:**  [odb:ListGiMinorVersions](#list_odb-action-ListGiMinorVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListGiVersions  **
+  - **IAM action:**  [odb:ListGiVersions](#list_odb-action-ListGiVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListOdbNetworks  **
+  - **IAM action:**  [odb:ListOdbNetworks](#list_odb-action-ListOdbNetworks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListOdbPeeringConnections  **
+  - **IAM action:**  [odb:ListOdbPeeringConnections](#list_odb-action-ListOdbPeeringConnections) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSystemVersions  **
+  - **IAM action:**  [odb:ListSystemVersions](#list_odb-action-ListSystemVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [odb:ListTagsForResource](#list_odb-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   RebootAutonomousDatabase  **
+  - **IAM action:**  [odb:RebootAutonomousDatabase](#list_odb-action-RebootAutonomousDatabase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RebootDbNode  **
+  - **IAM action:**  [odb:RebootDbNode](#list_odb-action-RebootDbNode) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RestoreAutonomousDatabase  **
+  - **IAM action:**  [odb:RestoreAutonomousDatabase](#list_odb-action-RestoreAutonomousDatabase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ShrinkAutonomousDatabase  **
+  - **IAM action:**  [odb:ShrinkAutonomousDatabase](#list_odb-action-ShrinkAutonomousDatabase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartAutonomousDatabase  **
+  - **IAM action:**  [odb:StartAutonomousDatabase](#list_odb-action-StartAutonomousDatabase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartDbNode  **
+  - **IAM action:**  [odb:StartDbNode](#list_odb-action-StartDbNode) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopAutonomousDatabase  **
+  - **IAM action:**  [odb:StopAutonomousDatabase](#list_odb-action-StopAutonomousDatabase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopDbNode  **
+  - **IAM action:**  [odb:StopDbNode](#list_odb-action-StopDbNode) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SwitchoverAutonomousDatabase  **
+  - **IAM action:**  [odb:SwitchoverAutonomousDatabase](#list_odb-action-SwitchoverAutonomousDatabase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [odb:TagResource](#list_odb-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [odb:UntagResource](#list_odb-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAutonomousDatabase  **
+  - **IAM action:**  [odb:UpdateAutonomousDatabase](#list_odb-action-UpdateAutonomousDatabase)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** odb.amazonaws.com / **Access level:** Write
+
+- **   UpdateAutonomousDatabaseBackup  **
+  - **IAM action:**  [odb:UpdateAutonomousDatabaseBackup](#list_odb-action-UpdateAutonomousDatabaseBackup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateCloudExadataInfrastructure  **
+  - **IAM action:**  [odb:UpdateCloudExadataInfrastructure](#list_odb-action-UpdateCloudExadataInfrastructure) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateExadbVmCluster  **
+  - **IAM action:**  [odb:UpdateExadbVmCluster](#list_odb-action-UpdateExadbVmCluster) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateExascaleDbStorageVault  **
+  - **IAM action:**  [odb:UpdateExascaleDbStorageVault](#list_odb-action-UpdateExascaleDbStorageVault) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateOdbNetwork  **
+  - **IAM action:**  [odb:UpdateOdbNetwork](#list_odb-action-UpdateOdbNetwork) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateOdbPeeringConnection  **
+  - **IAM action:**  [odb:UpdateOdbPeeringConnection](#list_odb-action-UpdateOdbPeeringConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS Service - Oracle Database@AWS
+<a name="list_odb-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                                    | Description                                                                                                                                                                                                                                                                   | Resource types (\*required)                                                                                                         | Condition keys                                                                                                                                                                                                                                                                | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AcceptMarketplaceRegistration](../../../odb/latest/APIReference/API_AcceptMarketplaceRegistration.md "../../../odb/latest/APIReference/API_AcceptMarketplaceRegistration.md")                                                             | Grants permission to register the Amazon Web Services Marketplace token for your Amazon Web Services account to activate your Oracle Database@Amazon Web Services subscription                                                                                                |                                                                                                                                     |                                                                                                                                                                                                                                                                               | Write          |
-| [AssociateIamRoleToResource](../../../odb/latest/APIReference/API_AssociateIamRoleToResource.md "../../../odb/latest/APIReference/API_AssociateIamRoleToResource.md")                                                                      | Grants permission to associate an AWS Identity and Access Management (IAM) service role with a specified resource to enable AWS service integration                                                                                                                           | [cloud-autonomous-vm-cluster](#list_odb-resource-cloud-autonomous-vm-cluster "#list_odb-resource-cloud-autonomous-vm-cluster")      | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [cloud-vm-cluster](#list_odb-resource-cloud-vm-cluster "#list_odb-resource-cloud-vm-cluster")                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [AssociateVirtualMachinesToExadbVmCluster](../../../odb/latest/APIReference/API_AssociateVirtualMachinesToExadbVmCluster.md "../../../odb/latest/APIReference/API_AssociateVirtualMachinesToExadbVmCluster.md")                            | Grants permission to associate virtual machines to a specified Exadb VM cluster                                                                                                                                                                                               | [exadb-vm-cluster\*](#list_odb-resource-exadb-vm-cluster "#list_odb-resource-exadb-vm-cluster")                                     | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [CreateAutonomousDatabase](../../../odb/latest/APIReference/API_CreateAutonomousDatabase.md "../../../odb/latest/APIReference/API_CreateAutonomousDatabase.md")                                                                            | Grants permission to create an Autonomous Database                                                                                                                                                                                                                            | [odb-network](#list_odb-resource-odb-network "#list_odb-resource-odb-network")                                                      | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") | Write          |
-| [CreateAutonomousDatabaseBackup](../../../odb/latest/APIReference/API_CreateAutonomousDatabaseBackup.md "../../../odb/latest/APIReference/API_CreateAutonomousDatabaseBackup.md")                                                          | Grants permission to create a backup of the specified Autonomous Database                                                                                                                                                                                                     | [autonomous-database\*](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                            | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") | Write          |
-| [CreateAutonomousDatabaseWallet](../../../odb/latest/APIReference/API_CreateAutonomousDatabaseWallet.md "../../../odb/latest/APIReference/API_CreateAutonomousDatabaseWallet.md")                                                          | Grants permission to create a wallet for the specified Autonomous Database                                                                                                                                                                                                    | [autonomous-database\*](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [CreateCloudAutonomousVmCluster](../../../odb/latest/APIReference/API_CreateCloudAutonomousVmCluster.md "../../../odb/latest/APIReference/API_CreateCloudAutonomousVmCluster.md")                                                          | Grants permission to create an Autonomous VM cluster in the specified Exadata infrastructure                                                                                                                                                                                  | [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure "#list_odb-resource-cloud-exadata-infrastructure") | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") | Write          |
-| [odb-network\*](#list_odb-resource-odb-network "#list_odb-resource-odb-network")                                                                                                                                                           | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") |
-| [CreateCloudExadataInfrastructure](../../../odb/latest/APIReference/API_CreateCloudExadataInfrastructure.md "../../../odb/latest/APIReference/API_CreateCloudExadataInfrastructure.md")                                                    | Grants permission to create an Exadata infrastructure                                                                                                                                                                                                                         |                                                                                                                                     | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys")                                                                                                           | Write          |
-| [CreateCloudVmCluster](../../../odb/latest/APIReference/API_CreateCloudVmCluster.md "../../../odb/latest/APIReference/API_CreateCloudVmCluster.md")                                                                                        | Grants permission to create a VM cluster on the specified Exadata infrastructure                                                                                                                                                                                              | [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure "#list_odb-resource-cloud-exadata-infrastructure") | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") | Write          |
-| [odb-network\*](#list_odb-resource-odb-network "#list_odb-resource-odb-network")                                                                                                                                                           | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") |
-| [CreateExadbVmCluster](../../../odb/latest/APIReference/API_CreateExadbVmCluster.md "../../../odb/latest/APIReference/API_CreateExadbVmCluster.md")                                                                                        | Grants permission to create an Exadb VM cluster in the specified Exascale DB storage vault                                                                                                                                                                                    | [exascale-db-storage-vault\*](#list_odb-resource-exascale-db-storage-vault "#list_odb-resource-exascale-db-storage-vault")          | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") | Write          |
-| [odb-network\*](#list_odb-resource-odb-network "#list_odb-resource-odb-network")                                                                                                                                                           | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") |
-| [CreateExascaleDbStorageVault](../../../odb/latest/APIReference/API_CreateExascaleDbStorageVault.md "../../../odb/latest/APIReference/API_CreateExascaleDbStorageVault.md")                                                                | Grants permission to create an Exascale DB storage vault                                                                                                                                                                                                                      |                                                                                                                                     | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys")                                                                                                           | Write          |
-| [CreateOdbNetwork](../../../odb/latest/APIReference/API_CreateOdbNetwork.md "../../../odb/latest/APIReference/API_CreateOdbNetwork.md")                                                                                                    | Grants permission to create an ODB network                                                                                                                                                                                                                                    |                                                                                                                                     | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys")                                                                                                           | Write          |
-| [CreateOdbPeeringConnection](../../../odb/latest/APIReference/API_CreateOdbPeeringConnection.md "../../../odb/latest/APIReference/API_CreateOdbPeeringConnection.md")                                                                      | Grants permission to create an ODB Peering Connection                                                                                                                                                                                                                         | [odb-network\*](#list_odb-resource-odb-network "#list_odb-resource-odb-network")                                                    | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") | Write          |
-| [DeleteAutonomousDatabase](../../../odb/latest/APIReference/API_DeleteAutonomousDatabase.md "../../../odb/latest/APIReference/API_DeleteAutonomousDatabase.md")                                                                            | Grants permission to delete the specified Autonomous Database                                                                                                                                                                                                                 | [autonomous-database\*](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [DeleteAutonomousDatabaseBackup](../../../odb/latest/APIReference/API_DeleteAutonomousDatabaseBackup.md "../../../odb/latest/APIReference/API_DeleteAutonomousDatabaseBackup.md")                                                          | Grants permission to delete the specified Autonomous Database backup                                                                                                                                                                                                          | [autonomous-database-backup\*](#list_odb-resource-autonomous-database-backup "#list_odb-resource-autonomous-database-backup")       | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [DeleteCloudAutonomousVmCluster](../../../odb/latest/APIReference/API_DeleteCloudAutonomousVmCluster.md "../../../odb/latest/APIReference/API_DeleteCloudAutonomousVmCluster.md")                                                          | Grants permission to Deletes an Autonomous VM cluster                                                                                                                                                                                                                         | [cloud-autonomous-vm-cluster\*](#list_odb-resource-cloud-autonomous-vm-cluster "#list_odb-resource-cloud-autonomous-vm-cluster")    | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [DeleteCloudExadataInfrastructure](../../../odb/latest/APIReference/API_DeleteCloudExadataInfrastructure.md "../../../odb/latest/APIReference/API_DeleteCloudExadataInfrastructure.md")                                                    | Grants permission to delete a specified Exadata infrastructure. Before you use this operation, make sure to delete all of the VM clusters that are hosted on this Exadata infrastructure                                                                                      | [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure "#list_odb-resource-cloud-exadata-infrastructure") | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [DeleteCloudVmCluster](../../../odb/latest/APIReference/API_DeleteCloudVmCluster.md "../../../odb/latest/APIReference/API_DeleteCloudVmCluster.md")                                                                                        | Grants permission to delete a specified VM cluster                                                                                                                                                                                                                            | [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster "#list_odb-resource-cloud-vm-cluster")                                     | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [DeleteExadbVmCluster](../../../odb/latest/APIReference/API_DeleteExadbVmCluster.md "../../../odb/latest/APIReference/API_DeleteExadbVmCluster.md")                                                                                        | Grants permission to delete a specified Exadb VM cluster                                                                                                                                                                                                                      | [exadb-vm-cluster\*](#list_odb-resource-exadb-vm-cluster "#list_odb-resource-exadb-vm-cluster")                                     | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [DeleteExascaleDbStorageVault](../../../odb/latest/APIReference/API_DeleteExascaleDbStorageVault.md "../../../odb/latest/APIReference/API_DeleteExascaleDbStorageVault.md")                                                                | Grants permission to delete a specified Exascale DB storage vault                                                                                                                                                                                                             | [exascale-db-storage-vault\*](#list_odb-resource-exascale-db-storage-vault "#list_odb-resource-exascale-db-storage-vault")          | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [DeleteOdbNetwork](../../../odb/latest/APIReference/API_DeleteOdbNetwork.md "../../../odb/latest/APIReference/API_DeleteOdbNetwork.md")                                                                                                    | Grants permission to delete the specified ODB network                                                                                                                                                                                                                         | [odb-network\*](#list_odb-resource-odb-network "#list_odb-resource-odb-network")                                                    | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [DeleteOdbPeeringConnection](../../../odb/latest/APIReference/API_DeleteOdbPeeringConnection.md "../../../odb/latest/APIReference/API_DeleteOdbPeeringConnection.md")                                                                      | Grants permission to delete the specified ODB Peering Connection. When you delete an ODB peering connection, the underlying VPC peering connection is also deleted                                                                                                            | [odb-peering-connection\*](#list_odb-resource-odb-peering-connection "#list_odb-resource-odb-peering-connection")                   | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [DisassociateIamRoleFromResource](../../../odb/latest/APIReference/API_DisassociateIamRoleFromResource.md "../../../odb/latest/APIReference/API_DisassociateIamRoleFromResource.md")                                                       | Grants permission to disassociate an AWS Identity and Access Management (IAM) service role from a specified resource to disable AWS service integration                                                                                                                       | [cloud-autonomous-vm-cluster](#list_odb-resource-cloud-autonomous-vm-cluster "#list_odb-resource-cloud-autonomous-vm-cluster")      | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [cloud-vm-cluster](#list_odb-resource-cloud-vm-cluster "#list_odb-resource-cloud-vm-cluster")                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [DisassociateVirtualMachinesFromExadbVmCluster](../../../odb/latest/APIReference/API_DisassociateVirtualMachinesFromExadbVmCluster.md "../../../odb/latest/APIReference/API_DisassociateVirtualMachinesFromExadbVmCluster.md")             | Grants permission to disassociate virtual machines from a specified Exadb VM cluster                                                                                                                                                                                          | [exadb-vm-cluster\*](#list_odb-resource-exadb-vm-cluster "#list_odb-resource-exadb-vm-cluster")                                     | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [FailoverAutonomousDatabase](../../../odb/latest/APIReference/API_FailoverAutonomousDatabase.md "../../../odb/latest/APIReference/API_FailoverAutonomousDatabase.md")                                                                      | Grants permission to fail over the specified Autonomous Database to a standby peer database                                                                                                                                                                                   | [autonomous-database\*](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [GetAutonomousDatabase](../../../odb/latest/APIReference/API_GetAutonomousDatabase.md "../../../odb/latest/APIReference/API_GetAutonomousDatabase.md")                                                                                     | Grants permission to get information about a specific Autonomous Database                                                                                                                                                                                                     | [autonomous-database\*](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [GetAutonomousDatabaseBackup](../../../odb/latest/APIReference/API_GetAutonomousDatabaseBackup.md "../../../odb/latest/APIReference/API_GetAutonomousDatabaseBackup.md")                                                                   | Grants permission to get information about a specific Autonomous Database backup                                                                                                                                                                                              | [autonomous-database-backup\*](#list_odb-resource-autonomous-database-backup "#list_odb-resource-autonomous-database-backup")       | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [GetAutonomousDatabaseWalletDetails](../../../odb/latest/APIReference/API_GetAutonomousDatabaseWalletDetails.md "../../../odb/latest/APIReference/API_GetAutonomousDatabaseWalletDetails.md")                                              | Grants permission to get the wallet details for the specified Autonomous Database                                                                                                                                                                                             | [autonomous-database\*](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [GetCloudAutonomousVmCluster](../../../odb/latest/APIReference/API_GetCloudAutonomousVmCluster.md "../../../odb/latest/APIReference/API_GetCloudAutonomousVmCluster.md")                                                                   | Grants permission to get information about a specific Autonomous VM cluster                                                                                                                                                                                                   | [cloud-autonomous-vm-cluster\*](#list_odb-resource-cloud-autonomous-vm-cluster "#list_odb-resource-cloud-autonomous-vm-cluster")    | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [GetCloudExadataInfrastructure](../../../odb/latest/APIReference/API_GetCloudExadataInfrastructure.md "../../../odb/latest/APIReference/API_GetCloudExadataInfrastructure.md")                                                             | Grants permission to get information about the specified Exadata infrastructure                                                                                                                                                                                               | [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure "#list_odb-resource-cloud-exadata-infrastructure") | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [GetCloudExadataInfrastructureUnallocatedResources](../../../odb/latest/APIReference/API_GetCloudExadataInfrastructureUnallocatedResources.md "../../../odb/latest/APIReference/API_GetCloudExadataInfrastructureUnallocatedResources.md") | Grants permission to retrieve information about unallocated resources in a specified Cloud Exadata Infrastructure                                                                                                                                                             | [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure "#list_odb-resource-cloud-exadata-infrastructure") | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [GetCloudVmCluster](../../../odb/latest/APIReference/API_GetCloudVmCluster.md "../../../odb/latest/APIReference/API_GetCloudVmCluster.md")                                                                                                 | Grants permission to get information about the specified VM cluster                                                                                                                                                                                                           | [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster "#list_odb-resource-cloud-vm-cluster")                                     | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [GetDbNode](../../../odb/latest/APIReference/API_GetDbNode.md "../../../odb/latest/APIReference/API_GetDbNode.md")                                                                                                                         | Grants permission to get information about the specified DB node                                                                                                                                                                                                              | [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster "#list_odb-resource-cloud-vm-cluster")                                     | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [db-node\*](#list_odb-resource-db-node "#list_odb-resource-db-node")                                                                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [GetDbServer](../../../odb/latest/APIReference/API_GetDbServer.md "../../../odb/latest/APIReference/API_GetDbServer.md")                                                                                                                   | Grants permission to get information about the specified database server                                                                                                                                                                                                      | [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure "#list_odb-resource-cloud-exadata-infrastructure") | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [GetExadbVmCluster](../../../odb/latest/APIReference/API_GetExadbVmCluster.md "../../../odb/latest/APIReference/API_GetExadbVmCluster.md")                                                                                                 | Grants permission to get information about a specified Exadb VM cluster                                                                                                                                                                                                       | [exadb-vm-cluster\*](#list_odb-resource-exadb-vm-cluster "#list_odb-resource-exadb-vm-cluster")                                     | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [GetExascaleDbStorageVault](../../../odb/latest/APIReference/API_GetExascaleDbStorageVault.md "../../../odb/latest/APIReference/API_GetExascaleDbStorageVault.md")                                                                         | Grants permission to get information about a specified Exascale DB storage vault                                                                                                                                                                                              | [exascale-db-storage-vault\*](#list_odb-resource-exascale-db-storage-vault "#list_odb-resource-exascale-db-storage-vault")          | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [GetOciOnboardingStatus](../../../odb/latest/APIReference/API_GetOciOnboardingStatus.md "../../../odb/latest/APIReference/API_GetOciOnboardingStatus.md")                                                                                  | Grants permission to get the tenancy activation link and onboarding status for your Amazon Web Services account                                                                                                                                                               |                                                                                                                                     |                                                                                                                                                                                                                                                                               | Read           |
-| [GetOdbNetwork](../../../odb/latest/APIReference/API_GetOdbNetwork.md "../../../odb/latest/APIReference/API_GetOdbNetwork.md")                                                                                                             | Grants permission to get information about the specified ODB network                                                                                                                                                                                                          | [odb-network\*](#list_odb-resource-odb-network "#list_odb-resource-odb-network")                                                    | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [GetOdbPeeringConnection](../../../odb/latest/APIReference/API_GetOdbPeeringConnection.md "../../../odb/latest/APIReference/API_GetOdbPeeringConnection.md")                                                                               | Grants permission to get information about the specified ODB Peering connection                                                                                                                                                                                               | [odb-peering-connection\*](#list_odb-resource-odb-peering-connection "#list_odb-resource-odb-peering-connection")                   | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [InitializeService](../../../odb/latest/APIReference/API_InitializeService.md "../../../odb/latest/APIReference/API_InitializeService.md")                                                                                                 | Grants permission to initialize the ODB service for the first time in an account                                                                                                                                                                                              |                                                                                                                                     |                                                                                                                                                                                                                                                                               | Write          |
-| [ListAutonomousDatabaseBackups](../../../odb/latest/APIReference/API_ListAutonomousDatabaseBackups.md "../../../odb/latest/APIReference/API_ListAutonomousDatabaseBackups.md")                                                             | Grants permission to list information about the backups of the specified Autonomous Database                                                                                                                                                                                  | [autonomous-database\*](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | List           |
-| [ListAutonomousDatabaseCharacterSets](../../../odb/latest/APIReference/API_ListAutonomousDatabaseCharacterSets.md "../../../odb/latest/APIReference/API_ListAutonomousDatabaseCharacterSets.md")                                           | Grants permission to list information about the character sets that are available for Autonomous Databases                                                                                                                                                                    |                                                                                                                                     |                                                                                                                                                                                                                                                                               | List           |
-| [ListAutonomousDatabaseClones](../../../odb/latest/APIReference/API_ListAutonomousDatabaseClones.md "../../../odb/latest/APIReference/API_ListAutonomousDatabaseClones.md")                                                                | Grants permission to list all clones of the specified Autonomous Database                                                                                                                                                                                                     | [autonomous-database\*](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | List           |
-| [ListAutonomousDatabasePeers](../../../odb/latest/APIReference/API_ListAutonomousDatabasePeers.md "../../../odb/latest/APIReference/API_ListAutonomousDatabasePeers.md")                                                                   | Grants permission to list all peer databases of the specified Autonomous Database                                                                                                                                                                                             | [autonomous-database\*](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | List           |
-| [ListAutonomousDatabaseVersions](../../../odb/latest/APIReference/API_ListAutonomousDatabaseVersions.md "../../../odb/latest/APIReference/API_ListAutonomousDatabaseVersions.md")                                                          | Grants permission to list information about the Oracle Database software versions that are available for Autonomous Databases                                                                                                                                                 |                                                                                                                                     |                                                                                                                                                                                                                                                                               | List           |
-| [ListAutonomousDatabases](../../../odb/latest/APIReference/API_ListAutonomousDatabases.md "../../../odb/latest/APIReference/API_ListAutonomousDatabases.md")                                                                               | Grants permission to list information about the Autonomous Databases owned by your Amazon Web Services account                                                                                                                                                                |                                                                                                                                     |                                                                                                                                                                                                                                                                               | List           |
-| [ListAutonomousVirtualMachines](../../../odb/latest/APIReference/API_ListAutonomousVirtualMachines.md "../../../odb/latest/APIReference/API_ListAutonomousVirtualMachines.md")                                                             | Grants permission to list all Autonomous VMs in an Autonomous VM cluster                                                                                                                                                                                                      | [cloud-autonomous-vm-cluster](#list_odb-resource-cloud-autonomous-vm-cluster "#list_odb-resource-cloud-autonomous-vm-cluster")      | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | List           |
-| [ListCloudAutonomousVmClusters](../../../odb/latest/APIReference/API_ListCloudAutonomousVmClusters.md "../../../odb/latest/APIReference/API_ListCloudAutonomousVmClusters.md")                                                             | Grants permission to list all Autonomous VM clusters in a specified Cloud Exadata infrastructure                                                                                                                                                                              | [cloud-exadata-infrastructure](#list_odb-resource-cloud-exadata-infrastructure "#list_odb-resource-cloud-exadata-infrastructure")   | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | List           |
-| [ListCloudExadataInfrastructures](../../../odb/latest/APIReference/API_ListCloudExadataInfrastructures.md "../../../odb/latest/APIReference/API_ListCloudExadataInfrastructures.md")                                                       | Grants permission to list information about the Exadata infrastructures owned by your Amazon Web Services account                                                                                                                                                             |                                                                                                                                     |                                                                                                                                                                                                                                                                               | List           |
-| [ListCloudVmClusters](../../../odb/latest/APIReference/API_ListCloudVmClusters.md "../../../odb/latest/APIReference/API_ListCloudVmClusters.md")                                                                                           | Grants permission to list information about the VM clusters owned by your Amazon Web Services account or only the ones on the specified Exadata infrastructure                                                                                                                | [cloud-exadata-infrastructure](#list_odb-resource-cloud-exadata-infrastructure "#list_odb-resource-cloud-exadata-infrastructure")   | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | List           |
-| [ListDbNodes](../../../odb/latest/APIReference/API_ListDbNodes.md "../../../odb/latest/APIReference/API_ListDbNodes.md")                                                                                                                   | Grants permission to list information about the DB nodes for the specified VM cluster                                                                                                                                                                                         | [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster "#list_odb-resource-cloud-vm-cluster")                                     | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | List           |
-| [ListDbServers](../../../odb/latest/APIReference/API_ListDbServers.md "../../../odb/latest/APIReference/API_ListDbServers.md")                                                                                                             | Grants permission to list information about the database servers that belong to the specified Exadata infrastructure                                                                                                                                                          | [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure "#list_odb-resource-cloud-exadata-infrastructure") | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | List           |
-| [ListDbSystemShapes](../../../odb/latest/APIReference/API_ListDbSystemShapes.md "../../../odb/latest/APIReference/API_ListDbSystemShapes.md")                                                                                              | Grants permission to list information about the shapes that are available for an Exadata infrastructure                                                                                                                                                                       |                                                                                                                                     |                                                                                                                                                                                                                                                                               | List           |
-| [ListExadbVmClusters](../../../odb/latest/APIReference/API_ListExadbVmClusters.md "../../../odb/latest/APIReference/API_ListExadbVmClusters.md")                                                                                           | Grants permission to list information about the Exadb VM clusters owned by your Amazon Web Services account or only the ones in the specified Exascale DB storage vault                                                                                                       | [exascale-db-storage-vault](#list_odb-resource-exascale-db-storage-vault "#list_odb-resource-exascale-db-storage-vault")            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | List           |
-| [ListExascaleDbStorageVaults](../../../odb/latest/APIReference/API_ListExascaleDbStorageVaults.md "../../../odb/latest/APIReference/API_ListExascaleDbStorageVaults.md")                                                                   | Grants permission to list information about the Exascale DB storage vaults owned by your Amazon Web Services account                                                                                                                                                          |                                                                                                                                     |                                                                                                                                                                                                                                                                               | List           |
-| [ListFlexComponents](../../../odb/latest/APIReference/API_ListFlexComponents.md "../../../odb/latest/APIReference/API_ListFlexComponents.md")                                                                                              | Grants permission to list information about the flex components that are available for a DB system shape                                                                                                                                                                      |                                                                                                                                     |                                                                                                                                                                                                                                                                               | List           |
-| [ListGiMinorVersions](../../../odb/latest/APIReference/API_ListGiMinorVersions.md "../../../odb/latest/APIReference/API_ListGiMinorVersions.md")                                                                                           | Grants permission to list information about the minor versions of Oracle Grid Infrastructure (GI) software that are available for a VM cluster for the specified GI version and shape                                                                                         |                                                                                                                                     |                                                                                                                                                                                                                                                                               | List           |
-| [ListGiVersions](../../../odb/latest/APIReference/API_ListGiVersions.md "../../../odb/latest/APIReference/API_ListGiVersions.md")                                                                                                          | Grants permission to list information about Oracle Grid Infrastructure (GI) software versions that are available for a VM cluster for the specified shape                                                                                                                     |                                                                                                                                     |                                                                                                                                                                                                                                                                               | List           |
-| [ListOdbNetworks](../../../odb/latest/APIReference/API_ListOdbNetworks.md "../../../odb/latest/APIReference/API_ListOdbNetworks.md")                                                                                                       | Grants permission to list information about the ODB networks owned by your Amazon Web Services account                                                                                                                                                                        |                                                                                                                                     |                                                                                                                                                                                                                                                                               | List           |
-| [ListOdbPeeringConnections](../../../odb/latest/APIReference/API_ListOdbPeeringConnections.md "../../../odb/latest/APIReference/API_ListOdbPeeringConnections.md")                                                                         | Grants permission to list all ODB peering connections or those associated with a specific ODB network                                                                                                                                                                         | [odb-network](#list_odb-resource-odb-network "#list_odb-resource-odb-network")                                                      | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | List           |
-| [ListSystemVersions](../../../odb/latest/APIReference/API_ListSystemVersions.md "../../../odb/latest/APIReference/API_ListSystemVersions.md")                                                                                              | Grants permission to list information about the system versions that are available for a VM cluster for the specified giVersion and shape                                                                                                                                     |                                                                                                                                     |                                                                                                                                                                                                                                                                               | List           |
-| [ListTagsForResource](../../../odb/latest/APIReference/API_ListTagsForResource.md "../../../odb/latest/APIReference/API_ListTagsForResource.md")                                                                                           | Grants permission to list information about the tags applied to this resource                                                                                                                                                                                                 | [autonomous-database](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                              | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [autonomous-database-backup](#list_odb-resource-autonomous-database-backup "#list_odb-resource-autonomous-database-backup")                                                                                                                | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [cloud-autonomous-vm-cluster](#list_odb-resource-cloud-autonomous-vm-cluster "#list_odb-resource-cloud-autonomous-vm-cluster")                                                                                                             | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [cloud-exadata-infrastructure](#list_odb-resource-cloud-exadata-infrastructure "#list_odb-resource-cloud-exadata-infrastructure")                                                                                                          | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [cloud-vm-cluster](#list_odb-resource-cloud-vm-cluster "#list_odb-resource-cloud-vm-cluster")                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [db-node](#list_odb-resource-db-node "#list_odb-resource-db-node")                                                                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [exadb-vm-cluster](#list_odb-resource-exadb-vm-cluster "#list_odb-resource-exadb-vm-cluster")                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [exascale-db-storage-vault](#list_odb-resource-exascale-db-storage-vault "#list_odb-resource-exascale-db-storage-vault")                                                                                                                   | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [odb-network](#list_odb-resource-odb-network "#list_odb-resource-odb-network")                                                                                                                                                             | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [odb-peering-connection](#list_odb-resource-odb-peering-connection "#list_odb-resource-odb-peering-connection")                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [RebootAutonomousDatabase](../../../odb/latest/APIReference/API_RebootAutonomousDatabase.md "../../../odb/latest/APIReference/API_RebootAutonomousDatabase.md")                                                                            | Grants permission to reboot the specified Autonomous Database                                                                                                                                                                                                                 | [autonomous-database\*](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [RebootDbNode](../../../odb/latest/APIReference/API_RebootDbNode.md "../../../odb/latest/APIReference/API_RebootDbNode.md")                                                                                                                | Grants permission to reboot the specified DB node in a VM cluster                                                                                                                                                                                                             | [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster "#list_odb-resource-cloud-vm-cluster")                                     | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [db-node\*](#list_odb-resource-db-node "#list_odb-resource-db-node")                                                                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [RestoreAutonomousDatabase](../../../odb/latest/APIReference/API_RestoreAutonomousDatabase.md "../../../odb/latest/APIReference/API_RestoreAutonomousDatabase.md")                                                                         | Grants permission to restore the specified Autonomous Database to a point in time                                                                                                                                                                                             | [autonomous-database\*](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [ShrinkAutonomousDatabase](../../../odb/latest/APIReference/API_ShrinkAutonomousDatabase.md "../../../odb/latest/APIReference/API_ShrinkAutonomousDatabase.md")                                                                            | Grants permission to shrink the storage of the specified Autonomous Database to reclaim unused space                                                                                                                                                                          | [autonomous-database\*](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [StartAutonomousDatabase](../../../odb/latest/APIReference/API_StartAutonomousDatabase.md "../../../odb/latest/APIReference/API_StartAutonomousDatabase.md")                                                                               | Grants permission to start the specified Autonomous Database                                                                                                                                                                                                                  | [autonomous-database\*](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [StartDbNode](../../../odb/latest/APIReference/API_StartDbNode.md "../../../odb/latest/APIReference/API_StartDbNode.md")                                                                                                                   | Grants permission to start the specified DB node in a VM cluster                                                                                                                                                                                                              | [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster "#list_odb-resource-cloud-vm-cluster")                                     | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [db-node\*](#list_odb-resource-db-node "#list_odb-resource-db-node")                                                                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [StopAutonomousDatabase](../../../odb/latest/APIReference/API_StopAutonomousDatabase.md "../../../odb/latest/APIReference/API_StopAutonomousDatabase.md")                                                                                  | Grants permission to stop the specified Autonomous Database                                                                                                                                                                                                                   | [autonomous-database\*](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [StopDbNode](../../../odb/latest/APIReference/API_StopDbNode.md "../../../odb/latest/APIReference/API_StopDbNode.md")                                                                                                                      | Grants permission to stop the specified DB node in a VM cluster                                                                                                                                                                                                               | [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster "#list_odb-resource-cloud-vm-cluster")                                     | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [db-node\*](#list_odb-resource-db-node "#list_odb-resource-db-node")                                                                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [SwitchoverAutonomousDatabase](../../../odb/latest/APIReference/API_SwitchoverAutonomousDatabase.md "../../../odb/latest/APIReference/API_SwitchoverAutonomousDatabase.md")                                                                | Grants permission to switch over the specified Autonomous Database to a standby peer database                                                                                                                                                                                 | [autonomous-database\*](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [TagResource](../../../odb/latest/APIReference/API_TagResource.md "../../../odb/latest/APIReference/API_TagResource.md")                                                                                                                   | Grants permission to apply tags to the specified resource                                                                                                                                                                                                                     | [autonomous-database](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                              | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") | Tagging, Write |
-| [autonomous-database-backup](#list_odb-resource-autonomous-database-backup "#list_odb-resource-autonomous-database-backup")                                                                                                                | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") |
-| [cloud-autonomous-vm-cluster](#list_odb-resource-cloud-autonomous-vm-cluster "#list_odb-resource-cloud-autonomous-vm-cluster")                                                                                                             | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") |
-| [cloud-exadata-infrastructure](#list_odb-resource-cloud-exadata-infrastructure "#list_odb-resource-cloud-exadata-infrastructure")                                                                                                          | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") |
-| [cloud-vm-cluster](#list_odb-resource-cloud-vm-cluster "#list_odb-resource-cloud-vm-cluster")                                                                                                                                              | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") |
-| [db-node](#list_odb-resource-db-node "#list_odb-resource-db-node")                                                                                                                                                                         | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") |
-| [exadb-vm-cluster](#list_odb-resource-exadb-vm-cluster "#list_odb-resource-exadb-vm-cluster")                                                                                                                                              | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") |
-| [exascale-db-storage-vault](#list_odb-resource-exascale-db-storage-vault "#list_odb-resource-exascale-db-storage-vault")                                                                                                                   | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") |
-| [odb-network](#list_odb-resource-odb-network "#list_odb-resource-odb-network")                                                                                                                                                             | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") |
-| [odb-peering-connection](#list_odb-resource-odb-peering-connection "#list_odb-resource-odb-peering-connection")                                                                                                                            | [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_ "#list_odb-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys") |
-| [UntagResource](../../../odb/latest/APIReference/API_UntagResource.md "../../../odb/latest/APIReference/API_UntagResource.md")                                                                                                             | Grants permission to remove tags from the specified resource                                                                                                                                                                                                                  | [autonomous-database](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                              | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys")                                                                                                        | Tagging, Write |
-| [autonomous-database-backup](#list_odb-resource-autonomous-database-backup "#list_odb-resource-autonomous-database-backup")                                                                                                                | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys")                                                                                                        |
-| [cloud-autonomous-vm-cluster](#list_odb-resource-cloud-autonomous-vm-cluster "#list_odb-resource-cloud-autonomous-vm-cluster")                                                                                                             | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys")                                                                                                        |
-| [cloud-exadata-infrastructure](#list_odb-resource-cloud-exadata-infrastructure "#list_odb-resource-cloud-exadata-infrastructure")                                                                                                          | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys")                                                                                                        |
-| [cloud-vm-cluster](#list_odb-resource-cloud-vm-cluster "#list_odb-resource-cloud-vm-cluster")                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys")                                                                                                        |
-| [db-node](#list_odb-resource-db-node "#list_odb-resource-db-node")                                                                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys")                                                                                                        |
-| [exadb-vm-cluster](#list_odb-resource-exadb-vm-cluster "#list_odb-resource-exadb-vm-cluster")                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys")                                                                                                        |
-| [exascale-db-storage-vault](#list_odb-resource-exascale-db-storage-vault "#list_odb-resource-exascale-db-storage-vault")                                                                                                                   | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys")                                                                                                        |
-| [odb-network](#list_odb-resource-odb-network "#list_odb-resource-odb-network")                                                                                                                                                             | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys")                                                                                                        |
-| [odb-peering-connection](#list_odb-resource-odb-peering-connection "#list_odb-resource-odb-peering-connection")                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_odb-aws_TagKeys "#list_odb-aws_TagKeys")                                                                                                        |
-| [UpdateAutonomousDatabase](../../../odb/latest/APIReference/API_UpdateAutonomousDatabase.md "../../../odb/latest/APIReference/API_UpdateAutonomousDatabase.md")                                                                            | Grants permission to update the properties of an Autonomous Database                                                                                                                                                                                                          | [autonomous-database\*](#list_odb-resource-autonomous-database "#list_odb-resource-autonomous-database")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [UpdateAutonomousDatabaseBackup](../../../odb/latest/APIReference/API_UpdateAutonomousDatabaseBackup.md "../../../odb/latest/APIReference/API_UpdateAutonomousDatabaseBackup.md")                                                          | Grants permission to update the properties of an Autonomous Database backup                                                                                                                                                                                                   | [autonomous-database-backup\*](#list_odb-resource-autonomous-database-backup "#list_odb-resource-autonomous-database-backup")       | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [UpdateCloudExadataInfrastructure](../../../odb/latest/APIReference/API_UpdateCloudExadataInfrastructure.md "../../../odb/latest/APIReference/API_UpdateCloudExadataInfrastructure.md")                                                    | Grants permission to update the properties of an Exadata infrastructure resource                                                                                                                                                                                              | [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure "#list_odb-resource-cloud-exadata-infrastructure") | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [UpdateExadbVmCluster](../../../odb/latest/APIReference/API_UpdateExadbVmCluster.md "../../../odb/latest/APIReference/API_UpdateExadbVmCluster.md")                                                                                        | Grants permission to update properties of a specified Exadb VM cluster                                                                                                                                                                                                        | [exadb-vm-cluster\*](#list_odb-resource-exadb-vm-cluster "#list_odb-resource-exadb-vm-cluster")                                     | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [UpdateExascaleDbStorageVault](../../../odb/latest/APIReference/API_UpdateExascaleDbStorageVault.md "../../../odb/latest/APIReference/API_UpdateExascaleDbStorageVault.md")                                                                | Grants permission to update properties of a specified Exascale DB storage vault                                                                                                                                                                                               | [exascale-db-storage-vault\*](#list_odb-resource-exascale-db-storage-vault "#list_odb-resource-exascale-db-storage-vault")          | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [UpdateOdbNetwork](../../../odb/latest/APIReference/API_UpdateOdbNetwork.md "../../../odb/latest/APIReference/API_UpdateOdbNetwork.md")                                                                                                    | Grants permission to update properties of a specified ODB network                                                                                                                                                                                                             | [odb-network\*](#list_odb-resource-odb-network "#list_odb-resource-odb-network")                                                    | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [UpdateOdbPeeringConnection](../../../odb/latest/APIReference/API_UpdateOdbPeeringConnection.md "../../../odb/latest/APIReference/API_UpdateOdbPeeringConnection.md")                                                                      | Grants permission to update properties of a specified ODB Peering Connection                                                                                                                                                                                                  | [odb-peering-connection\*](#list_odb-resource-odb-peering-connection "#list_odb-resource-odb-peering-connection")                   | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
+
+
+
+- **   [AcceptMarketplaceRegistration](https://docs.aws.amazon.com/odb/latest/APIReference/API_AcceptMarketplaceRegistration.html)  **
+  - **Description:** Grants permission to register the Amazon Web Services Marketplace token for your Amazon Web Services account to activate your Oracle Database@Amazon Web Services subscription
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [AssociateIamRoleToResource](https://docs.aws.amazon.com/odb/latest/APIReference/API_AssociateIamRoleToResource.html)  **
+  - **Description:** Grants permission to associate an AWS Identity and Access Management (IAM) service role with a specified resource to enable AWS service integration
+  - **Resource types (\*required):** [cloud-autonomous-vm-cluster](#list_odb-resource-cloud-autonomous-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [cloud-vm-cluster](#list_odb-resource-cloud-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateVirtualMachinesToExadbVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_AssociateVirtualMachinesToExadbVmCluster.html)  **
+  - **Description:** Grants permission to associate virtual machines to a specified Exadb VM cluster
+  - **Resource types (\*required):** [exadb-vm-cluster\*](#list_odb-resource-exadb-vm-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAutonomousDatabase](https://docs.aws.amazon.com/odb/latest/APIReference/API_CreateAutonomousDatabase.html)  **
+  - **Description:** Grants permission to create an Autonomous Database
+  - **Resource types (\*required):** [odb-network](#list_odb-resource-odb-network)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAutonomousDatabaseBackup](https://docs.aws.amazon.com/odb/latest/APIReference/API_CreateAutonomousDatabaseBackup.html)  **
+  - **Description:** Grants permission to create a backup of the specified Autonomous Database
+  - **Resource types (\*required):** [autonomous-database\*](#list_odb-resource-autonomous-database)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAutonomousDatabaseWallet](https://docs.aws.amazon.com/odb/latest/APIReference/API_CreateAutonomousDatabaseWallet.html)  **
+  - **Description:** Grants permission to create a wallet for the specified Autonomous Database
+  - **Resource types (\*required):** [autonomous-database\*](#list_odb-resource-autonomous-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateCloudAutonomousVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_CreateCloudAutonomousVmCluster.html)  **
+  - **Description:** Grants permission to create an Autonomous VM cluster in the specified Exadata infrastructure
+  - **Resource types (\*required):** [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [odb-network\*](#list_odb-resource-odb-network) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateCloudExadataInfrastructure](https://docs.aws.amazon.com/odb/latest/APIReference/API_CreateCloudExadataInfrastructure.html)  **
+  - **Description:** Grants permission to create an Exadata infrastructure
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateCloudVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_CreateCloudVmCluster.html)  **
+  - **Description:** Grants permission to create a VM cluster on the specified Exadata infrastructure
+  - **Resource types (\*required):** [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [odb-network\*](#list_odb-resource-odb-network) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateExadbVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_CreateExadbVmCluster.html)  **
+  - **Description:** Grants permission to create an Exadb VM cluster in the specified Exascale DB storage vault
+  - **Resource types (\*required):** [exascale-db-storage-vault\*](#list_odb-resource-exascale-db-storage-vault) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [odb-network\*](#list_odb-resource-odb-network) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateExascaleDbStorageVault](https://docs.aws.amazon.com/odb/latest/APIReference/API_CreateExascaleDbStorageVault.html)  **
+  - **Description:** Grants permission to create an Exascale DB storage vault
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateOdbNetwork](https://docs.aws.amazon.com/odb/latest/APIReference/API_CreateOdbNetwork.html)  **
+  - **Description:** Grants permission to create an ODB network
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateOdbPeeringConnection](https://docs.aws.amazon.com/odb/latest/APIReference/API_CreateOdbPeeringConnection.html)  **
+  - **Description:** Grants permission to create an ODB Peering Connection
+  - **Resource types (\*required):** [odb-network\*](#list_odb-resource-odb-network)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteAutonomousDatabase](https://docs.aws.amazon.com/odb/latest/APIReference/API_DeleteAutonomousDatabase.html)  **
+  - **Description:** Grants permission to delete the specified Autonomous Database
+  - **Resource types (\*required):** [autonomous-database\*](#list_odb-resource-autonomous-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAutonomousDatabaseBackup](https://docs.aws.amazon.com/odb/latest/APIReference/API_DeleteAutonomousDatabaseBackup.html)  **
+  - **Description:** Grants permission to delete the specified Autonomous Database backup
+  - **Resource types (\*required):** [autonomous-database-backup\*](#list_odb-resource-autonomous-database-backup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteCloudAutonomousVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_DeleteCloudAutonomousVmCluster.html)  **
+  - **Description:** Grants permission to Deletes an Autonomous VM cluster
+  - **Resource types (\*required):** [cloud-autonomous-vm-cluster\*](#list_odb-resource-cloud-autonomous-vm-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteCloudExadataInfrastructure](https://docs.aws.amazon.com/odb/latest/APIReference/API_DeleteCloudExadataInfrastructure.html)  **
+  - **Description:** Grants permission to delete a specified Exadata infrastructure. Before you use this operation, make sure to delete all of the VM clusters that are hosted on this Exadata infrastructure
+  - **Resource types (\*required):** [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteCloudVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_DeleteCloudVmCluster.html)  **
+  - **Description:** Grants permission to delete a specified VM cluster
+  - **Resource types (\*required):** [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteExadbVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_DeleteExadbVmCluster.html)  **
+  - **Description:** Grants permission to delete a specified Exadb VM cluster
+  - **Resource types (\*required):** [exadb-vm-cluster\*](#list_odb-resource-exadb-vm-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteExascaleDbStorageVault](https://docs.aws.amazon.com/odb/latest/APIReference/API_DeleteExascaleDbStorageVault.html)  **
+  - **Description:** Grants permission to delete a specified Exascale DB storage vault
+  - **Resource types (\*required):** [exascale-db-storage-vault\*](#list_odb-resource-exascale-db-storage-vault)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteOdbNetwork](https://docs.aws.amazon.com/odb/latest/APIReference/API_DeleteOdbNetwork.html)  **
+  - **Description:** Grants permission to delete the specified ODB network
+  - **Resource types (\*required):** [odb-network\*](#list_odb-resource-odb-network)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteOdbPeeringConnection](https://docs.aws.amazon.com/odb/latest/APIReference/API_DeleteOdbPeeringConnection.html)  **
+  - **Description:** Grants permission to delete the specified ODB Peering Connection. When you delete an ODB peering connection, the underlying VPC peering connection is also deleted
+  - **Resource types (\*required):** [odb-peering-connection\*](#list_odb-resource-odb-peering-connection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateIamRoleFromResource](https://docs.aws.amazon.com/odb/latest/APIReference/API_DisassociateIamRoleFromResource.html)  **
+  - **Description:** Grants permission to disassociate an AWS Identity and Access Management (IAM) service role from a specified resource to disable AWS service integration
+  - **Resource types (\*required):** [cloud-autonomous-vm-cluster](#list_odb-resource-cloud-autonomous-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [cloud-vm-cluster](#list_odb-resource-cloud-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateVirtualMachinesFromExadbVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_DisassociateVirtualMachinesFromExadbVmCluster.html)  **
+  - **Description:** Grants permission to disassociate virtual machines from a specified Exadb VM cluster
+  - **Resource types (\*required):** [exadb-vm-cluster\*](#list_odb-resource-exadb-vm-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [FailoverAutonomousDatabase](https://docs.aws.amazon.com/odb/latest/APIReference/API_FailoverAutonomousDatabase.html)  **
+  - **Description:** Grants permission to fail over the specified Autonomous Database to a standby peer database
+  - **Resource types (\*required):** [autonomous-database\*](#list_odb-resource-autonomous-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetAutonomousDatabase](https://docs.aws.amazon.com/odb/latest/APIReference/API_GetAutonomousDatabase.html)  **
+  - **Description:** Grants permission to get information about a specific Autonomous Database
+  - **Resource types (\*required):** [autonomous-database\*](#list_odb-resource-autonomous-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAutonomousDatabaseBackup](https://docs.aws.amazon.com/odb/latest/APIReference/API_GetAutonomousDatabaseBackup.html)  **
+  - **Description:** Grants permission to get information about a specific Autonomous Database backup
+  - **Resource types (\*required):** [autonomous-database-backup\*](#list_odb-resource-autonomous-database-backup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAutonomousDatabaseWalletDetails](https://docs.aws.amazon.com/odb/latest/APIReference/API_GetAutonomousDatabaseWalletDetails.html)  **
+  - **Description:** Grants permission to get the wallet details for the specified Autonomous Database
+  - **Resource types (\*required):** [autonomous-database\*](#list_odb-resource-autonomous-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCloudAutonomousVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_GetCloudAutonomousVmCluster.html)  **
+  - **Description:** Grants permission to get information about a specific Autonomous VM cluster
+  - **Resource types (\*required):** [cloud-autonomous-vm-cluster\*](#list_odb-resource-cloud-autonomous-vm-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCloudExadataInfrastructure](https://docs.aws.amazon.com/odb/latest/APIReference/API_GetCloudExadataInfrastructure.html)  **
+  - **Description:** Grants permission to get information about the specified Exadata infrastructure
+  - **Resource types (\*required):** [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCloudExadataInfrastructureUnallocatedResources](https://docs.aws.amazon.com/odb/latest/APIReference/API_GetCloudExadataInfrastructureUnallocatedResources.html)  **
+  - **Description:** Grants permission to retrieve information about unallocated resources in a specified Cloud Exadata Infrastructure
+  - **Resource types (\*required):** [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCloudVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_GetCloudVmCluster.html)  **
+  - **Description:** Grants permission to get information about the specified VM cluster
+  - **Resource types (\*required):** [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDbNode](https://docs.aws.amazon.com/odb/latest/APIReference/API_GetDbNode.html)  **
+  - **Description:** Grants permission to get information about the specified DB node
+  - **Resource types (\*required):** [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [db-node\*](#list_odb-resource-db-node) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDbServer](https://docs.aws.amazon.com/odb/latest/APIReference/API_GetDbServer.html)  **
+  - **Description:** Grants permission to get information about the specified database server
+  - **Resource types (\*required):** [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetExadbVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_GetExadbVmCluster.html)  **
+  - **Description:** Grants permission to get information about a specified Exadb VM cluster
+  - **Resource types (\*required):** [exadb-vm-cluster\*](#list_odb-resource-exadb-vm-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetExascaleDbStorageVault](https://docs.aws.amazon.com/odb/latest/APIReference/API_GetExascaleDbStorageVault.html)  **
+  - **Description:** Grants permission to get information about a specified Exascale DB storage vault
+  - **Resource types (\*required):** [exascale-db-storage-vault\*](#list_odb-resource-exascale-db-storage-vault)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetOciOnboardingStatus](https://docs.aws.amazon.com/odb/latest/APIReference/API_GetOciOnboardingStatus.html)  **
+  - **Description:** Grants permission to get the tenancy activation link and onboarding status for your Amazon Web Services account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetOdbNetwork](https://docs.aws.amazon.com/odb/latest/APIReference/API_GetOdbNetwork.html)  **
+  - **Description:** Grants permission to get information about the specified ODB network
+  - **Resource types (\*required):** [odb-network\*](#list_odb-resource-odb-network)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetOdbPeeringConnection](https://docs.aws.amazon.com/odb/latest/APIReference/API_GetOdbPeeringConnection.html)  **
+  - **Description:** Grants permission to get information about the specified ODB Peering connection
+  - **Resource types (\*required):** [odb-peering-connection\*](#list_odb-resource-odb-peering-connection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [InitializeService](https://docs.aws.amazon.com/odb/latest/APIReference/API_InitializeService.html)  **
+  - **Description:** Grants permission to initialize the ODB service for the first time in an account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ListAutonomousDatabaseBackups](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListAutonomousDatabaseBackups.html)  **
+  - **Description:** Grants permission to list information about the backups of the specified Autonomous Database
+  - **Resource types (\*required):** [autonomous-database\*](#list_odb-resource-autonomous-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAutonomousDatabaseCharacterSets](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListAutonomousDatabaseCharacterSets.html)  **
+  - **Description:** Grants permission to list information about the character sets that are available for Autonomous Databases
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAutonomousDatabaseClones](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListAutonomousDatabaseClones.html)  **
+  - **Description:** Grants permission to list all clones of the specified Autonomous Database
+  - **Resource types (\*required):** [autonomous-database\*](#list_odb-resource-autonomous-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAutonomousDatabasePeers](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListAutonomousDatabasePeers.html)  **
+  - **Description:** Grants permission to list all peer databases of the specified Autonomous Database
+  - **Resource types (\*required):** [autonomous-database\*](#list_odb-resource-autonomous-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAutonomousDatabaseVersions](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListAutonomousDatabaseVersions.html)  **
+  - **Description:** Grants permission to list information about the Oracle Database software versions that are available for Autonomous Databases
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAutonomousDatabases](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListAutonomousDatabases.html)  **
+  - **Description:** Grants permission to list information about the Autonomous Databases owned by your Amazon Web Services account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAutonomousVirtualMachines](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListAutonomousVirtualMachines.html)  **
+  - **Description:** Grants permission to list all Autonomous VMs in an Autonomous VM cluster
+  - **Resource types (\*required):** [cloud-autonomous-vm-cluster](#list_odb-resource-cloud-autonomous-vm-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListCloudAutonomousVmClusters](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListCloudAutonomousVmClusters.html)  **
+  - **Description:** Grants permission to list all Autonomous VM clusters in a specified Cloud Exadata infrastructure
+  - **Resource types (\*required):** [cloud-exadata-infrastructure](#list_odb-resource-cloud-exadata-infrastructure)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListCloudExadataInfrastructures](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListCloudExadataInfrastructures.html)  **
+  - **Description:** Grants permission to list information about the Exadata infrastructures owned by your Amazon Web Services account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListCloudVmClusters](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListCloudVmClusters.html)  **
+  - **Description:** Grants permission to list information about the VM clusters owned by your Amazon Web Services account or only the ones on the specified Exadata infrastructure
+  - **Resource types (\*required):** [cloud-exadata-infrastructure](#list_odb-resource-cloud-exadata-infrastructure)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDbNodes](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListDbNodes.html)  **
+  - **Description:** Grants permission to list information about the DB nodes for the specified VM cluster
+  - **Resource types (\*required):** [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDbServers](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListDbServers.html)  **
+  - **Description:** Grants permission to list information about the database servers that belong to the specified Exadata infrastructure
+  - **Resource types (\*required):** [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDbSystemShapes](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListDbSystemShapes.html)  **
+  - **Description:** Grants permission to list information about the shapes that are available for an Exadata infrastructure
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListExadbVmClusters](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListExadbVmClusters.html)  **
+  - **Description:** Grants permission to list information about the Exadb VM clusters owned by your Amazon Web Services account or only the ones in the specified Exascale DB storage vault
+  - **Resource types (\*required):** [exascale-db-storage-vault](#list_odb-resource-exascale-db-storage-vault)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListExascaleDbStorageVaults](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListExascaleDbStorageVaults.html)  **
+  - **Description:** Grants permission to list information about the Exascale DB storage vaults owned by your Amazon Web Services account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListFlexComponents](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListFlexComponents.html)  **
+  - **Description:** Grants permission to list information about the flex components that are available for a DB system shape
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListGiMinorVersions](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListGiMinorVersions.html)  **
+  - **Description:** Grants permission to list information about the minor versions of Oracle Grid Infrastructure (GI) software that are available for a VM cluster for the specified GI version and shape
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListGiVersions](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListGiVersions.html)  **
+  - **Description:** Grants permission to list information about Oracle Grid Infrastructure (GI) software versions that are available for a VM cluster for the specified shape
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListOdbNetworks](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListOdbNetworks.html)  **
+  - **Description:** Grants permission to list information about the ODB networks owned by your Amazon Web Services account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListOdbPeeringConnections](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListOdbPeeringConnections.html)  **
+  - **Description:** Grants permission to list all ODB peering connections or those associated with a specific ODB network
+  - **Resource types (\*required):** [odb-network](#list_odb-resource-odb-network)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSystemVersions](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListSystemVersions.html)  **
+  - **Description:** Grants permission to list information about the system versions that are available for a VM cluster for the specified giVersion and shape
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/odb/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list information about the tags applied to this resource
+  - **Resource types (\*required):** [autonomous-database](#list_odb-resource-autonomous-database) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [autonomous-database-backup](#list_odb-resource-autonomous-database-backup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [cloud-autonomous-vm-cluster](#list_odb-resource-cloud-autonomous-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [cloud-exadata-infrastructure](#list_odb-resource-cloud-exadata-infrastructure) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [cloud-vm-cluster](#list_odb-resource-cloud-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [db-node](#list_odb-resource-db-node) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [exadb-vm-cluster](#list_odb-resource-exadb-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [exascale-db-storage-vault](#list_odb-resource-exascale-db-storage-vault) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [odb-network](#list_odb-resource-odb-network) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [odb-peering-connection](#list_odb-resource-odb-peering-connection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [RebootAutonomousDatabase](https://docs.aws.amazon.com/odb/latest/APIReference/API_RebootAutonomousDatabase.html)  **
+  - **Description:** Grants permission to reboot the specified Autonomous Database
+  - **Resource types (\*required):** [autonomous-database\*](#list_odb-resource-autonomous-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RebootDbNode](https://docs.aws.amazon.com/odb/latest/APIReference/API_RebootDbNode.html)  **
+  - **Description:** Grants permission to reboot the specified DB node in a VM cluster
+  - **Resource types (\*required):** [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [db-node\*](#list_odb-resource-db-node) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RestoreAutonomousDatabase](https://docs.aws.amazon.com/odb/latest/APIReference/API_RestoreAutonomousDatabase.html)  **
+  - **Description:** Grants permission to restore the specified Autonomous Database to a point in time
+  - **Resource types (\*required):** [autonomous-database\*](#list_odb-resource-autonomous-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ShrinkAutonomousDatabase](https://docs.aws.amazon.com/odb/latest/APIReference/API_ShrinkAutonomousDatabase.html)  **
+  - **Description:** Grants permission to shrink the storage of the specified Autonomous Database to reclaim unused space
+  - **Resource types (\*required):** [autonomous-database\*](#list_odb-resource-autonomous-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartAutonomousDatabase](https://docs.aws.amazon.com/odb/latest/APIReference/API_StartAutonomousDatabase.html)  **
+  - **Description:** Grants permission to start the specified Autonomous Database
+  - **Resource types (\*required):** [autonomous-database\*](#list_odb-resource-autonomous-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartDbNode](https://docs.aws.amazon.com/odb/latest/APIReference/API_StartDbNode.html)  **
+  - **Description:** Grants permission to start the specified DB node in a VM cluster
+  - **Resource types (\*required):** [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [db-node\*](#list_odb-resource-db-node) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopAutonomousDatabase](https://docs.aws.amazon.com/odb/latest/APIReference/API_StopAutonomousDatabase.html)  **
+  - **Description:** Grants permission to stop the specified Autonomous Database
+  - **Resource types (\*required):** [autonomous-database\*](#list_odb-resource-autonomous-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopDbNode](https://docs.aws.amazon.com/odb/latest/APIReference/API_StopDbNode.html)  **
+  - **Description:** Grants permission to stop the specified DB node in a VM cluster
+  - **Resource types (\*required):** [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [db-node\*](#list_odb-resource-db-node) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SwitchoverAutonomousDatabase](https://docs.aws.amazon.com/odb/latest/APIReference/API_SwitchoverAutonomousDatabase.html)  **
+  - **Description:** Grants permission to switch over the specified Autonomous Database to a standby peer database
+  - **Resource types (\*required):** [autonomous-database\*](#list_odb-resource-autonomous-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/odb/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to apply tags to the specified resource
+  - **Resource types (\*required):** [autonomous-database](#list_odb-resource-autonomous-database) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [autonomous-database-backup](#list_odb-resource-autonomous-database-backup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [cloud-autonomous-vm-cluster](#list_odb-resource-cloud-autonomous-vm-cluster) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [cloud-exadata-infrastructure](#list_odb-resource-cloud-exadata-infrastructure) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [cloud-vm-cluster](#list_odb-resource-cloud-vm-cluster) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [db-node](#list_odb-resource-db-node) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [exadb-vm-cluster](#list_odb-resource-exadb-vm-cluster) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [exascale-db-storage-vault](#list_odb-resource-exascale-db-storage-vault) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [odb-network](#list_odb-resource-odb-network) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [odb-peering-connection](#list_odb-resource-odb-peering-connection) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_odb-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/odb/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove tags from the specified resource
+  - **Resource types (\*required):** [autonomous-database](#list_odb-resource-autonomous-database) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [autonomous-database-backup](#list_odb-resource-autonomous-database-backup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [cloud-autonomous-vm-cluster](#list_odb-resource-cloud-autonomous-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [cloud-exadata-infrastructure](#list_odb-resource-cloud-exadata-infrastructure) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [cloud-vm-cluster](#list_odb-resource-cloud-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [db-node](#list_odb-resource-db-node) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [exadb-vm-cluster](#list_odb-resource-exadb-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [exascale-db-storage-vault](#list_odb-resource-exascale-db-storage-vault) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [odb-network](#list_odb-resource-odb-network) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Resource types (\*required):** [odb-peering-connection](#list_odb-resource-odb-peering-connection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_odb-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAutonomousDatabase](https://docs.aws.amazon.com/odb/latest/APIReference/API_UpdateAutonomousDatabase.html)  **
+  - **Description:** Grants permission to update the properties of an Autonomous Database
+  - **Resource types (\*required):** [autonomous-database\*](#list_odb-resource-autonomous-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAutonomousDatabaseBackup](https://docs.aws.amazon.com/odb/latest/APIReference/API_UpdateAutonomousDatabaseBackup.html)  **
+  - **Description:** Grants permission to update the properties of an Autonomous Database backup
+  - **Resource types (\*required):** [autonomous-database-backup\*](#list_odb-resource-autonomous-database-backup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateCloudExadataInfrastructure](https://docs.aws.amazon.com/odb/latest/APIReference/API_UpdateCloudExadataInfrastructure.html)  **
+  - **Description:** Grants permission to update the properties of an Exadata infrastructure resource
+  - **Resource types (\*required):** [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateExadbVmCluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_UpdateExadbVmCluster.html)  **
+  - **Description:** Grants permission to update properties of a specified Exadb VM cluster
+  - **Resource types (\*required):** [exadb-vm-cluster\*](#list_odb-resource-exadb-vm-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateExascaleDbStorageVault](https://docs.aws.amazon.com/odb/latest/APIReference/API_UpdateExascaleDbStorageVault.html)  **
+  - **Description:** Grants permission to update properties of a specified Exascale DB storage vault
+  - **Resource types (\*required):** [exascale-db-storage-vault\*](#list_odb-resource-exascale-db-storage-vault)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateOdbNetwork](https://docs.aws.amazon.com/odb/latest/APIReference/API_UpdateOdbNetwork.html)  **
+  - **Description:** Grants permission to update properties of a specified ODB network
+  - **Resource types (\*required):** [odb-network\*](#list_odb-resource-odb-network)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateOdbPeeringConnection](https://docs.aws.amazon.com/odb/latest/APIReference/API_UpdateOdbPeeringConnection.html)  **
+  - **Description:** Grants permission to update properties of a specified ODB Peering Connection
+  - **Resource types (\*required):** [odb-peering-connection\*](#list_odb-resource-odb-peering-connection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for AWS Service - Oracle Database@AWS
+<a name="list_odb-permission-only-actions"></a>
 
-The following actions are defined by AWS Service - Oracle Database@AWS but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by AWS Service - Oracle Database@AWS but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                    | Description                                                                                            | Resource types (\*required)                                                                                                         | Condition keys                                                                                         | Access level |
-| -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------ |
-| [CreateDbNode](API_CreateDbNode.md "API_CreateDbNode.md")                                                                  | Grants permission to create a DB Node                                                                  | [db-node\*](#list_odb-resource-db-node "#list_odb-resource-db-node")                                                                | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") | Write        |
-| [CreateGrantShare](API_CreateGrantShare.md "API_CreateGrantShare.md")                                                      | Grants permission to create an ODB Grant Share                                                         |                                                                                                                                     |                                                                                                        | Write        |
-| [CreateOutboundIntegration](API_CreateOutboundIntegration.md "API_CreateOutboundIntegration.md")                           | Grants permission to create an Outbound Integration                                                    | [cloud-autonomous-vm-cluster\*](#list_odb-resource-cloud-autonomous-vm-cluster "#list_odb-resource-cloud-autonomous-vm-cluster")    | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") | Write        |
-| [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster "#list_odb-resource-cloud-vm-cluster")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
-| [DeleteDbNode](API_DeleteDbNode.md "API_DeleteDbNode.md")                                                                  | Grants permission to delete a DB Node                                                                  | [db-node\*](#list_odb-resource-db-node "#list_odb-resource-db-node")                                                                | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") | Write        |
-| [DeleteGrantShare](API_DeleteGrantShare.md "API_DeleteGrantShare.md")                                                      | Grants permission to delete an ODB Grant Share                                                         |                                                                                                                                     |                                                                                                        | Write        |
-| [DeleteResourcePolicy](API_DeleteResourcePolicy.md "API_DeleteResourcePolicy.md")                                          | Grants permission to delete a resource policy                                                          | [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure "#list_odb-resource-cloud-exadata-infrastructure") | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") | Write        |
-| [exascale-db-storage-vault\*](#list_odb-resource-exascale-db-storage-vault "#list_odb-resource-exascale-db-storage-vault") | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
-| [odb-network\*](#list_odb-resource-odb-network "#list_odb-resource-odb-network")                                           | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
-| [GetResourcePolicy](API_GetResourcePolicy.md "API_GetResourcePolicy.md")                                                   | Grants permission to get a resource policy                                                             | [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure "#list_odb-resource-cloud-exadata-infrastructure") | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") | Read         |
-| [exascale-db-storage-vault\*](#list_odb-resource-exascale-db-storage-vault "#list_odb-resource-exascale-db-storage-vault") | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
-| [odb-network\*](#list_odb-resource-odb-network "#list_odb-resource-odb-network")                                           | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
-| [PutResourcePolicy](API_PutResourcePolicy.md "API_PutResourcePolicy.md")                                                   | Grants permission to update a resource policy                                                          | [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure "#list_odb-resource-cloud-exadata-infrastructure") | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") | Write        |
-| [exascale-db-storage-vault\*](#list_odb-resource-exascale-db-storage-vault "#list_odb-resource-exascale-db-storage-vault") | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
-| [odb-network\*](#list_odb-resource-odb-network "#list_odb-resource-odb-network")                                           | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
-| [UpdateGrantShare](API_UpdateGrantShare.md "API_UpdateGrantShare.md")                                                      | Grants permission to update an ODB Grant Share                                                         |                                                                                                                                     |                                                                                                        | Write        |
-| [UpdateOutboundIntegration](API_UpdateOutboundIntegration.md "API_UpdateOutboundIntegration.md")                           | Grants permission to update an Outbound Integration                                                    | [cloud-autonomous-vm-cluster\*](#list_odb-resource-cloud-autonomous-vm-cluster "#list_odb-resource-cloud-autonomous-vm-cluster")    | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") | Write        |
-| [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster "#list_odb-resource-cloud-vm-cluster")                            | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
+
+
+
+- **   [CreateDbNode](API_CreateDbNode.html)  **
+  - **Description:** Grants permission to create a DB Node
+  - **Resource types (\*required):** [db-node\*](#list_odb-resource-db-node)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateGrantShare](API_CreateGrantShare.html)  **
+  - **Description:** Grants permission to create an ODB Grant Share
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateOutboundIntegration](API_CreateOutboundIntegration.html)  **
+  - **Description:** Grants permission to create an Outbound Integration
+  - **Resource types (\*required):** [cloud-autonomous-vm-cluster\*](#list_odb-resource-cloud-autonomous-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDbNode](API_DeleteDbNode.html)  **
+  - **Description:** Grants permission to delete a DB Node
+  - **Resource types (\*required):** [db-node\*](#list_odb-resource-db-node)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteGrantShare](API_DeleteGrantShare.html)  **
+  - **Description:** Grants permission to delete an ODB Grant Share
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteResourcePolicy](API_DeleteResourcePolicy.html)  **
+  - **Description:** Grants permission to delete a resource policy
+  - **Resource types (\*required):** [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [exascale-db-storage-vault\*](#list_odb-resource-exascale-db-storage-vault) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [odb-network\*](#list_odb-resource-odb-network) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetResourcePolicy](API_GetResourcePolicy.html)  **
+  - **Description:** Grants permission to get a resource policy
+  - **Resource types (\*required):** [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [exascale-db-storage-vault\*](#list_odb-resource-exascale-db-storage-vault) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [odb-network\*](#list_odb-resource-odb-network) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [PutResourcePolicy](API_PutResourcePolicy.html)  **
+  - **Description:** Grants permission to update a resource policy
+  - **Resource types (\*required):** [cloud-exadata-infrastructure\*](#list_odb-resource-cloud-exadata-infrastructure) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [exascale-db-storage-vault\*](#list_odb-resource-exascale-db-storage-vault) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [odb-network\*](#list_odb-resource-odb-network) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateGrantShare](API_UpdateGrantShare.html)  **
+  - **Description:** Grants permission to update an ODB Grant Share
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateOutboundIntegration](API_UpdateOutboundIntegration.html)  **
+  - **Description:** Grants permission to update an Outbound Integration
+  - **Resource types (\*required):** [cloud-autonomous-vm-cluster\*](#list_odb-resource-cloud-autonomous-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [cloud-vm-cluster\*](#list_odb-resource-cloud-vm-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS Service - Oracle Database@AWS
+<a name="list_odb-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                          | ARN                                                                                                    | Condition keys                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| [autonomous-database](../../../odb/latest/APIReference/API_AutonomousDatabase.md "../../../odb/latest/APIReference/API_AutonomousDatabase.md")                          | arn:${Partition}:odb:${Region}:${Account}:autonomous-database/${AutonomousDatabaseId}                  | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
-| [autonomous-database-backup](../../../odb/latest/APIReference/API_AutonomousDatabaseBackup.md "../../../odb/latest/APIReference/API_AutonomousDatabaseBackup.md")       | arn:${Partition}:odb:${Region}:${Account}:autonomous-database-backup/${AutonomousDatabaseBackupId}     | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
-| [cloud-autonomous-vm-cluster](../../../odb/latest/APIReference/API_CloudAutonomousVmCluster.md "../../../odb/latest/APIReference/API_CloudAutonomousVmCluster.md")      | arn:${Partition}:odb:${Region}:${Account}:cloud-autonomous-vm-cluster/${CloudAutonomousVmClusterId}    | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
-| [cloud-exadata-infrastructure](../../../odb/latest/APIReference/API_CloudExadataInfrastructure.md "../../../odb/latest/APIReference/API_CloudExadataInfrastructure.md") | arn:${Partition}:odb:${Region}:${Account}:cloud-exadata-infrastructure/${CloudExadataInfrastructureId} | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
-| [cloud-vm-cluster](../../../odb/latest/APIReference/API_CloudVmCluster.md "../../../odb/latest/APIReference/API_CloudVmCluster.md")                                     | arn:${Partition}:odb:${Region}:${Account}:cloud-vm-cluster/${CloudVmClusterId}                         | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
-| [db-node](../../../odb/latest/APIReference/API_DbNode.md "../../../odb/latest/APIReference/API_DbNode.md")                                                              | arn:${Partition}:odb:${Region}:${Account}:db-node/${DbNodeId}                                          | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
-| [exadb-vm-cluster](../../../odb/latest/APIReference/API_ExadbVmCluster.md "../../../odb/latest/APIReference/API_ExadbVmCluster.md")                                     | arn:${Partition}:odb:${Region}:${Account}:exadb-vm-cluster/${ExadbVmClusterId}                         | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
-| [exascale-db-storage-vault](../../../odb/latest/APIReference/API_ExascaleDbStorageVault.md "../../../odb/latest/APIReference/API_ExascaleDbStorageVault.md")            | arn:${Partition}:odb:${Region}:${Account}:exascale-db-storage-vault/${ExascaleDbStorageVaultId}        | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
-| [odb-network](../../../odb/latest/APIReference/API_OdbNetwork.md "../../../odb/latest/APIReference/API_OdbNetwork.md")                                                  | arn:${Partition}:odb:${Region}:${Account}:odb-network/${OdbNetworkId}                                  | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
-| [odb-peering-connection](../../../odb/latest/APIReference/API_OdbPeeringConnection.md "../../../odb/latest/APIReference/API_OdbPeeringConnection.md")                   | arn:${Partition}:odb:${Region}:${Account}:odb-peering-connection/${OdbPeeringConnectionId}             | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_ "#list_odb-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [autonomous-database](https://docs.aws.amazon.com/odb/latest/APIReference/API_AutonomousDatabase.html)  | arn:${Partition}:odb:${Region}:${Account}:autonomous-database/${AutonomousDatabaseId} | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_) | 
+|  [autonomous-database-backup](https://docs.aws.amazon.com/odb/latest/APIReference/API_AutonomousDatabaseBackup.html)  | arn:${Partition}:odb:${Region}:${Account}:autonomous-database-backup/${AutonomousDatabaseBackupId} | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_) | 
+|  [cloud-autonomous-vm-cluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_CloudAutonomousVmCluster.html)  | arn:${Partition}:odb:${Region}:${Account}:cloud-autonomous-vm-cluster/${CloudAutonomousVmClusterId} | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_) | 
+|  [cloud-exadata-infrastructure](https://docs.aws.amazon.com/odb/latest/APIReference/API_CloudExadataInfrastructure.html)  | arn:${Partition}:odb:${Region}:${Account}:cloud-exadata-infrastructure/${CloudExadataInfrastructureId} | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_) | 
+|  [cloud-vm-cluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_CloudVmCluster.html)  | arn:${Partition}:odb:${Region}:${Account}:cloud-vm-cluster/${CloudVmClusterId} | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_) | 
+|  [db-node](https://docs.aws.amazon.com/odb/latest/APIReference/API_DbNode.html)  | arn:${Partition}:odb:${Region}:${Account}:db-node/${DbNodeId} | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_) | 
+|  [exadb-vm-cluster](https://docs.aws.amazon.com/odb/latest/APIReference/API_ExadbVmCluster.html)  | arn:${Partition}:odb:${Region}:${Account}:exadb-vm-cluster/${ExadbVmClusterId} | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_) | 
+|  [exascale-db-storage-vault](https://docs.aws.amazon.com/odb/latest/APIReference/API_ExascaleDbStorageVault.html)  | arn:${Partition}:odb:${Region}:${Account}:exascale-db-storage-vault/${ExascaleDbStorageVaultId} | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_) | 
+|  [odb-network](https://docs.aws.amazon.com/odb/latest/APIReference/API_OdbNetwork.html)  | arn:${Partition}:odb:${Region}:${Account}:odb-network/${OdbNetworkId} | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_) | 
+|  [odb-peering-connection](https://docs.aws.amazon.com/odb/latest/APIReference/API_OdbPeeringConnection.html)  | arn:${Partition}:odb:${Region}:${Account}:odb-peering-connection/${OdbPeeringConnectionId} | [aws:ResourceTag/${TagKey}](#list_odb-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Service - Oracle Database@AWS
+<a name="list_odb-policy-keys"></a>
 
-AWS Service - Oracle Database@AWS defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Service - Oracle Database@AWS defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                               | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by a tag key and value pair that is allowed in the request | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by a tag key and value pair of a resource                  | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by a list of tag keys that are allowed in the request      | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by a tag key and value pair that is allowed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by a tag key and value pair of a resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by a list of tag keys that are allowed in the request | ArrayOfString | 

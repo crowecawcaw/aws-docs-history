@@ -1,102 +1,298 @@
-# Actions, resources, and condition keys for AWS CloudWatch RUM
 
-AWS CloudWatch RUM (service prefix: `rum`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS CloudWatch RUM
+<a name="list_rum"></a>
+
+AWS CloudWatch RUM (service prefix: `rum`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/rum/rum.json) for this service.
 
-- Learn how to [configure this service](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.md").
-- View a list of the [API operations available for
-  this service](../../../cloudwatchrum/latest/APIReference.md "../../../cloudwatchrum/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.md "../../../AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/rum/rum.json "https://servicereference.us-east-1.amazonaws.com/v1/rum/rum.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS CloudWatch RUM](#list_rum-operations "#list_rum-operations")
-- [Actions defined by AWS CloudWatch RUM](#list_rum-actions-as-permissions "#list_rum-actions-as-permissions")
-- [Resource types defined by AWS CloudWatch RUM](#list_rum-resources-for-iam-policies "#list_rum-resources-for-iam-policies")
-- [Condition keys for AWS CloudWatch RUM](#list_rum-policy-keys "#list_rum-policy-keys")
+**Topics**
++ [API operations defined by AWS CloudWatch RUM](#list_rum-operations)
++ [Actions defined by AWS CloudWatch RUM](#list_rum-actions-as-permissions)
++ [Resource types defined by AWS CloudWatch RUM](#list_rum-resources-for-iam-policies)
++ [Condition keys for AWS CloudWatch RUM](#list_rum-policy-keys)
 
 ## API operations defined by AWS CloudWatch RUM
+<a name="list_rum-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_rum-actions-as-permissions "#list_rum-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_rum-actions-as-permissions).
 
-| Operation                                                                                                                       | IAM action                                                                                                                                 | Condition key     | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | ----------------- | -------------- |
-| BatchCreateRumMetricDefinitions                                                                                                 | [rum:BatchCreateRumMetricDefinitions](#list_rum-action-BatchCreateRumMetricDefinitions "#list_rum-action-BatchCreateRumMetricDefinitions") |                   |                   | Write          |
-| BatchDeleteRumMetricDefinitions                                                                                                 | [rum:BatchDeleteRumMetricDefinitions](#list_rum-action-BatchDeleteRumMetricDefinitions "#list_rum-action-BatchDeleteRumMetricDefinitions") |                   |                   | Write          |
-| BatchGetRumMetricDefinitions                                                                                                    | [rum:BatchGetRumMetricDefinitions](#list_rum-action-BatchGetRumMetricDefinitions "#list_rum-action-BatchGetRumMetricDefinitions")          |                   |                   | Read           |
-| CreateAppMonitor                                                                                                                | [rum:CreateAppMonitor](#list_rum-action-CreateAppMonitor "#list_rum-action-CreateAppMonitor")                                              |                   |                   | Write          |
-| [rum:TagResource](#list_rum-action-TagResource "#list_rum-action-TagResource")                                                  |                                                                                                                                            |                   | Tagging, Write    |
-| DeleteAppMonitor                                                                                                                | [rum:DeleteAppMonitor](#list_rum-action-DeleteAppMonitor "#list_rum-action-DeleteAppMonitor")                                              |                   |                   | Write          |
-| DeleteResourcePolicy                                                                                                            | [rum:DeleteResourcePolicy](#list_rum-action-DeleteResourcePolicy "#list_rum-action-DeleteResourcePolicy")                                  |                   |                   | Write          |
-| DeleteRumMetricsDestination                                                                                                     | [rum:DeleteRumMetricsDestination](#list_rum-action-DeleteRumMetricsDestination "#list_rum-action-DeleteRumMetricsDestination")             |                   |                   | Write          |
-| GetAppMonitor                                                                                                                   | [rum:GetAppMonitor](#list_rum-action-GetAppMonitor "#list_rum-action-GetAppMonitor")                                                       |                   |                   | Read           |
-| GetAppMonitorData                                                                                                               | [rum:GetAppMonitorData](#list_rum-action-GetAppMonitorData "#list_rum-action-GetAppMonitorData")                                           |                   |                   | Read           |
-| GetResourcePolicy                                                                                                               | [rum:GetResourcePolicy](#list_rum-action-GetResourcePolicy "#list_rum-action-GetResourcePolicy")                                           |                   |                   | Read           |
-| ListAppMonitors                                                                                                                 | [rum:ListAppMonitors](#list_rum-action-ListAppMonitors "#list_rum-action-ListAppMonitors")                                                 |                   |                   | List           |
-| ListRumMetricsDestinations                                                                                                      | [rum:ListRumMetricsDestinations](#list_rum-action-ListRumMetricsDestinations "#list_rum-action-ListRumMetricsDestinations")                |                   |                   | Read           |
-| ListTagsForResource                                                                                                             | [rum:ListTagsForResource](#list_rum-action-ListTagsForResource "#list_rum-action-ListTagsForResource")                                     |                   |                   | Read           |
-| PutResourcePolicy                                                                                                               | [rum:PutResourcePolicy](#list_rum-action-PutResourcePolicy "#list_rum-action-PutResourcePolicy")                                           |                   |                   | Write          |
-| PutRumEvents                                                                                                                    | [rum:PutRumEvents](#list_rum-action-PutRumEvents "#list_rum-action-PutRumEvents")                                                          |                   |                   | Write          |
-| PutRumMetricsDestination                                                                                                        | [rum:PutRumMetricsDestination](#list_rum-action-PutRumMetricsDestination "#list_rum-action-PutRumMetricsDestination")                      |                   |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                        | rum.amazonaws.com | Write             |
-| TagResource                                                                                                                     | [rum:TagResource](#list_rum-action-TagResource "#list_rum-action-TagResource")                                                             |                   |                   | Tagging, Write |
-| UntagResource                                                                                                                   | [rum:UntagResource](#list_rum-action-UntagResource "#list_rum-action-UntagResource")                                                       |                   |                   | Tagging, Write |
-| UpdateAppMonitor                                                                                                                | [rum:UpdateAppMonitor](#list_rum-action-UpdateAppMonitor "#list_rum-action-UpdateAppMonitor")                                              |                   |                   | Write          |
-| UpdateRumMetricDefinition                                                                                                       | [rum:UpdateRumMetricDefinition](#list_rum-action-UpdateRumMetricDefinition "#list_rum-action-UpdateRumMetricDefinition")                   |                   |                   | Write          |
+
+
+
+- **   BatchCreateRumMetricDefinitions  **
+  - **IAM action:**  [rum:BatchCreateRumMetricDefinitions](#list_rum-action-BatchCreateRumMetricDefinitions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchDeleteRumMetricDefinitions  **
+  - **IAM action:**  [rum:BatchDeleteRumMetricDefinitions](#list_rum-action-BatchDeleteRumMetricDefinitions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchGetRumMetricDefinitions  **
+  - **IAM action:**  [rum:BatchGetRumMetricDefinitions](#list_rum-action-BatchGetRumMetricDefinitions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   CreateAppMonitor  **
+  - **IAM action:**  [rum:CreateAppMonitor](#list_rum-action-CreateAppMonitor)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [rum:TagResource](#list_rum-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteAppMonitor  **
+  - **IAM action:**  [rum:DeleteAppMonitor](#list_rum-action-DeleteAppMonitor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteResourcePolicy  **
+  - **IAM action:**  [rum:DeleteResourcePolicy](#list_rum-action-DeleteResourcePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRumMetricsDestination  **
+  - **IAM action:**  [rum:DeleteRumMetricsDestination](#list_rum-action-DeleteRumMetricsDestination) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAppMonitor  **
+  - **IAM action:**  [rum:GetAppMonitor](#list_rum-action-GetAppMonitor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAppMonitorData  **
+  - **IAM action:**  [rum:GetAppMonitorData](#list_rum-action-GetAppMonitorData) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetResourcePolicy  **
+  - **IAM action:**  [rum:GetResourcePolicy](#list_rum-action-GetResourcePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAppMonitors  **
+  - **IAM action:**  [rum:ListAppMonitors](#list_rum-action-ListAppMonitors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRumMetricsDestinations  **
+  - **IAM action:**  [rum:ListRumMetricsDestinations](#list_rum-action-ListRumMetricsDestinations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [rum:ListTagsForResource](#list_rum-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   PutResourcePolicy  **
+  - **IAM action:**  [rum:PutResourcePolicy](#list_rum-action-PutResourcePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutRumEvents  **
+  - **IAM action:**  [rum:PutRumEvents](#list_rum-action-PutRumEvents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutRumMetricsDestination  **
+  - **IAM action:**  [rum:PutRumMetricsDestination](#list_rum-action-PutRumMetricsDestination)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** rum.amazonaws.com / **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [rum:TagResource](#list_rum-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [rum:UntagResource](#list_rum-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAppMonitor  **
+  - **IAM action:**  [rum:UpdateAppMonitor](#list_rum-action-UpdateAppMonitor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRumMetricDefinition  **
+  - **IAM action:**  [rum:UpdateRumMetricDefinition](#list_rum-action-UpdateRumMetricDefinition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS CloudWatch RUM
+<a name="list_rum-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                  | Description                                                                | Resource types (\*required)                                                                           | Condition keys                                                                                                                                                                                                                                                                | Access level   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [BatchCreateRumMetricDefinitions](../../../cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricDefinitions.md "../../../cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricDefinitions.md") | Grants permission to create rum metric definitions                         | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [BatchDeleteRumMetricDefinitions](../../../cloudwatchrum/latest/APIReference/API_BatchDeleteRumMetricDefinitions.md "../../../cloudwatchrum/latest/APIReference/API_BatchDeleteRumMetricDefinitions.md") | Grants permission to remove rum metric definitions                         | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [BatchGetRumMetricDefinitions](../../../cloudwatchrum/latest/APIReference/API_BatchGetRumMetricDefinitions.md "../../../cloudwatchrum/latest/APIReference/API_BatchGetRumMetricDefinitions.md")          | Grants permission to get rum metric definitions                            | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [CreateAppMonitor](../../../cloudwatchrum/latest/APIReference/API_CreateAppMonitor.md "../../../cloudwatchrum/latest/APIReference/API_CreateAppMonitor.md")                                              | Grants permission to create appMonitor metadata                            | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:RequestTag/${TagKey}](#list_rum-aws_RequestTag___TagKey_ "#list_rum-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rum-aws_TagKeys "#list_rum-aws_TagKeys") | Write          |
-| [DeleteAppMonitor](../../../cloudwatchrum/latest/APIReference/API_DeleteAppMonitor.md "../../../cloudwatchrum/latest/APIReference/API_DeleteAppMonitor.md")                                              | Grants permission to delete appMonitor metadata                            | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [DeleteResourcePolicy](../../../cloudwatchrum/latest/APIReference/API_DeleteResourcePolicy.md "../../../cloudwatchrum/latest/APIReference/API_DeleteResourcePolicy.md")                                  | Grants permission to delete a resource policy attached to an app monitor   | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [DeleteRumMetricsDestination](../../../cloudwatchrum/latest/APIReference/API_DeleteRumMetricsDestination.md "../../../cloudwatchrum/latest/APIReference/API_DeleteRumMetricsDestination.md")             | Grants permission to delete rum metrics destinations                       | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [GetAppMonitor](../../../cloudwatchrum/latest/APIReference/API_GetAppMonitor.md "../../../cloudwatchrum/latest/APIReference/API_GetAppMonitor.md")                                                       | Grants permission to get appMonitor metadata                               | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [GetAppMonitorData](../../../cloudwatchrum/latest/APIReference/API_GetAppMonitorData.md "../../../cloudwatchrum/latest/APIReference/API_GetAppMonitorData.md")                                           | Grants permission to get appMonitor data                                   | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [GetResourcePolicy](../../../cloudwatchrum/latest/APIReference/API_GetResourcePolicy.md "../../../cloudwatchrum/latest/APIReference/API_GetResourcePolicy.md")                                           | Grants permission to retrieve a resource policy attached to an app monitor | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [ListAppMonitors](../../../cloudwatchrum/latest/APIReference/API_ListAppMonitors.md "../../../cloudwatchrum/latest/APIReference/API_ListAppMonitors.md")                                                 | Grants permission to list appMonitors metadata                             |                                                                                                       |                                                                                                                                                                                                                                                                               | List           |
-| [ListRumMetricsDestinations](../../../cloudwatchrum/latest/APIReference/API_ListRumMetricsDestinations.md "../../../cloudwatchrum/latest/APIReference/API_ListRumMetricsDestinations.md")                | Grants permission to list rum metrics destinations                         | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [ListTagsForResource](../../../cloudwatchrum/latest/APIReference/API_ListTagsForResource.md "../../../cloudwatchrum/latest/APIReference/API_ListTagsForResource.md")                                     | Grants permission to list tags for resources                               |                                                                                                       |                                                                                                                                                                                                                                                                               | Read           |
-| [PutResourcePolicy](../../../cloudwatchrum/latest/APIReference/API_PutResourcePolicy.md "../../../cloudwatchrum/latest/APIReference/API_PutResourcePolicy.md")                                           | Grants permission to attach a resource policy to an app monitor            | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [PutRumEvents](../../../cloudwatchrum/latest/APIReference/API_PutRumEvents.md "../../../cloudwatchrum/latest/APIReference/API_PutRumEvents.md")                                                          | Grants permission to put RUM events for appmonitor                         | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [PutRumMetricsDestination](../../../cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.md "../../../cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.md")                      | Grants permission to put rum metrics destinations                          | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [TagResource](../../../cloudwatchrum/latest/APIReference/API_TagResource.md "../../../cloudwatchrum/latest/APIReference/API_TagResource.md")                                                             | Grants permission to tag resources                                         | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:RequestTag/${TagKey}](#list_rum-aws_RequestTag___TagKey_ "#list_rum-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rum-aws_TagKeys "#list_rum-aws_TagKeys") | Tagging, Write |
-| [UntagResource](../../../cloudwatchrum/latest/APIReference/API_UntagResource.md "../../../cloudwatchrum/latest/APIReference/API_UntagResource.md")                                                       | Grants permission to untag resources                                       | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rum-aws_TagKeys "#list_rum-aws_TagKeys")                                                                                                        | Tagging, Write |
-| [UpdateAppMonitor](../../../cloudwatchrum/latest/APIReference/API_UpdateAppMonitor.md "../../../cloudwatchrum/latest/APIReference/API_UpdateAppMonitor.md")                                              | Grants permission to update appmonitor metadata                            | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [UpdateRumMetricDefinition](../../../cloudwatchrum/latest/APIReference/API_UpdateRumMetricDefinition.md "../../../cloudwatchrum/latest/APIReference/API_UpdateRumMetricDefinition.md")                   | Grants permission to update rum metric definition                          | [AppMonitorResource\*](#list_rum-resource-AppMonitorResource "#list_rum-resource-AppMonitorResource") | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
+
+
+
+- **   [BatchCreateRumMetricDefinitions](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricDefinitions.html)  **
+  - **Description:** Grants permission to create rum metric definitions
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDeleteRumMetricDefinitions](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchDeleteRumMetricDefinitions.html)  **
+  - **Description:** Grants permission to remove rum metric definitions
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchGetRumMetricDefinitions](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchGetRumMetricDefinitions.html)  **
+  - **Description:** Grants permission to get rum metric definitions
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [CreateAppMonitor](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_CreateAppMonitor.html)  **
+  - **Description:** Grants permission to create appMonitor metadata
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_rum-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rum-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteAppMonitor](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_DeleteAppMonitor.html)  **
+  - **Description:** Grants permission to delete appMonitor metadata
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteResourcePolicy](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_DeleteResourcePolicy.html)  **
+  - **Description:** Grants permission to delete a resource policy attached to an app monitor
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRumMetricsDestination](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_DeleteRumMetricsDestination.html)  **
+  - **Description:** Grants permission to delete rum metrics destinations
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetAppMonitor](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_GetAppMonitor.html)  **
+  - **Description:** Grants permission to get appMonitor metadata
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAppMonitorData](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_GetAppMonitorData.html)  **
+  - **Description:** Grants permission to get appMonitor data
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetResourcePolicy](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_GetResourcePolicy.html)  **
+  - **Description:** Grants permission to retrieve a resource policy attached to an app monitor
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListAppMonitors](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListAppMonitors.html)  **
+  - **Description:** Grants permission to list appMonitors metadata
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRumMetricsDestinations](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListRumMetricsDestinations.html)  **
+  - **Description:** Grants permission to list rum metrics destinations
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for resources
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [PutResourcePolicy](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutResourcePolicy.html)  **
+  - **Description:** Grants permission to attach a resource policy to an app monitor
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutRumEvents](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumEvents.html)  **
+  - **Description:** Grants permission to put RUM events for appmonitor
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutRumMetricsDestination](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html)  **
+  - **Description:** Grants permission to put rum metrics destinations
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag resources
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_rum-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rum-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag resources
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rum-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAppMonitor](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_UpdateAppMonitor.html)  **
+  - **Description:** Grants permission to update appmonitor metadata
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRumMetricDefinition](https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_UpdateRumMetricDefinition.html)  **
+  - **Description:** Grants permission to update rum metric definition
+  - **Resource types (\*required):** [AppMonitorResource\*](#list_rum-resource-AppMonitorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS CloudWatch RUM
+<a name="list_rum-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                      | ARN                                                          | Condition keys                                                                                         |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| [AppMonitorResource](../../../AmazonCloudWatch/latest/monitoring/API_AppMonitor.md "../../../AmazonCloudWatch/latest/monitoring/API_AppMonitor.md") | arn:${Partition}:rum:${Region}:${Account}:appmonitor/${Name} | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_ "#list_rum-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [AppMonitorResource](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_AppMonitor.html)  | arn:${Partition}:rum:${Region}:${Account}:appmonitor/${Name} | [aws:ResourceTag/${TagKey}](#list_rum-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS CloudWatch RUM
+<a name="list_rum-policy-keys"></a>
 
-AWS CloudWatch RUM defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS CloudWatch RUM defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                          | Description                                                                                                  | Type          |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag") | Filters access by the tags that are passed the request on behalf of the IAM principal                        | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md")                                                    | Filters access by the tags associated with the resource that make the request on behalf of the IAM principal | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                    | Filters access by the tag keys that are passed in the request on behalf of the IAM principal                 | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed the request on behalf of the IAM principal | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by the tags associated with the resource that make the request on behalf of the IAM principal | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request on behalf of the IAM principal | ArrayOfString | 

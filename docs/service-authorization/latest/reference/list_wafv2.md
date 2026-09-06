@@ -1,272 +1,839 @@
-# Actions, resources, and condition keys for AWS WAF V2
 
-AWS WAF V2 (service prefix: `wafv2`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS WAF V2
+<a name="list_wafv2"></a>
+
+AWS WAF V2 (service prefix: `wafv2`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/waf/latest/APIReference/API_Operations_AWS_WAFV2.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/waf/latest/developerguide/waf-auth-and-access-control.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/wafv2/wafv2.json) for this service.
 
-- Learn how to [configure this service](../../../waf/latest/developerguide/waf-chapter.md "../../../waf/latest/developerguide/waf-chapter.md").
-- View a list of the [API operations available for
-  this service](../../../waf/latest/APIReference/API_Operations_AWS_WAFV2.md "../../../waf/latest/APIReference/API_Operations_AWS_WAFV2.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../waf/latest/developerguide/waf-auth-and-access-control.md "../../../waf/latest/developerguide/waf-auth-and-access-control.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/wafv2/wafv2.json "https://servicereference.us-east-1.amazonaws.com/v1/wafv2/wafv2.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS WAF V2](#list_wafv2-operations "#list_wafv2-operations")
-- [Actions defined by AWS WAF V2](#list_wafv2-actions-as-permissions "#list_wafv2-actions-as-permissions")
-- [Permission-only actions for AWS WAF V2](#list_wafv2-permission-only-actions "#list_wafv2-permission-only-actions")
-- [Resource types defined by AWS WAF V2](#list_wafv2-resources-for-iam-policies "#list_wafv2-resources-for-iam-policies")
-- [Condition keys for AWS WAF V2](#list_wafv2-policy-keys "#list_wafv2-policy-keys")
+**Topics**
++ [API operations defined by AWS WAF V2](#list_wafv2-operations)
++ [Actions defined by AWS WAF V2](#list_wafv2-actions-as-permissions)
++ [Permission-only actions for AWS WAF V2](#list_wafv2-permission-only-actions)
++ [Resource types defined by AWS WAF V2](#list_wafv2-resources-for-iam-policies)
++ [Condition keys for AWS WAF V2](#list_wafv2-policy-keys)
 
 ## API operations defined by AWS WAF V2
+<a name="list_wafv2-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_wafv2-actions-as-permissions "#list_wafv2-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_wafv2-actions-as-permissions).
 
-| Operation                                                                                                                                                                                                                                                           | IAM action                                                                                                                                                         | Condition key | Possible value(s)             | Access level                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | ----------------------------- | ----------------------------- |
-| AssociateWebACL                                                                                                                                                                                                                                                     | [wafv2:AssociateWebACL](#list_wafv2-action-AssociateWebACL "#list_wafv2-action-AssociateWebACL")                                                                   |               |                               | Write                         |
-| [apigateway:SetWebACL](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                                                                                                                                         |                                                                                                                                                                    |               | Permissions management, Write |
-| [appsync:AssociateWebACL](../../../appsync/latest/devguide/WAF-Integration.md "../../../appsync/latest/devguide/WAF-Integration.md")                                                                                                                                |                                                                                                                                                                    |               | Write                         |
-| [appsync:SetWebACL](../../../appsync/latest/devguide/WAF-Integration.md "../../../appsync/latest/devguide/WAF-Integration.md")                                                                                                                                      |                                                                                                                                                                    |               | Permissions management, Write |
-| [elasticloadbalancing:CreateWebACLAssociation](../../../waf/latest/developerguide/security_iam_service-with-iam.md#security_iam_action-AssociateWebACL "../../../waf/latest/developerguide/security_iam_service-with-iam.md#security_iam_action-AssociateWebACL")   |                                                                                                                                                                    |               | Write                         |
-| [elasticloadbalancing:SetWebAcl](../../../waf/latest/developerguide/security_iam_service-with-iam.md#security_iam_action-AssociateWebACL "../../../waf/latest/developerguide/security_iam_service-with-iam.md#security_iam_action-AssociateWebACL")                 |                                                                                                                                                                    |               | Write                         |
-| CheckCapacity                                                                                                                                                                                                                                                       | [wafv2:CheckCapacity](#list_wafv2-action-CheckCapacity "#list_wafv2-action-CheckCapacity")                                                                         |               |                               | Read                          |
-| CreateAPIKey                                                                                                                                                                                                                                                        | [wafv2:CreateAPIKey](#list_wafv2-action-CreateAPIKey "#list_wafv2-action-CreateAPIKey")                                                                            |               |                               | Write                         |
-| CreateIPSet                                                                                                                                                                                                                                                         | [wafv2:CreateIPSet](#list_wafv2-action-CreateIPSet "#list_wafv2-action-CreateIPSet")                                                                               |               |                               | Write                         |
-| [wafv2:TagResource](#list_wafv2-action-TagResource "#list_wafv2-action-TagResource")                                                                                                                                                                                |                                                                                                                                                                    |               | Tagging, Write                |
-| CreateRegexPatternSet                                                                                                                                                                                                                                               | [wafv2:CreateRegexPatternSet](#list_wafv2-action-CreateRegexPatternSet "#list_wafv2-action-CreateRegexPatternSet")                                                 |               |                               | Write                         |
-| [wafv2:TagResource](#list_wafv2-action-TagResource "#list_wafv2-action-TagResource")                                                                                                                                                                                |                                                                                                                                                                    |               | Tagging, Write                |
-| CreateRuleGroup                                                                                                                                                                                                                                                     | [wafv2:CreateRuleGroup](#list_wafv2-action-CreateRuleGroup "#list_wafv2-action-CreateRuleGroup")                                                                   |               |                               | Write                         |
-| [wafv2:TagResource](#list_wafv2-action-TagResource "#list_wafv2-action-TagResource")                                                                                                                                                                                |                                                                                                                                                                    |               | Tagging, Write                |
-| CreateWebACL                                                                                                                                                                                                                                                        | [wafv2:CreateWebACL](#list_wafv2-action-CreateWebACL "#list_wafv2-action-CreateWebACL")                                                                            |               |                               | Write                         |
-| [wafv2:TagResource](#list_wafv2-action-TagResource "#list_wafv2-action-TagResource")                                                                                                                                                                                |                                                                                                                                                                    |               | Tagging, Write                |
-| DeleteAPIKey                                                                                                                                                                                                                                                        | [wafv2:DeleteAPIKey](#list_wafv2-action-DeleteAPIKey "#list_wafv2-action-DeleteAPIKey")                                                                            |               |                               | Write                         |
-| DeleteFirewallManagerRuleGroups                                                                                                                                                                                                                                     | [wafv2:DeleteFirewallManagerRuleGroups](#list_wafv2-action-DeleteFirewallManagerRuleGroups "#list_wafv2-action-DeleteFirewallManagerRuleGroups")                   |               |                               | Write                         |
-| DeleteIPSet                                                                                                                                                                                                                                                         | [wafv2:DeleteIPSet](#list_wafv2-action-DeleteIPSet "#list_wafv2-action-DeleteIPSet")                                                                               |               |                               | Write                         |
-| DeleteLoggingConfiguration                                                                                                                                                                                                                                          | [wafv2:DeleteLoggingConfiguration](#list_wafv2-action-DeleteLoggingConfiguration "#list_wafv2-action-DeleteLoggingConfiguration")                                  |               |                               | Write                         |
-| DeletePermissionPolicy                                                                                                                                                                                                                                              | [wafv2:DeletePermissionPolicy](#list_wafv2-action-DeletePermissionPolicy "#list_wafv2-action-DeletePermissionPolicy")                                              |               |                               | Permissions management, Write |
-| DeleteRegexPatternSet                                                                                                                                                                                                                                               | [wafv2:DeleteRegexPatternSet](#list_wafv2-action-DeleteRegexPatternSet "#list_wafv2-action-DeleteRegexPatternSet")                                                 |               |                               | Write                         |
-| DeleteRuleGroup                                                                                                                                                                                                                                                     | [wafv2:DeleteRuleGroup](#list_wafv2-action-DeleteRuleGroup "#list_wafv2-action-DeleteRuleGroup")                                                                   |               |                               | Write                         |
-| DeleteWebACL                                                                                                                                                                                                                                                        | [wafv2:DeleteWebACL](#list_wafv2-action-DeleteWebACL "#list_wafv2-action-DeleteWebACL")                                                                            |               |                               | Write                         |
-| DescribeAllManagedProducts                                                                                                                                                                                                                                          | [wafv2:DescribeAllManagedProducts](#list_wafv2-action-DescribeAllManagedProducts "#list_wafv2-action-DescribeAllManagedProducts")                                  |               |                               | Read                          |
-| DescribeManagedProductsByVendor                                                                                                                                                                                                                                     | [wafv2:DescribeManagedProductsByVendor](#list_wafv2-action-DescribeManagedProductsByVendor "#list_wafv2-action-DescribeManagedProductsByVendor")                   |               |                               | Read                          |
-| DescribeManagedRuleGroup                                                                                                                                                                                                                                            | [wafv2:DescribeManagedRuleGroup](#list_wafv2-action-DescribeManagedRuleGroup "#list_wafv2-action-DescribeManagedRuleGroup")                                        |               |                               | Read                          |
-| DisassociateWebACL                                                                                                                                                                                                                                                  | [wafv2:DisassociateWebACL](#list_wafv2-action-DisassociateWebACL "#list_wafv2-action-DisassociateWebACL")                                                          |               |                               | Write                         |
-| [apigateway:SetWebACL](../../../apigateway/latest/api/API_Operations.md "../../../apigateway/latest/api/API_Operations.md")                                                                                                                                         |                                                                                                                                                                    |               | Permissions management, Write |
-| [appsync:DisassociateWebACL](../../../appsync/latest/devguide/WAF-Integration.md "../../../appsync/latest/devguide/WAF-Integration.md")                                                                                                                             |                                                                                                                                                                    |               | Write                         |
-| [appsync:SetWebACL](../../../appsync/latest/devguide/WAF-Integration.md "../../../appsync/latest/devguide/WAF-Integration.md")                                                                                                                                      |                                                                                                                                                                    |               | Permissions management, Write |
-| [elasticloadbalancing:DeleteWebACLAssociation](../../../waf/latest/developerguide/security_iam_service-with-iam.md#security_iam_action-AssociateWebACL "../../../waf/latest/developerguide/security_iam_service-with-iam.md#security_iam_action-AssociateWebACL")   |                                                                                                                                                                    |               | Write                         |
-| [elasticloadbalancing:SetWebAcl](../../../waf/latest/developerguide/security_iam_service-with-iam.md#security_iam_action-AssociateWebACL "../../../waf/latest/developerguide/security_iam_service-with-iam.md#security_iam_action-AssociateWebACL")                 |                                                                                                                                                                    |               | Write                         |
-| GenerateMobileSdkReleaseUrl                                                                                                                                                                                                                                         | [wafv2:GenerateMobileSdkReleaseUrl](#list_wafv2-action-GenerateMobileSdkReleaseUrl "#list_wafv2-action-GenerateMobileSdkReleaseUrl")                               |               |                               | Read                          |
-| GetDecryptedAPIKey                                                                                                                                                                                                                                                  | [wafv2:GetDecryptedAPIKey](#list_wafv2-action-GetDecryptedAPIKey "#list_wafv2-action-GetDecryptedAPIKey")                                                          |               |                               | Read                          |
-| GetIPSet                                                                                                                                                                                                                                                            | [wafv2:GetIPSet](#list_wafv2-action-GetIPSet "#list_wafv2-action-GetIPSet")                                                                                        |               |                               | Read                          |
-| GetLoggingConfiguration                                                                                                                                                                                                                                             | [wafv2:GetLoggingConfiguration](#list_wafv2-action-GetLoggingConfiguration "#list_wafv2-action-GetLoggingConfiguration")                                           |               |                               | Read                          |
-| GetManagedRuleSet                                                                                                                                                                                                                                                   | [wafv2:GetManagedRuleSet](#list_wafv2-action-GetManagedRuleSet "#list_wafv2-action-GetManagedRuleSet")                                                             |               |                               | Read                          |
-| GetMobileSdkRelease                                                                                                                                                                                                                                                 | [wafv2:GetMobileSdkRelease](#list_wafv2-action-GetMobileSdkRelease "#list_wafv2-action-GetMobileSdkRelease")                                                       |               |                               | Read                          |
-| GetPermissionPolicy                                                                                                                                                                                                                                                 | [wafv2:GetPermissionPolicy](#list_wafv2-action-GetPermissionPolicy "#list_wafv2-action-GetPermissionPolicy")                                                       |               |                               | Read                          |
-| GetRateBasedStatementManagedKeys                                                                                                                                                                                                                                    | [wafv2:GetRateBasedStatementManagedKeys](#list_wafv2-action-GetRateBasedStatementManagedKeys "#list_wafv2-action-GetRateBasedStatementManagedKeys")                |               |                               | Read                          |
-| GetRegexPatternSet                                                                                                                                                                                                                                                  | [wafv2:GetRegexPatternSet](#list_wafv2-action-GetRegexPatternSet "#list_wafv2-action-GetRegexPatternSet")                                                          |               |                               | Read                          |
-| GetRevenueStatistics                                                                                                                                                                                                                                                | [wafv2:GetRevenueStatistics](#list_wafv2-action-GetRevenueStatistics "#list_wafv2-action-GetRevenueStatistics")                                                    |               |                               | Read                          |
-| GetRevenueStatisticsSummary                                                                                                                                                                                                                                         | [wafv2:GetRevenueStatisticsSummary](#list_wafv2-action-GetRevenueStatisticsSummary "#list_wafv2-action-GetRevenueStatisticsSummary")                               |               |                               | Read                          |
-| GetRevenueStatisticsTimeSeries                                                                                                                                                                                                                                      | [wafv2:GetRevenueStatisticsTimeSeries](#list_wafv2-action-GetRevenueStatisticsTimeSeries "#list_wafv2-action-GetRevenueStatisticsTimeSeries")                      |               |                               | Read                          |
-| GetRuleGroup                                                                                                                                                                                                                                                        | [wafv2:GetRuleGroup](#list_wafv2-action-GetRuleGroup "#list_wafv2-action-GetRuleGroup")                                                                            |               |                               | Read                          |
-| GetSampledRequests                                                                                                                                                                                                                                                  | [wafv2:GetSampledRequests](#list_wafv2-action-GetSampledRequests "#list_wafv2-action-GetSampledRequests")                                                          |               |                               | Read                          |
-| GetTopPathStatisticsByTraffic                                                                                                                                                                                                                                       | [wafv2:GetTopPathStatisticsByTraffic](#list_wafv2-action-GetTopPathStatisticsByTraffic "#list_wafv2-action-GetTopPathStatisticsByTraffic")                         |               |                               | Read                          |
-| GetWebACL                                                                                                                                                                                                                                                           | [wafv2:GetWebACL](#list_wafv2-action-GetWebACL "#list_wafv2-action-GetWebACL")                                                                                     |               |                               | Read                          |
-| GetWebACLForResource                                                                                                                                                                                                                                                | [wafv2:GetWebACLForResource](#list_wafv2-action-GetWebACLForResource "#list_wafv2-action-GetWebACLForResource")                                                    |               |                               | Read                          |
-| [appsync:GetWebACLForResource](../../../appsync/latest/devguide/WAF-Integration.md "../../../appsync/latest/devguide/WAF-Integration.md")                                                                                                                           |                                                                                                                                                                    |               | Read                          |
-| [elasticloadbalancing:GetLoadBalancerWebACL](../../../waf/latest/developerguide/security_iam_service-with-iam.md#security_iam_action-AssociateWebACL "../../../waf/latest/developerguide/security_iam_service-with-iam.md#security_iam_action-AssociateWebACL")     |                                                                                                                                                                    |               | Read                          |
-| ListAPIKeys                                                                                                                                                                                                                                                         | [wafv2:ListAPIKeys](#list_wafv2-action-ListAPIKeys "#list_wafv2-action-ListAPIKeys")                                                                               |               |                               | List                          |
-| ListAvailableManagedRuleGroupVersions                                                                                                                                                                                                                               | [wafv2:ListAvailableManagedRuleGroupVersions](#list_wafv2-action-ListAvailableManagedRuleGroupVersions "#list_wafv2-action-ListAvailableManagedRuleGroupVersions") |               |                               | List                          |
-| ListAvailableManagedRuleGroups                                                                                                                                                                                                                                      | [wafv2:ListAvailableManagedRuleGroups](#list_wafv2-action-ListAvailableManagedRuleGroups "#list_wafv2-action-ListAvailableManagedRuleGroups")                      |               |                               | List                          |
-| ListIPSets                                                                                                                                                                                                                                                          | [wafv2:ListIPSets](#list_wafv2-action-ListIPSets "#list_wafv2-action-ListIPSets")                                                                                  |               |                               | List                          |
-| ListLoggingConfigurations                                                                                                                                                                                                                                           | [wafv2:ListLoggingConfigurations](#list_wafv2-action-ListLoggingConfigurations "#list_wafv2-action-ListLoggingConfigurations")                                     |               |                               | List                          |
-| ListManagedRuleSets                                                                                                                                                                                                                                                 | [wafv2:ListManagedRuleSets](#list_wafv2-action-ListManagedRuleSets "#list_wafv2-action-ListManagedRuleSets")                                                       |               |                               | List                          |
-| ListMobileSdkReleases                                                                                                                                                                                                                                               | [wafv2:ListMobileSdkReleases](#list_wafv2-action-ListMobileSdkReleases "#list_wafv2-action-ListMobileSdkReleases")                                                 |               |                               | List                          |
-| ListRegexPatternSets                                                                                                                                                                                                                                                | [wafv2:ListRegexPatternSets](#list_wafv2-action-ListRegexPatternSets "#list_wafv2-action-ListRegexPatternSets")                                                    |               |                               | List                          |
-| ListResourcesForWebACL                                                                                                                                                                                                                                              | [wafv2:ListResourcesForWebACL](#list_wafv2-action-ListResourcesForWebACL "#list_wafv2-action-ListResourcesForWebACL")                                              |               |                               | List                          |
-| [appsync:ListResourcesForWebACL](../../../appsync/latest/devguide/WAF-Integration.md "../../../appsync/latest/devguide/WAF-Integration.md")                                                                                                                         |                                                                                                                                                                    |               | List                          |
-| [elasticloadbalancing:DescribeWebACLAssociation](../../../waf/latest/developerguide/security_iam_service-with-iam.md#security_iam_action-AssociateWebACL "../../../waf/latest/developerguide/security_iam_service-with-iam.md#security_iam_action-AssociateWebACL") |                                                                                                                                                                    |               | List                          |
-| ListRuleGroups                                                                                                                                                                                                                                                      | [wafv2:ListRuleGroups](#list_wafv2-action-ListRuleGroups "#list_wafv2-action-ListRuleGroups")                                                                      |               |                               | List                          |
-| ListSettlementRecords                                                                                                                                                                                                                                               | [wafv2:ListSettlementRecords](#list_wafv2-action-ListSettlementRecords "#list_wafv2-action-ListSettlementRecords")                                                 |               |                               | List                          |
-| ListTagsForResource                                                                                                                                                                                                                                                 | [wafv2:ListTagsForResource](#list_wafv2-action-ListTagsForResource "#list_wafv2-action-ListTagsForResource")                                                       |               |                               | Read                          |
-| ListWebACLs                                                                                                                                                                                                                                                         | [wafv2:ListWebACLs](#list_wafv2-action-ListWebACLs "#list_wafv2-action-ListWebACLs")                                                                               |               |                               | List                          |
-| PutLoggingConfiguration                                                                                                                                                                                                                                             | [wafv2:PutLoggingConfiguration](#list_wafv2-action-PutLoggingConfiguration "#list_wafv2-action-PutLoggingConfiguration")                                           |               |                               | Write                         |
-| PutManagedRuleSetVersions                                                                                                                                                                                                                                           | [wafv2:PutManagedRuleSetVersions](#list_wafv2-action-PutManagedRuleSetVersions "#list_wafv2-action-PutManagedRuleSetVersions")                                     |               |                               | Write                         |
-| PutPermissionPolicy                                                                                                                                                                                                                                                 | [wafv2:PutPermissionPolicy](#list_wafv2-action-PutPermissionPolicy "#list_wafv2-action-PutPermissionPolicy")                                                       |               |                               | Permissions management, Write |
-| TagResource                                                                                                                                                                                                                                                         | [wafv2:TagResource](#list_wafv2-action-TagResource "#list_wafv2-action-TagResource")                                                                               |               |                               | Tagging, Write                |
-| UntagResource                                                                                                                                                                                                                                                       | [wafv2:UntagResource](#list_wafv2-action-UntagResource "#list_wafv2-action-UntagResource")                                                                         |               |                               | Tagging, Write                |
-| UpdateIPSet                                                                                                                                                                                                                                                         | [wafv2:UpdateIPSet](#list_wafv2-action-UpdateIPSet "#list_wafv2-action-UpdateIPSet")                                                                               |               |                               | Write                         |
-| UpdateManagedRuleSetVersionExpiryDate                                                                                                                                                                                                                               | [wafv2:UpdateManagedRuleSetVersionExpiryDate](#list_wafv2-action-UpdateManagedRuleSetVersionExpiryDate "#list_wafv2-action-UpdateManagedRuleSetVersionExpiryDate") |               |                               | Write                         |
-| UpdateRegexPatternSet                                                                                                                                                                                                                                               | [wafv2:UpdateRegexPatternSet](#list_wafv2-action-UpdateRegexPatternSet "#list_wafv2-action-UpdateRegexPatternSet")                                                 |               |                               | Write                         |
-| UpdateRuleGroup                                                                                                                                                                                                                                                     | [wafv2:UpdateRuleGroup](#list_wafv2-action-UpdateRuleGroup "#list_wafv2-action-UpdateRuleGroup")                                                                   |               |                               | Write                         |
-| UpdateWebACL                                                                                                                                                                                                                                                        | [wafv2:UpdateWebACL](#list_wafv2-action-UpdateWebACL "#list_wafv2-action-UpdateWebACL")                                                                            |               |                               | Write                         |
+
+
+
+- **   AssociateWebACL  **
+  - **IAM action:**  [wafv2:AssociateWebACL](#list_wafv2-action-AssociateWebACL)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [apigateway:SetWebACL](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+  - **IAM action:**  [appsync:AssociateWebACL](https://docs.aws.amazon.com/appsync/latest/devguide/WAF-Integration.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appsync:SetWebACL](https://docs.aws.amazon.com/appsync/latest/devguide/WAF-Integration.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+  - **IAM action:**  [elasticloadbalancing:CreateWebACLAssociation](https://docs.aws.amazon.com/waf/latest/developerguide/security_iam_service-with-iam.html#security_iam_action-AssociateWebACL)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [elasticloadbalancing:SetWebAcl](https://docs.aws.amazon.com/waf/latest/developerguide/security_iam_service-with-iam.html#security_iam_action-AssociateWebACL)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   CheckCapacity  **
+  - **IAM action:**  [wafv2:CheckCapacity](#list_wafv2-action-CheckCapacity) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   CreateAPIKey  **
+  - **IAM action:**  [wafv2:CreateAPIKey](#list_wafv2-action-CreateAPIKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateIPSet  **
+  - **IAM action:**  [wafv2:CreateIPSet](#list_wafv2-action-CreateIPSet)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wafv2:TagResource](#list_wafv2-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateRegexPatternSet  **
+  - **IAM action:**  [wafv2:CreateRegexPatternSet](#list_wafv2-action-CreateRegexPatternSet)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wafv2:TagResource](#list_wafv2-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateRuleGroup  **
+  - **IAM action:**  [wafv2:CreateRuleGroup](#list_wafv2-action-CreateRuleGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wafv2:TagResource](#list_wafv2-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateWebACL  **
+  - **IAM action:**  [wafv2:CreateWebACL](#list_wafv2-action-CreateWebACL)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wafv2:TagResource](#list_wafv2-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteAPIKey  **
+  - **IAM action:**  [wafv2:DeleteAPIKey](#list_wafv2-action-DeleteAPIKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteFirewallManagerRuleGroups  **
+  - **IAM action:**  [wafv2:DeleteFirewallManagerRuleGroups](#list_wafv2-action-DeleteFirewallManagerRuleGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteIPSet  **
+  - **IAM action:**  [wafv2:DeleteIPSet](#list_wafv2-action-DeleteIPSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteLoggingConfiguration  **
+  - **IAM action:**  [wafv2:DeleteLoggingConfiguration](#list_wafv2-action-DeleteLoggingConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeletePermissionPolicy  **
+  - **IAM action:**  [wafv2:DeletePermissionPolicy](#list_wafv2-action-DeletePermissionPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   DeleteRegexPatternSet  **
+  - **IAM action:**  [wafv2:DeleteRegexPatternSet](#list_wafv2-action-DeleteRegexPatternSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRuleGroup  **
+  - **IAM action:**  [wafv2:DeleteRuleGroup](#list_wafv2-action-DeleteRuleGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteWebACL  **
+  - **IAM action:**  [wafv2:DeleteWebACL](#list_wafv2-action-DeleteWebACL) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeAllManagedProducts  **
+  - **IAM action:**  [wafv2:DescribeAllManagedProducts](#list_wafv2-action-DescribeAllManagedProducts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeManagedProductsByVendor  **
+  - **IAM action:**  [wafv2:DescribeManagedProductsByVendor](#list_wafv2-action-DescribeManagedProductsByVendor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeManagedRuleGroup  **
+  - **IAM action:**  [wafv2:DescribeManagedRuleGroup](#list_wafv2-action-DescribeManagedRuleGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DisassociateWebACL  **
+  - **IAM action:**  [wafv2:DisassociateWebACL](#list_wafv2-action-DisassociateWebACL)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [apigateway:SetWebACL](https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+  - **IAM action:**  [appsync:DisassociateWebACL](https://docs.aws.amazon.com/appsync/latest/devguide/WAF-Integration.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appsync:SetWebACL](https://docs.aws.amazon.com/appsync/latest/devguide/WAF-Integration.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+  - **IAM action:**  [elasticloadbalancing:DeleteWebACLAssociation](https://docs.aws.amazon.com/waf/latest/developerguide/security_iam_service-with-iam.html#security_iam_action-AssociateWebACL)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [elasticloadbalancing:SetWebAcl](https://docs.aws.amazon.com/waf/latest/developerguide/security_iam_service-with-iam.html#security_iam_action-AssociateWebACL)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   GenerateMobileSdkReleaseUrl  **
+  - **IAM action:**  [wafv2:GenerateMobileSdkReleaseUrl](#list_wafv2-action-GenerateMobileSdkReleaseUrl) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDecryptedAPIKey  **
+  - **IAM action:**  [wafv2:GetDecryptedAPIKey](#list_wafv2-action-GetDecryptedAPIKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIPSet  **
+  - **IAM action:**  [wafv2:GetIPSet](#list_wafv2-action-GetIPSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetLoggingConfiguration  **
+  - **IAM action:**  [wafv2:GetLoggingConfiguration](#list_wafv2-action-GetLoggingConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetManagedRuleSet  **
+  - **IAM action:**  [wafv2:GetManagedRuleSet](#list_wafv2-action-GetManagedRuleSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMobileSdkRelease  **
+  - **IAM action:**  [wafv2:GetMobileSdkRelease](#list_wafv2-action-GetMobileSdkRelease) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPermissionPolicy  **
+  - **IAM action:**  [wafv2:GetPermissionPolicy](#list_wafv2-action-GetPermissionPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRateBasedStatementManagedKeys  **
+  - **IAM action:**  [wafv2:GetRateBasedStatementManagedKeys](#list_wafv2-action-GetRateBasedStatementManagedKeys) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRegexPatternSet  **
+  - **IAM action:**  [wafv2:GetRegexPatternSet](#list_wafv2-action-GetRegexPatternSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRevenueStatistics  **
+  - **IAM action:**  [wafv2:GetRevenueStatistics](#list_wafv2-action-GetRevenueStatistics) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRevenueStatisticsSummary  **
+  - **IAM action:**  [wafv2:GetRevenueStatisticsSummary](#list_wafv2-action-GetRevenueStatisticsSummary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRevenueStatisticsTimeSeries  **
+  - **IAM action:**  [wafv2:GetRevenueStatisticsTimeSeries](#list_wafv2-action-GetRevenueStatisticsTimeSeries) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRuleGroup  **
+  - **IAM action:**  [wafv2:GetRuleGroup](#list_wafv2-action-GetRuleGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSampledRequests  **
+  - **IAM action:**  [wafv2:GetSampledRequests](#list_wafv2-action-GetSampledRequests) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTopPathStatisticsByTraffic  **
+  - **IAM action:**  [wafv2:GetTopPathStatisticsByTraffic](#list_wafv2-action-GetTopPathStatisticsByTraffic) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetWebACL  **
+  - **IAM action:**  [wafv2:GetWebACL](#list_wafv2-action-GetWebACL) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetWebACLForResource  **
+  - **IAM action:**  [wafv2:GetWebACLForResource](#list_wafv2-action-GetWebACLForResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [appsync:GetWebACLForResource](https://docs.aws.amazon.com/appsync/latest/devguide/WAF-Integration.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [elasticloadbalancing:GetLoadBalancerWebACL](https://docs.aws.amazon.com/waf/latest/developerguide/security_iam_service-with-iam.html#security_iam_action-AssociateWebACL)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   ListAPIKeys  **
+  - **IAM action:**  [wafv2:ListAPIKeys](#list_wafv2-action-ListAPIKeys) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAvailableManagedRuleGroupVersions  **
+  - **IAM action:**  [wafv2:ListAvailableManagedRuleGroupVersions](#list_wafv2-action-ListAvailableManagedRuleGroupVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAvailableManagedRuleGroups  **
+  - **IAM action:**  [wafv2:ListAvailableManagedRuleGroups](#list_wafv2-action-ListAvailableManagedRuleGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListIPSets  **
+  - **IAM action:**  [wafv2:ListIPSets](#list_wafv2-action-ListIPSets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListLoggingConfigurations  **
+  - **IAM action:**  [wafv2:ListLoggingConfigurations](#list_wafv2-action-ListLoggingConfigurations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListManagedRuleSets  **
+  - **IAM action:**  [wafv2:ListManagedRuleSets](#list_wafv2-action-ListManagedRuleSets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMobileSdkReleases  **
+  - **IAM action:**  [wafv2:ListMobileSdkReleases](#list_wafv2-action-ListMobileSdkReleases) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRegexPatternSets  **
+  - **IAM action:**  [wafv2:ListRegexPatternSets](#list_wafv2-action-ListRegexPatternSets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListResourcesForWebACL  **
+  - **IAM action:**  [wafv2:ListResourcesForWebACL](#list_wafv2-action-ListResourcesForWebACL)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [appsync:ListResourcesForWebACL](https://docs.aws.amazon.com/appsync/latest/devguide/WAF-Integration.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [elasticloadbalancing:DescribeWebACLAssociation](https://docs.aws.amazon.com/waf/latest/developerguide/security_iam_service-with-iam.html#security_iam_action-AssociateWebACL)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   ListRuleGroups  **
+  - **IAM action:**  [wafv2:ListRuleGroups](#list_wafv2-action-ListRuleGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSettlementRecords  **
+  - **IAM action:**  [wafv2:ListSettlementRecords](#list_wafv2-action-ListSettlementRecords) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [wafv2:ListTagsForResource](#list_wafv2-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListWebACLs  **
+  - **IAM action:**  [wafv2:ListWebACLs](#list_wafv2-action-ListWebACLs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PutLoggingConfiguration  **
+  - **IAM action:**  [wafv2:PutLoggingConfiguration](#list_wafv2-action-PutLoggingConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutManagedRuleSetVersions  **
+  - **IAM action:**  [wafv2:PutManagedRuleSetVersions](#list_wafv2-action-PutManagedRuleSetVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutPermissionPolicy  **
+  - **IAM action:**  [wafv2:PutPermissionPolicy](#list_wafv2-action-PutPermissionPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   TagResource  **
+  - **IAM action:**  [wafv2:TagResource](#list_wafv2-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [wafv2:UntagResource](#list_wafv2-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateIPSet  **
+  - **IAM action:**  [wafv2:UpdateIPSet](#list_wafv2-action-UpdateIPSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateManagedRuleSetVersionExpiryDate  **
+  - **IAM action:**  [wafv2:UpdateManagedRuleSetVersionExpiryDate](#list_wafv2-action-UpdateManagedRuleSetVersionExpiryDate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRegexPatternSet  **
+  - **IAM action:**  [wafv2:UpdateRegexPatternSet](#list_wafv2-action-UpdateRegexPatternSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRuleGroup  **
+  - **IAM action:**  [wafv2:UpdateRuleGroup](#list_wafv2-action-UpdateRuleGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateWebACL  **
+  - **IAM action:**  [wafv2:UpdateWebACL](#list_wafv2-action-UpdateWebACL) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS WAF V2
+<a name="list_wafv2-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                | Description                                                                                                                                                                                                                                                                               | Resource types (\*required)                                                                          | Condition keys                                                                                                                                                                                                                                                                                                 | Access level                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| [AssociateWebACL](../../../waf/latest/APIReference/API_AssociateWebACL.md "../../../waf/latest/APIReference/API_AssociateWebACL.md")                                                                   | Grants permission to associate a WebACL with a resource                                                                                                                                                                                                                                   | [agentcore-gateway](#list_wafv2-resource-agentcore-gateway "#list_wafv2-resource-agentcore-gateway") |                                                                                                                                                                                                                                                                                                                | Write                         |
-| [amplify-app](#list_wafv2-resource-amplify-app "#list_wafv2-resource-amplify-app")                                                                                                                     |                                                                                                                                                                                                                                                                                           |
-| [apigateway](#list_wafv2-resource-apigateway "#list_wafv2-resource-apigateway")                                                                                                                        |                                                                                                                                                                                                                                                                                           |
-| [apprunner](#list_wafv2-resource-apprunner "#list_wafv2-resource-apprunner")                                                                                                                           |                                                                                                                                                                                                                                                                                           |
-| [appsync](#list_wafv2-resource-appsync "#list_wafv2-resource-appsync")                                                                                                                                 |                                                                                                                                                                                                                                                                                           |
-| [loadbalancer/app/](#list_wafv2-resource-loadbalancer_app_ "#list_wafv2-resource-loadbalancer_app_")                                                                                                   |                                                                                                                                                                                                                                                                                           |
-| [userpool](#list_wafv2-resource-userpool "#list_wafv2-resource-userpool")                                                                                                                              |                                                                                                                                                                                                                                                                                           |
-| [verified-access-instance](#list_wafv2-resource-verified-access-instance "#list_wafv2-resource-verified-access-instance")                                                                              |                                                                                                                                                                                                                                                                                           |
-| [webacl\*](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [CheckCapacity](../../../waf/latest/APIReference/API_CheckCapacity.md "../../../waf/latest/APIReference/API_CheckCapacity.md")                                                                         | Grants permission to calculate web ACL capacity unit (WCU) requirements for a specified scope and set of rules                                                                                                                                                                            |                                                                                                      |                                                                                                                                                                                                                                                                                                                | Read                          |
-| [CreateAPIKey](../../../waf/latest/APIReference/API_CreateAPIKey.md "../../../waf/latest/APIReference/API_CreateAPIKey.md")                                                                            | Grants permission to create an API key for use in the integration of the CAPTCHA API in your JavaScript client applications                                                                                                                                                               |                                                                                                      |                                                                                                                                                                                                                                                                                                                | Write                         |
-| [CreateIPSet](../../../waf/latest/APIReference/API_CreateIPSet.md "../../../waf/latest/APIReference/API_CreateIPSet.md")                                                                               | Grants permission to create an IPSet                                                                                                                                                                                                                                                      | [ipset\*](#list_wafv2-resource-ipset "#list_wafv2-resource-ipset")                                   | [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_ "#list_wafv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys")                      | Write                         |
-| [CreateRegexPatternSet](../../../waf/latest/APIReference/API_CreateRegexPatternSet.md "../../../waf/latest/APIReference/API_CreateRegexPatternSet.md")                                                 | Grants permission to create a RegexPatternSet                                                                                                                                                                                                                                             | [regexpatternset\*](#list_wafv2-resource-regexpatternset "#list_wafv2-resource-regexpatternset")     | [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_ "#list_wafv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys")                      | Write                         |
-| [CreateRuleGroup](../../../waf/latest/APIReference/API_CreateRuleGroup.md "../../../waf/latest/APIReference/API_CreateRuleGroup.md")                                                                   | Grants permission to create a RuleGroup                                                                                                                                                                                                                                                   | [ipset](#list_wafv2-resource-ipset "#list_wafv2-resource-ipset")                                     | [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_ "#list_wafv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys")                      | Write                         |
-| [regexpatternset](#list_wafv2-resource-regexpatternset "#list_wafv2-resource-regexpatternset")                                                                                                         | [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_ "#list_wafv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys") |
-| [rulegroup\*](#list_wafv2-resource-rulegroup "#list_wafv2-resource-rulegroup")                                                                                                                         | [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_ "#list_wafv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys") |
-| [CreateWebACL](../../../waf/latest/APIReference/API_CreateWebACL.md "../../../waf/latest/APIReference/API_CreateWebACL.md")                                                                            | Grants permission to create a WebACL                                                                                                                                                                                                                                                      | [ipset](#list_wafv2-resource-ipset "#list_wafv2-resource-ipset")                                     | [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_ "#list_wafv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys")                      | Write                         |
-| [managedruleset](#list_wafv2-resource-managedruleset "#list_wafv2-resource-managedruleset")                                                                                                            | [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_ "#list_wafv2-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys")                                                                                                               |
-| [regexpatternset](#list_wafv2-resource-regexpatternset "#list_wafv2-resource-regexpatternset")                                                                                                         | [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_ "#list_wafv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys") |
-| [rulegroup](#list_wafv2-resource-rulegroup "#list_wafv2-resource-rulegroup")                                                                                                                           | [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_ "#list_wafv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys") |
-| [webacl\*](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_ "#list_wafv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys") |
-| [DeleteAPIKey](../../../waf/latest/APIReference/API_DeleteAPIKey.md "../../../waf/latest/APIReference/API_DeleteAPIKey.md")                                                                            | Grants permission to delete an API key                                                                                                                                                                                                                                                    |                                                                                                      |                                                                                                                                                                                                                                                                                                                | Write                         |
-| [DeleteFirewallManagerRuleGroups](../../../waf/latest/APIReference/API_DeleteFirewallManagerRuleGroups.md "../../../waf/latest/APIReference/API_DeleteFirewallManagerRuleGroups.md")                   | Grants permission to delete FirewallManagedRulesGroups from a WebACL if not managed by Firewall Manager anymore                                                                                                                                                                           | [webacl\*](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Write                         |
-| [DeleteIPSet](../../../waf/latest/APIReference/API_DeleteIPSet.md "../../../waf/latest/APIReference/API_DeleteIPSet.md")                                                                               | Grants permission to delete an IPSet                                                                                                                                                                                                                                                      | [ipset\*](#list_wafv2-resource-ipset "#list_wafv2-resource-ipset")                                   | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Write                         |
-| [DeleteLoggingConfiguration](../../../waf/latest/APIReference/API_DeleteLoggingConfiguration.md "../../../waf/latest/APIReference/API_DeleteLoggingConfiguration.md")                                  | Grants permission to delete the LoggingConfiguration from a WebACL                                                                                                                                                                                                                        | [webacl\*](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[wafv2:LogScope](#list_wafv2-wafv2_LogScope "#list_wafv2-wafv2_LogScope")                                                                                                                        | Write                         |
-| [DeletePermissionPolicy](../../../waf/latest/APIReference/API_DeletePermissionPolicy.md "../../../waf/latest/APIReference/API_DeletePermissionPolicy.md")                                              | Grants permission to delete the PermissionPolicy on a RuleGroup                                                                                                                                                                                                                           | [rulegroup\*](#list_wafv2-resource-rulegroup "#list_wafv2-resource-rulegroup")                       | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Permissions management, Write |
-| [DeleteRegexPatternSet](../../../waf/latest/APIReference/API_DeleteRegexPatternSet.md "../../../waf/latest/APIReference/API_DeleteRegexPatternSet.md")                                                 | Grants permission to delete a RegexPatternSet                                                                                                                                                                                                                                             | [regexpatternset\*](#list_wafv2-resource-regexpatternset "#list_wafv2-resource-regexpatternset")     | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Write                         |
-| [DeleteRuleGroup](../../../waf/latest/APIReference/API_DeleteRuleGroup.md "../../../waf/latest/APIReference/API_DeleteRuleGroup.md")                                                                   | Grants permission to delete a RuleGroup                                                                                                                                                                                                                                                   | [rulegroup\*](#list_wafv2-resource-rulegroup "#list_wafv2-resource-rulegroup")                       | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Write                         |
-| [DeleteWebACL](../../../waf/latest/APIReference/API_DeleteWebACL.md "../../../waf/latest/APIReference/API_DeleteWebACL.md")                                                                            | Grants permission to delete a WebACL                                                                                                                                                                                                                                                      | [webacl\*](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Write                         |
-| [DescribeAllManagedProducts](../../../waf/latest/APIReference/API_DescribeAllManagedProducts.md "../../../waf/latest/APIReference/API_DescribeAllManagedProducts.md")                                  | Grants permission to retrieve product information for a managed rule group                                                                                                                                                                                                                |                                                                                                      |                                                                                                                                                                                                                                                                                                                | Read                          |
-| [DescribeManagedProductsByVendor](../../../waf/latest/APIReference/API_DescribeManagedProductsByVendor.md "../../../waf/latest/APIReference/API_DescribeManagedProductsByVendor.md")                   | Grants permission to retrieve product information for a managed rule group by a given vendor                                                                                                                                                                                              |                                                                                                      |                                                                                                                                                                                                                                                                                                                | Read                          |
-| [DescribeManagedRuleGroup](../../../waf/latest/APIReference/API_DescribeManagedRuleGroup.md "../../../waf/latest/APIReference/API_DescribeManagedRuleGroup.md")                                        | Grants permission to retrieve high-level information for a managed rule group                                                                                                                                                                                                             |                                                                                                      |                                                                                                                                                                                                                                                                                                                | Read                          |
-| [DisassociateWebACL](../../../waf/latest/APIReference/API_DisassociateWebACL.md "../../../waf/latest/APIReference/API_DisassociateWebACL.md")                                                          | Grants permission to disassociate a WebACL from an application resource                                                                                                                                                                                                                   | [agentcore-gateway](#list_wafv2-resource-agentcore-gateway "#list_wafv2-resource-agentcore-gateway") |                                                                                                                                                                                                                                                                                                                | Write                         |
-| [amplify-app](#list_wafv2-resource-amplify-app "#list_wafv2-resource-amplify-app")                                                                                                                     |                                                                                                                                                                                                                                                                                           |
-| [apigateway](#list_wafv2-resource-apigateway "#list_wafv2-resource-apigateway")                                                                                                                        |                                                                                                                                                                                                                                                                                           |
-| [apprunner](#list_wafv2-resource-apprunner "#list_wafv2-resource-apprunner")                                                                                                                           |                                                                                                                                                                                                                                                                                           |
-| [appsync](#list_wafv2-resource-appsync "#list_wafv2-resource-appsync")                                                                                                                                 |                                                                                                                                                                                                                                                                                           |
-| [loadbalancer/app/](#list_wafv2-resource-loadbalancer_app_ "#list_wafv2-resource-loadbalancer_app_")                                                                                                   |                                                                                                                                                                                                                                                                                           |
-| [userpool](#list_wafv2-resource-userpool "#list_wafv2-resource-userpool")                                                                                                                              |                                                                                                                                                                                                                                                                                           |
-| [verified-access-instance](#list_wafv2-resource-verified-access-instance "#list_wafv2-resource-verified-access-instance")                                                                              |                                                                                                                                                                                                                                                                                           |
-| [GenerateMobileSdkReleaseUrl](../../../waf/latest/APIReference/API_GenerateMobileSdkReleaseUrl.md "../../../waf/latest/APIReference/API_GenerateMobileSdkReleaseUrl.md")                               | Grants permission to generate a presigned download URL for the specified release of the mobile SDK                                                                                                                                                                                        |                                                                                                      |                                                                                                                                                                                                                                                                                                                | Read                          |
-| [GetDecryptedAPIKey](../../../waf/latest/APIReference/API_GetDecryptedAPIKey.md "../../../waf/latest/APIReference/API_GetDecryptedAPIKey.md")                                                          | Grants permission to return your API key in decrypted form. Use this to check the token domains that you have defined for the key                                                                                                                                                         |                                                                                                      |                                                                                                                                                                                                                                                                                                                | Read                          |
-| [GetIPSet](../../../waf/latest/APIReference/API_GetIPSet.md "../../../waf/latest/APIReference/API_GetIPSet.md")                                                                                        | Grants permission to retrieve details about an IPSet                                                                                                                                                                                                                                      | [ipset\*](#list_wafv2-resource-ipset "#list_wafv2-resource-ipset")                                   | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Read                          |
-| [GetLoggingConfiguration](../../../waf/latest/APIReference/API_GetLoggingConfiguration.md "../../../waf/latest/APIReference/API_GetLoggingConfiguration.md")                                           | Grants permission to retrieve LoggingConfiguration for a WebACL                                                                                                                                                                                                                           | [webacl\*](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[wafv2:LogScope](#list_wafv2-wafv2_LogScope "#list_wafv2-wafv2_LogScope")                                                                                                                        | Read                          |
-| [GetManagedRuleSet](../../../waf/latest/APIReference/API_GetManagedRuleSet.md "../../../waf/latest/APIReference/API_GetManagedRuleSet.md")                                                             | Grants permission to retrieve details about a ManagedRuleSet                                                                                                                                                                                                                              | [managedruleset\*](#list_wafv2-resource-managedruleset "#list_wafv2-resource-managedruleset")        |                                                                                                                                                                                                                                                                                                                | Read                          |
-| [GetMobileSdkRelease](../../../waf/latest/APIReference/API_GetMobileSdkRelease.md "../../../waf/latest/APIReference/API_GetMobileSdkRelease.md")                                                       | Grants permission to retrieve information for the specified mobile SDK release, including release notes and tags                                                                                                                                                                          |                                                                                                      |                                                                                                                                                                                                                                                                                                                | Read                          |
-| [GetPermissionPolicy](../../../waf/latest/APIReference/API_GetPermissionPolicy.md "../../../waf/latest/APIReference/API_GetPermissionPolicy.md")                                                       | Grants permission to retrieve a PermissionPolicy for a RuleGroup                                                                                                                                                                                                                          | [rulegroup\*](#list_wafv2-resource-rulegroup "#list_wafv2-resource-rulegroup")                       | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Read                          |
-| [GetRateBasedStatementManagedKeys](../../../waf/latest/APIReference/API_GetRateBasedStatementManagedKeys.md "../../../waf/latest/APIReference/API_GetRateBasedStatementManagedKeys.md")                | Grants permission to retrieve the keys that are currently blocked by a rate-based rule                                                                                                                                                                                                    | [webacl\*](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Read                          |
-| [GetRegexPatternSet](../../../waf/latest/APIReference/API_GetRegexPatternSet.md "../../../waf/latest/APIReference/API_GetRegexPatternSet.md")                                                          | Grants permission to retrieve details about a RegexPatternSet                                                                                                                                                                                                                             | [regexpatternset\*](#list_wafv2-resource-regexpatternset "#list_wafv2-resource-regexpatternset")     | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Read                          |
-| [GetRevenueStatistics](../../../waf/latest/APIReference/API_GetRevenueStatistics.md "../../../waf/latest/APIReference/API_GetRevenueStatistics.md")                                                    | Grants permission to retrieve monetization revenue statistics ranked by source or path within a specified time window                                                                                                                                                                     |                                                                                                      |                                                                                                                                                                                                                                                                                                                | Read                          |
-| [GetRevenueStatisticsSummary](../../../waf/latest/APIReference/API_GetRevenueStatisticsSummary.md "../../../waf/latest/APIReference/API_GetRevenueStatisticsSummary.md")                               | Grants permission to retrieve a summary of monetization revenue statistics within a specified time window                                                                                                                                                                                 |                                                                                                      |                                                                                                                                                                                                                                                                                                                | Read                          |
-| [GetRevenueStatisticsTimeSeries](../../../waf/latest/APIReference/API_GetRevenueStatisticsTimeSeries.md "../../../waf/latest/APIReference/API_GetRevenueStatisticsTimeSeries.md")                      | Grants permission to retrieve monetization revenue statistics as a time series within a specified time window                                                                                                                                                                             |                                                                                                      |                                                                                                                                                                                                                                                                                                                | Read                          |
-| [GetRuleGroup](../../../waf/latest/APIReference/API_GetRuleGroup.md "../../../waf/latest/APIReference/API_GetRuleGroup.md")                                                                            | Grants permission to retrieve details about a RuleGroup                                                                                                                                                                                                                                   | [rulegroup\*](#list_wafv2-resource-rulegroup "#list_wafv2-resource-rulegroup")                       | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Read                          |
-| [GetSampledRequests](../../../waf/latest/APIReference/API_GetSampledRequests.md "../../../waf/latest/APIReference/API_GetSampledRequests.md")                                                          | Grants permission to retrieve detailed information about a sampling of web requests                                                                                                                                                                                                       | [webacl\*](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Read                          |
-| [GetTopPathStatisticsByTraffic](../../../waf/latest/APIReference/API_GetTopPathStatisticsByTraffic.md "../../../waf/latest/APIReference/API_GetTopPathStatisticsByTraffic.md")                         | Grants permission to retrieve aggregated path statistics with bot traffic analysis for a WebACL within a specified time window                                                                                                                                                            | [webacl\*](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Read                          |
-| [GetWebACL](../../../waf/latest/APIReference/API_GetWebACL.md "../../../waf/latest/APIReference/API_GetWebACL.md")                                                                                     | Grants permission to retrieve details about a WebACL                                                                                                                                                                                                                                      | [webacl\*](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Read                          |
-| [GetWebACLForResource](../../../waf/latest/APIReference/API_GetWebACLForResource.md "../../../waf/latest/APIReference/API_GetWebACLForResource.md")                                                    | Grants permission to retrieve the WebACL that's associated with a resource                                                                                                                                                                                                                | [agentcore-gateway](#list_wafv2-resource-agentcore-gateway "#list_wafv2-resource-agentcore-gateway") |                                                                                                                                                                                                                                                                                                                | Read                          |
-| [amplify-app](#list_wafv2-resource-amplify-app "#list_wafv2-resource-amplify-app")                                                                                                                     |                                                                                                                                                                                                                                                                                           |
-| [apigateway](#list_wafv2-resource-apigateway "#list_wafv2-resource-apigateway")                                                                                                                        |                                                                                                                                                                                                                                                                                           |
-| [apprunner](#list_wafv2-resource-apprunner "#list_wafv2-resource-apprunner")                                                                                                                           |                                                                                                                                                                                                                                                                                           |
-| [appsync](#list_wafv2-resource-appsync "#list_wafv2-resource-appsync")                                                                                                                                 |                                                                                                                                                                                                                                                                                           |
-| [loadbalancer/app/](#list_wafv2-resource-loadbalancer_app_ "#list_wafv2-resource-loadbalancer_app_")                                                                                                   |                                                                                                                                                                                                                                                                                           |
-| [userpool](#list_wafv2-resource-userpool "#list_wafv2-resource-userpool")                                                                                                                              |                                                                                                                                                                                                                                                                                           |
-| [verified-access-instance](#list_wafv2-resource-verified-access-instance "#list_wafv2-resource-verified-access-instance")                                                                              |                                                                                                                                                                                                                                                                                           |
-| [webacl\*](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [ListAPIKeys](../../../waf/latest/APIReference/API_ListAPIKeys.md "../../../waf/latest/APIReference/API_ListAPIKeys.md")                                                                               | Grants permission to retrieve a list of the API keys that you've defined for the specified scope                                                                                                                                                                                          |                                                                                                      |                                                                                                                                                                                                                                                                                                                | List                          |
-| [ListAvailableManagedRuleGroupVersions](../../../waf/latest/APIReference/API_ListAvailableManagedRuleGroupVersions.md "../../../waf/latest/APIReference/API_ListAvailableManagedRuleGroupVersions.md") | Grants permission to retrieve an array of managed rule group versions that are available for you to use                                                                                                                                                                                   |                                                                                                      |                                                                                                                                                                                                                                                                                                                | List                          |
-| [ListAvailableManagedRuleGroups](../../../waf/latest/APIReference/API_ListAvailableManagedRuleGroups.md "../../../waf/latest/APIReference/API_ListAvailableManagedRuleGroups.md")                      | Grants permission to retrieve an array of managed rule groups that are available for you to use                                                                                                                                                                                           |                                                                                                      |                                                                                                                                                                                                                                                                                                                | List                          |
-| [ListIPSets](../../../waf/latest/APIReference/API_ListIPSets.md "../../../waf/latest/APIReference/API_ListIPSets.md")                                                                                  | Grants permission to retrieve an array of IPSetSummary objects for the IP sets that you manage                                                                                                                                                                                            |                                                                                                      |                                                                                                                                                                                                                                                                                                                | List                          |
-| [ListLoggingConfigurations](../../../waf/latest/APIReference/API_ListLoggingConfigurations.md "../../../waf/latest/APIReference/API_ListLoggingConfigurations.md")                                     | Grants permission to retrieve an array of your LoggingConfiguration objects                                                                                                                                                                                                               |                                                                                                      | [wafv2:LogScope](#list_wafv2-wafv2_LogScope "#list_wafv2-wafv2_LogScope")                                                                                                                                                                                                                                      | List                          |
-| [ListManagedRuleSets](../../../waf/latest/APIReference/API_ListManagedRuleSets.md "../../../waf/latest/APIReference/API_ListManagedRuleSets.md")                                                       | Grants permission to retrieve an array of your ManagedRuleSet objects                                                                                                                                                                                                                     |                                                                                                      |                                                                                                                                                                                                                                                                                                                | List                          |
-| [ListMobileSdkReleases](../../../waf/latest/APIReference/API_ListMobileSdkReleases.md "../../../waf/latest/APIReference/API_ListMobileSdkReleases.md")                                                 | Grants permission to retrieve a list of the available releases for the mobile SDK and the specified device platform                                                                                                                                                                       |                                                                                                      |                                                                                                                                                                                                                                                                                                                | List                          |
-| [ListRegexPatternSets](../../../waf/latest/APIReference/API_ListRegexPatternSets.md "../../../waf/latest/APIReference/API_ListRegexPatternSets.md")                                                    | Grants permission to retrieve an array of RegexPatternSetSummary objects for the regex pattern sets that you manage                                                                                                                                                                       |                                                                                                      |                                                                                                                                                                                                                                                                                                                | List                          |
-| [ListResourcesForWebACL](../../../waf/latest/APIReference/API_ListResourcesForWebACL.md "../../../waf/latest/APIReference/API_ListResourcesForWebACL.md")                                              | Grants permission to retrieve an array of the Amazon Resource Names (ARNs) for the resources that are associated with a web ACL                                                                                                                                                           | [agentcore-gateway](#list_wafv2-resource-agentcore-gateway "#list_wafv2-resource-agentcore-gateway") |                                                                                                                                                                                                                                                                                                                | List                          |
-| [amplify-app](#list_wafv2-resource-amplify-app "#list_wafv2-resource-amplify-app")                                                                                                                     |                                                                                                                                                                                                                                                                                           |
-| [apprunner](#list_wafv2-resource-apprunner "#list_wafv2-resource-apprunner")                                                                                                                           |                                                                                                                                                                                                                                                                                           |
-| [userpool](#list_wafv2-resource-userpool "#list_wafv2-resource-userpool")                                                                                                                              |                                                                                                                                                                                                                                                                                           |
-| [verified-access-instance](#list_wafv2-resource-verified-access-instance "#list_wafv2-resource-verified-access-instance")                                                                              |                                                                                                                                                                                                                                                                                           |
-| [webacl\*](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [ListRuleGroups](../../../waf/latest/APIReference/API_ListRuleGroups.md "../../../waf/latest/APIReference/API_ListRuleGroups.md")                                                                      | Grants permission to retrieve an array of RuleGroupSummary objects for the rule groups that you manage                                                                                                                                                                                    |                                                                                                      |                                                                                                                                                                                                                                                                                                                | List                          |
-| [ListSettlementRecords](../../../waf/latest/APIReference/API_ListSettlementRecords.md "../../../waf/latest/APIReference/API_ListSettlementRecords.md")                                                 | Grants permission to retrieve a list of monetization settlement records within a specified time window                                                                                                                                                                                    |                                                                                                      |                                                                                                                                                                                                                                                                                                                | List                          |
-| [ListTagsForResource](../../../waf/latest/APIReference/API_ListTagsForResource.md "../../../waf/latest/APIReference/API_ListTagsForResource.md")                                                       | Grants permission to list tags for a resource                                                                                                                                                                                                                                             | [ipset](#list_wafv2-resource-ipset "#list_wafv2-resource-ipset")                                     | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Read                          |
-| [regexpatternset](#list_wafv2-resource-regexpatternset "#list_wafv2-resource-regexpatternset")                                                                                                         | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [rulegroup](#list_wafv2-resource-rulegroup "#list_wafv2-resource-rulegroup")                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [webacl](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [ListWebACLs](../../../waf/latest/APIReference/API_ListWebACLs.md "../../../waf/latest/APIReference/API_ListWebACLs.md")                                                                               | Grants permission to retrieve an array of WebACLSummary objects for the web ACLs that you manage                                                                                                                                                                                          |                                                                                                      |                                                                                                                                                                                                                                                                                                                | List                          |
-| [PutLoggingConfiguration](../../../waf/latest/APIReference/API_PutLoggingConfiguration.md "../../../waf/latest/APIReference/API_PutLoggingConfiguration.md")                                           | Grants permission to enable a LoggingConfiguration, to start logging for a web ACL                                                                                                                                                                                                        | [webacl\*](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[wafv2:LogDestinationResource](#list_wafv2-wafv2_LogDestinationResource "#list_wafv2-wafv2_LogDestinationResource")<br>[wafv2:LogScope](#list_wafv2-wafv2_LogScope "#list_wafv2-wafv2_LogScope") | Write                         |
-| [PutManagedRuleSetVersions](../../../waf/latest/APIReference/API_PutManagedRuleSetVersions.md "../../../waf/latest/APIReference/API_PutManagedRuleSetVersions.md")                                     | Grants permission to enable create a new or update an existing version of a ManagedRuleSet                                                                                                                                                                                                | [managedruleset\*](#list_wafv2-resource-managedruleset "#list_wafv2-resource-managedruleset")        |                                                                                                                                                                                                                                                                                                                | Write                         |
-| [rulegroup\*](#list_wafv2-resource-rulegroup "#list_wafv2-resource-rulegroup")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [PutPermissionPolicy](../../../waf/latest/APIReference/API_PutPermissionPolicy.md "../../../waf/latest/APIReference/API_PutPermissionPolicy.md")                                                       | Grants permission to attach an IAM policy to a resource, used to share rule groups between accounts                                                                                                                                                                                       | [rulegroup\*](#list_wafv2-resource-rulegroup "#list_wafv2-resource-rulegroup")                       | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Permissions management, Write |
-| [TagResource](../../../waf/latest/APIReference/API_TagResource.md "../../../waf/latest/APIReference/API_TagResource.md")                                                                               | Grants permission to associate tags with a AWS resource                                                                                                                                                                                                                                   | [ipset](#list_wafv2-resource-ipset "#list_wafv2-resource-ipset")                                     | [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_ "#list_wafv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys")                      | Tagging, Write                |
-| [regexpatternset](#list_wafv2-resource-regexpatternset "#list_wafv2-resource-regexpatternset")                                                                                                         | [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_ "#list_wafv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys") |
-| [rulegroup](#list_wafv2-resource-rulegroup "#list_wafv2-resource-rulegroup")                                                                                                                           | [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_ "#list_wafv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys") |
-| [webacl](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                                                                                                                    | [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_ "#list_wafv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys") |
-| [UntagResource](../../../waf/latest/APIReference/API_UntagResource.md "../../../waf/latest/APIReference/API_UntagResource.md")                                                                         | Grants permission to disassociate tags from an AWS resource                                                                                                                                                                                                                               | [ipset](#list_wafv2-resource-ipset "#list_wafv2-resource-ipset")                                     | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys")                                                                                                                                 | Tagging, Write                |
-| [regexpatternset](#list_wafv2-resource-regexpatternset "#list_wafv2-resource-regexpatternset")                                                                                                         | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys")                                                                                                            |
-| [rulegroup](#list_wafv2-resource-rulegroup "#list_wafv2-resource-rulegroup")                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys")                                                                                                            |
-| [webacl](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wafv2-aws_TagKeys "#list_wafv2-aws_TagKeys")                                                                                                            |
-| [UpdateIPSet](../../../waf/latest/APIReference/API_UpdateIPSet.md "../../../waf/latest/APIReference/API_UpdateIPSet.md")                                                                               | Grants permission to update an IPSet                                                                                                                                                                                                                                                      | [ipset\*](#list_wafv2-resource-ipset "#list_wafv2-resource-ipset")                                   | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Write                         |
-| [UpdateManagedRuleSetVersionExpiryDate](../../../waf/latest/APIReference/API_UpdateManagedRuleSetVersionExpiryDate.md "../../../waf/latest/APIReference/API_UpdateManagedRuleSetVersionExpiryDate.md") | Grants permission to update the expiry date of a version in ManagedRuleSet                                                                                                                                                                                                                | [managedruleset\*](#list_wafv2-resource-managedruleset "#list_wafv2-resource-managedruleset")        |                                                                                                                                                                                                                                                                                                                | Write                         |
-| [UpdateRegexPatternSet](../../../waf/latest/APIReference/API_UpdateRegexPatternSet.md "../../../waf/latest/APIReference/API_UpdateRegexPatternSet.md")                                                 | Grants permission to update a RegexPatternSet                                                                                                                                                                                                                                             | [regexpatternset\*](#list_wafv2-resource-regexpatternset "#list_wafv2-resource-regexpatternset")     | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Write                         |
-| [UpdateRuleGroup](../../../waf/latest/APIReference/API_UpdateRuleGroup.md "../../../waf/latest/APIReference/API_UpdateRuleGroup.md")                                                                   | Grants permission to update a RuleGroup                                                                                                                                                                                                                                                   | [ipset](#list_wafv2-resource-ipset "#list_wafv2-resource-ipset")                                     | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Write                         |
-| [regexpatternset](#list_wafv2-resource-regexpatternset "#list_wafv2-resource-regexpatternset")                                                                                                         | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [rulegroup\*](#list_wafv2-resource-rulegroup "#list_wafv2-resource-rulegroup")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [UpdateWebACL](../../../waf/latest/APIReference/API_UpdateWebACL.md "../../../waf/latest/APIReference/API_UpdateWebACL.md")                                                                            | Grants permission to update a WebACL                                                                                                                                                                                                                                                      | [ipset](#list_wafv2-resource-ipset "#list_wafv2-resource-ipset")                                     | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                     | Write                         |
-| [managedruleset](#list_wafv2-resource-managedruleset "#list_wafv2-resource-managedruleset")                                                                                                            | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [regexpatternset](#list_wafv2-resource-regexpatternset "#list_wafv2-resource-regexpatternset")                                                                                                         | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [rulegroup](#list_wafv2-resource-rulegroup "#list_wafv2-resource-rulegroup")                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [webacl\*](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl")                                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
+
+
+
+- **   [AssociateWebACL](https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html)  **
+  - **Description:** Grants permission to associate a WebACL with a resource
+  - **Resource types (\*required):** [agentcore-gateway](#list_wafv2-resource-agentcore-gateway) / **Condition keys:**  
+  - **Resource types (\*required):** [amplify-app](#list_wafv2-resource-amplify-app) / **Condition keys:**  
+  - **Resource types (\*required):** [apigateway](#list_wafv2-resource-apigateway) / **Condition keys:**  
+  - **Resource types (\*required):** [apprunner](#list_wafv2-resource-apprunner) / **Condition keys:**  
+  - **Resource types (\*required):** [appsync](#list_wafv2-resource-appsync) / **Condition keys:**  
+  - **Resource types (\*required):** [loadbalancer/app/](#list_wafv2-resource-loadbalancer_app_) / **Condition keys:**  
+  - **Resource types (\*required):** [userpool](#list_wafv2-resource-userpool) / **Condition keys:**  
+  - **Resource types (\*required):** [verified-access-instance](#list_wafv2-resource-verified-access-instance) / **Condition keys:**  
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CheckCapacity](https://docs.aws.amazon.com/waf/latest/APIReference/API_CheckCapacity.html)  **
+  - **Description:** Grants permission to calculate web ACL capacity unit (WCU) requirements for a specified scope and set of rules
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [CreateAPIKey](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateAPIKey.html)  **
+  - **Description:** Grants permission to create an API key for use in the integration of the CAPTCHA API in your JavaScript client applications
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateIPSet](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateIPSet.html)  **
+  - **Description:** Grants permission to create an IPSet
+  - **Resource types (\*required):** [ipset\*](#list_wafv2-resource-ipset)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRegexPatternSet](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRegexPatternSet.html)  **
+  - **Description:** Grants permission to create a RegexPatternSet
+  - **Resource types (\*required):** [regexpatternset\*](#list_wafv2-resource-regexpatternset)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html)  **
+  - **Description:** Grants permission to create a RuleGroup
+  - **Resource types (\*required):** [ipset](#list_wafv2-resource-ipset) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Resource types (\*required):** [regexpatternset](#list_wafv2-resource-regexpatternset) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Resource types (\*required):** [rulegroup\*](#list_wafv2-resource-rulegroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateWebACL](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html)  **
+  - **Description:** Grants permission to create a WebACL
+  - **Resource types (\*required):** [ipset](#list_wafv2-resource-ipset) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Resource types (\*required):** [managedruleset](#list_wafv2-resource-managedruleset) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Resource types (\*required):** [regexpatternset](#list_wafv2-resource-regexpatternset) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Resource types (\*required):** [rulegroup](#list_wafv2-resource-rulegroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteAPIKey](https://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteAPIKey.html)  **
+  - **Description:** Grants permission to delete an API key
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteFirewallManagerRuleGroups](https://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteFirewallManagerRuleGroups.html)  **
+  - **Description:** Grants permission to delete FirewallManagedRulesGroups from a WebACL if not managed by Firewall Manager anymore
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteIPSet](https://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteIPSet.html)  **
+  - **Description:** Grants permission to delete an IPSet
+  - **Resource types (\*required):** [ipset\*](#list_wafv2-resource-ipset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteLoggingConfiguration](https://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteLoggingConfiguration.html)  **
+  - **Description:** Grants permission to delete the LoggingConfiguration from a WebACL
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[wafv2:LogScope](#list_wafv2-wafv2_LogScope)
+  - **Access level:** Write
+
+- **   [DeletePermissionPolicy](https://docs.aws.amazon.com/waf/latest/APIReference/API_DeletePermissionPolicy.html)  **
+  - **Description:** Grants permission to delete the PermissionPolicy on a RuleGroup
+  - **Resource types (\*required):** [rulegroup\*](#list_wafv2-resource-rulegroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [DeleteRegexPatternSet](https://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteRegexPatternSet.html)  **
+  - **Description:** Grants permission to delete a RegexPatternSet
+  - **Resource types (\*required):** [regexpatternset\*](#list_wafv2-resource-regexpatternset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteRuleGroup.html)  **
+  - **Description:** Grants permission to delete a RuleGroup
+  - **Resource types (\*required):** [rulegroup\*](#list_wafv2-resource-rulegroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteWebACL](https://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteWebACL.html)  **
+  - **Description:** Grants permission to delete a WebACL
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeAllManagedProducts](https://docs.aws.amazon.com/waf/latest/APIReference/API_DescribeAllManagedProducts.html)  **
+  - **Description:** Grants permission to retrieve product information for a managed rule group
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeManagedProductsByVendor](https://docs.aws.amazon.com/waf/latest/APIReference/API_DescribeManagedProductsByVendor.html)  **
+  - **Description:** Grants permission to retrieve product information for a managed rule group by a given vendor
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeManagedRuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_DescribeManagedRuleGroup.html)  **
+  - **Description:** Grants permission to retrieve high-level information for a managed rule group
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DisassociateWebACL](https://docs.aws.amazon.com/waf/latest/APIReference/API_DisassociateWebACL.html)  **
+  - **Description:** Grants permission to disassociate a WebACL from an application resource
+  - **Resource types (\*required):** [agentcore-gateway](#list_wafv2-resource-agentcore-gateway) / **Condition keys:**  
+  - **Resource types (\*required):** [amplify-app](#list_wafv2-resource-amplify-app) / **Condition keys:**  
+  - **Resource types (\*required):** [apigateway](#list_wafv2-resource-apigateway) / **Condition keys:**  
+  - **Resource types (\*required):** [apprunner](#list_wafv2-resource-apprunner) / **Condition keys:**  
+  - **Resource types (\*required):** [appsync](#list_wafv2-resource-appsync) / **Condition keys:**  
+  - **Resource types (\*required):** [loadbalancer/app/](#list_wafv2-resource-loadbalancer_app_) / **Condition keys:**  
+  - **Resource types (\*required):** [userpool](#list_wafv2-resource-userpool) / **Condition keys:**  
+  - **Resource types (\*required):** [verified-access-instance](#list_wafv2-resource-verified-access-instance) / **Condition keys:**  
+  - **Access level:** Write
+
+- **   [GenerateMobileSdkReleaseUrl](https://docs.aws.amazon.com/waf/latest/APIReference/API_GenerateMobileSdkReleaseUrl.html)  **
+  - **Description:** Grants permission to generate a presigned download URL for the specified release of the mobile SDK
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetDecryptedAPIKey](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetDecryptedAPIKey.html)  **
+  - **Description:** Grants permission to return your API key in decrypted form. Use this to check the token domains that you have defined for the key
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetIPSet](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetIPSet.html)  **
+  - **Description:** Grants permission to retrieve details about an IPSet
+  - **Resource types (\*required):** [ipset\*](#list_wafv2-resource-ipset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetLoggingConfiguration](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetLoggingConfiguration.html)  **
+  - **Description:** Grants permission to retrieve LoggingConfiguration for a WebACL
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[wafv2:LogScope](#list_wafv2-wafv2_LogScope)
+  - **Access level:** Read
+
+- **   [GetManagedRuleSet](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetManagedRuleSet.html)  **
+  - **Description:** Grants permission to retrieve details about a ManagedRuleSet
+  - **Resource types (\*required):** [managedruleset\*](#list_wafv2-resource-managedruleset)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetMobileSdkRelease](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetMobileSdkRelease.html)  **
+  - **Description:** Grants permission to retrieve information for the specified mobile SDK release, including release notes and tags
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetPermissionPolicy](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetPermissionPolicy.html)  **
+  - **Description:** Grants permission to retrieve a PermissionPolicy for a RuleGroup
+  - **Resource types (\*required):** [rulegroup\*](#list_wafv2-resource-rulegroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRateBasedStatementManagedKeys](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetRateBasedStatementManagedKeys.html)  **
+  - **Description:** Grants permission to retrieve the keys that are currently blocked by a rate-based rule
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRegexPatternSet](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetRegexPatternSet.html)  **
+  - **Description:** Grants permission to retrieve details about a RegexPatternSet
+  - **Resource types (\*required):** [regexpatternset\*](#list_wafv2-resource-regexpatternset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRevenueStatistics](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetRevenueStatistics.html)  **
+  - **Description:** Grants permission to retrieve monetization revenue statistics ranked by source or path within a specified time window
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetRevenueStatisticsSummary](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetRevenueStatisticsSummary.html)  **
+  - **Description:** Grants permission to retrieve a summary of monetization revenue statistics within a specified time window
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetRevenueStatisticsTimeSeries](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetRevenueStatisticsTimeSeries.html)  **
+  - **Description:** Grants permission to retrieve monetization revenue statistics as a time series within a specified time window
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetRuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetRuleGroup.html)  **
+  - **Description:** Grants permission to retrieve details about a RuleGroup
+  - **Resource types (\*required):** [rulegroup\*](#list_wafv2-resource-rulegroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSampledRequests](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetSampledRequests.html)  **
+  - **Description:** Grants permission to retrieve detailed information about a sampling of web requests
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetTopPathStatisticsByTraffic](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetTopPathStatisticsByTraffic.html)  **
+  - **Description:** Grants permission to retrieve aggregated path statistics with bot traffic analysis for a WebACL within a specified time window
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetWebACL](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetWebACL.html)  **
+  - **Description:** Grants permission to retrieve details about a WebACL
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetWebACLForResource](https://docs.aws.amazon.com/waf/latest/APIReference/API_GetWebACLForResource.html)  **
+  - **Description:** Grants permission to retrieve the WebACL that's associated with a resource
+  - **Resource types (\*required):** [agentcore-gateway](#list_wafv2-resource-agentcore-gateway) / **Condition keys:**  
+  - **Resource types (\*required):** [amplify-app](#list_wafv2-resource-amplify-app) / **Condition keys:**  
+  - **Resource types (\*required):** [apigateway](#list_wafv2-resource-apigateway) / **Condition keys:**  
+  - **Resource types (\*required):** [apprunner](#list_wafv2-resource-apprunner) / **Condition keys:**  
+  - **Resource types (\*required):** [appsync](#list_wafv2-resource-appsync) / **Condition keys:**  
+  - **Resource types (\*required):** [loadbalancer/app/](#list_wafv2-resource-loadbalancer_app_) / **Condition keys:**  
+  - **Resource types (\*required):** [userpool](#list_wafv2-resource-userpool) / **Condition keys:**  
+  - **Resource types (\*required):** [verified-access-instance](#list_wafv2-resource-verified-access-instance) / **Condition keys:**  
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListAPIKeys](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListAPIKeys.html)  **
+  - **Description:** Grants permission to retrieve a list of the API keys that you've defined for the specified scope
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAvailableManagedRuleGroupVersions](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListAvailableManagedRuleGroupVersions.html)  **
+  - **Description:** Grants permission to retrieve an array of managed rule group versions that are available for you to use
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAvailableManagedRuleGroups](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListAvailableManagedRuleGroups.html)  **
+  - **Description:** Grants permission to retrieve an array of managed rule groups that are available for you to use
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListIPSets](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListIPSets.html)  **
+  - **Description:** Grants permission to retrieve an array of IPSetSummary objects for the IP sets that you manage
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListLoggingConfigurations](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListLoggingConfigurations.html)  **
+  - **Description:** Grants permission to retrieve an array of your LoggingConfiguration objects
+  - **Resource types (\*required):** 
+  - **Condition keys:** [wafv2:LogScope](#list_wafv2-wafv2_LogScope)
+  - **Access level:** List
+
+- **   [ListManagedRuleSets](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListManagedRuleSets.html)  **
+  - **Description:** Grants permission to retrieve an array of your ManagedRuleSet objects
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMobileSdkReleases](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListMobileSdkReleases.html)  **
+  - **Description:** Grants permission to retrieve a list of the available releases for the mobile SDK and the specified device platform
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRegexPatternSets](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListRegexPatternSets.html)  **
+  - **Description:** Grants permission to retrieve an array of RegexPatternSetSummary objects for the regex pattern sets that you manage
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListResourcesForWebACL](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListResourcesForWebACL.html)  **
+  - **Description:** Grants permission to retrieve an array of the Amazon Resource Names (ARNs) for the resources that are associated with a web ACL
+  - **Resource types (\*required):** [agentcore-gateway](#list_wafv2-resource-agentcore-gateway) / **Condition keys:**  
+  - **Resource types (\*required):** [amplify-app](#list_wafv2-resource-amplify-app) / **Condition keys:**  
+  - **Resource types (\*required):** [apprunner](#list_wafv2-resource-apprunner) / **Condition keys:**  
+  - **Resource types (\*required):** [userpool](#list_wafv2-resource-userpool) / **Condition keys:**  
+  - **Resource types (\*required):** [verified-access-instance](#list_wafv2-resource-verified-access-instance) / **Condition keys:**  
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRuleGroups](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListRuleGroups.html)  **
+  - **Description:** Grants permission to retrieve an array of RuleGroupSummary objects for the rule groups that you manage
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSettlementRecords](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListSettlementRecords.html)  **
+  - **Description:** Grants permission to retrieve a list of monetization settlement records within a specified time window
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for a resource
+  - **Resource types (\*required):** [ipset](#list_wafv2-resource-ipset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [regexpatternset](#list_wafv2-resource-regexpatternset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [rulegroup](#list_wafv2-resource-rulegroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [webacl](#list_wafv2-resource-webacl) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListWebACLs](https://docs.aws.amazon.com/waf/latest/APIReference/API_ListWebACLs.html)  **
+  - **Description:** Grants permission to retrieve an array of WebACLSummary objects for the web ACLs that you manage
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [PutLoggingConfiguration](https://docs.aws.amazon.com/waf/latest/APIReference/API_PutLoggingConfiguration.html)  **
+  - **Description:** Grants permission to enable a LoggingConfiguration, to start logging for a web ACL
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[wafv2:LogDestinationResource](#list_wafv2-wafv2_LogDestinationResource)<br />[wafv2:LogScope](#list_wafv2-wafv2_LogScope)
+  - **Access level:** Write
+
+- **   [PutManagedRuleSetVersions](https://docs.aws.amazon.com/waf/latest/APIReference/API_PutManagedRuleSetVersions.html)  **
+  - **Description:** Grants permission to enable create a new or update an existing version of a ManagedRuleSet
+  - **Resource types (\*required):** [managedruleset\*](#list_wafv2-resource-managedruleset) / **Condition keys:**  
+  - **Resource types (\*required):** [rulegroup\*](#list_wafv2-resource-rulegroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutPermissionPolicy](https://docs.aws.amazon.com/waf/latest/APIReference/API_PutPermissionPolicy.html)  **
+  - **Description:** Grants permission to attach an IAM policy to a resource, used to share rule groups between accounts
+  - **Resource types (\*required):** [rulegroup\*](#list_wafv2-resource-rulegroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [TagResource](https://docs.aws.amazon.com/waf/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to associate tags with a AWS resource
+  - **Resource types (\*required):** [ipset](#list_wafv2-resource-ipset) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Resource types (\*required):** [regexpatternset](#list_wafv2-resource-regexpatternset) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Resource types (\*required):** [rulegroup](#list_wafv2-resource-rulegroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Resource types (\*required):** [webacl](#list_wafv2-resource-webacl) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wafv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/waf/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to disassociate tags from an AWS resource
+  - **Resource types (\*required):** [ipset](#list_wafv2-resource-ipset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Resource types (\*required):** [regexpatternset](#list_wafv2-resource-regexpatternset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Resource types (\*required):** [rulegroup](#list_wafv2-resource-rulegroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Resource types (\*required):** [webacl](#list_wafv2-resource-webacl) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wafv2-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateIPSet](https://docs.aws.amazon.com/waf/latest/APIReference/API_UpdateIPSet.html)  **
+  - **Description:** Grants permission to update an IPSet
+  - **Resource types (\*required):** [ipset\*](#list_wafv2-resource-ipset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateManagedRuleSetVersionExpiryDate](https://docs.aws.amazon.com/waf/latest/APIReference/API_UpdateManagedRuleSetVersionExpiryDate.html)  **
+  - **Description:** Grants permission to update the expiry date of a version in ManagedRuleSet
+  - **Resource types (\*required):** [managedruleset\*](#list_wafv2-resource-managedruleset)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateRegexPatternSet](https://docs.aws.amazon.com/waf/latest/APIReference/API_UpdateRegexPatternSet.html)  **
+  - **Description:** Grants permission to update a RegexPatternSet
+  - **Resource types (\*required):** [regexpatternset\*](#list_wafv2-resource-regexpatternset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_UpdateRuleGroup.html)  **
+  - **Description:** Grants permission to update a RuleGroup
+  - **Resource types (\*required):** [ipset](#list_wafv2-resource-ipset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [regexpatternset](#list_wafv2-resource-regexpatternset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [rulegroup\*](#list_wafv2-resource-rulegroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateWebACL](https://docs.aws.amazon.com/waf/latest/APIReference/API_UpdateWebACL.html)  **
+  - **Description:** Grants permission to update a WebACL
+  - **Resource types (\*required):** [ipset](#list_wafv2-resource-ipset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [managedruleset](#list_wafv2-resource-managedruleset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [regexpatternset](#list_wafv2-resource-regexpatternset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [rulegroup](#list_wafv2-resource-rulegroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for AWS WAF V2
+<a name="list_wafv2-permission-only-actions"></a>
 
-The following actions are defined by AWS WAF V2 but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by AWS WAF V2 but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                                                     | Description                                                        | Resource types (\*required)                                           | Condition keys                                                                                             | Access level |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------ |
-| [DisassociateFirewallManager](../../../waf/latest/APIReference/API_DisassociateFirewallManager.md "../../../waf/latest/APIReference/API_DisassociateFirewallManager.md")    | Grants permission to disassociate Firewall Manager from a WebACL   | [webacl\*](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl") | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_") | Write        |
-| [PutFirewallManagerRuleGroups](../../../waf/latest/APIReference/API_PutFirewallManagerRuleGroups.md "../../../waf/latest/APIReference/API_PutFirewallManagerRuleGroups.md") | Grants permission to create FirewallManagedRulesGroups in a WebACL | [webacl\*](#list_wafv2-resource-webacl "#list_wafv2-resource-webacl") | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_") | Write        |
+
+
+
+- **   [DisassociateFirewallManager](https://docs.aws.amazon.com/waf/latest/APIReference/API_DisassociateFirewallManager.html)  **
+  - **Description:** Grants permission to disassociate Firewall Manager from a WebACL
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutFirewallManagerRuleGroups](https://docs.aws.amazon.com/waf/latest/APIReference/API_PutFirewallManagerRuleGroups.html)  **
+  - **Description:** Grants permission to create FirewallManagedRulesGroups in a WebACL
+  - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS WAF V2
+<a name="list_wafv2-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                       | ARN                                                                                                               | Condition keys                                                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| [agentcore-gateway](../../../waf/latest/APIReference/API_WebACL.md "../../../waf/latest/APIReference/API_WebACL.md")                 | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:gateway/${GatewayId}                                      |                                                                                                            |
-| [amplify-app](../../../waf/latest/APIReference/API_WebACL.md "../../../waf/latest/APIReference/API_WebACL.md")                       | arn:${Partition}:amplify:${Region}:${Account}:apps/${AppId}                                                       |                                                                                                            |
-| [apigateway](../../../waf/latest/APIReference/API_WebACL.md "../../../waf/latest/APIReference/API_WebACL.md")                        | arn:${Partition}:apigateway:${Region}::/restapis/${ApiId}/stages/${StageName}                                     |                                                                                                            |
-| [apprunner](../../../waf/latest/APIReference/API_WebACL.md "../../../waf/latest/APIReference/API_WebACL.md")                         | arn:${Partition}:apprunner:${Region}:${Account}:service/${ServiceName}/${ServiceId}                               |                                                                                                            |
-| [appsync](../../../waf/latest/APIReference/API_WebACL.md "../../../waf/latest/APIReference/API_WebACL.md")                           | arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId}                                                |                                                                                                            |
-| [ipset](../../../waf/latest/APIReference/API_IPSet.md "../../../waf/latest/APIReference/API_IPSet.md")                               | arn:${Partition}:wafv2:${Region}:${Account}:${Scope}/ipset/${Name}/${Id}                                          | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_") |
-| [loadbalancer/app/](../../../waf/latest/APIReference/API_WebACL.md "../../../waf/latest/APIReference/API_WebACL.md")                 | arn:${Partition}:elasticloadbalancing:${Region}:${Account}:loadbalancer/app/${LoadBalancerName}/${LoadBalancerId} |                                                                                                            |
-| [managedruleset](../../../waf/latest/APIReference/API_ManagedRuleSet.md "../../../waf/latest/APIReference/API_ManagedRuleSet.md")    | arn:${Partition}:wafv2:${Region}:${Account}:${Scope}/managedruleset/${Name}/${Id}                                 |                                                                                                            |
-| [regexpatternset](../../../waf/latest/APIReference/API_RegexPatternSet.md "../../../waf/latest/APIReference/API_RegexPatternSet.md") | arn:${Partition}:wafv2:${Region}:${Account}:${Scope}/regexpatternset/${Name}/${Id}                                | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_") |
-| [rulegroup](../../../waf/latest/APIReference/API_RuleGroup.md "../../../waf/latest/APIReference/API_RuleGroup.md")                   | arn:${Partition}:wafv2:${Region}:${Account}:${Scope}/rulegroup/${Name}/${Id}                                      | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_") |
-| [userpool](../../../waf/latest/APIReference/API_WebACL.md "../../../waf/latest/APIReference/API_WebACL.md")                          | arn:${Partition}:cognito-idp:${Region}:${Account}:userpool/${UserPoolId}                                          |                                                                                                            |
-| [verified-access-instance](../../../waf/latest/APIReference/API_WebACL.md "../../../waf/latest/APIReference/API_WebACL.md")          | arn:${Partition}:ec2:${Region}:${Account}:verified-access-instance/${VerifiedAccessInstanceId}                    |                                                                                                            |
-| [webacl](../../../waf/latest/APIReference/API_WebACL.md "../../../waf/latest/APIReference/API_WebACL.md")                            | arn:${Partition}:wafv2:${Region}:${Account}:${Scope}/webacl/${Name}/${Id}                                         | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_ "#list_wafv2-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [agentcore-gateway](https://docs.aws.amazon.com/waf/latest/APIReference/API_WebACL.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:gateway/${GatewayId} |   | 
+|  [amplify-app](https://docs.aws.amazon.com/waf/latest/APIReference/API_WebACL.html)  | arn:${Partition}:amplify:${Region}:${Account}:apps/${AppId} |   | 
+|  [apigateway](https://docs.aws.amazon.com/waf/latest/APIReference/API_WebACL.html)  | arn:${Partition}:apigateway:${Region}::/restapis/${ApiId}/stages/${StageName} |   | 
+|  [apprunner](https://docs.aws.amazon.com/waf/latest/APIReference/API_WebACL.html)  | arn:${Partition}:apprunner:${Region}:${Account}:service/${ServiceName}/${ServiceId} |   | 
+|  [appsync](https://docs.aws.amazon.com/waf/latest/APIReference/API_WebACL.html)  | arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId} |   | 
+|  [ipset](https://docs.aws.amazon.com/waf/latest/APIReference/API_IPSet.html)  | arn:${Partition}:wafv2:${Region}:${Account}:${Scope}/ipset/${Name}/${Id} | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_) | 
+|  [loadbalancer/app/](https://docs.aws.amazon.com/waf/latest/APIReference/API_WebACL.html)  | arn:${Partition}:elasticloadbalancing:${Region}:${Account}:loadbalancer/app/${LoadBalancerName}/${LoadBalancerId} |   | 
+|  [managedruleset](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleSet.html)  | arn:${Partition}:wafv2:${Region}:${Account}:${Scope}/managedruleset/${Name}/${Id} |   | 
+|  [regexpatternset](https://docs.aws.amazon.com/waf/latest/APIReference/API_RegexPatternSet.html)  | arn:${Partition}:wafv2:${Region}:${Account}:${Scope}/regexpatternset/${Name}/${Id} | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_) | 
+|  [rulegroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html)  | arn:${Partition}:wafv2:${Region}:${Account}:${Scope}/rulegroup/${Name}/${Id} | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_) | 
+|  [userpool](https://docs.aws.amazon.com/waf/latest/APIReference/API_WebACL.html)  | arn:${Partition}:cognito-idp:${Region}:${Account}:userpool/${UserPoolId} |   | 
+|  [verified-access-instance](https://docs.aws.amazon.com/waf/latest/APIReference/API_WebACL.html)  | arn:${Partition}:ec2:${Region}:${Account}:verified-access-instance/${VerifiedAccessInstanceId} |   | 
+|  [webacl](https://docs.aws.amazon.com/waf/latest/APIReference/API_WebACL.html)  | arn:${Partition}:wafv2:${Region}:${Account}:${Scope}/webacl/${Name}/${Id} | [aws:ResourceTag/${TagKey}](#list_wafv2-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS WAF V2
+<a name="list_wafv2-policy-keys"></a>
 
-AWS WAF V2 defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS WAF V2 defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                                                                                        | Description                                                           | Type          |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")                                                                               | Filters access by the allowed set of values for each of the tags      | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag")                                                                            | Filters access by tag-value associated with the resource              | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                                                                                                  | Filters access by the presence of mandatory tags in the request       | ArrayOfString |
-| [wafv2:LogDestinationResource](../../../waf/latest/developerguide/security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "../../../waf/latest/developerguide/security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys") | Filters access by log destination ARN for PutLoggingConfiguration API | ARN           |
-| [wafv2:LogScope](../../../waf/latest/developerguide/security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "../../../waf/latest/developerguide/security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys")               | Filters access by log scope for Logging Configuration API             | String        |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the allowed set of values for each of the tags | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag-value associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the presence of mandatory tags in the request | ArrayOfString | 
+|   [wafv2:LogDestinationResource](https://docs.aws.amazon.com/waf/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-conditionkeys)  | Filters access by log destination ARN for PutLoggingConfiguration API | ARN | 
+|   [wafv2:LogScope](https://docs.aws.amazon.com/waf/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-conditionkeys)  | Filters access by log scope for Logging Configuration API | String | 

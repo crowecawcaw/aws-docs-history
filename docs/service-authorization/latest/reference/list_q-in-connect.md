@@ -1,373 +1,1577 @@
-# Actions, resources, and condition keys for Amazon Q in Connect
 
-Amazon Q in Connect (service prefix: `wisdom`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Q in Connect
+<a name="list_q-in-connect"></a>
+
+Amazon Q in Connect (service prefix: `wisdom`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_Operations.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/connect/latest/adminguide/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/wisdom/wisdom.json) for this service.
 
-- Learn how to [configure this service](../../../connect/latest/adminguide/what-is-amazon-connect.md "../../../connect/latest/adminguide/what-is-amazon-connect.md").
-- View a list of the [API operations available for
-  this service](../../../wisdom/latest/APIReference/API_Operations.md "../../../wisdom/latest/APIReference/API_Operations.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../connect/latest/adminguide/security-iam.md "../../../connect/latest/adminguide/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/wisdom/wisdom.json "https://servicereference.us-east-1.amazonaws.com/v1/wisdom/wisdom.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon Q in Connect](#list_q-in-connect-operations "#list_q-in-connect-operations")
-- [Actions defined by Amazon Q in Connect](#list_q-in-connect-actions-as-permissions "#list_q-in-connect-actions-as-permissions")
-- [Permission-only actions for Amazon Q in Connect](#list_q-in-connect-permission-only-actions "#list_q-in-connect-permission-only-actions")
-- [Resource types defined by Amazon Q in Connect](#list_q-in-connect-resources-for-iam-policies "#list_q-in-connect-resources-for-iam-policies")
-- [Condition keys for Amazon Q in Connect](#list_q-in-connect-policy-keys "#list_q-in-connect-policy-keys")
+**Topics**
++ [API operations defined by Amazon Q in Connect](#list_q-in-connect-operations)
++ [Actions defined by Amazon Q in Connect](#list_q-in-connect-actions-as-permissions)
++ [Permission-only actions for Amazon Q in Connect](#list_q-in-connect-permission-only-actions)
++ [Resource types defined by Amazon Q in Connect](#list_q-in-connect-resources-for-iam-policies)
++ [Condition keys for Amazon Q in Connect](#list_q-in-connect-policy-keys)
 
 ## API operations defined by Amazon Q in Connect
+<a name="list_q-in-connect-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_q-in-connect-actions-as-permissions "#list_q-in-connect-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_q-in-connect-actions-as-permissions).
 
-| Operation                                                                                                                         | SDK client          | IAM action                                                                                                                                                      | Condition key  | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------- | -------------- |
-| ActivateMessageTemplate                                                                                                           | qconnect            | [wisdom:ActivateMessageTemplate](#list_q-in-connect-action-ActivateMessageTemplate "#list_q-in-connect-action-ActivateMessageTemplate")                         |                |                   | Write          |
-| CreateAIAgent                                                                                                                     | qconnect            | [wisdom:CreateAIAgent](#list_q-in-connect-action-CreateAIAgent "#list_q-in-connect-action-CreateAIAgent")                                                       |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateAIAgentVersion                                                                                                              | qconnect            | [wisdom:CreateAIAgentVersion](#list_q-in-connect-action-CreateAIAgentVersion "#list_q-in-connect-action-CreateAIAgentVersion")                                  |                |                   | Write          |
-| CreateAIGuardrail                                                                                                                 | qconnect            | [wisdom:CreateAIGuardrail](#list_q-in-connect-action-CreateAIGuardrail "#list_q-in-connect-action-CreateAIGuardrail")                                           |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateAIGuardrailVersion                                                                                                          | qconnect            | [wisdom:CreateAIGuardrailVersion](#list_q-in-connect-action-CreateAIGuardrailVersion "#list_q-in-connect-action-CreateAIGuardrailVersion")                      |                |                   | Write          |
-| CreateAIPrompt                                                                                                                    | qconnect            | [wisdom:CreateAIPrompt](#list_q-in-connect-action-CreateAIPrompt "#list_q-in-connect-action-CreateAIPrompt")                                                    |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateAIPromptVersion                                                                                                             | qconnect            | [wisdom:CreateAIPromptVersion](#list_q-in-connect-action-CreateAIPromptVersion "#list_q-in-connect-action-CreateAIPromptVersion")                               |                |                   | Write          |
-| CreateAssistant                                                                                                                   | qconnect            | [wisdom:CreateAssistant](#list_q-in-connect-action-CreateAssistant "#list_q-in-connect-action-CreateAssistant")                                                 |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateAssistantAssociation                                                                                                        | qconnect            | [wisdom:CreateAssistantAssociation](#list_q-in-connect-action-CreateAssistantAssociation "#list_q-in-connect-action-CreateAssistantAssociation")                |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")   | iam:PassedToService | wisdom.amazonaws.com                                                                                                                                            | Write          |
-| CreateContent                                                                                                                     | qconnect            | [wisdom:CreateContent](#list_q-in-connect-action-CreateContent "#list_q-in-connect-action-CreateContent")                                                       |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateContentAssociation                                                                                                          | qconnect            | [wisdom:CreateContentAssociation](#list_q-in-connect-action-CreateContentAssociation "#list_q-in-connect-action-CreateContentAssociation")                      |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateKnowledgeBase                                                                                                               | qconnect            | [wisdom:CreateKnowledgeBase](#list_q-in-connect-action-CreateKnowledgeBase "#list_q-in-connect-action-CreateKnowledgeBase")                                     |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateMessageTemplate                                                                                                             | qconnect            | [wisdom:CreateMessageTemplate](#list_q-in-connect-action-CreateMessageTemplate "#list_q-in-connect-action-CreateMessageTemplate")                               |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateMessageTemplateAttachment                                                                                                   | qconnect            | [wisdom:CreateMessageTemplateAttachment](#list_q-in-connect-action-CreateMessageTemplateAttachment "#list_q-in-connect-action-CreateMessageTemplateAttachment") |                |                   | Write          |
-| CreateMessageTemplateVersion                                                                                                      | qconnect            | [wisdom:CreateMessageTemplateVersion](#list_q-in-connect-action-CreateMessageTemplateVersion "#list_q-in-connect-action-CreateMessageTemplateVersion")          |                |                   | Write          |
-| CreateQuickResponse                                                                                                               | qconnect            | [wisdom:CreateQuickResponse](#list_q-in-connect-action-CreateQuickResponse "#list_q-in-connect-action-CreateQuickResponse")                                     |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateSession                                                                                                                     | qconnect            | [wisdom:CreateSession](#list_q-in-connect-action-CreateSession "#list_q-in-connect-action-CreateSession")                                                       |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| DeactivateMessageTemplate                                                                                                         | qconnect            | [wisdom:DeactivateMessageTemplate](#list_q-in-connect-action-DeactivateMessageTemplate "#list_q-in-connect-action-DeactivateMessageTemplate")                   |                |                   | Write          |
-| DeleteAIAgent                                                                                                                     | qconnect            | [wisdom:DeleteAIAgent](#list_q-in-connect-action-DeleteAIAgent "#list_q-in-connect-action-DeleteAIAgent")                                                       |                |                   | Write          |
-| DeleteAIAgentVersion                                                                                                              | qconnect            | [wisdom:DeleteAIAgentVersion](#list_q-in-connect-action-DeleteAIAgentVersion "#list_q-in-connect-action-DeleteAIAgentVersion")                                  |                |                   | Write          |
-| DeleteAIGuardrail                                                                                                                 | qconnect            | [wisdom:DeleteAIGuardrail](#list_q-in-connect-action-DeleteAIGuardrail "#list_q-in-connect-action-DeleteAIGuardrail")                                           |                |                   | Write          |
-| DeleteAIGuardrailVersion                                                                                                          | qconnect            | [wisdom:DeleteAIGuardrailVersion](#list_q-in-connect-action-DeleteAIGuardrailVersion "#list_q-in-connect-action-DeleteAIGuardrailVersion")                      |                |                   | Write          |
-| DeleteAIPrompt                                                                                                                    | qconnect            | [wisdom:DeleteAIPrompt](#list_q-in-connect-action-DeleteAIPrompt "#list_q-in-connect-action-DeleteAIPrompt")                                                    |                |                   | Write          |
-| DeleteAIPromptVersion                                                                                                             | qconnect            | [wisdom:DeleteAIPromptVersion](#list_q-in-connect-action-DeleteAIPromptVersion "#list_q-in-connect-action-DeleteAIPromptVersion")                               |                |                   | Write          |
-| DeleteAssistant                                                                                                                   | qconnect            | [wisdom:DeleteAssistant](#list_q-in-connect-action-DeleteAssistant "#list_q-in-connect-action-DeleteAssistant")                                                 |                |                   | Write          |
-| DeleteAssistantAssociation                                                                                                        | qconnect            | [wisdom:DeleteAssistantAssociation](#list_q-in-connect-action-DeleteAssistantAssociation "#list_q-in-connect-action-DeleteAssistantAssociation")                |                |                   | Write          |
-| DeleteContent                                                                                                                     | qconnect            | [wisdom:DeleteContent](#list_q-in-connect-action-DeleteContent "#list_q-in-connect-action-DeleteContent")                                                       |                |                   | Write          |
-| DeleteContentAssociation                                                                                                          | qconnect            | [wisdom:DeleteContentAssociation](#list_q-in-connect-action-DeleteContentAssociation "#list_q-in-connect-action-DeleteContentAssociation")                      |                |                   | Write          |
-| DeleteImportJob                                                                                                                   | qconnect            | [wisdom:DeleteImportJob](#list_q-in-connect-action-DeleteImportJob "#list_q-in-connect-action-DeleteImportJob")                                                 |                |                   | Write          |
-| DeleteKnowledgeBase                                                                                                               | qconnect            | [wisdom:DeleteKnowledgeBase](#list_q-in-connect-action-DeleteKnowledgeBase "#list_q-in-connect-action-DeleteKnowledgeBase")                                     |                |                   | Write          |
-| DeleteMessageTemplate                                                                                                             | qconnect            | [wisdom:DeleteMessageTemplate](#list_q-in-connect-action-DeleteMessageTemplate "#list_q-in-connect-action-DeleteMessageTemplate")                               |                |                   | Write          |
-| DeleteMessageTemplateAttachment                                                                                                   | qconnect            | [wisdom:DeleteMessageTemplateAttachment](#list_q-in-connect-action-DeleteMessageTemplateAttachment "#list_q-in-connect-action-DeleteMessageTemplateAttachment") |                |                   | Write          |
-| DeleteQuickResponse                                                                                                               | qconnect            | [wisdom:DeleteQuickResponse](#list_q-in-connect-action-DeleteQuickResponse "#list_q-in-connect-action-DeleteQuickResponse")                                     |                |                   | Write          |
-| GetAIAgent                                                                                                                        | qconnect            | [wisdom:GetAIAgent](#list_q-in-connect-action-GetAIAgent "#list_q-in-connect-action-GetAIAgent")                                                                |                |                   | Read           |
-| GetAIGuardrail                                                                                                                    | qconnect            | [wisdom:GetAIGuardrail](#list_q-in-connect-action-GetAIGuardrail "#list_q-in-connect-action-GetAIGuardrail")                                                    |                |                   | Read           |
-| GetAIPrompt                                                                                                                       | qconnect            | [wisdom:GetAIPrompt](#list_q-in-connect-action-GetAIPrompt "#list_q-in-connect-action-GetAIPrompt")                                                             |                |                   | Read           |
-| GetAssistant                                                                                                                      | qconnect            | [wisdom:GetAssistant](#list_q-in-connect-action-GetAssistant "#list_q-in-connect-action-GetAssistant")                                                          |                |                   | Read           |
-| GetAssistantAssociation                                                                                                           | qconnect            | [wisdom:GetAssistantAssociation](#list_q-in-connect-action-GetAssistantAssociation "#list_q-in-connect-action-GetAssistantAssociation")                         |                |                   | Read           |
-| GetContent                                                                                                                        | qconnect            | [wisdom:GetContent](#list_q-in-connect-action-GetContent "#list_q-in-connect-action-GetContent")                                                                |                |                   | Read           |
-| GetContentAssociation                                                                                                             | qconnect            | [wisdom:GetContentAssociation](#list_q-in-connect-action-GetContentAssociation "#list_q-in-connect-action-GetContentAssociation")                               |                |                   | Read           |
-| GetContentSummary                                                                                                                 | qconnect            | [wisdom:GetContentSummary](#list_q-in-connect-action-GetContentSummary "#list_q-in-connect-action-GetContentSummary")                                           |                |                   | Read           |
-| GetImportJob                                                                                                                      | qconnect            | [wisdom:GetImportJob](#list_q-in-connect-action-GetImportJob "#list_q-in-connect-action-GetImportJob")                                                          |                |                   | Read           |
-| GetKnowledgeBase                                                                                                                  | qconnect            | [wisdom:GetKnowledgeBase](#list_q-in-connect-action-GetKnowledgeBase "#list_q-in-connect-action-GetKnowledgeBase")                                              |                |                   | Read           |
-| GetMessageTemplate                                                                                                                | qconnect            | [wisdom:GetMessageTemplate](#list_q-in-connect-action-GetMessageTemplate "#list_q-in-connect-action-GetMessageTemplate")                                        |                |                   | Read           |
-| GetNextMessage                                                                                                                    | qconnect            | [wisdom:GetNextMessage](#list_q-in-connect-action-GetNextMessage "#list_q-in-connect-action-GetNextMessage")                                                    |                |                   | Read           |
-| GetQuickResponse                                                                                                                  | qconnect            | [wisdom:GetQuickResponse](#list_q-in-connect-action-GetQuickResponse "#list_q-in-connect-action-GetQuickResponse")                                              |                |                   | Read           |
-| GetRecommendations                                                                                                                | qconnect            | [wisdom:GetRecommendations](#list_q-in-connect-action-GetRecommendations "#list_q-in-connect-action-GetRecommendations")                                        |                |                   | Read           |
-| GetSession                                                                                                                        | qconnect            | [wisdom:GetSession](#list_q-in-connect-action-GetSession "#list_q-in-connect-action-GetSession")                                                                |                |                   | Read           |
-| ListAIAgentVersions                                                                                                               | qconnect            | [wisdom:ListAIAgentVersions](#list_q-in-connect-action-ListAIAgentVersions "#list_q-in-connect-action-ListAIAgentVersions")                                     |                |                   | List           |
-| ListAIAgents                                                                                                                      | qconnect            | [wisdom:ListAIAgents](#list_q-in-connect-action-ListAIAgents "#list_q-in-connect-action-ListAIAgents")                                                          |                |                   | List           |
-| ListAIGuardrailVersions                                                                                                           | qconnect            | [wisdom:ListAIGuardrailVersions](#list_q-in-connect-action-ListAIGuardrailVersions "#list_q-in-connect-action-ListAIGuardrailVersions")                         |                |                   | List           |
-| ListAIGuardrails                                                                                                                  | qconnect            | [wisdom:ListAIGuardrails](#list_q-in-connect-action-ListAIGuardrails "#list_q-in-connect-action-ListAIGuardrails")                                              |                |                   | List           |
-| ListAIPromptVersions                                                                                                              | qconnect            | [wisdom:ListAIPromptVersions](#list_q-in-connect-action-ListAIPromptVersions "#list_q-in-connect-action-ListAIPromptVersions")                                  |                |                   | List           |
-| ListAIPrompts                                                                                                                     | qconnect            | [wisdom:ListAIPrompts](#list_q-in-connect-action-ListAIPrompts "#list_q-in-connect-action-ListAIPrompts")                                                       |                |                   | List           |
-| ListAssistantAssociations                                                                                                         | qconnect            | [wisdom:ListAssistantAssociations](#list_q-in-connect-action-ListAssistantAssociations "#list_q-in-connect-action-ListAssistantAssociations")                   |                |                   | List           |
-| ListAssistants                                                                                                                    | qconnect            | [wisdom:ListAssistants](#list_q-in-connect-action-ListAssistants "#list_q-in-connect-action-ListAssistants")                                                    |                |                   | List           |
-| ListContentAssociations                                                                                                           | qconnect            | [wisdom:ListContentAssociations](#list_q-in-connect-action-ListContentAssociations "#list_q-in-connect-action-ListContentAssociations")                         |                |                   | List           |
-| ListContents                                                                                                                      | qconnect            | [wisdom:ListContents](#list_q-in-connect-action-ListContents "#list_q-in-connect-action-ListContents")                                                          |                |                   | List           |
-| ListImportJobs                                                                                                                    | qconnect            | [wisdom:ListImportJobs](#list_q-in-connect-action-ListImportJobs "#list_q-in-connect-action-ListImportJobs")                                                    |                |                   | List           |
-| ListKnowledgeBases                                                                                                                | qconnect            | [wisdom:ListKnowledgeBases](#list_q-in-connect-action-ListKnowledgeBases "#list_q-in-connect-action-ListKnowledgeBases")                                        |                |                   | List           |
-| ListMessageTemplateVersions                                                                                                       | qconnect            | [wisdom:ListMessageTemplateVersions](#list_q-in-connect-action-ListMessageTemplateVersions "#list_q-in-connect-action-ListMessageTemplateVersions")             |                |                   | List           |
-| ListMessageTemplates                                                                                                              | qconnect            | [wisdom:ListMessageTemplates](#list_q-in-connect-action-ListMessageTemplates "#list_q-in-connect-action-ListMessageTemplates")                                  |                |                   | List           |
-| ListMessages                                                                                                                      | qconnect            | [wisdom:ListMessages](#list_q-in-connect-action-ListMessages "#list_q-in-connect-action-ListMessages")                                                          |                |                   | List           |
-| ListModels                                                                                                                        | qconnect            | [wisdom:ListModels](#list_q-in-connect-action-ListModels "#list_q-in-connect-action-ListModels")                                                                |                |                   | List           |
-| ListQuickResponses                                                                                                                | qconnect            | [wisdom:ListQuickResponses](#list_q-in-connect-action-ListQuickResponses "#list_q-in-connect-action-ListQuickResponses")                                        |                |                   | List           |
-| ListSpans                                                                                                                         | qconnect            | [wisdom:ListSpans](#list_q-in-connect-action-ListSpans "#list_q-in-connect-action-ListSpans")                                                                   |                |                   | List           |
-| ListTagsForResource                                                                                                               | qconnect            | [wisdom:ListTagsForResource](#list_q-in-connect-action-ListTagsForResource "#list_q-in-connect-action-ListTagsForResource")                                     |                |                   | Read           |
-| NotifyRecommendationsReceived                                                                                                     | qconnect            | [wisdom:NotifyRecommendationsReceived](#list_q-in-connect-action-NotifyRecommendationsReceived "#list_q-in-connect-action-NotifyRecommendationsReceived")       |                |                   | Write          |
-| PutFeedback                                                                                                                       | qconnect            | [wisdom:PutFeedback](#list_q-in-connect-action-PutFeedback "#list_q-in-connect-action-PutFeedback")                                                             |                |                   | Write          |
-| QueryAssistant                                                                                                                    | qconnect            | [wisdom:QueryAssistant](#list_q-in-connect-action-QueryAssistant "#list_q-in-connect-action-QueryAssistant")                                                    |                |                   | Read           |
-| RemoveAssistantAIAgent                                                                                                            | qconnect            | [wisdom:RemoveAssistantAIAgent](#list_q-in-connect-action-RemoveAssistantAIAgent "#list_q-in-connect-action-RemoveAssistantAIAgent")                            |                |                   | Write          |
-| RemoveKnowledgeBaseTemplateUri                                                                                                    | qconnect            | [wisdom:RemoveKnowledgeBaseTemplateUri](#list_q-in-connect-action-RemoveKnowledgeBaseTemplateUri "#list_q-in-connect-action-RemoveKnowledgeBaseTemplateUri")    |                |                   | Write          |
-| RenderMessageTemplate                                                                                                             | qconnect            | [wisdom:GetMessageTemplate](#list_q-in-connect-action-GetMessageTemplate "#list_q-in-connect-action-GetMessageTemplate")                                        |                |                   | Read           |
-| [wisdom:RenderMessageTemplate](#list_q-in-connect-action-RenderMessageTemplate "#list_q-in-connect-action-RenderMessageTemplate") |                     |                                                                                                                                                                 | Read           |
-| Retrieve                                                                                                                          | qconnect            | [wisdom:Retrieve](#list_q-in-connect-action-Retrieve "#list_q-in-connect-action-Retrieve")                                                                      |                |                   | Read           |
-| SearchContent                                                                                                                     | qconnect            | [wisdom:SearchContent](#list_q-in-connect-action-SearchContent "#list_q-in-connect-action-SearchContent")                                                       |                |                   | Read           |
-| SearchMessageTemplates                                                                                                            | qconnect            | [wisdom:SearchMessageTemplates](#list_q-in-connect-action-SearchMessageTemplates "#list_q-in-connect-action-SearchMessageTemplates")                            |                |                   | Read           |
-| SearchQuickResponses                                                                                                              | qconnect            | [wisdom:GetQuickResponse](#list_q-in-connect-action-GetQuickResponse "#list_q-in-connect-action-GetQuickResponse")                                              |                |                   | Read           |
-| [wisdom:SearchQuickResponses](#list_q-in-connect-action-SearchQuickResponses "#list_q-in-connect-action-SearchQuickResponses")    |                     |                                                                                                                                                                 | Read           |
-| SearchSessions                                                                                                                    | qconnect            | [wisdom:SearchSessions](#list_q-in-connect-action-SearchSessions "#list_q-in-connect-action-SearchSessions")                                                    |                |                   | Read           |
-| SendMessage                                                                                                                       | qconnect            | [wisdom:SendMessage](#list_q-in-connect-action-SendMessage "#list_q-in-connect-action-SendMessage")                                                             |                |                   | Write          |
-| StartContentUpload                                                                                                                | qconnect            | [wisdom:StartContentUpload](#list_q-in-connect-action-StartContentUpload "#list_q-in-connect-action-StartContentUpload")                                        |                |                   | Write          |
-| StartImportJob                                                                                                                    | qconnect            | [wisdom:StartImportJob](#list_q-in-connect-action-StartImportJob "#list_q-in-connect-action-StartImportJob")                                                    |                |                   | Write          |
-| TagResource                                                                                                                       | qconnect            | [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                                                             |                |                   | Tagging, Write |
-| UntagResource                                                                                                                     | qconnect            | [wisdom:UntagResource](#list_q-in-connect-action-UntagResource "#list_q-in-connect-action-UntagResource")                                                       |                |                   | Tagging, Write |
-| UpdateAIAgent                                                                                                                     | qconnect            | [wisdom:UpdateAIAgent](#list_q-in-connect-action-UpdateAIAgent "#list_q-in-connect-action-UpdateAIAgent")                                                       |                |                   | Write          |
-| UpdateAIGuardrail                                                                                                                 | qconnect            | [wisdom:UpdateAIGuardrail](#list_q-in-connect-action-UpdateAIGuardrail "#list_q-in-connect-action-UpdateAIGuardrail")                                           |                |                   | Write          |
-| UpdateAIPrompt                                                                                                                    | qconnect            | [wisdom:UpdateAIPrompt](#list_q-in-connect-action-UpdateAIPrompt "#list_q-in-connect-action-UpdateAIPrompt")                                                    |                |                   | Write          |
-| UpdateAssistantAIAgent                                                                                                            | qconnect            | [wisdom:UpdateAssistantAIAgent](#list_q-in-connect-action-UpdateAssistantAIAgent "#list_q-in-connect-action-UpdateAssistantAIAgent")                            |                |                   | Write          |
-| UpdateContent                                                                                                                     | qconnect            | [wisdom:UpdateContent](#list_q-in-connect-action-UpdateContent "#list_q-in-connect-action-UpdateContent")                                                       |                |                   | Write          |
-| UpdateKnowledgeBaseTemplateUri                                                                                                    | qconnect            | [wisdom:UpdateKnowledgeBaseTemplateUri](#list_q-in-connect-action-UpdateKnowledgeBaseTemplateUri "#list_q-in-connect-action-UpdateKnowledgeBaseTemplateUri")    |                |                   | Write          |
-| UpdateMessageTemplate                                                                                                             | qconnect            | [wisdom:UpdateMessageTemplate](#list_q-in-connect-action-UpdateMessageTemplate "#list_q-in-connect-action-UpdateMessageTemplate")                               |                |                   | Write          |
-| UpdateMessageTemplateMetadata                                                                                                     | qconnect            | [wisdom:UpdateMessageTemplateMetadata](#list_q-in-connect-action-UpdateMessageTemplateMetadata "#list_q-in-connect-action-UpdateMessageTemplateMetadata")       |                |                   | Write          |
-| UpdateQuickResponse                                                                                                               | qconnect            | [wisdom:UpdateQuickResponse](#list_q-in-connect-action-UpdateQuickResponse "#list_q-in-connect-action-UpdateQuickResponse")                                     |                |                   | Write          |
-| UpdateSession                                                                                                                     | qconnect            | [wisdom:UpdateSession](#list_q-in-connect-action-UpdateSession "#list_q-in-connect-action-UpdateSession")                                                       |                |                   | Write          |
-| UpdateSessionData                                                                                                                 | qconnect            | [wisdom:UpdateSessionData](#list_q-in-connect-action-UpdateSessionData "#list_q-in-connect-action-UpdateSessionData")                                           |                |                   | Write          |
-| CreateAssistant                                                                                                                   | wisdom              | [wisdom:CreateAssistant](#list_q-in-connect-action-CreateAssistant "#list_q-in-connect-action-CreateAssistant")                                                 |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateAssistantAssociation                                                                                                        | wisdom              | [wisdom:CreateAssistantAssociation](#list_q-in-connect-action-CreateAssistantAssociation "#list_q-in-connect-action-CreateAssistantAssociation")                |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")   | iam:PassedToService | wisdom.amazonaws.com                                                                                                                                            | Write          |
-| CreateContent                                                                                                                     | wisdom              | [wisdom:CreateContent](#list_q-in-connect-action-CreateContent "#list_q-in-connect-action-CreateContent")                                                       |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateKnowledgeBase                                                                                                               | wisdom              | [wisdom:CreateKnowledgeBase](#list_q-in-connect-action-CreateKnowledgeBase "#list_q-in-connect-action-CreateKnowledgeBase")                                     |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateQuickResponse                                                                                                               | wisdom              | [wisdom:CreateQuickResponse](#list_q-in-connect-action-CreateQuickResponse "#list_q-in-connect-action-CreateQuickResponse")                                     |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateSession                                                                                                                     | wisdom              | [wisdom:CreateSession](#list_q-in-connect-action-CreateSession "#list_q-in-connect-action-CreateSession")                                                       |                |                   | Write          |
-| [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                               |                     |                                                                                                                                                                 | Tagging, Write |
-| DeleteAssistant                                                                                                                   | wisdom              | [wisdom:DeleteAssistant](#list_q-in-connect-action-DeleteAssistant "#list_q-in-connect-action-DeleteAssistant")                                                 |                |                   | Write          |
-| DeleteAssistantAssociation                                                                                                        | wisdom              | [wisdom:DeleteAssistantAssociation](#list_q-in-connect-action-DeleteAssistantAssociation "#list_q-in-connect-action-DeleteAssistantAssociation")                |                |                   | Write          |
-| DeleteContent                                                                                                                     | wisdom              | [wisdom:DeleteContent](#list_q-in-connect-action-DeleteContent "#list_q-in-connect-action-DeleteContent")                                                       |                |                   | Write          |
-| DeleteImportJob                                                                                                                   | wisdom              | [wisdom:DeleteImportJob](#list_q-in-connect-action-DeleteImportJob "#list_q-in-connect-action-DeleteImportJob")                                                 |                |                   | Write          |
-| DeleteKnowledgeBase                                                                                                               | wisdom              | [wisdom:DeleteKnowledgeBase](#list_q-in-connect-action-DeleteKnowledgeBase "#list_q-in-connect-action-DeleteKnowledgeBase")                                     |                |                   | Write          |
-| DeleteQuickResponse                                                                                                               | wisdom              | [wisdom:DeleteQuickResponse](#list_q-in-connect-action-DeleteQuickResponse "#list_q-in-connect-action-DeleteQuickResponse")                                     |                |                   | Write          |
-| GetAssistant                                                                                                                      | wisdom              | [wisdom:GetAssistant](#list_q-in-connect-action-GetAssistant "#list_q-in-connect-action-GetAssistant")                                                          |                |                   | Read           |
-| GetAssistantAssociation                                                                                                           | wisdom              | [wisdom:GetAssistantAssociation](#list_q-in-connect-action-GetAssistantAssociation "#list_q-in-connect-action-GetAssistantAssociation")                         |                |                   | Read           |
-| GetContent                                                                                                                        | wisdom              | [wisdom:GetContent](#list_q-in-connect-action-GetContent "#list_q-in-connect-action-GetContent")                                                                |                |                   | Read           |
-| GetContentSummary                                                                                                                 | wisdom              | [wisdom:GetContentSummary](#list_q-in-connect-action-GetContentSummary "#list_q-in-connect-action-GetContentSummary")                                           |                |                   | Read           |
-| GetImportJob                                                                                                                      | wisdom              | [wisdom:GetImportJob](#list_q-in-connect-action-GetImportJob "#list_q-in-connect-action-GetImportJob")                                                          |                |                   | Read           |
-| GetKnowledgeBase                                                                                                                  | wisdom              | [wisdom:GetKnowledgeBase](#list_q-in-connect-action-GetKnowledgeBase "#list_q-in-connect-action-GetKnowledgeBase")                                              |                |                   | Read           |
-| GetQuickResponse                                                                                                                  | wisdom              | [wisdom:GetQuickResponse](#list_q-in-connect-action-GetQuickResponse "#list_q-in-connect-action-GetQuickResponse")                                              |                |                   | Read           |
-| GetRecommendations                                                                                                                | wisdom              | [wisdom:GetRecommendations](#list_q-in-connect-action-GetRecommendations "#list_q-in-connect-action-GetRecommendations")                                        |                |                   | Read           |
-| GetSession                                                                                                                        | wisdom              | [wisdom:GetSession](#list_q-in-connect-action-GetSession "#list_q-in-connect-action-GetSession")                                                                |                |                   | Read           |
-| ListAssistantAssociations                                                                                                         | wisdom              | [wisdom:ListAssistantAssociations](#list_q-in-connect-action-ListAssistantAssociations "#list_q-in-connect-action-ListAssistantAssociations")                   |                |                   | List           |
-| ListAssistants                                                                                                                    | wisdom              | [wisdom:ListAssistants](#list_q-in-connect-action-ListAssistants "#list_q-in-connect-action-ListAssistants")                                                    |                |                   | List           |
-| ListContents                                                                                                                      | wisdom              | [wisdom:ListContents](#list_q-in-connect-action-ListContents "#list_q-in-connect-action-ListContents")                                                          |                |                   | List           |
-| ListImportJobs                                                                                                                    | wisdom              | [wisdom:ListImportJobs](#list_q-in-connect-action-ListImportJobs "#list_q-in-connect-action-ListImportJobs")                                                    |                |                   | List           |
-| ListKnowledgeBases                                                                                                                | wisdom              | [wisdom:ListKnowledgeBases](#list_q-in-connect-action-ListKnowledgeBases "#list_q-in-connect-action-ListKnowledgeBases")                                        |                |                   | List           |
-| ListQuickResponses                                                                                                                | wisdom              | [wisdom:ListQuickResponses](#list_q-in-connect-action-ListQuickResponses "#list_q-in-connect-action-ListQuickResponses")                                        |                |                   | List           |
-| ListTagsForResource                                                                                                               | wisdom              | [wisdom:ListTagsForResource](#list_q-in-connect-action-ListTagsForResource "#list_q-in-connect-action-ListTagsForResource")                                     |                |                   | Read           |
-| NotifyRecommendationsReceived                                                                                                     | wisdom              | [wisdom:NotifyRecommendationsReceived](#list_q-in-connect-action-NotifyRecommendationsReceived "#list_q-in-connect-action-NotifyRecommendationsReceived")       |                |                   | Write          |
-| QueryAssistant                                                                                                                    | wisdom              | [wisdom:QueryAssistant](#list_q-in-connect-action-QueryAssistant "#list_q-in-connect-action-QueryAssistant")                                                    |                |                   | Read           |
-| RemoveKnowledgeBaseTemplateUri                                                                                                    | wisdom              | [wisdom:RemoveKnowledgeBaseTemplateUri](#list_q-in-connect-action-RemoveKnowledgeBaseTemplateUri "#list_q-in-connect-action-RemoveKnowledgeBaseTemplateUri")    |                |                   | Write          |
-| SearchContent                                                                                                                     | wisdom              | [wisdom:SearchContent](#list_q-in-connect-action-SearchContent "#list_q-in-connect-action-SearchContent")                                                       |                |                   | Read           |
-| SearchQuickResponses                                                                                                              | wisdom              | [wisdom:GetQuickResponse](#list_q-in-connect-action-GetQuickResponse "#list_q-in-connect-action-GetQuickResponse")                                              |                |                   | Read           |
-| [wisdom:SearchQuickResponses](#list_q-in-connect-action-SearchQuickResponses "#list_q-in-connect-action-SearchQuickResponses")    |                     |                                                                                                                                                                 | Read           |
-| SearchSessions                                                                                                                    | wisdom              | [wisdom:SearchSessions](#list_q-in-connect-action-SearchSessions "#list_q-in-connect-action-SearchSessions")                                                    |                |                   | Read           |
-| StartContentUpload                                                                                                                | wisdom              | [wisdom:StartContentUpload](#list_q-in-connect-action-StartContentUpload "#list_q-in-connect-action-StartContentUpload")                                        |                |                   | Write          |
-| StartImportJob                                                                                                                    | wisdom              | [wisdom:StartImportJob](#list_q-in-connect-action-StartImportJob "#list_q-in-connect-action-StartImportJob")                                                    |                |                   | Write          |
-| TagResource                                                                                                                       | wisdom              | [wisdom:TagResource](#list_q-in-connect-action-TagResource "#list_q-in-connect-action-TagResource")                                                             |                |                   | Tagging, Write |
-| UntagResource                                                                                                                     | wisdom              | [wisdom:UntagResource](#list_q-in-connect-action-UntagResource "#list_q-in-connect-action-UntagResource")                                                       |                |                   | Tagging, Write |
-| UpdateContent                                                                                                                     | wisdom              | [wisdom:UpdateContent](#list_q-in-connect-action-UpdateContent "#list_q-in-connect-action-UpdateContent")                                                       |                |                   | Write          |
-| UpdateKnowledgeBaseTemplateUri                                                                                                    | wisdom              | [wisdom:UpdateKnowledgeBaseTemplateUri](#list_q-in-connect-action-UpdateKnowledgeBaseTemplateUri "#list_q-in-connect-action-UpdateKnowledgeBaseTemplateUri")    |                |                   | Write          |
-| UpdateQuickResponse                                                                                                               | wisdom              | [wisdom:UpdateQuickResponse](#list_q-in-connect-action-UpdateQuickResponse "#list_q-in-connect-action-UpdateQuickResponse")                                     |                |                   | Write          |
+
+
+
+- **   ActivateMessageTemplate  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ActivateMessageTemplate](#list_q-in-connect-action-ActivateMessageTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAIAgent  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:CreateAIAgent](#list_q-in-connect-action-CreateAIAgent)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateAIAgentVersion  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:CreateAIAgentVersion](#list_q-in-connect-action-CreateAIAgentVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAIGuardrail  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:CreateAIGuardrail](#list_q-in-connect-action-CreateAIGuardrail)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateAIGuardrailVersion  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:CreateAIGuardrailVersion](#list_q-in-connect-action-CreateAIGuardrailVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAIPrompt  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:CreateAIPrompt](#list_q-in-connect-action-CreateAIPrompt)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateAIPromptVersion  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:CreateAIPromptVersion](#list_q-in-connect-action-CreateAIPromptVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAssistant  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:CreateAssistant](#list_q-in-connect-action-CreateAssistant)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateAssistantAssociation  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:CreateAssistantAssociation](#list_q-in-connect-action-CreateAssistantAssociation)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** wisdom.amazonaws.com / **Access level:** Write
+
+- **   CreateContent  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:CreateContent](#list_q-in-connect-action-CreateContent)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateContentAssociation  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:CreateContentAssociation](#list_q-in-connect-action-CreateContentAssociation)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateKnowledgeBase  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:CreateKnowledgeBase](#list_q-in-connect-action-CreateKnowledgeBase)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateMessageTemplate  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:CreateMessageTemplate](#list_q-in-connect-action-CreateMessageTemplate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateMessageTemplateAttachment  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:CreateMessageTemplateAttachment](#list_q-in-connect-action-CreateMessageTemplateAttachment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateMessageTemplateVersion  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:CreateMessageTemplateVersion](#list_q-in-connect-action-CreateMessageTemplateVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateQuickResponse  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:CreateQuickResponse](#list_q-in-connect-action-CreateQuickResponse)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateSession  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:CreateSession](#list_q-in-connect-action-CreateSession)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeactivateMessageTemplate  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:DeactivateMessageTemplate](#list_q-in-connect-action-DeactivateMessageTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAIAgent  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:DeleteAIAgent](#list_q-in-connect-action-DeleteAIAgent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAIAgentVersion  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:DeleteAIAgentVersion](#list_q-in-connect-action-DeleteAIAgentVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAIGuardrail  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:DeleteAIGuardrail](#list_q-in-connect-action-DeleteAIGuardrail) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAIGuardrailVersion  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:DeleteAIGuardrailVersion](#list_q-in-connect-action-DeleteAIGuardrailVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAIPrompt  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:DeleteAIPrompt](#list_q-in-connect-action-DeleteAIPrompt) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAIPromptVersion  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:DeleteAIPromptVersion](#list_q-in-connect-action-DeleteAIPromptVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAssistant  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:DeleteAssistant](#list_q-in-connect-action-DeleteAssistant) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAssistantAssociation  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:DeleteAssistantAssociation](#list_q-in-connect-action-DeleteAssistantAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteContent  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:DeleteContent](#list_q-in-connect-action-DeleteContent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteContentAssociation  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:DeleteContentAssociation](#list_q-in-connect-action-DeleteContentAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteImportJob  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:DeleteImportJob](#list_q-in-connect-action-DeleteImportJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteKnowledgeBase  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:DeleteKnowledgeBase](#list_q-in-connect-action-DeleteKnowledgeBase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteMessageTemplate  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:DeleteMessageTemplate](#list_q-in-connect-action-DeleteMessageTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteMessageTemplateAttachment  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:DeleteMessageTemplateAttachment](#list_q-in-connect-action-DeleteMessageTemplateAttachment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteQuickResponse  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:DeleteQuickResponse](#list_q-in-connect-action-DeleteQuickResponse) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAIAgent  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetAIAgent](#list_q-in-connect-action-GetAIAgent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAIGuardrail  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetAIGuardrail](#list_q-in-connect-action-GetAIGuardrail) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAIPrompt  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetAIPrompt](#list_q-in-connect-action-GetAIPrompt) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAssistant  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetAssistant](#list_q-in-connect-action-GetAssistant) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAssistantAssociation  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetAssistantAssociation](#list_q-in-connect-action-GetAssistantAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetContent  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetContent](#list_q-in-connect-action-GetContent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetContentAssociation  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetContentAssociation](#list_q-in-connect-action-GetContentAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetContentSummary  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetContentSummary](#list_q-in-connect-action-GetContentSummary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetImportJob  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetImportJob](#list_q-in-connect-action-GetImportJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetKnowledgeBase  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetKnowledgeBase](#list_q-in-connect-action-GetKnowledgeBase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMessageTemplate  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetMessageTemplate](#list_q-in-connect-action-GetMessageTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetNextMessage  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetNextMessage](#list_q-in-connect-action-GetNextMessage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetQuickResponse  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetQuickResponse](#list_q-in-connect-action-GetQuickResponse) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRecommendations  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetRecommendations](#list_q-in-connect-action-GetRecommendations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSession  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetSession](#list_q-in-connect-action-GetSession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAIAgentVersions  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListAIAgentVersions](#list_q-in-connect-action-ListAIAgentVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAIAgents  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListAIAgents](#list_q-in-connect-action-ListAIAgents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAIGuardrailVersions  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListAIGuardrailVersions](#list_q-in-connect-action-ListAIGuardrailVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAIGuardrails  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListAIGuardrails](#list_q-in-connect-action-ListAIGuardrails) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAIPromptVersions  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListAIPromptVersions](#list_q-in-connect-action-ListAIPromptVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAIPrompts  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListAIPrompts](#list_q-in-connect-action-ListAIPrompts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAssistantAssociations  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListAssistantAssociations](#list_q-in-connect-action-ListAssistantAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAssistants  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListAssistants](#list_q-in-connect-action-ListAssistants) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListContentAssociations  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListContentAssociations](#list_q-in-connect-action-ListContentAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListContents  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListContents](#list_q-in-connect-action-ListContents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListImportJobs  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListImportJobs](#list_q-in-connect-action-ListImportJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListKnowledgeBases  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListKnowledgeBases](#list_q-in-connect-action-ListKnowledgeBases) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMessageTemplateVersions  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListMessageTemplateVersions](#list_q-in-connect-action-ListMessageTemplateVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMessageTemplates  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListMessageTemplates](#list_q-in-connect-action-ListMessageTemplates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMessages  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListMessages](#list_q-in-connect-action-ListMessages) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListModels  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListModels](#list_q-in-connect-action-ListModels) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListQuickResponses  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListQuickResponses](#list_q-in-connect-action-ListQuickResponses) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSpans  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListSpans](#list_q-in-connect-action-ListSpans) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:ListTagsForResource](#list_q-in-connect-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   NotifyRecommendationsReceived  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:NotifyRecommendationsReceived](#list_q-in-connect-action-NotifyRecommendationsReceived) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutFeedback  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:PutFeedback](#list_q-in-connect-action-PutFeedback) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   QueryAssistant  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:QueryAssistant](#list_q-in-connect-action-QueryAssistant) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   RemoveAssistantAIAgent  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:RemoveAssistantAIAgent](#list_q-in-connect-action-RemoveAssistantAIAgent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RemoveKnowledgeBaseTemplateUri  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:RemoveKnowledgeBaseTemplateUri](#list_q-in-connect-action-RemoveKnowledgeBaseTemplateUri) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RenderMessageTemplate  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetMessageTemplate](#list_q-in-connect-action-GetMessageTemplate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [wisdom:RenderMessageTemplate](#list_q-in-connect-action-RenderMessageTemplate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   Retrieve  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:Retrieve](#list_q-in-connect-action-Retrieve) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   SearchContent  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:SearchContent](#list_q-in-connect-action-SearchContent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   SearchMessageTemplates  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:SearchMessageTemplates](#list_q-in-connect-action-SearchMessageTemplates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   SearchQuickResponses  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:GetQuickResponse](#list_q-in-connect-action-GetQuickResponse)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [wisdom:SearchQuickResponses](#list_q-in-connect-action-SearchQuickResponses)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   SearchSessions  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:SearchSessions](#list_q-in-connect-action-SearchSessions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   SendMessage  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:SendMessage](#list_q-in-connect-action-SendMessage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartContentUpload  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:StartContentUpload](#list_q-in-connect-action-StartContentUpload) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartImportJob  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:StartImportJob](#list_q-in-connect-action-StartImportJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:UntagResource](#list_q-in-connect-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAIAgent  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:UpdateAIAgent](#list_q-in-connect-action-UpdateAIAgent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAIGuardrail  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:UpdateAIGuardrail](#list_q-in-connect-action-UpdateAIGuardrail) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAIPrompt  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:UpdateAIPrompt](#list_q-in-connect-action-UpdateAIPrompt) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAssistantAIAgent  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:UpdateAssistantAIAgent](#list_q-in-connect-action-UpdateAssistantAIAgent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateContent  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:UpdateContent](#list_q-in-connect-action-UpdateContent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateKnowledgeBaseTemplateUri  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:UpdateKnowledgeBaseTemplateUri](#list_q-in-connect-action-UpdateKnowledgeBaseTemplateUri) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateMessageTemplate  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:UpdateMessageTemplate](#list_q-in-connect-action-UpdateMessageTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateMessageTemplateMetadata  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:UpdateMessageTemplateMetadata](#list_q-in-connect-action-UpdateMessageTemplateMetadata) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateQuickResponse  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:UpdateQuickResponse](#list_q-in-connect-action-UpdateQuickResponse) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSession  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:UpdateSession](#list_q-in-connect-action-UpdateSession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSessionData  **
+  - **SDK client:** qconnect
+  - **IAM action:**  [wisdom:UpdateSessionData](#list_q-in-connect-action-UpdateSessionData) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAssistant  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:CreateAssistant](#list_q-in-connect-action-CreateAssistant)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateAssistantAssociation  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:CreateAssistantAssociation](#list_q-in-connect-action-CreateAssistantAssociation)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** wisdom.amazonaws.com / **Access level:** Write
+
+- **   CreateContent  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:CreateContent](#list_q-in-connect-action-CreateContent)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateKnowledgeBase  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:CreateKnowledgeBase](#list_q-in-connect-action-CreateKnowledgeBase)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateQuickResponse  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:CreateQuickResponse](#list_q-in-connect-action-CreateQuickResponse)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateSession  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:CreateSession](#list_q-in-connect-action-CreateSession)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteAssistant  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:DeleteAssistant](#list_q-in-connect-action-DeleteAssistant) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAssistantAssociation  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:DeleteAssistantAssociation](#list_q-in-connect-action-DeleteAssistantAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteContent  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:DeleteContent](#list_q-in-connect-action-DeleteContent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteImportJob  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:DeleteImportJob](#list_q-in-connect-action-DeleteImportJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteKnowledgeBase  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:DeleteKnowledgeBase](#list_q-in-connect-action-DeleteKnowledgeBase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteQuickResponse  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:DeleteQuickResponse](#list_q-in-connect-action-DeleteQuickResponse) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAssistant  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:GetAssistant](#list_q-in-connect-action-GetAssistant) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAssistantAssociation  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:GetAssistantAssociation](#list_q-in-connect-action-GetAssistantAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetContent  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:GetContent](#list_q-in-connect-action-GetContent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetContentSummary  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:GetContentSummary](#list_q-in-connect-action-GetContentSummary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetImportJob  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:GetImportJob](#list_q-in-connect-action-GetImportJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetKnowledgeBase  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:GetKnowledgeBase](#list_q-in-connect-action-GetKnowledgeBase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetQuickResponse  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:GetQuickResponse](#list_q-in-connect-action-GetQuickResponse) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRecommendations  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:GetRecommendations](#list_q-in-connect-action-GetRecommendations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSession  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:GetSession](#list_q-in-connect-action-GetSession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAssistantAssociations  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:ListAssistantAssociations](#list_q-in-connect-action-ListAssistantAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAssistants  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:ListAssistants](#list_q-in-connect-action-ListAssistants) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListContents  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:ListContents](#list_q-in-connect-action-ListContents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListImportJobs  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:ListImportJobs](#list_q-in-connect-action-ListImportJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListKnowledgeBases  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:ListKnowledgeBases](#list_q-in-connect-action-ListKnowledgeBases) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListQuickResponses  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:ListQuickResponses](#list_q-in-connect-action-ListQuickResponses) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:ListTagsForResource](#list_q-in-connect-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   NotifyRecommendationsReceived  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:NotifyRecommendationsReceived](#list_q-in-connect-action-NotifyRecommendationsReceived) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   QueryAssistant  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:QueryAssistant](#list_q-in-connect-action-QueryAssistant) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   RemoveKnowledgeBaseTemplateUri  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:RemoveKnowledgeBaseTemplateUri](#list_q-in-connect-action-RemoveKnowledgeBaseTemplateUri) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SearchContent  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:SearchContent](#list_q-in-connect-action-SearchContent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   SearchQuickResponses  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:GetQuickResponse](#list_q-in-connect-action-GetQuickResponse)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [wisdom:SearchQuickResponses](#list_q-in-connect-action-SearchQuickResponses)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   SearchSessions  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:SearchSessions](#list_q-in-connect-action-SearchSessions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartContentUpload  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:StartContentUpload](#list_q-in-connect-action-StartContentUpload) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartImportJob  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:StartImportJob](#list_q-in-connect-action-StartImportJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:TagResource](#list_q-in-connect-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:UntagResource](#list_q-in-connect-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateContent  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:UpdateContent](#list_q-in-connect-action-UpdateContent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateKnowledgeBaseTemplateUri  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:UpdateKnowledgeBaseTemplateUri](#list_q-in-connect-action-UpdateKnowledgeBaseTemplateUri) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateQuickResponse  **
+  - **SDK client:** wisdom
+  - **IAM action:**  [wisdom:UpdateQuickResponse](#list_q-in-connect-action-UpdateQuickResponse) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon Q in Connect
+<a name="list_q-in-connect-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Resource types (\*required)                                                                                                   | Condition keys                                                                                                                                                                                                                                                                                                                                                                                                                   | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [ActivateMessageTemplate](../../../wisdom/latest/APIReference/API_ActivateMessageTemplate.md "../../../wisdom/latest/APIReference/API_ActivateMessageTemplate.md")                         | Grants permission to activate a message template                                                                                                                                                                                                                                                                                                                                                                                                                                                             | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate "#list_q-in-connect-resource-MessageTemplate")                                                                             | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn "#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn")                                                                                                                                                                                                            |
-| [CreateAIAgent](../../../wisdom/latest/APIReference/API_CreateAIAgent.md "../../../wisdom/latest/APIReference/API_CreateAIAgent.md")                                                       | Grants permission to create an ai agent                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                                                                               | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                                                                          | Write          |
-| [CreateAIAgentVersion](../../../wisdom/latest/APIReference/API_CreateAIAgentVersion.md "../../../wisdom/latest/APIReference/API_CreateAIAgentVersion.md")                                  | Grants permission to create an ai agent version                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [AIAgent\*](#list_q-in-connect-resource-AIAgent "#list_q-in-connect-resource-AIAgent")                                        | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                              | Write          |
-| [CreateAIGuardrail](../../../wisdom/latest/APIReference/API_CreateAIGuardrail.md "../../../wisdom/latest/APIReference/API_CreateAIGuardrail.md")                                           | Grants permission to create an ai guardrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                                               | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                                                                          | Write          |
-| [CreateAIGuardrailVersion](../../../wisdom/latest/APIReference/API_CreateAIGuardrailVersion.md "../../../wisdom/latest/APIReference/API_CreateAIGuardrailVersion.md")                      | Grants permission to create an ai guardrail version                                                                                                                                                                                                                                                                                                                                                                                                                                                          | [AIGuardrail\*](#list_q-in-connect-resource-AIGuardrail "#list_q-in-connect-resource-AIGuardrail")                            | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                              | Write          |
-| [CreateAIPrompt](../../../wisdom/latest/APIReference/API_CreateAIPrompt.md "../../../wisdom/latest/APIReference/API_CreateAIPrompt.md")                                                    | Grants permission to create an ai prompt                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                               | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                                                                          | Write          |
-| [CreateAIPromptVersion](../../../wisdom/latest/APIReference/API_CreateAIPromptVersion.md "../../../wisdom/latest/APIReference/API_CreateAIPromptVersion.md")                               | Grants permission to create an ai prompt version                                                                                                                                                                                                                                                                                                                                                                                                                                                             | [AIPrompt\*](#list_q-in-connect-resource-AIPrompt "#list_q-in-connect-resource-AIPrompt")                                     | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                              | Write          |
-| [CreateAssistant](../../../wisdom/latest/APIReference/API_CreateAssistant.md "../../../wisdom/latest/APIReference/API_CreateAssistant.md")                                                 | Grants permission to create an assistant                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                               | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                                                                          | Write          |
-| [CreateAssistantAssociation](../../../wisdom/latest/APIReference/API_CreateAssistantAssociation.md "../../../wisdom/latest/APIReference/API_CreateAssistantAssociation.md")                | Grants permission to create an association between an assistant and another resource                                                                                                                                                                                                                                                                                                                                                                                                                         |                                                                                                                               | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                                                                          | Write          |
-| [CreateContent](../../../wisdom/latest/APIReference/API_CreateContent.md "../../../wisdom/latest/APIReference/API_CreateContent.md")                                                       | Grants permission to create content                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                              | Write          |
-| [CreateContentAssociation](../../../wisdom/latest/APIReference/API_CreateContentAssociation.md "../../../wisdom/latest/APIReference/API_CreateContentAssociation.md")                      | Grants permission to create a content association                                                                                                                                                                                                                                                                                                                                                                                                                                                            | [Content\*](#list_q-in-connect-resource-Content "#list_q-in-connect-resource-Content")                                        | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                              | Write          |
-| [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                                                                                   | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                          |
-| [CreateKnowledgeBase](../../../wisdom/latest/APIReference/API_CreateKnowledgeBase.md "../../../wisdom/latest/APIReference/API_CreateKnowledgeBase.md")                                     | Grants permission to create a knowledge base                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                               | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                                                                          | Write          |
-| [CreateMessageTemplate](../../../wisdom/latest/APIReference/API_CreateMessageTemplate.md "../../../wisdom/latest/APIReference/API_CreateMessageTemplate.md")                               | Grants permission to create a message template                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                              | Write          |
-| [CreateMessageTemplateAttachment](../../../wisdom/latest/APIReference/API_CreateMessageTemplateAttachment.md "../../../wisdom/latest/APIReference/API_CreateMessageTemplateAttachment.md") | Grants permission to create an attachment to a message template                                                                                                                                                                                                                                                                                                                                                                                                                                              | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate "#list_q-in-connect-resource-MessageTemplate")                                                                             | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn "#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn")                                                                                                                                                                                                            |
-| [CreateMessageTemplateVersion](../../../wisdom/latest/APIReference/API_CreateMessageTemplateVersion.md "../../../wisdom/latest/APIReference/API_CreateMessageTemplateVersion.md")          | Grants permission to create a version of a message template                                                                                                                                                                                                                                                                                                                                                                                                                                                  | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate "#list_q-in-connect-resource-MessageTemplate")                                                                             | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn "#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn")                                                                                                                                                                                                            |
-| [CreateQuickResponse](../../../wisdom/latest/APIReference/API_CreateQuickResponse.md "../../../wisdom/latest/APIReference/API_CreateQuickResponse.md")                                     | Grants permission to create quick response                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |                                                                                                                               | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                                                                          | Write          |
-| [CreateSession](../../../wisdom/latest/APIReference/API_CreateSession.md "../../../wisdom/latest/APIReference/API_CreateSession.md")                                                       | Grants permission to create a session                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                               | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                                                                          | Write          |
-| [DeactivateMessageTemplate](../../../wisdom/latest/APIReference/API_DeactivateMessageTemplate.md "../../../wisdom/latest/APIReference/API_DeactivateMessageTemplate.md")                   | Grants permission to deactivate a message template                                                                                                                                                                                                                                                                                                                                                                                                                                                           | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate "#list_q-in-connect-resource-MessageTemplate")                                                                             | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn "#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn")                                                                                                                                                                                                            |
-| [DeleteAIAgent](../../../wisdom/latest/APIReference/API_DeleteAIAgent.md "../../../wisdom/latest/APIReference/API_DeleteAIAgent.md")                                                       | Grants permission to delete an ai agent                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | [AIAgent\*](#list_q-in-connect-resource-AIAgent "#list_q-in-connect-resource-AIAgent")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteAIAgentVersion](../../../wisdom/latest/APIReference/API_DeleteAIAgentVersion.md "../../../wisdom/latest/APIReference/API_DeleteAIAgentVersion.md")                                  | Grants permission to delete an ai agent version                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [AIAgent\*](#list_q-in-connect-resource-AIAgent "#list_q-in-connect-resource-AIAgent")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteAIGuardrail](../../../wisdom/latest/APIReference/API_DeleteAIGuardrail.md "../../../wisdom/latest/APIReference/API_DeleteAIGuardrail.md")                                           | Grants permission to delete an ai guardrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | [AIGuardrail\*](#list_q-in-connect-resource-AIGuardrail "#list_q-in-connect-resource-AIGuardrail")                            | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteAIGuardrailVersion](../../../wisdom/latest/APIReference/API_DeleteAIGuardrailVersion.md "../../../wisdom/latest/APIReference/API_DeleteAIGuardrailVersion.md")                      | Grants permission to delete an ai guardrail version                                                                                                                                                                                                                                                                                                                                                                                                                                                          | [AIGuardrail\*](#list_q-in-connect-resource-AIGuardrail "#list_q-in-connect-resource-AIGuardrail")                            | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteAIPrompt](../../../wisdom/latest/APIReference/API_DeleteAIPrompt.md "../../../wisdom/latest/APIReference/API_DeleteAIPrompt.md")                                                    | Grants permission to delete an ai prompt                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | [AIPrompt\*](#list_q-in-connect-resource-AIPrompt "#list_q-in-connect-resource-AIPrompt")                                     | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteAIPromptVersion](../../../wisdom/latest/APIReference/API_DeleteAIPromptVersion.md "../../../wisdom/latest/APIReference/API_DeleteAIPromptVersion.md")                               | Grants permission to delete an ai prompt version                                                                                                                                                                                                                                                                                                                                                                                                                                                             | [AIPrompt\*](#list_q-in-connect-resource-AIPrompt "#list_q-in-connect-resource-AIPrompt")                                     | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteAssistant](../../../wisdom/latest/APIReference/API_DeleteAssistant.md "../../../wisdom/latest/APIReference/API_DeleteAssistant.md")                                                 | Grants permission to delete an assistant                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | [Assistant\*](#list_q-in-connect-resource-Assistant "#list_q-in-connect-resource-Assistant")                                  | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteAssistantAssociation](../../../wisdom/latest/APIReference/API_DeleteAssistantAssociation.md "../../../wisdom/latest/APIReference/API_DeleteAssistantAssociation.md")                | Grants permission to delete an assistant association                                                                                                                                                                                                                                                                                                                                                                                                                                                         | [AssistantAssociation\*](#list_q-in-connect-resource-AssistantAssociation "#list_q-in-connect-resource-AssistantAssociation") | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteContent](../../../wisdom/latest/APIReference/API_DeleteContent.md "../../../wisdom/latest/APIReference/API_DeleteContent.md")                                                       | Grants permission to delete content                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | [Content\*](#list_q-in-connect-resource-Content "#list_q-in-connect-resource-Content")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                                                                                   | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                     |
-| [DeleteContentAssociation](../../../wisdom/latest/APIReference/API_DeleteContentAssociation.md "../../../wisdom/latest/APIReference/API_DeleteContentAssociation.md")                      | Grants permission to delete a content association                                                                                                                                                                                                                                                                                                                                                                                                                                                            | [Content\*](#list_q-in-connect-resource-Content "#list_q-in-connect-resource-Content")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [ContentAssociation\*](#list_q-in-connect-resource-ContentAssociation "#list_q-in-connect-resource-ContentAssociation")                                                                    | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                     |
-| [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                                                                                   | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                     |
-| [DeleteImportJob](../../../wisdom/latest/APIReference/API_DeleteImportJob.md "../../../wisdom/latest/APIReference/API_DeleteImportJob.md")                                                 | Grants permission to delete a import job of a knowledge base                                                                                                                                                                                                                                                                                                                                                                                                                                                 | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteKnowledgeBase](../../../wisdom/latest/APIReference/API_DeleteKnowledgeBase.md "../../../wisdom/latest/APIReference/API_DeleteKnowledgeBase.md")                                     | Grants permission to delete a knowledge base                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteMessageTemplate](../../../wisdom/latest/APIReference/API_DeleteMessageTemplate.md "../../../wisdom/latest/APIReference/API_DeleteMessageTemplate.md")                               | Grants permission to delete a message template                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate "#list_q-in-connect-resource-MessageTemplate")                                                                             | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn "#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn")                                                                                                                                                                                                            |
-| [DeleteMessageTemplateAttachment](../../../wisdom/latest/APIReference/API_DeleteMessageTemplateAttachment.md "../../../wisdom/latest/APIReference/API_DeleteMessageTemplateAttachment.md") | Grants permission to delete an attachment from a message template                                                                                                                                                                                                                                                                                                                                                                                                                                            | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate "#list_q-in-connect-resource-MessageTemplate")                                                                             | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn "#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn")                                                                                                                                                                                                            |
-| [DeleteQuickResponse](../../../wisdom/latest/APIReference/API_DeleteQuickResponse.md "../../../wisdom/latest/APIReference/API_DeleteQuickResponse.md")                                     | Grants permission to delete quick response                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [QuickResponse\*](#list_q-in-connect-resource-QuickResponse "#list_q-in-connect-resource-QuickResponse")                                                                                   | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                     |
-| [GetAIAgent](../../../wisdom/latest/APIReference/API_GetAIAgent.md "../../../wisdom/latest/APIReference/API_GetAIAgent.md")                                                                | Grants permission to retrieve information about an ai agent                                                                                                                                                                                                                                                                                                                                                                                                                                                  | [AIAgent\*](#list_q-in-connect-resource-AIAgent "#list_q-in-connect-resource-AIAgent")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [GetAIGuardrail](../../../wisdom/latest/APIReference/API_GetAIGuardrail.md "../../../wisdom/latest/APIReference/API_GetAIGuardrail.md")                                                    | Grants permission to retrieve information about an ai guardrail                                                                                                                                                                                                                                                                                                                                                                                                                                              | [AIGuardrail\*](#list_q-in-connect-resource-AIGuardrail "#list_q-in-connect-resource-AIGuardrail")                            | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [GetAIPrompt](../../../wisdom/latest/APIReference/API_GetAIPrompt.md "../../../wisdom/latest/APIReference/API_GetAIPrompt.md")                                                             | Grants permission to retrieve information about an ai prompt                                                                                                                                                                                                                                                                                                                                                                                                                                                 | [AIPrompt\*](#list_q-in-connect-resource-AIPrompt "#list_q-in-connect-resource-AIPrompt")                                     | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [GetAssistant](../../../wisdom/latest/APIReference/API_GetAssistant.md "../../../wisdom/latest/APIReference/API_GetAssistant.md")                                                          | Grants permission to retrieve information about an assistant                                                                                                                                                                                                                                                                                                                                                                                                                                                 | [Assistant\*](#list_q-in-connect-resource-Assistant "#list_q-in-connect-resource-Assistant")                                  | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [GetAssistantAssociation](../../../wisdom/latest/APIReference/API_GetAssistantAssociation.md "../../../wisdom/latest/APIReference/API_GetAssistantAssociation.md")                         | Grants permission to retrieve information about an assistant association                                                                                                                                                                                                                                                                                                                                                                                                                                     | [AssistantAssociation\*](#list_q-in-connect-resource-AssistantAssociation "#list_q-in-connect-resource-AssistantAssociation") | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [GetContent](../../../wisdom/latest/APIReference/API_GetContent.md "../../../wisdom/latest/APIReference/API_GetContent.md")                                                                | Grants permission to retrieve content, including a pre-signed URL to download the content                                                                                                                                                                                                                                                                                                                                                                                                                    | [Content\*](#list_q-in-connect-resource-Content "#list_q-in-connect-resource-Content")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                                                                                   | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                     |
-| [GetContentAssociation](../../../wisdom/latest/APIReference/API_GetContentAssociation.md "../../../wisdom/latest/APIReference/API_GetContentAssociation.md")                               | Grants permission to retrieve information about a content association                                                                                                                                                                                                                                                                                                                                                                                                                                        | [Content\*](#list_q-in-connect-resource-Content "#list_q-in-connect-resource-Content")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [ContentAssociation\*](#list_q-in-connect-resource-ContentAssociation "#list_q-in-connect-resource-ContentAssociation")                                                                    | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                     |
-| [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                                                                                   | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                     |
-| [GetContentSummary](../../../wisdom/latest/APIReference/API_GetContentSummary.md "../../../wisdom/latest/APIReference/API_GetContentSummary.md")                                           | Grants permission to retrieve summary information about the content                                                                                                                                                                                                                                                                                                                                                                                                                                          | [Content\*](#list_q-in-connect-resource-Content "#list_q-in-connect-resource-Content")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                                                                                   | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                     |
-| [GetImportJob](../../../wisdom/latest/APIReference/API_GetImportJob.md "../../../wisdom/latest/APIReference/API_GetImportJob.md")                                                          | Grants permission to retrieve information about the import job                                                                                                                                                                                                                                                                                                                                                                                                                                               | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [GetKnowledgeBase](../../../wisdom/latest/APIReference/API_GetKnowledgeBase.md "../../../wisdom/latest/APIReference/API_GetKnowledgeBase.md")                                              | Grants permission to retrieve information about the knowledge base                                                                                                                                                                                                                                                                                                                                                                                                                                           | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [GetMessageTemplate](../../../wisdom/latest/APIReference/API_GetMessageTemplate.md "../../../wisdom/latest/APIReference/API_GetMessageTemplate.md")                                        | Grants permission to retrieve a message template                                                                                                                                                                                                                                                                                                                                                                                                                                                             | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn "#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn")                                                                                                                                | Read           |
-| [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate "#list_q-in-connect-resource-MessageTemplate")                                                                             | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn "#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn")                                                                                                                                                                                                            |
-| [GetNextMessage](../../../wisdom/latest/APIReference/API_GetNextMessage.md "../../../wisdom/latest/APIReference/API_GetNextMessage.md")                                                    | Grants permission to retrieve for next message in a session                                                                                                                                                                                                                                                                                                                                                                                                                                                  | [Session\*](#list_q-in-connect-resource-Session "#list_q-in-connect-resource-Session")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [GetQuickResponse](../../../wisdom/latest/APIReference/API_GetQuickResponse.md "../../../wisdom/latest/APIReference/API_GetQuickResponse.md")                                              | Grants permission to retrieve content                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [QuickResponse\*](#list_q-in-connect-resource-QuickResponse "#list_q-in-connect-resource-QuickResponse")                                                                                   | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                     |
-| [GetRecommendations](../../../wisdom/latest/APIReference/API_GetRecommendations.md "../../../wisdom/latest/APIReference/API_GetRecommendations.md")                                        | Grants permission to retrieve recommendations for the specified session                                                                                                                                                                                                                                                                                                                                                                                                                                      | [Session\*](#list_q-in-connect-resource-Session "#list_q-in-connect-resource-Session")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [GetSession](../../../wisdom/latest/APIReference/API_GetSession.md "../../../wisdom/latest/APIReference/API_GetSession.md")                                                                | Grants permission to retrieve information for a specified session                                                                                                                                                                                                                                                                                                                                                                                                                                            | [Session\*](#list_q-in-connect-resource-Session "#list_q-in-connect-resource-Session")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [ListAIAgentVersions](../../../wisdom/latest/APIReference/API_ListAIAgentVersions.md "../../../wisdom/latest/APIReference/API_ListAIAgentVersions.md")                                     | Grants permission to list information about ai agent versions                                                                                                                                                                                                                                                                                                                                                                                                                                                | [AIAgent\*](#list_q-in-connect-resource-AIAgent "#list_q-in-connect-resource-AIAgent")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | List           |
-| [ListAIAgents](../../../wisdom/latest/APIReference/API_ListAIAgents.md "../../../wisdom/latest/APIReference/API_ListAIAgents.md")                                                          | Grants permission to list information about ai agents                                                                                                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                  | List           |
-| [ListAIGuardrailVersions](../../../wisdom/latest/APIReference/API_ListAIGuardrailVersions.md "../../../wisdom/latest/APIReference/API_ListAIGuardrailVersions.md")                         | Grants permission to list information about ai guardrail versions                                                                                                                                                                                                                                                                                                                                                                                                                                            | [AIGuardrail\*](#list_q-in-connect-resource-AIGuardrail "#list_q-in-connect-resource-AIGuardrail")                            | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | List           |
-| [ListAIGuardrails](../../../wisdom/latest/APIReference/API_ListAIGuardrails.md "../../../wisdom/latest/APIReference/API_ListAIGuardrails.md")                                              | Grants permission to list information about ai guardrails                                                                                                                                                                                                                                                                                                                                                                                                                                                    |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                  | List           |
-| [ListAIPromptVersions](../../../wisdom/latest/APIReference/API_ListAIPromptVersions.md "../../../wisdom/latest/APIReference/API_ListAIPromptVersions.md")                                  | Grants permission to list information about ai prompt versions                                                                                                                                                                                                                                                                                                                                                                                                                                               | [AIPrompt\*](#list_q-in-connect-resource-AIPrompt "#list_q-in-connect-resource-AIPrompt")                                     | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | List           |
-| [ListAIPrompts](../../../wisdom/latest/APIReference/API_ListAIPrompts.md "../../../wisdom/latest/APIReference/API_ListAIPrompts.md")                                                       | Grants permission to list information about ai prompts                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                  | List           |
-| [ListAssistantAssociations](../../../wisdom/latest/APIReference/API_ListAssistantAssociations.md "../../../wisdom/latest/APIReference/API_ListAssistantAssociations.md")                   | Grants permission to list information about assistant associations                                                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                  | List           |
-| [ListAssistants](../../../wisdom/latest/APIReference/API_ListAssistants.md "../../../wisdom/latest/APIReference/API_ListAssistants.md")                                                    | Grants permission to list information about assistants                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                  | List           |
-| [ListContentAssociations](../../../wisdom/latest/APIReference/API_ListContentAssociations.md "../../../wisdom/latest/APIReference/API_ListContentAssociations.md")                         | Grants permission to list information about content associations                                                                                                                                                                                                                                                                                                                                                                                                                                             | [Content\*](#list_q-in-connect-resource-Content "#list_q-in-connect-resource-Content")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | List           |
-| [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                                                                                   | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                     |
-| [ListContents](../../../wisdom/latest/APIReference/API_ListContents.md "../../../wisdom/latest/APIReference/API_ListContents.md")                                                          | Grants permission to list the content with a knowledge base                                                                                                                                                                                                                                                                                                                                                                                                                                                  | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | List           |
-| [ListImportJobs](../../../wisdom/latest/APIReference/API_ListImportJobs.md "../../../wisdom/latest/APIReference/API_ListImportJobs.md")                                                    | Grants permission to list information about knowledge bases                                                                                                                                                                                                                                                                                                                                                                                                                                                  | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | List           |
-| [ListKnowledgeBases](../../../wisdom/latest/APIReference/API_ListKnowledgeBases.md "../../../wisdom/latest/APIReference/API_ListKnowledgeBases.md")                                        | Grants permission to list information about knowledge bases                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                  | List           |
-| [ListMessageTemplateVersions](../../../wisdom/latest/APIReference/API_ListMessageTemplateVersions.md "../../../wisdom/latest/APIReference/API_ListMessageTemplateVersions.md")             | Grants permission to list message template versions for the specified message template                                                                                                                                                                                                                                                                                                                                                                                                                       | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | List           |
-| [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate "#list_q-in-connect-resource-MessageTemplate")                                                                             | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn "#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn")                                                                                                                                                                                                            |
-| [ListMessageTemplates](../../../wisdom/latest/APIReference/API_ListMessageTemplates.md "../../../wisdom/latest/APIReference/API_ListMessageTemplates.md")                                  | Grants permission to list the message templates for a knowledge base                                                                                                                                                                                                                                                                                                                                                                                                                                         | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | List           |
-| [ListMessages](../../../wisdom/latest/APIReference/API_ListMessages.md "../../../wisdom/latest/APIReference/API_ListMessages.md")                                                          | Grants permission to list messages in a session                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [Session\*](#list_q-in-connect-resource-Session "#list_q-in-connect-resource-Session")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | List           |
-| [ListModels](../../../wisdom/latest/APIReference/API_ListModels.md "../../../wisdom/latest/APIReference/API_ListModels.md")                                                                | Grants permission to list models available for an assistant                                                                                                                                                                                                                                                                                                                                                                                                                                                  | [Assistant\*](#list_q-in-connect-resource-Assistant "#list_q-in-connect-resource-Assistant")                                  | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | List           |
-| [ListQuickResponses](../../../wisdom/latest/APIReference/API_ListQuickResponses.md "../../../wisdom/latest/APIReference/API_ListQuickResponses.md")                                        | Grants permission to list the quick response with a knowledge base                                                                                                                                                                                                                                                                                                                                                                                                                                           | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | List           |
-| [ListSpans](../../../wisdom/latest/APIReference/API_ListSpans.md "../../../wisdom/latest/APIReference/API_ListSpans.md")                                                                   | Grants permission to list AI agent traces for a session                                                                                                                                                                                                                                                                                                                                                                                                                                                      | [Session\*](#list_q-in-connect-resource-Session "#list_q-in-connect-resource-Session")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | List           |
-| [ListTagsForResource](../../../wisdom/latest/APIReference/API_ListTagsForResource.md "../../../wisdom/latest/APIReference/API_ListTagsForResource.md")                                     | Grants permission to list the tags for the specified resource                                                                                                                                                                                                                                                                                                                                                                                                                                                |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                  | Read           |
-| [NotifyRecommendationsReceived](../../../wisdom/latest/APIReference/API_NotifyRecommendationsReceived.md "../../../wisdom/latest/APIReference/API_NotifyRecommendationsReceived.md")       | Grants permission to remove the specified recommendations from the specified assistant's queue of newly available recommendations                                                                                                                                                                                                                                                                                                                                                                            | [Session\*](#list_q-in-connect-resource-Session "#list_q-in-connect-resource-Session")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [PutFeedback](../../../wisdom/latest/APIReference/API_PutFeedback.md "../../../wisdom/latest/APIReference/API_PutFeedback.md")                                                             | Grants permission to submit feedback                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | [Assistant\*](#list_q-in-connect-resource-Assistant "#list_q-in-connect-resource-Assistant")                                  | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [QueryAssistant](../../../wisdom/latest/APIReference/API_QueryAssistant.md "../../../wisdom/latest/APIReference/API_QueryAssistant.md")                                                    | Grants permission to perform a manual search against the specified assistant                                                                                                                                                                                                                                                                                                                                                                                                                                 | [Assistant\*](#list_q-in-connect-resource-Assistant "#list_q-in-connect-resource-Assistant")                                  | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [RemoveAssistantAIAgent](../../../wisdom/latest/APIReference/API_RemoveAssistantAIAgent.md "../../../wisdom/latest/APIReference/API_RemoveAssistantAIAgent.md")                            | Grants permission to remove an ai agent from an assistant                                                                                                                                                                                                                                                                                                                                                                                                                                                    | [Assistant\*](#list_q-in-connect-resource-Assistant "#list_q-in-connect-resource-Assistant")                                  | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [RemoveKnowledgeBaseTemplateUri](../../../wisdom/latest/APIReference/API_RemoveKnowledgeBaseTemplateUri.md "../../../wisdom/latest/APIReference/API_RemoveKnowledgeBaseTemplateUri.md")    | Grants permission to remove a URI template from a knowledge base                                                                                                                                                                                                                                                                                                                                                                                                                                             | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [RenderMessageTemplate](../../../wisdom/latest/APIReference/API_RenderMessageTemplate.md "../../../wisdom/latest/APIReference/API_RenderMessageTemplate.md")                               | Grants permission to render a message template                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn "#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn")                                                                                                                                | Read           |
-| [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate "#list_q-in-connect-resource-MessageTemplate")                                                                             | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn "#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn")                                                                                                                                                                                                            |
-| [Retrieve](../../../wisdom/latest/APIReference/API_Retrieve.md "../../../wisdom/latest/APIReference/API_Retrieve.md")                                                                      | Grants permission to retrieve knowledge content from specified assistant associations                                                                                                                                                                                                                                                                                                                                                                                                                        | [Assistant\*](#list_q-in-connect-resource-Assistant "#list_q-in-connect-resource-Assistant")                                  | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [SearchContent](../../../wisdom/latest/APIReference/API_SearchContent.md "../../../wisdom/latest/APIReference/API_SearchContent.md")                                                       | Grants permission to search for content referencing a specified knowledge base. Can be used to get a specific content resource by its name                                                                                                                                                                                                                                                                                                                                                                   | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Read           |
-| [SearchMessageTemplates](../../../wisdom/latest/APIReference/API_SearchMessageTemplates.md "../../../wisdom/latest/APIReference/API_SearchMessageTemplates.md")                            | Grants permission to search for message templates referencing a specified knowledge base                                                                                                                                                                                                                                                                                                                                                                                                                     | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[wisdom:SearchFilter/Qualifier](#list_q-in-connect-wisdom_SearchFilter_Qualifier "#list_q-in-connect-wisdom_SearchFilter_Qualifier")<br>[wisdom:SearchFilter/RoutingProfileArn](#list_q-in-connect-wisdom_SearchFilter_RoutingProfileArn "#list_q-in-connect-wisdom_SearchFilter_RoutingProfileArn") | Read           |
-| [SearchQuickResponses](../../../wisdom/latest/APIReference/API_SearchQuickResponses.md "../../../wisdom/latest/APIReference/API_SearchQuickResponses.md")                                  | Grants permission to search for quick response referencing a specified knowledge base                                                                                                                                                                                                                                                                                                                                                                                                                        | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[wisdom:SearchFilter/RoutingProfileArn](#list_q-in-connect-wisdom_SearchFilter_RoutingProfileArn "#list_q-in-connect-wisdom_SearchFilter_RoutingProfileArn")                                                                                                                                         | Read           |
-| [SearchSessions](../../../wisdom/latest/APIReference/API_SearchSessions.md "../../../wisdom/latest/APIReference/API_SearchSessions.md")                                                    | Grants permission to search for sessions referencing a specified assistant. Can be used to et a specific session resource by its name                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                  | Read           |
-| [SendMessage](../../../wisdom/latest/APIReference/API_SendMessage.md "../../../wisdom/latest/APIReference/API_SendMessage.md")                                                             | Grants permission to send a message                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | [Session\*](#list_q-in-connect-resource-Session "#list_q-in-connect-resource-Session")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [StartContentUpload](../../../wisdom/latest/APIReference/API_StartContentUpload.md "../../../wisdom/latest/APIReference/API_StartContentUpload.md")                                        | Grants permission to get a URL to upload content to a knowledge base                                                                                                                                                                                                                                                                                                                                                                                                                                         | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [StartImportJob](../../../wisdom/latest/APIReference/API_StartImportJob.md "../../../wisdom/latest/APIReference/API_StartImportJob.md")                                                    | Grants permission to create multiple quick responses                                                                                                                                                                                                                                                                                                                                                                                                                                                         | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                              | Write          |
-| [TagResource](../../../wisdom/latest/APIReference/API_TagResource.md "../../../wisdom/latest/APIReference/API_TagResource.md")                                                             | Grants permission to add the specified tags to the specified resource                                                                                                                                                                                                                                                                                                                                                                                                                                        | [Assistant](#list_q-in-connect-resource-Assistant "#list_q-in-connect-resource-Assistant")                                    | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                              | Tagging, Write |
-| [AssistantAssociation](#list_q-in-connect-resource-AssistantAssociation "#list_q-in-connect-resource-AssistantAssociation")                                                                | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                          |
-| [Content](#list_q-in-connect-resource-Content "#list_q-in-connect-resource-Content")                                                                                                       | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                          |
-| [ContentAssociation](#list_q-in-connect-resource-ContentAssociation "#list_q-in-connect-resource-ContentAssociation")                                                                      | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                          |
-| [KnowledgeBase](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                                                                                     | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                          |
-| [MessageTemplate](#list_q-in-connect-resource-MessageTemplate "#list_q-in-connect-resource-MessageTemplate")                                                                               | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")<br>[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn "#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn") |
-| [QuickResponse](#list_q-in-connect-resource-QuickResponse "#list_q-in-connect-resource-QuickResponse")                                                                                     | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                          |
-| [Session](#list_q-in-connect-resource-Session "#list_q-in-connect-resource-Session")                                                                                                       | [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_ "#list_q-in-connect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                          |
-| [UntagResource](../../../wisdom/latest/APIReference/API_UntagResource.md "../../../wisdom/latest/APIReference/API_UntagResource.md")                                                       | Grants permission to remove the specified tags from the specified resource                                                                                                                                                                                                                                                                                                                                                                                                                                   | [Assistant](#list_q-in-connect-resource-Assistant "#list_q-in-connect-resource-Assistant")                                    | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                                                                       | Tagging, Write |
-| [AssistantAssociation](#list_q-in-connect-resource-AssistantAssociation "#list_q-in-connect-resource-AssistantAssociation")                                                                | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                                                                                                                                                   |
-| [Content](#list_q-in-connect-resource-Content "#list_q-in-connect-resource-Content")                                                                                                       | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                                                                                                                                                   |
-| [ContentAssociation](#list_q-in-connect-resource-ContentAssociation "#list_q-in-connect-resource-ContentAssociation")                                                                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                                                                                                                                                   |
-| [KnowledgeBase](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                                                                                     | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                                                                                                                                                   |
-| [MessageTemplate](#list_q-in-connect-resource-MessageTemplate "#list_q-in-connect-resource-MessageTemplate")                                                                               | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")<br>[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn "#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn")                                                                                                                          |
-| [QuickResponse](#list_q-in-connect-resource-QuickResponse "#list_q-in-connect-resource-QuickResponse")                                                                                     | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                                                                                                                                                   |
-| [Session](#list_q-in-connect-resource-Session "#list_q-in-connect-resource-Session")                                                                                                       | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_q-in-connect-aws_TagKeys "#list_q-in-connect-aws_TagKeys")                                                                                                                                                                                                                                                                                                   |
-| [UpdateAIAgent](../../../wisdom/latest/APIReference/API_UpdateAIAgent.md "../../../wisdom/latest/APIReference/API_UpdateAIAgent.md")                                                       | Grants permission to update information about an ai agent                                                                                                                                                                                                                                                                                                                                                                                                                                                    | [AIAgent\*](#list_q-in-connect-resource-AIAgent "#list_q-in-connect-resource-AIAgent")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [UpdateAIGuardrail](../../../wisdom/latest/APIReference/API_UpdateAIGuardrail.md "../../../wisdom/latest/APIReference/API_UpdateAIGuardrail.md")                                           | Grants permission to update information about an ai guardrail                                                                                                                                                                                                                                                                                                                                                                                                                                                | [AIGuardrail\*](#list_q-in-connect-resource-AIGuardrail "#list_q-in-connect-resource-AIGuardrail")                            | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [UpdateAIPrompt](../../../wisdom/latest/APIReference/API_UpdateAIPrompt.md "../../../wisdom/latest/APIReference/API_UpdateAIPrompt.md")                                                    | Grants permission to update information about an ai prompt                                                                                                                                                                                                                                                                                                                                                                                                                                                   | [AIPrompt\*](#list_q-in-connect-resource-AIPrompt "#list_q-in-connect-resource-AIPrompt")                                     | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [UpdateAssistantAIAgent](../../../wisdom/latest/APIReference/API_UpdateAssistantAIAgent.md "../../../wisdom/latest/APIReference/API_UpdateAssistantAIAgent.md")                            | Grants permission to update assistant information about an ai agent                                                                                                                                                                                                                                                                                                                                                                                                                                          | [Assistant\*](#list_q-in-connect-resource-Assistant "#list_q-in-connect-resource-Assistant")                                  | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [UpdateContent](../../../wisdom/latest/APIReference/API_UpdateContent.md "../../../wisdom/latest/APIReference/API_UpdateContent.md")                                                       | Grants permission to update information about the content                                                                                                                                                                                                                                                                                                                                                                                                                                                    | [Content\*](#list_q-in-connect-resource-Content "#list_q-in-connect-resource-Content")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                                                                                   | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                     |
-| [UpdateKnowledgeBaseTemplateUri](../../../wisdom/latest/APIReference/API_UpdateKnowledgeBaseTemplateUri.md "../../../wisdom/latest/APIReference/API_UpdateKnowledgeBaseTemplateUri.md")    | Grants permission to update the template URI of a knowledge base                                                                                                                                                                                                                                                                                                                                                                                                                                             | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [UpdateMessageTemplate](../../../wisdom/latest/APIReference/API_UpdateMessageTemplate.md "../../../wisdom/latest/APIReference/API_UpdateMessageTemplate.md")                               | Grants permission to update content of the message template                                                                                                                                                                                                                                                                                                                                                                                                                                                  | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate "#list_q-in-connect-resource-MessageTemplate")                                                                             | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn "#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn")                                                                                                                                                                                                            |
-| [UpdateMessageTemplateMetadata](../../../wisdom/latest/APIReference/API_UpdateMessageTemplateMetadata.md "../../../wisdom/latest/APIReference/API_UpdateMessageTemplateMetadata.md")       | Grants permission to update metadata of the message template                                                                                                                                                                                                                                                                                                                                                                                                                                                 | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate "#list_q-in-connect-resource-MessageTemplate")                                                                             | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn "#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn")                                                                                                                                                                                                            |
-| [UpdateQuickResponse](../../../wisdom/latest/APIReference/API_UpdateQuickResponse.md "../../../wisdom/latest/APIReference/API_UpdateQuickResponse.md")                                     | Grants permission to update information or content of the quick response                                                                                                                                                                                                                                                                                                                                                                                                                                     | [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase "#list_q-in-connect-resource-KnowledgeBase")                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [QuickResponse\*](#list_q-in-connect-resource-QuickResponse "#list_q-in-connect-resource-QuickResponse")                                                                                   | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                     |
-| [UpdateSession](../../../wisdom/latest/APIReference/API_UpdateSession.md "../../../wisdom/latest/APIReference/API_UpdateSession.md")                                                       | Grants permission to update a session                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | [Session\*](#list_q-in-connect-resource-Session "#list_q-in-connect-resource-Session")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
-| [UpdateSessionData](../../../wisdom/latest/APIReference/API_UpdateSessionData.md "../../../wisdom/latest/APIReference/API_UpdateSessionData.md")                                           | Grants permission to update data stored in a session                                                                                                                                                                                                                                                                                                                                                                                                                                                         | [Session\*](#list_q-in-connect-resource-Session "#list_q-in-connect-resource-Session")                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                         | Write          |
+
+
+
+- **   [ActivateMessageTemplate](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ActivateMessageTemplate.html)  **
+  - **Description:** Grants permission to activate a message template
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Access level:** Write
+
+- **   [CreateAIAgent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAIAgent.html)  **
+  - **Description:** Grants permission to create an ai agent
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAIAgentVersion](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAIAgentVersion.html)  **
+  - **Description:** Grants permission to create an ai agent version
+  - **Resource types (\*required):** [AIAgent\*](#list_q-in-connect-resource-AIAgent)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAIGuardrail](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAIGuardrail.html)  **
+  - **Description:** Grants permission to create an ai guardrail
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAIGuardrailVersion](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAIGuardrailVersion.html)  **
+  - **Description:** Grants permission to create an ai guardrail version
+  - **Resource types (\*required):** [AIGuardrail\*](#list_q-in-connect-resource-AIGuardrail)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAIPrompt](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAIPrompt.html)  **
+  - **Description:** Grants permission to create an ai prompt
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAIPromptVersion](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAIPromptVersion.html)  **
+  - **Description:** Grants permission to create an ai prompt version
+  - **Resource types (\*required):** [AIPrompt\*](#list_q-in-connect-resource-AIPrompt)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAssistant](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAssistant.html)  **
+  - **Description:** Grants permission to create an assistant
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAssistantAssociation](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAssistantAssociation.html)  **
+  - **Description:** Grants permission to create an association between an assistant and another resource
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateContent.html)  **
+  - **Description:** Grants permission to create content
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateContentAssociation](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateContentAssociation.html)  **
+  - **Description:** Grants permission to create a content association
+  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateKnowledgeBase](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateKnowledgeBase.html)  **
+  - **Description:** Grants permission to create a knowledge base
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMessageTemplate](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateMessageTemplate.html)  **
+  - **Description:** Grants permission to create a message template
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMessageTemplateAttachment](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateMessageTemplateAttachment.html)  **
+  - **Description:** Grants permission to create an attachment to a message template
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Access level:** Write
+
+- **   [CreateMessageTemplateVersion](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateMessageTemplateVersion.html)  **
+  - **Description:** Grants permission to create a version of a message template
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Access level:** Write
+
+- **   [CreateQuickResponse](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateQuickResponse.html)  **
+  - **Description:** Grants permission to create quick response
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateSession](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateSession.html)  **
+  - **Description:** Grants permission to create a session
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeactivateMessageTemplate](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeactivateMessageTemplate.html)  **
+  - **Description:** Grants permission to deactivate a message template
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Access level:** Write
+
+- **   [DeleteAIAgent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAIAgent.html)  **
+  - **Description:** Grants permission to delete an ai agent
+  - **Resource types (\*required):** [AIAgent\*](#list_q-in-connect-resource-AIAgent)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAIAgentVersion](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAIAgentVersion.html)  **
+  - **Description:** Grants permission to delete an ai agent version
+  - **Resource types (\*required):** [AIAgent\*](#list_q-in-connect-resource-AIAgent)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAIGuardrail](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAIGuardrail.html)  **
+  - **Description:** Grants permission to delete an ai guardrail
+  - **Resource types (\*required):** [AIGuardrail\*](#list_q-in-connect-resource-AIGuardrail)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAIGuardrailVersion](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAIGuardrailVersion.html)  **
+  - **Description:** Grants permission to delete an ai guardrail version
+  - **Resource types (\*required):** [AIGuardrail\*](#list_q-in-connect-resource-AIGuardrail)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAIPrompt](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAIPrompt.html)  **
+  - **Description:** Grants permission to delete an ai prompt
+  - **Resource types (\*required):** [AIPrompt\*](#list_q-in-connect-resource-AIPrompt)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAIPromptVersion](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAIPromptVersion.html)  **
+  - **Description:** Grants permission to delete an ai prompt version
+  - **Resource types (\*required):** [AIPrompt\*](#list_q-in-connect-resource-AIPrompt)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAssistant](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAssistant.html)  **
+  - **Description:** Grants permission to delete an assistant
+  - **Resource types (\*required):** [Assistant\*](#list_q-in-connect-resource-Assistant)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAssistantAssociation](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAssistantAssociation.html)  **
+  - **Description:** Grants permission to delete an assistant association
+  - **Resource types (\*required):** [AssistantAssociation\*](#list_q-in-connect-resource-AssistantAssociation)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteContent.html)  **
+  - **Description:** Grants permission to delete content
+  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteContentAssociation](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteContentAssociation.html)  **
+  - **Description:** Grants permission to delete a content association
+  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ContentAssociation\*](#list_q-in-connect-resource-ContentAssociation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteImportJob](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteImportJob.html)  **
+  - **Description:** Grants permission to delete a import job of a knowledge base
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteKnowledgeBase](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteKnowledgeBase.html)  **
+  - **Description:** Grants permission to delete a knowledge base
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteMessageTemplate](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteMessageTemplate.html)  **
+  - **Description:** Grants permission to delete a message template
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Access level:** Write
+
+- **   [DeleteMessageTemplateAttachment](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteMessageTemplateAttachment.html)  **
+  - **Description:** Grants permission to delete an attachment from a message template
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Access level:** Write
+
+- **   [DeleteQuickResponse](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteQuickResponse.html)  **
+  - **Description:** Grants permission to delete quick response
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [QuickResponse\*](#list_q-in-connect-resource-QuickResponse) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetAIAgent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetAIAgent.html)  **
+  - **Description:** Grants permission to retrieve information about an ai agent
+  - **Resource types (\*required):** [AIAgent\*](#list_q-in-connect-resource-AIAgent)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAIGuardrail](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetAIGuardrail.html)  **
+  - **Description:** Grants permission to retrieve information about an ai guardrail
+  - **Resource types (\*required):** [AIGuardrail\*](#list_q-in-connect-resource-AIGuardrail)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAIPrompt](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetAIPrompt.html)  **
+  - **Description:** Grants permission to retrieve information about an ai prompt
+  - **Resource types (\*required):** [AIPrompt\*](#list_q-in-connect-resource-AIPrompt)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAssistant](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetAssistant.html)  **
+  - **Description:** Grants permission to retrieve information about an assistant
+  - **Resource types (\*required):** [Assistant\*](#list_q-in-connect-resource-Assistant)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAssistantAssociation](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetAssistantAssociation.html)  **
+  - **Description:** Grants permission to retrieve information about an assistant association
+  - **Resource types (\*required):** [AssistantAssociation\*](#list_q-in-connect-resource-AssistantAssociation)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html)  **
+  - **Description:** Grants permission to retrieve content, including a pre-signed URL to download the content
+  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetContentAssociation](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContentAssociation.html)  **
+  - **Description:** Grants permission to retrieve information about a content association
+  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ContentAssociation\*](#list_q-in-connect-resource-ContentAssociation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetContentSummary](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContentSummary.html)  **
+  - **Description:** Grants permission to retrieve summary information about the content
+  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetImportJob](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetImportJob.html)  **
+  - **Description:** Grants permission to retrieve information about the import job
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetKnowledgeBase](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetKnowledgeBase.html)  **
+  - **Description:** Grants permission to retrieve information about the knowledge base
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMessageTemplate](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetMessageTemplate.html)  **
+  - **Description:** Grants permission to retrieve a message template
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Access level:** Read
+
+- **   [GetNextMessage](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetNextMessage.html)  **
+  - **Description:** Grants permission to retrieve for next message in a session
+  - **Resource types (\*required):** [Session\*](#list_q-in-connect-resource-Session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetQuickResponse](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetQuickResponse.html)  **
+  - **Description:** Grants permission to retrieve content
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [QuickResponse\*](#list_q-in-connect-resource-QuickResponse) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRecommendations](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html)  **
+  - **Description:** Grants permission to retrieve recommendations for the specified session
+  - **Resource types (\*required):** [Session\*](#list_q-in-connect-resource-Session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSession](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetSession.html)  **
+  - **Description:** Grants permission to retrieve information for a specified session
+  - **Resource types (\*required):** [Session\*](#list_q-in-connect-resource-Session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListAIAgentVersions](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListAIAgentVersions.html)  **
+  - **Description:** Grants permission to list information about ai agent versions
+  - **Resource types (\*required):** [AIAgent\*](#list_q-in-connect-resource-AIAgent)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAIAgents](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListAIAgents.html)  **
+  - **Description:** Grants permission to list information about ai agents
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAIGuardrailVersions](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListAIGuardrailVersions.html)  **
+  - **Description:** Grants permission to list information about ai guardrail versions
+  - **Resource types (\*required):** [AIGuardrail\*](#list_q-in-connect-resource-AIGuardrail)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAIGuardrails](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListAIGuardrails.html)  **
+  - **Description:** Grants permission to list information about ai guardrails
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAIPromptVersions](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListAIPromptVersions.html)  **
+  - **Description:** Grants permission to list information about ai prompt versions
+  - **Resource types (\*required):** [AIPrompt\*](#list_q-in-connect-resource-AIPrompt)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAIPrompts](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListAIPrompts.html)  **
+  - **Description:** Grants permission to list information about ai prompts
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAssistantAssociations](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListAssistantAssociations.html)  **
+  - **Description:** Grants permission to list information about assistant associations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAssistants](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListAssistants.html)  **
+  - **Description:** Grants permission to list information about assistants
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListContentAssociations](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListContentAssociations.html)  **
+  - **Description:** Grants permission to list information about content associations
+  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListContents](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListContents.html)  **
+  - **Description:** Grants permission to list the content with a knowledge base
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListImportJobs](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListImportJobs.html)  **
+  - **Description:** Grants permission to list information about knowledge bases
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListKnowledgeBases](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListKnowledgeBases.html)  **
+  - **Description:** Grants permission to list information about knowledge bases
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMessageTemplateVersions](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListMessageTemplateVersions.html)  **
+  - **Description:** Grants permission to list message template versions for the specified message template
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Access level:** List
+
+- **   [ListMessageTemplates](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListMessageTemplates.html)  **
+  - **Description:** Grants permission to list the message templates for a knowledge base
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListMessages](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListMessages.html)  **
+  - **Description:** Grants permission to list messages in a session
+  - **Resource types (\*required):** [Session\*](#list_q-in-connect-resource-Session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListModels](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListModels.html)  **
+  - **Description:** Grants permission to list models available for an assistant
+  - **Resource types (\*required):** [Assistant\*](#list_q-in-connect-resource-Assistant)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListQuickResponses](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListQuickResponses.html)  **
+  - **Description:** Grants permission to list the quick response with a knowledge base
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSpans](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListSpans.html)  **
+  - **Description:** Grants permission to list AI agent traces for a session
+  - **Resource types (\*required):** [Session\*](#list_q-in-connect-resource-Session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list the tags for the specified resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [NotifyRecommendationsReceived](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_NotifyRecommendationsReceived.html)  **
+  - **Description:** Grants permission to remove the specified recommendations from the specified assistant's queue of newly available recommendations
+  - **Resource types (\*required):** [Session\*](#list_q-in-connect-resource-Session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutFeedback](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_PutFeedback.html)  **
+  - **Description:** Grants permission to submit feedback
+  - **Resource types (\*required):** [Assistant\*](#list_q-in-connect-resource-Assistant)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [QueryAssistant](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_QueryAssistant.html)  **
+  - **Description:** Grants permission to perform a manual search against the specified assistant
+  - **Resource types (\*required):** [Assistant\*](#list_q-in-connect-resource-Assistant)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [RemoveAssistantAIAgent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_RemoveAssistantAIAgent.html)  **
+  - **Description:** Grants permission to remove an ai agent from an assistant
+  - **Resource types (\*required):** [Assistant\*](#list_q-in-connect-resource-Assistant)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RemoveKnowledgeBaseTemplateUri](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_RemoveKnowledgeBaseTemplateUri.html)  **
+  - **Description:** Grants permission to remove a URI template from a knowledge base
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RenderMessageTemplate](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_RenderMessageTemplate.html)  **
+  - **Description:** Grants permission to render a message template
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Access level:** Read
+
+- **   [Retrieve](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_Retrieve.html)  **
+  - **Description:** Grants permission to retrieve knowledge content from specified assistant associations
+  - **Resource types (\*required):** [Assistant\*](#list_q-in-connect-resource-Assistant)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [SearchContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_SearchContent.html)  **
+  - **Description:** Grants permission to search for content referencing a specified knowledge base. Can be used to get a specific content resource by its name
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [SearchMessageTemplates](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_SearchMessageTemplates.html)  **
+  - **Description:** Grants permission to search for message templates referencing a specified knowledge base
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:SearchFilter/Qualifier](#list_q-in-connect-wisdom_SearchFilter_Qualifier)<br />[wisdom:SearchFilter/RoutingProfileArn](#list_q-in-connect-wisdom_SearchFilter_RoutingProfileArn)
+  - **Access level:** Read
+
+- **   [SearchQuickResponses](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_SearchQuickResponses.html)  **
+  - **Description:** Grants permission to search for quick response referencing a specified knowledge base
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:SearchFilter/RoutingProfileArn](#list_q-in-connect-wisdom_SearchFilter_RoutingProfileArn)
+  - **Access level:** Read
+
+- **   [SearchSessions](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_SearchSessions.html)  **
+  - **Description:** Grants permission to search for sessions referencing a specified assistant. Can be used to et a specific session resource by its name
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [SendMessage](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_SendMessage.html)  **
+  - **Description:** Grants permission to send a message
+  - **Resource types (\*required):** [Session\*](#list_q-in-connect-resource-Session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartContentUpload](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html)  **
+  - **Description:** Grants permission to get a URL to upload content to a knowledge base
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartImportJob](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartImportJob.html)  **
+  - **Description:** Grants permission to create multiple quick responses
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to add the specified tags to the specified resource
+  - **Resource types (\*required):** [Assistant](#list_q-in-connect-resource-Assistant) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Resource types (\*required):** [AssistantAssociation](#list_q-in-connect-resource-AssistantAssociation) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Resource types (\*required):** [Content](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Resource types (\*required):** [ContentAssociation](#list_q-in-connect-resource-ContentAssociation) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Resource types (\*required):** [KnowledgeBase](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Resource types (\*required):** [MessageTemplate](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Resource types (\*required):** [QuickResponse](#list_q-in-connect-resource-QuickResponse) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Resource types (\*required):** [Session](#list_q-in-connect-resource-Session) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_q-in-connect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove the specified tags from the specified resource
+  - **Resource types (\*required):** [Assistant](#list_q-in-connect-resource-Assistant) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Resource types (\*required):** [AssistantAssociation](#list_q-in-connect-resource-AssistantAssociation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Resource types (\*required):** [Content](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Resource types (\*required):** [ContentAssociation](#list_q-in-connect-resource-ContentAssociation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Resource types (\*required):** [KnowledgeBase](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Resource types (\*required):** [MessageTemplate](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Resource types (\*required):** [QuickResponse](#list_q-in-connect-resource-QuickResponse) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Resource types (\*required):** [Session](#list_q-in-connect-resource-Session) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_q-in-connect-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAIAgent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateAIAgent.html)  **
+  - **Description:** Grants permission to update information about an ai agent
+  - **Resource types (\*required):** [AIAgent\*](#list_q-in-connect-resource-AIAgent)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAIGuardrail](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateAIGuardrail.html)  **
+  - **Description:** Grants permission to update information about an ai guardrail
+  - **Resource types (\*required):** [AIGuardrail\*](#list_q-in-connect-resource-AIGuardrail)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAIPrompt](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateAIPrompt.html)  **
+  - **Description:** Grants permission to update information about an ai prompt
+  - **Resource types (\*required):** [AIPrompt\*](#list_q-in-connect-resource-AIPrompt)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAssistantAIAgent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateAssistantAIAgent.html)  **
+  - **Description:** Grants permission to update assistant information about an ai agent
+  - **Resource types (\*required):** [Assistant\*](#list_q-in-connect-resource-Assistant)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateContent.html)  **
+  - **Description:** Grants permission to update information about the content
+  - **Resource types (\*required):** [Content\*](#list_q-in-connect-resource-Content) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateKnowledgeBaseTemplateUri](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateKnowledgeBaseTemplateUri.html)  **
+  - **Description:** Grants permission to update the template URI of a knowledge base
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateMessageTemplate](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateMessageTemplate.html)  **
+  - **Description:** Grants permission to update content of the message template
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Access level:** Write
+
+- **   [UpdateMessageTemplateMetadata](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateMessageTemplateMetadata.html)  **
+  - **Description:** Grants permission to update metadata of the message template
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [MessageTemplate\*](#list_q-in-connect-resource-MessageTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn)
+  - **Access level:** Write
+
+- **   [UpdateQuickResponse](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateQuickResponse.html)  **
+  - **Description:** Grants permission to update information or content of the quick response
+  - **Resource types (\*required):** [KnowledgeBase\*](#list_q-in-connect-resource-KnowledgeBase) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [QuickResponse\*](#list_q-in-connect-resource-QuickResponse) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSession](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateSession.html)  **
+  - **Description:** Grants permission to update a session
+  - **Resource types (\*required):** [Session\*](#list_q-in-connect-resource-Session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSessionData](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateSessionData.html)  **
+  - **Description:** Grants permission to update data stored in a session
+  - **Resource types (\*required):** [Session\*](#list_q-in-connect-resource-Session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for Amazon Q in Connect
+<a name="list_q-in-connect-permission-only-actions"></a>
 
-The following actions are defined by Amazon Q in Connect but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by Amazon Q in Connect but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                              | Description                                                         | Resource types (\*required)                                                                | Condition keys                                                                                                           | Access level                  |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ----------------------------- |
-| [AllowVendedLogDeliveryForResource](${UserGuideDocPage}.md "${UserGuideDocPage}.md") | Grants permission to configure vended log delivery for an assistant | [Assistant](#list_q-in-connect-resource-Assistant "#list_q-in-connect-resource-Assistant") | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_") | Permissions management, Write |
+
+
+
+- **   [AllowVendedLogDeliveryForResource](${UserGuideDocPage})  **
+  - **Description:** Grants permission to configure vended log delivery for an assistant
+  - **Resource types (\*required):** [Assistant](#list_q-in-connect-resource-Assistant)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+
 
 ## Resource types defined by Amazon Q in Connect
+<a name="list_q-in-connect-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                    | ARN                                                                                                                      | Condition keys                                                                                                                                                                                                                                                                                    |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [AIAgent](../../../wisdom/latest/APIReference/API_AIAgentData.md "../../../wisdom/latest/APIReference/API_AIAgentData.md")                                        | arn:${Partition}:wisdom:${Region}:${Account}:ai-agent/${AssistantId}/${AIAgentId}                                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                          |
-| [AIGuardrail](../../../wisdom/latest/APIReference/API_AIGuardrailData.md "../../../wisdom/latest/APIReference/API_AIGuardrailData.md")                            | arn:${Partition}:wisdom:${Region}:${Account}:ai-guardrail/${AssistantId}/${AIGuardrailId}                                | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                          |
-| [AIPrompt](../../../wisdom/latest/APIReference/API_AIPromptData.md "../../../wisdom/latest/APIReference/API_AIPromptData.md")                                     | arn:${Partition}:wisdom:${Region}:${Account}:ai-prompt/${AssistantId}/${AIPromptId}                                      | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                          |
-| [Assistant](../../../wisdom/latest/APIReference/API_AssistantData.md "../../../wisdom/latest/APIReference/API_AssistantData.md")                                  | arn:${Partition}:wisdom:${Region}:${Account}:assistant/${AssistantId}                                                    | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                          |
-| [AssistantAssociation](../../../wisdom/latest/APIReference/API_AssistantAssociationData.md "../../../wisdom/latest/APIReference/API_AssistantAssociationData.md") | arn:${Partition}:wisdom:${Region}:${Account}:association/${AssistantId}/${AssistantAssociationId}                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                          |
-| [Content](../../../wisdom/latest/APIReference/API_ContentData.md "../../../wisdom/latest/APIReference/API_ContentData.md")                                        | arn:${Partition}:wisdom:${Region}:${Account}:content/${KnowledgeBaseId}/${ContentId}                                     | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                          |
-| [ContentAssociation](../../../wisdom/latest/APIReference/API_ContentAssociationData.md "../../../wisdom/latest/APIReference/API_ContentAssociationData.md")       | arn:${Partition}:wisdom:${Region}:${Account}:content-association/${KnowledgeBaseId}/${ContentId}/${ContentAssociationId} | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                          |
-| [KnowledgeBase](../../../wisdom/latest/APIReference/API_KnowledgeBaseData.md "../../../wisdom/latest/APIReference/API_KnowledgeBaseData.md")                      | arn:${Partition}:wisdom:${Region}:${Account}:knowledge-base/${KnowledgeBaseId}                                           | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                          |
-| [MessageTemplate](../../../wisdom/latest/APIReference/API_MessageTemplateData.md "../../../wisdom/latest/APIReference/API_MessageTemplateData.md")                | arn:${Partition}:wisdom:${Region}:${Account}:message-template/${KnowledgeBaseId}/${MessageTemplateId}                    | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")<br>[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn "#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn") |
-| [QuickResponse](../../../wisdom/latest/APIReference/API_QuickResponseData.md "../../../wisdom/latest/APIReference/API_QuickResponseData.md")                      | arn:${Partition}:wisdom:${Region}:${Account}:quick-response/${KnowledgeBaseId}/${QuickResponseId}                        | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                          |
-| [Session](../../../wisdom/latest/APIReference/API_SessionData.md "../../../wisdom/latest/APIReference/API_SessionData.md")                                        | arn:${Partition}:wisdom:${Region}:${Account}:session/${AssistantId}/${SessionId}                                         | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_ "#list_q-in-connect-aws_ResourceTag___TagKey_")                                                                                                                                                                          |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [AIAgent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_AIAgentData.html)  | arn:${Partition}:wisdom:${Region}:${Account}:ai-agent/${AssistantId}/${AIAgentId} | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_) | 
+|  [AIGuardrail](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_AIGuardrailData.html)  | arn:${Partition}:wisdom:${Region}:${Account}:ai-guardrail/${AssistantId}/${AIGuardrailId} | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_) | 
+|  [AIPrompt](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_AIPromptData.html)  | arn:${Partition}:wisdom:${Region}:${Account}:ai-prompt/${AssistantId}/${AIPromptId} | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_) | 
+|  [Assistant](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_AssistantData.html)  | arn:${Partition}:wisdom:${Region}:${Account}:assistant/${AssistantId} | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_) | 
+|  [AssistantAssociation](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_AssistantAssociationData.html)  | arn:${Partition}:wisdom:${Region}:${Account}:association/${AssistantId}/${AssistantAssociationId} | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_) | 
+|  [Content](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ContentData.html)  | arn:${Partition}:wisdom:${Region}:${Account}:content/${KnowledgeBaseId}/${ContentId} | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_) | 
+|  [ContentAssociation](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ContentAssociationData.html)  | arn:${Partition}:wisdom:${Region}:${Account}:content-association/${KnowledgeBaseId}/${ContentId}/${ContentAssociationId} | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_) | 
+|  [KnowledgeBase](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_KnowledgeBaseData.html)  | arn:${Partition}:wisdom:${Region}:${Account}:knowledge-base/${KnowledgeBaseId} | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_) | 
+|  [MessageTemplate](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_MessageTemplateData.html)  | arn:${Partition}:wisdom:${Region}:${Account}:message-template/${KnowledgeBaseId}/${MessageTemplateId} | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_)<br />[wisdom:MessageTemplate/RoutingProfileArn](#list_q-in-connect-wisdom_MessageTemplate_RoutingProfileArn) | 
+|  [QuickResponse](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_QuickResponseData.html)  | arn:${Partition}:wisdom:${Region}:${Account}:quick-response/${KnowledgeBaseId}/${QuickResponseId} | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_) | 
+|  [Session](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_SessionData.html)  | arn:${Partition}:wisdom:${Region}:${Account}:session/${AssistantId}/${SessionId} | [aws:ResourceTag/${TagKey}](#list_q-in-connect-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Q in Connect
+<a name="list_q-in-connect-policy-keys"></a>
 
-Amazon Q in Connect defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Q in Connect defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                    | Description                                                                     | Type          |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")           | Filters access by the tags that are passed in the request                       | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag")        | Filters access by the tags associated with the resource                         | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                              | Filters access by the tag keys that are passed in the request                   | ArrayOfString |
-| [wisdom:MessageTemplate/RoutingProfileArn](../../../IAM/latest/UserGuide/list_amazonconnectwisdom.md#amazonconnectwisdom-policy-keys "../../../IAM/latest/UserGuide/list_amazonconnectwisdom.md#amazonconnectwisdom-policy-keys") | Filters access by the connect routing profile arns associated with the resource | ArrayOfARN    |
-| [wisdom:SearchFilter/Qualifier](../../../IAM/latest/UserGuide/list_amazonconnectwisdom.md#amazonconnectwisdom-policy-keys "../../../IAM/latest/UserGuide/list_amazonconnectwisdom.md#amazonconnectwisdom-policy-keys")            | Filters access by the qualifiers that are passed in the request                 | ArrayOfString |
-| [wisdom:SearchFilter/RoutingProfileArn](../../../IAM/latest/UserGuide/list_amazonconnectwisdom.md#amazonconnectwisdom-policy-keys "../../../IAM/latest/UserGuide/list_amazonconnectwisdom.md#amazonconnectwisdom-policy-keys")    | Filters access by the connect routing profile arn that is passed in the request | ARN           |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 
+|   [wisdom:MessageTemplate/RoutingProfileArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonconnectwisdom.html#amazonconnectwisdom-policy-keys)  | Filters access by the connect routing profile arns associated with the resource | ArrayOfARN | 
+|   [wisdom:SearchFilter/Qualifier](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonconnectwisdom.html#amazonconnectwisdom-policy-keys)  | Filters access by the qualifiers that are passed in the request | ArrayOfString | 
+|   [wisdom:SearchFilter/RoutingProfileArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonconnectwisdom.html#amazonconnectwisdom-policy-keys)  | Filters access by the connect routing profile arn that is passed in the request | ARN | 

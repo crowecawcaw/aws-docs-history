@@ -1,114 +1,276 @@
-# Actions, resources, and condition keys for Amazon Kinesis Analytics
 
-Amazon Kinesis Analytics (service prefix: `kinesisanalytics`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Kinesis Analytics
+<a name="list_kinesisanalytics"></a>
+
+Amazon Kinesis Analytics (service prefix: `kinesisanalytics`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_Reference.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/authentication-and-access-control.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/kinesisanalytics/kinesisanalytics.json) for this service.
 
-- Learn how to [configure this service](../../../kinesisanalytics/latest/dev.md "../../../kinesisanalytics/latest/dev.md").
-- View a list of the [API operations available for
-  this service](../../../kinesisanalytics/latest/dev/API_Reference.md "../../../kinesisanalytics/latest/dev/API_Reference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../kinesisanalytics/latest/dev/authentication-and-access-control.md "../../../kinesisanalytics/latest/dev/authentication-and-access-control.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/kinesisanalytics/kinesisanalytics.json "https://servicereference.us-east-1.amazonaws.com/v1/kinesisanalytics/kinesisanalytics.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon Kinesis Analytics](#list_kinesisanalytics-operations "#list_kinesisanalytics-operations")
-- [Actions defined by Amazon Kinesis Analytics](#list_kinesisanalytics-actions-as-permissions "#list_kinesisanalytics-actions-as-permissions")
-- [Permission-only actions for Amazon Kinesis Analytics](#list_kinesisanalytics-permission-only-actions "#list_kinesisanalytics-permission-only-actions")
-- [Resource types defined by Amazon Kinesis Analytics](#list_kinesisanalytics-resources-for-iam-policies "#list_kinesisanalytics-resources-for-iam-policies")
-- [Condition keys for Amazon Kinesis Analytics](#list_kinesisanalytics-policy-keys "#list_kinesisanalytics-policy-keys")
+**Topics**
++ [API operations defined by Amazon Kinesis Analytics](#list_kinesisanalytics-operations)
++ [Actions defined by Amazon Kinesis Analytics](#list_kinesisanalytics-actions-as-permissions)
++ [Permission-only actions for Amazon Kinesis Analytics](#list_kinesisanalytics-permission-only-actions)
++ [Resource types defined by Amazon Kinesis Analytics](#list_kinesisanalytics-resources-for-iam-policies)
++ [Condition keys for Amazon Kinesis Analytics](#list_kinesisanalytics-policy-keys)
 
 ## API operations defined by Amazon Kinesis Analytics
+<a name="list_kinesisanalytics-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_kinesisanalytics-actions-as-permissions "#list_kinesisanalytics-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_kinesisanalytics-actions-as-permissions).
 
-| Operation                                                                                                                       | IAM action                                                                                                                                                                                                                                            | Condition key                  | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ----------------- | -------------- |
-| AddApplicationCloudWatchLoggingOption                                                                                           | [kinesisanalytics:AddApplicationCloudWatchLoggingOption](../../../managed-flink/latest/apiv2/API_AddApplicationCloudWatchLoggingOption.md "../../../managed-flink/latest/apiv2/API_AddApplicationCloudWatchLoggingOption.md")                         |                                |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                                                                                   | kinesisanalytics.amazonaws.com | Write             |
-| AddApplicationInput                                                                                                             | [kinesisanalytics:AddApplicationInput](#list_kinesisanalytics-action-AddApplicationInput "#list_kinesisanalytics-action-AddApplicationInput")                                                                                                         |                                |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                                                                                   | kinesisanalytics.amazonaws.com | Write             |
-| AddApplicationOutput                                                                                                            | [kinesisanalytics:AddApplicationOutput](#list_kinesisanalytics-action-AddApplicationOutput "#list_kinesisanalytics-action-AddApplicationOutput")                                                                                                      |                                |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                                                                                   | kinesisanalytics.amazonaws.com | Write             |
-| AddApplicationReferenceDataSource                                                                                               | [kinesisanalytics:AddApplicationReferenceDataSource](#list_kinesisanalytics-action-AddApplicationReferenceDataSource "#list_kinesisanalytics-action-AddApplicationReferenceDataSource")                                                               |                                |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                                                                                   | kinesisanalytics.amazonaws.com | Write             |
-| CreateApplication                                                                                                               | [kinesisanalytics:CreateApplication](#list_kinesisanalytics-action-CreateApplication "#list_kinesisanalytics-action-CreateApplication")                                                                                                               |                                |                   | Write          |
-| [kinesisanalytics:TagResource](#list_kinesisanalytics-action-TagResource "#list_kinesisanalytics-action-TagResource")           |                                                                                                                                                                                                                                                       |                                | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                                                                                   | kinesisanalytics.amazonaws.com | Write             |
-| DeleteApplication                                                                                                               | [kinesisanalytics:DeleteApplication](#list_kinesisanalytics-action-DeleteApplication "#list_kinesisanalytics-action-DeleteApplication")                                                                                                               |                                |                   | Write          |
-| DeleteApplicationCloudWatchLoggingOption                                                                                        | [kinesisanalytics:DeleteApplicationCloudWatchLoggingOption](../../../managed-flink/latest/apiv2/API_DeleteApplicationCloudWatchLoggingOption.md "../../../managed-flink/latest/apiv2/API_DeleteApplicationCloudWatchLoggingOption.md")                |                                |                   | Write          |
-| DeleteApplicationInputProcessingConfiguration                                                                                   | [kinesisanalytics:DeleteApplicationInputProcessingConfiguration](../../../managed-flink/latest/apiv2/API_DeleteApplicationInputProcessingConfiguration.md "../../../managed-flink/latest/apiv2/API_DeleteApplicationInputProcessingConfiguration.md") |                                |                   | Write          |
-| DeleteApplicationOutput                                                                                                         | [kinesisanalytics:DeleteApplicationOutput](#list_kinesisanalytics-action-DeleteApplicationOutput "#list_kinesisanalytics-action-DeleteApplicationOutput")                                                                                             |                                |                   | Write          |
-| DeleteApplicationReferenceDataSource                                                                                            | [kinesisanalytics:DeleteApplicationReferenceDataSource](#list_kinesisanalytics-action-DeleteApplicationReferenceDataSource "#list_kinesisanalytics-action-DeleteApplicationReferenceDataSource")                                                      |                                |                   | Write          |
-| DescribeApplication                                                                                                             | [kinesisanalytics:DescribeApplication](#list_kinesisanalytics-action-DescribeApplication "#list_kinesisanalytics-action-DescribeApplication")                                                                                                         |                                |                   | Read           |
-| DiscoverInputSchema                                                                                                             | [kinesisanalytics:DiscoverInputSchema](#list_kinesisanalytics-action-DiscoverInputSchema "#list_kinesisanalytics-action-DiscoverInputSchema")                                                                                                         |                                |                   | Read           |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                                                                                   | kinesisanalytics.amazonaws.com | Write             |
-| ListApplications                                                                                                                | [kinesisanalytics:ListApplications](#list_kinesisanalytics-action-ListApplications "#list_kinesisanalytics-action-ListApplications")                                                                                                                  |                                |                   | List           |
-| ListTagsForResource                                                                                                             | [kinesisanalytics:ListTagsForResource](#list_kinesisanalytics-action-ListTagsForResource "#list_kinesisanalytics-action-ListTagsForResource")                                                                                                         |                                |                   | Read           |
-| StartApplication                                                                                                                | [kinesisanalytics:StartApplication](#list_kinesisanalytics-action-StartApplication "#list_kinesisanalytics-action-StartApplication")                                                                                                                  |                                |                   | Write          |
-| StopApplication                                                                                                                 | [kinesisanalytics:StopApplication](#list_kinesisanalytics-action-StopApplication "#list_kinesisanalytics-action-StopApplication")                                                                                                                     |                                |                   | Write          |
-| TagResource                                                                                                                     | [kinesisanalytics:TagResource](#list_kinesisanalytics-action-TagResource "#list_kinesisanalytics-action-TagResource")                                                                                                                                 |                                |                   | Tagging, Write |
-| UntagResource                                                                                                                   | [kinesisanalytics:UntagResource](#list_kinesisanalytics-action-UntagResource "#list_kinesisanalytics-action-UntagResource")                                                                                                                           |                                |                   | Tagging, Write |
-| UpdateApplication                                                                                                               | [kinesisanalytics:UpdateApplication](#list_kinesisanalytics-action-UpdateApplication "#list_kinesisanalytics-action-UpdateApplication")                                                                                                               |                                |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                                                                                   | kinesisanalytics.amazonaws.com | Write             |
+
+
+
+- **   AddApplicationCloudWatchLoggingOption  **
+  - **IAM action:**  [kinesisanalytics:AddApplicationCloudWatchLoggingOption](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_AddApplicationCloudWatchLoggingOption.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** kinesisanalytics.amazonaws.com / **Access level:** Write
+
+- **   AddApplicationInput  **
+  - **IAM action:**  [kinesisanalytics:AddApplicationInput](#list_kinesisanalytics-action-AddApplicationInput)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** kinesisanalytics.amazonaws.com / **Access level:** Write
+
+- **   AddApplicationOutput  **
+  - **IAM action:**  [kinesisanalytics:AddApplicationOutput](#list_kinesisanalytics-action-AddApplicationOutput)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** kinesisanalytics.amazonaws.com / **Access level:** Write
+
+- **   AddApplicationReferenceDataSource  **
+  - **IAM action:**  [kinesisanalytics:AddApplicationReferenceDataSource](#list_kinesisanalytics-action-AddApplicationReferenceDataSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** kinesisanalytics.amazonaws.com / **Access level:** Write
+
+- **   CreateApplication  **
+  - **IAM action:**  [kinesisanalytics:CreateApplication](#list_kinesisanalytics-action-CreateApplication)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kinesisanalytics:TagResource](#list_kinesisanalytics-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** kinesisanalytics.amazonaws.com / **Access level:** Write
+
+- **   DeleteApplication  **
+  - **IAM action:**  [kinesisanalytics:DeleteApplication](#list_kinesisanalytics-action-DeleteApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteApplicationCloudWatchLoggingOption  **
+  - **IAM action:**  [kinesisanalytics:DeleteApplicationCloudWatchLoggingOption](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_DeleteApplicationCloudWatchLoggingOption.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteApplicationInputProcessingConfiguration  **
+  - **IAM action:**  [kinesisanalytics:DeleteApplicationInputProcessingConfiguration](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_DeleteApplicationInputProcessingConfiguration.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteApplicationOutput  **
+  - **IAM action:**  [kinesisanalytics:DeleteApplicationOutput](#list_kinesisanalytics-action-DeleteApplicationOutput) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteApplicationReferenceDataSource  **
+  - **IAM action:**  [kinesisanalytics:DeleteApplicationReferenceDataSource](#list_kinesisanalytics-action-DeleteApplicationReferenceDataSource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeApplication  **
+  - **IAM action:**  [kinesisanalytics:DescribeApplication](#list_kinesisanalytics-action-DescribeApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DiscoverInputSchema  **
+  - **IAM action:**  [kinesisanalytics:DiscoverInputSchema](#list_kinesisanalytics-action-DiscoverInputSchema)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** kinesisanalytics.amazonaws.com / **Access level:** Write
+
+- **   ListApplications  **
+  - **IAM action:**  [kinesisanalytics:ListApplications](#list_kinesisanalytics-action-ListApplications) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [kinesisanalytics:ListTagsForResource](#list_kinesisanalytics-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartApplication  **
+  - **IAM action:**  [kinesisanalytics:StartApplication](#list_kinesisanalytics-action-StartApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopApplication  **
+  - **IAM action:**  [kinesisanalytics:StopApplication](#list_kinesisanalytics-action-StopApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [kinesisanalytics:TagResource](#list_kinesisanalytics-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [kinesisanalytics:UntagResource](#list_kinesisanalytics-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateApplication  **
+  - **IAM action:**  [kinesisanalytics:UpdateApplication](#list_kinesisanalytics-action-UpdateApplication)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** kinesisanalytics.amazonaws.com / **Access level:** Write
+
+
 
 ## Actions defined by Amazon Kinesis Analytics
+<a name="list_kinesisanalytics-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                     | Description                                                                        | Resource types (\*required)                                                                                | Condition keys                                                                                                                                                                                                                                                                                                                                              | Access level   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AddApplicationInput](../../../kinesisanalytics/latest/dev/API_AddApplicationInput.md "../../../kinesisanalytics/latest/dev/API_AddApplicationInput.md")                                                    | Grants permission to add input to the application                                  | [application\*](#list_kinesisanalytics-resource-application "#list_kinesisanalytics-resource-application") | [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_ "#list_kinesisanalytics-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
-| [AddApplicationOutput](../../../kinesisanalytics/latest/dev/API_AddApplicationOutput.md "../../../kinesisanalytics/latest/dev/API_AddApplicationOutput.md")                                                 | Grants permission to add output to the application                                 | [application\*](#list_kinesisanalytics-resource-application "#list_kinesisanalytics-resource-application") | [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_ "#list_kinesisanalytics-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
-| [AddApplicationReferenceDataSource](../../../kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.md "../../../kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.md")          | Grants permission to add reference data source to the application                  | [application\*](#list_kinesisanalytics-resource-application "#list_kinesisanalytics-resource-application") | [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_ "#list_kinesisanalytics-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
-| [CreateApplication](../../../kinesisanalytics/latest/dev/API_CreateApplication.md "../../../kinesisanalytics/latest/dev/API_CreateApplication.md")                                                          | Grants permission to create an application                                         |                                                                                                            | [aws:RequestTag/${TagKey}](#list_kinesisanalytics-aws_RequestTag___TagKey_ "#list_kinesisanalytics-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_kinesisanalytics-aws_TagKeys "#list_kinesisanalytics-aws_TagKeys")                                                                                                                                     | Write          |
-| [DeleteApplication](../../../kinesisanalytics/latest/dev/API_DeleteApplication.md "../../../kinesisanalytics/latest/dev/API_DeleteApplication.md")                                                          | Grants permission to delete the application                                        | [application\*](#list_kinesisanalytics-resource-application "#list_kinesisanalytics-resource-application") | [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_ "#list_kinesisanalytics-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
-| [DeleteApplicationOutput](../../../kinesisanalytics/latest/dev/API_DeleteApplicationOutput.md "../../../kinesisanalytics/latest/dev/API_DeleteApplicationOutput.md")                                        | Grants permission to delete the specified output of the application                | [application\*](#list_kinesisanalytics-resource-application "#list_kinesisanalytics-resource-application") | [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_ "#list_kinesisanalytics-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
-| [DeleteApplicationReferenceDataSource](../../../kinesisanalytics/latest/dev/API_DeleteApplicationReferenceDataSource.md "../../../kinesisanalytics/latest/dev/API_DeleteApplicationReferenceDataSource.md") | Grants permission to delete the specified reference data source of the application | [application\*](#list_kinesisanalytics-resource-application "#list_kinesisanalytics-resource-application") | [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_ "#list_kinesisanalytics-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
-| [DescribeApplication](../../../kinesisanalytics/latest/dev/API_DescribeApplication.md "../../../kinesisanalytics/latest/dev/API_DescribeApplication.md")                                                    | Grants permission to describe the specified application                            | [application\*](#list_kinesisanalytics-resource-application "#list_kinesisanalytics-resource-application") | [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_ "#list_kinesisanalytics-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read           |
-| [DiscoverInputSchema](../../../kinesisanalytics/latest/dev/API_DiscoverInputSchema.md "../../../kinesisanalytics/latest/dev/API_DiscoverInputSchema.md")                                                    | Grants permission to discover the input schema for the application                 |                                                                                                            |                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [ListApplications](../../../kinesisanalytics/latest/dev/API_ListApplications.md "../../../kinesisanalytics/latest/dev/API_ListApplications.md")                                                             | Grants permission to list applications for the account                             |                                                                                                            |                                                                                                                                                                                                                                                                                                                                                             | List           |
-| [ListTagsForResource](../../../kinesisanalytics/latest/dev/API_ListTagsForResource.md "../../../kinesisanalytics/latest/dev/API_ListTagsForResource.md")                                                    | Grants permission to fetch the tags associated with the application                | [application\*](#list_kinesisanalytics-resource-application "#list_kinesisanalytics-resource-application") | [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_ "#list_kinesisanalytics-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read           |
-| [StartApplication](../../../kinesisanalytics/latest/dev/API_StartApplication.md "../../../kinesisanalytics/latest/dev/API_StartApplication.md")                                                             | Grants permission to start the application                                         | [application\*](#list_kinesisanalytics-resource-application "#list_kinesisanalytics-resource-application") | [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_ "#list_kinesisanalytics-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
-| [StopApplication](../../../kinesisanalytics/latest/dev/API_StopApplication.md "../../../kinesisanalytics/latest/dev/API_StopApplication.md")                                                                | Grants permission to stop the application                                          | [application\*](#list_kinesisanalytics-resource-application "#list_kinesisanalytics-resource-application") | [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_ "#list_kinesisanalytics-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
-| [TagResource](../../../kinesisanalytics/latest/dev/API_TagResource.md "../../../kinesisanalytics/latest/dev/API_TagResource.md")                                                                            | Grants permission to add tags to the application                                   | [application\*](#list_kinesisanalytics-resource-application "#list_kinesisanalytics-resource-application") | [aws:RequestTag/${TagKey}](#list_kinesisanalytics-aws_RequestTag___TagKey_ "#list_kinesisanalytics-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_ "#list_kinesisanalytics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kinesisanalytics-aws_TagKeys "#list_kinesisanalytics-aws_TagKeys") | Tagging, Write |
-| [UntagResource](../../../kinesisanalytics/latest/dev/API_UntagResource.md "../../../kinesisanalytics/latest/dev/API_UntagResource.md")                                                                      | Grants permission to remove the specified tags from the application                | [application\*](#list_kinesisanalytics-resource-application "#list_kinesisanalytics-resource-application") | [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_ "#list_kinesisanalytics-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kinesisanalytics-aws_TagKeys "#list_kinesisanalytics-aws_TagKeys")                                                                                                                                  | Tagging, Write |
-| [UpdateApplication](../../../kinesisanalytics/latest/dev/API_UpdateApplication.md "../../../kinesisanalytics/latest/dev/API_UpdateApplication.md")                                                          | Grants permission to update the application                                        | [application\*](#list_kinesisanalytics-resource-application "#list_kinesisanalytics-resource-application") | [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_ "#list_kinesisanalytics-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
+
+
+
+- **   [AddApplicationInput](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationInput.html)  **
+  - **Description:** Grants permission to add input to the application
+  - **Resource types (\*required):** [application\*](#list_kinesisanalytics-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AddApplicationOutput](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationOutput.html)  **
+  - **Description:** Grants permission to add output to the application
+  - **Resource types (\*required):** [application\*](#list_kinesisanalytics-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AddApplicationReferenceDataSource](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html)  **
+  - **Description:** Grants permission to add reference data source to the application
+  - **Resource types (\*required):** [application\*](#list_kinesisanalytics-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_CreateApplication.html)  **
+  - **Description:** Grants permission to create an application
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesisanalytics-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_kinesisanalytics-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DeleteApplication.html)  **
+  - **Description:** Grants permission to delete the application
+  - **Resource types (\*required):** [application\*](#list_kinesisanalytics-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteApplicationOutput](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DeleteApplicationOutput.html)  **
+  - **Description:** Grants permission to delete the specified output of the application
+  - **Resource types (\*required):** [application\*](#list_kinesisanalytics-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteApplicationReferenceDataSource](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DeleteApplicationReferenceDataSource.html)  **
+  - **Description:** Grants permission to delete the specified reference data source of the application
+  - **Resource types (\*required):** [application\*](#list_kinesisanalytics-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html)  **
+  - **Description:** Grants permission to describe the specified application
+  - **Resource types (\*required):** [application\*](#list_kinesisanalytics-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DiscoverInputSchema](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DiscoverInputSchema.html)  **
+  - **Description:** Grants permission to discover the input schema for the application
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListApplications](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_ListApplications.html)  **
+  - **Description:** Grants permission to list applications for the account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to fetch the tags associated with the application
+  - **Resource types (\*required):** [application\*](#list_kinesisanalytics-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [StartApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_StartApplication.html)  **
+  - **Description:** Grants permission to start the application
+  - **Resource types (\*required):** [application\*](#list_kinesisanalytics-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_StopApplication.html)  **
+  - **Description:** Grants permission to stop the application
+  - **Resource types (\*required):** [application\*](#list_kinesisanalytics-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_TagResource.html)  **
+  - **Description:** Grants permission to add tags to the application
+  - **Resource types (\*required):** [application\*](#list_kinesisanalytics-resource-application)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesisanalytics-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesisanalytics-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove the specified tags from the application
+  - **Resource types (\*required):** [application\*](#list_kinesisanalytics-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesisanalytics-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UpdateApplication.html)  **
+  - **Description:** Grants permission to update the application
+  - **Resource types (\*required):** [application\*](#list_kinesisanalytics-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for Amazon Kinesis Analytics
+<a name="list_kinesisanalytics-permission-only-actions"></a>
 
-The following actions are defined by Amazon Kinesis Analytics but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by Amazon Kinesis Analytics but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                                                                                                  | Description                                                                                                                       | Resource types (\*required)                                                                                | Condition keys                                                                                                                   | Access level |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [GetApplicationState](../../../kinesisanalytics/latest/dev/api-permissions-reference.md#api-permissions-reference-gas "../../../kinesisanalytics/latest/dev/api-permissions-reference.md#api-permissions-reference-gas") | Grants permission to Kinesis Data Analytics console to display stream results for Kinesis Data Analytics SQL runtime applications | [application\*](#list_kinesisanalytics-resource-application "#list_kinesisanalytics-resource-application") | [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_ "#list_kinesisanalytics-aws_ResourceTag___TagKey_") | Read         |
+
+
+
+- **   [GetApplicationState](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/api-permissions-reference.html#api-permissions-reference-gas)  **
+  - **Description:** Grants permission to Kinesis Data Analytics console to display stream results for Kinesis Data Analytics SQL runtime applications
+  - **Resource types (\*required):** [application\*](#list_kinesisanalytics-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+
 
 ## Resource types defined by Amazon Kinesis Analytics
+<a name="list_kinesisanalytics-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                             | ARN                                                                                   | Condition keys                                                                                                                   |
-| -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| [application](../../../kinesisanalytics/latest/dev/how-it-works.md "../../../kinesisanalytics/latest/dev/how-it-works.md") | arn:${Partition}:kinesisanalytics:${Region}:${Account}:application/${ApplicationName} | [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_ "#list_kinesisanalytics-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [application](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html)  | arn:${Partition}:kinesisanalytics:${Region}:${Account}:application/${ApplicationName} | [aws:ResourceTag/${TagKey}](#list_kinesisanalytics-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Kinesis Analytics
+<a name="list_kinesisanalytics-policy-keys"></a>
 
-Amazon Kinesis Analytics defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Kinesis Analytics defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                         | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by set of values for each of the tags                | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by tag-value assoicated with the resource            | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the presence of mandatory tag keys in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by set of values for each of the tags | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag-value assoicated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the presence of mandatory tag keys in the request | ArrayOfString | 

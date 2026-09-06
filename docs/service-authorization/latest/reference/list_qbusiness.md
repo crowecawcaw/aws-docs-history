@@ -1,354 +1,1140 @@
-# Actions, resources, and condition keys for Amazon Q Business
 
-Amazon Q Business (service prefix: `qbusiness`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Q Business
+<a name="list_qbusiness"></a>
+
+Amazon Q Business (service prefix: `qbusiness`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/amazonq/latest/api-reference/).
++ Learn how to secure this service and its resources by [using IAM](${UserGuideDocPage}security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/qbusiness/qbusiness.json) for this service.
 
-- Learn how to [configure this service](../../../amazonq/latest/business-use-dg.md "../../../amazonq/latest/business-use-dg.md").
-- View a list of the [API operations available for
-  this service](../../../amazonq/latest/api-reference.md "../../../amazonq/latest/api-reference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](${UserGuideDocPage}security-iam.md "${UserGuideDocPage}security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/qbusiness/qbusiness.json "https://servicereference.us-east-1.amazonaws.com/v1/qbusiness/qbusiness.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon Q Business](#list_qbusiness-operations "#list_qbusiness-operations")
-- [Actions defined by Amazon Q Business](#list_qbusiness-actions-as-permissions "#list_qbusiness-actions-as-permissions")
-- [Permission-only actions for Amazon Q Business](#list_qbusiness-permission-only-actions "#list_qbusiness-permission-only-actions")
-- [Resource types defined by Amazon Q Business](#list_qbusiness-resources-for-iam-policies "#list_qbusiness-resources-for-iam-policies")
-- [Condition keys for Amazon Q Business](#list_qbusiness-policy-keys "#list_qbusiness-policy-keys")
+**Topics**
++ [API operations defined by Amazon Q Business](#list_qbusiness-operations)
++ [Actions defined by Amazon Q Business](#list_qbusiness-actions-as-permissions)
++ [Permission-only actions for Amazon Q Business](#list_qbusiness-permission-only-actions)
++ [Resource types defined by Amazon Q Business](#list_qbusiness-resources-for-iam-policies)
++ [Condition keys for Amazon Q Business](#list_qbusiness-policy-keys)
 
 ## API operations defined by Amazon Q Business
+<a name="list_qbusiness-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_qbusiness-actions-as-permissions "#list_qbusiness-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_qbusiness-actions-as-permissions).
 
-| Operation                                                                                                                                  | IAM action                                                                                                                                                   | Condition key           | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- | ----------------- | -------------- |
-| AssociatePermission                                                                                                                        | [qbusiness:AssociatePermission](#list_qbusiness-action-AssociatePermission "#list_qbusiness-action-AssociatePermission")                                     |                         |                   | Write          |
-| [qbusiness:PutResourcePolicy](#list_qbusiness-action-PutResourcePolicy "#list_qbusiness-action-PutResourcePolicy")                         |                                                                                                                                                              |                         | Write             |
-| BatchDeleteDocument                                                                                                                        | [qbusiness:BatchDeleteDocument](#list_qbusiness-action-BatchDeleteDocument "#list_qbusiness-action-BatchDeleteDocument")                                     |                         |                   | Write          |
-| BatchPutDocument                                                                                                                           | [qbusiness:BatchPutDocument](#list_qbusiness-action-BatchPutDocument "#list_qbusiness-action-BatchPutDocument")                                              |                         |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")            | iam:PassedToService                                                                                                                                          | qbusiness.amazonaws.com | Write             |
-| CancelSubscription                                                                                                                         | [qbusiness:CancelSubscription](#list_qbusiness-action-CancelSubscription "#list_qbusiness-action-CancelSubscription")                                        |                         |                   | Write          |
-| Chat                                                                                                                                       | [qbusiness:Chat](#list_qbusiness-action-Chat "#list_qbusiness-action-Chat")                                                                                  |                         |                   | Read           |
-| ChatSync                                                                                                                                   | [qbusiness:ChatSync](#list_qbusiness-action-ChatSync "#list_qbusiness-action-ChatSync")                                                                      |                         |                   | Read           |
-| CheckDocumentAccess                                                                                                                        | [qbusiness:CheckDocumentAccess](#list_qbusiness-action-CheckDocumentAccess "#list_qbusiness-action-CheckDocumentAccess")                                     |                         |                   | Read           |
-| CreateAnonymousWebExperienceUrl                                                                                                            | [qbusiness:CreateAnonymousWebExperienceUrl](#list_qbusiness-action-CreateAnonymousWebExperienceUrl "#list_qbusiness-action-CreateAnonymousWebExperienceUrl") |                         |                   | Write          |
-| CreateApplication                                                                                                                          | [qbusiness:CreateApplication](#list_qbusiness-action-CreateApplication "#list_qbusiness-action-CreateApplication")                                           |                         |                   | Write          |
-| [qbusiness:TagResource](#list_qbusiness-action-TagResource "#list_qbusiness-action-TagResource")                                           |                                                                                                                                                              |                         | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")            | iam:PassedToService                                                                                                                                          | qbusiness.amazonaws.com | Write             |
-| CreateChatResponseConfiguration                                                                                                            | [qbusiness:CreateChatResponseConfiguration](#list_qbusiness-action-CreateChatResponseConfiguration "#list_qbusiness-action-CreateChatResponseConfiguration") |                         |                   | Write          |
-| [qbusiness:TagResource](#list_qbusiness-action-TagResource "#list_qbusiness-action-TagResource")                                           |                                                                                                                                                              |                         | Tagging, Write    |
-| CreateDataAccessor                                                                                                                         | [qbusiness:CreateDataAccessor](#list_qbusiness-action-CreateDataAccessor "#list_qbusiness-action-CreateDataAccessor")                                        |                         |                   | Write          |
-| [qbusiness:CreateDataAccessorWithTti](#list_qbusiness-action-CreateDataAccessorWithTti "#list_qbusiness-action-CreateDataAccessorWithTti") |                                                                                                                                                              |                         | Write             |
-| [qbusiness:TagResource](#list_qbusiness-action-TagResource "#list_qbusiness-action-TagResource")                                           |                                                                                                                                                              |                         | Tagging, Write    |
-| CreateDataSource                                                                                                                           | [qbusiness:CreateDataSource](#list_qbusiness-action-CreateDataSource "#list_qbusiness-action-CreateDataSource")                                              |                         |                   | Write          |
-| [qbusiness:DisableAclOnDataSource](#list_qbusiness-action-DisableAclOnDataSource "#list_qbusiness-action-DisableAclOnDataSource")          |                                                                                                                                                              |                         | Write             |
-| [qbusiness:TagResource](#list_qbusiness-action-TagResource "#list_qbusiness-action-TagResource")                                           |                                                                                                                                                              |                         | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")            | iam:PassedToService                                                                                                                                          | qbusiness.amazonaws.com | Write             |
-| CreateIndex                                                                                                                                | [qbusiness:CreateIndex](#list_qbusiness-action-CreateIndex "#list_qbusiness-action-CreateIndex")                                                             |                         |                   | Write          |
-| [qbusiness:TagResource](#list_qbusiness-action-TagResource "#list_qbusiness-action-TagResource")                                           |                                                                                                                                                              |                         | Tagging, Write    |
-| CreatePlugin                                                                                                                               | [qbusiness:CreatePlugin](#list_qbusiness-action-CreatePlugin "#list_qbusiness-action-CreatePlugin")                                                          |                         |                   | Write          |
-| [qbusiness:TagResource](#list_qbusiness-action-TagResource "#list_qbusiness-action-TagResource")                                           |                                                                                                                                                              |                         | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")            | iam:PassedToService                                                                                                                                          | qbusiness.amazonaws.com | Write             |
-| CreateRetriever                                                                                                                            | [qbusiness:CreateRetriever](#list_qbusiness-action-CreateRetriever "#list_qbusiness-action-CreateRetriever")                                                 |                         |                   | Write          |
-| [qbusiness:TagResource](#list_qbusiness-action-TagResource "#list_qbusiness-action-TagResource")                                           |                                                                                                                                                              |                         | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")            | iam:PassedToService                                                                                                                                          | qbusiness.amazonaws.com | Write             |
-| CreateSubscription                                                                                                                         | [qbusiness:CreateSubscription](#list_qbusiness-action-CreateSubscription "#list_qbusiness-action-CreateSubscription")                                        |                         |                   | Write          |
-| CreateUser                                                                                                                                 | [qbusiness:CreateUser](#list_qbusiness-action-CreateUser "#list_qbusiness-action-CreateUser")                                                                |                         |                   | Write          |
-| CreateWebExperience                                                                                                                        | [qbusiness:CreateWebExperience](#list_qbusiness-action-CreateWebExperience "#list_qbusiness-action-CreateWebExperience")                                     |                         |                   | Write          |
-| [qbusiness:TagResource](#list_qbusiness-action-TagResource "#list_qbusiness-action-TagResource")                                           |                                                                                                                                                              |                         | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")            | iam:PassedToService                                                                                                                                          | qbusiness.amazonaws.com | Write             |
-| DeleteApplication                                                                                                                          | [qbusiness:DeleteApplication](#list_qbusiness-action-DeleteApplication "#list_qbusiness-action-DeleteApplication")                                           |                         |                   | Write          |
-| DeleteAttachment                                                                                                                           | [qbusiness:DeleteAttachment](#list_qbusiness-action-DeleteAttachment "#list_qbusiness-action-DeleteAttachment")                                              |                         |                   | Write          |
-| DeleteChatControlsConfiguration                                                                                                            | [qbusiness:DeleteChatControlsConfiguration](#list_qbusiness-action-DeleteChatControlsConfiguration "#list_qbusiness-action-DeleteChatControlsConfiguration") |                         |                   | Write          |
-| DeleteChatResponseConfiguration                                                                                                            | [qbusiness:DeleteChatResponseConfiguration](#list_qbusiness-action-DeleteChatResponseConfiguration "#list_qbusiness-action-DeleteChatResponseConfiguration") |                         |                   | Write          |
-| DeleteConversation                                                                                                                         | [qbusiness:DeleteConversation](#list_qbusiness-action-DeleteConversation "#list_qbusiness-action-DeleteConversation")                                        |                         |                   | Write          |
-| DeleteDataAccessor                                                                                                                         | [qbusiness:DeleteDataAccessor](#list_qbusiness-action-DeleteDataAccessor "#list_qbusiness-action-DeleteDataAccessor")                                        |                         |                   | Write          |
-| DeleteDataSource                                                                                                                           | [qbusiness:DeleteDataSource](#list_qbusiness-action-DeleteDataSource "#list_qbusiness-action-DeleteDataSource")                                              |                         |                   | Write          |
-| DeleteGroup                                                                                                                                | [qbusiness:DeleteGroup](#list_qbusiness-action-DeleteGroup "#list_qbusiness-action-DeleteGroup")                                                             |                         |                   | Write          |
-| DeleteIndex                                                                                                                                | [qbusiness:DeleteIndex](#list_qbusiness-action-DeleteIndex "#list_qbusiness-action-DeleteIndex")                                                             |                         |                   | Write          |
-| DeletePlugin                                                                                                                               | [qbusiness:DeletePlugin](#list_qbusiness-action-DeletePlugin "#list_qbusiness-action-DeletePlugin")                                                          |                         |                   | Write          |
-| DeleteRetriever                                                                                                                            | [qbusiness:DeleteRetriever](#list_qbusiness-action-DeleteRetriever "#list_qbusiness-action-DeleteRetriever")                                                 |                         |                   | Write          |
-| DeleteUser                                                                                                                                 | [qbusiness:DeleteUser](#list_qbusiness-action-DeleteUser "#list_qbusiness-action-DeleteUser")                                                                |                         |                   | Write          |
-| DeleteWebExperience                                                                                                                        | [qbusiness:DeleteWebExperience](#list_qbusiness-action-DeleteWebExperience "#list_qbusiness-action-DeleteWebExperience")                                     |                         |                   | Write          |
-| DisassociatePermission                                                                                                                     | [qbusiness:DisassociatePermission](#list_qbusiness-action-DisassociatePermission "#list_qbusiness-action-DisassociatePermission")                            |                         |                   | Write          |
-| [qbusiness:PutResourcePolicy](#list_qbusiness-action-PutResourcePolicy "#list_qbusiness-action-PutResourcePolicy")                         |                                                                                                                                                              |                         | Write             |
-| GetApplication                                                                                                                             | [qbusiness:GetApplication](#list_qbusiness-action-GetApplication "#list_qbusiness-action-GetApplication")                                                    |                         |                   | Read           |
-| GetChatControlsConfiguration                                                                                                               | [qbusiness:GetChatControlsConfiguration](#list_qbusiness-action-GetChatControlsConfiguration "#list_qbusiness-action-GetChatControlsConfiguration")          |                         |                   | List           |
-| GetChatResponseConfiguration                                                                                                               | [qbusiness:GetChatResponseConfiguration](#list_qbusiness-action-GetChatResponseConfiguration "#list_qbusiness-action-GetChatResponseConfiguration")          |                         |                   | Read           |
-| GetDataAccessor                                                                                                                            | [qbusiness:GetDataAccessor](#list_qbusiness-action-GetDataAccessor "#list_qbusiness-action-GetDataAccessor")                                                 |                         |                   | Read           |
-| GetDataSource                                                                                                                              | [qbusiness:GetDataSource](#list_qbusiness-action-GetDataSource "#list_qbusiness-action-GetDataSource")                                                       |                         |                   | Read           |
-| GetDocumentContent                                                                                                                         | [qbusiness:GetDocumentContent](#list_qbusiness-action-GetDocumentContent "#list_qbusiness-action-GetDocumentContent")                                        |                         |                   | Read           |
-| GetGroup                                                                                                                                   | [qbusiness:GetGroup](#list_qbusiness-action-GetGroup "#list_qbusiness-action-GetGroup")                                                                      |                         |                   | Read           |
-| GetIndex                                                                                                                                   | [qbusiness:GetIndex](#list_qbusiness-action-GetIndex "#list_qbusiness-action-GetIndex")                                                                      |                         |                   | Read           |
-| GetMedia                                                                                                                                   | [qbusiness:GetMedia](#list_qbusiness-action-GetMedia "#list_qbusiness-action-GetMedia")                                                                      |                         |                   | Read           |
-| GetPlugin                                                                                                                                  | [qbusiness:GetPlugin](#list_qbusiness-action-GetPlugin "#list_qbusiness-action-GetPlugin")                                                                   |                         |                   | Read           |
-| GetPolicy                                                                                                                                  | [qbusiness:GetPolicy](#list_qbusiness-action-GetPolicy "#list_qbusiness-action-GetPolicy")                                                                   |                         |                   | Read           |
-| GetRetriever                                                                                                                               | [qbusiness:GetRetriever](#list_qbusiness-action-GetRetriever "#list_qbusiness-action-GetRetriever")                                                          |                         |                   | Read           |
-| GetUser                                                                                                                                    | [qbusiness:GetUser](#list_qbusiness-action-GetUser "#list_qbusiness-action-GetUser")                                                                         |                         |                   | Read           |
-| GetWebExperience                                                                                                                           | [qbusiness:GetWebExperience](#list_qbusiness-action-GetWebExperience "#list_qbusiness-action-GetWebExperience")                                              |                         |                   | Read           |
-| ListApplications                                                                                                                           | [qbusiness:ListApplications](#list_qbusiness-action-ListApplications "#list_qbusiness-action-ListApplications")                                              |                         |                   | List           |
-| ListAttachments                                                                                                                            | [qbusiness:ListAttachments](#list_qbusiness-action-ListAttachments "#list_qbusiness-action-ListAttachments")                                                 |                         |                   | List           |
-| ListChatResponseConfigurations                                                                                                             | [qbusiness:ListChatResponseConfigurations](#list_qbusiness-action-ListChatResponseConfigurations "#list_qbusiness-action-ListChatResponseConfigurations")    |                         |                   | List           |
-| ListConversations                                                                                                                          | [qbusiness:ListConversations](#list_qbusiness-action-ListConversations "#list_qbusiness-action-ListConversations")                                           |                         |                   | List           |
-| ListDataAccessors                                                                                                                          | [qbusiness:ListDataAccessors](#list_qbusiness-action-ListDataAccessors "#list_qbusiness-action-ListDataAccessors")                                           |                         |                   | List           |
-| ListDataSourceSyncJobs                                                                                                                     | [qbusiness:ListDataSourceSyncJobs](#list_qbusiness-action-ListDataSourceSyncJobs "#list_qbusiness-action-ListDataSourceSyncJobs")                            |                         |                   | List           |
-| ListDataSources                                                                                                                            | [qbusiness:ListDataSources](#list_qbusiness-action-ListDataSources "#list_qbusiness-action-ListDataSources")                                                 |                         |                   | List           |
-| ListDocuments                                                                                                                              | [qbusiness:ListDocuments](#list_qbusiness-action-ListDocuments "#list_qbusiness-action-ListDocuments")                                                       |                         |                   | List           |
-| ListGroups                                                                                                                                 | [qbusiness:ListGroups](#list_qbusiness-action-ListGroups "#list_qbusiness-action-ListGroups")                                                                |                         |                   | List           |
-| ListIndices                                                                                                                                | [qbusiness:ListIndices](#list_qbusiness-action-ListIndices "#list_qbusiness-action-ListIndices")                                                             |                         |                   | List           |
-| ListMessages                                                                                                                               | [qbusiness:ListMessages](#list_qbusiness-action-ListMessages "#list_qbusiness-action-ListMessages")                                                          |                         |                   | List           |
-| ListPluginActions                                                                                                                          | [qbusiness:ListPluginActions](#list_qbusiness-action-ListPluginActions "#list_qbusiness-action-ListPluginActions")                                           |                         |                   | Read           |
-| ListPluginTypeActions                                                                                                                      | [qbusiness:ListPluginTypeActions](#list_qbusiness-action-ListPluginTypeActions "#list_qbusiness-action-ListPluginTypeActions")                               |                         |                   | Read           |
-| ListPluginTypeMetadata                                                                                                                     | [qbusiness:ListPluginTypeMetadata](#list_qbusiness-action-ListPluginTypeMetadata "#list_qbusiness-action-ListPluginTypeMetadata")                            |                         |                   | Read           |
-| ListPlugins                                                                                                                                | [qbusiness:ListPlugins](#list_qbusiness-action-ListPlugins "#list_qbusiness-action-ListPlugins")                                                             |                         |                   | List           |
-| ListRetrievers                                                                                                                             | [qbusiness:ListRetrievers](#list_qbusiness-action-ListRetrievers "#list_qbusiness-action-ListRetrievers")                                                    |                         |                   | List           |
-| ListSubscriptions                                                                                                                          | [qbusiness:ListSubscriptions](#list_qbusiness-action-ListSubscriptions "#list_qbusiness-action-ListSubscriptions")                                           |                         |                   | List           |
-| ListTagsForResource                                                                                                                        | [qbusiness:ListTagsForResource](#list_qbusiness-action-ListTagsForResource "#list_qbusiness-action-ListTagsForResource")                                     |                         |                   | Read           |
-| ListWebExperiences                                                                                                                         | [qbusiness:ListWebExperiences](#list_qbusiness-action-ListWebExperiences "#list_qbusiness-action-ListWebExperiences")                                        |                         |                   | List           |
-| PutFeedback                                                                                                                                | [qbusiness:PutFeedback](#list_qbusiness-action-PutFeedback "#list_qbusiness-action-PutFeedback")                                                             |                         |                   | Write          |
-| PutGroup                                                                                                                                   | [qbusiness:PutGroup](#list_qbusiness-action-PutGroup "#list_qbusiness-action-PutGroup")                                                                      |                         |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")            | iam:PassedToService                                                                                                                                          | qbusiness.amazonaws.com | Write             |
-| SearchRelevantContent                                                                                                                      | [qbusiness:SearchRelevantContent](#list_qbusiness-action-SearchRelevantContent "#list_qbusiness-action-SearchRelevantContent")                               |                         |                   | Read           |
-| StartDataSourceSyncJob                                                                                                                     | [qbusiness:StartDataSourceSyncJob](#list_qbusiness-action-StartDataSourceSyncJob "#list_qbusiness-action-StartDataSourceSyncJob")                            |                         |                   | Write          |
-| StopDataSourceSyncJob                                                                                                                      | [qbusiness:StopDataSourceSyncJob](#list_qbusiness-action-StopDataSourceSyncJob "#list_qbusiness-action-StopDataSourceSyncJob")                               |                         |                   | Write          |
-| TagResource                                                                                                                                | [qbusiness:TagResource](#list_qbusiness-action-TagResource "#list_qbusiness-action-TagResource")                                                             |                         |                   | Tagging, Write |
-| UntagResource                                                                                                                              | [qbusiness:UntagResource](#list_qbusiness-action-UntagResource "#list_qbusiness-action-UntagResource")                                                       |                         |                   | Tagging, Write |
-| UpdateApplication                                                                                                                          | [qbusiness:UpdateApplication](#list_qbusiness-action-UpdateApplication "#list_qbusiness-action-UpdateApplication")                                           |                         |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")            | iam:PassedToService                                                                                                                                          | qbusiness.amazonaws.com | Write             |
-| UpdateChatControlsConfiguration                                                                                                            | [qbusiness:UpdateChatControlsConfiguration](#list_qbusiness-action-UpdateChatControlsConfiguration "#list_qbusiness-action-UpdateChatControlsConfiguration") |                         |                   | Write          |
-| UpdateChatResponseConfiguration                                                                                                            | [qbusiness:UpdateChatResponseConfiguration](#list_qbusiness-action-UpdateChatResponseConfiguration "#list_qbusiness-action-UpdateChatResponseConfiguration") |                         |                   | Write          |
-| UpdateDataAccessor                                                                                                                         | [qbusiness:UpdateDataAccessor](#list_qbusiness-action-UpdateDataAccessor "#list_qbusiness-action-UpdateDataAccessor")                                        |                         |                   | Write          |
-| UpdateDataSource                                                                                                                           | [qbusiness:UpdateDataSource](#list_qbusiness-action-UpdateDataSource "#list_qbusiness-action-UpdateDataSource")                                              |                         |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")            | iam:PassedToService                                                                                                                                          | qbusiness.amazonaws.com | Write             |
-| UpdateIndex                                                                                                                                | [qbusiness:UpdateIndex](#list_qbusiness-action-UpdateIndex "#list_qbusiness-action-UpdateIndex")                                                             |                         |                   | Write          |
-| UpdatePlugin                                                                                                                               | [qbusiness:UpdatePlugin](#list_qbusiness-action-UpdatePlugin "#list_qbusiness-action-UpdatePlugin")                                                          |                         |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")            | iam:PassedToService                                                                                                                                          | qbusiness.amazonaws.com | Write             |
-| UpdateRetriever                                                                                                                            | [qbusiness:UpdateRetriever](#list_qbusiness-action-UpdateRetriever "#list_qbusiness-action-UpdateRetriever")                                                 |                         |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")            | iam:PassedToService                                                                                                                                          | qbusiness.amazonaws.com | Write             |
-| UpdateSubscription                                                                                                                         | [qbusiness:UpdateSubscription](#list_qbusiness-action-UpdateSubscription "#list_qbusiness-action-UpdateSubscription")                                        |                         |                   | Write          |
-| UpdateUser                                                                                                                                 | [qbusiness:UpdateUser](#list_qbusiness-action-UpdateUser "#list_qbusiness-action-UpdateUser")                                                                |                         |                   | Write          |
-| UpdateWebExperience                                                                                                                        | [qbusiness:UpdateWebExperience](#list_qbusiness-action-UpdateWebExperience "#list_qbusiness-action-UpdateWebExperience")                                     |                         |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")            | iam:PassedToService                                                                                                                                          | qbusiness.amazonaws.com | Write             |
+
+
+
+- **   AssociatePermission  **
+  - **IAM action:**  [qbusiness:AssociatePermission](#list_qbusiness-action-AssociatePermission)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [qbusiness:PutResourcePolicy](#list_qbusiness-action-PutResourcePolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   BatchDeleteDocument  **
+  - **IAM action:**  [qbusiness:BatchDeleteDocument](#list_qbusiness-action-BatchDeleteDocument) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchPutDocument  **
+  - **IAM action:**  [qbusiness:BatchPutDocument](#list_qbusiness-action-BatchPutDocument)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** qbusiness.amazonaws.com / **Access level:** Write
+
+- **   CancelSubscription  **
+  - **IAM action:**  [qbusiness:CancelSubscription](#list_qbusiness-action-CancelSubscription) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   Chat  **
+  - **IAM action:**  [qbusiness:Chat](#list_qbusiness-action-Chat) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ChatSync  **
+  - **IAM action:**  [qbusiness:ChatSync](#list_qbusiness-action-ChatSync) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   CheckDocumentAccess  **
+  - **IAM action:**  [qbusiness:CheckDocumentAccess](#list_qbusiness-action-CheckDocumentAccess) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   CreateAnonymousWebExperienceUrl  **
+  - **IAM action:**  [qbusiness:CreateAnonymousWebExperienceUrl](#list_qbusiness-action-CreateAnonymousWebExperienceUrl) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateApplication  **
+  - **IAM action:**  [qbusiness:CreateApplication](#list_qbusiness-action-CreateApplication)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [qbusiness:TagResource](#list_qbusiness-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** qbusiness.amazonaws.com / **Access level:** Write
+
+- **   CreateChatResponseConfiguration  **
+  - **IAM action:**  [qbusiness:CreateChatResponseConfiguration](#list_qbusiness-action-CreateChatResponseConfiguration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [qbusiness:TagResource](#list_qbusiness-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateDataAccessor  **
+  - **IAM action:**  [qbusiness:CreateDataAccessor](#list_qbusiness-action-CreateDataAccessor)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [qbusiness:CreateDataAccessorWithTti](#list_qbusiness-action-CreateDataAccessorWithTti)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [qbusiness:TagResource](#list_qbusiness-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateDataSource  **
+  - **IAM action:**  [qbusiness:CreateDataSource](#list_qbusiness-action-CreateDataSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [qbusiness:DisableAclOnDataSource](#list_qbusiness-action-DisableAclOnDataSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [qbusiness:TagResource](#list_qbusiness-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** qbusiness.amazonaws.com / **Access level:** Write
+
+- **   CreateIndex  **
+  - **IAM action:**  [qbusiness:CreateIndex](#list_qbusiness-action-CreateIndex)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [qbusiness:TagResource](#list_qbusiness-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreatePlugin  **
+  - **IAM action:**  [qbusiness:CreatePlugin](#list_qbusiness-action-CreatePlugin)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [qbusiness:TagResource](#list_qbusiness-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** qbusiness.amazonaws.com / **Access level:** Write
+
+- **   CreateRetriever  **
+  - **IAM action:**  [qbusiness:CreateRetriever](#list_qbusiness-action-CreateRetriever)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [qbusiness:TagResource](#list_qbusiness-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** qbusiness.amazonaws.com / **Access level:** Write
+
+- **   CreateSubscription  **
+  - **IAM action:**  [qbusiness:CreateSubscription](#list_qbusiness-action-CreateSubscription) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateUser  **
+  - **IAM action:**  [qbusiness:CreateUser](#list_qbusiness-action-CreateUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateWebExperience  **
+  - **IAM action:**  [qbusiness:CreateWebExperience](#list_qbusiness-action-CreateWebExperience)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [qbusiness:TagResource](#list_qbusiness-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** qbusiness.amazonaws.com / **Access level:** Write
+
+- **   DeleteApplication  **
+  - **IAM action:**  [qbusiness:DeleteApplication](#list_qbusiness-action-DeleteApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAttachment  **
+  - **IAM action:**  [qbusiness:DeleteAttachment](#list_qbusiness-action-DeleteAttachment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteChatControlsConfiguration  **
+  - **IAM action:**  [qbusiness:DeleteChatControlsConfiguration](#list_qbusiness-action-DeleteChatControlsConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteChatResponseConfiguration  **
+  - **IAM action:**  [qbusiness:DeleteChatResponseConfiguration](#list_qbusiness-action-DeleteChatResponseConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConversation  **
+  - **IAM action:**  [qbusiness:DeleteConversation](#list_qbusiness-action-DeleteConversation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDataAccessor  **
+  - **IAM action:**  [qbusiness:DeleteDataAccessor](#list_qbusiness-action-DeleteDataAccessor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDataSource  **
+  - **IAM action:**  [qbusiness:DeleteDataSource](#list_qbusiness-action-DeleteDataSource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteGroup  **
+  - **IAM action:**  [qbusiness:DeleteGroup](#list_qbusiness-action-DeleteGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteIndex  **
+  - **IAM action:**  [qbusiness:DeleteIndex](#list_qbusiness-action-DeleteIndex) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeletePlugin  **
+  - **IAM action:**  [qbusiness:DeletePlugin](#list_qbusiness-action-DeletePlugin) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRetriever  **
+  - **IAM action:**  [qbusiness:DeleteRetriever](#list_qbusiness-action-DeleteRetriever) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteUser  **
+  - **IAM action:**  [qbusiness:DeleteUser](#list_qbusiness-action-DeleteUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteWebExperience  **
+  - **IAM action:**  [qbusiness:DeleteWebExperience](#list_qbusiness-action-DeleteWebExperience) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociatePermission  **
+  - **IAM action:**  [qbusiness:DisassociatePermission](#list_qbusiness-action-DisassociatePermission)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [qbusiness:PutResourcePolicy](#list_qbusiness-action-PutResourcePolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   GetApplication  **
+  - **IAM action:**  [qbusiness:GetApplication](#list_qbusiness-action-GetApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetChatControlsConfiguration  **
+  - **IAM action:**  [qbusiness:GetChatControlsConfiguration](#list_qbusiness-action-GetChatControlsConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetChatResponseConfiguration  **
+  - **IAM action:**  [qbusiness:GetChatResponseConfiguration](#list_qbusiness-action-GetChatResponseConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDataAccessor  **
+  - **IAM action:**  [qbusiness:GetDataAccessor](#list_qbusiness-action-GetDataAccessor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDataSource  **
+  - **IAM action:**  [qbusiness:GetDataSource](#list_qbusiness-action-GetDataSource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDocumentContent  **
+  - **IAM action:**  [qbusiness:GetDocumentContent](#list_qbusiness-action-GetDocumentContent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetGroup  **
+  - **IAM action:**  [qbusiness:GetGroup](#list_qbusiness-action-GetGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIndex  **
+  - **IAM action:**  [qbusiness:GetIndex](#list_qbusiness-action-GetIndex) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMedia  **
+  - **IAM action:**  [qbusiness:GetMedia](#list_qbusiness-action-GetMedia) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPlugin  **
+  - **IAM action:**  [qbusiness:GetPlugin](#list_qbusiness-action-GetPlugin) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPolicy  **
+  - **IAM action:**  [qbusiness:GetPolicy](#list_qbusiness-action-GetPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRetriever  **
+  - **IAM action:**  [qbusiness:GetRetriever](#list_qbusiness-action-GetRetriever) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetUser  **
+  - **IAM action:**  [qbusiness:GetUser](#list_qbusiness-action-GetUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetWebExperience  **
+  - **IAM action:**  [qbusiness:GetWebExperience](#list_qbusiness-action-GetWebExperience) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListApplications  **
+  - **IAM action:**  [qbusiness:ListApplications](#list_qbusiness-action-ListApplications) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAttachments  **
+  - **IAM action:**  [qbusiness:ListAttachments](#list_qbusiness-action-ListAttachments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListChatResponseConfigurations  **
+  - **IAM action:**  [qbusiness:ListChatResponseConfigurations](#list_qbusiness-action-ListChatResponseConfigurations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConversations  **
+  - **IAM action:**  [qbusiness:ListConversations](#list_qbusiness-action-ListConversations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDataAccessors  **
+  - **IAM action:**  [qbusiness:ListDataAccessors](#list_qbusiness-action-ListDataAccessors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDataSourceSyncJobs  **
+  - **IAM action:**  [qbusiness:ListDataSourceSyncJobs](#list_qbusiness-action-ListDataSourceSyncJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDataSources  **
+  - **IAM action:**  [qbusiness:ListDataSources](#list_qbusiness-action-ListDataSources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDocuments  **
+  - **IAM action:**  [qbusiness:ListDocuments](#list_qbusiness-action-ListDocuments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListGroups  **
+  - **IAM action:**  [qbusiness:ListGroups](#list_qbusiness-action-ListGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListIndices  **
+  - **IAM action:**  [qbusiness:ListIndices](#list_qbusiness-action-ListIndices) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMessages  **
+  - **IAM action:**  [qbusiness:ListMessages](#list_qbusiness-action-ListMessages) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPluginActions  **
+  - **IAM action:**  [qbusiness:ListPluginActions](#list_qbusiness-action-ListPluginActions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListPluginTypeActions  **
+  - **IAM action:**  [qbusiness:ListPluginTypeActions](#list_qbusiness-action-ListPluginTypeActions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListPluginTypeMetadata  **
+  - **IAM action:**  [qbusiness:ListPluginTypeMetadata](#list_qbusiness-action-ListPluginTypeMetadata) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListPlugins  **
+  - **IAM action:**  [qbusiness:ListPlugins](#list_qbusiness-action-ListPlugins) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRetrievers  **
+  - **IAM action:**  [qbusiness:ListRetrievers](#list_qbusiness-action-ListRetrievers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSubscriptions  **
+  - **IAM action:**  [qbusiness:ListSubscriptions](#list_qbusiness-action-ListSubscriptions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [qbusiness:ListTagsForResource](#list_qbusiness-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListWebExperiences  **
+  - **IAM action:**  [qbusiness:ListWebExperiences](#list_qbusiness-action-ListWebExperiences) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PutFeedback  **
+  - **IAM action:**  [qbusiness:PutFeedback](#list_qbusiness-action-PutFeedback) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutGroup  **
+  - **IAM action:**  [qbusiness:PutGroup](#list_qbusiness-action-PutGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** qbusiness.amazonaws.com / **Access level:** Write
+
+- **   SearchRelevantContent  **
+  - **IAM action:**  [qbusiness:SearchRelevantContent](#list_qbusiness-action-SearchRelevantContent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartDataSourceSyncJob  **
+  - **IAM action:**  [qbusiness:StartDataSourceSyncJob](#list_qbusiness-action-StartDataSourceSyncJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopDataSourceSyncJob  **
+  - **IAM action:**  [qbusiness:StopDataSourceSyncJob](#list_qbusiness-action-StopDataSourceSyncJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [qbusiness:TagResource](#list_qbusiness-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [qbusiness:UntagResource](#list_qbusiness-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateApplication  **
+  - **IAM action:**  [qbusiness:UpdateApplication](#list_qbusiness-action-UpdateApplication)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** qbusiness.amazonaws.com / **Access level:** Write
+
+- **   UpdateChatControlsConfiguration  **
+  - **IAM action:**  [qbusiness:UpdateChatControlsConfiguration](#list_qbusiness-action-UpdateChatControlsConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateChatResponseConfiguration  **
+  - **IAM action:**  [qbusiness:UpdateChatResponseConfiguration](#list_qbusiness-action-UpdateChatResponseConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateDataAccessor  **
+  - **IAM action:**  [qbusiness:UpdateDataAccessor](#list_qbusiness-action-UpdateDataAccessor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateDataSource  **
+  - **IAM action:**  [qbusiness:UpdateDataSource](#list_qbusiness-action-UpdateDataSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** qbusiness.amazonaws.com / **Access level:** Write
+
+- **   UpdateIndex  **
+  - **IAM action:**  [qbusiness:UpdateIndex](#list_qbusiness-action-UpdateIndex) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdatePlugin  **
+  - **IAM action:**  [qbusiness:UpdatePlugin](#list_qbusiness-action-UpdatePlugin)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** qbusiness.amazonaws.com / **Access level:** Write
+
+- **   UpdateRetriever  **
+  - **IAM action:**  [qbusiness:UpdateRetriever](#list_qbusiness-action-UpdateRetriever)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** qbusiness.amazonaws.com / **Access level:** Write
+
+- **   UpdateSubscription  **
+  - **IAM action:**  [qbusiness:UpdateSubscription](#list_qbusiness-action-UpdateSubscription) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateUser  **
+  - **IAM action:**  [qbusiness:UpdateUser](#list_qbusiness-action-UpdateUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateWebExperience  **
+  - **IAM action:**  [qbusiness:UpdateWebExperience](#list_qbusiness-action-UpdateWebExperience)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** qbusiness.amazonaws.com / **Access level:** Write
+
+
 
 ## Actions defined by Amazon Q Business
+<a name="list_qbusiness-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                       | Resource types (\*required)                                                                  | Condition keys                                                                                                                                                                                                                                                                                                                      | Access level   |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AssociatePermission](../../../amazonq/latest/api-reference/API_AssociatePermission.md "../../../amazonq/latest/api-reference/API_AssociatePermission.md")                                     | Grants permission to associate resource based policy statement to the application                                                                                                                                                                                                                                 | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [BatchDeleteDocument](../../../amazonq/latest/api-reference/API_BatchDeleteDocument.md "../../../amazonq/latest/api-reference/API_BatchDeleteDocument.md")                                     | Grants permission to batch delete document                                                                                                                                                                                                                                                                        | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [BatchPutDocument](../../../amazonq/latest/api-reference/API_BatchPutDocument.md "../../../amazonq/latest/api-reference/API_BatchPutDocument.md")                                              | Grants permission to batch put document                                                                                                                                                                                                                                                                           | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [CancelSubscription](../../../amazonq/latest/api-reference/API_CancelSubscription.md "../../../amazonq/latest/api-reference/API_CancelSubscription.md")                                        | Grants permission to cancel a subscription                                                                                                                                                                                                                                                                        | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [subscription\*](#list_qbusiness-resource-subscription "#list_qbusiness-resource-subscription")                                                                                                |                                                                                                                                                                                                                                                                                                                   |
-| [Chat](../../../amazonq/latest/api-reference/API_Chat.md "../../../amazonq/latest/api-reference/API_Chat.md")                                                                                  | Grants permission to chat using an application                                                                                                                                                                                                                                                                    | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [ChatSync](../../../amazonq/latest/api-reference/API_ChatSync.md "../../../amazonq/latest/api-reference/API_ChatSync.md")                                                                      | Grants permission to chat synchronously using an application                                                                                                                                                                                                                                                      | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [CheckDocumentAccess](../../../amazonq/latest/api-reference/API_CheckDocumentAccess.md "../../../amazonq/latest/api-reference/API_CheckDocumentAccess.md")                                     | Grants permission to check if a user has access to a document                                                                                                                                                                                                                                                     | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [CreateAnonymousWebExperienceUrl](../../../amazonq/latest/api-reference/API_CreateAnonymousWebExperienceUrl.md "../../../amazonq/latest/api-reference/API_CreateAnonymousWebExperienceUrl.md") | Grants permission to create a unique URL for anonymous Amazon Q Business web experience                                                                                                                                                                                                                           | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [web-experience\*](#list_qbusiness-resource-web-experience "#list_qbusiness-resource-web-experience")                                                                                          | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [CreateApplication](../../../amazonq/latest/api-reference/API_CreateApplication.md "../../../amazonq/latest/api-reference/API_CreateApplication.md")                                           | Grants permission to create an application                                                                                                                                                                                                                                                                        |                                                                                              | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                                                                                                                                         | Write          |
-| [CreateChatResponseConfiguration](../../../amazonq/latest/api-reference/API_CreateChatResponseConfiguration.md "../../../amazonq/latest/api-reference/API_CreateChatResponseConfiguration.md") | Grants permission to create a chat response configuration to the application                                                                                                                                                                                                                                      | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                   | Write          |
-| [CreateDataAccessor](../../../amazonq/latest/api-reference/API_CreateDataAccessor.md "../../../amazonq/latest/api-reference/API_CreateDataAccessor.md")                                        | Grants permission to create DataAccessor to the application                                                                                                                                                                                                                                                       | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                   | Write          |
-| [CreateDataSource](../../../amazonq/latest/api-reference/API_CreateDataSource.md "../../../amazonq/latest/api-reference/API_CreateDataSource.md")                                              | Grants permission to create a data source for a given application and index                                                                                                                                                                                                                                       | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                   | Write          |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys") |
-| [CreateIndex](../../../amazonq/latest/api-reference/API_CreateIndex.md "../../../amazonq/latest/api-reference/API_CreateIndex.md")                                                             | Grants permission to create an index for a given application                                                                                                                                                                                                                                                      | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                   | Write          |
-| [CreateIntegration](../../../amazonq/latest/api-reference/API_CreateIntegration.md "../../../amazonq/latest/api-reference/API_CreateIntegration.md")                                           | Grants permission to create a new integration for a Q Business application                                                                                                                                                                                                                                        | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                   | Write          |
-| [CreatePlugin](../../../amazonq/latest/api-reference/API_CreatePlugin.md "../../../amazonq/latest/api-reference/API_CreatePlugin.md")                                                          | Grants permission to create a plugin for a given application                                                                                                                                                                                                                                                      | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                   | Write          |
-| [CreateRetriever](../../../amazonq/latest/api-reference/API_CreateRetriever.md "../../../amazonq/latest/api-reference/API_CreateRetriever.md")                                                 | Grants permission to create a retriever for a given application                                                                                                                                                                                                                                                   | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                   | Write          |
-| [CreateSubscription](../../../amazonq/latest/api-reference/API_CreateSubscription.md "../../../amazonq/latest/api-reference/API_CreateSubscription.md")                                        | Grants permission to create a subscription                                                                                                                                                                                                                                                                        | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[identitystore:GroupId](#list_qbusiness-identitystore_GroupId "#list_qbusiness-identitystore_GroupId")<br>[identitystore:UserId](#list_qbusiness-identitystore_UserId "#list_qbusiness-identitystore_UserId") | Write          |
-| [CreateUser](../../../amazonq/latest/api-reference/API_CreateUser.md "../../../amazonq/latest/api-reference/API_CreateUser.md")                                                                | Grants permission to create a user                                                                                                                                                                                                                                                                                | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [CreateWebExperience](../../../amazonq/latest/api-reference/API_CreateWebExperience.md "../../../amazonq/latest/api-reference/API_CreateWebExperience.md")                                     | Grants permission to create a web experience for a given application                                                                                                                                                                                                                                              | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                   | Write          |
-| [DeleteApplication](../../../amazonq/latest/api-reference/API_DeleteApplication.md "../../../amazonq/latest/api-reference/API_DeleteApplication.md")                                           | Grants permission to delete an application                                                                                                                                                                                                                                                                        | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [DeleteAttachment](../../../amazonq/latest/api-reference/API_DeleteAttachment.md "../../../amazonq/latest/api-reference/API_DeleteAttachment.md")                                              | Grants permission to delete an attachment in the current chat context                                                                                                                                                                                                                                             | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [DeleteChatControlsConfiguration](../../../amazonq/latest/api-reference/API_DeleteChatControlsConfiguration.md "../../../amazonq/latest/api-reference/API_DeleteChatControlsConfiguration.md") | Grants permission to delete chat controls configuration for an application                                                                                                                                                                                                                                        | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [DeleteChatResponseConfiguration](../../../amazonq/latest/api-reference/API_DeleteChatResponseConfiguration.md "../../../amazonq/latest/api-reference/API_DeleteChatResponseConfiguration.md") | Grants permission to delete a chat response configuration                                                                                                                                                                                                                                                         | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [chat-response-configuration\*](#list_qbusiness-resource-chat-response-configuration "#list_qbusiness-resource-chat-response-configuration")                                                   | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DeleteConversation](../../../amazonq/latest/api-reference/API_DeleteConversation.md "../../../amazonq/latest/api-reference/API_DeleteConversation.md")                                        | Grants permission to delete a conversation                                                                                                                                                                                                                                                                        | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [DeleteDataAccessor](../../../amazonq/latest/api-reference/API_DeleteDataAccessor.md "../../../amazonq/latest/api-reference/API_DeleteDataAccessor.md")                                        | Grants permission to delete DataAccessor                                                                                                                                                                                                                                                                          | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [data-accessor\*](#list_qbusiness-resource-data-accessor "#list_qbusiness-resource-data-accessor")                                                                                             | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DeleteDataSource](../../../amazonq/latest/api-reference/API_DeleteDataSource.md "../../../amazonq/latest/api-reference/API_DeleteDataSource.md")                                              | Grants permission to delete a DataSource                                                                                                                                                                                                                                                                          | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [data-source\*](#list_qbusiness-resource-data-source "#list_qbusiness-resource-data-source")                                                                                                   | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DeleteGroup](../../../amazonq/latest/api-reference/API_DeleteGroup.md "../../../amazonq/latest/api-reference/API_DeleteGroup.md")                                                             | Grants permission to delete a group                                                                                                                                                                                                                                                                               | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DeleteIndex](../../../amazonq/latest/api-reference/API_DeleteIndex.md "../../../amazonq/latest/api-reference/API_DeleteIndex.md")                                                             | Grants permission to delete an index                                                                                                                                                                                                                                                                              | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DeleteIntegration](../../../amazonq/latest/api-reference/API_DeleteIntegration.md "../../../amazonq/latest/api-reference/API_DeleteIntegration.md")                                           | Grants permission to delete an integration for a Q Business application                                                                                                                                                                                                                                           | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [integration\*](#list_qbusiness-resource-integration "#list_qbusiness-resource-integration")                                                                                                   | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DeletePlugin](../../../amazonq/latest/api-reference/API_DeletePlugin.md "../../../amazonq/latest/api-reference/API_DeletePlugin.md")                                                          | Grants permission to delete a plugin                                                                                                                                                                                                                                                                              | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [plugin\*](#list_qbusiness-resource-plugin "#list_qbusiness-resource-plugin")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DeleteRetriever](../../../amazonq/latest/api-reference/API_DeleteRetriever.md "../../../amazonq/latest/api-reference/API_DeleteRetriever.md")                                                 | Grants permission to delete a retriever                                                                                                                                                                                                                                                                           | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [retriever\*](#list_qbusiness-resource-retriever "#list_qbusiness-resource-retriever")                                                                                                         | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DeleteUser](../../../amazonq/latest/api-reference/API_DeleteUser.md "../../../amazonq/latest/api-reference/API_DeleteUser.md")                                                                | Grants permission to delete a user                                                                                                                                                                                                                                                                                | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [DeleteWebExperience](../../../amazonq/latest/api-reference/API_DeleteWebExperience.md "../../../amazonq/latest/api-reference/API_DeleteWebExperience.md")                                     | Grants permission to delete a web-experience                                                                                                                                                                                                                                                                      | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [web-experience\*](#list_qbusiness-resource-web-experience "#list_qbusiness-resource-web-experience")                                                                                          | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DisassociatePermission](../../../amazonq/latest/api-reference/API_DisassociatePermission.md "../../../amazonq/latest/api-reference/API_DisassociatePermission.md")                            | Grants permission to disassociate resource based policy statement to the application                                                                                                                                                                                                                              | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [GetApplication](../../../amazonq/latest/api-reference/API_GetApplication.md "../../../amazonq/latest/api-reference/API_GetApplication.md")                                                    | Grants permission to get an application                                                                                                                                                                                                                                                                           | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [GetChatControlsConfiguration](../../../amazonq/latest/api-reference/API_GetChatControlsConfiguration.md "../../../amazonq/latest/api-reference/API_GetChatControlsConfiguration.md")          | Grants permission to get chat controls configuration for an application                                                                                                                                                                                                                                           | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | List           |
-| [GetChatResponseConfiguration](../../../amazonq/latest/api-reference/API_GetChatResponseConfiguration.md "../../../amazonq/latest/api-reference/API_GetChatResponseConfiguration.md")          | Grants permission to get a chat response configuration                                                                                                                                                                                                                                                            | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [chat-response-configuration\*](#list_qbusiness-resource-chat-response-configuration "#list_qbusiness-resource-chat-response-configuration")                                                   | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetDataAccessor](../../../amazonq/latest/api-reference/API_GetDataAccessor.md "../../../amazonq/latest/api-reference/API_GetDataAccessor.md")                                                 | Grants permission to get DataAccessor                                                                                                                                                                                                                                                                             | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [data-accessor\*](#list_qbusiness-resource-data-accessor "#list_qbusiness-resource-data-accessor")                                                                                             | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetDataSource](../../../amazonq/latest/api-reference/API_GetDataSource.md "../../../amazonq/latest/api-reference/API_GetDataSource.md")                                                       | Grants permission to get a data source                                                                                                                                                                                                                                                                            | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [data-source\*](#list_qbusiness-resource-data-source "#list_qbusiness-resource-data-source")                                                                                                   | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetDocumentContent](../../../amazonq/latest/api-reference/API_GetDocumentContent.md "../../../amazonq/latest/api-reference/API_GetDocumentContent.md")                                        | Grants permission to get a document content                                                                                                                                                                                                                                                                       | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetGroup](../../../amazonq/latest/api-reference/API_GetGroup.md "../../../amazonq/latest/api-reference/API_GetGroup.md")                                                                      | Grants permission to get a group                                                                                                                                                                                                                                                                                  | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetIndex](../../../amazonq/latest/api-reference/API_GetIndex.md "../../../amazonq/latest/api-reference/API_GetIndex.md")                                                                      | Grants permission to get an index                                                                                                                                                                                                                                                                                 | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetIntegration](../../../amazonq/latest/api-reference/API_GetIntegration.md "../../../amazonq/latest/api-reference/API_GetIntegration.md")                                                    | Grants permission to get an integration for a Q Business application                                                                                                                                                                                                                                              | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [integration\*](#list_qbusiness-resource-integration "#list_qbusiness-resource-integration")                                                                                                   | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetMedia](../../../amazonq/latest/api-reference/API_GetMedia.md "../../../amazonq/latest/api-reference/API_GetMedia.md")                                                                      | Grants permission to get the media associated to a system message                                                                                                                                                                                                                                                 | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [GetPlugin](../../../amazonq/latest/api-reference/API_GetPlugin.md "../../../amazonq/latest/api-reference/API_GetPlugin.md")                                                                   | Grants permission to get a plugin                                                                                                                                                                                                                                                                                 | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [plugin\*](#list_qbusiness-resource-plugin "#list_qbusiness-resource-plugin")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetPolicy](../../../amazonq/latest/api-reference/API_GetPolicy.md "../../../amazonq/latest/api-reference/API_GetPolicy.md")                                                                   | Grants permission to get resource based policy of the application                                                                                                                                                                                                                                                 | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [GetRetriever](../../../amazonq/latest/api-reference/API_GetRetriever.md "../../../amazonq/latest/api-reference/API_GetRetriever.md")                                                          | Grants permission to get a retriever                                                                                                                                                                                                                                                                              | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [retriever\*](#list_qbusiness-resource-retriever "#list_qbusiness-resource-retriever")                                                                                                         | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetUser](../../../amazonq/latest/api-reference/API_GetUser.md "../../../amazonq/latest/api-reference/API_GetUser.md")                                                                         | Grants permission to get a user                                                                                                                                                                                                                                                                                   | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [GetWebExperience](../../../amazonq/latest/api-reference/API_GetWebExperience.md "../../../amazonq/latest/api-reference/API_GetWebExperience.md")                                              | Grants permission to get a web-experience                                                                                                                                                                                                                                                                         | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [web-experience\*](#list_qbusiness-resource-web-experience "#list_qbusiness-resource-web-experience")                                                                                          | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ListApplications](../../../amazonq/latest/api-reference/API_ListApplications.md "../../../amazonq/latest/api-reference/API_ListApplications.md")                                              | Grants permission to list the applications                                                                                                                                                                                                                                                                        |                                                                                              |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListAttachments](../../../amazonq/latest/api-reference/API_ListAttachments.md "../../../amazonq/latest/api-reference/API_ListAttachments.md")                                                 | Grants permission to list attachments in the current chat context                                                                                                                                                                                                                                                 | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | List           |
-| [ListChatResponseConfigurations](../../../amazonq/latest/api-reference/API_ListChatResponseConfigurations.md "../../../amazonq/latest/api-reference/API_ListChatResponseConfigurations.md")    | Grants permission to list chat response configurations for an application                                                                                                                                                                                                                                         | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | List           |
-| [ListConversations](../../../amazonq/latest/api-reference/API_ListConversations.md "../../../amazonq/latest/api-reference/API_ListConversations.md")                                           | Grants permission to list all conversations for an application                                                                                                                                                                                                                                                    | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | List           |
-| [ListDataAccessors](../../../amazonq/latest/api-reference/API_ListDataAccessors.md "../../../amazonq/latest/api-reference/API_ListDataAccessors.md")                                           | Grants permission to list DataAccessors for the application                                                                                                                                                                                                                                                       | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | List           |
-| [ListDataSourceSyncJobs](../../../amazonq/latest/api-reference/API_ListDataSourceSyncJobs.md "../../../amazonq/latest/api-reference/API_ListDataSourceSyncJobs.md")                            | Grants permission to get Data Source sync job history                                                                                                                                                                                                                                                             | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | List           |
-| [data-source\*](#list_qbusiness-resource-data-source "#list_qbusiness-resource-data-source")                                                                                                   | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ListDataSources](../../../amazonq/latest/api-reference/API_ListDataSources.md "../../../amazonq/latest/api-reference/API_ListDataSources.md")                                                 | Grants permission to list the data sources of an application and an index                                                                                                                                                                                                                                         | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | List           |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ListDocuments](../../../amazonq/latest/api-reference/API_ListDocuments.md "../../../amazonq/latest/api-reference/API_ListDocuments.md")                                                       | Grants permission to list all documents                                                                                                                                                                                                                                                                           | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | List           |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ListGroups](../../../amazonq/latest/api-reference/API_ListGroups.md "../../../amazonq/latest/api-reference/API_ListGroups.md")                                                                | Grants permission to list groups                                                                                                                                                                                                                                                                                  | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | List           |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ListIndices](../../../amazonq/latest/api-reference/API_ListIndices.md "../../../amazonq/latest/api-reference/API_ListIndices.md")                                                             | Grants permission to list the indices of an application                                                                                                                                                                                                                                                           | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | List           |
-| [ListIntegrations](../../../amazonq/latest/api-reference/API_ListIntegrations.md "../../../amazonq/latest/api-reference/API_ListIntegrations.md")                                              | Grants permission to list all integrations for a Q Business application                                                                                                                                                                                                                                           | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | List           |
-| [ListMessages](../../../amazonq/latest/api-reference/API_ListMessages.md "../../../amazonq/latest/api-reference/API_ListMessages.md")                                                          | Grants permission to list all messages                                                                                                                                                                                                                                                                            | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | List           |
-| [ListPluginActions](../../../amazonq/latest/api-reference/API_ListPluginActions.md "../../../amazonq/latest/api-reference/API_ListPluginActions.md")                                           | Grants permission to list the plugins actions of a plugin within application                                                                                                                                                                                                                                      | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [plugin\*](#list_qbusiness-resource-plugin "#list_qbusiness-resource-plugin")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ListPluginTypeActions](../../../amazonq/latest/api-reference/API_ListPluginTypeActions.md "../../../amazonq/latest/api-reference/API_ListPluginTypeActions.md")                               | Grants permission to list all the actions for a plugin type                                                                                                                                                                                                                                                       |                                                                                              |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [ListPluginTypeMetadata](../../../amazonq/latest/api-reference/API_ListPluginTypeMetadata.md "../../../amazonq/latest/api-reference/API_ListPluginTypeMetadata.md")                            | Grants permission to list all the plugin type metadata                                                                                                                                                                                                                                                            |                                                                                              |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [ListPlugins](../../../amazonq/latest/api-reference/API_ListPlugins.md "../../../amazonq/latest/api-reference/API_ListPlugins.md")                                                             | Grants permission to list the plugins of an application                                                                                                                                                                                                                                                           | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | List           |
-| [ListRetrievers](../../../amazonq/latest/api-reference/API_ListRetrievers.md "../../../amazonq/latest/api-reference/API_ListRetrievers.md")                                                    | Grants permission to list the retrievers of an application                                                                                                                                                                                                                                                        | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | List           |
-| [ListSubscriptions](../../../amazonq/latest/api-reference/API_ListSubscriptions.md "../../../amazonq/latest/api-reference/API_ListSubscriptions.md")                                           | Grants permission to list subscriptions                                                                                                                                                                                                                                                                           | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | List           |
-| [ListTagsForResource](../../../amazonq/latest/api-reference/API_ListTagsForResource.md "../../../amazonq/latest/api-reference/API_ListTagsForResource.md")                                     | Grants permission to list tags for a resource                                                                                                                                                                                                                                                                     | [application](#list_qbusiness-resource-application "#list_qbusiness-resource-application")   | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [chat-response-configuration](#list_qbusiness-resource-chat-response-configuration "#list_qbusiness-resource-chat-response-configuration")                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [data-accessor](#list_qbusiness-resource-data-accessor "#list_qbusiness-resource-data-accessor")                                                                                               | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [data-source](#list_qbusiness-resource-data-source "#list_qbusiness-resource-data-source")                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [index](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [integration](#list_qbusiness-resource-integration "#list_qbusiness-resource-integration")                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [plugin](#list_qbusiness-resource-plugin "#list_qbusiness-resource-plugin")                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [retriever](#list_qbusiness-resource-retriever "#list_qbusiness-resource-retriever")                                                                                                           | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [web-experience](#list_qbusiness-resource-web-experience "#list_qbusiness-resource-web-experience")                                                                                            | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ListWebExperiences](../../../amazonq/latest/api-reference/API_ListWebExperiences.md "../../../amazonq/latest/api-reference/API_ListWebExperiences.md")                                        | Grants permission to list the web experiences of an application                                                                                                                                                                                                                                                   | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | List           |
-| [PutFeedback](../../../amazonq/latest/api-reference/API_PutFeedback.md "../../../amazonq/latest/api-reference/API_PutFeedback.md")                                                             | Grants permission to put feedback about a conversation message                                                                                                                                                                                                                                                    | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [PutGroup](../../../amazonq/latest/api-reference/API_PutGroup.md "../../../amazonq/latest/api-reference/API_PutGroup.md")                                                                      | Grants permission to put a group of users                                                                                                                                                                                                                                                                         | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [SearchRelevantContent](../../../amazonq/latest/api-reference/API_SearchRelevantContent.md "../../../amazonq/latest/api-reference/API_SearchRelevantContent.md")                               | Grants permission to search relevant content from the Amazon Q Business Application                                                                                                                                                                                                                               | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Read           |
-| [StartDataSourceSyncJob](../../../amazonq/latest/api-reference/API_StartDataSourceSyncJob.md "../../../amazonq/latest/api-reference/API_StartDataSourceSyncJob.md")                            | Grants permission to start Data Source sync job                                                                                                                                                                                                                                                                   | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [data-source\*](#list_qbusiness-resource-data-source "#list_qbusiness-resource-data-source")                                                                                                   | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [StartDeployment](../../../amazonq/latest/api-reference/API_StartDeployment.md "../../../amazonq/latest/api-reference/API_StartDeployment.md")                                                 | Grants permission to start deployment for an integration                                                                                                                                                                                                                                                          | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [integration\*](#list_qbusiness-resource-integration "#list_qbusiness-resource-integration")                                                                                                   | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [StopDataSourceSyncJob](../../../amazonq/latest/api-reference/API_StopDataSourceSyncJob.md "../../../amazonq/latest/api-reference/API_StopDataSourceSyncJob.md")                               | Grants permission to stop Data Source sync job                                                                                                                                                                                                                                                                    | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [data-source\*](#list_qbusiness-resource-data-source "#list_qbusiness-resource-data-source")                                                                                                   | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [TagResource](../../../amazonq/latest/api-reference/API_TagResource.md "../../../amazonq/latest/api-reference/API_TagResource.md")                                                             | Grants permission to tag a resource with given key value pairs                                                                                                                                                                                                                                                    | [application](#list_qbusiness-resource-application "#list_qbusiness-resource-application")   | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                   | Tagging, Write |
-| [chat-response-configuration](#list_qbusiness-resource-chat-response-configuration "#list_qbusiness-resource-chat-response-configuration")                                                     | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys") |
-| [data-accessor](#list_qbusiness-resource-data-accessor "#list_qbusiness-resource-data-accessor")                                                                                               | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys") |
-| [data-source](#list_qbusiness-resource-data-source "#list_qbusiness-resource-data-source")                                                                                                     | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys") |
-| [index](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                       | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys") |
-| [integration](#list_qbusiness-resource-integration "#list_qbusiness-resource-integration")                                                                                                     | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys") |
-| [plugin](#list_qbusiness-resource-plugin "#list_qbusiness-resource-plugin")                                                                                                                    | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys") |
-| [retriever](#list_qbusiness-resource-retriever "#list_qbusiness-resource-retriever")                                                                                                           | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys") |
-| [web-experience](#list_qbusiness-resource-web-experience "#list_qbusiness-resource-web-experience")                                                                                            | [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_ "#list_qbusiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys") |
-| [UntagResource](../../../amazonq/latest/api-reference/API_UntagResource.md "../../../amazonq/latest/api-reference/API_UntagResource.md")                                                       | Grants permission to remove the tag with the given key from a resource                                                                                                                                                                                                                                            | [application](#list_qbusiness-resource-application "#list_qbusiness-resource-application")   | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                                                                                                                                      | Tagging, Write |
-| [chat-response-configuration](#list_qbusiness-resource-chat-response-configuration "#list_qbusiness-resource-chat-response-configuration")                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                                                                                                                    |
-| [data-accessor](#list_qbusiness-resource-data-accessor "#list_qbusiness-resource-data-accessor")                                                                                               | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                                                                                                                    |
-| [data-source](#list_qbusiness-resource-data-source "#list_qbusiness-resource-data-source")                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                                                                                                                    |
-| [index](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                                                                                                                    |
-| [integration](#list_qbusiness-resource-integration "#list_qbusiness-resource-integration")                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                                                                                                                    |
-| [plugin](#list_qbusiness-resource-plugin "#list_qbusiness-resource-plugin")                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                                                                                                                    |
-| [retriever](#list_qbusiness-resource-retriever "#list_qbusiness-resource-retriever")                                                                                                           | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                                                                                                                    |
-| [web-experience](#list_qbusiness-resource-web-experience "#list_qbusiness-resource-web-experience")                                                                                            | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_qbusiness-aws_TagKeys "#list_qbusiness-aws_TagKeys")                                                                                                                    |
-| [UpdateApplication](../../../amazonq/latest/api-reference/API_UpdateApplication.md "../../../amazonq/latest/api-reference/API_UpdateApplication.md")                                           | Grants permission to update an Application                                                                                                                                                                                                                                                                        | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [UpdateChatControlsConfiguration](../../../amazonq/latest/api-reference/API_UpdateChatControlsConfiguration.md "../../../amazonq/latest/api-reference/API_UpdateChatControlsConfiguration.md") | Grants permission to update chat controls configuration for an application                                                                                                                                                                                                                                        | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [UpdateChatResponseConfiguration](../../../amazonq/latest/api-reference/API_UpdateChatResponseConfiguration.md "../../../amazonq/latest/api-reference/API_UpdateChatResponseConfiguration.md") | Grants permission to update a chat response configuration                                                                                                                                                                                                                                                         | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [chat-response-configuration\*](#list_qbusiness-resource-chat-response-configuration "#list_qbusiness-resource-chat-response-configuration")                                                   | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [UpdateDataAccessor](../../../amazonq/latest/api-reference/API_UpdateDataAccessor.md "../../../amazonq/latest/api-reference/API_UpdateDataAccessor.md")                                        | Grants permission to update DataAccessor                                                                                                                                                                                                                                                                          | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [data-accessor\*](#list_qbusiness-resource-data-accessor "#list_qbusiness-resource-data-accessor")                                                                                             | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [UpdateDataSource](../../../amazonq/latest/api-reference/API_UpdateDataSource.md "../../../amazonq/latest/api-reference/API_UpdateDataSource.md")                                              | Grants permission to update a DataSource                                                                                                                                                                                                                                                                          | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [data-source\*](#list_qbusiness-resource-data-source "#list_qbusiness-resource-data-source")                                                                                                   | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [UpdateIndex](../../../amazonq/latest/api-reference/API_UpdateIndex.md "../../../amazonq/latest/api-reference/API_UpdateIndex.md")                                                             | Grants permission to update an index                                                                                                                                                                                                                                                                              | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [index\*](#list_qbusiness-resource-index "#list_qbusiness-resource-index")                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [UpdateIntegration](../../../amazonq/latest/api-reference/API_UpdateIntegration.md "../../../amazonq/latest/api-reference/API_UpdateIntegration.md")                                           | Grants permission to update an integration for a Q Business application                                                                                                                                                                                                                                           | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [integration\*](#list_qbusiness-resource-integration "#list_qbusiness-resource-integration")                                                                                                   | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [UpdatePlugin](../../../amazonq/latest/api-reference/API_UpdatePlugin.md "../../../amazonq/latest/api-reference/API_UpdatePlugin.md")                                                          | Grants permission to update a plugin                                                                                                                                                                                                                                                                              | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [plugin\*](#list_qbusiness-resource-plugin "#list_qbusiness-resource-plugin")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [UpdateRetriever](../../../amazonq/latest/api-reference/API_UpdateRetriever.md "../../../amazonq/latest/api-reference/API_UpdateRetriever.md")                                                 | Grants permission to update a Retriever                                                                                                                                                                                                                                                                           | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [retriever\*](#list_qbusiness-resource-retriever "#list_qbusiness-resource-retriever")                                                                                                         | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [UpdateSubscription](../../../amazonq/latest/api-reference/API_UpdateSubscription.md "../../../amazonq/latest/api-reference/API_UpdateSubscription.md")                                        | Grants permission to update a subscription                                                                                                                                                                                                                                                                        | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [subscription\*](#list_qbusiness-resource-subscription "#list_qbusiness-resource-subscription")                                                                                                |                                                                                                                                                                                                                                                                                                                   |
-| [UpdateUser](../../../amazonq/latest/api-reference/API_UpdateUser.md "../../../amazonq/latest/api-reference/API_UpdateUser.md")                                                                | Grants permission to update a user                                                                                                                                                                                                                                                                                | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [UpdateWebExperience](../../../amazonq/latest/api-reference/API_UpdateWebExperience.md "../../../amazonq/latest/api-reference/API_UpdateWebExperience.md")                                     | Grants permission to update a WebExperience                                                                                                                                                                                                                                                                       | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                  | Write          |
-| [web-experience\*](#list_qbusiness-resource-web-experience "#list_qbusiness-resource-web-experience")                                                                                          | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
+
+
+
+- **   [AssociatePermission](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_AssociatePermission.html)  **
+  - **Description:** Grants permission to associate resource based policy statement to the application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDeleteDocument](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_BatchDeleteDocument.html)  **
+  - **Description:** Grants permission to batch delete document
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchPutDocument](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_BatchPutDocument.html)  **
+  - **Description:** Grants permission to batch put document
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelSubscription](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CancelSubscription.html)  **
+  - **Description:** Grants permission to cancel a subscription
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [subscription\*](#list_qbusiness-resource-subscription) / **Condition keys:**  
+  - **Access level:** Write
+
+- **   [Chat](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_Chat.html)  **
+  - **Description:** Grants permission to chat using an application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ChatSync](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ChatSync.html)  **
+  - **Description:** Grants permission to chat synchronously using an application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [CheckDocumentAccess](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CheckDocumentAccess.html)  **
+  - **Description:** Grants permission to check if a user has access to a document
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [CreateAnonymousWebExperienceUrl](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateAnonymousWebExperienceUrl.html)  **
+  - **Description:** Grants permission to create a unique URL for anonymous Amazon Q Business web experience
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [web-experience\*](#list_qbusiness-resource-web-experience) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateApplication](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateApplication.html)  **
+  - **Description:** Grants permission to create an application
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateChatResponseConfiguration](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateChatResponseConfiguration.html)  **
+  - **Description:** Grants permission to create a chat response configuration to the application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDataAccessor](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataAccessor.html)  **
+  - **Description:** Grants permission to create DataAccessor to the application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html)  **
+  - **Description:** Grants permission to create a data source for a given application and index
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateIndex](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateIndex.html)  **
+  - **Description:** Grants permission to create an index for a given application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateIntegration](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateIntegration.html)  **
+  - **Description:** Grants permission to create a new integration for a Q Business application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreatePlugin](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreatePlugin.html)  **
+  - **Description:** Grants permission to create a plugin for a given application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRetriever](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateRetriever.html)  **
+  - **Description:** Grants permission to create a retriever for a given application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateSubscription](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateSubscription.html)  **
+  - **Description:** Grants permission to create a subscription
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[identitystore:GroupId](#list_qbusiness-identitystore_GroupId)<br />[identitystore:UserId](#list_qbusiness-identitystore_UserId)
+  - **Access level:** Write
+
+- **   [CreateUser](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateUser.html)  **
+  - **Description:** Grants permission to create a user
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateWebExperience](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateWebExperience.html)  **
+  - **Description:** Grants permission to create a web experience for a given application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteApplication](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteApplication.html)  **
+  - **Description:** Grants permission to delete an application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAttachment](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteAttachment.html)  **
+  - **Description:** Grants permission to delete an attachment in the current chat context
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteChatControlsConfiguration](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteChatControlsConfiguration.html)  **
+  - **Description:** Grants permission to delete chat controls configuration for an application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteChatResponseConfiguration](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteChatResponseConfiguration.html)  **
+  - **Description:** Grants permission to delete a chat response configuration
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [chat-response-configuration\*](#list_qbusiness-resource-chat-response-configuration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConversation](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteConversation.html)  **
+  - **Description:** Grants permission to delete a conversation
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDataAccessor](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteDataAccessor.html)  **
+  - **Description:** Grants permission to delete DataAccessor
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [data-accessor\*](#list_qbusiness-resource-data-accessor) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteDataSource.html)  **
+  - **Description:** Grants permission to delete a DataSource
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [data-source\*](#list_qbusiness-resource-data-source) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteGroup](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteGroup.html)  **
+  - **Description:** Grants permission to delete a group
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteIndex](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteIndex.html)  **
+  - **Description:** Grants permission to delete an index
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteIntegration](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteIntegration.html)  **
+  - **Description:** Grants permission to delete an integration for a Q Business application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [integration\*](#list_qbusiness-resource-integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeletePlugin](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeletePlugin.html)  **
+  - **Description:** Grants permission to delete a plugin
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [plugin\*](#list_qbusiness-resource-plugin) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRetriever](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteRetriever.html)  **
+  - **Description:** Grants permission to delete a retriever
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [retriever\*](#list_qbusiness-resource-retriever) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteUser](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteUser.html)  **
+  - **Description:** Grants permission to delete a user
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteWebExperience](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteWebExperience.html)  **
+  - **Description:** Grants permission to delete a web-experience
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [web-experience\*](#list_qbusiness-resource-web-experience) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociatePermission](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DisassociatePermission.html)  **
+  - **Description:** Grants permission to disassociate resource based policy statement to the application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetApplication](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetApplication.html)  **
+  - **Description:** Grants permission to get an application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetChatControlsConfiguration](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetChatControlsConfiguration.html)  **
+  - **Description:** Grants permission to get chat controls configuration for an application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [GetChatResponseConfiguration](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetChatResponseConfiguration.html)  **
+  - **Description:** Grants permission to get a chat response configuration
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [chat-response-configuration\*](#list_qbusiness-resource-chat-response-configuration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDataAccessor](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetDataAccessor.html)  **
+  - **Description:** Grants permission to get DataAccessor
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [data-accessor\*](#list_qbusiness-resource-data-accessor) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetDataSource.html)  **
+  - **Description:** Grants permission to get a data source
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [data-source\*](#list_qbusiness-resource-data-source) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDocumentContent](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetDocumentContent.html)  **
+  - **Description:** Grants permission to get a document content
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetGroup](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetGroup.html)  **
+  - **Description:** Grants permission to get a group
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetIndex](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetIndex.html)  **
+  - **Description:** Grants permission to get an index
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetIntegration](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetIntegration.html)  **
+  - **Description:** Grants permission to get an integration for a Q Business application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [integration\*](#list_qbusiness-resource-integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMedia](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetMedia.html)  **
+  - **Description:** Grants permission to get the media associated to a system message
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPlugin](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetPlugin.html)  **
+  - **Description:** Grants permission to get a plugin
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [plugin\*](#list_qbusiness-resource-plugin) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPolicy](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetPolicy.html)  **
+  - **Description:** Grants permission to get resource based policy of the application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRetriever](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetRetriever.html)  **
+  - **Description:** Grants permission to get a retriever
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [retriever\*](#list_qbusiness-resource-retriever) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetUser](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetUser.html)  **
+  - **Description:** Grants permission to get a user
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetWebExperience](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetWebExperience.html)  **
+  - **Description:** Grants permission to get a web-experience
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [web-experience\*](#list_qbusiness-resource-web-experience) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListApplications](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListApplications.html)  **
+  - **Description:** Grants permission to list the applications
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAttachments](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListAttachments.html)  **
+  - **Description:** Grants permission to list attachments in the current chat context
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListChatResponseConfigurations](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListChatResponseConfigurations.html)  **
+  - **Description:** Grants permission to list chat response configurations for an application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListConversations](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListConversations.html)  **
+  - **Description:** Grants permission to list all conversations for an application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDataAccessors](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListDataAccessors.html)  **
+  - **Description:** Grants permission to list DataAccessors for the application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDataSourceSyncJobs](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListDataSourceSyncJobs.html)  **
+  - **Description:** Grants permission to get Data Source sync job history
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [data-source\*](#list_qbusiness-resource-data-source) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDataSources](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListDataSources.html)  **
+  - **Description:** Grants permission to list the data sources of an application and an index
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDocuments](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListDocuments.html)  **
+  - **Description:** Grants permission to list all documents
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListGroups](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListGroups.html)  **
+  - **Description:** Grants permission to list groups
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListIndices](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListIndices.html)  **
+  - **Description:** Grants permission to list the indices of an application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListIntegrations](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListIntegrations.html)  **
+  - **Description:** Grants permission to list all integrations for a Q Business application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListMessages](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListMessages.html)  **
+  - **Description:** Grants permission to list all messages
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListPluginActions](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListPluginActions.html)  **
+  - **Description:** Grants permission to list the plugins actions of a plugin within application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [plugin\*](#list_qbusiness-resource-plugin) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListPluginTypeActions](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListPluginTypeActions.html)  **
+  - **Description:** Grants permission to list all the actions for a plugin type
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListPluginTypeMetadata](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListPluginTypeMetadata.html)  **
+  - **Description:** Grants permission to list all the plugin type metadata
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListPlugins](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListPlugins.html)  **
+  - **Description:** Grants permission to list the plugins of an application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRetrievers](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListRetrievers.html)  **
+  - **Description:** Grants permission to list the retrievers of an application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSubscriptions](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListSubscriptions.html)  **
+  - **Description:** Grants permission to list subscriptions
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for a resource
+  - **Resource types (\*required):** [application](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [chat-response-configuration](#list_qbusiness-resource-chat-response-configuration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [data-accessor](#list_qbusiness-resource-data-accessor) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [data-source](#list_qbusiness-resource-data-source) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [integration](#list_qbusiness-resource-integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [plugin](#list_qbusiness-resource-plugin) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [retriever](#list_qbusiness-resource-retriever) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [web-experience](#list_qbusiness-resource-web-experience) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListWebExperiences](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListWebExperiences.html)  **
+  - **Description:** Grants permission to list the web experiences of an application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [PutFeedback](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_PutFeedback.html)  **
+  - **Description:** Grants permission to put feedback about a conversation message
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutGroup](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_PutGroup.html)  **
+  - **Description:** Grants permission to put a group of users
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SearchRelevantContent](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_SearchRelevantContent.html)  **
+  - **Description:** Grants permission to search relevant content from the Amazon Q Business Application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [StartDataSourceSyncJob](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_StartDataSourceSyncJob.html)  **
+  - **Description:** Grants permission to start Data Source sync job
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [data-source\*](#list_qbusiness-resource-data-source) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartDeployment](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_StartDeployment.html)  **
+  - **Description:** Grants permission to start deployment for an integration
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [integration\*](#list_qbusiness-resource-integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopDataSourceSyncJob](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_StopDataSourceSyncJob.html)  **
+  - **Description:** Grants permission to stop Data Source sync job
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [data-source\*](#list_qbusiness-resource-data-source) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag a resource with given key value pairs
+  - **Resource types (\*required):** [application](#list_qbusiness-resource-application) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [chat-response-configuration](#list_qbusiness-resource-chat-response-configuration) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [data-accessor](#list_qbusiness-resource-data-accessor) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [data-source](#list_qbusiness-resource-data-source) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [index](#list_qbusiness-resource-index) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [integration](#list_qbusiness-resource-integration) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [plugin](#list_qbusiness-resource-plugin) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [retriever](#list_qbusiness-resource-retriever) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [web-experience](#list_qbusiness-resource-web-experience) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_qbusiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove the tag with the given key from a resource
+  - **Resource types (\*required):** [application](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [chat-response-configuration](#list_qbusiness-resource-chat-response-configuration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [data-accessor](#list_qbusiness-resource-data-accessor) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [data-source](#list_qbusiness-resource-data-source) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [index](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [integration](#list_qbusiness-resource-integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [plugin](#list_qbusiness-resource-plugin) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [retriever](#list_qbusiness-resource-retriever) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Resource types (\*required):** [web-experience](#list_qbusiness-resource-web-experience) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_qbusiness-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateApplication](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateApplication.html)  **
+  - **Description:** Grants permission to update an Application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateChatControlsConfiguration](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateChatControlsConfiguration.html)  **
+  - **Description:** Grants permission to update chat controls configuration for an application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateChatResponseConfiguration](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateChatResponseConfiguration.html)  **
+  - **Description:** Grants permission to update a chat response configuration
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [chat-response-configuration\*](#list_qbusiness-resource-chat-response-configuration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDataAccessor](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateDataAccessor.html)  **
+  - **Description:** Grants permission to update DataAccessor
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [data-accessor\*](#list_qbusiness-resource-data-accessor) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateDataSource.html)  **
+  - **Description:** Grants permission to update a DataSource
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [data-source\*](#list_qbusiness-resource-data-source) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateIndex](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIndex.html)  **
+  - **Description:** Grants permission to update an index
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [index\*](#list_qbusiness-resource-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateIntegration](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIntegration.html)  **
+  - **Description:** Grants permission to update an integration for a Q Business application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [integration\*](#list_qbusiness-resource-integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdatePlugin](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdatePlugin.html)  **
+  - **Description:** Grants permission to update a plugin
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [plugin\*](#list_qbusiness-resource-plugin) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRetriever](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateRetriever.html)  **
+  - **Description:** Grants permission to update a Retriever
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [retriever\*](#list_qbusiness-resource-retriever) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSubscription](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateSubscription.html)  **
+  - **Description:** Grants permission to update a subscription
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [subscription\*](#list_qbusiness-resource-subscription) / **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateUser](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateUser.html)  **
+  - **Description:** Grants permission to update a user
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateWebExperience](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateWebExperience.html)  **
+  - **Description:** Grants permission to update a WebExperience
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [web-experience\*](#list_qbusiness-resource-web-experience) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for Amazon Q Business
+<a name="list_qbusiness-permission-only-actions"></a>
 
-The following actions are defined by Amazon Q Business but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by Amazon Q Business but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                                        | Description                                                                                                    | Resource types (\*required)                                                                  | Condition keys                                                                                                     | Access level                  |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ----------------------------- |
-| [AllowVendedLogDeliveryForResource](${UserGuideDocPage}monitoring-overview.md "${UserGuideDocPage}monitoring-overview.md")                                     | Grants permission to configure vended log delivery for Amazon Q Business application resource                  | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_") | Permissions management, Write |
-| [CreateDataAccessorWithTti](../../../amazonq/latest/api-reference/API_CreateDataAccessor.md "../../../amazonq/latest/api-reference/API_CreateDataAccessor.md") | Grants permission to create AWS IAM Identity center Trusted Token Issuer based DataAccessor to the application | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_") | Write                         |
-| [DisableAclOnDataSource](${UserGuideDocPage}setting-up.md#DisableAclOnDataSource "${UserGuideDocPage}setting-up.md#DisableAclOnDataSource")                    | Grants permission to disable the ACL crawl while creating the Amazon Q Business data source resource           | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_") | Write                         |
-| [PutResourcePolicy](../../../amazonq/latest/api-reference/API_AssociatePermission.md "../../../amazonq/latest/api-reference/API_AssociatePermission.md")       | Grants permission to put resource based policy statement to the application                                    | [application\*](#list_qbusiness-resource-application "#list_qbusiness-resource-application") | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_") | Write                         |
+
+
+
+- **   [AllowVendedLogDeliveryForResource](${UserGuideDocPage}monitoring-overview.html)  **
+  - **Description:** Grants permission to configure vended log delivery for Amazon Q Business application resource
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [CreateDataAccessorWithTti](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataAccessor.html)  **
+  - **Description:** Grants permission to create AWS IAM Identity center Trusted Token Issuer based DataAccessor to the application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisableAclOnDataSource](${UserGuideDocPage}setting-up.html#DisableAclOnDataSource)  **
+  - **Description:** Grants permission to disable the ACL crawl while creating the Amazon Q Business data source resource
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutResourcePolicy](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_AssociatePermission.html)  **
+  - **Description:** Grants permission to put resource based policy statement to the application
+  - **Resource types (\*required):** [application\*](#list_qbusiness-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon Q Business
+<a name="list_qbusiness-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                       | ARN                                                                                                                                     | Condition keys                                                                                                     |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [application](../../../amazonq/latest/business-use-dg/create-application.md "../../../amazonq/latest/business-use-dg/create-application.md")                         | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}                                                            | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_") |
-| [chat-response-configuration](../../../amazonq/latest/business-use-dg/response-customization.md "../../../amazonq/latest/business-use-dg/response-customization.md") | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/chat-response-configuration/${ChatResponseConfigurationId} | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_") |
-| [data-accessor](../../../amazonq/latest/business-use-dg/data-accessors.md "../../../amazonq/latest/business-use-dg/data-accessors.md")                               | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/data-accessor/${DataAccessorId}                            | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_") |
-| [data-source](../../../amazonq/latest/business-use-dg/connect-data.md "../../../amazonq/latest/business-use-dg/connect-data.md")                                     | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/index/${IndexId}/data-source/${DataSourceId}               | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_") |
-| [index](../../../amazonq/latest/business-use-dg/select-retriever.md "../../../amazonq/latest/business-use-dg/select-retriever.md")                                   | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/index/${IndexId}                                           | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_") |
-| [integration](../../../amazonq/latest/business-use-dg/create-integration.md "../../../amazonq/latest/business-use-dg/create-integration.md")                         | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/integration/${IntegrationId}                               | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_") |
-| [plugin](../../../amazonq/latest/business-use-dg/plugins.md "../../../amazonq/latest/business-use-dg/plugins.md")                                                    | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/plugin/${PluginId}                                         | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_") |
-| [retriever](../../../amazonq/latest/business-use-dg/select-retriever.md "../../../amazonq/latest/business-use-dg/select-retriever.md")                               | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/retriever/${RetrieverId}                                   | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_") |
-| [subscription](../../../amazonq/latest/business-use-dg/subscriptions.md "../../../amazonq/latest/business-use-dg/subscriptions.md")                                  | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/subscription/${SubscriptionId}                             |                                                                                                                    |
-| [web-experience](../../../amazonq/latest/business-use-dg/using-web-experience.md "../../../amazonq/latest/business-use-dg/using-web-experience.md")                  | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/web-experience/${WebExperienceId}                          | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_ "#list_qbusiness-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [application](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/create-application.html)  | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId} | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_) | 
+|  [chat-response-configuration](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/response-customization.html)  | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/chat-response-configuration/${ChatResponseConfigurationId} | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_) | 
+|  [data-accessor](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/data-accessors.html)  | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/data-accessor/${DataAccessorId} | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_) | 
+|  [data-source](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connect-data.html)  | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/index/${IndexId}/data-source/${DataSourceId} | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_) | 
+|  [index](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/select-retriever.html)  | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/index/${IndexId} | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_) | 
+|  [integration](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/create-integration.html)  | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/integration/${IntegrationId} | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_) | 
+|  [plugin](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/plugins.html)  | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/plugin/${PluginId} | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_) | 
+|  [retriever](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/select-retriever.html)  | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/retriever/${RetrieverId} | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_) | 
+|  [subscription](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/subscriptions.html)  | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/subscription/${SubscriptionId} |   | 
+|  [web-experience](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/using-web-experience.html)  | arn:${Partition}:qbusiness:${Region}:${Account}:application/${ApplicationId}/web-experience/${WebExperienceId} | [aws:ResourceTag/${TagKey}](#list_qbusiness-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Q Business
+<a name="list_qbusiness-policy-keys"></a>
 
-Amazon Q Business defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Q Business defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                   | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by the tags associated with the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the tag keys that are passed in the request | ArrayOfString |
-| [identitystore:GroupId](../../../amazonq/latest/qbusiness-ug/security_iam_service-with-iam.md "../../../amazonq/latest/qbusiness-ug/security_iam_service-with-iam.md")                                                     | Filters access by IAM Identity Center Group ID                | ArrayOfString |
-| [identitystore:UserId](../../../amazonq/latest/qbusiness-ug/security_iam_service-with-iam.md "../../../amazonq/latest/qbusiness-ug/security_iam_service-with-iam.md")                                                      | Filters access by IAM Identity Center User ID                 | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 
+|   [identitystore:GroupId](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/security_iam_service-with-iam.html)  | Filters access by IAM Identity Center Group ID | ArrayOfString | 
+|   [identitystore:UserId](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/security_iam_service-with-iam.html)  | Filters access by IAM Identity Center User ID | ArrayOfString | 

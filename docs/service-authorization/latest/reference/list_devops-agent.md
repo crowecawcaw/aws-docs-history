@@ -1,202 +1,725 @@
-# Actions, resources, and condition keys for AWS DevOps Agent Service
 
-AWS DevOps Agent Service (service prefix: `aidevops`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS DevOps Agent Service
+<a name="list_devops-agent"></a>
+
+AWS DevOps Agent Service (service prefix: `aidevops`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/devopsagent/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/devopsagent/latest/userguide/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/devopsagent/latest/userguide/aws-devops-agent-security-devops-agent-iam-permissions.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/aidevops/aidevops.json) for this service.
 
-- Learn how to [configure this service](../../../devopsagent/latest/userguide.md "../../../devopsagent/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../devopsagent/latest/userguide.md "../../../devopsagent/latest/userguide.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../devopsagent/latest/userguide/aws-devops-agent-security-devops-agent-iam-permissions.md "../../../devopsagent/latest/userguide/aws-devops-agent-security-devops-agent-iam-permissions.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/aidevops/aidevops.json "https://servicereference.us-east-1.amazonaws.com/v1/aidevops/aidevops.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS DevOps Agent Service](#list_devops-agent-operations "#list_devops-agent-operations")
-- [Actions defined by AWS DevOps Agent Service](#list_devops-agent-actions-as-permissions "#list_devops-agent-actions-as-permissions")
-- [Permission-only actions for AWS DevOps Agent Service](#list_devops-agent-permission-only-actions "#list_devops-agent-permission-only-actions")
-- [Resource types defined by AWS DevOps Agent Service](#list_devops-agent-resources-for-iam-policies "#list_devops-agent-resources-for-iam-policies")
-- [Condition keys for AWS DevOps Agent Service](#list_devops-agent-policy-keys "#list_devops-agent-policy-keys")
+**Topics**
++ [API operations defined by AWS DevOps Agent Service](#list_devops-agent-operations)
++ [Actions defined by AWS DevOps Agent Service](#list_devops-agent-actions-as-permissions)
++ [Permission-only actions for AWS DevOps Agent Service](#list_devops-agent-permission-only-actions)
++ [Resource types defined by AWS DevOps Agent Service](#list_devops-agent-resources-for-iam-policies)
++ [Condition keys for AWS DevOps Agent Service](#list_devops-agent-policy-keys)
 
 ## API operations defined by AWS DevOps Agent Service
+<a name="list_devops-agent-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_devops-agent-actions-as-permissions "#list_devops-agent-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_devops-agent-actions-as-permissions).
 
-| Operation                                                                                                                       | IAM action                                                                                                                                                                 | Condition key          | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------------- | -------------- |
-| AssociateService                                                                                                                | [aidevops:AssociateService](#list_devops-agent-action-AssociateService "#list_devops-agent-action-AssociateService")                                                       |                        |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                        | aidevops.amazonaws.com | Write             |
-| CreateAgentSpace                                                                                                                | [aidevops:CreateAgentSpace](#list_devops-agent-action-CreateAgentSpace "#list_devops-agent-action-CreateAgentSpace")                                                       |                        |                   | Write          |
-| [aidevops:TagResource](#list_devops-agent-action-TagResource "#list_devops-agent-action-TagResource")                           |                                                                                                                                                                            |                        | Tagging, Write    |
-| CreatePrivateConnection                                                                                                         | [aidevops:CreatePrivateConnection](#list_devops-agent-action-CreatePrivateConnection "#list_devops-agent-action-CreatePrivateConnection")                                  |                        |                   | Write          |
-| [aidevops:TagResource](#list_devops-agent-action-TagResource "#list_devops-agent-action-TagResource")                           |                                                                                                                                                                            |                        | Tagging, Write    |
-| DeleteAgentSpace                                                                                                                | [aidevops:DeleteAgentSpace](#list_devops-agent-action-DeleteAgentSpace "#list_devops-agent-action-DeleteAgentSpace")                                                       |                        |                   | Write          |
-| DeletePrivateConnection                                                                                                         | [aidevops:DeletePrivateConnection](#list_devops-agent-action-DeletePrivateConnection "#list_devops-agent-action-DeletePrivateConnection")                                  |                        |                   | Write          |
-| DeregisterService                                                                                                               | [aidevops:DeregisterService](#list_devops-agent-action-DeregisterService "#list_devops-agent-action-DeregisterService")                                                    |                        |                   | Write          |
-| DescribePrivateConnection                                                                                                       | [aidevops:DescribePrivateConnection](#list_devops-agent-action-DescribePrivateConnection "#list_devops-agent-action-DescribePrivateConnection")                            |                        |                   | Read           |
-| DisableOperatorApp                                                                                                              | [aidevops:DisableOperatorApp](#list_devops-agent-action-DisableOperatorApp "#list_devops-agent-action-DisableOperatorApp")                                                 |                        |                   | Write          |
-| DisassociateService                                                                                                             | [aidevops:DisassociateService](#list_devops-agent-action-DisassociateService "#list_devops-agent-action-DisassociateService")                                              |                        |                   | Write          |
-| EnableOperatorApp                                                                                                               | [aidevops:EnableOperatorApp](#list_devops-agent-action-EnableOperatorApp "#list_devops-agent-action-EnableOperatorApp")                                                    |                        |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                        | aidevops.amazonaws.com | Write             |
-| GetAgentSpace                                                                                                                   | [aidevops:GetAgentSpace](#list_devops-agent-action-GetAgentSpace "#list_devops-agent-action-GetAgentSpace")                                                                |                        |                   | Read           |
-| GetAssociation                                                                                                                  | [aidevops:GetAssociation](#list_devops-agent-action-GetAssociation "#list_devops-agent-action-GetAssociation")                                                             |                        |                   | Read           |
-| GetOperatorApp                                                                                                                  | [aidevops:GetOperatorApp](#list_devops-agent-action-GetOperatorApp "#list_devops-agent-action-GetOperatorApp")                                                             |                        |                   | Read           |
-| GetService                                                                                                                      | [aidevops:GetService](#list_devops-agent-action-GetService "#list_devops-agent-action-GetService")                                                                         |                        |                   | Read           |
-| ListAgentSpaces                                                                                                                 | [aidevops:ListAgentSpaces](#list_devops-agent-action-ListAgentSpaces "#list_devops-agent-action-ListAgentSpaces")                                                          |                        |                   | List           |
-| ListAssociations                                                                                                                | [aidevops:ListAssociations](#list_devops-agent-action-ListAssociations "#list_devops-agent-action-ListAssociations")                                                       |                        |                   | List           |
-| ListPrivateConnections                                                                                                          | [aidevops:ListPrivateConnections](#list_devops-agent-action-ListPrivateConnections "#list_devops-agent-action-ListPrivateConnections")                                     |                        |                   | List           |
-| ListServices                                                                                                                    | [aidevops:ListServices](#list_devops-agent-action-ListServices "#list_devops-agent-action-ListServices")                                                                   |                        |                   | List           |
-| ListTagsForResource                                                                                                             | [aidevops:ListTagsForResource](#list_devops-agent-action-ListTagsForResource "#list_devops-agent-action-ListTagsForResource")                                              |                        |                   | Read           |
-| ListWebhooks                                                                                                                    | [aidevops:ListWebhooks](#list_devops-agent-action-ListWebhooks "#list_devops-agent-action-ListWebhooks")                                                                   |                        |                   | List           |
-| RegisterService                                                                                                                 | [aidevops:RegisterService](#list_devops-agent-action-RegisterService "#list_devops-agent-action-RegisterService")                                                          |                        |                   | Write          |
-| [aidevops:TagResource](#list_devops-agent-action-TagResource "#list_devops-agent-action-TagResource")                           |                                                                                                                                                                            |                        | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                        | aidevops.amazonaws.com | Write             |
-| TagResource                                                                                                                     | [aidevops:TagResource](#list_devops-agent-action-TagResource "#list_devops-agent-action-TagResource")                                                                      |                        |                   | Tagging, Write |
-| UntagResource                                                                                                                   | [aidevops:UntagResource](#list_devops-agent-action-UntagResource "#list_devops-agent-action-UntagResource")                                                                |                        |                   | Tagging, Write |
-| UpdateAgentSpace                                                                                                                | [aidevops:UpdateAgentSpace](#list_devops-agent-action-UpdateAgentSpace "#list_devops-agent-action-UpdateAgentSpace")                                                       |                        |                   | Write          |
-| UpdateAssociation                                                                                                               | [aidevops:UpdateAssociation](#list_devops-agent-action-UpdateAssociation "#list_devops-agent-action-UpdateAssociation")                                                    |                        |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                        | aidevops.amazonaws.com | Write             |
-| UpdateOperatorAppIdpConfig                                                                                                      | [aidevops:UpdateOperatorAppIdpConfig](#list_devops-agent-action-UpdateOperatorAppIdpConfig "#list_devops-agent-action-UpdateOperatorAppIdpConfig")                         |                        |                   | Write          |
-| UpdatePrivateConnectionCertificate                                                                                              | [aidevops:UpdatePrivateConnectionCertificate](#list_devops-agent-action-UpdatePrivateConnectionCertificate "#list_devops-agent-action-UpdatePrivateConnectionCertificate") |                        |                   | Write          |
-| ValidateAwsAssociations                                                                                                         | [aidevops:ValidateAwsAssociations](#list_devops-agent-action-ValidateAwsAssociations "#list_devops-agent-action-ValidateAwsAssociations")                                  |                        |                   | Write          |
+
+
+
+- **   AssociateService  **
+  - **IAM action:**  [aidevops:AssociateService](#list_devops-agent-action-AssociateService)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** aidevops.amazonaws.com / **Access level:** Write
+
+- **   CreateAgentSpace  **
+  - **IAM action:**  [aidevops:CreateAgentSpace](#list_devops-agent-action-CreateAgentSpace)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [aidevops:TagResource](#list_devops-agent-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreatePrivateConnection  **
+  - **IAM action:**  [aidevops:CreatePrivateConnection](#list_devops-agent-action-CreatePrivateConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [aidevops:TagResource](#list_devops-agent-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteAgentSpace  **
+  - **IAM action:**  [aidevops:DeleteAgentSpace](#list_devops-agent-action-DeleteAgentSpace) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeletePrivateConnection  **
+  - **IAM action:**  [aidevops:DeletePrivateConnection](#list_devops-agent-action-DeletePrivateConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeregisterService  **
+  - **IAM action:**  [aidevops:DeregisterService](#list_devops-agent-action-DeregisterService) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribePrivateConnection  **
+  - **IAM action:**  [aidevops:DescribePrivateConnection](#list_devops-agent-action-DescribePrivateConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DisableOperatorApp  **
+  - **IAM action:**  [aidevops:DisableOperatorApp](#list_devops-agent-action-DisableOperatorApp) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateService  **
+  - **IAM action:**  [aidevops:DisassociateService](#list_devops-agent-action-DisassociateService) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   EnableOperatorApp  **
+  - **IAM action:**  [aidevops:EnableOperatorApp](#list_devops-agent-action-EnableOperatorApp)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** aidevops.amazonaws.com / **Access level:** Write
+
+- **   GetAgentSpace  **
+  - **IAM action:**  [aidevops:GetAgentSpace](#list_devops-agent-action-GetAgentSpace) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAssociation  **
+  - **IAM action:**  [aidevops:GetAssociation](#list_devops-agent-action-GetAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetOperatorApp  **
+  - **IAM action:**  [aidevops:GetOperatorApp](#list_devops-agent-action-GetOperatorApp) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetService  **
+  - **IAM action:**  [aidevops:GetService](#list_devops-agent-action-GetService) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAgentSpaces  **
+  - **IAM action:**  [aidevops:ListAgentSpaces](#list_devops-agent-action-ListAgentSpaces) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAssociations  **
+  - **IAM action:**  [aidevops:ListAssociations](#list_devops-agent-action-ListAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPrivateConnections  **
+  - **IAM action:**  [aidevops:ListPrivateConnections](#list_devops-agent-action-ListPrivateConnections) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListServices  **
+  - **IAM action:**  [aidevops:ListServices](#list_devops-agent-action-ListServices) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [aidevops:ListTagsForResource](#list_devops-agent-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListWebhooks  **
+  - **IAM action:**  [aidevops:ListWebhooks](#list_devops-agent-action-ListWebhooks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   RegisterService  **
+  - **IAM action:**  [aidevops:RegisterService](#list_devops-agent-action-RegisterService)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [aidevops:TagResource](#list_devops-agent-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** aidevops.amazonaws.com / **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [aidevops:TagResource](#list_devops-agent-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [aidevops:UntagResource](#list_devops-agent-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAgentSpace  **
+  - **IAM action:**  [aidevops:UpdateAgentSpace](#list_devops-agent-action-UpdateAgentSpace) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAssociation  **
+  - **IAM action:**  [aidevops:UpdateAssociation](#list_devops-agent-action-UpdateAssociation)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** aidevops.amazonaws.com / **Access level:** Write
+
+- **   UpdateOperatorAppIdpConfig  **
+  - **IAM action:**  [aidevops:UpdateOperatorAppIdpConfig](#list_devops-agent-action-UpdateOperatorAppIdpConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdatePrivateConnectionCertificate  **
+  - **IAM action:**  [aidevops:UpdatePrivateConnectionCertificate](#list_devops-agent-action-UpdatePrivateConnectionCertificate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ValidateAwsAssociations  **
+  - **IAM action:**  [aidevops:ValidateAwsAssociations](#list_devops-agent-action-ValidateAwsAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS DevOps Agent Service
+<a name="list_devops-agent-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                       | Description                                                                                                                                                                                                                                                                                                                         | Resource types (\*required)                                                                                             | Condition keys                                                                                                                                                                                                                                                                                                                      | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AssociateService](../../../devopsagent/latest/APIReference/API_AssociateService.md "../../../devopsagent/latest/APIReference/API_AssociateService.md")                                                       | Grants permission to associate service                                                                                                                                                                                                                                                                                              | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [CreateAccessToken](../../../devopsagent/latest/APIReference/API_CreateAccessToken.md "../../../devopsagent/latest/APIReference/API_CreateAccessToken.md")                                                    | Grants permission to create an access token                                                                                                                                                                                                                                                                                         | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [CreateAgentSpace](../../../devopsagent/latest/APIReference/API_CreateAgentSpace.md "../../../devopsagent/latest/APIReference/API_CreateAgentSpace.md")                                                       | Grants permission to create agentspace                                                                                                                                                                                                                                                                                              | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_ "#list_devops-agent-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_devops-agent-aws_TagKeys "#list_devops-agent-aws_TagKeys") | Write          |
-| [CreateAsset](../../../devopsagent/latest/APIReference/API_CreateAsset.md "../../../devopsagent/latest/APIReference/API_CreateAsset.md")                                                                      | Grants permission to create an asset                                                                                                                                                                                                                                                                                                | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [CreateAssetFile](../../../devopsagent/latest/APIReference/API_CreateAssetFile.md "../../../devopsagent/latest/APIReference/API_CreateAssetFile.md")                                                          | Grants permission to create an asset file                                                                                                                                                                                                                                                                                           | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [CreateBacklogTask](../../../devopsagent/latest/APIReference/API_CreateBacklogTask.md "../../../devopsagent/latest/APIReference/API_CreateBacklogTask.md")                                                    | Grants permission to create a new backlog task                                                                                                                                                                                                                                                                                      | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [CreateChat](../../../devopsagent/latest/APIReference/API_CreateChat.md "../../../devopsagent/latest/APIReference/API_CreateChat.md")                                                                         | Grants permission to create a chat                                                                                                                                                                                                                                                                                                  | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [CreateKnowledgeItem](../../../devopsagent/latest/APIReference/API_CreateKnowledgeItem.md "../../../devopsagent/latest/APIReference/API_CreateKnowledgeItem.md")                                              | Grants permission to create a new knowledge item                                                                                                                                                                                                                                                                                    | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [CreateOneTimeLoginSession](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                                                        | Grants permission to generate secure one-time session for initiating off-console Application login                                                                                                                                                                                                                                  | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [CreatePrivateConnection](../../../devopsagent/latest/APIReference/API_CreatePrivateConnection.md "../../../devopsagent/latest/APIReference/API_CreatePrivateConnection.md")                                  | Grants permission to create a private connection                                                                                                                                                                                                                                                                                    | [private-connection\*](#list_devops-agent-resource-private-connection "#list_devops-agent-resource-private-connection") | [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_ "#list_devops-agent-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_devops-agent-aws_TagKeys "#list_devops-agent-aws_TagKeys") | Write          |
-| [CreateTrigger](../../../devopsagent/latest/APIReference/API_CreateTrigger.md "../../../devopsagent/latest/APIReference/API_CreateTrigger.md")                                                                | Grants permission to create a trigger                                                                                                                                                                                                                                                                                               | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [DeleteAgentSpace](../../../devopsagent/latest/APIReference/API_DeleteAgentSpace.md "../../../devopsagent/latest/APIReference/API_DeleteAgentSpace.md")                                                       | Grants permission to delete agentspace                                                                                                                                                                                                                                                                                              | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [DeleteAsset](../../../devopsagent/latest/APIReference/API_DeleteAsset.md "../../../devopsagent/latest/APIReference/API_DeleteAsset.md")                                                                      | Grants permission to delete an asset                                                                                                                                                                                                                                                                                                | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [DeleteAssetFile](../../../devopsagent/latest/APIReference/API_DeleteAssetFile.md "../../../devopsagent/latest/APIReference/API_DeleteAssetFile.md")                                                          | Grants permission to delete an asset file                                                                                                                                                                                                                                                                                           | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [DeleteKnowledgeItem](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                                                              | Grants permission to delete a knowledge item                                                                                                                                                                                                                                                                                        | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [DeletePrivateConnection](../../../devopsagent/latest/APIReference/API_DeletePrivateConnection.md "../../../devopsagent/latest/APIReference/API_DeletePrivateConnection.md")                                  | Grants permission to delete a private connection                                                                                                                                                                                                                                                                                    | [private-connection\*](#list_devops-agent-resource-private-connection "#list_devops-agent-resource-private-connection") | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [DeleteTrigger](../../../devopsagent/latest/APIReference/API_DeleteTrigger.md "../../../devopsagent/latest/APIReference/API_DeleteTrigger.md")                                                                | Grants permission to delete a trigger                                                                                                                                                                                                                                                                                               | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [DeregisterService](../../../devopsagent/latest/APIReference/API_DeregisterService.md "../../../devopsagent/latest/APIReference/API_DeregisterService.md")                                                    | Grants permission to deregister a service                                                                                                                                                                                                                                                                                           | [service\*](#list_devops-agent-resource-service "#list_devops-agent-resource-service")                                  | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [DescribePrivateConnection](../../../devopsagent/latest/APIReference/API_DescribePrivateConnection.md "../../../devopsagent/latest/APIReference/API_DescribePrivateConnection.md")                            | Grants permission to describe a private connection                                                                                                                                                                                                                                                                                  | [private-connection\*](#list_devops-agent-resource-private-connection "#list_devops-agent-resource-private-connection") | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [DescribeServices](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                                                                 | Grants permission to describe support services                                                                                                                                                                                                                                                                                      | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [DescribeSupportLevel](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                                                             | Grants permission to describe customer support level                                                                                                                                                                                                                                                                                | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [DisableOperatorApp](../../../devopsagent/latest/APIReference/API_DisableOperatorApp.md "../../../devopsagent/latest/APIReference/API_DisableOperatorApp.md")                                                 | Grants permission to disable the Operator App access to the given AgentSpace                                                                                                                                                                                                                                                        | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [DisassociateService](../../../devopsagent/latest/APIReference/API_DisassociateService.md "../../../devopsagent/latest/APIReference/API_DisassociateService.md")                                              | Grants permission to disassociate service                                                                                                                                                                                                                                                                                           | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [associations\*](#list_devops-agent-resource-associations "#list_devops-agent-resource-associations")                                                                                                         |                                                                                                                                                                                                                                                                                                                                     |
-| [DiscoverTopology](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                                                                 | Grants permission to discover topology information                                                                                                                                                                                                                                                                                  | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [EnableOperatorApp](../../../devopsagent/latest/APIReference/API_EnableOperatorApp.md "../../../devopsagent/latest/APIReference/API_EnableOperatorApp.md")                                                    | Grants permission to enable the Operator App to access the given AgentSpace                                                                                                                                                                                                                                                         | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [EndChatForCase](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                                                                   | Grants permission to end a chat for a case                                                                                                                                                                                                                                                                                          | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [GetAccessToken](../../../devopsagent/latest/APIReference/API_GetAccessToken.md "../../../devopsagent/latest/APIReference/API_GetAccessToken.md")                                                             | Grants permission to get access token details                                                                                                                                                                                                                                                                                       | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [GetAccountUsage](../../../devopsagent/latest/APIReference/API_GetAccountUsage.md "../../../devopsagent/latest/APIReference/API_GetAccountUsage.md")                                                          | Grants permission to retrieve account usage information                                                                                                                                                                                                                                                                             |                                                                                                                         |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [GetAgentSpace](../../../devopsagent/latest/APIReference/API_GetAgentSpace.md "../../../devopsagent/latest/APIReference/API_GetAgentSpace.md")                                                                | Grants permission to get agentspace                                                                                                                                                                                                                                                                                                 | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [GetAsset](../../../devopsagent/latest/APIReference/API_GetAsset.md "../../../devopsagent/latest/APIReference/API_GetAsset.md")                                                                               | Grants permission to get an asset                                                                                                                                                                                                                                                                                                   | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [GetAssetContent](../../../devopsagent/latest/APIReference/API_GetAssetContent.md "../../../devopsagent/latest/APIReference/API_GetAssetContent.md")                                                          | Grants permission to get asset content                                                                                                                                                                                                                                                                                              | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [GetAssetFile](../../../devopsagent/latest/APIReference/API_GetAssetFile.md "../../../devopsagent/latest/APIReference/API_GetAssetFile.md")                                                                   | Grants permission to get an asset file                                                                                                                                                                                                                                                                                              | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [GetAssociation](../../../devopsagent/latest/APIReference/API_GetAssociation.md "../../../devopsagent/latest/APIReference/API_GetAssociation.md")                                                             | Grants permission to get association                                                                                                                                                                                                                                                                                                | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [associations\*](#list_devops-agent-resource-associations "#list_devops-agent-resource-associations")                                                                                                         |                                                                                                                                                                                                                                                                                                                                     |
-| [GetBacklogTask](../../../devopsagent/latest/APIReference/API_GetBacklogTask.md "../../../devopsagent/latest/APIReference/API_GetBacklogTask.md")                                                             | Grants permission to get a backlog task                                                                                                                                                                                                                                                                                             | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [GetKnowledgeItem](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                                                                 | Grants permission to get a knowledge item                                                                                                                                                                                                                                                                                           | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [GetOperatorApp](../../../devopsagent/latest/APIReference/API_GetOperatorApp.md "../../../devopsagent/latest/APIReference/API_GetOperatorApp.md")                                                             | Grants permission to get operator auth config for any enabled auth flow                                                                                                                                                                                                                                                             | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [GetRecommendation](../../../devopsagent/latest/APIReference/API_GetRecommendation.md "../../../devopsagent/latest/APIReference/API_GetRecommendation.md")                                                    | Grants permission to get a recommendation                                                                                                                                                                                                                                                                                           | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [GetService](../../../devopsagent/latest/APIReference/API_GetService.md "../../../devopsagent/latest/APIReference/API_GetService.md")                                                                         | Grants permission to get services                                                                                                                                                                                                                                                                                                   | [service\*](#list_devops-agent-resource-service "#list_devops-agent-resource-service")                                  | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [GetTrigger](../../../devopsagent/latest/APIReference/API_GetTrigger.md "../../../devopsagent/latest/APIReference/API_GetTrigger.md")                                                                         | Grants permission to get a trigger                                                                                                                                                                                                                                                                                                  | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [InitiateChatForCase](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                                                              | Grants permission to initiate a chat for a case                                                                                                                                                                                                                                                                                     | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [ListAccessTokens](../../../devopsagent/latest/APIReference/API_ListAccessTokens.md "../../../devopsagent/latest/APIReference/API_ListAccessTokens.md")                                                       | Grants permission to list access tokens                                                                                                                                                                                                                                                                                             | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [ListAgentSpaces](../../../devopsagent/latest/APIReference/API_ListAgentSpaces.md "../../../devopsagent/latest/APIReference/API_ListAgentSpaces.md")                                                          | Grants permission to list agentspace                                                                                                                                                                                                                                                                                                |                                                                                                                         |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListAssetFiles](../../../devopsagent/latest/APIReference/API_ListAssetFiles.md "../../../devopsagent/latest/APIReference/API_ListAssetFiles.md")                                                             | Grants permission to list asset files                                                                                                                                                                                                                                                                                               | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [ListAssetTypes](../../../devopsagent/latest/APIReference/API_ListAssetTypes.md "../../../devopsagent/latest/APIReference/API_ListAssetTypes.md")                                                             | Grants permission to list asset types                                                                                                                                                                                                                                                                                               |                                                                                                                         |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListAssetVersions](../../../devopsagent/latest/APIReference/API_ListAssetVersions.md "../../../devopsagent/latest/APIReference/API_ListAssetVersions.md")                                                    | Grants permission to list asset versions                                                                                                                                                                                                                                                                                            | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [ListAssets](../../../devopsagent/latest/APIReference/API_ListAssets.md "../../../devopsagent/latest/APIReference/API_ListAssets.md")                                                                         | Grants permission to list assets                                                                                                                                                                                                                                                                                                    | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [ListAssociations](../../../devopsagent/latest/APIReference/API_ListAssociations.md "../../../devopsagent/latest/APIReference/API_ListAssociations.md")                                                       | Grants permission to list associations                                                                                                                                                                                                                                                                                              | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [ListBacklogTasks](../../../devopsagent/latest/APIReference/API_ListBacklogTasks.md "../../../devopsagent/latest/APIReference/API_ListBacklogTasks.md")                                                       | Grants permission to list backlog tasks                                                                                                                                                                                                                                                                                             | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [ListChats](../../../devopsagent/latest/APIReference/API_ListChats.md "../../../devopsagent/latest/APIReference/API_ListChats.md")                                                                            | Grants permission to list chats                                                                                                                                                                                                                                                                                                     | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [ListExecutions](../../../devopsagent/latest/APIReference/API_ListExecutions.md "../../../devopsagent/latest/APIReference/API_ListExecutions.md")                                                             | Grants permission to list executions                                                                                                                                                                                                                                                                                                | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [ListGoals](../../../devopsagent/latest/APIReference/API_ListGoals.md "../../../devopsagent/latest/APIReference/API_ListGoals.md")                                                                            | Grants permission to list goals                                                                                                                                                                                                                                                                                                     | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [ListJournalRecords](../../../devopsagent/latest/APIReference/API_ListJournalRecords.md "../../../devopsagent/latest/APIReference/API_ListJournalRecords.md")                                                 | Grants permission to list journal records                                                                                                                                                                                                                                                                                           | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [ListKnowledgeItemVersions](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                                                        | Grants permission to list knowledge item versions                                                                                                                                                                                                                                                                                   | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [ListKnowledgeItems](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                                                               | Grants permission to list knowledge items                                                                                                                                                                                                                                                                                           | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [ListPendingMessages](../../../devopsagent/latest/APIReference/API_ListPendingMessages.md "../../../devopsagent/latest/APIReference/API_ListPendingMessages.md")                                              | Grants permission to list pending messages                                                                                                                                                                                                                                                                                          | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [ListPrivateConnections](../../../devopsagent/latest/APIReference/API_ListPrivateConnections.md "../../../devopsagent/latest/APIReference/API_ListPrivateConnections.md")                                     | Grants permission to list private connections                                                                                                                                                                                                                                                                                       |                                                                                                                         |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListRecommendations](../../../devopsagent/latest/APIReference/API_ListRecommendations.md "../../../devopsagent/latest/APIReference/API_ListRecommendations.md")                                              | Grants permission to list recommendations                                                                                                                                                                                                                                                                                           | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [ListServices](../../../devopsagent/latest/APIReference/API_ListServices.md "../../../devopsagent/latest/APIReference/API_ListServices.md")                                                                   | Grants permission to list services                                                                                                                                                                                                                                                                                                  |                                                                                                                         |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListTagsForResource](../../../devopsagent/latest/APIReference/API_ListTagsForResource.md "../../../devopsagent/latest/APIReference/API_ListTagsForResource.md")                                              | Grants permission to list tags for a resource                                                                                                                                                                                                                                                                                       | [agentspace](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                           | [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_ "#list_devops-agent-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_devops-agent-aws_TagKeys "#list_devops-agent-aws_TagKeys") | Read           |
-| [private-connection](#list_devops-agent-resource-private-connection "#list_devops-agent-resource-private-connection")                                                                                         | [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_ "#list_devops-agent-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_devops-agent-aws_TagKeys "#list_devops-agent-aws_TagKeys") |
-| [service](#list_devops-agent-resource-service "#list_devops-agent-resource-service")                                                                                                                          | [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_ "#list_devops-agent-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_devops-agent-aws_TagKeys "#list_devops-agent-aws_TagKeys") |
-| [ListTriggers](../../../devopsagent/latest/APIReference/API_ListTriggers.md "../../../devopsagent/latest/APIReference/API_ListTriggers.md")                                                                   | Grants permission to list triggers                                                                                                                                                                                                                                                                                                  | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [ListWebhooks](../../../devopsagent/latest/APIReference/API_ListWebhooks.md "../../../devopsagent/latest/APIReference/API_ListWebhooks.md")                                                                   | Grants permission to list webhooks for association                                                                                                                                                                                                                                                                                  | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [associations\*](#list_devops-agent-resource-associations "#list_devops-agent-resource-associations")                                                                                                         |                                                                                                                                                                                                                                                                                                                                     |
-| [RegisterService](../../../devopsagent/latest/APIReference/API_RegisterService.md "../../../devopsagent/latest/APIReference/API_RegisterService.md")                                                          | Grants permission to register specific service                                                                                                                                                                                                                                                                                      | [service\*](#list_devops-agent-resource-service "#list_devops-agent-resource-service")                                  | [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_ "#list_devops-agent-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_devops-agent-aws_TagKeys "#list_devops-agent-aws_TagKeys") | Write          |
-| [RevokeAccessToken](../../../devopsagent/latest/APIReference/API_RevokeAccessToken.md "../../../devopsagent/latest/APIReference/API_RevokeAccessToken.md")                                                    | Grants permission to revoke an access token                                                                                                                                                                                                                                                                                         | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [RotateAccessToken](../../../devopsagent/latest/APIReference/API_RotateAccessToken.md "../../../devopsagent/latest/APIReference/API_RotateAccessToken.md")                                                    | Grants permission to rotate an access token                                                                                                                                                                                                                                                                                         | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [SearchServiceAccessibleResource](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                                                  | Grants permission to look up a registered service accessible resources                                                                                                                                                                                                                                                              |                                                                                                                         |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [SendMessage](../../../devopsagent/latest/APIReference/API_SendMessage.md "../../../devopsagent/latest/APIReference/API_SendMessage.md")                                                                      | Grants permission to send chat messages                                                                                                                                                                                                                                                                                             | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [TagResource](../../../devopsagent/latest/APIReference/API_TagResource.md "../../../devopsagent/latest/APIReference/API_TagResource.md")                                                                      | Grants permission to tag a resource                                                                                                                                                                                                                                                                                                 | [agentspace](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                           | [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_ "#list_devops-agent-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_devops-agent-aws_TagKeys "#list_devops-agent-aws_TagKeys") | Tagging, Write |
-| [private-connection](#list_devops-agent-resource-private-connection "#list_devops-agent-resource-private-connection")                                                                                         | [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_ "#list_devops-agent-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_devops-agent-aws_TagKeys "#list_devops-agent-aws_TagKeys") |
-| [service](#list_devops-agent-resource-service "#list_devops-agent-resource-service")                                                                                                                          | [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_ "#list_devops-agent-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_devops-agent-aws_TagKeys "#list_devops-agent-aws_TagKeys") |
-| [UntagResource](../../../devopsagent/latest/APIReference/API_UntagResource.md "../../../devopsagent/latest/APIReference/API_UntagResource.md")                                                                | Grants permission to untag a resource                                                                                                                                                                                                                                                                                               | [agentspace](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                           | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_devops-agent-aws_TagKeys "#list_devops-agent-aws_TagKeys")                                                                                                                          | Tagging, Write |
-| [private-connection](#list_devops-agent-resource-private-connection "#list_devops-agent-resource-private-connection")                                                                                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_devops-agent-aws_TagKeys "#list_devops-agent-aws_TagKeys")                                                                                                                          |
-| [service](#list_devops-agent-resource-service "#list_devops-agent-resource-service")                                                                                                                          | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_devops-agent-aws_TagKeys "#list_devops-agent-aws_TagKeys")                                                                                                                          |
-| [UpdateAgentSpace](../../../devopsagent/latest/APIReference/API_UpdateAgentSpace.md "../../../devopsagent/latest/APIReference/API_UpdateAgentSpace.md")                                                       | Grants permission to update agentspace                                                                                                                                                                                                                                                                                              | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [UpdateApprovalAction](../../../devopsagent/latest/APIReference/API_UpdateApprovalAction.md "../../../devopsagent/latest/APIReference/API_UpdateApprovalAction.md")                                           | Grants permission to update an approval action (approve or reject) for an agent tool invocation                                                                                                                                                                                                                                     | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [UpdateAsset](../../../devopsagent/latest/APIReference/API_UpdateAsset.md "../../../devopsagent/latest/APIReference/API_UpdateAsset.md")                                                                      | Grants permission to update an asset                                                                                                                                                                                                                                                                                                | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [UpdateAssetFile](../../../devopsagent/latest/APIReference/API_UpdateAssetFile.md "../../../devopsagent/latest/APIReference/API_UpdateAssetFile.md")                                                          | Grants permission to update an asset file                                                                                                                                                                                                                                                                                           | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [UpdateAssociation](../../../devopsagent/latest/APIReference/API_UpdateAssociation.md "../../../devopsagent/latest/APIReference/API_UpdateAssociation.md")                                                    | Grants permission to update association                                                                                                                                                                                                                                                                                             | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [associations\*](#list_devops-agent-resource-associations "#list_devops-agent-resource-associations")                                                                                                         |                                                                                                                                                                                                                                                                                                                                     |
-| [UpdateBacklogTask](../../../devopsagent/latest/APIReference/API_UpdateBacklogTask.md "../../../devopsagent/latest/APIReference/API_UpdateBacklogTask.md")                                                    | Grants permission to update a task                                                                                                                                                                                                                                                                                                  | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [UpdateGoal](../../../devopsagent/latest/APIReference/API_UpdateGoal.md "../../../devopsagent/latest/APIReference/API_UpdateGoal.md")                                                                         | Grants permission to update a goal                                                                                                                                                                                                                                                                                                  | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [UpdateKnowledgeItem](../../../devopsagent/latest/APIReference/what-is.md "../../../devopsagent/latest/APIReference/what-is.md")                                                                              | Grants permission to update a knowledge item                                                                                                                                                                                                                                                                                        | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [UpdateOperatorAppIdpConfig](../../../devopsagent/latest/APIReference/API_UpdateOperatorAppIdpConfig.md "../../../devopsagent/latest/APIReference/API_UpdateOperatorAppIdpConfig.md")                         | Grants permission to update the external Identity Provider configuration for the Operator App                                                                                                                                                                                                                                       | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [UpdatePrivateConnectionCertificate](../../../devopsagent/latest/APIReference/API_UpdatePrivateConnectionCertificate.md "../../../devopsagent/latest/APIReference/API_UpdatePrivateConnectionCertificate.md") | Grants permission to update a private connection certificate                                                                                                                                                                                                                                                                        | [private-connection\*](#list_devops-agent-resource-private-connection "#list_devops-agent-resource-private-connection") | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [UpdateRecommendation](../../../devopsagent/latest/APIReference/API_UpdateRecommendation.md "../../../devopsagent/latest/APIReference/API_UpdateRecommendation.md")                                           | Grants permission to update a recommendation                                                                                                                                                                                                                                                                                        | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [UpdateTrigger](../../../devopsagent/latest/APIReference/API_UpdateTrigger.md "../../../devopsagent/latest/APIReference/API_UpdateTrigger.md")                                                                | Grants permission to update a trigger                                                                                                                                                                                                                                                                                               | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [ValidateAwsAssociations](../../../devopsagent/latest/APIReference/API_ValidateAwsAssociations.md "../../../devopsagent/latest/APIReference/API_ValidateAwsAssociations.md")                                  | Grants permission to validate aws association                                                                                                                                                                                                                                                                                       | [agentspace\*](#list_devops-agent-resource-agentspace "#list_devops-agent-resource-agentspace")                         | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
+
+
+
+- **   [AssociateService](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_AssociateService.html)  **
+  - **Description:** Grants permission to associate service
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAccessToken](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_CreateAccessToken.html)  **
+  - **Description:** Grants permission to create an access token
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAgentSpace](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_CreateAgentSpace.html)  **
+  - **Description:** Grants permission to create agentspace
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_devops-agent-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAsset](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_CreateAsset.html)  **
+  - **Description:** Grants permission to create an asset
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAssetFile](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_CreateAssetFile.html)  **
+  - **Description:** Grants permission to create an asset file
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateBacklogTask](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_CreateBacklogTask.html)  **
+  - **Description:** Grants permission to create a new backlog task
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateChat](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_CreateChat.html)  **
+  - **Description:** Grants permission to create a chat
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateKnowledgeItem](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_CreateKnowledgeItem.html)  **
+  - **Description:** Grants permission to create a new knowledge item
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateOneTimeLoginSession](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
+  - **Description:** Grants permission to generate secure one-time session for initiating off-console Application login
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreatePrivateConnection](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_CreatePrivateConnection.html)  **
+  - **Description:** Grants permission to create a private connection
+  - **Resource types (\*required):** [private-connection\*](#list_devops-agent-resource-private-connection)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_devops-agent-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateTrigger](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_CreateTrigger.html)  **
+  - **Description:** Grants permission to create a trigger
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAgentSpace](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_DeleteAgentSpace.html)  **
+  - **Description:** Grants permission to delete agentspace
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAsset](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_DeleteAsset.html)  **
+  - **Description:** Grants permission to delete an asset
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAssetFile](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_DeleteAssetFile.html)  **
+  - **Description:** Grants permission to delete an asset file
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteKnowledgeItem](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
+  - **Description:** Grants permission to delete a knowledge item
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeletePrivateConnection](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_DeletePrivateConnection.html)  **
+  - **Description:** Grants permission to delete a private connection
+  - **Resource types (\*required):** [private-connection\*](#list_devops-agent-resource-private-connection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteTrigger](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_DeleteTrigger.html)  **
+  - **Description:** Grants permission to delete a trigger
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeregisterService](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_DeregisterService.html)  **
+  - **Description:** Grants permission to deregister a service
+  - **Resource types (\*required):** [service\*](#list_devops-agent-resource-service)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribePrivateConnection](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_DescribePrivateConnection.html)  **
+  - **Description:** Grants permission to describe a private connection
+  - **Resource types (\*required):** [private-connection\*](#list_devops-agent-resource-private-connection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeServices](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
+  - **Description:** Grants permission to describe support services
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeSupportLevel](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
+  - **Description:** Grants permission to describe customer support level
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisableOperatorApp](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_DisableOperatorApp.html)  **
+  - **Description:** Grants permission to disable the Operator App access to the given AgentSpace
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateService](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_DisassociateService.html)  **
+  - **Description:** Grants permission to disassociate service
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [associations\*](#list_devops-agent-resource-associations) / **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DiscoverTopology](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
+  - **Description:** Grants permission to discover topology information
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [EnableOperatorApp](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_EnableOperatorApp.html)  **
+  - **Description:** Grants permission to enable the Operator App to access the given AgentSpace
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [EndChatForCase](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
+  - **Description:** Grants permission to end a chat for a case
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetAccessToken](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAccessToken.html)  **
+  - **Description:** Grants permission to get access token details
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAccountUsage](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAccountUsage.html)  **
+  - **Description:** Grants permission to retrieve account usage information
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAgentSpace](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAgentSpace.html)  **
+  - **Description:** Grants permission to get agentspace
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAsset](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAsset.html)  **
+  - **Description:** Grants permission to get an asset
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAssetContent](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAssetContent.html)  **
+  - **Description:** Grants permission to get asset content
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAssetFile](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAssetFile.html)  **
+  - **Description:** Grants permission to get an asset file
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAssociation](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAssociation.html)  **
+  - **Description:** Grants permission to get association
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [associations\*](#list_devops-agent-resource-associations) / **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetBacklogTask](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetBacklogTask.html)  **
+  - **Description:** Grants permission to get a backlog task
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetKnowledgeItem](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
+  - **Description:** Grants permission to get a knowledge item
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetOperatorApp](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetOperatorApp.html)  **
+  - **Description:** Grants permission to get operator auth config for any enabled auth flow
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRecommendation](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetRecommendation.html)  **
+  - **Description:** Grants permission to get a recommendation
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetService](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetService.html)  **
+  - **Description:** Grants permission to get services
+  - **Resource types (\*required):** [service\*](#list_devops-agent-resource-service)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetTrigger](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetTrigger.html)  **
+  - **Description:** Grants permission to get a trigger
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [InitiateChatForCase](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
+  - **Description:** Grants permission to initiate a chat for a case
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ListAccessTokens](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAccessTokens.html)  **
+  - **Description:** Grants permission to list access tokens
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAgentSpaces](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAgentSpaces.html)  **
+  - **Description:** Grants permission to list agentspace
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAssetFiles](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssetFiles.html)  **
+  - **Description:** Grants permission to list asset files
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAssetTypes](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssetTypes.html)  **
+  - **Description:** Grants permission to list asset types
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAssetVersions](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssetVersions.html)  **
+  - **Description:** Grants permission to list asset versions
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAssets](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssets.html)  **
+  - **Description:** Grants permission to list assets
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAssociations](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssociations.html)  **
+  - **Description:** Grants permission to list associations
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListBacklogTasks](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListBacklogTasks.html)  **
+  - **Description:** Grants permission to list backlog tasks
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListChats](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListChats.html)  **
+  - **Description:** Grants permission to list chats
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListExecutions](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListExecutions.html)  **
+  - **Description:** Grants permission to list executions
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListGoals](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListGoals.html)  **
+  - **Description:** Grants permission to list goals
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListJournalRecords](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListJournalRecords.html)  **
+  - **Description:** Grants permission to list journal records
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListKnowledgeItemVersions](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
+  - **Description:** Grants permission to list knowledge item versions
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListKnowledgeItems](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
+  - **Description:** Grants permission to list knowledge items
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListPendingMessages](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListPendingMessages.html)  **
+  - **Description:** Grants permission to list pending messages
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListPrivateConnections](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListPrivateConnections.html)  **
+  - **Description:** Grants permission to list private connections
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRecommendations](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListRecommendations.html)  **
+  - **Description:** Grants permission to list recommendations
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListServices](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListServices.html)  **
+  - **Description:** Grants permission to list services
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for a resource
+  - **Resource types (\*required):** [agentspace](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_devops-agent-aws_TagKeys)
+  - **Resource types (\*required):** [private-connection](#list_devops-agent-resource-private-connection) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_devops-agent-aws_TagKeys)
+  - **Resource types (\*required):** [service](#list_devops-agent-resource-service) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_devops-agent-aws_TagKeys)
+  - **Access level:** Read
+
+- **   [ListTriggers](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListTriggers.html)  **
+  - **Description:** Grants permission to list triggers
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListWebhooks](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListWebhooks.html)  **
+  - **Description:** Grants permission to list webhooks for association
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [associations\*](#list_devops-agent-resource-associations) / **Condition keys:**  
+  - **Access level:** List
+
+- **   [RegisterService](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_RegisterService.html)  **
+  - **Description:** Grants permission to register specific service
+  - **Resource types (\*required):** [service\*](#list_devops-agent-resource-service)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_devops-agent-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [RevokeAccessToken](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_RevokeAccessToken.html)  **
+  - **Description:** Grants permission to revoke an access token
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RotateAccessToken](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_RotateAccessToken.html)  **
+  - **Description:** Grants permission to rotate an access token
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SearchServiceAccessibleResource](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
+  - **Description:** Grants permission to look up a registered service accessible resources
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [SendMessage](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_SendMessage.html)  **
+  - **Description:** Grants permission to send chat messages
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag a resource
+  - **Resource types (\*required):** [agentspace](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_devops-agent-aws_TagKeys)
+  - **Resource types (\*required):** [private-connection](#list_devops-agent-resource-private-connection) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_devops-agent-aws_TagKeys)
+  - **Resource types (\*required):** [service](#list_devops-agent-resource-service) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_devops-agent-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_devops-agent-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag a resource
+  - **Resource types (\*required):** [agentspace](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_devops-agent-aws_TagKeys)
+  - **Resource types (\*required):** [private-connection](#list_devops-agent-resource-private-connection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_devops-agent-aws_TagKeys)
+  - **Resource types (\*required):** [service](#list_devops-agent-resource-service) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_devops-agent-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAgentSpace](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateAgentSpace.html)  **
+  - **Description:** Grants permission to update agentspace
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateApprovalAction](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateApprovalAction.html)  **
+  - **Description:** Grants permission to update an approval action (approve or reject) for an agent tool invocation
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAsset](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateAsset.html)  **
+  - **Description:** Grants permission to update an asset
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAssetFile](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateAssetFile.html)  **
+  - **Description:** Grants permission to update an asset file
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAssociation](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateAssociation.html)  **
+  - **Description:** Grants permission to update association
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [associations\*](#list_devops-agent-resource-associations) / **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateBacklogTask](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateBacklogTask.html)  **
+  - **Description:** Grants permission to update a task
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateGoal](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateGoal.html)  **
+  - **Description:** Grants permission to update a goal
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateKnowledgeItem](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
+  - **Description:** Grants permission to update a knowledge item
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateOperatorAppIdpConfig](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateOperatorAppIdpConfig.html)  **
+  - **Description:** Grants permission to update the external Identity Provider configuration for the Operator App
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdatePrivateConnectionCertificate](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdatePrivateConnectionCertificate.html)  **
+  - **Description:** Grants permission to update a private connection certificate
+  - **Resource types (\*required):** [private-connection\*](#list_devops-agent-resource-private-connection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRecommendation](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateRecommendation.html)  **
+  - **Description:** Grants permission to update a recommendation
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateTrigger](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateTrigger.html)  **
+  - **Description:** Grants permission to update a trigger
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ValidateAwsAssociations](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ValidateAwsAssociations.html)  **
+  - **Description:** Grants permission to validate aws association
+  - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for AWS DevOps Agent Service
+<a name="list_devops-agent-permission-only-actions"></a>
 
-The following actions are defined by AWS DevOps Agent Service but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by AWS DevOps Agent Service but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                                                                                                                                              | Description                                | Resource types (\*required) | Condition keys | Access level                  |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | --------------------------- | -------------- | ----------------------------- |
-| [AllowVendedLogDeliveryForResource](../../../devopsagent/latest/userguide/configuring-capabilities-for-aws-devops-agent-vended-logs-and-metrics.md "../../../devopsagent/latest/userguide/configuring-capabilities-for-aws-devops-agent-vended-logs-and-metrics.md") | Grants permission to authorize vended logs |                             |                | Permissions management, Write |
+
+
+| Actions | Description | Resource types (\*required) | Condition keys | Access level | 
+| --- | --- | --- | --- | --- | 
+|   [AllowVendedLogDeliveryForResource](https://docs.aws.amazon.com/devopsagent/latest/userguide/configuring-capabilities-for-aws-devops-agent-vended-logs-and-metrics.html)  | Grants permission to authorize vended logs |  |   | Permissions management, Write | 
 
 ## Resource types defined by AWS DevOps Agent Service
+<a name="list_devops-agent-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                            | ARN                                                                                                    | Condition keys                                                                                                           |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| [agentspace](../../../devopsagent/latest/userguide.md "../../../devopsagent/latest/userguide.md")         | arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId}                              | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_") |
-| [asset](../../../devopsagent/latest/userguide.md "../../../devopsagent/latest/userguide.md")              | arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId}/asset/${AssetId}             |                                                                                                                          |
-| [associations](../../../devopsagent/latest/userguide.md "../../../devopsagent/latest/userguide.md")       | arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId}/association/${AssociationId} |                                                                                                                          |
-| [private-connection](../../../devopsagent/latest/userguide.md "../../../devopsagent/latest/userguide.md") | arn:${Partition}:aidevops:${Region}:${Account}:private-connection/${Name}                              | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_") |
-| [service](../../../devopsagent/latest/userguide.md "../../../devopsagent/latest/userguide.md")            | arn:${Partition}:aidevops:${Region}:${Account}:service/${ServiceId}                                    | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_ "#list_devops-agent-aws_ResourceTag___TagKey_") |
-| [trigger](../../../devopsagent/latest/userguide.md "../../../devopsagent/latest/userguide.md")            | arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId}/trigger/${TriggerId}         |                                                                                                                          |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [agentspace](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId} | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_) | 
+|  [asset](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId}/asset/${AssetId} |   | 
+|  [associations](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId}/association/${AssociationId} |   | 
+|  [private-connection](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | arn:${Partition}:aidevops:${Region}:${Account}:private-connection/${Name} | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_) | 
+|  [service](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | arn:${Partition}:aidevops:${Region}:${Account}:service/${ServiceId} | [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_) | 
+|  [trigger](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | arn:${Partition}:aidevops:${Region}:${Account}:agentspace/${AgentSpaceId}/trigger/${TriggerId} |   | 
 
 ## Condition keys for AWS DevOps Agent Service
+<a name="list_devops-agent-policy-keys"></a>
 
-AWS DevOps Agent Service defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS DevOps Agent Service defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                   | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by the tags associated with the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 

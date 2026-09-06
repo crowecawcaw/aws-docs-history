@@ -1,233 +1,757 @@
-# Actions, resources, and condition keys for AWS DataSync
 
-AWS DataSync (service prefix: `datasync`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS DataSync
+<a name="list_datasync"></a>
+
+AWS DataSync (service prefix: `datasync`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/datasync/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/datasync/latest/userguide/API_Reference.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/datasync/latest/userguide/iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/datasync/datasync.json) for this service.
 
-- Learn how to [configure this service](../../../datasync/latest/userguide.md "../../../datasync/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../datasync/latest/userguide/API_Reference.md "../../../datasync/latest/userguide/API_Reference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../datasync/latest/userguide/iam.md "../../../datasync/latest/userguide/iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/datasync/datasync.json "https://servicereference.us-east-1.amazonaws.com/v1/datasync/datasync.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS DataSync](#list_datasync-operations "#list_datasync-operations")
-- [Actions defined by AWS DataSync](#list_datasync-actions-as-permissions "#list_datasync-actions-as-permissions")
-- [Resource types defined by AWS DataSync](#list_datasync-resources-for-iam-policies "#list_datasync-resources-for-iam-policies")
-- [Condition keys for AWS DataSync](#list_datasync-policy-keys "#list_datasync-policy-keys")
+**Topics**
++ [API operations defined by AWS DataSync](#list_datasync-operations)
++ [Actions defined by AWS DataSync](#list_datasync-actions-as-permissions)
++ [Resource types defined by AWS DataSync](#list_datasync-resources-for-iam-policies)
++ [Condition keys for AWS DataSync](#list_datasync-policy-keys)
 
 ## API operations defined by AWS DataSync
+<a name="list_datasync-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_datasync-actions-as-permissions "#list_datasync-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_datasync-actions-as-permissions).
 
-| Operation                                                                                                                       | IAM action                                                                                                                                          | Condition key          | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------------- | -------------- |
-| CancelTaskExecution                                                                                                             | [datasync:CancelTaskExecution](#list_datasync-action-CancelTaskExecution "#list_datasync-action-CancelTaskExecution")                               |                        |                   | Write          |
-| CreateAgent                                                                                                                     | [datasync:CreateAgent](#list_datasync-action-CreateAgent "#list_datasync-action-CreateAgent")                                                       |                        |                   | Write          |
-| [datasync:TagResource](#list_datasync-action-TagResource "#list_datasync-action-TagResource")                                   |                                                                                                                                                     |                        | Tagging, Write    |
-| CreateLocationAzureBlob                                                                                                         | [datasync:CreateLocationAzureBlob](#list_datasync-action-CreateLocationAzureBlob "#list_datasync-action-CreateLocationAzureBlob")                   |                        |                   | Write          |
-| [datasync:TagResource](#list_datasync-action-TagResource "#list_datasync-action-TagResource")                                   |                                                                                                                                                     |                        | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| CreateLocationEfs                                                                                                               | [datasync:CreateLocationEfs](#list_datasync-action-CreateLocationEfs "#list_datasync-action-CreateLocationEfs")                                     |                        |                   | Write          |
-| [datasync:TagResource](#list_datasync-action-TagResource "#list_datasync-action-TagResource")                                   |                                                                                                                                                     |                        | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| CreateLocationFsxLustre                                                                                                         | [datasync:CreateLocationFsxLustre](#list_datasync-action-CreateLocationFsxLustre "#list_datasync-action-CreateLocationFsxLustre")                   |                        |                   | Write          |
-| [datasync:TagResource](#list_datasync-action-TagResource "#list_datasync-action-TagResource")                                   |                                                                                                                                                     |                        | Tagging, Write    |
-| CreateLocationFsxOntap                                                                                                          | [datasync:CreateLocationFsxOntap](#list_datasync-action-CreateLocationFsxOntap "#list_datasync-action-CreateLocationFsxOntap")                      |                        |                   | Write          |
-| [datasync:TagResource](#list_datasync-action-TagResource "#list_datasync-action-TagResource")                                   |                                                                                                                                                     |                        | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| CreateLocationFsxOpenZfs                                                                                                        | [datasync:CreateLocationFsxOpenZfs](#list_datasync-action-CreateLocationFsxOpenZfs "#list_datasync-action-CreateLocationFsxOpenZfs")                |                        |                   | Write          |
-| [datasync:TagResource](#list_datasync-action-TagResource "#list_datasync-action-TagResource")                                   |                                                                                                                                                     |                        | Tagging, Write    |
-| CreateLocationFsxWindows                                                                                                        | [datasync:CreateLocationFsxWindows](#list_datasync-action-CreateLocationFsxWindows "#list_datasync-action-CreateLocationFsxWindows")                |                        |                   | Write          |
-| [datasync:TagResource](#list_datasync-action-TagResource "#list_datasync-action-TagResource")                                   |                                                                                                                                                     |                        | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| CreateLocationHdfs                                                                                                              | [datasync:CreateLocationHdfs](#list_datasync-action-CreateLocationHdfs "#list_datasync-action-CreateLocationHdfs")                                  |                        |                   | Write          |
-| [datasync:TagResource](#list_datasync-action-TagResource "#list_datasync-action-TagResource")                                   |                                                                                                                                                     |                        | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| CreateLocationNfs                                                                                                               | [datasync:CreateLocationNfs](#list_datasync-action-CreateLocationNfs "#list_datasync-action-CreateLocationNfs")                                     |                        |                   | Write          |
-| [datasync:TagResource](#list_datasync-action-TagResource "#list_datasync-action-TagResource")                                   |                                                                                                                                                     |                        | Tagging, Write    |
-| CreateLocationObjectStorage                                                                                                     | [datasync:CreateLocationObjectStorage](#list_datasync-action-CreateLocationObjectStorage "#list_datasync-action-CreateLocationObjectStorage")       |                        |                   | Write          |
-| [datasync:TagResource](#list_datasync-action-TagResource "#list_datasync-action-TagResource")                                   |                                                                                                                                                     |                        | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| CreateLocationS3                                                                                                                | [datasync:CreateLocationS3](#list_datasync-action-CreateLocationS3 "#list_datasync-action-CreateLocationS3")                                        |                        |                   | Write          |
-| [datasync:TagResource](#list_datasync-action-TagResource "#list_datasync-action-TagResource")                                   |                                                                                                                                                     |                        | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| CreateLocationSmb                                                                                                               | [datasync:CreateLocationSmb](#list_datasync-action-CreateLocationSmb "#list_datasync-action-CreateLocationSmb")                                     |                        |                   | Write          |
-| [datasync:TagResource](#list_datasync-action-TagResource "#list_datasync-action-TagResource")                                   |                                                                                                                                                     |                        | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| CreateTask                                                                                                                      | [datasync:CreateTask](#list_datasync-action-CreateTask "#list_datasync-action-CreateTask")                                                          |                        |                   | Write          |
-| [datasync:TagResource](#list_datasync-action-TagResource "#list_datasync-action-TagResource")                                   |                                                                                                                                                     |                        | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| DeleteAgent                                                                                                                     | [datasync:DeleteAgent](#list_datasync-action-DeleteAgent "#list_datasync-action-DeleteAgent")                                                       |                        |                   | Write          |
-| DeleteLocation                                                                                                                  | [datasync:DeleteLocation](#list_datasync-action-DeleteLocation "#list_datasync-action-DeleteLocation")                                              |                        |                   | Write          |
-| DeleteTask                                                                                                                      | [datasync:DeleteTask](#list_datasync-action-DeleteTask "#list_datasync-action-DeleteTask")                                                          |                        |                   | Write          |
-| DescribeAgent                                                                                                                   | [datasync:DescribeAgent](#list_datasync-action-DescribeAgent "#list_datasync-action-DescribeAgent")                                                 |                        |                   | Read           |
-| DescribeLocationAzureBlob                                                                                                       | [datasync:DescribeLocationAzureBlob](#list_datasync-action-DescribeLocationAzureBlob "#list_datasync-action-DescribeLocationAzureBlob")             |                        |                   | Read           |
-| DescribeLocationEfs                                                                                                             | [datasync:DescribeLocationEfs](#list_datasync-action-DescribeLocationEfs "#list_datasync-action-DescribeLocationEfs")                               |                        |                   | Read           |
-| DescribeLocationFsxLustre                                                                                                       | [datasync:DescribeLocationFsxLustre](#list_datasync-action-DescribeLocationFsxLustre "#list_datasync-action-DescribeLocationFsxLustre")             |                        |                   | Read           |
-| DescribeLocationFsxOntap                                                                                                        | [datasync:DescribeLocationFsxOntap](#list_datasync-action-DescribeLocationFsxOntap "#list_datasync-action-DescribeLocationFsxOntap")                |                        |                   | Read           |
-| DescribeLocationFsxOpenZfs                                                                                                      | [datasync:DescribeLocationFsxOpenZfs](#list_datasync-action-DescribeLocationFsxOpenZfs "#list_datasync-action-DescribeLocationFsxOpenZfs")          |                        |                   | Read           |
-| DescribeLocationFsxWindows                                                                                                      | [datasync:DescribeLocationFsxWindows](#list_datasync-action-DescribeLocationFsxWindows "#list_datasync-action-DescribeLocationFsxWindows")          |                        |                   | Read           |
-| DescribeLocationHdfs                                                                                                            | [datasync:DescribeLocationHdfs](#list_datasync-action-DescribeLocationHdfs "#list_datasync-action-DescribeLocationHdfs")                            |                        |                   | Read           |
-| DescribeLocationNfs                                                                                                             | [datasync:DescribeLocationNfs](#list_datasync-action-DescribeLocationNfs "#list_datasync-action-DescribeLocationNfs")                               |                        |                   | Read           |
-| DescribeLocationObjectStorage                                                                                                   | [datasync:DescribeLocationObjectStorage](#list_datasync-action-DescribeLocationObjectStorage "#list_datasync-action-DescribeLocationObjectStorage") |                        |                   | Read           |
-| DescribeLocationS3                                                                                                              | [datasync:DescribeLocationS3](#list_datasync-action-DescribeLocationS3 "#list_datasync-action-DescribeLocationS3")                                  |                        |                   | Read           |
-| DescribeLocationSmb                                                                                                             | [datasync:DescribeLocationSmb](#list_datasync-action-DescribeLocationSmb "#list_datasync-action-DescribeLocationSmb")                               |                        |                   | Read           |
-| DescribeTask                                                                                                                    | [datasync:DescribeTask](#list_datasync-action-DescribeTask "#list_datasync-action-DescribeTask")                                                    |                        |                   | Read           |
-| DescribeTaskExecution                                                                                                           | [datasync:DescribeTaskExecution](#list_datasync-action-DescribeTaskExecution "#list_datasync-action-DescribeTaskExecution")                         |                        |                   | Read           |
-| ListAgents                                                                                                                      | [datasync:ListAgents](#list_datasync-action-ListAgents "#list_datasync-action-ListAgents")                                                          |                        |                   | List           |
-| ListLocations                                                                                                                   | [datasync:ListLocations](#list_datasync-action-ListLocations "#list_datasync-action-ListLocations")                                                 |                        |                   | List           |
-| ListTagsForResource                                                                                                             | [datasync:ListTagsForResource](#list_datasync-action-ListTagsForResource "#list_datasync-action-ListTagsForResource")                               |                        |                   | Read           |
-| ListTaskExecutions                                                                                                              | [datasync:ListTaskExecutions](#list_datasync-action-ListTaskExecutions "#list_datasync-action-ListTaskExecutions")                                  |                        |                   | List           |
-| ListTasks                                                                                                                       | [datasync:ListTasks](#list_datasync-action-ListTasks "#list_datasync-action-ListTasks")                                                             |                        |                   | List           |
-| StartTaskExecution                                                                                                              | [datasync:StartTaskExecution](#list_datasync-action-StartTaskExecution "#list_datasync-action-StartTaskExecution")                                  |                        |                   | Write          |
-| [datasync:TagResource](#list_datasync-action-TagResource "#list_datasync-action-TagResource")                                   |                                                                                                                                                     |                        | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| TagResource                                                                                                                     | [datasync:TagResource](#list_datasync-action-TagResource "#list_datasync-action-TagResource")                                                       |                        |                   | Tagging, Write |
-| UntagResource                                                                                                                   | [datasync:UntagResource](#list_datasync-action-UntagResource "#list_datasync-action-UntagResource")                                                 |                        |                   | Tagging, Write |
-| UpdateAgent                                                                                                                     | [datasync:UpdateAgent](#list_datasync-action-UpdateAgent "#list_datasync-action-UpdateAgent")                                                       |                        |                   | Write          |
-| UpdateLocationAzureBlob                                                                                                         | [datasync:UpdateLocationAzureBlob](#list_datasync-action-UpdateLocationAzureBlob "#list_datasync-action-UpdateLocationAzureBlob")                   |                        |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| UpdateLocationEfs                                                                                                               | [datasync:UpdateLocationEfs](#list_datasync-action-UpdateLocationEfs "#list_datasync-action-UpdateLocationEfs")                                     |                        |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| UpdateLocationFsxLustre                                                                                                         | [datasync:UpdateLocationFsxLustre](#list_datasync-action-UpdateLocationFsxLustre "#list_datasync-action-UpdateLocationFsxLustre")                   |                        |                   | Write          |
-| UpdateLocationFsxOntap                                                                                                          | [datasync:UpdateLocationFsxOntap](#list_datasync-action-UpdateLocationFsxOntap "#list_datasync-action-UpdateLocationFsxOntap")                      |                        |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| UpdateLocationFsxOpenZfs                                                                                                        | [datasync:UpdateLocationFsxOpenZfs](#list_datasync-action-UpdateLocationFsxOpenZfs "#list_datasync-action-UpdateLocationFsxOpenZfs")                |                        |                   | Write          |
-| UpdateLocationFsxWindows                                                                                                        | [datasync:UpdateLocationFsxWindows](#list_datasync-action-UpdateLocationFsxWindows "#list_datasync-action-UpdateLocationFsxWindows")                |                        |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| UpdateLocationHdfs                                                                                                              | [datasync:UpdateLocationHdfs](#list_datasync-action-UpdateLocationHdfs "#list_datasync-action-UpdateLocationHdfs")                                  |                        |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| UpdateLocationNfs                                                                                                               | [datasync:UpdateLocationNfs](#list_datasync-action-UpdateLocationNfs "#list_datasync-action-UpdateLocationNfs")                                     |                        |                   | Write          |
-| UpdateLocationObjectStorage                                                                                                     | [datasync:UpdateLocationObjectStorage](#list_datasync-action-UpdateLocationObjectStorage "#list_datasync-action-UpdateLocationObjectStorage")       |                        |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| UpdateLocationS3                                                                                                                | [datasync:UpdateLocationS3](#list_datasync-action-UpdateLocationS3 "#list_datasync-action-UpdateLocationS3")                                        |                        |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| UpdateLocationSmb                                                                                                               | [datasync:UpdateLocationSmb](#list_datasync-action-UpdateLocationSmb "#list_datasync-action-UpdateLocationSmb")                                     |                        |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| UpdateTask                                                                                                                      | [datasync:UpdateTask](#list_datasync-action-UpdateTask "#list_datasync-action-UpdateTask")                                                          |                        |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                 | datasync.amazonaws.com | Write             |
-| UpdateTaskExecution                                                                                                             | [datasync:UpdateTaskExecution](#list_datasync-action-UpdateTaskExecution "#list_datasync-action-UpdateTaskExecution")                               |                        |                   | Write          |
+
+
+
+- **   CancelTaskExecution  **
+  - **IAM action:**  [datasync:CancelTaskExecution](#list_datasync-action-CancelTaskExecution) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAgent  **
+  - **IAM action:**  [datasync:CreateAgent](#list_datasync-action-CreateAgent)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [datasync:TagResource](#list_datasync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateLocationAzureBlob  **
+  - **IAM action:**  [datasync:CreateLocationAzureBlob](#list_datasync-action-CreateLocationAzureBlob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [datasync:TagResource](#list_datasync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   CreateLocationEfs  **
+  - **IAM action:**  [datasync:CreateLocationEfs](#list_datasync-action-CreateLocationEfs)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [datasync:TagResource](#list_datasync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   CreateLocationFsxLustre  **
+  - **IAM action:**  [datasync:CreateLocationFsxLustre](#list_datasync-action-CreateLocationFsxLustre)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [datasync:TagResource](#list_datasync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateLocationFsxOntap  **
+  - **IAM action:**  [datasync:CreateLocationFsxOntap](#list_datasync-action-CreateLocationFsxOntap)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [datasync:TagResource](#list_datasync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   CreateLocationFsxOpenZfs  **
+  - **IAM action:**  [datasync:CreateLocationFsxOpenZfs](#list_datasync-action-CreateLocationFsxOpenZfs)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [datasync:TagResource](#list_datasync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateLocationFsxWindows  **
+  - **IAM action:**  [datasync:CreateLocationFsxWindows](#list_datasync-action-CreateLocationFsxWindows)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [datasync:TagResource](#list_datasync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   CreateLocationHdfs  **
+  - **IAM action:**  [datasync:CreateLocationHdfs](#list_datasync-action-CreateLocationHdfs)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [datasync:TagResource](#list_datasync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   CreateLocationNfs  **
+  - **IAM action:**  [datasync:CreateLocationNfs](#list_datasync-action-CreateLocationNfs)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [datasync:TagResource](#list_datasync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateLocationObjectStorage  **
+  - **IAM action:**  [datasync:CreateLocationObjectStorage](#list_datasync-action-CreateLocationObjectStorage)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [datasync:TagResource](#list_datasync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   CreateLocationS3  **
+  - **IAM action:**  [datasync:CreateLocationS3](#list_datasync-action-CreateLocationS3)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [datasync:TagResource](#list_datasync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   CreateLocationSmb  **
+  - **IAM action:**  [datasync:CreateLocationSmb](#list_datasync-action-CreateLocationSmb)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [datasync:TagResource](#list_datasync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   CreateTask  **
+  - **IAM action:**  [datasync:CreateTask](#list_datasync-action-CreateTask)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [datasync:TagResource](#list_datasync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   DeleteAgent  **
+  - **IAM action:**  [datasync:DeleteAgent](#list_datasync-action-DeleteAgent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteLocation  **
+  - **IAM action:**  [datasync:DeleteLocation](#list_datasync-action-DeleteLocation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteTask  **
+  - **IAM action:**  [datasync:DeleteTask](#list_datasync-action-DeleteTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeAgent  **
+  - **IAM action:**  [datasync:DescribeAgent](#list_datasync-action-DescribeAgent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeLocationAzureBlob  **
+  - **IAM action:**  [datasync:DescribeLocationAzureBlob](#list_datasync-action-DescribeLocationAzureBlob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeLocationEfs  **
+  - **IAM action:**  [datasync:DescribeLocationEfs](#list_datasync-action-DescribeLocationEfs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeLocationFsxLustre  **
+  - **IAM action:**  [datasync:DescribeLocationFsxLustre](#list_datasync-action-DescribeLocationFsxLustre) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeLocationFsxOntap  **
+  - **IAM action:**  [datasync:DescribeLocationFsxOntap](#list_datasync-action-DescribeLocationFsxOntap) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeLocationFsxOpenZfs  **
+  - **IAM action:**  [datasync:DescribeLocationFsxOpenZfs](#list_datasync-action-DescribeLocationFsxOpenZfs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeLocationFsxWindows  **
+  - **IAM action:**  [datasync:DescribeLocationFsxWindows](#list_datasync-action-DescribeLocationFsxWindows) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeLocationHdfs  **
+  - **IAM action:**  [datasync:DescribeLocationHdfs](#list_datasync-action-DescribeLocationHdfs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeLocationNfs  **
+  - **IAM action:**  [datasync:DescribeLocationNfs](#list_datasync-action-DescribeLocationNfs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeLocationObjectStorage  **
+  - **IAM action:**  [datasync:DescribeLocationObjectStorage](#list_datasync-action-DescribeLocationObjectStorage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeLocationS3  **
+  - **IAM action:**  [datasync:DescribeLocationS3](#list_datasync-action-DescribeLocationS3) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeLocationSmb  **
+  - **IAM action:**  [datasync:DescribeLocationSmb](#list_datasync-action-DescribeLocationSmb) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeTask  **
+  - **IAM action:**  [datasync:DescribeTask](#list_datasync-action-DescribeTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeTaskExecution  **
+  - **IAM action:**  [datasync:DescribeTaskExecution](#list_datasync-action-DescribeTaskExecution) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAgents  **
+  - **IAM action:**  [datasync:ListAgents](#list_datasync-action-ListAgents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListLocations  **
+  - **IAM action:**  [datasync:ListLocations](#list_datasync-action-ListLocations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [datasync:ListTagsForResource](#list_datasync-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTaskExecutions  **
+  - **IAM action:**  [datasync:ListTaskExecutions](#list_datasync-action-ListTaskExecutions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTasks  **
+  - **IAM action:**  [datasync:ListTasks](#list_datasync-action-ListTasks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   StartTaskExecution  **
+  - **IAM action:**  [datasync:StartTaskExecution](#list_datasync-action-StartTaskExecution)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [datasync:TagResource](#list_datasync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [datasync:TagResource](#list_datasync-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [datasync:UntagResource](#list_datasync-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAgent  **
+  - **IAM action:**  [datasync:UpdateAgent](#list_datasync-action-UpdateAgent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateLocationAzureBlob  **
+  - **IAM action:**  [datasync:UpdateLocationAzureBlob](#list_datasync-action-UpdateLocationAzureBlob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   UpdateLocationEfs  **
+  - **IAM action:**  [datasync:UpdateLocationEfs](#list_datasync-action-UpdateLocationEfs)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   UpdateLocationFsxLustre  **
+  - **IAM action:**  [datasync:UpdateLocationFsxLustre](#list_datasync-action-UpdateLocationFsxLustre) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateLocationFsxOntap  **
+  - **IAM action:**  [datasync:UpdateLocationFsxOntap](#list_datasync-action-UpdateLocationFsxOntap)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   UpdateLocationFsxOpenZfs  **
+  - **IAM action:**  [datasync:UpdateLocationFsxOpenZfs](#list_datasync-action-UpdateLocationFsxOpenZfs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateLocationFsxWindows  **
+  - **IAM action:**  [datasync:UpdateLocationFsxWindows](#list_datasync-action-UpdateLocationFsxWindows)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   UpdateLocationHdfs  **
+  - **IAM action:**  [datasync:UpdateLocationHdfs](#list_datasync-action-UpdateLocationHdfs)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   UpdateLocationNfs  **
+  - **IAM action:**  [datasync:UpdateLocationNfs](#list_datasync-action-UpdateLocationNfs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateLocationObjectStorage  **
+  - **IAM action:**  [datasync:UpdateLocationObjectStorage](#list_datasync-action-UpdateLocationObjectStorage)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   UpdateLocationS3  **
+  - **IAM action:**  [datasync:UpdateLocationS3](#list_datasync-action-UpdateLocationS3)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   UpdateLocationSmb  **
+  - **IAM action:**  [datasync:UpdateLocationSmb](#list_datasync-action-UpdateLocationSmb)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   UpdateTask  **
+  - **IAM action:**  [datasync:UpdateTask](#list_datasync-action-UpdateTask)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** datasync.amazonaws.com / **Access level:** Write
+
+- **   UpdateTaskExecution  **
+  - **IAM action:**  [datasync:UpdateTaskExecution](#list_datasync-action-UpdateTaskExecution) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS DataSync
+<a name="list_datasync-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                 | Description                                                                                                                                                                                                                                                                                                 | Resource types (\*required)                                                                      | Condition keys                                                                                                                                                                                                                                                                                              | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AddStorageSystem](../../../datasync/latest/userguide/API_AddStorageSystem.md "../../../datasync/latest/userguide/API_AddStorageSystem.md")                                                             | Grants permission to create a storage system                                                                                                                                                                                                                                                                | [agent\*](#list_datasync-resource-agent "#list_datasync-resource-agent")                         | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys") | Write          |
-| [CancelTaskExecution](../../../datasync/latest/userguide/API_CancelTaskExecution.md "../../../datasync/latest/userguide/API_CancelTaskExecution.md")                                                    | Grants permission to cancel execution of a sync task                                                                                                                                                                                                                                                        | [taskexecution\*](#list_datasync-resource-taskexecution "#list_datasync-resource-taskexecution") | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [CreateAgent](../../../datasync/latest/userguide/API_CreateAgent.md "../../../datasync/latest/userguide/API_CreateAgent.md")                                                                            | Grants permission to activate an agent that you have deployed on your host                                                                                                                                                                                                                                  |                                                                                                  | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                     | Write          |
-| [CreateLocationAzureBlob](../../../datasync/latest/userguide/API_CreateLocationAzureBlob.md "../../../datasync/latest/userguide/API_CreateLocationAzureBlob.md")                                        | Grants permission to create an endpoint for a Microsoft Azure Blob Storage container                                                                                                                                                                                                                        |                                                                                                  | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                     | Write          |
-| [CreateLocationEfs](../../../datasync/latest/userguide/API_CreateLocationEfs.md "../../../datasync/latest/userguide/API_CreateLocationEfs.md")                                                          | Grants permission to create an endpoint for an Amazon EFS file system                                                                                                                                                                                                                                       |                                                                                                  | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                     | Write          |
-| [CreateLocationFsxLustre](../../../datasync/latest/userguide/API_CreateLocationFsxLustre.md "../../../datasync/latest/userguide/API_CreateLocationFsxLustre.md")                                        | Grants permission to create an endpoint for an Amazon Fsx Lustre                                                                                                                                                                                                                                            |                                                                                                  | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                     | Write          |
-| [CreateLocationFsxOntap](../../../datasync/latest/userguide/API_CreateLocationFsxOntap.md "../../../datasync/latest/userguide/API_CreateLocationFsxOntap.md")                                           | Grants permission to create an endpoint for Amazon FSx for ONTAP                                                                                                                                                                                                                                            |                                                                                                  | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                     | Write          |
-| [CreateLocationFsxOpenZfs](../../../datasync/latest/userguide/API_CreateLocationFsxOpenZfs.md "../../../datasync/latest/userguide/API_CreateLocationFsxOpenZfs.md")                                     | Grants permission to create an endpoint for Amazon FSx for OpenZFS                                                                                                                                                                                                                                          |                                                                                                  | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                     | Write          |
-| [CreateLocationFsxWindows](../../../datasync/latest/userguide/API_CreateLocationFsxWindows.md "../../../datasync/latest/userguide/API_CreateLocationFsxWindows.md")                                     | Grants permission to create an endpoint for an Amazon FSx Windows File Server file system                                                                                                                                                                                                                   |                                                                                                  | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                     | Write          |
-| [CreateLocationHdfs](../../../datasync/latest/userguide/API_CreateLocationHdfs.md "../../../datasync/latest/userguide/API_CreateLocationHdfs.md")                                                       | Grants permission to create an endpoint for an Amazon Hdfs                                                                                                                                                                                                                                                  |                                                                                                  | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                     | Write          |
-| [CreateLocationNfs](../../../datasync/latest/userguide/API_CreateLocationNfs.md "../../../datasync/latest/userguide/API_CreateLocationNfs.md")                                                          | Grants permission to create an endpoint for a NFS file system                                                                                                                                                                                                                                               |                                                                                                  | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                     | Write          |
-| [CreateLocationObjectStorage](../../../datasync/latest/userguide/API_CreateLocationObjectStorage.md "../../../datasync/latest/userguide/API_CreateLocationObjectStorage.md")                            | Grants permission to create an endpoint for a self-managed object storage bucket                                                                                                                                                                                                                            |                                                                                                  | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                     | Write          |
-| [CreateLocationS3](../../../datasync/latest/userguide/API_CreateLocationS3.md "../../../datasync/latest/userguide/API_CreateLocationS3.md")                                                             | Grants permission to create an endpoint for an Amazon S3 bucket                                                                                                                                                                                                                                             |                                                                                                  | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                     | Write          |
-| [CreateLocationSmb](../../../datasync/latest/userguide/API_CreateLocationSmb.md "../../../datasync/latest/userguide/API_CreateLocationSmb.md")                                                          | Grants permission to create an endpoint for an SMB file system                                                                                                                                                                                                                                              |                                                                                                  | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                     | Write          |
-| [CreateTask](../../../datasync/latest/userguide/API_CreateTask.md "../../../datasync/latest/userguide/API_CreateTask.md")                                                                               | Grants permission to create a sync task                                                                                                                                                                                                                                                                     | [agent](#list_datasync-resource-agent "#list_datasync-resource-agent")                           | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys") | Write          |
-| [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                                                                                                                       | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys") |
-| [DeleteAgent](../../../datasync/latest/userguide/API_DeleteAgent.md "../../../datasync/latest/userguide/API_DeleteAgent.md")                                                                            | Grants permission to delete an agent                                                                                                                                                                                                                                                                        | [agent\*](#list_datasync-resource-agent "#list_datasync-resource-agent")                         | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [DeleteLocation](../../../datasync/latest/userguide/API_DeleteLocation.md "../../../datasync/latest/userguide/API_DeleteLocation.md")                                                                   | Grants permission to delete a location used by AWS DataSync                                                                                                                                                                                                                                                 | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [DeleteTask](../../../datasync/latest/userguide/API_DeleteTask.md "../../../datasync/latest/userguide/API_DeleteTask.md")                                                                               | Grants permission to delete a sync task                                                                                                                                                                                                                                                                     | [task\*](#list_datasync-resource-task "#list_datasync-resource-task")                            | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [DescribeAgent](../../../datasync/latest/userguide/API_DescribeAgent.md "../../../datasync/latest/userguide/API_DescribeAgent.md")                                                                      | Grants permission to view metadata such as name, network interfaces, and the status (that is, whether the agent is running or not) about a sync agent                                                                                                                                                       | [agent\*](#list_datasync-resource-agent "#list_datasync-resource-agent")                         | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [DescribeDiscoveryJob](../../../datasync/latest/userguide/API_DescribeDiscoveryJob.md "../../../datasync/latest/userguide/API_DescribeDiscoveryJob.md")                                                 | Grants permission to describe metadata about a discovery job                                                                                                                                                                                                                                                | [discoveryjob\*](#list_datasync-resource-discoveryjob "#list_datasync-resource-discoveryjob")    | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [DescribeLocationAzureBlob](../../../datasync/latest/userguide/API_DescribeLocationAzureBlob.md "../../../datasync/latest/userguide/API_DescribeLocationAzureBlob.md")                                  | Grants permission to view metadata, such as the path information about an Azure Blob Storage sync location                                                                                                                                                                                                  | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [DescribeLocationEfs](../../../datasync/latest/userguide/API_DescribeLocationEfs.md "../../../datasync/latest/userguide/API_DescribeLocationEfs.md")                                                    | Grants permission to view metadata, such as the path information about an Amazon EFS sync location                                                                                                                                                                                                          | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [DescribeLocationFsxLustre](../../../datasync/latest/userguide/API_DescribeLocationFsxLustre.md "../../../datasync/latest/userguide/API_DescribeLocationFsxLustre.md")                                  | Grants permission to view metadata, such as the path information about an Amazon FSx Lustre sync location                                                                                                                                                                                                   | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [DescribeLocationFsxOntap](../../../datasync/latest/userguide/API_DescribeLocationFsxOntap.md "../../../datasync/latest/userguide/API_DescribeLocationFsxOntap.md")                                     | Grants permission to view metadata, such as the path information about an Amazon FSx for ONTAP sync location                                                                                                                                                                                                | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [DescribeLocationFsxOpenZfs](../../../datasync/latest/userguide/API_DescribeLocationFsxOpenZfs.md "../../../datasync/latest/userguide/API_DescribeLocationFsxOpenZfs.md")                               | Grants permission to view metadata, such as the path information about an Amazon FSx OpenZFS sync location                                                                                                                                                                                                  | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [DescribeLocationFsxWindows](../../../datasync/latest/userguide/API_DescribeLocationFsxWindows.md "../../../datasync/latest/userguide/API_DescribeLocationFsxWindows.md")                               | Grants permission to view metadata, such as the path information about an Amazon FSx Windows sync location                                                                                                                                                                                                  | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [DescribeLocationHdfs](../../../datasync/latest/userguide/API_DescribeLocationHdfs.md "../../../datasync/latest/userguide/API_DescribeLocationHdfs.md")                                                 | Grants permission to view metadata, such as the path information about an Amazon HDFS sync location                                                                                                                                                                                                         | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [DescribeLocationNfs](../../../datasync/latest/userguide/API_DescribeLocationNfs.md "../../../datasync/latest/userguide/API_DescribeLocationNfs.md")                                                    | Grants permission to view metadata, such as the path information, about a NFS sync location                                                                                                                                                                                                                 | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [DescribeLocationObjectStorage](../../../datasync/latest/userguide/API_DescribeLocationObjectStorage.md "../../../datasync/latest/userguide/API_DescribeLocationObjectStorage.md")                      | Grants permission to view metadata about a self-managed object storage server location                                                                                                                                                                                                                      | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [DescribeLocationS3](../../../datasync/latest/userguide/API_DescribeLocationS3.md "../../../datasync/latest/userguide/API_DescribeLocationS3.md")                                                       | Grants permission to view metadata, such as bucket name, about an Amazon S3 bucket sync location                                                                                                                                                                                                            | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [DescribeLocationSmb](../../../datasync/latest/userguide/API_DescribeLocationSmb.md "../../../datasync/latest/userguide/API_DescribeLocationSmb.md")                                                    | Grants permission to view metadata, such as the path information, about an SMB sync location                                                                                                                                                                                                                | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [DescribeStorageSystem](../../../datasync/latest/userguide/API_DescribeStorageSystem.md "../../../datasync/latest/userguide/API_DescribeStorageSystem.md")                                              | Grants permission to view metadata about a storage system                                                                                                                                                                                                                                                   | [storagesystem\*](#list_datasync-resource-storagesystem "#list_datasync-resource-storagesystem") | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [DescribeStorageSystemResourceMetrics](../../../datasync/latest/userguide/API_DescribeStorageSystemResourceMetrics.md "../../../datasync/latest/userguide/API_DescribeStorageSystemResourceMetrics.md") | Grants permission to describe resource metrics collected by a discovery job                                                                                                                                                                                                                                 | [discoveryjob\*](#list_datasync-resource-discoveryjob "#list_datasync-resource-discoveryjob")    | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | List           |
-| [DescribeStorageSystemResources](../../../datasync/latest/userguide/API_DescribeStorageSystemResources.md "../../../datasync/latest/userguide/API_DescribeStorageSystemResources.md")                   | Grants permission to describe resources identified by a discovery job                                                                                                                                                                                                                                       | [discoveryjob\*](#list_datasync-resource-discoveryjob "#list_datasync-resource-discoveryjob")    | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | List           |
-| [DescribeTask](../../../datasync/latest/userguide/API_DescribeTask.md "../../../datasync/latest/userguide/API_DescribeTask.md")                                                                         | Grants permission to view metadata about a sync task                                                                                                                                                                                                                                                        | [task\*](#list_datasync-resource-task "#list_datasync-resource-task")                            | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [DescribeTaskExecution](../../../datasync/latest/userguide/API_DescribeTaskExecution.md "../../../datasync/latest/userguide/API_DescribeTaskExecution.md")                                              | Grants permission to view metadata about a sync task that is being executed                                                                                                                                                                                                                                 | [taskexecution\*](#list_datasync-resource-taskexecution "#list_datasync-resource-taskexecution") | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [GenerateRecommendations](../../../datasync/latest/userguide/API_GenerateRecommendations.md "../../../datasync/latest/userguide/API_GenerateRecommendations.md")                                        | Grants permission to generate recommendations for a resource identified by a discovery job                                                                                                                                                                                                                  | [discoveryjob\*](#list_datasync-resource-discoveryjob "#list_datasync-resource-discoveryjob")    | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [ListAgents](../../../datasync/latest/userguide/API_ListAgents.md "../../../datasync/latest/userguide/API_ListAgents.md")                                                                               | Grants permission to list agents owned by an AWS account in a region specified in the request                                                                                                                                                                                                               |                                                                                                  |                                                                                                                                                                                                                                                                                                             | List           |
-| [ListDiscoveryJobs](../../../datasync/latest/userguide/API_ListDiscoveryJobs.md "../../../datasync/latest/userguide/API_ListDiscoveryJobs.md")                                                          | Grants permission to list discovery jobs                                                                                                                                                                                                                                                                    |                                                                                                  |                                                                                                                                                                                                                                                                                                             | List           |
-| [ListLocations](../../../datasync/latest/userguide/API_ListLocations.md "../../../datasync/latest/userguide/API_ListLocations.md")                                                                      | Grants permission to list source and destination sync locations                                                                                                                                                                                                                                             |                                                                                                  |                                                                                                                                                                                                                                                                                                             | List           |
-| [ListStorageSystems](../../../datasync/latest/userguide/API_ListStorageSystems.md "../../../datasync/latest/userguide/API_ListStorageSystems.md")                                                       | Grants permission to list storage systems                                                                                                                                                                                                                                                                   |                                                                                                  |                                                                                                                                                                                                                                                                                                             | List           |
-| [ListTagsForResource](../../../datasync/latest/userguide/API_ListTagsForResource.md "../../../datasync/latest/userguide/API_ListTagsForResource.md")                                                    | Grants permission to list tags that have been added to the specified resource                                                                                                                                                                                                                               | [agent](#list_datasync-resource-agent "#list_datasync-resource-agent")                           | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Read           |
-| [discoveryjob](#list_datasync-resource-discoveryjob "#list_datasync-resource-discoveryjob")                                                                                                             | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            |
-| [location](#list_datasync-resource-location "#list_datasync-resource-location")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            |
-| [storagesystem](#list_datasync-resource-storagesystem "#list_datasync-resource-storagesystem")                                                                                                          | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            |
-| [task](#list_datasync-resource-task "#list_datasync-resource-task")                                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            |
-| [taskexecution](#list_datasync-resource-taskexecution "#list_datasync-resource-taskexecution")                                                                                                          | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            |
-| [ListTaskExecutions](../../../datasync/latest/userguide/API_ListTaskExecutions.md "../../../datasync/latest/userguide/API_ListTaskExecutions.md")                                                       | Grants permission to list executed sync tasks                                                                                                                                                                                                                                                               |                                                                                                  | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | List           |
-| [ListTasks](../../../datasync/latest/userguide/API_ListTasks.md "../../../datasync/latest/userguide/API_ListTasks.md")                                                                                  | Grants permission to list of all the sync tasks                                                                                                                                                                                                                                                             |                                                                                                  |                                                                                                                                                                                                                                                                                                             | List           |
-| [RemoveStorageSystem](../../../datasync/latest/userguide/API_RemoveStorageSystem.md "../../../datasync/latest/userguide/API_RemoveStorageSystem.md")                                                    | Grants permission to delete a storage system                                                                                                                                                                                                                                                                | [storagesystem\*](#list_datasync-resource-storagesystem "#list_datasync-resource-storagesystem") | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [StartDiscoveryJob](../../../datasync/latest/userguide/API_StartDiscoveryJob.md "../../../datasync/latest/userguide/API_StartDiscoveryJob.md")                                                          | Grants permission to start a discovery job for a storage system                                                                                                                                                                                                                                             | [storagesystem\*](#list_datasync-resource-storagesystem "#list_datasync-resource-storagesystem") | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [StartTaskExecution](../../../datasync/latest/userguide/API_StartTaskExecution.md "../../../datasync/latest/userguide/API_StartTaskExecution.md")                                                       | Grants permission to start a specific invocation of a sync task                                                                                                                                                                                                                                             | [task\*](#list_datasync-resource-task "#list_datasync-resource-task")                            | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys") | Write          |
-| [StopDiscoveryJob](../../../datasync/latest/userguide/API_StopDiscoveryJob.md "../../../datasync/latest/userguide/API_StopDiscoveryJob.md")                                                             | Grants permission to stop a discovery job                                                                                                                                                                                                                                                                   | [discoveryjob\*](#list_datasync-resource-discoveryjob "#list_datasync-resource-discoveryjob")    | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [TagResource](../../../datasync/latest/userguide/API_TagResource.md "../../../datasync/latest/userguide/API_TagResource.md")                                                                            | Grants permission to apply a key-value pair to an AWS resource                                                                                                                                                                                                                                              | [agent](#list_datasync-resource-agent "#list_datasync-resource-agent")                           | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys") | Tagging, Write |
-| [discoveryjob](#list_datasync-resource-discoveryjob "#list_datasync-resource-discoveryjob")                                                                                                             | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys") |
-| [location](#list_datasync-resource-location "#list_datasync-resource-location")                                                                                                                         | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys") |
-| [storagesystem](#list_datasync-resource-storagesystem "#list_datasync-resource-storagesystem")                                                                                                          | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys") |
-| [task](#list_datasync-resource-task "#list_datasync-resource-task")                                                                                                                                     | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys") |
-| [taskexecution](#list_datasync-resource-taskexecution "#list_datasync-resource-taskexecution")                                                                                                          | [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_ "#list_datasync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys") |
-| [UntagResource](../../../datasync/latest/userguide/API_UntagResource.md "../../../datasync/latest/userguide/API_UntagResource.md")                                                                      | Grants permission to remove one or more tags from the specified resource                                                                                                                                                                                                                                    | [agent](#list_datasync-resource-agent "#list_datasync-resource-agent")                           | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                  | Tagging, Write |
-| [discoveryjob](#list_datasync-resource-discoveryjob "#list_datasync-resource-discoveryjob")                                                                                                             | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                  |
-| [location](#list_datasync-resource-location "#list_datasync-resource-location")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                  |
-| [storagesystem](#list_datasync-resource-storagesystem "#list_datasync-resource-storagesystem")                                                                                                          | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                  |
-| [task](#list_datasync-resource-task "#list_datasync-resource-task")                                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                  |
-| [taskexecution](#list_datasync-resource-taskexecution "#list_datasync-resource-taskexecution")                                                                                                          | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_datasync-aws_TagKeys "#list_datasync-aws_TagKeys")                                                                                                                  |
-| [UpdateAgent](../../../datasync/latest/userguide/API_UpdateAgent.md "../../../datasync/latest/userguide/API_UpdateAgent.md")                                                                            | Grants permission to update the name of an agent                                                                                                                                                                                                                                                            | [agent\*](#list_datasync-resource-agent "#list_datasync-resource-agent")                         | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [UpdateDiscoveryJob](../../../datasync/latest/userguide/API_UpdateDiscoveryJob.md "../../../datasync/latest/userguide/API_UpdateDiscoveryJob.md")                                                       | Grants permission to update a discovery job                                                                                                                                                                                                                                                                 | [discoveryjob\*](#list_datasync-resource-discoveryjob "#list_datasync-resource-discoveryjob")    | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [UpdateLocationAzureBlob](../../../datasync/latest/userguide/API_UpdateLocationAzureBlob.md "../../../datasync/latest/userguide/API_UpdateLocationAzureBlob.md")                                        | Grants permission to update an Azure Blob Storage sync location                                                                                                                                                                                                                                             | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [UpdateLocationEfs](../../../datasync/latest/userguide/API_UpdateLocationEfs.md "../../../datasync/latest/userguide/API_UpdateLocationEfs.md")                                                          | Grants permission to update an EFS sync Location                                                                                                                                                                                                                                                            | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [UpdateLocationFsxLustre](../../../datasync/latest/userguide/API_UpdateLocationFsxLustre.md "../../../datasync/latest/userguide/API_UpdateLocationFsxLustre.md")                                        | Grants permission to update an FSx Lustre sync Location                                                                                                                                                                                                                                                     | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [UpdateLocationFsxOntap](../../../datasync/latest/userguide/API_UpdateLocationFsxOntap.md "../../../datasync/latest/userguide/API_UpdateLocationFsxOntap.md")                                           | Grants permission to update an FSx ONTAP sync Location                                                                                                                                                                                                                                                      | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [UpdateLocationFsxOpenZfs](../../../datasync/latest/userguide/API_UpdateLocationFsxOpenZfs.md "../../../datasync/latest/userguide/API_UpdateLocationFsxOpenZfs.md")                                     | Grants permission to update an FSx OpenZFS sync Location                                                                                                                                                                                                                                                    | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [UpdateLocationFsxWindows](../../../datasync/latest/userguide/API_UpdateLocationFsxWindows.md "../../../datasync/latest/userguide/API_UpdateLocationFsxWindows.md")                                     | Grants permission to update an FSx Windows sync Location                                                                                                                                                                                                                                                    | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [UpdateLocationHdfs](../../../datasync/latest/userguide/API_UpdateLocationHdfs.md "../../../datasync/latest/userguide/API_UpdateLocationHdfs.md")                                                       | Grants permission to update an HDFS sync Location                                                                                                                                                                                                                                                           | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [UpdateLocationNfs](../../../datasync/latest/userguide/API_UpdateLocationNfs.md "../../../datasync/latest/userguide/API_UpdateLocationNfs.md")                                                          | Grants permission to update an NFS sync Location                                                                                                                                                                                                                                                            | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [UpdateLocationObjectStorage](../../../datasync/latest/userguide/API_UpdateLocationObjectStorage.md "../../../datasync/latest/userguide/API_UpdateLocationObjectStorage.md")                            | Grants permission to update a self-managed object storage server location                                                                                                                                                                                                                                   | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [UpdateLocationS3](../../../datasync/latest/userguide/API_UpdateLocationS3.md "../../../datasync/latest/userguide/API_UpdateLocationS3.md")                                                             | Grants permission to update an S3 sync Location                                                                                                                                                                                                                                                             | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [UpdateLocationSmb](../../../datasync/latest/userguide/API_UpdateLocationSmb.md "../../../datasync/latest/userguide/API_UpdateLocationSmb.md")                                                          | Grants permission to update a SMB sync location                                                                                                                                                                                                                                                             | [location\*](#list_datasync-resource-location "#list_datasync-resource-location")                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [UpdateStorageSystem](../../../datasync/latest/userguide/API_UpdateStorageSystem.md "../../../datasync/latest/userguide/API_UpdateStorageSystem.md")                                                    | Grants permission to update a storage system                                                                                                                                                                                                                                                                | [storagesystem\*](#list_datasync-resource-storagesystem "#list_datasync-resource-storagesystem") | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [UpdateTask](../../../datasync/latest/userguide/API_UpdateTask.md "../../../datasync/latest/userguide/API_UpdateTask.md")                                                                               | Grants permission to update metadata associated with a sync task                                                                                                                                                                                                                                            | [task\*](#list_datasync-resource-task "#list_datasync-resource-task")                            | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
-| [UpdateTaskExecution](../../../datasync/latest/userguide/API_UpdateTaskExecution.md "../../../datasync/latest/userguide/API_UpdateTaskExecution.md")                                                    | Grants permission to update execution of a sync task                                                                                                                                                                                                                                                        | [taskexecution\*](#list_datasync-resource-taskexecution "#list_datasync-resource-taskexecution") | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_")                                                                                                                                                                                            | Write          |
+
+
+
+- **   [AddStorageSystem](https://docs.aws.amazon.com/datasync/latest/userguide/API_AddStorageSystem.html)  **
+  - **Description:** Grants permission to create a storage system
+  - **Resource types (\*required):** [agent\*](#list_datasync-resource-agent)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CancelTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_CancelTaskExecution.html)  **
+  - **Description:** Grants permission to cancel execution of a sync task
+  - **Resource types (\*required):** [taskexecution\*](#list_datasync-resource-taskexecution)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAgent](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateAgent.html)  **
+  - **Description:** Grants permission to activate an agent that you have deployed on your host
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateLocationAzureBlob](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationAzureBlob.html)  **
+  - **Description:** Grants permission to create an endpoint for a Microsoft Azure Blob Storage container
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateLocationEfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationEfs.html)  **
+  - **Description:** Grants permission to create an endpoint for an Amazon EFS file system
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateLocationFsxLustre](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationFsxLustre.html)  **
+  - **Description:** Grants permission to create an endpoint for an Amazon Fsx Lustre
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateLocationFsxOntap](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationFsxOntap.html)  **
+  - **Description:** Grants permission to create an endpoint for Amazon FSx for ONTAP
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateLocationFsxOpenZfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationFsxOpenZfs.html)  **
+  - **Description:** Grants permission to create an endpoint for Amazon FSx for OpenZFS
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateLocationFsxWindows](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationFsxWindows.html)  **
+  - **Description:** Grants permission to create an endpoint for an Amazon FSx Windows File Server file system
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateLocationHdfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationHdfs.html)  **
+  - **Description:** Grants permission to create an endpoint for an Amazon Hdfs
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateLocationNfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationNfs.html)  **
+  - **Description:** Grants permission to create an endpoint for a NFS file system
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateLocationObjectStorage](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationObjectStorage.html)  **
+  - **Description:** Grants permission to create an endpoint for a self-managed object storage bucket
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateLocationS3](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationS3.html)  **
+  - **Description:** Grants permission to create an endpoint for an Amazon S3 bucket
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateLocationSmb](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationSmb.html)  **
+  - **Description:** Grants permission to create an endpoint for an SMB file system
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateTask](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html)  **
+  - **Description:** Grants permission to create a sync task
+  - **Resource types (\*required):** [agent](#list_datasync-resource-agent) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteAgent](https://docs.aws.amazon.com/datasync/latest/userguide/API_DeleteAgent.html)  **
+  - **Description:** Grants permission to delete an agent
+  - **Resource types (\*required):** [agent\*](#list_datasync-resource-agent)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteLocation](https://docs.aws.amazon.com/datasync/latest/userguide/API_DeleteLocation.html)  **
+  - **Description:** Grants permission to delete a location used by AWS DataSync
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteTask](https://docs.aws.amazon.com/datasync/latest/userguide/API_DeleteTask.html)  **
+  - **Description:** Grants permission to delete a sync task
+  - **Resource types (\*required):** [task\*](#list_datasync-resource-task)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeAgent](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeAgent.html)  **
+  - **Description:** Grants permission to view metadata such as name, network interfaces, and the status (that is, whether the agent is running or not) about a sync agent
+  - **Resource types (\*required):** [agent\*](#list_datasync-resource-agent)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeDiscoveryJob](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeDiscoveryJob.html)  **
+  - **Description:** Grants permission to describe metadata about a discovery job
+  - **Resource types (\*required):** [discoveryjob\*](#list_datasync-resource-discoveryjob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeLocationAzureBlob](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeLocationAzureBlob.html)  **
+  - **Description:** Grants permission to view metadata, such as the path information about an Azure Blob Storage sync location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeLocationEfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeLocationEfs.html)  **
+  - **Description:** Grants permission to view metadata, such as the path information about an Amazon EFS sync location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeLocationFsxLustre](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeLocationFsxLustre.html)  **
+  - **Description:** Grants permission to view metadata, such as the path information about an Amazon FSx Lustre sync location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeLocationFsxOntap](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeLocationFsxOntap.html)  **
+  - **Description:** Grants permission to view metadata, such as the path information about an Amazon FSx for ONTAP sync location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeLocationFsxOpenZfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeLocationFsxOpenZfs.html)  **
+  - **Description:** Grants permission to view metadata, such as the path information about an Amazon FSx OpenZFS sync location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeLocationFsxWindows](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeLocationFsxWindows.html)  **
+  - **Description:** Grants permission to view metadata, such as the path information about an Amazon FSx Windows sync location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeLocationHdfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeLocationHdfs.html)  **
+  - **Description:** Grants permission to view metadata, such as the path information about an Amazon HDFS sync location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeLocationNfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeLocationNfs.html)  **
+  - **Description:** Grants permission to view metadata, such as the path information, about a NFS sync location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeLocationObjectStorage](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeLocationObjectStorage.html)  **
+  - **Description:** Grants permission to view metadata about a self-managed object storage server location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeLocationS3](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeLocationS3.html)  **
+  - **Description:** Grants permission to view metadata, such as bucket name, about an Amazon S3 bucket sync location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeLocationSmb](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeLocationSmb.html)  **
+  - **Description:** Grants permission to view metadata, such as the path information, about an SMB sync location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeStorageSystem](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeStorageSystem.html)  **
+  - **Description:** Grants permission to view metadata about a storage system
+  - **Resource types (\*required):** [storagesystem\*](#list_datasync-resource-storagesystem)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeStorageSystemResourceMetrics](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeStorageSystemResourceMetrics.html)  **
+  - **Description:** Grants permission to describe resource metrics collected by a discovery job
+  - **Resource types (\*required):** [discoveryjob\*](#list_datasync-resource-discoveryjob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [DescribeStorageSystemResources](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeStorageSystemResources.html)  **
+  - **Description:** Grants permission to describe resources identified by a discovery job
+  - **Resource types (\*required):** [discoveryjob\*](#list_datasync-resource-discoveryjob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [DescribeTask](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeTask.html)  **
+  - **Description:** Grants permission to view metadata about a sync task
+  - **Resource types (\*required):** [task\*](#list_datasync-resource-task)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeTaskExecution.html)  **
+  - **Description:** Grants permission to view metadata about a sync task that is being executed
+  - **Resource types (\*required):** [taskexecution\*](#list_datasync-resource-taskexecution)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GenerateRecommendations](https://docs.aws.amazon.com/datasync/latest/userguide/API_GenerateRecommendations.html)  **
+  - **Description:** Grants permission to generate recommendations for a resource identified by a discovery job
+  - **Resource types (\*required):** [discoveryjob\*](#list_datasync-resource-discoveryjob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ListAgents](https://docs.aws.amazon.com/datasync/latest/userguide/API_ListAgents.html)  **
+  - **Description:** Grants permission to list agents owned by an AWS account in a region specified in the request
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDiscoveryJobs](https://docs.aws.amazon.com/datasync/latest/userguide/API_ListDiscoveryJobs.html)  **
+  - **Description:** Grants permission to list discovery jobs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListLocations](https://docs.aws.amazon.com/datasync/latest/userguide/API_ListLocations.html)  **
+  - **Description:** Grants permission to list source and destination sync locations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListStorageSystems](https://docs.aws.amazon.com/datasync/latest/userguide/API_ListStorageSystems.html)  **
+  - **Description:** Grants permission to list storage systems
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/datasync/latest/userguide/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags that have been added to the specified resource
+  - **Resource types (\*required):** [agent](#list_datasync-resource-agent) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [discoveryjob](#list_datasync-resource-discoveryjob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [location](#list_datasync-resource-location) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [storagesystem](#list_datasync-resource-storagesystem) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [task](#list_datasync-resource-task) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [taskexecution](#list_datasync-resource-taskexecution) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListTaskExecutions](https://docs.aws.amazon.com/datasync/latest/userguide/API_ListTaskExecutions.html)  **
+  - **Description:** Grants permission to list executed sync tasks
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTasks](https://docs.aws.amazon.com/datasync/latest/userguide/API_ListTasks.html)  **
+  - **Description:** Grants permission to list of all the sync tasks
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [RemoveStorageSystem](https://docs.aws.amazon.com/datasync/latest/userguide/API_RemoveStorageSystem.html)  **
+  - **Description:** Grants permission to delete a storage system
+  - **Resource types (\*required):** [storagesystem\*](#list_datasync-resource-storagesystem)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartDiscoveryJob](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartDiscoveryJob.html)  **
+  - **Description:** Grants permission to start a discovery job for a storage system
+  - **Resource types (\*required):** [storagesystem\*](#list_datasync-resource-storagesystem)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html)  **
+  - **Description:** Grants permission to start a specific invocation of a sync task
+  - **Resource types (\*required):** [task\*](#list_datasync-resource-task)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [StopDiscoveryJob](https://docs.aws.amazon.com/datasync/latest/userguide/API_StopDiscoveryJob.html)  **
+  - **Description:** Grants permission to stop a discovery job
+  - **Resource types (\*required):** [discoveryjob\*](#list_datasync-resource-discoveryjob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/datasync/latest/userguide/API_TagResource.html)  **
+  - **Description:** Grants permission to apply a key-value pair to an AWS resource
+  - **Resource types (\*required):** [agent](#list_datasync-resource-agent) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [discoveryjob](#list_datasync-resource-discoveryjob) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [location](#list_datasync-resource-location) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [storagesystem](#list_datasync-resource-storagesystem) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [task](#list_datasync-resource-task) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [taskexecution](#list_datasync-resource-taskexecution) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_datasync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/datasync/latest/userguide/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove one or more tags from the specified resource
+  - **Resource types (\*required):** [agent](#list_datasync-resource-agent) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [discoveryjob](#list_datasync-resource-discoveryjob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [location](#list_datasync-resource-location) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [storagesystem](#list_datasync-resource-storagesystem) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [task](#list_datasync-resource-task) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Resource types (\*required):** [taskexecution](#list_datasync-resource-taskexecution) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_datasync-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAgent](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateAgent.html)  **
+  - **Description:** Grants permission to update the name of an agent
+  - **Resource types (\*required):** [agent\*](#list_datasync-resource-agent)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDiscoveryJob](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateDiscoveryJob.html)  **
+  - **Description:** Grants permission to update a discovery job
+  - **Resource types (\*required):** [discoveryjob\*](#list_datasync-resource-discoveryjob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateLocationAzureBlob](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationAzureBlob.html)  **
+  - **Description:** Grants permission to update an Azure Blob Storage sync location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateLocationEfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationEfs.html)  **
+  - **Description:** Grants permission to update an EFS sync Location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateLocationFsxLustre](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationFsxLustre.html)  **
+  - **Description:** Grants permission to update an FSx Lustre sync Location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateLocationFsxOntap](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationFsxOntap.html)  **
+  - **Description:** Grants permission to update an FSx ONTAP sync Location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateLocationFsxOpenZfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationFsxOpenZfs.html)  **
+  - **Description:** Grants permission to update an FSx OpenZFS sync Location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateLocationFsxWindows](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationFsxWindows.html)  **
+  - **Description:** Grants permission to update an FSx Windows sync Location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateLocationHdfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationHdfs.html)  **
+  - **Description:** Grants permission to update an HDFS sync Location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateLocationNfs](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationNfs.html)  **
+  - **Description:** Grants permission to update an NFS sync Location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateLocationObjectStorage](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationObjectStorage.html)  **
+  - **Description:** Grants permission to update a self-managed object storage server location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateLocationS3](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationS3.html)  **
+  - **Description:** Grants permission to update an S3 sync Location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateLocationSmb](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationSmb.html)  **
+  - **Description:** Grants permission to update a SMB sync location
+  - **Resource types (\*required):** [location\*](#list_datasync-resource-location)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateStorageSystem](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateStorageSystem.html)  **
+  - **Description:** Grants permission to update a storage system
+  - **Resource types (\*required):** [storagesystem\*](#list_datasync-resource-storagesystem)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateTask](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateTask.html)  **
+  - **Description:** Grants permission to update metadata associated with a sync task
+  - **Resource types (\*required):** [task\*](#list_datasync-resource-task)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateTaskExecution.html)  **
+  - **Description:** Grants permission to update execution of a sync task
+  - **Resource types (\*required):** [taskexecution\*](#list_datasync-resource-taskexecution)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS DataSync
+<a name="list_datasync-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                           | ARN                                                                                              | Condition keys                                                                                                   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| [agent](../../../datasync/latest/userguide/working-with-agents.md "../../../datasync/latest/userguide/working-with-agents.md")                           | arn:${Partition}:datasync:${Region}:${AccountId}:agent/${AgentId}                                | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_") |
-| [discoveryjob](../../../datasync/latest/userguide/discovery-job-create.md "../../../datasync/latest/userguide/discovery-job-create.md")                  | arn:${Partition}:datasync:${Region}:${AccountId}:system/${StorageSystemId}/job/${DiscoveryJobId} | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_") |
-| [location](../../../datasync/latest/userguide/working-with-locations.md "../../../datasync/latest/userguide/working-with-locations.md")                  | arn:${Partition}:datasync:${Region}:${AccountId}:location/${LocationId}                          | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_") |
-| [storagesystem](../../../datasync/latest/userguide/discovery-configure-storage.md "../../../datasync/latest/userguide/discovery-configure-storage.md")   | arn:${Partition}:datasync:${Region}:${AccountId}:system/${StorageSystemId}                       | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_") |
-| [task](../../../datasync/latest/userguide/working-with-tasks.md "../../../datasync/latest/userguide/working-with-tasks.md")                              | arn:${Partition}:datasync:${Region}:${AccountId}:task/${TaskId}                                  | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_") |
-| [taskexecution](../../../datasync/latest/userguide/working-with-task-executions.md "../../../datasync/latest/userguide/working-with-task-executions.md") | arn:${Partition}:datasync:${Region}:${AccountId}:task/${TaskId}/execution/${ExecutionId}         | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_ "#list_datasync-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [agent](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-agents.html)  | arn:${Partition}:datasync:${Region}:${AccountId}:agent/${AgentId} | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_) | 
+|  [discoveryjob](https://docs.aws.amazon.com/datasync/latest/userguide/discovery-job-create.html)  | arn:${Partition}:datasync:${Region}:${AccountId}:system/${StorageSystemId}/job/${DiscoveryJobId} | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_) | 
+|  [location](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html)  | arn:${Partition}:datasync:${Region}:${AccountId}:location/${LocationId} | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_) | 
+|  [storagesystem](https://docs.aws.amazon.com/datasync/latest/userguide/discovery-configure-storage.html)  | arn:${Partition}:datasync:${Region}:${AccountId}:system/${StorageSystemId} | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_) | 
+|  [task](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-tasks.html)  | arn:${Partition}:datasync:${Region}:${AccountId}:task/${TaskId} | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_) | 
+|  [taskexecution](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html)  | arn:${Partition}:datasync:${Region}:${AccountId}:task/${TaskId}/execution/${ExecutionId} | [aws:ResourceTag/${TagKey}](#list_datasync-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS DataSync
+<a name="list_datasync-policy-keys"></a>
 
-AWS DataSync defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS DataSync defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                            | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the tag key-value pairs in the request               | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by the tag key-value pairs associated with the resource | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the tag keys in the request                          | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tag key-value pairs associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys in the request | ArrayOfString | 

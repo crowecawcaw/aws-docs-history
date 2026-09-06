@@ -1,293 +1,1112 @@
-# Actions, resources, and condition keys for AWS Elastic Disaster Recovery
 
-AWS Elastic Disaster Recovery (service prefix: `drs`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Elastic Disaster Recovery
+<a name="list_drs"></a>
+
+AWS Elastic Disaster Recovery (service prefix: `drs`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/drs/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/drs/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/drs/latest/userguide/security_iam_authentication.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/drs/drs.json) for this service.
 
-- Learn how to [configure this service](../../../drs/latest/userguide.md "../../../drs/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../drs/latest/APIReference.md "../../../drs/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../drs/latest/userguide/security_iam_authentication.md "../../../drs/latest/userguide/security_iam_authentication.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/drs/drs.json "https://servicereference.us-east-1.amazonaws.com/v1/drs/drs.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Elastic Disaster Recovery](#list_drs-operations "#list_drs-operations")
-- [Actions defined by AWS Elastic Disaster Recovery](#list_drs-actions-as-permissions "#list_drs-actions-as-permissions")
-- [Permission-only actions for AWS Elastic Disaster Recovery](#list_drs-permission-only-actions "#list_drs-permission-only-actions")
-- [Resource types defined by AWS Elastic Disaster Recovery](#list_drs-resources-for-iam-policies "#list_drs-resources-for-iam-policies")
-- [Condition keys for AWS Elastic Disaster Recovery](#list_drs-policy-keys "#list_drs-policy-keys")
+**Topics**
++ [API operations defined by AWS Elastic Disaster Recovery](#list_drs-operations)
++ [Actions defined by AWS Elastic Disaster Recovery](#list_drs-actions-as-permissions)
++ [Permission-only actions for AWS Elastic Disaster Recovery](#list_drs-permission-only-actions)
++ [Resource types defined by AWS Elastic Disaster Recovery](#list_drs-resources-for-iam-policies)
++ [Condition keys for AWS Elastic Disaster Recovery](#list_drs-policy-keys)
 
 ## API operations defined by AWS Elastic Disaster Recovery
+<a name="list_drs-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_drs-actions-as-permissions "#list_drs-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_drs-actions-as-permissions).
 
-| Operation                                                                      | IAM action                                                                                                                                                               | Condition key | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | ----------------- | -------------- |
-| AssociateSourceNetworkStack                                                    | [drs:AssociateSourceNetworkStack](#list_drs-action-AssociateSourceNetworkStack "#list_drs-action-AssociateSourceNetworkStack")                                           |               |                   | Write          |
-| CreateExtendedSourceServer                                                     | [drs:CreateExtendedSourceServer](#list_drs-action-CreateExtendedSourceServer "#list_drs-action-CreateExtendedSourceServer")                                              |               |                   | Write          |
-| [drs:TagResource](#list_drs-action-TagResource "#list_drs-action-TagResource") |                                                                                                                                                                          |               | Tagging, Write    |
-| CreateLaunchConfigurationTemplate                                              | [drs:CreateLaunchConfigurationTemplate](#list_drs-action-CreateLaunchConfigurationTemplate "#list_drs-action-CreateLaunchConfigurationTemplate")                         |               |                   | Write          |
-| [drs:TagResource](#list_drs-action-TagResource "#list_drs-action-TagResource") |                                                                                                                                                                          |               | Tagging, Write    |
-| CreateRecoveryPlan                                                             | [drs:CreateRecoveryPlan](#list_drs-action-CreateRecoveryPlan "#list_drs-action-CreateRecoveryPlan")                                                                      |               |                   | Write          |
-| [drs:TagResource](#list_drs-action-TagResource "#list_drs-action-TagResource") |                                                                                                                                                                          |               | Tagging, Write    |
-| CreateRecoveryPlanStep                                                         | [drs:CreateRecoveryPlanStep](#list_drs-action-CreateRecoveryPlanStep "#list_drs-action-CreateRecoveryPlanStep")                                                          |               |                   | Write          |
-| CreateReplicationConfigurationTemplate                                         | [drs:CreateReplicationConfigurationTemplate](#list_drs-action-CreateReplicationConfigurationTemplate "#list_drs-action-CreateReplicationConfigurationTemplate")          |               |                   | Write          |
-| [drs:TagResource](#list_drs-action-TagResource "#list_drs-action-TagResource") |                                                                                                                                                                          |               | Tagging, Write    |
-| CreateSourceNetwork                                                            | [drs:CreateSourceNetwork](#list_drs-action-CreateSourceNetwork "#list_drs-action-CreateSourceNetwork")                                                                   |               |                   | Write          |
-| [drs:TagResource](#list_drs-action-TagResource "#list_drs-action-TagResource") |                                                                                                                                                                          |               | Tagging, Write    |
-| DeleteJob                                                                      | [drs:DeleteJob](#list_drs-action-DeleteJob "#list_drs-action-DeleteJob")                                                                                                 |               |                   | Write          |
-| DeleteLaunchAction                                                             | [drs:DeleteLaunchAction](#list_drs-action-DeleteLaunchAction "#list_drs-action-DeleteLaunchAction")                                                                      |               |                   | Write          |
-| DeleteLaunchConfigurationTemplate                                              | [drs:DeleteLaunchConfigurationTemplate](#list_drs-action-DeleteLaunchConfigurationTemplate "#list_drs-action-DeleteLaunchConfigurationTemplate")                         |               |                   | Write          |
-| DeleteRecoveryInstance                                                         | [drs:DeleteRecoveryInstance](#list_drs-action-DeleteRecoveryInstance "#list_drs-action-DeleteRecoveryInstance")                                                          |               |                   | Write          |
-| DeleteRecoveryPlan                                                             | [drs:DeleteRecoveryPlan](#list_drs-action-DeleteRecoveryPlan "#list_drs-action-DeleteRecoveryPlan")                                                                      |               |                   | Write          |
-| DeleteRecoveryPlanStep                                                         | [drs:DeleteRecoveryPlanStep](#list_drs-action-DeleteRecoveryPlanStep "#list_drs-action-DeleteRecoveryPlanStep")                                                          |               |                   | Write          |
-| DeleteReplicationConfigurationTemplate                                         | [drs:DeleteReplicationConfigurationTemplate](#list_drs-action-DeleteReplicationConfigurationTemplate "#list_drs-action-DeleteReplicationConfigurationTemplate")          |               |                   | Write          |
-| DeleteSourceNetwork                                                            | [drs:DeleteSourceNetwork](#list_drs-action-DeleteSourceNetwork "#list_drs-action-DeleteSourceNetwork")                                                                   |               |                   | Write          |
-| DeleteSourceServer                                                             | [drs:DeleteSourceServer](#list_drs-action-DeleteSourceServer "#list_drs-action-DeleteSourceServer")                                                                      |               |                   | Write          |
-| DescribeJobLogItems                                                            | [drs:DescribeJobLogItems](#list_drs-action-DescribeJobLogItems "#list_drs-action-DescribeJobLogItems")                                                                   |               |                   | Read           |
-| DescribeJobs                                                                   | [drs:DescribeJobs](#list_drs-action-DescribeJobs "#list_drs-action-DescribeJobs")                                                                                        |               |                   | Read           |
-| DescribeLaunchConfigurationTemplates                                           | [drs:DescribeLaunchConfigurationTemplates](#list_drs-action-DescribeLaunchConfigurationTemplates "#list_drs-action-DescribeLaunchConfigurationTemplates")                |               |                   | Read           |
-| DescribeRecoveryInstances                                                      | [drs:DescribeRecoveryInstances](#list_drs-action-DescribeRecoveryInstances "#list_drs-action-DescribeRecoveryInstances")                                                 |               |                   | Read           |
-| DescribeRecoverySnapshots                                                      | [drs:DescribeRecoverySnapshots](#list_drs-action-DescribeRecoverySnapshots "#list_drs-action-DescribeRecoverySnapshots")                                                 |               |                   | Read           |
-| DescribeReplicationConfigurationTemplates                                      | [drs:DescribeReplicationConfigurationTemplates](#list_drs-action-DescribeReplicationConfigurationTemplates "#list_drs-action-DescribeReplicationConfigurationTemplates") |               |                   | Read           |
-| DescribeSourceNetworks                                                         | [drs:DescribeSourceNetworks](#list_drs-action-DescribeSourceNetworks "#list_drs-action-DescribeSourceNetworks")                                                          |               |                   | Read           |
-| DescribeSourceServers                                                          | [drs:DescribeSourceServers](#list_drs-action-DescribeSourceServers "#list_drs-action-DescribeSourceServers")                                                             |               |                   | Read           |
-| DisconnectRecoveryInstance                                                     | [drs:DisconnectRecoveryInstance](#list_drs-action-DisconnectRecoveryInstance "#list_drs-action-DisconnectRecoveryInstance")                                              |               |                   | Write          |
-| DisconnectSourceServer                                                         | [drs:DisconnectSourceServer](#list_drs-action-DisconnectSourceServer "#list_drs-action-DisconnectSourceServer")                                                          |               |                   | Write          |
-| ExportSourceNetworkCfnTemplate                                                 | [drs:ExportSourceNetworkCfnTemplate](#list_drs-action-ExportSourceNetworkCfnTemplate "#list_drs-action-ExportSourceNetworkCfnTemplate")                                  |               |                   | Write          |
-| GetFailbackReplicationConfiguration                                            | [drs:GetFailbackReplicationConfiguration](#list_drs-action-GetFailbackReplicationConfiguration "#list_drs-action-GetFailbackReplicationConfiguration")                   |               |                   | Read           |
-| GetLaunchConfiguration                                                         | [drs:GetLaunchConfiguration](#list_drs-action-GetLaunchConfiguration "#list_drs-action-GetLaunchConfiguration")                                                          |               |                   | Read           |
-| GetRecoveryPlan                                                                | [drs:GetRecoveryPlan](#list_drs-action-GetRecoveryPlan "#list_drs-action-GetRecoveryPlan")                                                                               |               |                   | Read           |
-| GetRecoveryPlanExecution                                                       | [drs:GetRecoveryPlanExecution](#list_drs-action-GetRecoveryPlanExecution "#list_drs-action-GetRecoveryPlanExecution")                                                    |               |                   | Read           |
-| GetRecoveryPlanStep                                                            | [drs:GetRecoveryPlanStep](#list_drs-action-GetRecoveryPlanStep "#list_drs-action-GetRecoveryPlanStep")                                                                   |               |                   | Read           |
-| GetReplicationConfiguration                                                    | [drs:GetReplicationConfiguration](#list_drs-action-GetReplicationConfiguration "#list_drs-action-GetReplicationConfiguration")                                           |               |                   | Read           |
-| InitializeService                                                              | [drs:InitializeService](#list_drs-action-InitializeService "#list_drs-action-InitializeService")                                                                         |               |                   | Write          |
-| ListExtensibleSourceServers                                                    | [drs:ListExtensibleSourceServers](#list_drs-action-ListExtensibleSourceServers "#list_drs-action-ListExtensibleSourceServers")                                           |               |                   | Read           |
-| ListLaunchActions                                                              | [drs:ListLaunchActions](#list_drs-action-ListLaunchActions "#list_drs-action-ListLaunchActions")                                                                         |               |                   | Read           |
-| ListRecoveryPlanExecutions                                                     | [drs:ListRecoveryPlanExecutions](#list_drs-action-ListRecoveryPlanExecutions "#list_drs-action-ListRecoveryPlanExecutions")                                              |               |                   | Read           |
-| ListRecoveryPlanSteps                                                          | [drs:ListRecoveryPlanSteps](#list_drs-action-ListRecoveryPlanSteps "#list_drs-action-ListRecoveryPlanSteps")                                                             |               |                   | Read           |
-| ListRecoveryPlans                                                              | [drs:ListRecoveryPlans](#list_drs-action-ListRecoveryPlans "#list_drs-action-ListRecoveryPlans")                                                                         |               |                   | Read           |
-| ListStagingAccounts                                                            | [drs:ListStagingAccounts](#list_drs-action-ListStagingAccounts "#list_drs-action-ListStagingAccounts")                                                                   |               |                   | Read           |
-| ListTagsForResource                                                            | [drs:ListTagsForResource](#list_drs-action-ListTagsForResource "#list_drs-action-ListTagsForResource")                                                                   |               |                   | Read           |
-| PutLaunchAction                                                                | [drs:PutLaunchAction](#list_drs-action-PutLaunchAction "#list_drs-action-PutLaunchAction")                                                                               |               |                   | Write          |
-| ReorderRecoveryPlanSteps                                                       | [drs:ReorderRecoveryPlanSteps](#list_drs-action-ReorderRecoveryPlanSteps "#list_drs-action-ReorderRecoveryPlanSteps")                                                    |               |                   | Write          |
-| RetryDataReplication                                                           | [drs:RetryDataReplication](#list_drs-action-RetryDataReplication "#list_drs-action-RetryDataReplication")                                                                |               |                   | Write          |
-| ReverseReplication                                                             | [drs:ReverseReplication](#list_drs-action-ReverseReplication "#list_drs-action-ReverseReplication")                                                                      |               |                   | Write          |
-| StartRecovery                                                                  | [drs:StartRecovery](#list_drs-action-StartRecovery "#list_drs-action-StartRecovery")                                                                                     |               |                   | Write          |
-| [drs:TagResource](#list_drs-action-TagResource "#list_drs-action-TagResource") |                                                                                                                                                                          |               | Tagging, Write    |
-| StartReplication                                                               | [drs:StartReplication](#list_drs-action-StartReplication "#list_drs-action-StartReplication")                                                                            |               |                   | Write          |
-| StartSourceNetworkRecovery                                                     | [drs:StartSourceNetworkRecovery](#list_drs-action-StartSourceNetworkRecovery "#list_drs-action-StartSourceNetworkRecovery")                                              |               |                   | Write          |
-| [drs:TagResource](#list_drs-action-TagResource "#list_drs-action-TagResource") |                                                                                                                                                                          |               | Tagging, Write    |
-| StartSourceNetworkReplication                                                  | [drs:StartSourceNetworkReplication](#list_drs-action-StartSourceNetworkReplication "#list_drs-action-StartSourceNetworkReplication")                                     |               |                   | Write          |
-| StopFailback                                                                   | [drs:StopFailback](#list_drs-action-StopFailback "#list_drs-action-StopFailback")                                                                                        |               |                   | Write          |
-| StopReplication                                                                | [drs:StopReplication](#list_drs-action-StopReplication "#list_drs-action-StopReplication")                                                                               |               |                   | Write          |
-| StopSourceNetworkReplication                                                   | [drs:StopSourceNetworkReplication](#list_drs-action-StopSourceNetworkReplication "#list_drs-action-StopSourceNetworkReplication")                                        |               |                   | Write          |
-| TagResource                                                                    | [drs:TagResource](#list_drs-action-TagResource "#list_drs-action-TagResource")                                                                                           |               |                   | Tagging, Write |
-| TerminateRecoveryInstances                                                     | [drs:TerminateRecoveryInstances](#list_drs-action-TerminateRecoveryInstances "#list_drs-action-TerminateRecoveryInstances")                                              |               |                   | Write          |
-| UntagResource                                                                  | [drs:UntagResource](#list_drs-action-UntagResource "#list_drs-action-UntagResource")                                                                                     |               |                   | Tagging, Write |
-| UpdateFailbackReplicationConfiguration                                         | [drs:UpdateFailbackReplicationConfiguration](#list_drs-action-UpdateFailbackReplicationConfiguration "#list_drs-action-UpdateFailbackReplicationConfiguration")          |               |                   | Write          |
-| UpdateLaunchConfiguration                                                      | [drs:UpdateLaunchConfiguration](#list_drs-action-UpdateLaunchConfiguration "#list_drs-action-UpdateLaunchConfiguration")                                                 |               |                   | Write          |
-| UpdateLaunchConfigurationTemplate                                              | [drs:UpdateLaunchConfigurationTemplate](#list_drs-action-UpdateLaunchConfigurationTemplate "#list_drs-action-UpdateLaunchConfigurationTemplate")                         |               |                   | Write          |
-| UpdateRecoveryPlan                                                             | [drs:UpdateRecoveryPlan](#list_drs-action-UpdateRecoveryPlan "#list_drs-action-UpdateRecoveryPlan")                                                                      |               |                   | Write          |
-| UpdateRecoveryPlanStep                                                         | [drs:UpdateRecoveryPlanStep](#list_drs-action-UpdateRecoveryPlanStep "#list_drs-action-UpdateRecoveryPlanStep")                                                          |               |                   | Write          |
-| UpdateReplicationConfiguration                                                 | [drs:UpdateReplicationConfiguration](#list_drs-action-UpdateReplicationConfiguration "#list_drs-action-UpdateReplicationConfiguration")                                  |               |                   | Write          |
-| UpdateReplicationConfigurationTemplate                                         | [drs:UpdateReplicationConfigurationTemplate](#list_drs-action-UpdateReplicationConfigurationTemplate "#list_drs-action-UpdateReplicationConfigurationTemplate")          |               |                   | Write          |
+
+
+
+- **   AssociateSourceNetworkStack  **
+  - **IAM action:**  [drs:AssociateSourceNetworkStack](#list_drs-action-AssociateSourceNetworkStack) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateExtendedSourceServer  **
+  - **IAM action:**  [drs:CreateExtendedSourceServer](#list_drs-action-CreateExtendedSourceServer)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [drs:TagResource](#list_drs-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateLaunchConfigurationTemplate  **
+  - **IAM action:**  [drs:CreateLaunchConfigurationTemplate](#list_drs-action-CreateLaunchConfigurationTemplate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [drs:TagResource](#list_drs-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateRecoveryPlan  **
+  - **IAM action:**  [drs:CreateRecoveryPlan](#list_drs-action-CreateRecoveryPlan)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [drs:TagResource](#list_drs-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateRecoveryPlanStep  **
+  - **IAM action:**  [drs:CreateRecoveryPlanStep](#list_drs-action-CreateRecoveryPlanStep) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateReplicationConfigurationTemplate  **
+  - **IAM action:**  [drs:CreateReplicationConfigurationTemplate](#list_drs-action-CreateReplicationConfigurationTemplate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [drs:TagResource](#list_drs-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateSourceNetwork  **
+  - **IAM action:**  [drs:CreateSourceNetwork](#list_drs-action-CreateSourceNetwork)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [drs:TagResource](#list_drs-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteJob  **
+  - **IAM action:**  [drs:DeleteJob](#list_drs-action-DeleteJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteLaunchAction  **
+  - **IAM action:**  [drs:DeleteLaunchAction](#list_drs-action-DeleteLaunchAction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteLaunchConfigurationTemplate  **
+  - **IAM action:**  [drs:DeleteLaunchConfigurationTemplate](#list_drs-action-DeleteLaunchConfigurationTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRecoveryInstance  **
+  - **IAM action:**  [drs:DeleteRecoveryInstance](#list_drs-action-DeleteRecoveryInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRecoveryPlan  **
+  - **IAM action:**  [drs:DeleteRecoveryPlan](#list_drs-action-DeleteRecoveryPlan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRecoveryPlanStep  **
+  - **IAM action:**  [drs:DeleteRecoveryPlanStep](#list_drs-action-DeleteRecoveryPlanStep) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteReplicationConfigurationTemplate  **
+  - **IAM action:**  [drs:DeleteReplicationConfigurationTemplate](#list_drs-action-DeleteReplicationConfigurationTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSourceNetwork  **
+  - **IAM action:**  [drs:DeleteSourceNetwork](#list_drs-action-DeleteSourceNetwork) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSourceServer  **
+  - **IAM action:**  [drs:DeleteSourceServer](#list_drs-action-DeleteSourceServer) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeJobLogItems  **
+  - **IAM action:**  [drs:DescribeJobLogItems](#list_drs-action-DescribeJobLogItems) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeJobs  **
+  - **IAM action:**  [drs:DescribeJobs](#list_drs-action-DescribeJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeLaunchConfigurationTemplates  **
+  - **IAM action:**  [drs:DescribeLaunchConfigurationTemplates](#list_drs-action-DescribeLaunchConfigurationTemplates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeRecoveryInstances  **
+  - **IAM action:**  [drs:DescribeRecoveryInstances](#list_drs-action-DescribeRecoveryInstances) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeRecoverySnapshots  **
+  - **IAM action:**  [drs:DescribeRecoverySnapshots](#list_drs-action-DescribeRecoverySnapshots) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeReplicationConfigurationTemplates  **
+  - **IAM action:**  [drs:DescribeReplicationConfigurationTemplates](#list_drs-action-DescribeReplicationConfigurationTemplates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeSourceNetworks  **
+  - **IAM action:**  [drs:DescribeSourceNetworks](#list_drs-action-DescribeSourceNetworks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeSourceServers  **
+  - **IAM action:**  [drs:DescribeSourceServers](#list_drs-action-DescribeSourceServers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DisconnectRecoveryInstance  **
+  - **IAM action:**  [drs:DisconnectRecoveryInstance](#list_drs-action-DisconnectRecoveryInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisconnectSourceServer  **
+  - **IAM action:**  [drs:DisconnectSourceServer](#list_drs-action-DisconnectSourceServer) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ExportSourceNetworkCfnTemplate  **
+  - **IAM action:**  [drs:ExportSourceNetworkCfnTemplate](#list_drs-action-ExportSourceNetworkCfnTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetFailbackReplicationConfiguration  **
+  - **IAM action:**  [drs:GetFailbackReplicationConfiguration](#list_drs-action-GetFailbackReplicationConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetLaunchConfiguration  **
+  - **IAM action:**  [drs:GetLaunchConfiguration](#list_drs-action-GetLaunchConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRecoveryPlan  **
+  - **IAM action:**  [drs:GetRecoveryPlan](#list_drs-action-GetRecoveryPlan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRecoveryPlanExecution  **
+  - **IAM action:**  [drs:GetRecoveryPlanExecution](#list_drs-action-GetRecoveryPlanExecution) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRecoveryPlanStep  **
+  - **IAM action:**  [drs:GetRecoveryPlanStep](#list_drs-action-GetRecoveryPlanStep) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReplicationConfiguration  **
+  - **IAM action:**  [drs:GetReplicationConfiguration](#list_drs-action-GetReplicationConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   InitializeService  **
+  - **IAM action:**  [drs:InitializeService](#list_drs-action-InitializeService) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ListExtensibleSourceServers  **
+  - **IAM action:**  [drs:ListExtensibleSourceServers](#list_drs-action-ListExtensibleSourceServers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListLaunchActions  **
+  - **IAM action:**  [drs:ListLaunchActions](#list_drs-action-ListLaunchActions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListRecoveryPlanExecutions  **
+  - **IAM action:**  [drs:ListRecoveryPlanExecutions](#list_drs-action-ListRecoveryPlanExecutions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListRecoveryPlanSteps  **
+  - **IAM action:**  [drs:ListRecoveryPlanSteps](#list_drs-action-ListRecoveryPlanSteps) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListRecoveryPlans  **
+  - **IAM action:**  [drs:ListRecoveryPlans](#list_drs-action-ListRecoveryPlans) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListStagingAccounts  **
+  - **IAM action:**  [drs:ListStagingAccounts](#list_drs-action-ListStagingAccounts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [drs:ListTagsForResource](#list_drs-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   PutLaunchAction  **
+  - **IAM action:**  [drs:PutLaunchAction](#list_drs-action-PutLaunchAction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ReorderRecoveryPlanSteps  **
+  - **IAM action:**  [drs:ReorderRecoveryPlanSteps](#list_drs-action-ReorderRecoveryPlanSteps) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RetryDataReplication  **
+  - **IAM action:**  [drs:RetryDataReplication](#list_drs-action-RetryDataReplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ReverseReplication  **
+  - **IAM action:**  [drs:ReverseReplication](#list_drs-action-ReverseReplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartRecovery  **
+  - **IAM action:**  [drs:StartRecovery](#list_drs-action-StartRecovery)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [drs:TagResource](#list_drs-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   StartReplication  **
+  - **IAM action:**  [drs:StartReplication](#list_drs-action-StartReplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartSourceNetworkRecovery  **
+  - **IAM action:**  [drs:StartSourceNetworkRecovery](#list_drs-action-StartSourceNetworkRecovery)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [drs:TagResource](#list_drs-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   StartSourceNetworkReplication  **
+  - **IAM action:**  [drs:StartSourceNetworkReplication](#list_drs-action-StartSourceNetworkReplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopFailback  **
+  - **IAM action:**  [drs:StopFailback](#list_drs-action-StopFailback) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopReplication  **
+  - **IAM action:**  [drs:StopReplication](#list_drs-action-StopReplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopSourceNetworkReplication  **
+  - **IAM action:**  [drs:StopSourceNetworkReplication](#list_drs-action-StopSourceNetworkReplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [drs:TagResource](#list_drs-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   TerminateRecoveryInstances  **
+  - **IAM action:**  [drs:TerminateRecoveryInstances](#list_drs-action-TerminateRecoveryInstances) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UntagResource  **
+  - **IAM action:**  [drs:UntagResource](#list_drs-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateFailbackReplicationConfiguration  **
+  - **IAM action:**  [drs:UpdateFailbackReplicationConfiguration](#list_drs-action-UpdateFailbackReplicationConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateLaunchConfiguration  **
+  - **IAM action:**  [drs:UpdateLaunchConfiguration](#list_drs-action-UpdateLaunchConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateLaunchConfigurationTemplate  **
+  - **IAM action:**  [drs:UpdateLaunchConfigurationTemplate](#list_drs-action-UpdateLaunchConfigurationTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRecoveryPlan  **
+  - **IAM action:**  [drs:UpdateRecoveryPlan](#list_drs-action-UpdateRecoveryPlan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRecoveryPlanStep  **
+  - **IAM action:**  [drs:UpdateRecoveryPlanStep](#list_drs-action-UpdateRecoveryPlanStep) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateReplicationConfiguration  **
+  - **IAM action:**  [drs:UpdateReplicationConfiguration](#list_drs-action-UpdateReplicationConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateReplicationConfigurationTemplate  **
+  - **IAM action:**  [drs:UpdateReplicationConfigurationTemplate](#list_drs-action-UpdateReplicationConfigurationTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS Elastic Disaster Recovery
+<a name="list_drs-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                       | Resource types (\*required)                                                                                                                                             | Condition keys                                                                                                                                                                                                                                                                                                                                                     | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- |
-| [AssociateSourceNetworkStack](../../../drs/latest/APIReference/API_AssociateSourceNetworkStack.md "../../../drs/latest/APIReference/API_AssociateSourceNetworkStack.md")                                           | Grants permission to associate CloudFormation stack with source network                                                                                                                                                                                                                                                                                                                                                                           | [SourceNetworkResource\*](#list_drs-resource-SourceNetworkResource "#list_drs-resource-SourceNetworkResource")                                                          | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                      | Write          |
-| [CancelRecoveryPlanExecution](../../../drs/latest/APIReference/API_CancelRecoveryPlanExecution.md "../../../drs/latest/APIReference/API_CancelRecoveryPlanExecution.md")                                           | Grants permission to cancel a recovery plan execution                                                                                                                                                                                                                                                                                                                                                                                             | [RecoveryPlanExecutionResource\*](#list_drs-resource-RecoveryPlanExecutionResource "#list_drs-resource-RecoveryPlanExecutionResource")                                  | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [CreateExtendedSourceServer](../../../drs/latest/APIReference/API_CreateExtendedSourceServer.md "../../../drs/latest/APIReference/API_CreateExtendedSourceServer.md")                                              | Grants permission to extend a source server                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                                                                                         | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                                                                                                                                | Write          |
-| [CreateLaunchConfigurationTemplate](../../../drs/latest/APIReference/API_CreateLaunchConfigurationTemplate.md "../../../drs/latest/APIReference/API_CreateLaunchConfigurationTemplate.md")                         | Grants permission to create launch configuration template                                                                                                                                                                                                                                                                                                                                                                                         |                                                                                                                                                                         | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                                                                                                                                | Write          |
-| [CreateRecoveryPlan](../../../drs/latest/APIReference/API_CreateRecoveryPlan.md "../../../drs/latest/APIReference/API_CreateRecoveryPlan.md")                                                                      | Grants permission to create a recovery plan                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                                                                                         | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                                                                                                                                | Write          |
-| [CreateRecoveryPlanStep](../../../drs/latest/APIReference/API_CreateRecoveryPlanStep.md "../../../drs/latest/APIReference/API_CreateRecoveryPlanStep.md")                                                          | Grants permission to create a step in a recovery plan                                                                                                                                                                                                                                                                                                                                                                                             | [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource "#list_drs-resource-RecoveryPlanResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [CreateReplicationConfigurationTemplate](../../../drs/latest/APIReference/API_CreateReplicationConfigurationTemplate.md "../../../drs/latest/APIReference/API_CreateReplicationConfigurationTemplate.md")          | Grants permission to create replication configuration template                                                                                                                                                                                                                                                                                                                                                                                    |                                                                                                                                                                         | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                                                                                                                                | Write          |
-| [CreateSourceNetwork](../../../drs/latest/APIReference/API_CreateSourceNetwork.md "../../../drs/latest/APIReference/API_CreateSourceNetwork.md")                                                                   | Grants permission to create a source network                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                                                                                                                         | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                                                                                                                                | Write          |
-| [DeleteJob](../../../drs/latest/APIReference/API_DeleteJob.md "../../../drs/latest/APIReference/API_DeleteJob.md")                                                                                                 | Grants permission to delete a job                                                                                                                                                                                                                                                                                                                                                                                                                 | [JobResource\*](#list_drs-resource-JobResource "#list_drs-resource-JobResource")                                                                                        | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [DeleteLaunchAction](../../../drs/latest/APIReference/API_DeleteLaunchAction.md "../../../drs/latest/APIReference/API_DeleteLaunchAction.md")                                                                      | Grants permission to delete a launch action                                                                                                                                                                                                                                                                                                                                                                                                       | [LaunchConfigurationTemplateResource](#list_drs-resource-LaunchConfigurationTemplateResource "#list_drs-resource-LaunchConfigurationTemplateResource")                  | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [SourceServerResource](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                                                                                                          | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                            |
-| [DeleteLaunchConfigurationTemplate](../../../drs/latest/APIReference/API_DeleteLaunchConfigurationTemplate.md "../../../drs/latest/APIReference/API_DeleteLaunchConfigurationTemplate.md")                         | Grants permission to delete launch configuration template                                                                                                                                                                                                                                                                                                                                                                                         | [LaunchConfigurationTemplateResource\*](#list_drs-resource-LaunchConfigurationTemplateResource "#list_drs-resource-LaunchConfigurationTemplateResource")                | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [DeleteRecoveryInstance](../../../drs/latest/APIReference/API_DeleteRecoveryInstance.md "../../../drs/latest/APIReference/API_DeleteRecoveryInstance.md")                                                          | Grants permission to delete recovery instance                                                                                                                                                                                                                                                                                                                                                                                                     | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource")                                                 | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                                                                                                        | Write          |
-| [DeleteRecoveryPlan](../../../drs/latest/APIReference/API_DeleteRecoveryPlan.md "../../../drs/latest/APIReference/API_DeleteRecoveryPlan.md")                                                                      | Grants permission to delete a recovery plan                                                                                                                                                                                                                                                                                                                                                                                                       | [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource "#list_drs-resource-RecoveryPlanResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [DeleteRecoveryPlanExecution](../../../drs/latest/APIReference/API_DeleteRecoveryPlanExecution.md "../../../drs/latest/APIReference/API_DeleteRecoveryPlanExecution.md")                                           | Grants permission to delete a recovery plan execution                                                                                                                                                                                                                                                                                                                                                                                             | [RecoveryPlanExecutionResource\*](#list_drs-resource-RecoveryPlanExecutionResource "#list_drs-resource-RecoveryPlanExecutionResource")                                  | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [DeleteRecoveryPlanStep](../../../drs/latest/APIReference/API_DeleteRecoveryPlanStep.md "../../../drs/latest/APIReference/API_DeleteRecoveryPlanStep.md")                                                          | Grants permission to delete a recovery plan step                                                                                                                                                                                                                                                                                                                                                                                                  | [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource "#list_drs-resource-RecoveryPlanResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [DeleteReplicationConfigurationTemplate](../../../drs/latest/APIReference/API_DeleteReplicationConfigurationTemplate.md "../../../drs/latest/APIReference/API_DeleteReplicationConfigurationTemplate.md")          | Grants permission to delete replication configuration template                                                                                                                                                                                                                                                                                                                                                                                    | [ReplicationConfigurationTemplateResource\*](#list_drs-resource-ReplicationConfigurationTemplateResource "#list_drs-resource-ReplicationConfigurationTemplateResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [DeleteSourceNetwork](../../../drs/latest/APIReference/API_DeleteSourceNetwork.md "../../../drs/latest/APIReference/API_DeleteSourceNetwork.md")                                                                   | Grants permission to delete source network                                                                                                                                                                                                                                                                                                                                                                                                        | [SourceNetworkResource\*](#list_drs-resource-SourceNetworkResource "#list_drs-resource-SourceNetworkResource")                                                          | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [DeleteSourceServer](../../../drs/latest/APIReference/API_DeleteSourceServer.md "../../../drs/latest/APIReference/API_DeleteSourceServer.md")                                                                      | Grants permission to delete source server                                                                                                                                                                                                                                                                                                                                                                                                         | [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [DescribeJobLogItems](../../../drs/latest/APIReference/API_DescribeJobLogItems.md "../../../drs/latest/APIReference/API_DescribeJobLogItems.md")                                                                   | Grants permission to describe job log items                                                                                                                                                                                                                                                                                                                                                                                                       | [JobResource\*](#list_drs-resource-JobResource "#list_drs-resource-JobResource")                                                                                        | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Read           |
-| [DescribeJobs](../../../drs/latest/APIReference/API_DescribeJobs.md "../../../drs/latest/APIReference/API_DescribeJobs.md")                                                                                        | Grants permission to describe jobs                                                                                                                                                                                                                                                                                                                                                                                                                |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [DescribeLaunchConfigurationTemplates](../../../drs/latest/APIReference/API_DescribeLaunchConfigurationTemplates.md "../../../drs/latest/APIReference/API_DescribeLaunchConfigurationTemplates.md")                | Grants permission to describe launch configuration template                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [DescribeRecoveryInstances](../../../drs/latest/APIReference/API_DescribeRecoveryInstances.md "../../../drs/latest/APIReference/API_DescribeRecoveryInstances.md")                                                 | Grants permission to describe recovery instances                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [DescribeRecoverySnapshots](../../../drs/latest/APIReference/API_DescribeRecoverySnapshots.md "../../../drs/latest/APIReference/API_DescribeRecoverySnapshots.md")                                                 | Grants permission to describe recovery snapshots                                                                                                                                                                                                                                                                                                                                                                                                  | [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Read           |
-| [DescribeReplicationConfigurationTemplates](../../../drs/latest/APIReference/API_DescribeReplicationConfigurationTemplates.md "../../../drs/latest/APIReference/API_DescribeReplicationConfigurationTemplates.md") | Grants permission to describe replication configuration template                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [DescribeSourceNetworks](../../../drs/latest/APIReference/API_DescribeSourceNetworks.md "../../../drs/latest/APIReference/API_DescribeSourceNetworks.md")                                                          | Grants permission to describe source networks                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [DescribeSourceServers](../../../drs/latest/APIReference/API_DescribeSourceServers.md "../../../drs/latest/APIReference/API_DescribeSourceServers.md")                                                             | Grants permission to describe source servers                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [DisconnectRecoveryInstance](../../../drs/latest/APIReference/API_DisconnectRecoveryInstance.md "../../../drs/latest/APIReference/API_DisconnectRecoveryInstance.md")                                              | Grants permission to disconnect recovery instance                                                                                                                                                                                                                                                                                                                                                                                                 | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource")                                                 | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                                                                                                        | Write          |
-| [DisconnectSourceServer](../../../drs/latest/APIReference/API_DisconnectSourceServer.md "../../../drs/latest/APIReference/API_DisconnectSourceServer.md")                                                          | Grants permission to disconnect source server                                                                                                                                                                                                                                                                                                                                                                                                     | [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [ExportSourceNetworkCfnTemplate](../../../drs/latest/APIReference/API_ExportSourceNetworkCfnTemplate.md "../../../drs/latest/APIReference/API_ExportSourceNetworkCfnTemplate.md")                                  | Grants permission to export CloudFormation template which contains source network resources                                                                                                                                                                                                                                                                                                                                                       | [SourceNetworkResource\*](#list_drs-resource-SourceNetworkResource "#list_drs-resource-SourceNetworkResource")                                                          | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                      | Write          |
-| [GetFailbackReplicationConfiguration](../../../drs/latest/APIReference/API_GetFailbackReplicationConfiguration.md "../../../drs/latest/APIReference/API_GetFailbackReplicationConfiguration.md")                   | Grants permission to get failback replication configuration                                                                                                                                                                                                                                                                                                                                                                                       | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource")                                                 | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                                                                                                        | Read           |
-| [GetLaunchConfiguration](../../../drs/latest/APIReference/API_GetLaunchConfiguration.md "../../../drs/latest/APIReference/API_GetLaunchConfiguration.md")                                                          | Grants permission to get launch configuration                                                                                                                                                                                                                                                                                                                                                                                                     | [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Read           |
-| [GetRecoveryPlan](../../../drs/latest/APIReference/API_GetRecoveryPlan.md "../../../drs/latest/APIReference/API_GetRecoveryPlan.md")                                                                               | Grants permission to get a recovery plan                                                                                                                                                                                                                                                                                                                                                                                                          | [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource "#list_drs-resource-RecoveryPlanResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Read           |
-| [GetRecoveryPlanExecution](../../../drs/latest/APIReference/API_GetRecoveryPlanExecution.md "../../../drs/latest/APIReference/API_GetRecoveryPlanExecution.md")                                                    | Grants permission to get a recovery plan execution                                                                                                                                                                                                                                                                                                                                                                                                | [RecoveryPlanExecutionResource\*](#list_drs-resource-RecoveryPlanExecutionResource "#list_drs-resource-RecoveryPlanExecutionResource")                                  | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Read           |
-| [GetRecoveryPlanExecutionStep](../../../drs/latest/APIReference/API_GetRecoveryPlanExecutionStep.md "../../../drs/latest/APIReference/API_GetRecoveryPlanExecutionStep.md")                                        | Grants permission to get a recovery plan execution step                                                                                                                                                                                                                                                                                                                                                                                           | [RecoveryPlanExecutionResource\*](#list_drs-resource-RecoveryPlanExecutionResource "#list_drs-resource-RecoveryPlanExecutionResource")                                  | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Read           |
-| [GetRecoveryPlanStep](../../../drs/latest/APIReference/API_GetRecoveryPlanStep.md "../../../drs/latest/APIReference/API_GetRecoveryPlanStep.md")                                                                   | Grants permission to get a recovery plan step                                                                                                                                                                                                                                                                                                                                                                                                     | [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource "#list_drs-resource-RecoveryPlanResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Read           |
-| [GetReplicationConfiguration](../../../drs/latest/APIReference/API_GetReplicationConfiguration.md "../../../drs/latest/APIReference/API_GetReplicationConfiguration.md")                                           | Grants permission to get replication configuration                                                                                                                                                                                                                                                                                                                                                                                                | [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Read           |
-| [InitializeService](../../../drs/latest/APIReference/API_InitializeService.md "../../../drs/latest/APIReference/API_InitializeService.md")                                                                         | Grants permission to initialize service                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                    | Write          |
-| [ListExtensibleSourceServers](../../../drs/latest/APIReference/API_ListExtensibleSourceServers.md "../../../drs/latest/APIReference/API_ListExtensibleSourceServers.md")                                           | Grants permission to list extensible source servers                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [ListLaunchActions](../../../drs/latest/APIReference/API_ListLaunchActions.md "../../../drs/latest/APIReference/API_ListLaunchActions.md")                                                                         | Grants permission to list launch actions                                                                                                                                                                                                                                                                                                                                                                                                          | [LaunchConfigurationTemplateResource](#list_drs-resource-LaunchConfigurationTemplateResource "#list_drs-resource-LaunchConfigurationTemplateResource")                  | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Read           |
-| [SourceServerResource](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                                                                                                          | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                            |
-| [ListRecoveryPlanExecutionSteps](../../../drs/latest/APIReference/API_ListRecoveryPlanExecutionSteps.md "../../../drs/latest/APIReference/API_ListRecoveryPlanExecutionSteps.md")                                  | Grants permission to list recovery plan execution steps                                                                                                                                                                                                                                                                                                                                                                                           | [RecoveryPlanExecutionResource\*](#list_drs-resource-RecoveryPlanExecutionResource "#list_drs-resource-RecoveryPlanExecutionResource")                                  | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Read           |
-| [ListRecoveryPlanExecutions](../../../drs/latest/APIReference/API_ListRecoveryPlanExecutions.md "../../../drs/latest/APIReference/API_ListRecoveryPlanExecutions.md")                                              | Grants permission to list recovery plan executions                                                                                                                                                                                                                                                                                                                                                                                                | [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource "#list_drs-resource-RecoveryPlanResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Read           |
-| [ListRecoveryPlanSteps](../../../drs/latest/APIReference/API_ListRecoveryPlanSteps.md "../../../drs/latest/APIReference/API_ListRecoveryPlanSteps.md")                                                             | Grants permission to list recovery plan steps                                                                                                                                                                                                                                                                                                                                                                                                     | [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource "#list_drs-resource-RecoveryPlanResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Read           |
-| [ListRecoveryPlans](../../../drs/latest/APIReference/API_ListRecoveryPlans.md "../../../drs/latest/APIReference/API_ListRecoveryPlans.md")                                                                         | Grants permission to list recovery plans                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [ListStagingAccounts](../../../drs/latest/APIReference/API_ListStagingAccounts.md "../../../drs/latest/APIReference/API_ListStagingAccounts.md")                                                                   | Grants permission to list staging accounts                                                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [ListTagsForResource](../../../drs/latest/APIReference/API_ListTagsForResource.md "../../../drs/latest/APIReference/API_ListTagsForResource.md")                                                                   | Grants permission to list tags for a resource                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [PutLaunchAction](../../../drs/latest/APIReference/API_PutLaunchAction.md "../../../drs/latest/APIReference/API_PutLaunchAction.md")                                                                               | Grants permission to put a launch action                                                                                                                                                                                                                                                                                                                                                                                                          | [LaunchConfigurationTemplateResource](#list_drs-resource-LaunchConfigurationTemplateResource "#list_drs-resource-LaunchConfigurationTemplateResource")                  | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [SourceServerResource](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                                                                                                          | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                            |
-| [ReorderRecoveryPlanSteps](../../../drs/latest/APIReference/API_ReorderRecoveryPlanSteps.md "../../../drs/latest/APIReference/API_ReorderRecoveryPlanSteps.md")                                                    | Grants permission to reorder steps in a recovery plan                                                                                                                                                                                                                                                                                                                                                                                             | [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource "#list_drs-resource-RecoveryPlanResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [RetryDataReplication](../../../drs/latest/APIReference/API_RetryDataReplication.md "../../../drs/latest/APIReference/API_RetryDataReplication.md")                                                                | Grants permission to retry data replication                                                                                                                                                                                                                                                                                                                                                                                                       | [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [RetryRecoveryPlanExecutionStep](../../../drs/latest/APIReference/API_RetryRecoveryPlanExecutionStep.md "../../../drs/latest/APIReference/API_RetryRecoveryPlanExecutionStep.md")                                  | Grants permission to retry a recovery plan execution step                                                                                                                                                                                                                                                                                                                                                                                         | [RecoveryPlanExecutionResource\*](#list_drs-resource-RecoveryPlanExecutionResource "#list_drs-resource-RecoveryPlanExecutionResource")                                  | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [ReverseReplication](../../../drs/latest/APIReference/API_ReverseReplication.md "../../../drs/latest/APIReference/API_ReverseReplication.md")                                                                      | Grants permission to reverse replication                                                                                                                                                                                                                                                                                                                                                                                                          | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource")                                                 | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN") | Write          |
-| [StartFailbackLaunch](../../../drs/latest/APIReference/API_StartFailbackLaunch.md "../../../drs/latest/APIReference/API_StartFailbackLaunch.md")                                                                   | Grants permission to start failback launch                                                                                                                                                                                                                                                                                                                                                                                                        | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource")                                                 | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN") | Write          |
-| [StartRecovery](../../../drs/latest/APIReference/API_StartRecovery.md "../../../drs/latest/APIReference/API_StartRecovery.md")                                                                                     | Grants permission to start recovery                                                                                                                                                                                                                                                                                                                                                                                                               | [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                                                             | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                      | Write          |
-| [StartRecoveryPlanExecution](../../../drs/latest/APIReference/API_StartRecoveryPlanExecution.md "../../../drs/latest/APIReference/API_StartRecoveryPlanExecution.md")                                              | Grants permission to start a recovery plan execution                                                                                                                                                                                                                                                                                                                                                                                              | [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource "#list_drs-resource-RecoveryPlanResource")                                                             | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                      | Write          |
-| [StartReplication](../../../drs/latest/APIReference/API_StartReplication.md "../../../drs/latest/APIReference/API_StartReplication.md")                                                                            | Grants permission to start replication                                                                                                                                                                                                                                                                                                                                                                                                            | [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [StartSourceNetworkRecovery](../../../drs/latest/APIReference/API_StartSourceNetworkRecovery.md "../../../drs/latest/APIReference/API_StartSourceNetworkRecovery.md")                                              | Grants permission to start network recovery                                                                                                                                                                                                                                                                                                                                                                                                       | [SourceNetworkResource\*](#list_drs-resource-SourceNetworkResource "#list_drs-resource-SourceNetworkResource")                                                          | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                      | Write          |
-| [StartSourceNetworkReplication](../../../drs/latest/APIReference/API_StartSourceNetworkReplication.md "../../../drs/latest/APIReference/API_StartSourceNetworkReplication.md")                                     | Grants permission to start network replication                                                                                                                                                                                                                                                                                                                                                                                                    | [SourceNetworkResource\*](#list_drs-resource-SourceNetworkResource "#list_drs-resource-SourceNetworkResource")                                                          | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [StopFailback](../../../drs/latest/APIReference/API_StopFailback.md "../../../drs/latest/APIReference/API_StopFailback.md")                                                                                        | Grants permission to stop failback                                                                                                                                                                                                                                                                                                                                                                                                                | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource")                                                 | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                                                                                                        | Write          |
-| [StopReplication](../../../drs/latest/APIReference/API_StopReplication.md "../../../drs/latest/APIReference/API_StopReplication.md")                                                                               | Grants permission to stop replication                                                                                                                                                                                                                                                                                                                                                                                                             | [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [StopSourceNetworkReplication](../../../drs/latest/APIReference/API_StopSourceNetworkReplication.md "../../../drs/latest/APIReference/API_StopSourceNetworkReplication.md")                                        | Grants permission to stop network replication                                                                                                                                                                                                                                                                                                                                                                                                     | [SourceNetworkResource\*](#list_drs-resource-SourceNetworkResource "#list_drs-resource-SourceNetworkResource")                                                          | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [TagResource](../../../drs/latest/APIReference/API_TagResource.md "../../../drs/latest/APIReference/API_TagResource.md")                                                                                           | Grants permission to assign a resource tag                                                                                                                                                                                                                                                                                                                                                                                                        | [JobResource](#list_drs-resource-JobResource "#list_drs-resource-JobResource")                                                                                          | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")<br>[drs:CreateAction](#list_drs-drs_CreateAction "#list_drs-drs_CreateAction")       | Tagging, Write |
-| [LaunchConfigurationTemplateResource](#list_drs-resource-LaunchConfigurationTemplateResource "#list_drs-resource-LaunchConfigurationTemplateResource")                                                             | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")<br>[drs:CreateAction](#list_drs-drs_CreateAction "#list_drs-drs_CreateAction")                                                                                      |
-| [RecoveryInstanceResource](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource")                                                                                              | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")<br>[drs:CreateAction](#list_drs-drs_CreateAction "#list_drs-drs_CreateAction")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN") |
-| [RecoveryPlanExecutionResource](#list_drs-resource-RecoveryPlanExecutionResource "#list_drs-resource-RecoveryPlanExecutionResource")                                                                               | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")<br>[drs:CreateAction](#list_drs-drs_CreateAction "#list_drs-drs_CreateAction")                                                                                      |
-| [RecoveryPlanResource](#list_drs-resource-RecoveryPlanResource "#list_drs-resource-RecoveryPlanResource")                                                                                                          | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")<br>[drs:CreateAction](#list_drs-drs_CreateAction "#list_drs-drs_CreateAction")                                                                                      |
-| [ReplicationConfigurationTemplateResource](#list_drs-resource-ReplicationConfigurationTemplateResource "#list_drs-resource-ReplicationConfigurationTemplateResource")                                              | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")<br>[drs:CreateAction](#list_drs-drs_CreateAction "#list_drs-drs_CreateAction")                                                                                      |
-| [SourceNetworkResource](#list_drs-resource-SourceNetworkResource "#list_drs-resource-SourceNetworkResource")                                                                                                       | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")<br>[drs:CreateAction](#list_drs-drs_CreateAction "#list_drs-drs_CreateAction")                                                                                      |
-| [SourceServerResource](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                                                                                                          | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")<br>[drs:CreateAction](#list_drs-drs_CreateAction "#list_drs-drs_CreateAction")                                                                                      |
-| [TerminateRecoveryInstances](../../../drs/latest/APIReference/API_TerminateRecoveryInstances.md "../../../drs/latest/APIReference/API_TerminateRecoveryInstances.md")                                              | Grants permission to terminate recovery instances                                                                                                                                                                                                                                                                                                                                                                                                 | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource")                                                 | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN") | Write          |
-| [UntagResource](../../../drs/latest/APIReference/API_UntagResource.md "../../../drs/latest/APIReference/API_UntagResource.md")                                                                                     | Grants permission to untag a resource                                                                                                                                                                                                                                                                                                                                                                                                             | [JobResource](#list_drs-resource-JobResource "#list_drs-resource-JobResource")                                                                                          | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                                                                                                                             | Tagging, Write |
-| [LaunchConfigurationTemplateResource](#list_drs-resource-LaunchConfigurationTemplateResource "#list_drs-resource-LaunchConfigurationTemplateResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                                                                                                                                                                                                            |
-| [RecoveryInstanceResource](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource")                                                                                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                                                                                                                       |
-| [RecoveryPlanExecutionResource](#list_drs-resource-RecoveryPlanExecutionResource "#list_drs-resource-RecoveryPlanExecutionResource")                                                                               | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                                                                                                                                                                                                            |
-| [RecoveryPlanResource](#list_drs-resource-RecoveryPlanResource "#list_drs-resource-RecoveryPlanResource")                                                                                                          | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                                                                                                                                                                                                            |
-| [ReplicationConfigurationTemplateResource](#list_drs-resource-ReplicationConfigurationTemplateResource "#list_drs-resource-ReplicationConfigurationTemplateResource")                                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                                                                                                                                                                                                            |
-| [SourceNetworkResource](#list_drs-resource-SourceNetworkResource "#list_drs-resource-SourceNetworkResource")                                                                                                       | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                                                                                                                                                                                                            |
-| [SourceServerResource](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                                                                                                          | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                                                                                                                                                                                                            |
-| [UpdateFailbackReplicationConfiguration](../../../drs/latest/APIReference/API_UpdateFailbackReplicationConfiguration.md "../../../drs/latest/APIReference/API_UpdateFailbackReplicationConfiguration.md")          | Grants permission to update failback replication configuration                                                                                                                                                                                                                                                                                                                                                                                    | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource")                                                 | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                                                                                                        | Write          |
-| [UpdateLaunchConfiguration](../../../drs/latest/APIReference/API_UpdateLaunchConfiguration.md "../../../drs/latest/APIReference/API_UpdateLaunchConfiguration.md")                                                 | Grants permission to update launch configuration                                                                                                                                                                                                                                                                                                                                                                                                  | [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [UpdateLaunchConfigurationTemplate](../../../drs/latest/APIReference/API_UpdateLaunchConfigurationTemplate.md "../../../drs/latest/APIReference/API_UpdateLaunchConfigurationTemplate.md")                         | Grants permission to update launch configuration                                                                                                                                                                                                                                                                                                                                                                                                  | [LaunchConfigurationTemplateResource\*](#list_drs-resource-LaunchConfigurationTemplateResource "#list_drs-resource-LaunchConfigurationTemplateResource")                | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [UpdateRecoveryPlan](../../../drs/latest/APIReference/API_UpdateRecoveryPlan.md "../../../drs/latest/APIReference/API_UpdateRecoveryPlan.md")                                                                      | Grants permission to update a recovery plan                                                                                                                                                                                                                                                                                                                                                                                                       | [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource "#list_drs-resource-RecoveryPlanResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [UpdateRecoveryPlanExecutionStep](../../../drs/latest/APIReference/API_UpdateRecoveryPlanExecutionStep.md "../../../drs/latest/APIReference/API_UpdateRecoveryPlanExecutionStep.md")                               | Grants permission to update a recovery plan execution step                                                                                                                                                                                                                                                                                                                                                                                        | [RecoveryPlanExecutionResource\*](#list_drs-resource-RecoveryPlanExecutionResource "#list_drs-resource-RecoveryPlanExecutionResource")                                  | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [UpdateRecoveryPlanStep](../../../drs/latest/APIReference/API_UpdateRecoveryPlanStep.md "../../../drs/latest/APIReference/API_UpdateRecoveryPlanStep.md")                                                          | Grants permission to update a recovery plan step                                                                                                                                                                                                                                                                                                                                                                                                  | [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource "#list_drs-resource-RecoveryPlanResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [UpdateReplicationConfiguration](../../../drs/latest/APIReference/API_UpdateReplicationConfiguration.md "../../../drs/latest/APIReference/API_UpdateReplicationConfiguration.md")                                  | Grants permission to update replication configuration                                                                                                                                                                                                                                                                                                                                                                                             | [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
-| [UpdateReplicationConfigurationTemplate](../../../drs/latest/APIReference/API_UpdateReplicationConfigurationTemplate.md "../../../drs/latest/APIReference/API_UpdateReplicationConfigurationTemplate.md")          | Grants permission to update replication configuration template                                                                                                                                                                                                                                                                                                                                                                                    | [ReplicationConfigurationTemplateResource\*](#list_drs-resource-ReplicationConfigurationTemplateResource "#list_drs-resource-ReplicationConfigurationTemplateResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                             | Write          |
+
+
+
+- **   [AssociateSourceNetworkStack](https://docs.aws.amazon.com/drs/latest/APIReference/API_AssociateSourceNetworkStack.html)  **
+  - **Description:** Grants permission to associate CloudFormation stack with source network
+  - **Resource types (\*required):** [SourceNetworkResource\*](#list_drs-resource-SourceNetworkResource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CancelRecoveryPlanExecution](https://docs.aws.amazon.com/drs/latest/APIReference/API_CancelRecoveryPlanExecution.html)  **
+  - **Description:** Grants permission to cancel a recovery plan execution
+  - **Resource types (\*required):** [RecoveryPlanExecutionResource\*](#list_drs-resource-RecoveryPlanExecutionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateExtendedSourceServer](https://docs.aws.amazon.com/drs/latest/APIReference/API_CreateExtendedSourceServer.html)  **
+  - **Description:** Grants permission to extend a source server
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateLaunchConfigurationTemplate](https://docs.aws.amazon.com/drs/latest/APIReference/API_CreateLaunchConfigurationTemplate.html)  **
+  - **Description:** Grants permission to create launch configuration template
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRecoveryPlan](https://docs.aws.amazon.com/drs/latest/APIReference/API_CreateRecoveryPlan.html)  **
+  - **Description:** Grants permission to create a recovery plan
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRecoveryPlanStep](https://docs.aws.amazon.com/drs/latest/APIReference/API_CreateRecoveryPlanStep.html)  **
+  - **Description:** Grants permission to create a step in a recovery plan
+  - **Resource types (\*required):** [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateReplicationConfigurationTemplate](https://docs.aws.amazon.com/drs/latest/APIReference/API_CreateReplicationConfigurationTemplate.html)  **
+  - **Description:** Grants permission to create replication configuration template
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateSourceNetwork](https://docs.aws.amazon.com/drs/latest/APIReference/API_CreateSourceNetwork.html)  **
+  - **Description:** Grants permission to create a source network
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteJob](https://docs.aws.amazon.com/drs/latest/APIReference/API_DeleteJob.html)  **
+  - **Description:** Grants permission to delete a job
+  - **Resource types (\*required):** [JobResource\*](#list_drs-resource-JobResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteLaunchAction](https://docs.aws.amazon.com/drs/latest/APIReference/API_DeleteLaunchAction.html)  **
+  - **Description:** Grants permission to delete a launch action
+  - **Resource types (\*required):** [LaunchConfigurationTemplateResource](#list_drs-resource-LaunchConfigurationTemplateResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [SourceServerResource](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteLaunchConfigurationTemplate](https://docs.aws.amazon.com/drs/latest/APIReference/API_DeleteLaunchConfigurationTemplate.html)  **
+  - **Description:** Grants permission to delete launch configuration template
+  - **Resource types (\*required):** [LaunchConfigurationTemplateResource\*](#list_drs-resource-LaunchConfigurationTemplateResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRecoveryInstance](https://docs.aws.amazon.com/drs/latest/APIReference/API_DeleteRecoveryInstance.html)  **
+  - **Description:** Grants permission to delete recovery instance
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Write
+
+- **   [DeleteRecoveryPlan](https://docs.aws.amazon.com/drs/latest/APIReference/API_DeleteRecoveryPlan.html)  **
+  - **Description:** Grants permission to delete a recovery plan
+  - **Resource types (\*required):** [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRecoveryPlanExecution](https://docs.aws.amazon.com/drs/latest/APIReference/API_DeleteRecoveryPlanExecution.html)  **
+  - **Description:** Grants permission to delete a recovery plan execution
+  - **Resource types (\*required):** [RecoveryPlanExecutionResource\*](#list_drs-resource-RecoveryPlanExecutionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRecoveryPlanStep](https://docs.aws.amazon.com/drs/latest/APIReference/API_DeleteRecoveryPlanStep.html)  **
+  - **Description:** Grants permission to delete a recovery plan step
+  - **Resource types (\*required):** [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteReplicationConfigurationTemplate](https://docs.aws.amazon.com/drs/latest/APIReference/API_DeleteReplicationConfigurationTemplate.html)  **
+  - **Description:** Grants permission to delete replication configuration template
+  - **Resource types (\*required):** [ReplicationConfigurationTemplateResource\*](#list_drs-resource-ReplicationConfigurationTemplateResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteSourceNetwork](https://docs.aws.amazon.com/drs/latest/APIReference/API_DeleteSourceNetwork.html)  **
+  - **Description:** Grants permission to delete source network
+  - **Resource types (\*required):** [SourceNetworkResource\*](#list_drs-resource-SourceNetworkResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteSourceServer](https://docs.aws.amazon.com/drs/latest/APIReference/API_DeleteSourceServer.html)  **
+  - **Description:** Grants permission to delete source server
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeJobLogItems](https://docs.aws.amazon.com/drs/latest/APIReference/API_DescribeJobLogItems.html)  **
+  - **Description:** Grants permission to describe job log items
+  - **Resource types (\*required):** [JobResource\*](#list_drs-resource-JobResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeJobs](https://docs.aws.amazon.com/drs/latest/APIReference/API_DescribeJobs.html)  **
+  - **Description:** Grants permission to describe jobs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeLaunchConfigurationTemplates](https://docs.aws.amazon.com/drs/latest/APIReference/API_DescribeLaunchConfigurationTemplates.html)  **
+  - **Description:** Grants permission to describe launch configuration template
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeRecoveryInstances](https://docs.aws.amazon.com/drs/latest/APIReference/API_DescribeRecoveryInstances.html)  **
+  - **Description:** Grants permission to describe recovery instances
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeRecoverySnapshots](https://docs.aws.amazon.com/drs/latest/APIReference/API_DescribeRecoverySnapshots.html)  **
+  - **Description:** Grants permission to describe recovery snapshots
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeReplicationConfigurationTemplates](https://docs.aws.amazon.com/drs/latest/APIReference/API_DescribeReplicationConfigurationTemplates.html)  **
+  - **Description:** Grants permission to describe replication configuration template
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeSourceNetworks](https://docs.aws.amazon.com/drs/latest/APIReference/API_DescribeSourceNetworks.html)  **
+  - **Description:** Grants permission to describe source networks
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeSourceServers](https://docs.aws.amazon.com/drs/latest/APIReference/API_DescribeSourceServers.html)  **
+  - **Description:** Grants permission to describe source servers
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DisconnectRecoveryInstance](https://docs.aws.amazon.com/drs/latest/APIReference/API_DisconnectRecoveryInstance.html)  **
+  - **Description:** Grants permission to disconnect recovery instance
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Write
+
+- **   [DisconnectSourceServer](https://docs.aws.amazon.com/drs/latest/APIReference/API_DisconnectSourceServer.html)  **
+  - **Description:** Grants permission to disconnect source server
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ExportSourceNetworkCfnTemplate](https://docs.aws.amazon.com/drs/latest/APIReference/API_ExportSourceNetworkCfnTemplate.html)  **
+  - **Description:** Grants permission to export CloudFormation template which contains source network resources
+  - **Resource types (\*required):** [SourceNetworkResource\*](#list_drs-resource-SourceNetworkResource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [GetFailbackReplicationConfiguration](https://docs.aws.amazon.com/drs/latest/APIReference/API_GetFailbackReplicationConfiguration.html)  **
+  - **Description:** Grants permission to get failback replication configuration
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Read
+
+- **   [GetLaunchConfiguration](https://docs.aws.amazon.com/drs/latest/APIReference/API_GetLaunchConfiguration.html)  **
+  - **Description:** Grants permission to get launch configuration
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRecoveryPlan](https://docs.aws.amazon.com/drs/latest/APIReference/API_GetRecoveryPlan.html)  **
+  - **Description:** Grants permission to get a recovery plan
+  - **Resource types (\*required):** [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRecoveryPlanExecution](https://docs.aws.amazon.com/drs/latest/APIReference/API_GetRecoveryPlanExecution.html)  **
+  - **Description:** Grants permission to get a recovery plan execution
+  - **Resource types (\*required):** [RecoveryPlanExecutionResource\*](#list_drs-resource-RecoveryPlanExecutionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRecoveryPlanExecutionStep](https://docs.aws.amazon.com/drs/latest/APIReference/API_GetRecoveryPlanExecutionStep.html)  **
+  - **Description:** Grants permission to get a recovery plan execution step
+  - **Resource types (\*required):** [RecoveryPlanExecutionResource\*](#list_drs-resource-RecoveryPlanExecutionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRecoveryPlanStep](https://docs.aws.amazon.com/drs/latest/APIReference/API_GetRecoveryPlanStep.html)  **
+  - **Description:** Grants permission to get a recovery plan step
+  - **Resource types (\*required):** [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetReplicationConfiguration](https://docs.aws.amazon.com/drs/latest/APIReference/API_GetReplicationConfiguration.html)  **
+  - **Description:** Grants permission to get replication configuration
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [InitializeService](https://docs.aws.amazon.com/drs/latest/APIReference/API_InitializeService.html)  **
+  - **Description:** Grants permission to initialize service
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ListExtensibleSourceServers](https://docs.aws.amazon.com/drs/latest/APIReference/API_ListExtensibleSourceServers.html)  **
+  - **Description:** Grants permission to list extensible source servers
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListLaunchActions](https://docs.aws.amazon.com/drs/latest/APIReference/API_ListLaunchActions.html)  **
+  - **Description:** Grants permission to list launch actions
+  - **Resource types (\*required):** [LaunchConfigurationTemplateResource](#list_drs-resource-LaunchConfigurationTemplateResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [SourceServerResource](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListRecoveryPlanExecutionSteps](https://docs.aws.amazon.com/drs/latest/APIReference/API_ListRecoveryPlanExecutionSteps.html)  **
+  - **Description:** Grants permission to list recovery plan execution steps
+  - **Resource types (\*required):** [RecoveryPlanExecutionResource\*](#list_drs-resource-RecoveryPlanExecutionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListRecoveryPlanExecutions](https://docs.aws.amazon.com/drs/latest/APIReference/API_ListRecoveryPlanExecutions.html)  **
+  - **Description:** Grants permission to list recovery plan executions
+  - **Resource types (\*required):** [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListRecoveryPlanSteps](https://docs.aws.amazon.com/drs/latest/APIReference/API_ListRecoveryPlanSteps.html)  **
+  - **Description:** Grants permission to list recovery plan steps
+  - **Resource types (\*required):** [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListRecoveryPlans](https://docs.aws.amazon.com/drs/latest/APIReference/API_ListRecoveryPlans.html)  **
+  - **Description:** Grants permission to list recovery plans
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListStagingAccounts](https://docs.aws.amazon.com/drs/latest/APIReference/API_ListStagingAccounts.html)  **
+  - **Description:** Grants permission to list staging accounts
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/drs/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for a resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [PutLaunchAction](https://docs.aws.amazon.com/drs/latest/APIReference/API_PutLaunchAction.html)  **
+  - **Description:** Grants permission to put a launch action
+  - **Resource types (\*required):** [LaunchConfigurationTemplateResource](#list_drs-resource-LaunchConfigurationTemplateResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [SourceServerResource](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ReorderRecoveryPlanSteps](https://docs.aws.amazon.com/drs/latest/APIReference/API_ReorderRecoveryPlanSteps.html)  **
+  - **Description:** Grants permission to reorder steps in a recovery plan
+  - **Resource types (\*required):** [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RetryDataReplication](https://docs.aws.amazon.com/drs/latest/APIReference/API_RetryDataReplication.html)  **
+  - **Description:** Grants permission to retry data replication
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RetryRecoveryPlanExecutionStep](https://docs.aws.amazon.com/drs/latest/APIReference/API_RetryRecoveryPlanExecutionStep.html)  **
+  - **Description:** Grants permission to retry a recovery plan execution step
+  - **Resource types (\*required):** [RecoveryPlanExecutionResource\*](#list_drs-resource-RecoveryPlanExecutionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ReverseReplication](https://docs.aws.amazon.com/drs/latest/APIReference/API_ReverseReplication.html)  **
+  - **Description:** Grants permission to reverse replication
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Write
+
+- **   [StartFailbackLaunch](https://docs.aws.amazon.com/drs/latest/APIReference/API_StartFailbackLaunch.html)  **
+  - **Description:** Grants permission to start failback launch
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Write
+
+- **   [StartRecovery](https://docs.aws.amazon.com/drs/latest/APIReference/API_StartRecovery.html)  **
+  - **Description:** Grants permission to start recovery
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [StartRecoveryPlanExecution](https://docs.aws.amazon.com/drs/latest/APIReference/API_StartRecoveryPlanExecution.html)  **
+  - **Description:** Grants permission to start a recovery plan execution
+  - **Resource types (\*required):** [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [StartReplication](https://docs.aws.amazon.com/drs/latest/APIReference/API_StartReplication.html)  **
+  - **Description:** Grants permission to start replication
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartSourceNetworkRecovery](https://docs.aws.amazon.com/drs/latest/APIReference/API_StartSourceNetworkRecovery.html)  **
+  - **Description:** Grants permission to start network recovery
+  - **Resource types (\*required):** [SourceNetworkResource\*](#list_drs-resource-SourceNetworkResource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [StartSourceNetworkReplication](https://docs.aws.amazon.com/drs/latest/APIReference/API_StartSourceNetworkReplication.html)  **
+  - **Description:** Grants permission to start network replication
+  - **Resource types (\*required):** [SourceNetworkResource\*](#list_drs-resource-SourceNetworkResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopFailback](https://docs.aws.amazon.com/drs/latest/APIReference/API_StopFailback.html)  **
+  - **Description:** Grants permission to stop failback
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Write
+
+- **   [StopReplication](https://docs.aws.amazon.com/drs/latest/APIReference/API_StopReplication.html)  **
+  - **Description:** Grants permission to stop replication
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopSourceNetworkReplication](https://docs.aws.amazon.com/drs/latest/APIReference/API_StopSourceNetworkReplication.html)  **
+  - **Description:** Grants permission to stop network replication
+  - **Resource types (\*required):** [SourceNetworkResource\*](#list_drs-resource-SourceNetworkResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/drs/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to assign a resource tag
+  - **Resource types (\*required):** [JobResource](#list_drs-resource-JobResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)<br />[drs:CreateAction](#list_drs-drs_CreateAction)
+  - **Resource types (\*required):** [LaunchConfigurationTemplateResource](#list_drs-resource-LaunchConfigurationTemplateResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)<br />[drs:CreateAction](#list_drs-drs_CreateAction)
+  - **Resource types (\*required):** [RecoveryInstanceResource](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)<br />[drs:CreateAction](#list_drs-drs_CreateAction)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [RecoveryPlanExecutionResource](#list_drs-resource-RecoveryPlanExecutionResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)<br />[drs:CreateAction](#list_drs-drs_CreateAction)
+  - **Resource types (\*required):** [RecoveryPlanResource](#list_drs-resource-RecoveryPlanResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)<br />[drs:CreateAction](#list_drs-drs_CreateAction)
+  - **Resource types (\*required):** [ReplicationConfigurationTemplateResource](#list_drs-resource-ReplicationConfigurationTemplateResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)<br />[drs:CreateAction](#list_drs-drs_CreateAction)
+  - **Resource types (\*required):** [SourceNetworkResource](#list_drs-resource-SourceNetworkResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)<br />[drs:CreateAction](#list_drs-drs_CreateAction)
+  - **Resource types (\*required):** [SourceServerResource](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)<br />[drs:CreateAction](#list_drs-drs_CreateAction)
+  - **Access level:** Tagging, Write
+
+- **   [TerminateRecoveryInstances](https://docs.aws.amazon.com/drs/latest/APIReference/API_TerminateRecoveryInstances.html)  **
+  - **Description:** Grants permission to terminate recovery instances
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/drs/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag a resource
+  - **Resource types (\*required):** [JobResource](#list_drs-resource-JobResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Resource types (\*required):** [LaunchConfigurationTemplateResource](#list_drs-resource-LaunchConfigurationTemplateResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Resource types (\*required):** [RecoveryInstanceResource](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [RecoveryPlanExecutionResource](#list_drs-resource-RecoveryPlanExecutionResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Resource types (\*required):** [RecoveryPlanResource](#list_drs-resource-RecoveryPlanResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Resource types (\*required):** [ReplicationConfigurationTemplateResource](#list_drs-resource-ReplicationConfigurationTemplateResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Resource types (\*required):** [SourceNetworkResource](#list_drs-resource-SourceNetworkResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Resource types (\*required):** [SourceServerResource](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateFailbackReplicationConfiguration](https://docs.aws.amazon.com/drs/latest/APIReference/API_UpdateFailbackReplicationConfiguration.html)  **
+  - **Description:** Grants permission to update failback replication configuration
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Write
+
+- **   [UpdateLaunchConfiguration](https://docs.aws.amazon.com/drs/latest/APIReference/API_UpdateLaunchConfiguration.html)  **
+  - **Description:** Grants permission to update launch configuration
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateLaunchConfigurationTemplate](https://docs.aws.amazon.com/drs/latest/APIReference/API_UpdateLaunchConfigurationTemplate.html)  **
+  - **Description:** Grants permission to update launch configuration
+  - **Resource types (\*required):** [LaunchConfigurationTemplateResource\*](#list_drs-resource-LaunchConfigurationTemplateResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRecoveryPlan](https://docs.aws.amazon.com/drs/latest/APIReference/API_UpdateRecoveryPlan.html)  **
+  - **Description:** Grants permission to update a recovery plan
+  - **Resource types (\*required):** [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRecoveryPlanExecutionStep](https://docs.aws.amazon.com/drs/latest/APIReference/API_UpdateRecoveryPlanExecutionStep.html)  **
+  - **Description:** Grants permission to update a recovery plan execution step
+  - **Resource types (\*required):** [RecoveryPlanExecutionResource\*](#list_drs-resource-RecoveryPlanExecutionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRecoveryPlanStep](https://docs.aws.amazon.com/drs/latest/APIReference/API_UpdateRecoveryPlanStep.html)  **
+  - **Description:** Grants permission to update a recovery plan step
+  - **Resource types (\*required):** [RecoveryPlanResource\*](#list_drs-resource-RecoveryPlanResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateReplicationConfiguration](https://docs.aws.amazon.com/drs/latest/APIReference/API_UpdateReplicationConfiguration.html)  **
+  - **Description:** Grants permission to update replication configuration
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateReplicationConfigurationTemplate](https://docs.aws.amazon.com/drs/latest/APIReference/API_UpdateReplicationConfigurationTemplate.html)  **
+  - **Description:** Grants permission to update replication configuration template
+  - **Resource types (\*required):** [ReplicationConfigurationTemplateResource\*](#list_drs-resource-ReplicationConfigurationTemplateResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for AWS Elastic Disaster Recovery
+<a name="list_drs-permission-only-actions"></a>
 
-The following actions are defined by AWS Elastic Disaster Recovery but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by AWS Elastic Disaster Recovery but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                  | Description                                                                                            | Resource types (\*required)                                                                                             | Condition keys                                                                                                                                                                                                                                                                | Access level |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [AssociateFailbackClientToRecoveryInstanceForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md") | Grants permission to get associate failback client to recovery instance                                | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [BatchCreateVolumeSnapshotGroupForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")            | Grants permission to batch create volume snapshot group                                                | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [BatchDeleteSnapshotRequestForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                | Grants permission to batch delete snapshot request                                                     |                                                                                                                         |                                                                                                                                                                                                                                                                               | Write        |
-| [CreateConvertedSnapshotForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                   | Grants permission to create converted snapshot                                                         | [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")             | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys") | Write        |
-| [CreateRecoveryInstanceForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                    | Grants permission to create recovery instance                                                          | [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")             | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys") | Write        |
-| [CreateSourceServerForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                        | Grants permission to create a source server                                                            |                                                                                                                         | [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_ "#list_drs-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_drs-aws_TagKeys "#list_drs-aws_TagKeys")                                                                                                           | Write        |
-| [DescribeReplicationServerAssociationsForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")     | Grants permission to describe replication server associations                                          |                                                                                                                         |                                                                                                                                                                                                                                                                               | Read         |
-| [DescribeSnapshotRequestsForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                  | Grants permission to describe snapshot requests                                                        |                                                                                                                         |                                                                                                                                                                                                                                                                               | Read         |
-| [GetAgentCommandForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                           | Grants permission to get agent command                                                                 | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Read         |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [GetAgentConfirmedResumeInfoForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")               | Grants permission to get agent confirmed resume info                                                   | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Read         |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [GetAgentInstallationAssetsForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                | Grants permission to get agent installation assets                                                     |                                                                                                                         |                                                                                                                                                                                                                                                                               | Read         |
-| [GetAgentReplicationInfoForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                   | Grants permission to get agent replication info                                                        | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Read         |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [GetAgentRuntimeConfigurationForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")              | Grants permission to get agent runtime configuration                                                   | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Read         |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [GetAgentSnapshotCreditsForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                   | Grants permission to get agent snapshot credits                                                        | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Read         |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [GetChannelCommandsForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                        | Grants permission to get channel commands                                                              |                                                                                                                         |                                                                                                                                                                                                                                                                               | Read         |
-| [GetFailbackCommandForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                        | Grants permission to get failback command                                                              | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Read         |
-| [GetFailbackLaunchRequestedForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                | Grants permission to get failback launch requested                                                     | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Read         |
-| [GetSuggestedFailbackClientDeviceMappingForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")   | Grants permission to get suggested failback client device mapping                                      | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Read         |
-| [IssueAgentCertificateForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                     | Grants permission to issue an agent certificate                                                        | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [NotifyAgentAuthenticationForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                 | Grants permission to notify agent authentication                                                       | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [NotifyAgentConnectedForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                      | Grants permission to notify agent is connected                                                         | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [NotifyAgentDisconnectedForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                   | Grants permission to notify agent is disconnected                                                      | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [NotifyAgentReplicationProgressForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")            | Grants permission to notify agent replication progress                                                 | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [NotifyConsistencyAttainedForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                 | Grants permission to notify consistency attained                                                       | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [NotifyReplicationServerAuthenticationForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")     | Grants permission to notify replication server authentication                                          | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [NotifyVolumeEventForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                         | Grants permission to notify replicator volume events                                                   | [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write        |
-| [SendAgentLogsForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                             | Grants permission to send agent logs                                                                   | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [SendAgentMetricsForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                          | Grants permission to send agent metrics                                                                | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [SendChannelCommandResultForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                  | Grants permission to send channel command result                                                       |                                                                                                                         |                                                                                                                                                                                                                                                                               | Write        |
-| [SendClientLogsForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                            | Grants permission to send client logs                                                                  |                                                                                                                         |                                                                                                                                                                                                                                                                               | Write        |
-| [SendClientMetricsForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                         | Grants permission to send client metrics                                                               |                                                                                                                         |                                                                                                                                                                                                                                                                               | Write        |
-| [SendVolumeStatsForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                           | Grants permission to send volume throughput statistics                                                 | [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write        |
-| [UpdateAgentBacklogForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                        | Grants permission to update agent backlog                                                              | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [UpdateAgentConversionInfoForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                 | Grants permission to update agent conversion info                                                      | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [UpdateAgentReplicationInfoForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")                | Grants permission to update agent replication info                                                     | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [UpdateAgentReplicationProcessStateForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")        | Grants permission to update agent replication process state                                            | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [UpdateAgentSourcePropertiesForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")               | Grants permission to update agent source properties                                                    | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [SourceServerResource\*](#list_drs-resource-SourceServerResource "#list_drs-resource-SourceServerResource")                              | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_") |
-| [UpdateFailbackClientDeviceMappingForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")         | Grants permission to update failback client device mapping                                             | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [UpdateFailbackClientLastSeenForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")              | Grants permission to update failback client last seen                                                  | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
-| [UpdateReplicationCertificateForDrs](../../../drs/latest/userguide/drs-apis.md "../../../drs/latest/userguide/drs-apis.md")              | Grants permission to update a replication certificate                                                  | [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource "#list_drs-resource-RecoveryInstanceResource") | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN")                                                                                   | Write        |
+
+
+
+- **   [AssociateFailbackClientToRecoveryInstanceForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to get associate failback client to recovery instance
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Write
+
+- **   [BatchCreateVolumeSnapshotGroupForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to batch create volume snapshot group
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDeleteSnapshotRequestForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to batch delete snapshot request
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateConvertedSnapshotForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to create converted snapshot
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRecoveryInstanceForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to create recovery instance
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateSourceServerForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to create a source server
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_drs-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_drs-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DescribeReplicationServerAssociationsForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to describe replication server associations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeSnapshotRequestsForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to describe snapshot requests
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAgentCommandForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to get agent command
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAgentConfirmedResumeInfoForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to get agent confirmed resume info
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAgentInstallationAssetsForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to get agent installation assets
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAgentReplicationInfoForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to get agent replication info
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAgentRuntimeConfigurationForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to get agent runtime configuration
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAgentSnapshotCreditsForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to get agent snapshot credits
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetChannelCommandsForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to get channel commands
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetFailbackCommandForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to get failback command
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Read
+
+- **   [GetFailbackLaunchRequestedForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to get failback launch requested
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Read
+
+- **   [GetSuggestedFailbackClientDeviceMappingForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to get suggested failback client device mapping
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Read
+
+- **   [IssueAgentCertificateForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to issue an agent certificate
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [NotifyAgentAuthenticationForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to notify agent authentication
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [NotifyAgentConnectedForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to notify agent is connected
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [NotifyAgentDisconnectedForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to notify agent is disconnected
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [NotifyAgentReplicationProgressForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to notify agent replication progress
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [NotifyConsistencyAttainedForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to notify consistency attained
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Write
+
+- **   [NotifyReplicationServerAuthenticationForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to notify replication server authentication
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Write
+
+- **   [NotifyVolumeEventForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to notify replicator volume events
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SendAgentLogsForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to send agent logs
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SendAgentMetricsForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to send agent metrics
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SendChannelCommandResultForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to send channel command result
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SendClientLogsForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to send client logs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SendClientMetricsForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to send client metrics
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SendVolumeStatsForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to send volume throughput statistics
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAgentBacklogForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to update agent backlog
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAgentConversionInfoForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to update agent conversion info
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAgentReplicationInfoForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to update agent replication info
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAgentReplicationProcessStateForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to update agent replication process state
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAgentSourcePropertiesForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to update agent source properties
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_drs-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateFailbackClientDeviceMappingForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to update failback client device mapping
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Write
+
+- **   [UpdateFailbackClientLastSeenForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to update failback client last seen
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Write
+
+- **   [UpdateReplicationCertificateForDrs](https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html)  **
+  - **Description:** Grants permission to update a replication certificate
+  - **Resource types (\*required):** [RecoveryInstanceResource\*](#list_drs-resource-RecoveryInstanceResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS Elastic Disaster Recovery
+<a name="list_drs-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                              | ARN                                                                                                                | Condition keys                                                                                                                                                                              |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [JobResource](../../../drs/latest/userguide/failback-overview.md "../../../drs/latest/userguide/failback-overview.md")                                                      | arn:${Partition}:drs:${Region}:${Account}:job/${JobID}                                                             | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                      |
-| [LaunchConfigurationTemplateResource](../../../drs/latest/userguide/default-drs-launch-settings.md "../../../drs/latest/userguide/default-drs-launch-settings.md")          | arn:${Partition}:drs:${Region}:${Account}:launch-configuration-template/${LaunchConfigurationTemplateID}           | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                      |
-| [RecoveryInstanceResource](../../../drs/latest/userguide/recovery-instances.md "../../../drs/latest/userguide/recovery-instances.md")                                       | arn:${Partition}:drs:${Region}:${Account}:recovery-instance/${RecoveryInstanceID}                                  | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")<br>[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN "#list_drs-drs_EC2InstanceARN") |
-| [RecoveryPlanExecutionResource](../../../drs/latest/userguide/recovery-plan-execution.md "../../../drs/latest/userguide/recovery-plan-execution.md")                        | arn:${Partition}:drs:${Region}:${Account}:recovery-plan-execution/${RecoveryPlanExecutionID}                       | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                      |
-| [RecoveryPlanResource](../../../drs/latest/userguide/recovery-plan.md "../../../drs/latest/userguide/recovery-plan.md")                                                     | arn:${Partition}:drs:${Region}:${Account}:recovery-plan/${RecoveryPlanID}                                          | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                      |
-| [ReplicationConfigurationTemplateResource](../../../drs/latest/userguide/replication-settings-template.md "../../../drs/latest/userguide/replication-settings-template.md") | arn:${Partition}:drs:${Region}:${Account}:replication-configuration-template/${ReplicationConfigurationTemplateID} | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                      |
-| [SourceNetworkResource](../../../drs/latest/userguide/source-networks.md "../../../drs/latest/userguide/source-networks.md")                                                | arn:${Partition}:drs:${Region}:${Account}:source-network/${SourceNetworkID}                                        | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                      |
-| [SourceServerResource](../../../drs/latest/userguide/source-servers.md "../../../drs/latest/userguide/source-servers.md")                                                   | arn:${Partition}:drs:${Region}:${Account}:source-server/${SourceServerID}                                          | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_ "#list_drs-aws_ResourceTag___TagKey_")                                                                                      |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [JobResource](https://docs.aws.amazon.com/drs/latest/userguide/failback-overview.html)  | arn:${Partition}:drs:${Region}:${Account}:job/${JobID} | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_) | 
+|  [LaunchConfigurationTemplateResource](https://docs.aws.amazon.com/drs/latest/userguide/default-drs-launch-settings.html)  | arn:${Partition}:drs:${Region}:${Account}:launch-configuration-template/${LaunchConfigurationTemplateID} | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_) | 
+|  [RecoveryInstanceResource](https://docs.aws.amazon.com/drs/latest/userguide/recovery-instances.html)  | arn:${Partition}:drs:${Region}:${Account}:recovery-instance/${RecoveryInstanceID} | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_)<br />[drs:EC2InstanceARN](#list_drs-drs_EC2InstanceARN) | 
+|  [RecoveryPlanExecutionResource](https://docs.aws.amazon.com/drs/latest/userguide/recovery-plan-execution.html)  | arn:${Partition}:drs:${Region}:${Account}:recovery-plan-execution/${RecoveryPlanExecutionID} | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_) | 
+|  [RecoveryPlanResource](https://docs.aws.amazon.com/drs/latest/userguide/recovery-plan.html)  | arn:${Partition}:drs:${Region}:${Account}:recovery-plan/${RecoveryPlanID} | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_) | 
+|  [ReplicationConfigurationTemplateResource](https://docs.aws.amazon.com/drs/latest/userguide/replication-settings-template.html)  | arn:${Partition}:drs:${Region}:${Account}:replication-configuration-template/${ReplicationConfigurationTemplateID} | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_) | 
+|  [SourceNetworkResource](https://docs.aws.amazon.com/drs/latest/userguide/source-networks.html)  | arn:${Partition}:drs:${Region}:${Account}:source-network/${SourceNetworkID} | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_) | 
+|  [SourceServerResource](https://docs.aws.amazon.com/drs/latest/userguide/source-servers.html)  | arn:${Partition}:drs:${Region}:${Account}:source-server/${SourceServerID} | [aws:ResourceTag/${TagKey}](#list_drs-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Elastic Disaster Recovery
+<a name="list_drs-policy-keys"></a>
 
-AWS Elastic Disaster Recovery defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Elastic Disaster Recovery defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                          | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the presence of tag key-value pairs in the request | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by tag key-value pairs attached to the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the presence of tag keys in the request            | ArrayOfString |
-| [drs:CreateAction](../../../drs/latest/userguide/supported-iam-actions-tagging.md "../../../drs/latest/userguide/supported-iam-actions-tagging.md")                                                                        | Filters access by the name of a resource-creating API action         | String        |
-| [drs:EC2InstanceARN](../../../drs/latest/userguide/security_iam_authentication.md "../../../drs/latest/userguide/security_iam_authentication.md")                                                                          | Filters access by the EC2 instance the request originated from       | ARN           |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the presence of tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the presence of tag keys in the request | ArrayOfString | 
+|   [drs:CreateAction](https://docs.aws.amazon.com/drs/latest/userguide/supported-iam-actions-tagging.html)  | Filters access by the name of a resource-creating API action | String | 
+|   [drs:EC2InstanceARN](https://docs.aws.amazon.com/drs/latest/userguide/security_iam_authentication.html)  | Filters access by the EC2 instance the request originated from | ARN | 

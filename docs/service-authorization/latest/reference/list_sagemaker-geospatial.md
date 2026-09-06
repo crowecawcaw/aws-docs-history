@@ -1,113 +1,287 @@
-# Actions, resources, and condition keys for Amazon SageMaker geospatial capabilities
 
-Amazon SageMaker geospatial capabilities (service prefix: `sagemaker-geospatial`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon SageMaker geospatial capabilities
+<a name="list_sagemaker-geospatial"></a>
+
+Amazon SageMaker geospatial capabilities (service prefix: `sagemaker-geospatial`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/sagemaker/latest/dg/geospatial.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Operations_Amazon_SageMaker_geospatial_capabilities.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/sagemaker-geospatial/sagemaker-geospatial.json) for this service.
 
-- Learn how to [configure this service](../../../sagemaker/latest/dg/geospatial.md "../../../sagemaker/latest/dg/geospatial.md").
-- View a list of the [API operations available for
-  this service](../../../sagemaker/latest/APIReference/API_Operations_Amazon_SageMaker_geospatial_capabilities.md "../../../sagemaker/latest/APIReference/API_Operations_Amazon_SageMaker_geospatial_capabilities.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../sagemaker/latest/dg/security-iam.md "../../../sagemaker/latest/dg/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/sagemaker-geospatial/sagemaker-geospatial.json "https://servicereference.us-east-1.amazonaws.com/v1/sagemaker-geospatial/sagemaker-geospatial.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon SageMaker geospatial capabilities](#list_sagemaker-geospatial-operations "#list_sagemaker-geospatial-operations")
-- [Actions defined by Amazon SageMaker geospatial capabilities](#list_sagemaker-geospatial-actions-as-permissions "#list_sagemaker-geospatial-actions-as-permissions")
-- [Resource types defined by Amazon SageMaker geospatial capabilities](#list_sagemaker-geospatial-resources-for-iam-policies "#list_sagemaker-geospatial-resources-for-iam-policies")
-- [Condition keys for Amazon SageMaker geospatial capabilities](#list_sagemaker-geospatial-policy-keys "#list_sagemaker-geospatial-policy-keys")
+**Topics**
++ [API operations defined by Amazon SageMaker geospatial capabilities](#list_sagemaker-geospatial-operations)
++ [Actions defined by Amazon SageMaker geospatial capabilities](#list_sagemaker-geospatial-actions-as-permissions)
++ [Resource types defined by Amazon SageMaker geospatial capabilities](#list_sagemaker-geospatial-resources-for-iam-policies)
++ [Condition keys for Amazon SageMaker geospatial capabilities](#list_sagemaker-geospatial-policy-keys)
 
 ## API operations defined by Amazon SageMaker geospatial capabilities
+<a name="list_sagemaker-geospatial-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_sagemaker-geospatial-actions-as-permissions "#list_sagemaker-geospatial-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_sagemaker-geospatial-actions-as-permissions).
 
-| Operation                                                                                                                         | IAM action                                                                                                                                                                     | Condition key                      | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------- | ----------------- | -------------- |
-| DeleteEarthObservationJob                                                                                                         | [sagemaker-geospatial:DeleteEarthObservationJob](#list_sagemaker-geospatial-action-DeleteEarthObservationJob "#list_sagemaker-geospatial-action-DeleteEarthObservationJob")    |                                    |                   | Write          |
-| DeleteVectorEnrichmentJob                                                                                                         | [sagemaker-geospatial:DeleteVectorEnrichmentJob](#list_sagemaker-geospatial-action-DeleteVectorEnrichmentJob "#list_sagemaker-geospatial-action-DeleteVectorEnrichmentJob")    |                                    |                   | Write          |
-| ExportEarthObservationJob                                                                                                         | [sagemaker-geospatial:ExportEarthObservationJob](#list_sagemaker-geospatial-action-ExportEarthObservationJob "#list_sagemaker-geospatial-action-ExportEarthObservationJob")    |                                    |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")   | iam:PassedToService                                                                                                                                                            | sagemaker-geospatial.amazonaws.com | Write             |
-| ExportVectorEnrichmentJob                                                                                                         | [sagemaker-geospatial:ExportVectorEnrichmentJob](#list_sagemaker-geospatial-action-ExportVectorEnrichmentJob "#list_sagemaker-geospatial-action-ExportVectorEnrichmentJob")    |                                    |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")   | iam:PassedToService                                                                                                                                                            | sagemaker-geospatial.amazonaws.com | Write             |
-| GetEarthObservationJob                                                                                                            | [sagemaker-geospatial:GetEarthObservationJob](#list_sagemaker-geospatial-action-GetEarthObservationJob "#list_sagemaker-geospatial-action-GetEarthObservationJob")             |                                    |                   | Read           |
-| GetRasterDataCollection                                                                                                           | [sagemaker-geospatial:GetRasterDataCollection](#list_sagemaker-geospatial-action-GetRasterDataCollection "#list_sagemaker-geospatial-action-GetRasterDataCollection")          |                                    |                   | Read           |
-| GetTile                                                                                                                           | [sagemaker-geospatial:GetTile](#list_sagemaker-geospatial-action-GetTile "#list_sagemaker-geospatial-action-GetTile")                                                          |                                    |                   | Read           |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")   | iam:PassedToService                                                                                                                                                            | sagemaker-geospatial.amazonaws.com | Write             |
-| GetVectorEnrichmentJob                                                                                                            | [sagemaker-geospatial:GetVectorEnrichmentJob](#list_sagemaker-geospatial-action-GetVectorEnrichmentJob "#list_sagemaker-geospatial-action-GetVectorEnrichmentJob")             |                                    |                   | Read           |
-| ListEarthObservationJobs                                                                                                          | [sagemaker-geospatial:ListEarthObservationJobs](#list_sagemaker-geospatial-action-ListEarthObservationJobs "#list_sagemaker-geospatial-action-ListEarthObservationJobs")       |                                    |                   | List           |
-| ListRasterDataCollections                                                                                                         | [sagemaker-geospatial:ListRasterDataCollections](#list_sagemaker-geospatial-action-ListRasterDataCollections "#list_sagemaker-geospatial-action-ListRasterDataCollections")    |                                    |                   | List           |
-| ListTagsForResource                                                                                                               | [sagemaker-geospatial:ListTagsForResource](#list_sagemaker-geospatial-action-ListTagsForResource "#list_sagemaker-geospatial-action-ListTagsForResource")                      |                                    |                   | List           |
-| ListVectorEnrichmentJobs                                                                                                          | [sagemaker-geospatial:ListVectorEnrichmentJobs](#list_sagemaker-geospatial-action-ListVectorEnrichmentJobs "#list_sagemaker-geospatial-action-ListVectorEnrichmentJobs")       |                                    |                   | List           |
-| SearchRasterDataCollection                                                                                                        | [sagemaker-geospatial:SearchRasterDataCollection](#list_sagemaker-geospatial-action-SearchRasterDataCollection "#list_sagemaker-geospatial-action-SearchRasterDataCollection") |                                    |                   | Read           |
-| StartEarthObservationJob                                                                                                          | [sagemaker-geospatial:StartEarthObservationJob](#list_sagemaker-geospatial-action-StartEarthObservationJob "#list_sagemaker-geospatial-action-StartEarthObservationJob")       |                                    |                   | Write          |
-| [sagemaker-geospatial:TagResource](#list_sagemaker-geospatial-action-TagResource "#list_sagemaker-geospatial-action-TagResource") |                                                                                                                                                                                |                                    | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")   | iam:PassedToService                                                                                                                                                            | sagemaker-geospatial.amazonaws.com | Write             |
-| StartVectorEnrichmentJob                                                                                                          | [sagemaker-geospatial:StartVectorEnrichmentJob](#list_sagemaker-geospatial-action-StartVectorEnrichmentJob "#list_sagemaker-geospatial-action-StartVectorEnrichmentJob")       |                                    |                   | Write          |
-| [sagemaker-geospatial:TagResource](#list_sagemaker-geospatial-action-TagResource "#list_sagemaker-geospatial-action-TagResource") |                                                                                                                                                                                |                                    | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")   | iam:PassedToService                                                                                                                                                            | sagemaker-geospatial.amazonaws.com | Write             |
-| StopEarthObservationJob                                                                                                           | [sagemaker-geospatial:StopEarthObservationJob](#list_sagemaker-geospatial-action-StopEarthObservationJob "#list_sagemaker-geospatial-action-StopEarthObservationJob")          |                                    |                   | Write          |
-| StopVectorEnrichmentJob                                                                                                           | [sagemaker-geospatial:StopVectorEnrichmentJob](#list_sagemaker-geospatial-action-StopVectorEnrichmentJob "#list_sagemaker-geospatial-action-StopVectorEnrichmentJob")          |                                    |                   | Write          |
-| TagResource                                                                                                                       | [sagemaker-geospatial:TagResource](#list_sagemaker-geospatial-action-TagResource "#list_sagemaker-geospatial-action-TagResource")                                              |                                    |                   | Tagging, Write |
-| UntagResource                                                                                                                     | [sagemaker-geospatial:UntagResource](#list_sagemaker-geospatial-action-UntagResource "#list_sagemaker-geospatial-action-UntagResource")                                        |                                    |                   | Tagging, Write |
+
+
+
+- **   DeleteEarthObservationJob  **
+  - **IAM action:**  [sagemaker-geospatial:DeleteEarthObservationJob](#list_sagemaker-geospatial-action-DeleteEarthObservationJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVectorEnrichmentJob  **
+  - **IAM action:**  [sagemaker-geospatial:DeleteVectorEnrichmentJob](#list_sagemaker-geospatial-action-DeleteVectorEnrichmentJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ExportEarthObservationJob  **
+  - **IAM action:**  [sagemaker-geospatial:ExportEarthObservationJob](#list_sagemaker-geospatial-action-ExportEarthObservationJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** sagemaker-geospatial.amazonaws.com / **Access level:** Write
+
+- **   ExportVectorEnrichmentJob  **
+  - **IAM action:**  [sagemaker-geospatial:ExportVectorEnrichmentJob](#list_sagemaker-geospatial-action-ExportVectorEnrichmentJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** sagemaker-geospatial.amazonaws.com / **Access level:** Write
+
+- **   GetEarthObservationJob  **
+  - **IAM action:**  [sagemaker-geospatial:GetEarthObservationJob](#list_sagemaker-geospatial-action-GetEarthObservationJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRasterDataCollection  **
+  - **IAM action:**  [sagemaker-geospatial:GetRasterDataCollection](#list_sagemaker-geospatial-action-GetRasterDataCollection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTile  **
+  - **IAM action:**  [sagemaker-geospatial:GetTile](#list_sagemaker-geospatial-action-GetTile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** sagemaker-geospatial.amazonaws.com / **Access level:** Write
+
+- **   GetVectorEnrichmentJob  **
+  - **IAM action:**  [sagemaker-geospatial:GetVectorEnrichmentJob](#list_sagemaker-geospatial-action-GetVectorEnrichmentJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListEarthObservationJobs  **
+  - **IAM action:**  [sagemaker-geospatial:ListEarthObservationJobs](#list_sagemaker-geospatial-action-ListEarthObservationJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRasterDataCollections  **
+  - **IAM action:**  [sagemaker-geospatial:ListRasterDataCollections](#list_sagemaker-geospatial-action-ListRasterDataCollections) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [sagemaker-geospatial:ListTagsForResource](#list_sagemaker-geospatial-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListVectorEnrichmentJobs  **
+  - **IAM action:**  [sagemaker-geospatial:ListVectorEnrichmentJobs](#list_sagemaker-geospatial-action-ListVectorEnrichmentJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   SearchRasterDataCollection  **
+  - **IAM action:**  [sagemaker-geospatial:SearchRasterDataCollection](#list_sagemaker-geospatial-action-SearchRasterDataCollection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartEarthObservationJob  **
+  - **IAM action:**  [sagemaker-geospatial:StartEarthObservationJob](#list_sagemaker-geospatial-action-StartEarthObservationJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [sagemaker-geospatial:TagResource](#list_sagemaker-geospatial-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** sagemaker-geospatial.amazonaws.com / **Access level:** Write
+
+- **   StartVectorEnrichmentJob  **
+  - **IAM action:**  [sagemaker-geospatial:StartVectorEnrichmentJob](#list_sagemaker-geospatial-action-StartVectorEnrichmentJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [sagemaker-geospatial:TagResource](#list_sagemaker-geospatial-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** sagemaker-geospatial.amazonaws.com / **Access level:** Write
+
+- **   StopEarthObservationJob  **
+  - **IAM action:**  [sagemaker-geospatial:StopEarthObservationJob](#list_sagemaker-geospatial-action-StopEarthObservationJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopVectorEnrichmentJob  **
+  - **IAM action:**  [sagemaker-geospatial:StopVectorEnrichmentJob](#list_sagemaker-geospatial-action-StopVectorEnrichmentJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [sagemaker-geospatial:TagResource](#list_sagemaker-geospatial-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [sagemaker-geospatial:UntagResource](#list_sagemaker-geospatial-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+
 
 ## Actions defined by Amazon SageMaker geospatial capabilities
+<a name="list_sagemaker-geospatial-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                 | Description                                                                                                                                                                                                                                                                                                                                                                         | Resource types (\*required)                                                                                                                   | Condition keys                                                                                                                                                                                                                                                                                                                                                                      | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [DeleteEarthObservationJob](../../../sagemaker/latest/APIReference/API_geospatial_DeleteEarthObservationJob.md "../../../sagemaker/latest/APIReference/API_geospatial_DeleteEarthObservationJob.md")    | Grants permission to the DeleteEarthObservationJob operation which deletes an existing earth observation job                                                                                                                                                                                                                                                                        | [EarthObservationJob\*](#list_sagemaker-geospatial-resource-EarthObservationJob "#list_sagemaker-geospatial-resource-EarthObservationJob")    | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Write          |
-| [DeleteVectorEnrichmentJob](../../../sagemaker/latest/APIReference/API_geospatial_DeleteVectorEnrichmentJob.md "../../../sagemaker/latest/APIReference/API_geospatial_DeleteVectorEnrichmentJob.md")    | Grants permission to the DeleteVectorEnrichmentJob operation which deletes an existing vector enrichment job                                                                                                                                                                                                                                                                        | [VectorEnrichmentJob\*](#list_sagemaker-geospatial-resource-VectorEnrichmentJob "#list_sagemaker-geospatial-resource-VectorEnrichmentJob")    | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Write          |
-| [ExportEarthObservationJob](../../../sagemaker/latest/APIReference/API_geospatial_ExportEarthObservationJob.md "../../../sagemaker/latest/APIReference/API_geospatial_ExportEarthObservationJob.md")    | Grants permission to copy results of an earth observation job to an S3 location                                                                                                                                                                                                                                                                                                     | [EarthObservationJob\*](#list_sagemaker-geospatial-resource-EarthObservationJob "#list_sagemaker-geospatial-resource-EarthObservationJob")    | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Write          |
-| [ExportVectorEnrichmentJob](../../../sagemaker/latest/APIReference/API_geospatial_ExportVectorEnrichmentJob.md "../../../sagemaker/latest/APIReference/API_geospatial_ExportVectorEnrichmentJob.md")    | Grants permission to copy results of an VectorEnrichmentJob to an S3 location                                                                                                                                                                                                                                                                                                       | [VectorEnrichmentJob\*](#list_sagemaker-geospatial-resource-VectorEnrichmentJob "#list_sagemaker-geospatial-resource-VectorEnrichmentJob")    | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Write          |
-| [GetEarthObservationJob](../../../sagemaker/latest/APIReference/API_geospatial_GetEarthObservationJob.md "../../../sagemaker/latest/APIReference/API_geospatial_GetEarthObservationJob.md")             | Grants permission to return details about the earth observation job                                                                                                                                                                                                                                                                                                                 | [EarthObservationJob\*](#list_sagemaker-geospatial-resource-EarthObservationJob "#list_sagemaker-geospatial-resource-EarthObservationJob")    | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Read           |
-| [GetRasterDataCollection](../../../sagemaker/latest/APIReference/API_geospatial_GetRasterDataCollection.md "../../../sagemaker/latest/APIReference/API_geospatial_GetRasterDataCollection.md")          | Grants permission to return details about the raster data collection                                                                                                                                                                                                                                                                                                                | [RasterDataCollection\*](#list_sagemaker-geospatial-resource-RasterDataCollection "#list_sagemaker-geospatial-resource-RasterDataCollection") | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Read           |
-| [GetTile](../../../sagemaker/latest/APIReference/API_geospatial_GetTile.md "../../../sagemaker/latest/APIReference/API_geospatial_GetTile.md")                                                          | Grants permission to get the tile of an earth observation job                                                                                                                                                                                                                                                                                                                       | [EarthObservationJob\*](#list_sagemaker-geospatial-resource-EarthObservationJob "#list_sagemaker-geospatial-resource-EarthObservationJob")    | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Read           |
-| [GetVectorEnrichmentJob](../../../sagemaker/latest/APIReference/API_geospatial_GetVectorEnrichmentJob.md "../../../sagemaker/latest/APIReference/API_geospatial_GetVectorEnrichmentJob.md")             | Grants permission to return details about the vector enrichment job                                                                                                                                                                                                                                                                                                                 | [VectorEnrichmentJob\*](#list_sagemaker-geospatial-resource-VectorEnrichmentJob "#list_sagemaker-geospatial-resource-VectorEnrichmentJob")    | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Read           |
-| [ListEarthObservationJobs](../../../sagemaker/latest/APIReference/API_geospatial_ListEarthObservationJobs.md "../../../sagemaker/latest/APIReference/API_geospatial_ListEarthObservationJobs.md")       | Grants permission to return an array of earth observation jobs associated with the current account                                                                                                                                                                                                                                                                                  |                                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListRasterDataCollections](../../../sagemaker/latest/APIReference/API_geospatial_ListRasterDataCollections.md "../../../sagemaker/latest/APIReference/API_geospatial_ListRasterDataCollections.md")    | Grants permission to return an array of aster data collections associated with the given model name                                                                                                                                                                                                                                                                                 |                                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListTagsForResource](../../../sagemaker/latest/APIReference/API_geospatial_ListTagsForResource.md "../../../sagemaker/latest/APIReference/API_geospatial_ListTagsForResource.md")                      | Grants permission to lists tag for an SageMaker Geospatial resource                                                                                                                                                                                                                                                                                                                 | [EarthObservationJob](#list_sagemaker-geospatial-resource-EarthObservationJob "#list_sagemaker-geospatial-resource-EarthObservationJob")      | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | List           |
-| [RasterDataCollection](#list_sagemaker-geospatial-resource-RasterDataCollection "#list_sagemaker-geospatial-resource-RasterDataCollection")                                                             | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            |
-| [VectorEnrichmentJob](#list_sagemaker-geospatial-resource-VectorEnrichmentJob "#list_sagemaker-geospatial-resource-VectorEnrichmentJob")                                                                | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            |
-| [ListVectorEnrichmentJobs](../../../sagemaker/latest/APIReference/API_geospatial_ListVectorEnrichmentJobs.md "../../../sagemaker/latest/APIReference/API_geospatial_ListVectorEnrichmentJobs.md")       | Grants permission to return an array of vector enrichment jobs associated with the current account                                                                                                                                                                                                                                                                                  |                                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                     | List           |
-| [SearchRasterDataCollection](../../../sagemaker/latest/APIReference/API_geospatial_SearchRasterDataCollection.md "../../../sagemaker/latest/APIReference/API_geospatial_SearchRasterDataCollection.md") | Grants permission to query raster data collections                                                                                                                                                                                                                                                                                                                                  |                                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [StartEarthObservationJob](../../../sagemaker/latest/APIReference/API_geospatial_StartEarthObservationJob.md "../../../sagemaker/latest/APIReference/API_geospatial_StartEarthObservationJob.md")       | Grants permission to the StartEarthObservationJob operation which starts a new earth observation job to your account                                                                                                                                                                                                                                                                | [EarthObservationJob\*](#list_sagemaker-geospatial-resource-EarthObservationJob "#list_sagemaker-geospatial-resource-EarthObservationJob")    | [aws:RequestTag/${TagKey}](#list_sagemaker-geospatial-aws_RequestTag___TagKey_ "#list_sagemaker-geospatial-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_sagemaker-geospatial-aws_TagKeys "#list_sagemaker-geospatial-aws_TagKeys") | Write          |
-| [StartVectorEnrichmentJob](../../../sagemaker/latest/APIReference/API_geospatial_StartVectorEnrichmentJob.md "../../../sagemaker/latest/APIReference/API_geospatial_StartVectorEnrichmentJob.md")       | Grants permission to the StartVectorEnrichmentJob operation which starts a new vector enrichment job to your account                                                                                                                                                                                                                                                                | [VectorEnrichmentJob\*](#list_sagemaker-geospatial-resource-VectorEnrichmentJob "#list_sagemaker-geospatial-resource-VectorEnrichmentJob")    | [aws:RequestTag/${TagKey}](#list_sagemaker-geospatial-aws_RequestTag___TagKey_ "#list_sagemaker-geospatial-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_sagemaker-geospatial-aws_TagKeys "#list_sagemaker-geospatial-aws_TagKeys") | Write          |
-| [StopEarthObservationJob](../../../sagemaker/latest/APIReference/API_geospatial_StopEarthObservationJob.md "../../../sagemaker/latest/APIReference/API_geospatial_StopEarthObservationJob.md")          | Grants permission to the StopEarthObservationJob operation which stops an existing earth observation job                                                                                                                                                                                                                                                                            | [EarthObservationJob\*](#list_sagemaker-geospatial-resource-EarthObservationJob "#list_sagemaker-geospatial-resource-EarthObservationJob")    | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Write          |
-| [StopVectorEnrichmentJob](../../../sagemaker/latest/APIReference/API_geospatial_StopVectorEnrichmentJob.md "../../../sagemaker/latest/APIReference/API_geospatial_StopVectorEnrichmentJob.md")          | Grants permission to the StopVectorEnrichmentJob operation which stops an existing vector enrichment job                                                                                                                                                                                                                                                                            | [VectorEnrichmentJob\*](#list_sagemaker-geospatial-resource-VectorEnrichmentJob "#list_sagemaker-geospatial-resource-VectorEnrichmentJob")    | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Write          |
-| [TagResource](../../../sagemaker/latest/APIReference/API_geospatial_TagResource.md "../../../sagemaker/latest/APIReference/API_geospatial_TagResource.md")                                              | Grants permission to tag an SageMaker Geospatial resource                                                                                                                                                                                                                                                                                                                           | [EarthObservationJob](#list_sagemaker-geospatial-resource-EarthObservationJob "#list_sagemaker-geospatial-resource-EarthObservationJob")      | [aws:RequestTag/${TagKey}](#list_sagemaker-geospatial-aws_RequestTag___TagKey_ "#list_sagemaker-geospatial-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_sagemaker-geospatial-aws_TagKeys "#list_sagemaker-geospatial-aws_TagKeys") | Tagging, Write |
-| [RasterDataCollection](#list_sagemaker-geospatial-resource-RasterDataCollection "#list_sagemaker-geospatial-resource-RasterDataCollection")                                                             | [aws:RequestTag/${TagKey}](#list_sagemaker-geospatial-aws_RequestTag___TagKey_ "#list_sagemaker-geospatial-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_sagemaker-geospatial-aws_TagKeys "#list_sagemaker-geospatial-aws_TagKeys") |
-| [VectorEnrichmentJob](#list_sagemaker-geospatial-resource-VectorEnrichmentJob "#list_sagemaker-geospatial-resource-VectorEnrichmentJob")                                                                | [aws:RequestTag/${TagKey}](#list_sagemaker-geospatial-aws_RequestTag___TagKey_ "#list_sagemaker-geospatial-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_sagemaker-geospatial-aws_TagKeys "#list_sagemaker-geospatial-aws_TagKeys") |
-| [UntagResource](../../../sagemaker/latest/APIReference/API_geospatial_UntagResource.md "../../../sagemaker/latest/APIReference/API_geospatial_UntagResource.md")                                        | Grants permission to untag an SageMaker Geospatial resource                                                                                                                                                                                                                                                                                                                         | [EarthObservationJob](#list_sagemaker-geospatial-resource-EarthObservationJob "#list_sagemaker-geospatial-resource-EarthObservationJob")      | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_sagemaker-geospatial-aws_TagKeys "#list_sagemaker-geospatial-aws_TagKeys")                                                                                                                                          | Tagging, Write |
-| [RasterDataCollection](#list_sagemaker-geospatial-resource-RasterDataCollection "#list_sagemaker-geospatial-resource-RasterDataCollection")                                                             | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_sagemaker-geospatial-aws_TagKeys "#list_sagemaker-geospatial-aws_TagKeys")                                                                                                                                          |
-| [VectorEnrichmentJob](#list_sagemaker-geospatial-resource-VectorEnrichmentJob "#list_sagemaker-geospatial-resource-VectorEnrichmentJob")                                                                | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_sagemaker-geospatial-aws_TagKeys "#list_sagemaker-geospatial-aws_TagKeys")                                                                                                                                          |
+
+
+
+- **   [DeleteEarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_DeleteEarthObservationJob.html)  **
+  - **Description:** Grants permission to the DeleteEarthObservationJob operation which deletes an existing earth observation job
+  - **Resource types (\*required):** [EarthObservationJob\*](#list_sagemaker-geospatial-resource-EarthObservationJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteVectorEnrichmentJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_DeleteVectorEnrichmentJob.html)  **
+  - **Description:** Grants permission to the DeleteVectorEnrichmentJob operation which deletes an existing vector enrichment job
+  - **Resource types (\*required):** [VectorEnrichmentJob\*](#list_sagemaker-geospatial-resource-VectorEnrichmentJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ExportEarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportEarthObservationJob.html)  **
+  - **Description:** Grants permission to copy results of an earth observation job to an S3 location
+  - **Resource types (\*required):** [EarthObservationJob\*](#list_sagemaker-geospatial-resource-EarthObservationJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ExportVectorEnrichmentJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ExportVectorEnrichmentJob.html)  **
+  - **Description:** Grants permission to copy results of an VectorEnrichmentJob to an S3 location
+  - **Resource types (\*required):** [VectorEnrichmentJob\*](#list_sagemaker-geospatial-resource-VectorEnrichmentJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetEarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_GetEarthObservationJob.html)  **
+  - **Description:** Grants permission to return details about the earth observation job
+  - **Resource types (\*required):** [EarthObservationJob\*](#list_sagemaker-geospatial-resource-EarthObservationJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRasterDataCollection](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_GetRasterDataCollection.html)  **
+  - **Description:** Grants permission to return details about the raster data collection
+  - **Resource types (\*required):** [RasterDataCollection\*](#list_sagemaker-geospatial-resource-RasterDataCollection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetTile](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_GetTile.html)  **
+  - **Description:** Grants permission to get the tile of an earth observation job
+  - **Resource types (\*required):** [EarthObservationJob\*](#list_sagemaker-geospatial-resource-EarthObservationJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetVectorEnrichmentJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_GetVectorEnrichmentJob.html)  **
+  - **Description:** Grants permission to return details about the vector enrichment job
+  - **Resource types (\*required):** [VectorEnrichmentJob\*](#list_sagemaker-geospatial-resource-VectorEnrichmentJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListEarthObservationJobs](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ListEarthObservationJobs.html)  **
+  - **Description:** Grants permission to return an array of earth observation jobs associated with the current account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRasterDataCollections](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ListRasterDataCollections.html)  **
+  - **Description:** Grants permission to return an array of aster data collections associated with the given model name
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ListTagsForResource.html)  **
+  - **Description:** Grants permission to lists tag for an SageMaker Geospatial resource
+  - **Resource types (\*required):** [EarthObservationJob](#list_sagemaker-geospatial-resource-EarthObservationJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [RasterDataCollection](#list_sagemaker-geospatial-resource-RasterDataCollection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [VectorEnrichmentJob](#list_sagemaker-geospatial-resource-VectorEnrichmentJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListVectorEnrichmentJobs](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_ListVectorEnrichmentJobs.html)  **
+  - **Description:** Grants permission to return an array of vector enrichment jobs associated with the current account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [SearchRasterDataCollection](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_SearchRasterDataCollection.html)  **
+  - **Description:** Grants permission to query raster data collections
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [StartEarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_StartEarthObservationJob.html)  **
+  - **Description:** Grants permission to the StartEarthObservationJob operation which starts a new earth observation job to your account
+  - **Resource types (\*required):** [EarthObservationJob\*](#list_sagemaker-geospatial-resource-EarthObservationJob)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-geospatial-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-geospatial-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [StartVectorEnrichmentJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_StartVectorEnrichmentJob.html)  **
+  - **Description:** Grants permission to the StartVectorEnrichmentJob operation which starts a new vector enrichment job to your account
+  - **Resource types (\*required):** [VectorEnrichmentJob\*](#list_sagemaker-geospatial-resource-VectorEnrichmentJob)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-geospatial-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-geospatial-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [StopEarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_StopEarthObservationJob.html)  **
+  - **Description:** Grants permission to the StopEarthObservationJob operation which stops an existing earth observation job
+  - **Resource types (\*required):** [EarthObservationJob\*](#list_sagemaker-geospatial-resource-EarthObservationJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopVectorEnrichmentJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_StopVectorEnrichmentJob.html)  **
+  - **Description:** Grants permission to the StopVectorEnrichmentJob operation which stops an existing vector enrichment job
+  - **Resource types (\*required):** [VectorEnrichmentJob\*](#list_sagemaker-geospatial-resource-VectorEnrichmentJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_TagResource.html)  **
+  - **Description:** Grants permission to tag an SageMaker Geospatial resource
+  - **Resource types (\*required):** [EarthObservationJob](#list_sagemaker-geospatial-resource-EarthObservationJob) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-geospatial-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-geospatial-aws_TagKeys)
+  - **Resource types (\*required):** [RasterDataCollection](#list_sagemaker-geospatial-resource-RasterDataCollection) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-geospatial-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-geospatial-aws_TagKeys)
+  - **Resource types (\*required):** [VectorEnrichmentJob](#list_sagemaker-geospatial-resource-VectorEnrichmentJob) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-geospatial-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-geospatial-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_UntagResource.html)  **
+  - **Description:** Grants permission to untag an SageMaker Geospatial resource
+  - **Resource types (\*required):** [EarthObservationJob](#list_sagemaker-geospatial-resource-EarthObservationJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-geospatial-aws_TagKeys)
+  - **Resource types (\*required):** [RasterDataCollection](#list_sagemaker-geospatial-resource-RasterDataCollection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-geospatial-aws_TagKeys)
+  - **Resource types (\*required):** [VectorEnrichmentJob](#list_sagemaker-geospatial-resource-VectorEnrichmentJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-geospatial-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+
 
 ## Resource types defined by Amazon SageMaker geospatial capabilities
+<a name="list_sagemaker-geospatial-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                    | ARN                                                                                               | Condition keys                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| [EarthObservationJob](../../../sagemaker/latest/dg/geospatial-eoj.md "../../../sagemaker/latest/dg/geospatial-eoj.md")                            | arn:${Partition}:sagemaker-geospatial:${Region}:${Account}:earth-observation-job/${JobID}         | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_") |
-| [RasterDataCollection](../../../sagemaker/latest/dg/geospatial-data-collections.md "../../../sagemaker/latest/dg/geospatial-data-collections.md") | arn:${Partition}:sagemaker-geospatial:${Region}:${Account}:raster-data-collection/${CollectionID} | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_") |
-| [VectorEnrichmentJob](../../../sagemaker/latest/dg/geospatial-vej.md "../../../sagemaker/latest/dg/geospatial-vej.md")                            | arn:${Partition}:sagemaker-geospatial:${Region}:${Account}:vector-enrichment-job/${JobID}         | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_ "#list_sagemaker-geospatial-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [EarthObservationJob](https://docs.aws.amazon.com/sagemaker/latest/dg/geospatial-eoj.html)  | arn:${Partition}:sagemaker-geospatial:${Region}:${Account}:earth-observation-job/${JobID} | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_) | 
+|  [RasterDataCollection](https://docs.aws.amazon.com/sagemaker/latest/dg/geospatial-data-collections.html)  | arn:${Partition}:sagemaker-geospatial:${Region}:${Account}:raster-data-collection/${CollectionID} | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_) | 
+|  [VectorEnrichmentJob](https://docs.aws.amazon.com/sagemaker/latest/dg/geospatial-vej.html)  | arn:${Partition}:sagemaker-geospatial:${Region}:${Account}:vector-enrichment-job/${JobID} | [aws:ResourceTag/${TagKey}](#list_sagemaker-geospatial-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon SageMaker geospatial capabilities
+<a name="list_sagemaker-geospatial-policy-keys"></a>
 
-Amazon SageMaker geospatial capabilities defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon SageMaker geospatial capabilities defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                          | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the presence of tag key-value pairs in the request | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by tag key-value pairs attached to the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the presence of tag keys in the request            | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the presence of tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the presence of tag keys in the request | ArrayOfString | 

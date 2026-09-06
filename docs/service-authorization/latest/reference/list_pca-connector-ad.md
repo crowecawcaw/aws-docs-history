@@ -1,119 +1,360 @@
-# Actions, resources, and condition keys for AWS Private CA Connector for Active Directory
 
-AWS Private CA Connector for Active Directory (service prefix: `pca-connector-ad`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Private CA Connector for Active Directory
+<a name="list_pca-connector-ad"></a>
+
+AWS Private CA Connector for Active Directory (service prefix: `pca-connector-ad`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/privateca/latest/userguide/connector-for-ad.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/privateca/latest/userguide/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/pca-connector-ad/pca-connector-ad.json) for this service.
 
-- Learn how to [configure this service](../../../privateca/latest/userguide/connector-for-ad.md "../../../privateca/latest/userguide/connector-for-ad.md").
-- View a list of the [API operations available for
-  this service](../../../pca-connector-ad/latest/APIReference.md "../../../pca-connector-ad/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../privateca/latest/userguide/security-iam.md "../../../privateca/latest/userguide/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/pca-connector-ad/pca-connector-ad.json "https://servicereference.us-east-1.amazonaws.com/v1/pca-connector-ad/pca-connector-ad.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Private CA Connector for Active Directory](#list_pca-connector-ad-operations "#list_pca-connector-ad-operations")
-- [Actions defined by AWS Private CA Connector for Active Directory](#list_pca-connector-ad-actions-as-permissions "#list_pca-connector-ad-actions-as-permissions")
-- [Resource types defined by AWS Private CA Connector for Active Directory](#list_pca-connector-ad-resources-for-iam-policies "#list_pca-connector-ad-resources-for-iam-policies")
-- [Condition keys for AWS Private CA Connector for Active Directory](#list_pca-connector-ad-policy-keys "#list_pca-connector-ad-policy-keys")
+**Topics**
++ [API operations defined by AWS Private CA Connector for Active Directory](#list_pca-connector-ad-operations)
++ [Actions defined by AWS Private CA Connector for Active Directory](#list_pca-connector-ad-actions-as-permissions)
++ [Resource types defined by AWS Private CA Connector for Active Directory](#list_pca-connector-ad-resources-for-iam-policies)
++ [Condition keys for AWS Private CA Connector for Active Directory](#list_pca-connector-ad-policy-keys)
 
 ## API operations defined by AWS Private CA Connector for Active Directory
+<a name="list_pca-connector-ad-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_pca-connector-ad-actions-as-permissions "#list_pca-connector-ad-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_pca-connector-ad-actions-as-permissions).
 
-| Operation                                                                                                             | IAM action                                                                                                                                                                                          | Condition key | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------- | -------------- |
-| CreateConnector                                                                                                       | [pca-connector-ad:CreateConnector](#list_pca-connector-ad-action-CreateConnector "#list_pca-connector-ad-action-CreateConnector")                                                                   |               |                   | Write          |
-| [pca-connector-ad:TagResource](#list_pca-connector-ad-action-TagResource "#list_pca-connector-ad-action-TagResource") |                                                                                                                                                                                                     |               | Tagging, Write    |
-| CreateDirectoryRegistration                                                                                           | [pca-connector-ad:CreateDirectoryRegistration](#list_pca-connector-ad-action-CreateDirectoryRegistration "#list_pca-connector-ad-action-CreateDirectoryRegistration")                               |               |                   | Write          |
-| [pca-connector-ad:TagResource](#list_pca-connector-ad-action-TagResource "#list_pca-connector-ad-action-TagResource") |                                                                                                                                                                                                     |               | Tagging, Write    |
-| CreateServicePrincipalName                                                                                            | [pca-connector-ad:CreateServicePrincipalName](#list_pca-connector-ad-action-CreateServicePrincipalName "#list_pca-connector-ad-action-CreateServicePrincipalName")                                  |               |                   | Write          |
-| CreateTemplate                                                                                                        | [pca-connector-ad:CreateTemplate](#list_pca-connector-ad-action-CreateTemplate "#list_pca-connector-ad-action-CreateTemplate")                                                                      |               |                   | Write          |
-| [pca-connector-ad:TagResource](#list_pca-connector-ad-action-TagResource "#list_pca-connector-ad-action-TagResource") |                                                                                                                                                                                                     |               | Tagging, Write    |
-| CreateTemplateGroupAccessControlEntry                                                                                 | [pca-connector-ad:CreateTemplateGroupAccessControlEntry](#list_pca-connector-ad-action-CreateTemplateGroupAccessControlEntry "#list_pca-connector-ad-action-CreateTemplateGroupAccessControlEntry") |               |                   | Write          |
-| DeleteConnector                                                                                                       | [pca-connector-ad:DeleteConnector](#list_pca-connector-ad-action-DeleteConnector "#list_pca-connector-ad-action-DeleteConnector")                                                                   |               |                   | Write          |
-| DeleteDirectoryRegistration                                                                                           | [pca-connector-ad:DeleteDirectoryRegistration](#list_pca-connector-ad-action-DeleteDirectoryRegistration "#list_pca-connector-ad-action-DeleteDirectoryRegistration")                               |               |                   | Write          |
-| DeleteServicePrincipalName                                                                                            | [pca-connector-ad:DeleteServicePrincipalName](#list_pca-connector-ad-action-DeleteServicePrincipalName "#list_pca-connector-ad-action-DeleteServicePrincipalName")                                  |               |                   | Write          |
-| DeleteTemplate                                                                                                        | [pca-connector-ad:DeleteTemplate](#list_pca-connector-ad-action-DeleteTemplate "#list_pca-connector-ad-action-DeleteTemplate")                                                                      |               |                   | Write          |
-| DeleteTemplateGroupAccessControlEntry                                                                                 | [pca-connector-ad:DeleteTemplateGroupAccessControlEntry](#list_pca-connector-ad-action-DeleteTemplateGroupAccessControlEntry "#list_pca-connector-ad-action-DeleteTemplateGroupAccessControlEntry") |               |                   | Write          |
-| GetConnector                                                                                                          | [pca-connector-ad:GetConnector](#list_pca-connector-ad-action-GetConnector "#list_pca-connector-ad-action-GetConnector")                                                                            |               |                   | Read           |
-| GetDirectoryRegistration                                                                                              | [pca-connector-ad:GetDirectoryRegistration](#list_pca-connector-ad-action-GetDirectoryRegistration "#list_pca-connector-ad-action-GetDirectoryRegistration")                                        |               |                   | Read           |
-| GetServicePrincipalName                                                                                               | [pca-connector-ad:GetServicePrincipalName](#list_pca-connector-ad-action-GetServicePrincipalName "#list_pca-connector-ad-action-GetServicePrincipalName")                                           |               |                   | Read           |
-| GetTemplate                                                                                                           | [pca-connector-ad:GetTemplate](#list_pca-connector-ad-action-GetTemplate "#list_pca-connector-ad-action-GetTemplate")                                                                               |               |                   | Read           |
-| GetTemplateGroupAccessControlEntry                                                                                    | [pca-connector-ad:GetTemplateGroupAccessControlEntry](#list_pca-connector-ad-action-GetTemplateGroupAccessControlEntry "#list_pca-connector-ad-action-GetTemplateGroupAccessControlEntry")          |               |                   | Read           |
-| ListConnectors                                                                                                        | [pca-connector-ad:ListConnectors](#list_pca-connector-ad-action-ListConnectors "#list_pca-connector-ad-action-ListConnectors")                                                                      |               |                   | List           |
-| ListDirectoryRegistrations                                                                                            | [pca-connector-ad:ListDirectoryRegistrations](#list_pca-connector-ad-action-ListDirectoryRegistrations "#list_pca-connector-ad-action-ListDirectoryRegistrations")                                  |               |                   | List           |
-| ListServicePrincipalNames                                                                                             | [pca-connector-ad:ListServicePrincipalNames](#list_pca-connector-ad-action-ListServicePrincipalNames "#list_pca-connector-ad-action-ListServicePrincipalNames")                                     |               |                   | List           |
-| ListTagsForResource                                                                                                   | [pca-connector-ad:ListTagsForResource](#list_pca-connector-ad-action-ListTagsForResource "#list_pca-connector-ad-action-ListTagsForResource")                                                       |               |                   | Read           |
-| ListTemplateGroupAccessControlEntries                                                                                 | [pca-connector-ad:ListTemplateGroupAccessControlEntries](#list_pca-connector-ad-action-ListTemplateGroupAccessControlEntries "#list_pca-connector-ad-action-ListTemplateGroupAccessControlEntries") |               |                   | List           |
-| ListTemplates                                                                                                         | [pca-connector-ad:ListTemplates](#list_pca-connector-ad-action-ListTemplates "#list_pca-connector-ad-action-ListTemplates")                                                                         |               |                   | List           |
-| TagResource                                                                                                           | [pca-connector-ad:TagResource](#list_pca-connector-ad-action-TagResource "#list_pca-connector-ad-action-TagResource")                                                                               |               |                   | Tagging, Write |
-| UntagResource                                                                                                         | [pca-connector-ad:UntagResource](#list_pca-connector-ad-action-UntagResource "#list_pca-connector-ad-action-UntagResource")                                                                         |               |                   | Tagging, Write |
-| UpdateTemplate                                                                                                        | [pca-connector-ad:UpdateTemplate](#list_pca-connector-ad-action-UpdateTemplate "#list_pca-connector-ad-action-UpdateTemplate")                                                                      |               |                   | Write          |
-| UpdateTemplateGroupAccessControlEntry                                                                                 | [pca-connector-ad:UpdateTemplateGroupAccessControlEntry](#list_pca-connector-ad-action-UpdateTemplateGroupAccessControlEntry "#list_pca-connector-ad-action-UpdateTemplateGroupAccessControlEntry") |               |                   | Write          |
+
+
+
+- **   CreateConnector  **
+  - **IAM action:**  [pca-connector-ad:CreateConnector](#list_pca-connector-ad-action-CreateConnector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [pca-connector-ad:TagResource](#list_pca-connector-ad-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateDirectoryRegistration  **
+  - **IAM action:**  [pca-connector-ad:CreateDirectoryRegistration](#list_pca-connector-ad-action-CreateDirectoryRegistration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [pca-connector-ad:TagResource](#list_pca-connector-ad-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateServicePrincipalName  **
+  - **IAM action:**  [pca-connector-ad:CreateServicePrincipalName](#list_pca-connector-ad-action-CreateServicePrincipalName) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateTemplate  **
+  - **IAM action:**  [pca-connector-ad:CreateTemplate](#list_pca-connector-ad-action-CreateTemplate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [pca-connector-ad:TagResource](#list_pca-connector-ad-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateTemplateGroupAccessControlEntry  **
+  - **IAM action:**  [pca-connector-ad:CreateTemplateGroupAccessControlEntry](#list_pca-connector-ad-action-CreateTemplateGroupAccessControlEntry) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConnector  **
+  - **IAM action:**  [pca-connector-ad:DeleteConnector](#list_pca-connector-ad-action-DeleteConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDirectoryRegistration  **
+  - **IAM action:**  [pca-connector-ad:DeleteDirectoryRegistration](#list_pca-connector-ad-action-DeleteDirectoryRegistration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteServicePrincipalName  **
+  - **IAM action:**  [pca-connector-ad:DeleteServicePrincipalName](#list_pca-connector-ad-action-DeleteServicePrincipalName) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteTemplate  **
+  - **IAM action:**  [pca-connector-ad:DeleteTemplate](#list_pca-connector-ad-action-DeleteTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteTemplateGroupAccessControlEntry  **
+  - **IAM action:**  [pca-connector-ad:DeleteTemplateGroupAccessControlEntry](#list_pca-connector-ad-action-DeleteTemplateGroupAccessControlEntry) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetConnector  **
+  - **IAM action:**  [pca-connector-ad:GetConnector](#list_pca-connector-ad-action-GetConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDirectoryRegistration  **
+  - **IAM action:**  [pca-connector-ad:GetDirectoryRegistration](#list_pca-connector-ad-action-GetDirectoryRegistration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetServicePrincipalName  **
+  - **IAM action:**  [pca-connector-ad:GetServicePrincipalName](#list_pca-connector-ad-action-GetServicePrincipalName) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTemplate  **
+  - **IAM action:**  [pca-connector-ad:GetTemplate](#list_pca-connector-ad-action-GetTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTemplateGroupAccessControlEntry  **
+  - **IAM action:**  [pca-connector-ad:GetTemplateGroupAccessControlEntry](#list_pca-connector-ad-action-GetTemplateGroupAccessControlEntry) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListConnectors  **
+  - **IAM action:**  [pca-connector-ad:ListConnectors](#list_pca-connector-ad-action-ListConnectors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDirectoryRegistrations  **
+  - **IAM action:**  [pca-connector-ad:ListDirectoryRegistrations](#list_pca-connector-ad-action-ListDirectoryRegistrations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListServicePrincipalNames  **
+  - **IAM action:**  [pca-connector-ad:ListServicePrincipalNames](#list_pca-connector-ad-action-ListServicePrincipalNames) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [pca-connector-ad:ListTagsForResource](#list_pca-connector-ad-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTemplateGroupAccessControlEntries  **
+  - **IAM action:**  [pca-connector-ad:ListTemplateGroupAccessControlEntries](#list_pca-connector-ad-action-ListTemplateGroupAccessControlEntries) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTemplates  **
+  - **IAM action:**  [pca-connector-ad:ListTemplates](#list_pca-connector-ad-action-ListTemplates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   TagResource  **
+  - **IAM action:**  [pca-connector-ad:TagResource](#list_pca-connector-ad-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [pca-connector-ad:UntagResource](#list_pca-connector-ad-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateTemplate  **
+  - **IAM action:**  [pca-connector-ad:UpdateTemplate](#list_pca-connector-ad-action-UpdateTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateTemplateGroupAccessControlEntry  **
+  - **IAM action:**  [pca-connector-ad:UpdateTemplateGroupAccessControlEntry](#list_pca-connector-ad-action-UpdateTemplateGroupAccessControlEntry) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS Private CA Connector for Active Directory
+<a name="list_pca-connector-ad-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                          | Description                                                                                                                                                                                                                                                                                                                                                 | Resource types (\*required)                                                                                                              | Condition keys                                                                                                                                                                                                                                                                                                                                              | Access level   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [CreateConnector](../../../pca-connector-ad/latest/APIReference/API_CreateConnector.md "../../../pca-connector-ad/latest/APIReference/API_CreateConnector.md")                                                                   | Grants permission to create a Connector in your account                                                                                                                                                                                                                                                                                                     |                                                                                                                                          | [aws:RequestTag/${TagKey}](#list_pca-connector-ad-aws_RequestTag___TagKey_ "#list_pca-connector-ad-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys "#list_pca-connector-ad-aws_TagKeys") | Write          |
-| [CreateDirectoryRegistration](../../../pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.md "../../../pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.md")                               | Grants permission to create a DirectoryRegistration in your account                                                                                                                                                                                                                                                                                         |                                                                                                                                          | [aws:RequestTag/${TagKey}](#list_pca-connector-ad-aws_RequestTag___TagKey_ "#list_pca-connector-ad-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys "#list_pca-connector-ad-aws_TagKeys") | Write          |
-| [CreateServicePrincipalName](../../../pca-connector-ad/latest/APIReference/API_CreateServicePrincipalName.md "../../../pca-connector-ad/latest/APIReference/API_CreateServicePrincipalName.md")                                  | Grants permission to create a ServicePrincipalName for a DirectoryRegistration                                                                                                                                                                                                                                                                              | [DirectoryRegistration\*](#list_pca-connector-ad-resource-DirectoryRegistration "#list_pca-connector-ad-resource-DirectoryRegistration") | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
-| [CreateTemplate](../../../pca-connector-ad/latest/APIReference/API_CreateTemplate.md "../../../pca-connector-ad/latest/APIReference/API_CreateTemplate.md")                                                                      | Grants permission to create a Template for a Connector                                                                                                                                                                                                                                                                                                      | [Connector\*](#list_pca-connector-ad-resource-Connector "#list_pca-connector-ad-resource-Connector")                                     | [aws:RequestTag/${TagKey}](#list_pca-connector-ad-aws_RequestTag___TagKey_ "#list_pca-connector-ad-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys "#list_pca-connector-ad-aws_TagKeys") | Write          |
-| [CreateTemplateGroupAccessControlEntry](../../../pca-connector-ad/latest/APIReference/API_CreateTemplateGroupAccessControlEntry.md "../../../pca-connector-ad/latest/APIReference/API_CreateTemplateGroupAccessControlEntry.md") | Grants permission to create a TemplateGroupAccessControlEntry for a Template                                                                                                                                                                                                                                                                                | [Template\*](#list_pca-connector-ad-resource-Template "#list_pca-connector-ad-resource-Template")                                        | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
-| [DeleteConnector](../../../pca-connector-ad/latest/APIReference/API_DeleteConnector.md "../../../pca-connector-ad/latest/APIReference/API_DeleteConnector.md")                                                                   | Grants permission to delete a Connector in your account                                                                                                                                                                                                                                                                                                     | [Connector\*](#list_pca-connector-ad-resource-Connector "#list_pca-connector-ad-resource-Connector")                                     | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
-| [DeleteDirectoryRegistration](../../../pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration.md "../../../pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration.md")                               | Grants permission to delete a DirectoryRegistration in your account                                                                                                                                                                                                                                                                                         | [DirectoryRegistration\*](#list_pca-connector-ad-resource-DirectoryRegistration "#list_pca-connector-ad-resource-DirectoryRegistration") | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
-| [DeleteServicePrincipalName](../../../pca-connector-ad/latest/APIReference/API_DeleteServicePrincipalName.md "../../../pca-connector-ad/latest/APIReference/API_DeleteServicePrincipalName.md")                                  | Grants permission to delete a ServicePrincipalName for a DirectoryRegistration                                                                                                                                                                                                                                                                              | [DirectoryRegistration\*](#list_pca-connector-ad-resource-DirectoryRegistration "#list_pca-connector-ad-resource-DirectoryRegistration") | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
-| [DeleteTemplate](../../../pca-connector-ad/latest/APIReference/API_DeleteTemplate.md "../../../pca-connector-ad/latest/APIReference/API_DeleteTemplate.md")                                                                      | Grants permission to delete a Template for a Connector                                                                                                                                                                                                                                                                                                      | [Template\*](#list_pca-connector-ad-resource-Template "#list_pca-connector-ad-resource-Template")                                        | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
-| [DeleteTemplateGroupAccessControlEntry](../../../pca-connector-ad/latest/APIReference/API_DeleteTemplateGroupAccessControlEntry.md "../../../pca-connector-ad/latest/APIReference/API_DeleteTemplateGroupAccessControlEntry.md") | Grants permission to delete a TemplateGroupAccessControlEntry for a Template                                                                                                                                                                                                                                                                                | [Template\*](#list_pca-connector-ad-resource-Template "#list_pca-connector-ad-resource-Template")                                        | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
-| [GetConnector](../../../pca-connector-ad/latest/APIReference/API_GetConnector.md "../../../pca-connector-ad/latest/APIReference/API_GetConnector.md")                                                                            | Grants permission to get a Connector in your account                                                                                                                                                                                                                                                                                                        | [Connector\*](#list_pca-connector-ad-resource-Connector "#list_pca-connector-ad-resource-Connector")                                     | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read           |
-| [GetDirectoryRegistration](../../../pca-connector-ad/latest/APIReference/API_GetDirectoryRegistration.md "../../../pca-connector-ad/latest/APIReference/API_GetDirectoryRegistration.md")                                        | Grants permission to get a DirectoryRegistration in your account                                                                                                                                                                                                                                                                                            | [DirectoryRegistration\*](#list_pca-connector-ad-resource-DirectoryRegistration "#list_pca-connector-ad-resource-DirectoryRegistration") | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read           |
-| [GetServicePrincipalName](../../../pca-connector-ad/latest/APIReference/API_GetServicePrincipalName.md "../../../pca-connector-ad/latest/APIReference/API_GetServicePrincipalName.md")                                           | Grants permission to get a ServicePrincipalName for a DirectoryRegistration                                                                                                                                                                                                                                                                                 | [DirectoryRegistration\*](#list_pca-connector-ad-resource-DirectoryRegistration "#list_pca-connector-ad-resource-DirectoryRegistration") | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read           |
-| [GetTemplate](../../../pca-connector-ad/latest/APIReference/API_GetTemplate.md "../../../pca-connector-ad/latest/APIReference/API_GetTemplate.md")                                                                               | Grants permission to get a Template for a Connector                                                                                                                                                                                                                                                                                                         | [Template\*](#list_pca-connector-ad-resource-Template "#list_pca-connector-ad-resource-Template")                                        | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read           |
-| [GetTemplateGroupAccessControlEntry](../../../pca-connector-ad/latest/APIReference/API_GetTemplateGroupAccessControlEntry.md "../../../pca-connector-ad/latest/APIReference/API_GetTemplateGroupAccessControlEntry.md")          | Grants permission to get a TemplateGroupAccessControlEntry for a Template                                                                                                                                                                                                                                                                                   | [Template\*](#list_pca-connector-ad-resource-Template "#list_pca-connector-ad-resource-Template")                                        | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read           |
-| [ListConnectors](../../../pca-connector-ad/latest/APIReference/API_ListConnectors.md "../../../pca-connector-ad/latest/APIReference/API_ListConnectors.md")                                                                      | Grants permission to list the Connectors in your account                                                                                                                                                                                                                                                                                                    |                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                                             | List           |
-| [ListDirectoryRegistrations](../../../pca-connector-ad/latest/APIReference/API_ListDirectoryRegistrations.md "../../../pca-connector-ad/latest/APIReference/API_ListDirectoryRegistrations.md")                                  | Grants permission to list the DirectoryRegistrations in your account                                                                                                                                                                                                                                                                                        |                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                                             | List           |
-| [ListServicePrincipalNames](../../../pca-connector-ad/latest/APIReference/API_ListServicePrincipalNames.md "../../../pca-connector-ad/latest/APIReference/API_ListServicePrincipalNames.md")                                     | Grants permission to list the ServicePrincipalNames for a DirectoryRegistration                                                                                                                                                                                                                                                                             | [DirectoryRegistration\*](#list_pca-connector-ad-resource-DirectoryRegistration "#list_pca-connector-ad-resource-DirectoryRegistration") | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | List           |
-| [ListTagsForResource](../../../pca-connector-ad/latest/APIReference/API_ListTagsForResource.md "../../../pca-connector-ad/latest/APIReference/API_ListTagsForResource.md")                                                       | Grants permission to list the tags for a pca-connector-ad resource in your account                                                                                                                                                                                                                                                                          |                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [ListTemplateGroupAccessControlEntries](../../../pca-connector-ad/latest/APIReference/API_ListTemplateGroupAccessControlEntries.md "../../../pca-connector-ad/latest/APIReference/API_ListTemplateGroupAccessControlEntries.md") | Grants permission to list the TemplateGroupAccessControlEntries for a Template                                                                                                                                                                                                                                                                              | [Template\*](#list_pca-connector-ad-resource-Template "#list_pca-connector-ad-resource-Template")                                        | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | List           |
-| [ListTemplates](../../../pca-connector-ad/latest/APIReference/API_ListTemplates.md "../../../pca-connector-ad/latest/APIReference/API_ListTemplates.md")                                                                         | Grants permission to list the Templates for a Connector                                                                                                                                                                                                                                                                                                     | [Connector\*](#list_pca-connector-ad-resource-Connector "#list_pca-connector-ad-resource-Connector")                                     | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | List           |
-| [TagResource](../../../pca-connector-ad/latest/APIReference/API_TagResource.md "../../../pca-connector-ad/latest/APIReference/API_TagResource.md")                                                                               | Grants permission to tag a pca-connector-ad resource in your account                                                                                                                                                                                                                                                                                        | [Connector](#list_pca-connector-ad-resource-Connector "#list_pca-connector-ad-resource-Connector")                                       | [aws:RequestTag/${TagKey}](#list_pca-connector-ad-aws_RequestTag___TagKey_ "#list_pca-connector-ad-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys "#list_pca-connector-ad-aws_TagKeys") | Tagging, Write |
-| [DirectoryRegistration](#list_pca-connector-ad-resource-DirectoryRegistration "#list_pca-connector-ad-resource-DirectoryRegistration")                                                                                           | [aws:RequestTag/${TagKey}](#list_pca-connector-ad-aws_RequestTag___TagKey_ "#list_pca-connector-ad-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys "#list_pca-connector-ad-aws_TagKeys") |
-| [Template](#list_pca-connector-ad-resource-Template "#list_pca-connector-ad-resource-Template")                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_pca-connector-ad-aws_RequestTag___TagKey_ "#list_pca-connector-ad-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys "#list_pca-connector-ad-aws_TagKeys") |
-| [UntagResource](../../../pca-connector-ad/latest/APIReference/API_UntagResource.md "../../../pca-connector-ad/latest/APIReference/API_UntagResource.md")                                                                         | Grants permission to untag a pca-connector-ad resource in your account                                                                                                                                                                                                                                                                                      | [Connector](#list_pca-connector-ad-resource-Connector "#list_pca-connector-ad-resource-Connector")                                       | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys "#list_pca-connector-ad-aws_TagKeys")                                                                                                                                  | Tagging, Write |
-| [DirectoryRegistration](#list_pca-connector-ad-resource-DirectoryRegistration "#list_pca-connector-ad-resource-DirectoryRegistration")                                                                                           | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys "#list_pca-connector-ad-aws_TagKeys")                                                                                                                                  |
-| [Template](#list_pca-connector-ad-resource-Template "#list_pca-connector-ad-resource-Template")                                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys "#list_pca-connector-ad-aws_TagKeys")                                                                                                                                  |
-| [UpdateTemplate](../../../pca-connector-ad/latest/APIReference/API_UpdateTemplate.md "../../../pca-connector-ad/latest/APIReference/API_UpdateTemplate.md")                                                                      | Grants permission to update a Template for a Connector                                                                                                                                                                                                                                                                                                      | [Template\*](#list_pca-connector-ad-resource-Template "#list_pca-connector-ad-resource-Template")                                        | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
-| [UpdateTemplateGroupAccessControlEntry](../../../pca-connector-ad/latest/APIReference/API_UpdateTemplateGroupAccessControlEntry.md "../../../pca-connector-ad/latest/APIReference/API_UpdateTemplateGroupAccessControlEntry.md") | Grants permission to update a TemplateGroupAccessControlEntry for a Template                                                                                                                                                                                                                                                                                | [Template\*](#list_pca-connector-ad-resource-Template "#list_pca-connector-ad-resource-Template")                                        | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write          |
+
+
+
+- **   [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html)  **
+  - **Description:** Grants permission to create a Connector in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_pca-connector-ad-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html)  **
+  - **Description:** Grants permission to create a DirectoryRegistration in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_pca-connector-ad-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateServicePrincipalName](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateServicePrincipalName.html)  **
+  - **Description:** Grants permission to create a ServicePrincipalName for a DirectoryRegistration
+  - **Resource types (\*required):** [DirectoryRegistration\*](#list_pca-connector-ad-resource-DirectoryRegistration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html)  **
+  - **Description:** Grants permission to create a Template for a Connector
+  - **Resource types (\*required):** [Connector\*](#list_pca-connector-ad-resource-Connector)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_pca-connector-ad-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateTemplateGroupAccessControlEntry](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplateGroupAccessControlEntry.html)  **
+  - **Description:** Grants permission to create a TemplateGroupAccessControlEntry for a Template
+  - **Resource types (\*required):** [Template\*](#list_pca-connector-ad-resource-Template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteConnector.html)  **
+  - **Description:** Grants permission to delete a Connector in your account
+  - **Resource types (\*required):** [Connector\*](#list_pca-connector-ad-resource-Connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteDirectoryRegistration.html)  **
+  - **Description:** Grants permission to delete a DirectoryRegistration in your account
+  - **Resource types (\*required):** [DirectoryRegistration\*](#list_pca-connector-ad-resource-DirectoryRegistration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteServicePrincipalName](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteServicePrincipalName.html)  **
+  - **Description:** Grants permission to delete a ServicePrincipalName for a DirectoryRegistration
+  - **Resource types (\*required):** [DirectoryRegistration\*](#list_pca-connector-ad-resource-DirectoryRegistration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteTemplate.html)  **
+  - **Description:** Grants permission to delete a Template for a Connector
+  - **Resource types (\*required):** [Template\*](#list_pca-connector-ad-resource-Template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteTemplateGroupAccessControlEntry](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_DeleteTemplateGroupAccessControlEntry.html)  **
+  - **Description:** Grants permission to delete a TemplateGroupAccessControlEntry for a Template
+  - **Resource types (\*required):** [Template\*](#list_pca-connector-ad-resource-Template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_GetConnector.html)  **
+  - **Description:** Grants permission to get a Connector in your account
+  - **Resource types (\*required):** [Connector\*](#list_pca-connector-ad-resource-Connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_GetDirectoryRegistration.html)  **
+  - **Description:** Grants permission to get a DirectoryRegistration in your account
+  - **Resource types (\*required):** [DirectoryRegistration\*](#list_pca-connector-ad-resource-DirectoryRegistration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetServicePrincipalName](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_GetServicePrincipalName.html)  **
+  - **Description:** Grants permission to get a ServicePrincipalName for a DirectoryRegistration
+  - **Resource types (\*required):** [DirectoryRegistration\*](#list_pca-connector-ad-resource-DirectoryRegistration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_GetTemplate.html)  **
+  - **Description:** Grants permission to get a Template for a Connector
+  - **Resource types (\*required):** [Template\*](#list_pca-connector-ad-resource-Template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetTemplateGroupAccessControlEntry](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_GetTemplateGroupAccessControlEntry.html)  **
+  - **Description:** Grants permission to get a TemplateGroupAccessControlEntry for a Template
+  - **Resource types (\*required):** [Template\*](#list_pca-connector-ad-resource-Template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListConnectors](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors.html)  **
+  - **Description:** Grants permission to list the Connectors in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDirectoryRegistrations](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListDirectoryRegistrations.html)  **
+  - **Description:** Grants permission to list the DirectoryRegistrations in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListServicePrincipalNames](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListServicePrincipalNames.html)  **
+  - **Description:** Grants permission to list the ServicePrincipalNames for a DirectoryRegistration
+  - **Resource types (\*required):** [DirectoryRegistration\*](#list_pca-connector-ad-resource-DirectoryRegistration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list the tags for a pca-connector-ad resource in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListTemplateGroupAccessControlEntries](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListTemplateGroupAccessControlEntries.html)  **
+  - **Description:** Grants permission to list the TemplateGroupAccessControlEntries for a Template
+  - **Resource types (\*required):** [Template\*](#list_pca-connector-ad-resource-Template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTemplates](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListTemplates.html)  **
+  - **Description:** Grants permission to list the Templates for a Connector
+  - **Resource types (\*required):** [Connector\*](#list_pca-connector-ad-resource-Connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [TagResource](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag a pca-connector-ad resource in your account
+  - **Resource types (\*required):** [Connector](#list_pca-connector-ad-resource-Connector) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_pca-connector-ad-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys)
+  - **Resource types (\*required):** [DirectoryRegistration](#list_pca-connector-ad-resource-DirectoryRegistration) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_pca-connector-ad-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys)
+  - **Resource types (\*required):** [Template](#list_pca-connector-ad-resource-Template) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_pca-connector-ad-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag a pca-connector-ad resource in your account
+  - **Resource types (\*required):** [Connector](#list_pca-connector-ad-resource-Connector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys)
+  - **Resource types (\*required):** [DirectoryRegistration](#list_pca-connector-ad-resource-DirectoryRegistration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys)
+  - **Resource types (\*required):** [Template](#list_pca-connector-ad-resource-Template) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pca-connector-ad-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_UpdateTemplate.html)  **
+  - **Description:** Grants permission to update a Template for a Connector
+  - **Resource types (\*required):** [Template\*](#list_pca-connector-ad-resource-Template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateTemplateGroupAccessControlEntry](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_UpdateTemplateGroupAccessControlEntry.html)  **
+  - **Description:** Grants permission to update a TemplateGroupAccessControlEntry for a Template
+  - **Resource types (\*required):** [Template\*](#list_pca-connector-ad-resource-Template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS Private CA Connector for Active Directory
+<a name="list_pca-connector-ad-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                         | ARN                                                                                                    | Condition keys                                                                                                                   |
-| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| [Connector](${ActionsDocRoot}API_Connector.md "${ActionsDocRoot}API_Connector.md")                                     | arn:${Partition}:pca-connector-ad:${Region}:${Account}:connector/${ConnectorId}                        | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_") |
-| [DirectoryRegistration](${ActionsDocRoot}API_DirectoryRegistration.md "${ActionsDocRoot}API_DirectoryRegistration.md") | arn:${Partition}:pca-connector-ad:${Region}:${Account}:directory-registration/${DirectoryId}           | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_") |
-| [Template](${ActionsDocRoot}API_Template.md "${ActionsDocRoot}API_Template.md")                                        | arn:${Partition}:pca-connector-ad:${Region}:${Account}:connector/${ConnectorId}/template/${TemplateId} | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_ "#list_pca-connector-ad-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [Connector](${ActionsDocRoot}API_Connector.html)  | arn:${Partition}:pca-connector-ad:${Region}:${Account}:connector/${ConnectorId} | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_) | 
+|  [DirectoryRegistration](${ActionsDocRoot}API_DirectoryRegistration.html)  | arn:${Partition}:pca-connector-ad:${Region}:${Account}:directory-registration/${DirectoryId} | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_) | 
+|  [Template](${ActionsDocRoot}API_Template.html)  | arn:${Partition}:pca-connector-ad:${Region}:${Account}:connector/${ConnectorId}/template/${TemplateId} | [aws:ResourceTag/${TagKey}](#list_pca-connector-ad-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Private CA Connector for Active Directory
+<a name="list_pca-connector-ad-policy-keys"></a>
 
-AWS Private CA Connector for Active Directory defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Private CA Connector for Active Directory defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                       | Description                                                      | Type          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](list_awsprivatecaconnectorforactivedirectory.md#condition-keys-requesttag "list_awsprivatecaconnectorforactivedirectory.md#condition-keys-requesttag")    | Filters access by on the tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](list_awsprivatecaconnectorforactivedirectory.md#condition-keys-resourcetag "list_awsprivatecaconnectorforactivedirectory.md#condition-keys-resourcetag") | Filters access by on the tags associated with the resource       | String        |
-| [aws:TagKeys](list_awsprivatecaconnectorforactivedirectory.md#condition-keys-tagkeys "list_awsprivatecaconnectorforactivedirectory.md#condition-keys-tagkeys")                       | Filters access by on the tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsprivatecaconnectorforactivedirectory.html#condition-keys-requesttag)  | Filters access by on the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsprivatecaconnectorforactivedirectory.html#condition-keys-resourcetag)  | Filters access by on the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsprivatecaconnectorforactivedirectory.html#condition-keys-tagkeys)  | Filters access by on the tag keys that are passed in the request | ArrayOfString | 

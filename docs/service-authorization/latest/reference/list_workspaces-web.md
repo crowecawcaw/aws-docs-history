@@ -1,258 +1,967 @@
-# Actions, resources, and condition keys for Amazon WorkSpaces Secure Browser
 
-Amazon WorkSpaces Secure Browser (service prefix: `workspaces-web`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon WorkSpaces Secure Browser
+<a name="list_workspaces-web"></a>
+
+Amazon WorkSpaces Secure Browser (service prefix: `workspaces-web`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/workspaces-web/workspaces-web.json) for this service.
 
-- Learn how to [configure this service](../../../workspaces-web/latest/adminguide.md "../../../workspaces-web/latest/adminguide.md").
-- View a list of the [API operations available for
-  this service](../../../workspaces-web/latest/APIReference.md "../../../workspaces-web/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../workspaces-web/latest/adminguide/security-iam.md "../../../workspaces-web/latest/adminguide/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/workspaces-web/workspaces-web.json "https://servicereference.us-east-1.amazonaws.com/v1/workspaces-web/workspaces-web.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon WorkSpaces Secure Browser](#list_workspaces-web-operations "#list_workspaces-web-operations")
-- [Actions defined by Amazon WorkSpaces Secure Browser](#list_workspaces-web-actions-as-permissions "#list_workspaces-web-actions-as-permissions")
-- [Resource types defined by Amazon WorkSpaces Secure Browser](#list_workspaces-web-resources-for-iam-policies "#list_workspaces-web-resources-for-iam-policies")
-- [Condition keys for Amazon WorkSpaces Secure Browser](#list_workspaces-web-policy-keys "#list_workspaces-web-policy-keys")
+**Topics**
++ [API operations defined by Amazon WorkSpaces Secure Browser](#list_workspaces-web-operations)
++ [Actions defined by Amazon WorkSpaces Secure Browser](#list_workspaces-web-actions-as-permissions)
++ [Resource types defined by Amazon WorkSpaces Secure Browser](#list_workspaces-web-resources-for-iam-policies)
++ [Condition keys for Amazon WorkSpaces Secure Browser](#list_workspaces-web-policy-keys)
 
 ## API operations defined by Amazon WorkSpaces Secure Browser
+<a name="list_workspaces-web-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_workspaces-web-actions-as-permissions "#list_workspaces-web-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_workspaces-web-actions-as-permissions).
 
-| Operation                                                                                                       | IAM action                                                                                                                                                                                    | Condition key | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------- | -------------- |
-| AssociateBrowserSettings                                                                                        | [workspaces-web:AssociateBrowserSettings](#list_workspaces-web-action-AssociateBrowserSettings "#list_workspaces-web-action-AssociateBrowserSettings")                                        |               |                   | Write          |
-| AssociateDataProtectionSettings                                                                                 | [workspaces-web:AssociateDataProtectionSettings](#list_workspaces-web-action-AssociateDataProtectionSettings "#list_workspaces-web-action-AssociateDataProtectionSettings")                   |               |                   | Write          |
-| AssociateIpAccessSettings                                                                                       | [workspaces-web:AssociateIpAccessSettings](#list_workspaces-web-action-AssociateIpAccessSettings "#list_workspaces-web-action-AssociateIpAccessSettings")                                     |               |                   | Write          |
-| AssociateNetworkSettings                                                                                        | [workspaces-web:AssociateNetworkSettings](#list_workspaces-web-action-AssociateNetworkSettings "#list_workspaces-web-action-AssociateNetworkSettings")                                        |               |                   | Write          |
-| AssociateSessionLogger                                                                                          | [workspaces-web:AssociateSessionLogger](#list_workspaces-web-action-AssociateSessionLogger "#list_workspaces-web-action-AssociateSessionLogger")                                              |               |                   | Write          |
-| AssociateTrustStore                                                                                             | [workspaces-web:AssociateTrustStore](#list_workspaces-web-action-AssociateTrustStore "#list_workspaces-web-action-AssociateTrustStore")                                                       |               |                   | Write          |
-| AssociateUserAccessLoggingSettings                                                                              | [workspaces-web:AssociateUserAccessLoggingSettings](#list_workspaces-web-action-AssociateUserAccessLoggingSettings "#list_workspaces-web-action-AssociateUserAccessLoggingSettings")          |               |                   | Write          |
-| AssociateUserSettings                                                                                           | [workspaces-web:AssociateUserSettings](#list_workspaces-web-action-AssociateUserSettings "#list_workspaces-web-action-AssociateUserSettings")                                                 |               |                   | Write          |
-| CreateBrowserSettings                                                                                           | [workspaces-web:CreateBrowserSettings](#list_workspaces-web-action-CreateBrowserSettings "#list_workspaces-web-action-CreateBrowserSettings")                                                 |               |                   | Write          |
-| [workspaces-web:TagResource](#list_workspaces-web-action-TagResource "#list_workspaces-web-action-TagResource") |                                                                                                                                                                                               |               | Tagging, Write    |
-| CreateDataProtectionSettings                                                                                    | [workspaces-web:CreateDataProtectionSettings](#list_workspaces-web-action-CreateDataProtectionSettings "#list_workspaces-web-action-CreateDataProtectionSettings")                            |               |                   | Write          |
-| [workspaces-web:TagResource](#list_workspaces-web-action-TagResource "#list_workspaces-web-action-TagResource") |                                                                                                                                                                                               |               | Tagging, Write    |
-| CreateIdentityProvider                                                                                          | [workspaces-web:CreateIdentityProvider](#list_workspaces-web-action-CreateIdentityProvider "#list_workspaces-web-action-CreateIdentityProvider")                                              |               |                   | Write          |
-| [workspaces-web:TagResource](#list_workspaces-web-action-TagResource "#list_workspaces-web-action-TagResource") |                                                                                                                                                                                               |               | Tagging, Write    |
-| CreateIpAccessSettings                                                                                          | [workspaces-web:CreateIpAccessSettings](#list_workspaces-web-action-CreateIpAccessSettings "#list_workspaces-web-action-CreateIpAccessSettings")                                              |               |                   | Write          |
-| [workspaces-web:TagResource](#list_workspaces-web-action-TagResource "#list_workspaces-web-action-TagResource") |                                                                                                                                                                                               |               | Tagging, Write    |
-| CreateNetworkSettings                                                                                           | [workspaces-web:CreateNetworkSettings](#list_workspaces-web-action-CreateNetworkSettings "#list_workspaces-web-action-CreateNetworkSettings")                                                 |               |                   | Write          |
-| [workspaces-web:TagResource](#list_workspaces-web-action-TagResource "#list_workspaces-web-action-TagResource") |                                                                                                                                                                                               |               | Tagging, Write    |
-| CreatePortal                                                                                                    | [workspaces-web:CreatePortal](#list_workspaces-web-action-CreatePortal "#list_workspaces-web-action-CreatePortal")                                                                            |               |                   | Write          |
-| [workspaces-web:TagResource](#list_workspaces-web-action-TagResource "#list_workspaces-web-action-TagResource") |                                                                                                                                                                                               |               | Tagging, Write    |
-| CreateSessionLogger                                                                                             | [workspaces-web:CreateSessionLogger](#list_workspaces-web-action-CreateSessionLogger "#list_workspaces-web-action-CreateSessionLogger")                                                       |               |                   | Write          |
-| [workspaces-web:TagResource](#list_workspaces-web-action-TagResource "#list_workspaces-web-action-TagResource") |                                                                                                                                                                                               |               | Tagging, Write    |
-| CreateTrustStore                                                                                                | [workspaces-web:CreateTrustStore](#list_workspaces-web-action-CreateTrustStore "#list_workspaces-web-action-CreateTrustStore")                                                                |               |                   | Write          |
-| [workspaces-web:TagResource](#list_workspaces-web-action-TagResource "#list_workspaces-web-action-TagResource") |                                                                                                                                                                                               |               | Tagging, Write    |
-| CreateUserAccessLoggingSettings                                                                                 | [workspaces-web:CreateUserAccessLoggingSettings](#list_workspaces-web-action-CreateUserAccessLoggingSettings "#list_workspaces-web-action-CreateUserAccessLoggingSettings")                   |               |                   | Write          |
-| [workspaces-web:TagResource](#list_workspaces-web-action-TagResource "#list_workspaces-web-action-TagResource") |                                                                                                                                                                                               |               | Tagging, Write    |
-| CreateUserSettings                                                                                              | [workspaces-web:CreateUserSettings](#list_workspaces-web-action-CreateUserSettings "#list_workspaces-web-action-CreateUserSettings")                                                          |               |                   | Write          |
-| [workspaces-web:TagResource](#list_workspaces-web-action-TagResource "#list_workspaces-web-action-TagResource") |                                                                                                                                                                                               |               | Tagging, Write    |
-| DeleteBrowserSettings                                                                                           | [workspaces-web:DeleteBrowserSettings](#list_workspaces-web-action-DeleteBrowserSettings "#list_workspaces-web-action-DeleteBrowserSettings")                                                 |               |                   | Write          |
-| DeleteDataProtectionSettings                                                                                    | [workspaces-web:DeleteDataProtectionSettings](#list_workspaces-web-action-DeleteDataProtectionSettings "#list_workspaces-web-action-DeleteDataProtectionSettings")                            |               |                   | Write          |
-| DeleteIdentityProvider                                                                                          | [workspaces-web:DeleteIdentityProvider](#list_workspaces-web-action-DeleteIdentityProvider "#list_workspaces-web-action-DeleteIdentityProvider")                                              |               |                   | Write          |
-| DeleteIpAccessSettings                                                                                          | [workspaces-web:DeleteIpAccessSettings](#list_workspaces-web-action-DeleteIpAccessSettings "#list_workspaces-web-action-DeleteIpAccessSettings")                                              |               |                   | Write          |
-| DeleteNetworkSettings                                                                                           | [workspaces-web:DeleteNetworkSettings](#list_workspaces-web-action-DeleteNetworkSettings "#list_workspaces-web-action-DeleteNetworkSettings")                                                 |               |                   | Write          |
-| DeletePortal                                                                                                    | [workspaces-web:DeletePortal](#list_workspaces-web-action-DeletePortal "#list_workspaces-web-action-DeletePortal")                                                                            |               |                   | Write          |
-| DeleteSessionLogger                                                                                             | [workspaces-web:DeleteSessionLogger](#list_workspaces-web-action-DeleteSessionLogger "#list_workspaces-web-action-DeleteSessionLogger")                                                       |               |                   | Write          |
-| DeleteTrustStore                                                                                                | [workspaces-web:DeleteTrustStore](#list_workspaces-web-action-DeleteTrustStore "#list_workspaces-web-action-DeleteTrustStore")                                                                |               |                   | Write          |
-| DeleteUserAccessLoggingSettings                                                                                 | [workspaces-web:DeleteUserAccessLoggingSettings](#list_workspaces-web-action-DeleteUserAccessLoggingSettings "#list_workspaces-web-action-DeleteUserAccessLoggingSettings")                   |               |                   | Write          |
-| DeleteUserSettings                                                                                              | [workspaces-web:DeleteUserSettings](#list_workspaces-web-action-DeleteUserSettings "#list_workspaces-web-action-DeleteUserSettings")                                                          |               |                   | Write          |
-| DisassociateBrowserSettings                                                                                     | [workspaces-web:DisassociateBrowserSettings](#list_workspaces-web-action-DisassociateBrowserSettings "#list_workspaces-web-action-DisassociateBrowserSettings")                               |               |                   | Write          |
-| DisassociateDataProtectionSettings                                                                              | [workspaces-web:DisassociateDataProtectionSettings](#list_workspaces-web-action-DisassociateDataProtectionSettings "#list_workspaces-web-action-DisassociateDataProtectionSettings")          |               |                   | Write          |
-| DisassociateIpAccessSettings                                                                                    | [workspaces-web:DisassociateIpAccessSettings](#list_workspaces-web-action-DisassociateIpAccessSettings "#list_workspaces-web-action-DisassociateIpAccessSettings")                            |               |                   | Write          |
-| DisassociateNetworkSettings                                                                                     | [workspaces-web:DisassociateNetworkSettings](#list_workspaces-web-action-DisassociateNetworkSettings "#list_workspaces-web-action-DisassociateNetworkSettings")                               |               |                   | Write          |
-| DisassociateSessionLogger                                                                                       | [workspaces-web:DisassociateSessionLogger](#list_workspaces-web-action-DisassociateSessionLogger "#list_workspaces-web-action-DisassociateSessionLogger")                                     |               |                   | Write          |
-| DisassociateTrustStore                                                                                          | [workspaces-web:DisassociateTrustStore](#list_workspaces-web-action-DisassociateTrustStore "#list_workspaces-web-action-DisassociateTrustStore")                                              |               |                   | Write          |
-| DisassociateUserAccessLoggingSettings                                                                           | [workspaces-web:DisassociateUserAccessLoggingSettings](#list_workspaces-web-action-DisassociateUserAccessLoggingSettings "#list_workspaces-web-action-DisassociateUserAccessLoggingSettings") |               |                   | Write          |
-| DisassociateUserSettings                                                                                        | [workspaces-web:DisassociateUserSettings](#list_workspaces-web-action-DisassociateUserSettings "#list_workspaces-web-action-DisassociateUserSettings")                                        |               |                   | Write          |
-| ExpireSession                                                                                                   | [workspaces-web:ExpireSession](#list_workspaces-web-action-ExpireSession "#list_workspaces-web-action-ExpireSession")                                                                         |               |                   | Write          |
-| GetBrowserSettings                                                                                              | [workspaces-web:GetBrowserSettings](#list_workspaces-web-action-GetBrowserSettings "#list_workspaces-web-action-GetBrowserSettings")                                                          |               |                   | Read           |
-| GetDataProtectionSettings                                                                                       | [workspaces-web:GetDataProtectionSettings](#list_workspaces-web-action-GetDataProtectionSettings "#list_workspaces-web-action-GetDataProtectionSettings")                                     |               |                   | Read           |
-| GetIdentityProvider                                                                                             | [workspaces-web:GetIdentityProvider](#list_workspaces-web-action-GetIdentityProvider "#list_workspaces-web-action-GetIdentityProvider")                                                       |               |                   | Read           |
-| GetIpAccessSettings                                                                                             | [workspaces-web:GetIpAccessSettings](#list_workspaces-web-action-GetIpAccessSettings "#list_workspaces-web-action-GetIpAccessSettings")                                                       |               |                   | Read           |
-| GetNetworkSettings                                                                                              | [workspaces-web:GetNetworkSettings](#list_workspaces-web-action-GetNetworkSettings "#list_workspaces-web-action-GetNetworkSettings")                                                          |               |                   | Read           |
-| GetPortal                                                                                                       | [workspaces-web:GetPortal](#list_workspaces-web-action-GetPortal "#list_workspaces-web-action-GetPortal")                                                                                     |               |                   | Read           |
-| GetPortalServiceProviderMetadata                                                                                | [workspaces-web:GetPortalServiceProviderMetadata](#list_workspaces-web-action-GetPortalServiceProviderMetadata "#list_workspaces-web-action-GetPortalServiceProviderMetadata")                |               |                   | Read           |
-| GetSession                                                                                                      | [workspaces-web:GetSession](#list_workspaces-web-action-GetSession "#list_workspaces-web-action-GetSession")                                                                                  |               |                   | Read           |
-| GetSessionLogger                                                                                                | [workspaces-web:GetSessionLogger](#list_workspaces-web-action-GetSessionLogger "#list_workspaces-web-action-GetSessionLogger")                                                                |               |                   | Read           |
-| GetTrustStore                                                                                                   | [workspaces-web:GetTrustStore](#list_workspaces-web-action-GetTrustStore "#list_workspaces-web-action-GetTrustStore")                                                                         |               |                   | Read           |
-| GetTrustStoreCertificate                                                                                        | [workspaces-web:GetTrustStoreCertificate](#list_workspaces-web-action-GetTrustStoreCertificate "#list_workspaces-web-action-GetTrustStoreCertificate")                                        |               |                   | Read           |
-| GetUserAccessLoggingSettings                                                                                    | [workspaces-web:GetUserAccessLoggingSettings](#list_workspaces-web-action-GetUserAccessLoggingSettings "#list_workspaces-web-action-GetUserAccessLoggingSettings")                            |               |                   | Read           |
-| GetUserSettings                                                                                                 | [workspaces-web:GetUserSettings](#list_workspaces-web-action-GetUserSettings "#list_workspaces-web-action-GetUserSettings")                                                                   |               |                   | Read           |
-| ListBrowserSettings                                                                                             | [workspaces-web:ListBrowserSettings](#list_workspaces-web-action-ListBrowserSettings "#list_workspaces-web-action-ListBrowserSettings")                                                       |               |                   | Read           |
-| ListDataProtectionSettings                                                                                      | [workspaces-web:ListDataProtectionSettings](#list_workspaces-web-action-ListDataProtectionSettings "#list_workspaces-web-action-ListDataProtectionSettings")                                  |               |                   | Read           |
-| ListIdentityProviders                                                                                           | [workspaces-web:ListIdentityProviders](#list_workspaces-web-action-ListIdentityProviders "#list_workspaces-web-action-ListIdentityProviders")                                                 |               |                   | Read           |
-| ListIpAccessSettings                                                                                            | [workspaces-web:ListIpAccessSettings](#list_workspaces-web-action-ListIpAccessSettings "#list_workspaces-web-action-ListIpAccessSettings")                                                    |               |                   | Read           |
-| ListNetworkSettings                                                                                             | [workspaces-web:ListNetworkSettings](#list_workspaces-web-action-ListNetworkSettings "#list_workspaces-web-action-ListNetworkSettings")                                                       |               |                   | Read           |
-| ListPortals                                                                                                     | [workspaces-web:ListPortals](#list_workspaces-web-action-ListPortals "#list_workspaces-web-action-ListPortals")                                                                               |               |                   | Read           |
-| ListSessionLoggers                                                                                              | [workspaces-web:ListSessionLoggers](#list_workspaces-web-action-ListSessionLoggers "#list_workspaces-web-action-ListSessionLoggers")                                                          |               |                   | Read           |
-| ListSessions                                                                                                    | [workspaces-web:ListSessions](#list_workspaces-web-action-ListSessions "#list_workspaces-web-action-ListSessions")                                                                            |               |                   | Read           |
-| ListTagsForResource                                                                                             | [workspaces-web:ListTagsForResource](#list_workspaces-web-action-ListTagsForResource "#list_workspaces-web-action-ListTagsForResource")                                                       |               |                   | Read           |
-| ListTrustStoreCertificates                                                                                      | [workspaces-web:ListTrustStoreCertificates](#list_workspaces-web-action-ListTrustStoreCertificates "#list_workspaces-web-action-ListTrustStoreCertificates")                                  |               |                   | Read           |
-| ListTrustStores                                                                                                 | [workspaces-web:ListTrustStores](#list_workspaces-web-action-ListTrustStores "#list_workspaces-web-action-ListTrustStores")                                                                   |               |                   | Read           |
-| ListUserAccessLoggingSettings                                                                                   | [workspaces-web:ListUserAccessLoggingSettings](#list_workspaces-web-action-ListUserAccessLoggingSettings "#list_workspaces-web-action-ListUserAccessLoggingSettings")                         |               |                   | Read           |
-| ListUserSettings                                                                                                | [workspaces-web:ListUserSettings](#list_workspaces-web-action-ListUserSettings "#list_workspaces-web-action-ListUserSettings")                                                                |               |                   | Read           |
-| TagResource                                                                                                     | [workspaces-web:TagResource](#list_workspaces-web-action-TagResource "#list_workspaces-web-action-TagResource")                                                                               |               |                   | Tagging, Write |
-| UntagResource                                                                                                   | [workspaces-web:UntagResource](#list_workspaces-web-action-UntagResource "#list_workspaces-web-action-UntagResource")                                                                         |               |                   | Tagging, Write |
-| UpdateBrowserSettings                                                                                           | [workspaces-web:UpdateBrowserSettings](#list_workspaces-web-action-UpdateBrowserSettings "#list_workspaces-web-action-UpdateBrowserSettings")                                                 |               |                   | Write          |
-| UpdateDataProtectionSettings                                                                                    | [workspaces-web:UpdateDataProtectionSettings](#list_workspaces-web-action-UpdateDataProtectionSettings "#list_workspaces-web-action-UpdateDataProtectionSettings")                            |               |                   | Write          |
-| UpdateIdentityProvider                                                                                          | [workspaces-web:UpdateIdentityProvider](#list_workspaces-web-action-UpdateIdentityProvider "#list_workspaces-web-action-UpdateIdentityProvider")                                              |               |                   | Write          |
-| UpdateIpAccessSettings                                                                                          | [workspaces-web:UpdateIpAccessSettings](#list_workspaces-web-action-UpdateIpAccessSettings "#list_workspaces-web-action-UpdateIpAccessSettings")                                              |               |                   | Write          |
-| UpdateNetworkSettings                                                                                           | [workspaces-web:UpdateNetworkSettings](#list_workspaces-web-action-UpdateNetworkSettings "#list_workspaces-web-action-UpdateNetworkSettings")                                                 |               |                   | Write          |
-| UpdatePortal                                                                                                    | [workspaces-web:UpdatePortal](#list_workspaces-web-action-UpdatePortal "#list_workspaces-web-action-UpdatePortal")                                                                            |               |                   | Write          |
-| UpdateSessionLogger                                                                                             | [workspaces-web:UpdateSessionLogger](#list_workspaces-web-action-UpdateSessionLogger "#list_workspaces-web-action-UpdateSessionLogger")                                                       |               |                   | Write          |
-| UpdateTrustStore                                                                                                | [workspaces-web:UpdateTrustStore](#list_workspaces-web-action-UpdateTrustStore "#list_workspaces-web-action-UpdateTrustStore")                                                                |               |                   | Write          |
-| UpdateUserAccessLoggingSettings                                                                                 | [workspaces-web:UpdateUserAccessLoggingSettings](#list_workspaces-web-action-UpdateUserAccessLoggingSettings "#list_workspaces-web-action-UpdateUserAccessLoggingSettings")                   |               |                   | Write          |
-| UpdateUserSettings                                                                                              | [workspaces-web:UpdateUserSettings](#list_workspaces-web-action-UpdateUserSettings "#list_workspaces-web-action-UpdateUserSettings")                                                          |               |                   | Write          |
+
+
+
+- **   AssociateBrowserSettings  **
+  - **IAM action:**  [workspaces-web:AssociateBrowserSettings](#list_workspaces-web-action-AssociateBrowserSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateDataProtectionSettings  **
+  - **IAM action:**  [workspaces-web:AssociateDataProtectionSettings](#list_workspaces-web-action-AssociateDataProtectionSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateIpAccessSettings  **
+  - **IAM action:**  [workspaces-web:AssociateIpAccessSettings](#list_workspaces-web-action-AssociateIpAccessSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateNetworkSettings  **
+  - **IAM action:**  [workspaces-web:AssociateNetworkSettings](#list_workspaces-web-action-AssociateNetworkSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateSessionLogger  **
+  - **IAM action:**  [workspaces-web:AssociateSessionLogger](#list_workspaces-web-action-AssociateSessionLogger) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateTrustStore  **
+  - **IAM action:**  [workspaces-web:AssociateTrustStore](#list_workspaces-web-action-AssociateTrustStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateUserAccessLoggingSettings  **
+  - **IAM action:**  [workspaces-web:AssociateUserAccessLoggingSettings](#list_workspaces-web-action-AssociateUserAccessLoggingSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateUserSettings  **
+  - **IAM action:**  [workspaces-web:AssociateUserSettings](#list_workspaces-web-action-AssociateUserSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateBrowserSettings  **
+  - **IAM action:**  [workspaces-web:CreateBrowserSettings](#list_workspaces-web-action-CreateBrowserSettings)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [workspaces-web:TagResource](#list_workspaces-web-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateDataProtectionSettings  **
+  - **IAM action:**  [workspaces-web:CreateDataProtectionSettings](#list_workspaces-web-action-CreateDataProtectionSettings)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [workspaces-web:TagResource](#list_workspaces-web-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateIdentityProvider  **
+  - **IAM action:**  [workspaces-web:CreateIdentityProvider](#list_workspaces-web-action-CreateIdentityProvider)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [workspaces-web:TagResource](#list_workspaces-web-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateIpAccessSettings  **
+  - **IAM action:**  [workspaces-web:CreateIpAccessSettings](#list_workspaces-web-action-CreateIpAccessSettings)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [workspaces-web:TagResource](#list_workspaces-web-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateNetworkSettings  **
+  - **IAM action:**  [workspaces-web:CreateNetworkSettings](#list_workspaces-web-action-CreateNetworkSettings)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [workspaces-web:TagResource](#list_workspaces-web-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreatePortal  **
+  - **IAM action:**  [workspaces-web:CreatePortal](#list_workspaces-web-action-CreatePortal)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [workspaces-web:TagResource](#list_workspaces-web-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateSessionLogger  **
+  - **IAM action:**  [workspaces-web:CreateSessionLogger](#list_workspaces-web-action-CreateSessionLogger)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [workspaces-web:TagResource](#list_workspaces-web-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateTrustStore  **
+  - **IAM action:**  [workspaces-web:CreateTrustStore](#list_workspaces-web-action-CreateTrustStore)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [workspaces-web:TagResource](#list_workspaces-web-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateUserAccessLoggingSettings  **
+  - **IAM action:**  [workspaces-web:CreateUserAccessLoggingSettings](#list_workspaces-web-action-CreateUserAccessLoggingSettings)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [workspaces-web:TagResource](#list_workspaces-web-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateUserSettings  **
+  - **IAM action:**  [workspaces-web:CreateUserSettings](#list_workspaces-web-action-CreateUserSettings)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [workspaces-web:TagResource](#list_workspaces-web-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteBrowserSettings  **
+  - **IAM action:**  [workspaces-web:DeleteBrowserSettings](#list_workspaces-web-action-DeleteBrowserSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDataProtectionSettings  **
+  - **IAM action:**  [workspaces-web:DeleteDataProtectionSettings](#list_workspaces-web-action-DeleteDataProtectionSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteIdentityProvider  **
+  - **IAM action:**  [workspaces-web:DeleteIdentityProvider](#list_workspaces-web-action-DeleteIdentityProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteIpAccessSettings  **
+  - **IAM action:**  [workspaces-web:DeleteIpAccessSettings](#list_workspaces-web-action-DeleteIpAccessSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteNetworkSettings  **
+  - **IAM action:**  [workspaces-web:DeleteNetworkSettings](#list_workspaces-web-action-DeleteNetworkSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeletePortal  **
+  - **IAM action:**  [workspaces-web:DeletePortal](#list_workspaces-web-action-DeletePortal) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSessionLogger  **
+  - **IAM action:**  [workspaces-web:DeleteSessionLogger](#list_workspaces-web-action-DeleteSessionLogger) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteTrustStore  **
+  - **IAM action:**  [workspaces-web:DeleteTrustStore](#list_workspaces-web-action-DeleteTrustStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteUserAccessLoggingSettings  **
+  - **IAM action:**  [workspaces-web:DeleteUserAccessLoggingSettings](#list_workspaces-web-action-DeleteUserAccessLoggingSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteUserSettings  **
+  - **IAM action:**  [workspaces-web:DeleteUserSettings](#list_workspaces-web-action-DeleteUserSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateBrowserSettings  **
+  - **IAM action:**  [workspaces-web:DisassociateBrowserSettings](#list_workspaces-web-action-DisassociateBrowserSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateDataProtectionSettings  **
+  - **IAM action:**  [workspaces-web:DisassociateDataProtectionSettings](#list_workspaces-web-action-DisassociateDataProtectionSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateIpAccessSettings  **
+  - **IAM action:**  [workspaces-web:DisassociateIpAccessSettings](#list_workspaces-web-action-DisassociateIpAccessSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateNetworkSettings  **
+  - **IAM action:**  [workspaces-web:DisassociateNetworkSettings](#list_workspaces-web-action-DisassociateNetworkSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateSessionLogger  **
+  - **IAM action:**  [workspaces-web:DisassociateSessionLogger](#list_workspaces-web-action-DisassociateSessionLogger) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateTrustStore  **
+  - **IAM action:**  [workspaces-web:DisassociateTrustStore](#list_workspaces-web-action-DisassociateTrustStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateUserAccessLoggingSettings  **
+  - **IAM action:**  [workspaces-web:DisassociateUserAccessLoggingSettings](#list_workspaces-web-action-DisassociateUserAccessLoggingSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateUserSettings  **
+  - **IAM action:**  [workspaces-web:DisassociateUserSettings](#list_workspaces-web-action-DisassociateUserSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ExpireSession  **
+  - **IAM action:**  [workspaces-web:ExpireSession](#list_workspaces-web-action-ExpireSession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetBrowserSettings  **
+  - **IAM action:**  [workspaces-web:GetBrowserSettings](#list_workspaces-web-action-GetBrowserSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDataProtectionSettings  **
+  - **IAM action:**  [workspaces-web:GetDataProtectionSettings](#list_workspaces-web-action-GetDataProtectionSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIdentityProvider  **
+  - **IAM action:**  [workspaces-web:GetIdentityProvider](#list_workspaces-web-action-GetIdentityProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIpAccessSettings  **
+  - **IAM action:**  [workspaces-web:GetIpAccessSettings](#list_workspaces-web-action-GetIpAccessSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetNetworkSettings  **
+  - **IAM action:**  [workspaces-web:GetNetworkSettings](#list_workspaces-web-action-GetNetworkSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPortal  **
+  - **IAM action:**  [workspaces-web:GetPortal](#list_workspaces-web-action-GetPortal) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPortalServiceProviderMetadata  **
+  - **IAM action:**  [workspaces-web:GetPortalServiceProviderMetadata](#list_workspaces-web-action-GetPortalServiceProviderMetadata) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSession  **
+  - **IAM action:**  [workspaces-web:GetSession](#list_workspaces-web-action-GetSession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSessionLogger  **
+  - **IAM action:**  [workspaces-web:GetSessionLogger](#list_workspaces-web-action-GetSessionLogger) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTrustStore  **
+  - **IAM action:**  [workspaces-web:GetTrustStore](#list_workspaces-web-action-GetTrustStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTrustStoreCertificate  **
+  - **IAM action:**  [workspaces-web:GetTrustStoreCertificate](#list_workspaces-web-action-GetTrustStoreCertificate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetUserAccessLoggingSettings  **
+  - **IAM action:**  [workspaces-web:GetUserAccessLoggingSettings](#list_workspaces-web-action-GetUserAccessLoggingSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetUserSettings  **
+  - **IAM action:**  [workspaces-web:GetUserSettings](#list_workspaces-web-action-GetUserSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListBrowserSettings  **
+  - **IAM action:**  [workspaces-web:ListBrowserSettings](#list_workspaces-web-action-ListBrowserSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListDataProtectionSettings  **
+  - **IAM action:**  [workspaces-web:ListDataProtectionSettings](#list_workspaces-web-action-ListDataProtectionSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListIdentityProviders  **
+  - **IAM action:**  [workspaces-web:ListIdentityProviders](#list_workspaces-web-action-ListIdentityProviders) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListIpAccessSettings  **
+  - **IAM action:**  [workspaces-web:ListIpAccessSettings](#list_workspaces-web-action-ListIpAccessSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListNetworkSettings  **
+  - **IAM action:**  [workspaces-web:ListNetworkSettings](#list_workspaces-web-action-ListNetworkSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListPortals  **
+  - **IAM action:**  [workspaces-web:ListPortals](#list_workspaces-web-action-ListPortals) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListSessionLoggers  **
+  - **IAM action:**  [workspaces-web:ListSessionLoggers](#list_workspaces-web-action-ListSessionLoggers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListSessions  **
+  - **IAM action:**  [workspaces-web:ListSessions](#list_workspaces-web-action-ListSessions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [workspaces-web:ListTagsForResource](#list_workspaces-web-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTrustStoreCertificates  **
+  - **IAM action:**  [workspaces-web:ListTrustStoreCertificates](#list_workspaces-web-action-ListTrustStoreCertificates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTrustStores  **
+  - **IAM action:**  [workspaces-web:ListTrustStores](#list_workspaces-web-action-ListTrustStores) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListUserAccessLoggingSettings  **
+  - **IAM action:**  [workspaces-web:ListUserAccessLoggingSettings](#list_workspaces-web-action-ListUserAccessLoggingSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListUserSettings  **
+  - **IAM action:**  [workspaces-web:ListUserSettings](#list_workspaces-web-action-ListUserSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   TagResource  **
+  - **IAM action:**  [workspaces-web:TagResource](#list_workspaces-web-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [workspaces-web:UntagResource](#list_workspaces-web-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateBrowserSettings  **
+  - **IAM action:**  [workspaces-web:UpdateBrowserSettings](#list_workspaces-web-action-UpdateBrowserSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateDataProtectionSettings  **
+  - **IAM action:**  [workspaces-web:UpdateDataProtectionSettings](#list_workspaces-web-action-UpdateDataProtectionSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateIdentityProvider  **
+  - **IAM action:**  [workspaces-web:UpdateIdentityProvider](#list_workspaces-web-action-UpdateIdentityProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateIpAccessSettings  **
+  - **IAM action:**  [workspaces-web:UpdateIpAccessSettings](#list_workspaces-web-action-UpdateIpAccessSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateNetworkSettings  **
+  - **IAM action:**  [workspaces-web:UpdateNetworkSettings](#list_workspaces-web-action-UpdateNetworkSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdatePortal  **
+  - **IAM action:**  [workspaces-web:UpdatePortal](#list_workspaces-web-action-UpdatePortal) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSessionLogger  **
+  - **IAM action:**  [workspaces-web:UpdateSessionLogger](#list_workspaces-web-action-UpdateSessionLogger) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateTrustStore  **
+  - **IAM action:**  [workspaces-web:UpdateTrustStore](#list_workspaces-web-action-UpdateTrustStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateUserAccessLoggingSettings  **
+  - **IAM action:**  [workspaces-web:UpdateUserAccessLoggingSettings](#list_workspaces-web-action-UpdateUserAccessLoggingSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateUserSettings  **
+  - **IAM action:**  [workspaces-web:UpdateUserSettings](#list_workspaces-web-action-UpdateUserSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon WorkSpaces Secure Browser
+<a name="list_workspaces-web-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                      | Description                                                                                                                                                                                                                                                                                                                                     | Resource types (\*required)                                                                                                                      | Condition keys                                                                                                                                                                                                                                                                                                                                  | Access level   |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AssociateBrowserSettings](../../../workspaces-web/latest/APIReference/API_AssociateBrowserSettings.md "../../../workspaces-web/latest/APIReference/API_AssociateBrowserSettings.md")                                        | Grants permission to associate browser settings to web portals                                                                                                                                                                                                                                                                                  | [browserSettings\*](#list_workspaces-web-resource-browserSettings "#list_workspaces-web-resource-browserSettings")                               | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    |
-| [AssociateDataProtectionSettings](../../../workspaces-web/latest/APIReference/API_AssociateDataProtectionSettings.md "../../../workspaces-web/latest/APIReference/API_AssociateDataProtectionSettings.md")                   | Grants permission to associate data protection settings with web portals                                                                                                                                                                                                                                                                        | [dataProtectionSettings\*](#list_workspaces-web-resource-dataProtectionSettings "#list_workspaces-web-resource-dataProtectionSettings")          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    |
-| [AssociateIpAccessSettings](../../../workspaces-web/latest/APIReference/API_AssociateIpAccessSettings.md "../../../workspaces-web/latest/APIReference/API_AssociateIpAccessSettings.md")                                     | Grants permission to associate ip access settings with web portals                                                                                                                                                                                                                                                                              | [ipAccessSettings\*](#list_workspaces-web-resource-ipAccessSettings "#list_workspaces-web-resource-ipAccessSettings")                            | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    |
-| [AssociateNetworkSettings](../../../workspaces-web/latest/APIReference/API_AssociateNetworkSettings.md "../../../workspaces-web/latest/APIReference/API_AssociateNetworkSettings.md")                                        | Grants permission to associate network settings to web portals                                                                                                                                                                                                                                                                                  | [networkSettings\*](#list_workspaces-web-resource-networkSettings "#list_workspaces-web-resource-networkSettings")                               | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    |
-| [AssociateSessionLogger](../../../workspaces-web/latest/APIReference/API_AssociateSessionLogger.md "../../../workspaces-web/latest/APIReference/API_AssociateSessionLogger.md")                                              | Grants permission to associate session logger with web portals                                                                                                                                                                                                                                                                                  | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [sessionLogger\*](#list_workspaces-web-resource-sessionLogger "#list_workspaces-web-resource-sessionLogger")                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    |
-| [AssociateTrustStore](../../../workspaces-web/latest/APIReference/API_AssociateTrustStore.md "../../../workspaces-web/latest/APIReference/API_AssociateTrustStore.md")                                                       | Grants permission to associate trust stores with web portals                                                                                                                                                                                                                                                                                    | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [trustStore\*](#list_workspaces-web-resource-trustStore "#list_workspaces-web-resource-trustStore")                                                                                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    |
-| [AssociateUserAccessLoggingSettings](../../../workspaces-web/latest/APIReference/API_AssociateUserAccessLoggingSettings.md "../../../workspaces-web/latest/APIReference/API_AssociateUserAccessLoggingSettings.md")          | Grants permission to associate user access logging settings with web portals                                                                                                                                                                                                                                                                    | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [userAccessLoggingSettings\*](#list_workspaces-web-resource-userAccessLoggingSettings "#list_workspaces-web-resource-userAccessLoggingSettings")                                                                             | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    |
-| [AssociateUserSettings](../../../workspaces-web/latest/APIReference/API_AssociateUserSettings.md "../../../workspaces-web/latest/APIReference/API_AssociateUserSettings.md")                                                 | Grants permission to associate user settings with web portals                                                                                                                                                                                                                                                                                   | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [userSettings\*](#list_workspaces-web-resource-userSettings "#list_workspaces-web-resource-userSettings")                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    |
-| [CreateBrowserSettings](../../../workspaces-web/latest/APIReference/API_CreateBrowserSettings.md "../../../workspaces-web/latest/APIReference/API_CreateBrowserSettings.md")                                                 | Grants permission to create browser settings                                                                                                                                                                                                                                                                                                    |                                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                                 | Write          |
-| [CreateDataProtectionSettings](../../../workspaces-web/latest/APIReference/API_CreateDataProtectionSettings.md "../../../workspaces-web/latest/APIReference/API_CreateDataProtectionSettings.md")                            | Grants permission to create data protection settings                                                                                                                                                                                                                                                                                            |                                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                                 | Write          |
-| [CreateIdentityProvider](../../../workspaces-web/latest/APIReference/API_CreateIdentityProvider.md "../../../workspaces-web/latest/APIReference/API_CreateIdentityProvider.md")                                              | Grants permission to create identity providers                                                                                                                                                                                                                                                                                                  | [identityProvider\*](#list_workspaces-web-resource-identityProvider "#list_workspaces-web-resource-identityProvider")                            | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys") | Write          |
-| [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                                                                                                      | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys") |
-| [CreateIpAccessSettings](../../../workspaces-web/latest/APIReference/API_CreateIpAccessSettings.md "../../../workspaces-web/latest/APIReference/API_CreateIpAccessSettings.md")                                              | Grants permission to create ip access settings                                                                                                                                                                                                                                                                                                  |                                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                                 | Write          |
-| [CreateNetworkSettings](../../../workspaces-web/latest/APIReference/API_CreateNetworkSettings.md "../../../workspaces-web/latest/APIReference/API_CreateNetworkSettings.md")                                                 | Grants permission to create network settings                                                                                                                                                                                                                                                                                                    |                                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                                 | Write          |
-| [CreatePortal](../../../workspaces-web/latest/APIReference/API_CreatePortal.md "../../../workspaces-web/latest/APIReference/API_CreatePortal.md")                                                                            | Grants permission to create web portals                                                                                                                                                                                                                                                                                                         |                                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                                 | Write          |
-| [CreateSessionLogger](../../../workspaces-web/latest/APIReference/API_CreateSessionLogger.md "../../../workspaces-web/latest/APIReference/API_CreateSessionLogger.md")                                                       | Grants permission to create session logger                                                                                                                                                                                                                                                                                                      |                                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                                 | Write          |
-| [CreateTrustStore](../../../workspaces-web/latest/APIReference/API_CreateTrustStore.md "../../../workspaces-web/latest/APIReference/API_CreateTrustStore.md")                                                                | Grants permission to create trust stores                                                                                                                                                                                                                                                                                                        |                                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                                 | Write          |
-| [CreateUserAccessLoggingSettings](../../../workspaces-web/latest/APIReference/API_CreateUserAccessLoggingSettings.md "../../../workspaces-web/latest/APIReference/API_CreateUserAccessLoggingSettings.md")                   | Grants permission to create user access logging settings                                                                                                                                                                                                                                                                                        |                                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                                 | Write          |
-| [CreateUserSettings](../../../workspaces-web/latest/APIReference/API_CreateUserSettings.md "../../../workspaces-web/latest/APIReference/API_CreateUserSettings.md")                                                          | Grants permission to create user settings                                                                                                                                                                                                                                                                                                       |                                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                                 | Write          |
-| [DeleteBrowserSettings](../../../workspaces-web/latest/APIReference/API_DeleteBrowserSettings.md "../../../workspaces-web/latest/APIReference/API_DeleteBrowserSettings.md")                                                 | Grants permission to delete browser settings                                                                                                                                                                                                                                                                                                    | [browserSettings\*](#list_workspaces-web-resource-browserSettings "#list_workspaces-web-resource-browserSettings")                               | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DeleteDataProtectionSettings](../../../workspaces-web/latest/APIReference/API_DeleteDataProtectionSettings.md "../../../workspaces-web/latest/APIReference/API_DeleteDataProtectionSettings.md")                            | Grants permission to delete data protection settings                                                                                                                                                                                                                                                                                            | [dataProtectionSettings\*](#list_workspaces-web-resource-dataProtectionSettings "#list_workspaces-web-resource-dataProtectionSettings")          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DeleteIdentityProvider](../../../workspaces-web/latest/APIReference/API_DeleteIdentityProvider.md "../../../workspaces-web/latest/APIReference/API_DeleteIdentityProvider.md")                                              | Grants permission to delete identity providers                                                                                                                                                                                                                                                                                                  | [identityProvider\*](#list_workspaces-web-resource-identityProvider "#list_workspaces-web-resource-identityProvider")                            | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    |
-| [DeleteIpAccessSettings](../../../workspaces-web/latest/APIReference/API_DeleteIpAccessSettings.md "../../../workspaces-web/latest/APIReference/API_DeleteIpAccessSettings.md")                                              | Grants permission to delete ip access settings                                                                                                                                                                                                                                                                                                  | [ipAccessSettings\*](#list_workspaces-web-resource-ipAccessSettings "#list_workspaces-web-resource-ipAccessSettings")                            | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DeleteNetworkSettings](../../../workspaces-web/latest/APIReference/API_DeleteNetworkSettings.md "../../../workspaces-web/latest/APIReference/API_DeleteNetworkSettings.md")                                                 | Grants permission to delete network settings                                                                                                                                                                                                                                                                                                    | [networkSettings\*](#list_workspaces-web-resource-networkSettings "#list_workspaces-web-resource-networkSettings")                               | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DeletePortal](../../../workspaces-web/latest/APIReference/API_DeletePortal.md "../../../workspaces-web/latest/APIReference/API_DeletePortal.md")                                                                            | Grants permission to delete web portals                                                                                                                                                                                                                                                                                                         | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DeleteSessionLogger](../../../workspaces-web/latest/APIReference/API_DeleteSessionLogger.md "../../../workspaces-web/latest/APIReference/API_DeleteSessionLogger.md")                                                       | Grants permission to delete session logger                                                                                                                                                                                                                                                                                                      | [sessionLogger\*](#list_workspaces-web-resource-sessionLogger "#list_workspaces-web-resource-sessionLogger")                                     | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DeleteTrustStore](../../../workspaces-web/latest/APIReference/API_DeleteTrustStore.md "../../../workspaces-web/latest/APIReference/API_DeleteTrustStore.md")                                                                | Grants permission to delete trust stores                                                                                                                                                                                                                                                                                                        | [trustStore\*](#list_workspaces-web-resource-trustStore "#list_workspaces-web-resource-trustStore")                                              | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DeleteUserAccessLoggingSettings](../../../workspaces-web/latest/APIReference/API_DeleteUserAccessLoggingSettings.md "../../../workspaces-web/latest/APIReference/API_DeleteUserAccessLoggingSettings.md")                   | Grants permission to delete user access logging settings                                                                                                                                                                                                                                                                                        | [userAccessLoggingSettings\*](#list_workspaces-web-resource-userAccessLoggingSettings "#list_workspaces-web-resource-userAccessLoggingSettings") | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DeleteUserSettings](../../../workspaces-web/latest/APIReference/API_DeleteUserSettings.md "../../../workspaces-web/latest/APIReference/API_DeleteUserSettings.md")                                                          | Grants permission to delete user settings                                                                                                                                                                                                                                                                                                       | [userSettings\*](#list_workspaces-web-resource-userSettings "#list_workspaces-web-resource-userSettings")                                        | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DisassociateBrowserSettings](../../../workspaces-web/latest/APIReference/API_DisassociateBrowserSettings.md "../../../workspaces-web/latest/APIReference/API_DisassociateBrowserSettings.md")                               | Grants permission to disassociate browser settings from web portals                                                                                                                                                                                                                                                                             | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DisassociateDataProtectionSettings](../../../workspaces-web/latest/APIReference/API_DisassociateDataProtectionSettings.md "../../../workspaces-web/latest/APIReference/API_DisassociateDataProtectionSettings.md")          | Grants permission to disassociate data protection logging from web portals                                                                                                                                                                                                                                                                      | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DisassociateIpAccessSettings](../../../workspaces-web/latest/APIReference/API_DisassociateIpAccessSettings.md "../../../workspaces-web/latest/APIReference/API_DisassociateIpAccessSettings.md")                            | Grants permission to disassociate ip access logging from web portals                                                                                                                                                                                                                                                                            | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DisassociateNetworkSettings](../../../workspaces-web/latest/APIReference/API_DisassociateNetworkSettings.md "../../../workspaces-web/latest/APIReference/API_DisassociateNetworkSettings.md")                               | Grants permission to disassociate network settings from web portals                                                                                                                                                                                                                                                                             | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DisassociateSessionLogger](../../../workspaces-web/latest/APIReference/API_DisassociateSessionLogger.md "../../../workspaces-web/latest/APIReference/API_DisassociateSessionLogger.md")                                     | Grants permission to disassociate session logger from web portals                                                                                                                                                                                                                                                                               | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DisassociateTrustStore](../../../workspaces-web/latest/APIReference/API_DisassociateTrustStore.md "../../../workspaces-web/latest/APIReference/API_DisassociateTrustStore.md")                                              | Grants permission to disassociate trust stores from web portals                                                                                                                                                                                                                                                                                 | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DisassociateUserAccessLoggingSettings](../../../workspaces-web/latest/APIReference/API_DisassociateUserAccessLoggingSettings.md "../../../workspaces-web/latest/APIReference/API_DisassociateUserAccessLoggingSettings.md") | Grants permission to disassociate user access logging settings from web portals                                                                                                                                                                                                                                                                 | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DisassociateUserSettings](../../../workspaces-web/latest/APIReference/API_DisassociateUserSettings.md "../../../workspaces-web/latest/APIReference/API_DisassociateUserSettings.md")                                        | Grants permission to disassociate user settings from web portals                                                                                                                                                                                                                                                                                | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [ExpireSession](../../../workspaces-web/latest/APIReference/API_ExpireSession.md "../../../workspaces-web/latest/APIReference/API_ExpireSession.md")                                                                         | Grants permission to expire a session from a specific portal                                                                                                                                                                                                                                                                                    | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [GetBrowserSettings](../../../workspaces-web/latest/APIReference/API_GetBrowserSettings.md "../../../workspaces-web/latest/APIReference/API_GetBrowserSettings.md")                                                          | Grants permission to get details on browser settings                                                                                                                                                                                                                                                                                            | [browserSettings\*](#list_workspaces-web-resource-browserSettings "#list_workspaces-web-resource-browserSettings")                               | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [GetDataProtectionSettings](../../../workspaces-web/latest/APIReference/API_GetDataProtectionSettings.md "../../../workspaces-web/latest/APIReference/API_GetDataProtectionSettings.md")                                     | Grants permission to get details on data protection settings                                                                                                                                                                                                                                                                                    | [dataProtectionSettings\*](#list_workspaces-web-resource-dataProtectionSettings "#list_workspaces-web-resource-dataProtectionSettings")          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [GetIdentityProvider](../../../workspaces-web/latest/APIReference/API_GetIdentityProvider.md "../../../workspaces-web/latest/APIReference/API_GetIdentityProvider.md")                                                       | Grants permission to get details on identity providers                                                                                                                                                                                                                                                                                          | [identityProvider\*](#list_workspaces-web-resource-identityProvider "#list_workspaces-web-resource-identityProvider")                            | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [GetIpAccessSettings](../../../workspaces-web/latest/APIReference/API_GetIpAccessSettings.md "../../../workspaces-web/latest/APIReference/API_GetIpAccessSettings.md")                                                       | Grants permission to get details on ip access settings                                                                                                                                                                                                                                                                                          | [ipAccessSettings\*](#list_workspaces-web-resource-ipAccessSettings "#list_workspaces-web-resource-ipAccessSettings")                            | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [GetNetworkSettings](../../../workspaces-web/latest/APIReference/API_GetNetworkSettings.md "../../../workspaces-web/latest/APIReference/API_GetNetworkSettings.md")                                                          | Grants permission to get details on network settings                                                                                                                                                                                                                                                                                            | [networkSettings\*](#list_workspaces-web-resource-networkSettings "#list_workspaces-web-resource-networkSettings")                               | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [GetPortal](../../../workspaces-web/latest/APIReference/API_GetPortal.md "../../../workspaces-web/latest/APIReference/API_GetPortal.md")                                                                                     | Grants permission to get details on web portals                                                                                                                                                                                                                                                                                                 | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [GetPortalServiceProviderMetadata](../../../workspaces-web/latest/APIReference/API_GetPortalServiceProviderMetadata.md "../../../workspaces-web/latest/APIReference/API_GetPortalServiceProviderMetadata.md")                | Grants permission to get service provider metadata information for web portals                                                                                                                                                                                                                                                                  | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [GetSession](../../../workspaces-web/latest/APIReference/API_GetSession.md "../../../workspaces-web/latest/APIReference/API_GetSession.md")                                                                                  | Grants permission to get information about a particular session for a portal                                                                                                                                                                                                                                                                    | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [GetSessionLogger](../../../workspaces-web/latest/APIReference/API_GetSessionLogger.md "../../../workspaces-web/latest/APIReference/API_GetSessionLogger.md")                                                                | Grants permission to get details on session logger                                                                                                                                                                                                                                                                                              | [sessionLogger\*](#list_workspaces-web-resource-sessionLogger "#list_workspaces-web-resource-sessionLogger")                                     | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [GetTrustStore](../../../workspaces-web/latest/APIReference/API_GetTrustStore.md "../../../workspaces-web/latest/APIReference/API_GetTrustStore.md")                                                                         | Grants permission to get details on trust stores                                                                                                                                                                                                                                                                                                | [trustStore\*](#list_workspaces-web-resource-trustStore "#list_workspaces-web-resource-trustStore")                                              | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [GetTrustStoreCertificate](../../../workspaces-web/latest/APIReference/API_GetTrustStoreCertificate.md "../../../workspaces-web/latest/APIReference/API_GetTrustStoreCertificate.md")                                        | Grants permission to get certificates from trust stores                                                                                                                                                                                                                                                                                         | [trustStore\*](#list_workspaces-web-resource-trustStore "#list_workspaces-web-resource-trustStore")                                              | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [GetUserAccessLoggingSettings](../../../workspaces-web/latest/APIReference/API_GetUserAccessLoggingSettings.md "../../../workspaces-web/latest/APIReference/API_GetUserAccessLoggingSettings.md")                            | Grants permission to get details on user access logging settings                                                                                                                                                                                                                                                                                | [userAccessLoggingSettings\*](#list_workspaces-web-resource-userAccessLoggingSettings "#list_workspaces-web-resource-userAccessLoggingSettings") | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [GetUserSettings](../../../workspaces-web/latest/APIReference/API_GetUserSettings.md "../../../workspaces-web/latest/APIReference/API_GetUserSettings.md")                                                                   | Grants permission to get details on user settings                                                                                                                                                                                                                                                                                               | [userSettings\*](#list_workspaces-web-resource-userSettings "#list_workspaces-web-resource-userSettings")                                        | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [ListBrowserSettings](../../../workspaces-web/latest/APIReference/API_ListBrowserSettings.md "../../../workspaces-web/latest/APIReference/API_ListBrowserSettings.md")                                                       | Grants permission to list browser settings                                                                                                                                                                                                                                                                                                      |                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                 | Read           |
-| [ListDataProtectionSettings](../../../workspaces-web/latest/APIReference/API_ListDataProtectionSettings.md "../../../workspaces-web/latest/APIReference/API_ListDataProtectionSettings.md")                                  | Grants permission to list data protection settings                                                                                                                                                                                                                                                                                              |                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                 | Read           |
-| [ListIdentityProviders](../../../workspaces-web/latest/APIReference/API_ListIdentityProviders.md "../../../workspaces-web/latest/APIReference/API_ListIdentityProviders.md")                                                 | Grants permission to list identity providers                                                                                                                                                                                                                                                                                                    | [identityProvider\*](#list_workspaces-web-resource-identityProvider "#list_workspaces-web-resource-identityProvider")                            | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [ListIpAccessSettings](../../../workspaces-web/latest/APIReference/API_ListIpAccessSettings.md "../../../workspaces-web/latest/APIReference/API_ListIpAccessSettings.md")                                                    | Grants permission to list ip access settings                                                                                                                                                                                                                                                                                                    |                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                 | Read           |
-| [ListNetworkSettings](../../../workspaces-web/latest/APIReference/API_ListNetworkSettings.md "../../../workspaces-web/latest/APIReference/API_ListNetworkSettings.md")                                                       | Grants permission to list network settings                                                                                                                                                                                                                                                                                                      |                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                 | Read           |
-| [ListPortals](../../../workspaces-web/latest/APIReference/API_ListPortals.md "../../../workspaces-web/latest/APIReference/API_ListPortals.md")                                                                               | Grants permission to list web portals                                                                                                                                                                                                                                                                                                           |                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                 | Read           |
-| [ListSessionLoggers](../../../workspaces-web/latest/APIReference/API_ListSessionLoggers.md "../../../workspaces-web/latest/APIReference/API_ListSessionLoggers.md")                                                          | Grants permission to list session loggers                                                                                                                                                                                                                                                                                                       |                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                 | Read           |
-| [ListSessions](../../../workspaces-web/latest/APIReference/API_ListSessions.md "../../../workspaces-web/latest/APIReference/API_ListSessions.md")                                                                            | Grants permission to list sessions for a Portal using optional filters                                                                                                                                                                                                                                                                          | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [ListTagsForResource](../../../workspaces-web/latest/APIReference/API_ListTagsForResource.md "../../../workspaces-web/latest/APIReference/API_ListTagsForResource.md")                                                       | Grants permission to list tags for a resource                                                                                                                                                                                                                                                                                                   |                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                 | Read           |
-| [ListTrustStoreCertificates](../../../workspaces-web/latest/APIReference/API_ListTrustStoreCertificates.md "../../../workspaces-web/latest/APIReference/API_ListTrustStoreCertificates.md")                                  | Grants permission to list certificates in a trust store                                                                                                                                                                                                                                                                                         |                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                 | Read           |
-| [ListTrustStores](../../../workspaces-web/latest/APIReference/API_ListTrustStores.md "../../../workspaces-web/latest/APIReference/API_ListTrustStores.md")                                                                   | Grants permission to list trust stores                                                                                                                                                                                                                                                                                                          |                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                 | Read           |
-| [ListUserAccessLoggingSettings](../../../workspaces-web/latest/APIReference/API_ListUserAccessLoggingSettings.md "../../../workspaces-web/latest/APIReference/API_ListUserAccessLoggingSettings.md")                         | Grants permission to list user access logging settings                                                                                                                                                                                                                                                                                          |                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                 | Read           |
-| [ListUserSettings](../../../workspaces-web/latest/APIReference/API_ListUserSettings.md "../../../workspaces-web/latest/APIReference/API_ListUserSettings.md")                                                                | Grants permission to list user settings                                                                                                                                                                                                                                                                                                         |                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                 | Read           |
-| [TagResource](../../../workspaces-web/latest/APIReference/API_TagResource.md "../../../workspaces-web/latest/APIReference/API_TagResource.md")                                                                               | Grants permission to add one or more tags to a resource                                                                                                                                                                                                                                                                                         | [browserSettings](#list_workspaces-web-resource-browserSettings "#list_workspaces-web-resource-browserSettings")                                 | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys") | Tagging, Write |
-| [dataProtectionSettings](#list_workspaces-web-resource-dataProtectionSettings "#list_workspaces-web-resource-dataProtectionSettings")                                                                                        | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys") |
-| [identityProvider](#list_workspaces-web-resource-identityProvider "#list_workspaces-web-resource-identityProvider")                                                                                                          | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys") |
-| [ipAccessSettings](#list_workspaces-web-resource-ipAccessSettings "#list_workspaces-web-resource-ipAccessSettings")                                                                                                          | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys") |
-| [networkSettings](#list_workspaces-web-resource-networkSettings "#list_workspaces-web-resource-networkSettings")                                                                                                             | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys") |
-| [portal](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                                                                                                        | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys") |
-| [sessionLogger](#list_workspaces-web-resource-sessionLogger "#list_workspaces-web-resource-sessionLogger")                                                                                                                   | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys") |
-| [trustStore](#list_workspaces-web-resource-trustStore "#list_workspaces-web-resource-trustStore")                                                                                                                            | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys") |
-| [userAccessLoggingSettings](#list_workspaces-web-resource-userAccessLoggingSettings "#list_workspaces-web-resource-userAccessLoggingSettings")                                                                               | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys") |
-| [userSettings](#list_workspaces-web-resource-userSettings "#list_workspaces-web-resource-userSettings")                                                                                                                      | [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_ "#list_workspaces-web-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys") |
-| [UntagResource](../../../workspaces-web/latest/APIReference/API_UntagResource.md "../../../workspaces-web/latest/APIReference/API_UntagResource.md")                                                                         | Grants permission to remove one or more tags from a resource                                                                                                                                                                                                                                                                                    | [browserSettings](#list_workspaces-web-resource-browserSettings "#list_workspaces-web-resource-browserSettings")                                 | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                              | Tagging, Write |
-| [dataProtectionSettings](#list_workspaces-web-resource-dataProtectionSettings "#list_workspaces-web-resource-dataProtectionSettings")                                                                                        | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                              |
-| [identityProvider](#list_workspaces-web-resource-identityProvider "#list_workspaces-web-resource-identityProvider")                                                                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                              |
-| [ipAccessSettings](#list_workspaces-web-resource-ipAccessSettings "#list_workspaces-web-resource-ipAccessSettings")                                                                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                              |
-| [networkSettings](#list_workspaces-web-resource-networkSettings "#list_workspaces-web-resource-networkSettings")                                                                                                             | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                              |
-| [portal](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                                                                                                        | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                              |
-| [sessionLogger](#list_workspaces-web-resource-sessionLogger "#list_workspaces-web-resource-sessionLogger")                                                                                                                   | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                              |
-| [trustStore](#list_workspaces-web-resource-trustStore "#list_workspaces-web-resource-trustStore")                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                              |
-| [userAccessLoggingSettings](#list_workspaces-web-resource-userAccessLoggingSettings "#list_workspaces-web-resource-userAccessLoggingSettings")                                                                               | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                              |
-| [userSettings](#list_workspaces-web-resource-userSettings "#list_workspaces-web-resource-userSettings")                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-web-aws_TagKeys "#list_workspaces-web-aws_TagKeys")                                                                                                                              |
-| [UpdateBrowserSettings](../../../workspaces-web/latest/APIReference/API_UpdateBrowserSettings.md "../../../workspaces-web/latest/APIReference/API_UpdateBrowserSettings.md")                                                 | Grants permission to update browser settings                                                                                                                                                                                                                                                                                                    | [browserSettings\*](#list_workspaces-web-resource-browserSettings "#list_workspaces-web-resource-browserSettings")                               | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [UpdateDataProtectionSettings](../../../workspaces-web/latest/APIReference/API_UpdateDataProtectionSettings.md "../../../workspaces-web/latest/APIReference/API_UpdateDataProtectionSettings.md")                            | Grants permission to update data protection settings                                                                                                                                                                                                                                                                                            | [dataProtectionSettings\*](#list_workspaces-web-resource-dataProtectionSettings "#list_workspaces-web-resource-dataProtectionSettings")          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [UpdateIdentityProvider](../../../workspaces-web/latest/APIReference/API_UpdateIdentityProvider.md "../../../workspaces-web/latest/APIReference/API_UpdateIdentityProvider.md")                                              | Grants permission to update identity provider                                                                                                                                                                                                                                                                                                   | [identityProvider\*](#list_workspaces-web-resource-identityProvider "#list_workspaces-web-resource-identityProvider")                            | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    |
-| [UpdateIpAccessSettings](../../../workspaces-web/latest/APIReference/API_UpdateIpAccessSettings.md "../../../workspaces-web/latest/APIReference/API_UpdateIpAccessSettings.md")                                              | Grants permission to update ip access settings                                                                                                                                                                                                                                                                                                  | [ipAccessSettings\*](#list_workspaces-web-resource-ipAccessSettings "#list_workspaces-web-resource-ipAccessSettings")                            | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [UpdateNetworkSettings](../../../workspaces-web/latest/APIReference/API_UpdateNetworkSettings.md "../../../workspaces-web/latest/APIReference/API_UpdateNetworkSettings.md")                                                 | Grants permission to update network settings                                                                                                                                                                                                                                                                                                    | [networkSettings\*](#list_workspaces-web-resource-networkSettings "#list_workspaces-web-resource-networkSettings")                               | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [UpdatePortal](../../../workspaces-web/latest/APIReference/API_UpdatePortal.md "../../../workspaces-web/latest/APIReference/API_UpdatePortal.md")                                                                            | Grants permission to update web portals                                                                                                                                                                                                                                                                                                         | [portal\*](#list_workspaces-web-resource-portal "#list_workspaces-web-resource-portal")                                                          | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [UpdateSessionLogger](../../../workspaces-web/latest/APIReference/API_UpdateSessionLogger.md "../../../workspaces-web/latest/APIReference/API_UpdateSessionLogger.md")                                                       | Grants permission to update session logger                                                                                                                                                                                                                                                                                                      | [sessionLogger\*](#list_workspaces-web-resource-sessionLogger "#list_workspaces-web-resource-sessionLogger")                                     | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [UpdateTrustStore](../../../workspaces-web/latest/APIReference/API_UpdateTrustStore.md "../../../workspaces-web/latest/APIReference/API_UpdateTrustStore.md")                                                                | Grants permission to update trust stores                                                                                                                                                                                                                                                                                                        | [trustStore\*](#list_workspaces-web-resource-trustStore "#list_workspaces-web-resource-trustStore")                                              | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [UpdateUserAccessLoggingSettings](../../../workspaces-web/latest/APIReference/API_UpdateUserAccessLoggingSettings.md "../../../workspaces-web/latest/APIReference/API_UpdateUserAccessLoggingSettings.md")                   | Grants permission to update user access logging settings                                                                                                                                                                                                                                                                                        | [userAccessLoggingSettings\*](#list_workspaces-web-resource-userAccessLoggingSettings "#list_workspaces-web-resource-userAccessLoggingSettings") | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [UpdateUserSettings](../../../workspaces-web/latest/APIReference/API_UpdateUserSettings.md "../../../workspaces-web/latest/APIReference/API_UpdateUserSettings.md")                                                          | Grants permission to update user settings                                                                                                                                                                                                                                                                                                       | [userSettings\*](#list_workspaces-web-resource-userSettings "#list_workspaces-web-resource-userSettings")                                        | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
+
+
+
+- **   [AssociateBrowserSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_AssociateBrowserSettings.html)  **
+  - **Description:** Grants permission to associate browser settings to web portals
+  - **Resource types (\*required):** [browserSettings\*](#list_workspaces-web-resource-browserSettings) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateDataProtectionSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_AssociateDataProtectionSettings.html)  **
+  - **Description:** Grants permission to associate data protection settings with web portals
+  - **Resource types (\*required):** [dataProtectionSettings\*](#list_workspaces-web-resource-dataProtectionSettings) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateIpAccessSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_AssociateIpAccessSettings.html)  **
+  - **Description:** Grants permission to associate ip access settings with web portals
+  - **Resource types (\*required):** [ipAccessSettings\*](#list_workspaces-web-resource-ipAccessSettings) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateNetworkSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_AssociateNetworkSettings.html)  **
+  - **Description:** Grants permission to associate network settings to web portals
+  - **Resource types (\*required):** [networkSettings\*](#list_workspaces-web-resource-networkSettings) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateSessionLogger](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_AssociateSessionLogger.html)  **
+  - **Description:** Grants permission to associate session logger with web portals
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [sessionLogger\*](#list_workspaces-web-resource-sessionLogger) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateTrustStore](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_AssociateTrustStore.html)  **
+  - **Description:** Grants permission to associate trust stores with web portals
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [trustStore\*](#list_workspaces-web-resource-trustStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateUserAccessLoggingSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_AssociateUserAccessLoggingSettings.html)  **
+  - **Description:** Grants permission to associate user access logging settings with web portals
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [userAccessLoggingSettings\*](#list_workspaces-web-resource-userAccessLoggingSettings) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateUserSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_AssociateUserSettings.html)  **
+  - **Description:** Grants permission to associate user settings with web portals
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [userSettings\*](#list_workspaces-web-resource-userSettings) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateBrowserSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateBrowserSettings.html)  **
+  - **Description:** Grants permission to create browser settings
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDataProtectionSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateDataProtectionSettings.html)  **
+  - **Description:** Grants permission to create data protection settings
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateIdentityProvider](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateIdentityProvider.html)  **
+  - **Description:** Grants permission to create identity providers
+  - **Resource types (\*required):** [identityProvider\*](#list_workspaces-web-resource-identityProvider) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateIpAccessSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateIpAccessSettings.html)  **
+  - **Description:** Grants permission to create ip access settings
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateNetworkSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateNetworkSettings.html)  **
+  - **Description:** Grants permission to create network settings
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreatePortal](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreatePortal.html)  **
+  - **Description:** Grants permission to create web portals
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateSessionLogger](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateSessionLogger.html)  **
+  - **Description:** Grants permission to create session logger
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateTrustStore](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateTrustStore.html)  **
+  - **Description:** Grants permission to create trust stores
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateUserAccessLoggingSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateUserAccessLoggingSettings.html)  **
+  - **Description:** Grants permission to create user access logging settings
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateUserSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateUserSettings.html)  **
+  - **Description:** Grants permission to create user settings
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteBrowserSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DeleteBrowserSettings.html)  **
+  - **Description:** Grants permission to delete browser settings
+  - **Resource types (\*required):** [browserSettings\*](#list_workspaces-web-resource-browserSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDataProtectionSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DeleteDataProtectionSettings.html)  **
+  - **Description:** Grants permission to delete data protection settings
+  - **Resource types (\*required):** [dataProtectionSettings\*](#list_workspaces-web-resource-dataProtectionSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteIdentityProvider](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DeleteIdentityProvider.html)  **
+  - **Description:** Grants permission to delete identity providers
+  - **Resource types (\*required):** [identityProvider\*](#list_workspaces-web-resource-identityProvider) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteIpAccessSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DeleteIpAccessSettings.html)  **
+  - **Description:** Grants permission to delete ip access settings
+  - **Resource types (\*required):** [ipAccessSettings\*](#list_workspaces-web-resource-ipAccessSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteNetworkSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DeleteNetworkSettings.html)  **
+  - **Description:** Grants permission to delete network settings
+  - **Resource types (\*required):** [networkSettings\*](#list_workspaces-web-resource-networkSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeletePortal](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DeletePortal.html)  **
+  - **Description:** Grants permission to delete web portals
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteSessionLogger](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DeleteSessionLogger.html)  **
+  - **Description:** Grants permission to delete session logger
+  - **Resource types (\*required):** [sessionLogger\*](#list_workspaces-web-resource-sessionLogger)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteTrustStore](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DeleteTrustStore.html)  **
+  - **Description:** Grants permission to delete trust stores
+  - **Resource types (\*required):** [trustStore\*](#list_workspaces-web-resource-trustStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteUserAccessLoggingSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DeleteUserAccessLoggingSettings.html)  **
+  - **Description:** Grants permission to delete user access logging settings
+  - **Resource types (\*required):** [userAccessLoggingSettings\*](#list_workspaces-web-resource-userAccessLoggingSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteUserSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DeleteUserSettings.html)  **
+  - **Description:** Grants permission to delete user settings
+  - **Resource types (\*required):** [userSettings\*](#list_workspaces-web-resource-userSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateBrowserSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DisassociateBrowserSettings.html)  **
+  - **Description:** Grants permission to disassociate browser settings from web portals
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateDataProtectionSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DisassociateDataProtectionSettings.html)  **
+  - **Description:** Grants permission to disassociate data protection logging from web portals
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateIpAccessSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DisassociateIpAccessSettings.html)  **
+  - **Description:** Grants permission to disassociate ip access logging from web portals
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateNetworkSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DisassociateNetworkSettings.html)  **
+  - **Description:** Grants permission to disassociate network settings from web portals
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateSessionLogger](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DisassociateSessionLogger.html)  **
+  - **Description:** Grants permission to disassociate session logger from web portals
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateTrustStore](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DisassociateTrustStore.html)  **
+  - **Description:** Grants permission to disassociate trust stores from web portals
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateUserAccessLoggingSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DisassociateUserAccessLoggingSettings.html)  **
+  - **Description:** Grants permission to disassociate user access logging settings from web portals
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateUserSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DisassociateUserSettings.html)  **
+  - **Description:** Grants permission to disassociate user settings from web portals
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ExpireSession](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ExpireSession.html)  **
+  - **Description:** Grants permission to expire a session from a specific portal
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetBrowserSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetBrowserSettings.html)  **
+  - **Description:** Grants permission to get details on browser settings
+  - **Resource types (\*required):** [browserSettings\*](#list_workspaces-web-resource-browserSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDataProtectionSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetDataProtectionSettings.html)  **
+  - **Description:** Grants permission to get details on data protection settings
+  - **Resource types (\*required):** [dataProtectionSettings\*](#list_workspaces-web-resource-dataProtectionSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetIdentityProvider](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetIdentityProvider.html)  **
+  - **Description:** Grants permission to get details on identity providers
+  - **Resource types (\*required):** [identityProvider\*](#list_workspaces-web-resource-identityProvider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetIpAccessSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetIpAccessSettings.html)  **
+  - **Description:** Grants permission to get details on ip access settings
+  - **Resource types (\*required):** [ipAccessSettings\*](#list_workspaces-web-resource-ipAccessSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetNetworkSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetNetworkSettings.html)  **
+  - **Description:** Grants permission to get details on network settings
+  - **Resource types (\*required):** [networkSettings\*](#list_workspaces-web-resource-networkSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPortal](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetPortal.html)  **
+  - **Description:** Grants permission to get details on web portals
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPortalServiceProviderMetadata](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetPortalServiceProviderMetadata.html)  **
+  - **Description:** Grants permission to get service provider metadata information for web portals
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSession](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetSession.html)  **
+  - **Description:** Grants permission to get information about a particular session for a portal
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSessionLogger](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetSessionLogger.html)  **
+  - **Description:** Grants permission to get details on session logger
+  - **Resource types (\*required):** [sessionLogger\*](#list_workspaces-web-resource-sessionLogger)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetTrustStore](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetTrustStore.html)  **
+  - **Description:** Grants permission to get details on trust stores
+  - **Resource types (\*required):** [trustStore\*](#list_workspaces-web-resource-trustStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetTrustStoreCertificate](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetTrustStoreCertificate.html)  **
+  - **Description:** Grants permission to get certificates from trust stores
+  - **Resource types (\*required):** [trustStore\*](#list_workspaces-web-resource-trustStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetUserAccessLoggingSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetUserAccessLoggingSettings.html)  **
+  - **Description:** Grants permission to get details on user access logging settings
+  - **Resource types (\*required):** [userAccessLoggingSettings\*](#list_workspaces-web-resource-userAccessLoggingSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetUserSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetUserSettings.html)  **
+  - **Description:** Grants permission to get details on user settings
+  - **Resource types (\*required):** [userSettings\*](#list_workspaces-web-resource-userSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListBrowserSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListBrowserSettings.html)  **
+  - **Description:** Grants permission to list browser settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListDataProtectionSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListDataProtectionSettings.html)  **
+  - **Description:** Grants permission to list data protection settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListIdentityProviders](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListIdentityProviders.html)  **
+  - **Description:** Grants permission to list identity providers
+  - **Resource types (\*required):** [identityProvider\*](#list_workspaces-web-resource-identityProvider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListIpAccessSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListIpAccessSettings.html)  **
+  - **Description:** Grants permission to list ip access settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListNetworkSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListNetworkSettings.html)  **
+  - **Description:** Grants permission to list network settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListPortals](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListPortals.html)  **
+  - **Description:** Grants permission to list web portals
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListSessionLoggers](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListSessionLoggers.html)  **
+  - **Description:** Grants permission to list session loggers
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListSessions](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListSessions.html)  **
+  - **Description:** Grants permission to list sessions for a Portal using optional filters
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for a resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListTrustStoreCertificates](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListTrustStoreCertificates.html)  **
+  - **Description:** Grants permission to list certificates in a trust store
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListTrustStores](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListTrustStores.html)  **
+  - **Description:** Grants permission to list trust stores
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListUserAccessLoggingSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListUserAccessLoggingSettings.html)  **
+  - **Description:** Grants permission to list user access logging settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListUserSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListUserSettings.html)  **
+  - **Description:** Grants permission to list user settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [TagResource](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to add one or more tags to a resource
+  - **Resource types (\*required):** [browserSettings](#list_workspaces-web-resource-browserSettings) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [dataProtectionSettings](#list_workspaces-web-resource-dataProtectionSettings) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [identityProvider](#list_workspaces-web-resource-identityProvider) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [ipAccessSettings](#list_workspaces-web-resource-ipAccessSettings) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [networkSettings](#list_workspaces-web-resource-networkSettings) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [portal](#list_workspaces-web-resource-portal) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [sessionLogger](#list_workspaces-web-resource-sessionLogger) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [trustStore](#list_workspaces-web-resource-trustStore) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [userAccessLoggingSettings](#list_workspaces-web-resource-userAccessLoggingSettings) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [userSettings](#list_workspaces-web-resource-userSettings) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-web-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove one or more tags from a resource
+  - **Resource types (\*required):** [browserSettings](#list_workspaces-web-resource-browserSettings) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [dataProtectionSettings](#list_workspaces-web-resource-dataProtectionSettings) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [identityProvider](#list_workspaces-web-resource-identityProvider) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [ipAccessSettings](#list_workspaces-web-resource-ipAccessSettings) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [networkSettings](#list_workspaces-web-resource-networkSettings) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [portal](#list_workspaces-web-resource-portal) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [sessionLogger](#list_workspaces-web-resource-sessionLogger) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [trustStore](#list_workspaces-web-resource-trustStore) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [userAccessLoggingSettings](#list_workspaces-web-resource-userAccessLoggingSettings) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Resource types (\*required):** [userSettings](#list_workspaces-web-resource-userSettings) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-web-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateBrowserSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_UpdateBrowserSettings.html)  **
+  - **Description:** Grants permission to update browser settings
+  - **Resource types (\*required):** [browserSettings\*](#list_workspaces-web-resource-browserSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDataProtectionSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_UpdateDataProtectionSettings.html)  **
+  - **Description:** Grants permission to update data protection settings
+  - **Resource types (\*required):** [dataProtectionSettings\*](#list_workspaces-web-resource-dataProtectionSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateIdentityProvider](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_UpdateIdentityProvider.html)  **
+  - **Description:** Grants permission to update identity provider
+  - **Resource types (\*required):** [identityProvider\*](#list_workspaces-web-resource-identityProvider) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateIpAccessSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_UpdateIpAccessSettings.html)  **
+  - **Description:** Grants permission to update ip access settings
+  - **Resource types (\*required):** [ipAccessSettings\*](#list_workspaces-web-resource-ipAccessSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateNetworkSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_UpdateNetworkSettings.html)  **
+  - **Description:** Grants permission to update network settings
+  - **Resource types (\*required):** [networkSettings\*](#list_workspaces-web-resource-networkSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdatePortal](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_UpdatePortal.html)  **
+  - **Description:** Grants permission to update web portals
+  - **Resource types (\*required):** [portal\*](#list_workspaces-web-resource-portal)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSessionLogger](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_UpdateSessionLogger.html)  **
+  - **Description:** Grants permission to update session logger
+  - **Resource types (\*required):** [sessionLogger\*](#list_workspaces-web-resource-sessionLogger)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateTrustStore](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_UpdateTrustStore.html)  **
+  - **Description:** Grants permission to update trust stores
+  - **Resource types (\*required):** [trustStore\*](#list_workspaces-web-resource-trustStore)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateUserAccessLoggingSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_UpdateUserAccessLoggingSettings.html)  **
+  - **Description:** Grants permission to update user access logging settings
+  - **Resource types (\*required):** [userAccessLoggingSettings\*](#list_workspaces-web-resource-userAccessLoggingSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateUserSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_UpdateUserSettings.html)  **
+  - **Description:** Grants permission to update user settings
+  - **Resource types (\*required):** [userSettings\*](#list_workspaces-web-resource-userSettings)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon WorkSpaces Secure Browser
+<a name="list_workspaces-web-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                                                       | ARN                                                                                                           | Condition keys                                                                                                               |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| [browserSettings](../../../workspaces-web/latest/APIReference/API_CreateBrowserSettings.md "../../../workspaces-web/latest/APIReference/API_CreateBrowserSettings.md")                               | arn:${Partition}:workspaces-web:${Region}:${Account}:browserSettings/${BrowserSettingsId}                     | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_") |
-| [dataProtectionSettings](../../../workspaces-web/latest/APIReference/API_CreateDataProtectionSettings.md "../../../workspaces-web/latest/APIReference/API_CreateDataProtectionSettings.md")          | arn:${Partition}:workspaces-web:${Region}:${Account}:dataProtectionSettings/${DataProtectionSettingsId}       | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_") |
-| [identityProvider](../../../workspaces-web/latest/APIReference/API_CreateIdentityProvider.md "../../../workspaces-web/latest/APIReference/API_CreateIdentityProvider.md")                            | arn:${Partition}:workspaces-web:${Region}:${Account}:identityProvider/${PortalId}/${IdentityProviderId}       | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_") |
-| [ipAccessSettings](../../../workspaces-web/latest/APIReference/API_CreateIpAccessSettings.md "../../../workspaces-web/latest/APIReference/API_CreateIpAccessSettings.md")                            | arn:${Partition}:workspaces-web:${Region}:${Account}:ipAccessSettings/${IpAccessSettingsId}                   | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_") |
-| [networkSettings](../../../workspaces-web/latest/APIReference/API_CreateNetworkSettings.md "../../../workspaces-web/latest/APIReference/API_CreateNetworkSettings.md")                               | arn:${Partition}:workspaces-web:${Region}:${Account}:networkSettings/${NetworkSettingsId}                     | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_") |
-| [portal](../../../workspaces-web/latest/APIReference/API_CreatePortal.md "../../../workspaces-web/latest/APIReference/API_CreatePortal.md")                                                          | arn:${Partition}:workspaces-web:${Region}:${Account}:portal/${PortalId}                                       | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_") |
-| [sessionLogger](../../../workspaces-web/latest/APIReference/API_CreateSessionLogger.md "../../../workspaces-web/latest/APIReference/API_CreateSessionLogger.md")                                     | arn:${Partition}:workspaces-web:${Region}:${Account}:sessionLogger/${SessionLoggerId}                         | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_") |
-| [trustStore](../../../workspaces-web/latest/APIReference/API_CreateTrustStore.md "../../../workspaces-web/latest/APIReference/API_CreateTrustStore.md")                                              | arn:${Partition}:workspaces-web:${Region}:${Account}:trustStore/${TrustStoreId}                               | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_") |
-| [userAccessLoggingSettings](../../../workspaces-web/latest/APIReference/API_CreateUserAccessLoggingSettings.md "../../../workspaces-web/latest/APIReference/API_CreateUserAccessLoggingSettings.md") | arn:${Partition}:workspaces-web:${Region}:${Account}:userAccessLoggingSettings/${UserAccessLoggingSettingsId} | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_") |
-| [userSettings](../../../workspaces-web/latest/APIReference/API_CreateUserSettings.md "../../../workspaces-web/latest/APIReference/API_CreateUserSettings.md")                                        | arn:${Partition}:workspaces-web:${Region}:${Account}:userSettings/${UserSettingsId}                           | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_ "#list_workspaces-web-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [browserSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateBrowserSettings.html)  | arn:${Partition}:workspaces-web:${Region}:${Account}:browserSettings/${BrowserSettingsId} | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_) | 
+|  [dataProtectionSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateDataProtectionSettings.html)  | arn:${Partition}:workspaces-web:${Region}:${Account}:dataProtectionSettings/${DataProtectionSettingsId} | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_) | 
+|  [identityProvider](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateIdentityProvider.html)  | arn:${Partition}:workspaces-web:${Region}:${Account}:identityProvider/${PortalId}/${IdentityProviderId} | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_) | 
+|  [ipAccessSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateIpAccessSettings.html)  | arn:${Partition}:workspaces-web:${Region}:${Account}:ipAccessSettings/${IpAccessSettingsId} | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_) | 
+|  [networkSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateNetworkSettings.html)  | arn:${Partition}:workspaces-web:${Region}:${Account}:networkSettings/${NetworkSettingsId} | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_) | 
+|  [portal](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreatePortal.html)  | arn:${Partition}:workspaces-web:${Region}:${Account}:portal/${PortalId} | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_) | 
+|  [sessionLogger](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateSessionLogger.html)  | arn:${Partition}:workspaces-web:${Region}:${Account}:sessionLogger/${SessionLoggerId} | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_) | 
+|  [trustStore](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateTrustStore.html)  | arn:${Partition}:workspaces-web:${Region}:${Account}:trustStore/${TrustStoreId} | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_) | 
+|  [userAccessLoggingSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateUserAccessLoggingSettings.html)  | arn:${Partition}:workspaces-web:${Region}:${Account}:userAccessLoggingSettings/${UserAccessLoggingSettingsId} | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_) | 
+|  [userSettings](https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateUserSettings.html)  | arn:${Partition}:workspaces-web:${Region}:${Account}:userSettings/${UserSettingsId} | [aws:ResourceTag/${TagKey}](#list_workspaces-web-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon WorkSpaces Secure Browser
+<a name="list_workspaces-web-policy-keys"></a>
 
-Amazon WorkSpaces Secure Browser defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon WorkSpaces Secure Browser defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                   | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by the tags associated with the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 

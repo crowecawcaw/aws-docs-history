@@ -1,83 +1,192 @@
-# Actions, resources, and condition keys for AWS License Manager Linux Subscriptions Manager
 
-AWS License Manager Linux Subscriptions Manager (service prefix: `license-manager-linux-subscriptions`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS License Manager Linux Subscriptions Manager
+<a name="list_license-manager-linux-subscriptions"></a>
+
+AWS License Manager Linux Subscriptions Manager (service prefix: `license-manager-linux-subscriptions`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/license-manager/latest/userguide/linux-subscriptions.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/license-manager/latest/userguide/using-service-linked-roles.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/license-manager-linux-subscriptions/license-manager-linux-subscriptions.json) for this service.
 
-- Learn how to [configure this service](../../../license-manager/latest/userguide/linux-subscriptions.md "../../../license-manager/latest/userguide/linux-subscriptions.md").
-- View a list of the [API operations available for
-  this service](../../../license-manager-linux-subscriptions/latest/APIReference.md "../../../license-manager-linux-subscriptions/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../license-manager/latest/userguide/using-service-linked-roles.md "../../../license-manager/latest/userguide/using-service-linked-roles.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/license-manager-linux-subscriptions/license-manager-linux-subscriptions.json "https://servicereference.us-east-1.amazonaws.com/v1/license-manager-linux-subscriptions/license-manager-linux-subscriptions.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS License Manager Linux Subscriptions Manager](#list_license-manager-linux-subscriptions-operations "#list_license-manager-linux-subscriptions-operations")
-- [Actions defined by AWS License Manager Linux Subscriptions Manager](#list_license-manager-linux-subscriptions-actions-as-permissions "#list_license-manager-linux-subscriptions-actions-as-permissions")
-- [Resource types defined by AWS License Manager Linux Subscriptions Manager](#list_license-manager-linux-subscriptions-resources-for-iam-policies "#list_license-manager-linux-subscriptions-resources-for-iam-policies")
-- [Condition keys for AWS License Manager Linux Subscriptions Manager](#list_license-manager-linux-subscriptions-policy-keys "#list_license-manager-linux-subscriptions-policy-keys")
+**Topics**
++ [API operations defined by AWS License Manager Linux Subscriptions Manager](#list_license-manager-linux-subscriptions-operations)
++ [Actions defined by AWS License Manager Linux Subscriptions Manager](#list_license-manager-linux-subscriptions-actions-as-permissions)
++ [Resource types defined by AWS License Manager Linux Subscriptions Manager](#list_license-manager-linux-subscriptions-resources-for-iam-policies)
++ [Condition keys for AWS License Manager Linux Subscriptions Manager](#list_license-manager-linux-subscriptions-policy-keys)
 
 ## API operations defined by AWS License Manager Linux Subscriptions Manager
+<a name="list_license-manager-linux-subscriptions-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_license-manager-linux-subscriptions-actions-as-permissions "#list_license-manager-linux-subscriptions-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_license-manager-linux-subscriptions-actions-as-permissions).
 
-| Operation                                                                                                                                                                      | IAM action                                                                                                                                                                                                                                             | Condition key | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | ----------------- | -------------- |
-| DeregisterSubscriptionProvider                                                                                                                                                 | [license-manager-linux-subscriptions:DeregisterSubscriptionProvider](#list_license-manager-linux-subscriptions-action-DeregisterSubscriptionProvider "#list_license-manager-linux-subscriptions-action-DeregisterSubscriptionProvider")                |               |                   | Write          |
-| GetRegisteredSubscriptionProvider                                                                                                                                              | [license-manager-linux-subscriptions:GetRegisteredSubscriptionProvider](#list_license-manager-linux-subscriptions-action-GetRegisteredSubscriptionProvider "#list_license-manager-linux-subscriptions-action-GetRegisteredSubscriptionProvider")       |               |                   | Read           |
-| GetServiceSettings                                                                                                                                                             | [license-manager-linux-subscriptions:GetServiceSettings](#list_license-manager-linux-subscriptions-action-GetServiceSettings "#list_license-manager-linux-subscriptions-action-GetServiceSettings")                                                    |               |                   | Read           |
-| ListLinuxSubscriptionInstances                                                                                                                                                 | [license-manager-linux-subscriptions:ListLinuxSubscriptionInstances](#list_license-manager-linux-subscriptions-action-ListLinuxSubscriptionInstances "#list_license-manager-linux-subscriptions-action-ListLinuxSubscriptionInstances")                |               |                   | Read           |
-| ListLinuxSubscriptions                                                                                                                                                         | [license-manager-linux-subscriptions:ListLinuxSubscriptions](#list_license-manager-linux-subscriptions-action-ListLinuxSubscriptions "#list_license-manager-linux-subscriptions-action-ListLinuxSubscriptions")                                        |               |                   | Read           |
-| ListRegisteredSubscriptionProviders                                                                                                                                            | [license-manager-linux-subscriptions:ListRegisteredSubscriptionProviders](#list_license-manager-linux-subscriptions-action-ListRegisteredSubscriptionProviders "#list_license-manager-linux-subscriptions-action-ListRegisteredSubscriptionProviders") |               |                   | Read           |
-| ListTagsForResource                                                                                                                                                            | [license-manager-linux-subscriptions:ListTagsForResource](#list_license-manager-linux-subscriptions-action-ListTagsForResource "#list_license-manager-linux-subscriptions-action-ListTagsForResource")                                                 |               |                   | Read           |
-| RegisterSubscriptionProvider                                                                                                                                                   | [license-manager-linux-subscriptions:RegisterSubscriptionProvider](#list_license-manager-linux-subscriptions-action-RegisterSubscriptionProvider "#list_license-manager-linux-subscriptions-action-RegisterSubscriptionProvider")                      |               |                   | Write          |
-| [license-manager-linux-subscriptions:TagResource](#list_license-manager-linux-subscriptions-action-TagResource "#list_license-manager-linux-subscriptions-action-TagResource") |                                                                                                                                                                                                                                                        |               | Tagging, Write    |
-| TagResource                                                                                                                                                                    | [license-manager-linux-subscriptions:TagResource](#list_license-manager-linux-subscriptions-action-TagResource "#list_license-manager-linux-subscriptions-action-TagResource")                                                                         |               |                   | Tagging, Write |
-| UntagResource                                                                                                                                                                  | [license-manager-linux-subscriptions:UntagResource](#list_license-manager-linux-subscriptions-action-UntagResource "#list_license-manager-linux-subscriptions-action-UntagResource")                                                                   |               |                   | Tagging, Write |
-| UpdateServiceSettings                                                                                                                                                          | [license-manager-linux-subscriptions:UpdateServiceSettings](#list_license-manager-linux-subscriptions-action-UpdateServiceSettings "#list_license-manager-linux-subscriptions-action-UpdateServiceSettings")                                           |               |                   | Write          |
+
+
+
+- **   DeregisterSubscriptionProvider  **
+  - **IAM action:**  [license-manager-linux-subscriptions:DeregisterSubscriptionProvider](#list_license-manager-linux-subscriptions-action-DeregisterSubscriptionProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetRegisteredSubscriptionProvider  **
+  - **IAM action:**  [license-manager-linux-subscriptions:GetRegisteredSubscriptionProvider](#list_license-manager-linux-subscriptions-action-GetRegisteredSubscriptionProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetServiceSettings  **
+  - **IAM action:**  [license-manager-linux-subscriptions:GetServiceSettings](#list_license-manager-linux-subscriptions-action-GetServiceSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListLinuxSubscriptionInstances  **
+  - **IAM action:**  [license-manager-linux-subscriptions:ListLinuxSubscriptionInstances](#list_license-manager-linux-subscriptions-action-ListLinuxSubscriptionInstances) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListLinuxSubscriptions  **
+  - **IAM action:**  [license-manager-linux-subscriptions:ListLinuxSubscriptions](#list_license-manager-linux-subscriptions-action-ListLinuxSubscriptions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListRegisteredSubscriptionProviders  **
+  - **IAM action:**  [license-manager-linux-subscriptions:ListRegisteredSubscriptionProviders](#list_license-manager-linux-subscriptions-action-ListRegisteredSubscriptionProviders) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [license-manager-linux-subscriptions:ListTagsForResource](#list_license-manager-linux-subscriptions-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   RegisterSubscriptionProvider  **
+  - **IAM action:**  [license-manager-linux-subscriptions:RegisterSubscriptionProvider](#list_license-manager-linux-subscriptions-action-RegisterSubscriptionProvider)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [license-manager-linux-subscriptions:TagResource](#list_license-manager-linux-subscriptions-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   TagResource  **
+  - **IAM action:**  [license-manager-linux-subscriptions:TagResource](#list_license-manager-linux-subscriptions-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [license-manager-linux-subscriptions:UntagResource](#list_license-manager-linux-subscriptions-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateServiceSettings  **
+  - **IAM action:**  [license-manager-linux-subscriptions:UpdateServiceSettings](#list_license-manager-linux-subscriptions-action-UpdateServiceSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS License Manager Linux Subscriptions Manager
+<a name="list_license-manager-linux-subscriptions-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                                                          | Description                                                                                     | Resource types (\*required)                                                                                                                                                    | Condition keys                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Access level   |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [DeregisterSubscriptionProvider](../../../license-manager-linux-subscriptions/latest/APIReference/API_DeregisterSubscriptionProvider.md "../../../license-manager-linux-subscriptions/latest/APIReference/API_DeregisterSubscriptionProvider.md")                | Grants permission to permanently delete a subscription provider in AWS License Manager          | [subscription-provider\*](#list_license-manager-linux-subscriptions-resource-subscription-provider "#list_license-manager-linux-subscriptions-resource-subscription-provider") | [aws:ResourceTag/${TagKey}](#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_ "#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                        | Write          |
-| [GetRegisteredSubscriptionProvider](../../../license-manager-linux-subscriptions/latest/APIReference/API_GetRegisteredSubscriptionProvider.md "../../../license-manager-linux-subscriptions/latest/APIReference/API_GetRegisteredSubscriptionProvider.md")       | Grants permission to get a subscription provider in AWS License Manager                         | [subscription-provider\*](#list_license-manager-linux-subscriptions-resource-subscription-provider "#list_license-manager-linux-subscriptions-resource-subscription-provider") | [aws:ResourceTag/${TagKey}](#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_ "#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                        | Read           |
-| [GetServiceSettings](../../../license-manager-linux-subscriptions/latest/APIReference/API_GetServiceSettings.md "../../../license-manager-linux-subscriptions/latest/APIReference/API_GetServiceSettings.md")                                                    | Grants permission to get the service settings for Linux subscriptions in AWS License Manager    |                                                                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Read           |
-| [ListLinuxSubscriptionInstances](../../../license-manager-linux-subscriptions/latest/APIReference/API_ListLinuxSubscriptionInstances.md "../../../license-manager-linux-subscriptions/latest/APIReference/API_ListLinuxSubscriptionInstances.md")                | Grants permission to list all instances with Linux subscriptions in AWS License Manager         |                                                                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Read           |
-| [ListLinuxSubscriptions](../../../license-manager-linux-subscriptions/latest/APIReference/API_ListLinuxSubscriptions.md "../../../license-manager-linux-subscriptions/latest/APIReference/API_ListLinuxSubscriptions.md")                                        | Grants permission to list all Linux subscriptions in AWS License Manager                        |                                                                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Read           |
-| [ListRegisteredSubscriptionProviders](../../../license-manager-linux-subscriptions/latest/APIReference/API_ListRegisteredSubscriptionProviders.md "../../../license-manager-linux-subscriptions/latest/APIReference/API_ListRegisteredSubscriptionProviders.md") | Grants permission to list subscription providers in AWS License Manager                         |                                                                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Read           |
-| [ListTagsForResource](../../../license-manager-linux-subscriptions/latest/APIReference/API_ListTagsForResource.md "../../../license-manager-linux-subscriptions/latest/APIReference/API_ListTagsForResource.md")                                                 | Grants permission to list tags for a selected resource                                          | [subscription-provider\*](#list_license-manager-linux-subscriptions-resource-subscription-provider "#list_license-manager-linux-subscriptions-resource-subscription-provider") | [aws:ResourceTag/${TagKey}](#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_ "#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                        | Read           |
-| [RegisterSubscriptionProvider](../../../license-manager-linux-subscriptions/latest/APIReference/API_RegisterSubscriptionProvider.md "../../../license-manager-linux-subscriptions/latest/APIReference/API_RegisterSubscriptionProvider.md")                      | Grants permission to create a new subscription provider in AWS License Manager                  |                                                                                                                                                                                | [aws:RequestTag/${TagKey}](#list_license-manager-linux-subscriptions-aws_RequestTag___TagKey_ "#list_license-manager-linux-subscriptions-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_license-manager-linux-subscriptions-aws_TagKeys "#list_license-manager-linux-subscriptions-aws_TagKeys")                                                                                                                                                                           | Write          |
-| [TagResource](../../../license-manager-linux-subscriptions/latest/APIReference/API_TagResource.md "../../../license-manager-linux-subscriptions/latest/APIReference/API_TagResource.md")                                                                         | Grants permission to tag a selected resource                                                    | [subscription-provider\*](#list_license-manager-linux-subscriptions-resource-subscription-provider "#list_license-manager-linux-subscriptions-resource-subscription-provider") | [aws:RequestTag/${TagKey}](#list_license-manager-linux-subscriptions-aws_RequestTag___TagKey_ "#list_license-manager-linux-subscriptions-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_ "#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_license-manager-linux-subscriptions-aws_TagKeys "#list_license-manager-linux-subscriptions-aws_TagKeys") | Tagging, Write |
-| [UntagResource](../../../license-manager-linux-subscriptions/latest/APIReference/API_UntagResource.md "../../../license-manager-linux-subscriptions/latest/APIReference/API_UntagResource.md")                                                                   | Grants permission to untag a selected resource                                                  | [subscription-provider\*](#list_license-manager-linux-subscriptions-resource-subscription-provider "#list_license-manager-linux-subscriptions-resource-subscription-provider") | [aws:ResourceTag/${TagKey}](#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_ "#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_license-manager-linux-subscriptions-aws_TagKeys "#list_license-manager-linux-subscriptions-aws_TagKeys")                                                                                                                                                                        | Tagging, Write |
-| [UpdateServiceSettings](../../../license-manager-linux-subscriptions/latest/APIReference/API_UpdateServiceSettings.md "../../../license-manager-linux-subscriptions/latest/APIReference/API_UpdateServiceSettings.md")                                           | Grants permission to update the service settings for Linux subscriptions in AWS License Manager |                                                                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Write          |
+
+
+
+- **   [DeregisterSubscriptionProvider](https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_DeregisterSubscriptionProvider.html)  **
+  - **Description:** Grants permission to permanently delete a subscription provider in AWS License Manager
+  - **Resource types (\*required):** [subscription-provider\*](#list_license-manager-linux-subscriptions-resource-subscription-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetRegisteredSubscriptionProvider](https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_GetRegisteredSubscriptionProvider.html)  **
+  - **Description:** Grants permission to get a subscription provider in AWS License Manager
+  - **Resource types (\*required):** [subscription-provider\*](#list_license-manager-linux-subscriptions-resource-subscription-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetServiceSettings](https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_GetServiceSettings.html)  **
+  - **Description:** Grants permission to get the service settings for Linux subscriptions in AWS License Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListLinuxSubscriptionInstances](https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_ListLinuxSubscriptionInstances.html)  **
+  - **Description:** Grants permission to list all instances with Linux subscriptions in AWS License Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListLinuxSubscriptions](https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_ListLinuxSubscriptions.html)  **
+  - **Description:** Grants permission to list all Linux subscriptions in AWS License Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListRegisteredSubscriptionProviders](https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_ListRegisteredSubscriptionProviders.html)  **
+  - **Description:** Grants permission to list subscription providers in AWS License Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for a selected resource
+  - **Resource types (\*required):** [subscription-provider\*](#list_license-manager-linux-subscriptions-resource-subscription-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [RegisterSubscriptionProvider](https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_RegisterSubscriptionProvider.html)  **
+  - **Description:** Grants permission to create a new subscription provider in AWS License Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_license-manager-linux-subscriptions-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_license-manager-linux-subscriptions-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag a selected resource
+  - **Resource types (\*required):** [subscription-provider\*](#list_license-manager-linux-subscriptions-resource-subscription-provider)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_license-manager-linux-subscriptions-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_license-manager-linux-subscriptions-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag a selected resource
+  - **Resource types (\*required):** [subscription-provider\*](#list_license-manager-linux-subscriptions-resource-subscription-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_license-manager-linux-subscriptions-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateServiceSettings](https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_UpdateServiceSettings.html)  **
+  - **Description:** Grants permission to update the service settings for Linux subscriptions in AWS License Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS License Manager Linux Subscriptions Manager
+<a name="list_license-manager-linux-subscriptions-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                     | ARN                                                                                                                       | Condition keys                                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [subscription-provider](../../../license-manager/latest/userguide/subscription-providers.md "../../../license-manager/latest/userguide/subscription-providers.md") | arn:${Partition}:license-manager-linux-subscriptions:${Region}:${Account}:subscription-provider/${SubscriptionProviderId} | [aws:ResourceTag/${TagKey}](#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_ "#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [subscription-provider](https://docs.aws.amazon.com/license-manager/latest/userguide/subscription-providers.html)  | arn:${Partition}:license-manager-linux-subscriptions:${Region}:${Account}:subscription-provider/${SubscriptionProviderId} | [aws:ResourceTag/${TagKey}](#list_license-manager-linux-subscriptions-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS License Manager Linux Subscriptions Manager
+<a name="list_license-manager-linux-subscriptions-policy-keys"></a>
 
-AWS License Manager Linux Subscriptions Manager defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS License Manager Linux Subscriptions Manager defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                | Description                                                    | Type          |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../license-manager/latest/userguide/identity-access-management.md "../../../license-manager/latest/userguide/identity-access-management.md") | Filters access by the tags that are passed in the request      | String        |
-| [aws:ResourceTag/${TagKey}](identity-access-management.md "identity-access-management.md")                                                                                    | Filters access by tag key-value pairs attached to the resource | String        |
-| [aws:TagKeys](../../../license-manager/latest/userguide/identity-access-management.md "../../../license-manager/latest/userguide/identity-access-management.md")              | Filters access by tag keys that are passed in the request      | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/license-manager/latest/userguide/identity-access-management.html)  | Filters access by the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](identity-access-management.html)  | Filters access by tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/license-manager/latest/userguide/identity-access-management.html)  | Filters access by tag keys that are passed in the request | ArrayOfString | 

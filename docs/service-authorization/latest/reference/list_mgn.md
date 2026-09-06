@@ -1,343 +1,1462 @@
-# Actions, resources, and condition keys for AWS Application Migration Service
 
-AWS Application Migration Service (service prefix: `mgn`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Application Migration Service
+<a name="list_mgn"></a>
+
+AWS Application Migration Service (service prefix: `mgn`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/mgn/latest/ug/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/mgn/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/mgn/latest/ug/security_iam_authentication.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/mgn/mgn.json) for this service.
 
-- Learn how to [configure this service](../../../mgn/latest/ug.md "../../../mgn/latest/ug.md").
-- View a list of the [API operations available for
-  this service](../../../mgn/latest/APIReference.md "../../../mgn/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../mgn/latest/ug/security_iam_authentication.md "../../../mgn/latest/ug/security_iam_authentication.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/mgn/mgn.json "https://servicereference.us-east-1.amazonaws.com/v1/mgn/mgn.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Application Migration Service](#list_mgn-operations "#list_mgn-operations")
-- [Actions defined by AWS Application Migration Service](#list_mgn-actions-as-permissions "#list_mgn-actions-as-permissions")
-- [Permission-only actions for AWS Application Migration Service](#list_mgn-permission-only-actions "#list_mgn-permission-only-actions")
-- [Resource types defined by AWS Application Migration Service](#list_mgn-resources-for-iam-policies "#list_mgn-resources-for-iam-policies")
-- [Condition keys for AWS Application Migration Service](#list_mgn-policy-keys "#list_mgn-policy-keys")
+**Topics**
++ [API operations defined by AWS Application Migration Service](#list_mgn-operations)
++ [Actions defined by AWS Application Migration Service](#list_mgn-actions-as-permissions)
++ [Permission-only actions for AWS Application Migration Service](#list_mgn-permission-only-actions)
++ [Resource types defined by AWS Application Migration Service](#list_mgn-resources-for-iam-policies)
++ [Condition keys for AWS Application Migration Service](#list_mgn-policy-keys)
 
 ## API operations defined by AWS Application Migration Service
+<a name="list_mgn-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_mgn-actions-as-permissions "#list_mgn-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_mgn-actions-as-permissions).
 
-| Operation                                                                                                             | IAM action                                                                                                                                                                     | Condition key | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | ----------------- | -------------- |
-| ArchiveApplication                                                                                                    | [mgn:ArchiveApplication](#list_mgn-action-ArchiveApplication "#list_mgn-action-ArchiveApplication")                                                                            |               |                   | Write          |
-| ArchiveWave                                                                                                           | [mgn:ArchiveWave](#list_mgn-action-ArchiveWave "#list_mgn-action-ArchiveWave")                                                                                                 |               |                   | Write          |
-| AssociateApplications                                                                                                 | [mgn:AssociateApplications](#list_mgn-action-AssociateApplications "#list_mgn-action-AssociateApplications")                                                                   |               |                   | Write          |
-| AssociateSourceServers                                                                                                | [mgn:AssociateSourceServers](#list_mgn-action-AssociateSourceServers "#list_mgn-action-AssociateSourceServers")                                                                |               |                   | Write          |
-| ChangeServerLifeCycleState                                                                                            | [mgn:ChangeServerLifeCycleState](#list_mgn-action-ChangeServerLifeCycleState "#list_mgn-action-ChangeServerLifeCycleState")                                                    |               |                   | Write          |
-| CreateApplication                                                                                                     | [mgn:CreateApplication](#list_mgn-action-CreateApplication "#list_mgn-action-CreateApplication")                                                                               |               |                   | Write          |
-| [mgn:TagResource](#list_mgn-action-TagResource "#list_mgn-action-TagResource")                                        |                                                                                                                                                                                |               | Tagging, Write    |
-| CreateConnector                                                                                                       | [mgn:CreateConnector](#list_mgn-action-CreateConnector "#list_mgn-action-CreateConnector")                                                                                     |               |                   | Write          |
-| [mgn:TagResource](#list_mgn-action-TagResource "#list_mgn-action-TagResource")                                        |                                                                                                                                                                                |               | Tagging, Write    |
-| CreateLaunchConfigurationTemplate                                                                                     | [mgn:CreateLaunchConfigurationTemplate](#list_mgn-action-CreateLaunchConfigurationTemplate "#list_mgn-action-CreateLaunchConfigurationTemplate")                               |               |                   | Write          |
-| [mgn:TagResource](#list_mgn-action-TagResource "#list_mgn-action-TagResource")                                        |                                                                                                                                                                                |               | Tagging, Write    |
-| CreateNetworkMigrationDefinition                                                                                      | [mgn:CreateNetworkMigrationDefinition](#list_mgn-action-CreateNetworkMigrationDefinition "#list_mgn-action-CreateNetworkMigrationDefinition")                                  |               |                   | Write          |
-| [mgn:TagResource](#list_mgn-action-TagResource "#list_mgn-action-TagResource")                                        |                                                                                                                                                                                |               | Tagging, Write    |
-| CreateReplicationConfigurationTemplate                                                                                | [mgn:CreateReplicationConfigurationTemplate](#list_mgn-action-CreateReplicationConfigurationTemplate "#list_mgn-action-CreateReplicationConfigurationTemplate")                |               |                   | Write          |
-| [mgn:TagResource](#list_mgn-action-TagResource "#list_mgn-action-TagResource")                                        |                                                                                                                                                                                |               | Tagging, Write    |
-| CreateWave                                                                                                            | [mgn:CreateWave](#list_mgn-action-CreateWave "#list_mgn-action-CreateWave")                                                                                                    |               |                   | Write          |
-| [mgn:TagResource](#list_mgn-action-TagResource "#list_mgn-action-TagResource")                                        |                                                                                                                                                                                |               | Tagging, Write    |
-| DeleteApplication                                                                                                     | [mgn:DeleteApplication](#list_mgn-action-DeleteApplication "#list_mgn-action-DeleteApplication")                                                                               |               |                   | Write          |
-| DeleteConnector                                                                                                       | [mgn:DeleteConnector](#list_mgn-action-DeleteConnector "#list_mgn-action-DeleteConnector")                                                                                     |               |                   | Write          |
-| DeleteJob                                                                                                             | [mgn:DeleteJob](#list_mgn-action-DeleteJob "#list_mgn-action-DeleteJob")                                                                                                       |               |                   | Write          |
-| DeleteLaunchConfigurationTemplate                                                                                     | [mgn:DeleteLaunchConfigurationTemplate](#list_mgn-action-DeleteLaunchConfigurationTemplate "#list_mgn-action-DeleteLaunchConfigurationTemplate")                               |               |                   | Write          |
-| DeleteNetworkMigrationDefinition                                                                                      | [mgn:DeleteNetworkMigrationDefinition](#list_mgn-action-DeleteNetworkMigrationDefinition "#list_mgn-action-DeleteNetworkMigrationDefinition")                                  |               |                   | Write          |
-| DeleteReplicationConfigurationTemplate                                                                                | [mgn:DeleteReplicationConfigurationTemplate](#list_mgn-action-DeleteReplicationConfigurationTemplate "#list_mgn-action-DeleteReplicationConfigurationTemplate")                |               |                   | Write          |
-| DeleteSourceServer                                                                                                    | [mgn:DeleteSourceServer](#list_mgn-action-DeleteSourceServer "#list_mgn-action-DeleteSourceServer")                                                                            |               |                   | Write          |
-| DeleteVcenterClient                                                                                                   | [mgn:DeleteVcenterClient](#list_mgn-action-DeleteVcenterClient "#list_mgn-action-DeleteVcenterClient")                                                                         |               |                   | Write          |
-| DeleteWave                                                                                                            | [mgn:DeleteWave](#list_mgn-action-DeleteWave "#list_mgn-action-DeleteWave")                                                                                                    |               |                   | Write          |
-| DescribeJobLogItems                                                                                                   | [mgn:DescribeJobLogItems](#list_mgn-action-DescribeJobLogItems "#list_mgn-action-DescribeJobLogItems")                                                                         |               |                   | Read           |
-| DescribeJobs                                                                                                          | [mgn:DescribeJobs](#list_mgn-action-DescribeJobs "#list_mgn-action-DescribeJobs")                                                                                              |               |                   | List           |
-| DescribeLaunchConfigurationTemplates                                                                                  | [mgn:DescribeLaunchConfigurationTemplates](#list_mgn-action-DescribeLaunchConfigurationTemplates "#list_mgn-action-DescribeLaunchConfigurationTemplates")                      |               |                   | List           |
-| DescribeReplicationConfigurationTemplates                                                                             | [mgn:DescribeReplicationConfigurationTemplates](#list_mgn-action-DescribeReplicationConfigurationTemplates "#list_mgn-action-DescribeReplicationConfigurationTemplates")       |               |                   | List           |
-| DescribeSourceServers                                                                                                 | [mgn:DescribeSourceServers](#list_mgn-action-DescribeSourceServers "#list_mgn-action-DescribeSourceServers")                                                                   |               |                   | List           |
-| DescribeVcenterClients                                                                                                | [mgn:DescribeVcenterClients](#list_mgn-action-DescribeVcenterClients "#list_mgn-action-DescribeVcenterClients")                                                                |               |                   | List           |
-| DisassociateApplications                                                                                              | [mgn:DisassociateApplications](#list_mgn-action-DisassociateApplications "#list_mgn-action-DisassociateApplications")                                                          |               |                   | Write          |
-| DisassociateSourceServers                                                                                             | [mgn:DisassociateSourceServers](#list_mgn-action-DisassociateSourceServers "#list_mgn-action-DisassociateSourceServers")                                                       |               |                   | Write          |
-| DisconnectFromService                                                                                                 | [mgn:DisconnectFromService](#list_mgn-action-DisconnectFromService "#list_mgn-action-DisconnectFromService")                                                                   |               |                   | Write          |
-| FinalizeCutover                                                                                                       | [mgn:FinalizeCutover](#list_mgn-action-FinalizeCutover "#list_mgn-action-FinalizeCutover")                                                                                     |               |                   | Write          |
-| GetLaunchConfiguration                                                                                                | [mgn:GetLaunchConfiguration](#list_mgn-action-GetLaunchConfiguration "#list_mgn-action-GetLaunchConfiguration")                                                                |               |                   | Read           |
-| GetNetworkMigrationDefinition                                                                                         | [mgn:GetNetworkMigrationDefinition](#list_mgn-action-GetNetworkMigrationDefinition "#list_mgn-action-GetNetworkMigrationDefinition")                                           |               |                   | Read           |
-| GetNetworkMigrationMapperSegmentConstruct                                                                             | [mgn:GetNetworkMigrationMapperSegmentConstruct](#list_mgn-action-GetNetworkMigrationMapperSegmentConstruct "#list_mgn-action-GetNetworkMigrationMapperSegmentConstruct")       |               |                   | Read           |
-| GetReplicationConfiguration                                                                                           | [mgn:GetReplicationConfiguration](#list_mgn-action-GetReplicationConfiguration "#list_mgn-action-GetReplicationConfiguration")                                                 |               |                   | Read           |
-| InitializeService                                                                                                     | [mgn:InitializeService](#list_mgn-action-InitializeService "#list_mgn-action-InitializeService")                                                                               |               |                   | Write          |
-| ListApplications                                                                                                      | [mgn:ListApplications](#list_mgn-action-ListApplications "#list_mgn-action-ListApplications")                                                                                  |               |                   | List           |
-| ListConnectors                                                                                                        | [mgn:ListConnectors](#list_mgn-action-ListConnectors "#list_mgn-action-ListConnectors")                                                                                        |               |                   | Read           |
-| ListExportErrors                                                                                                      | [mgn:ListExportErrors](#list_mgn-action-ListExportErrors "#list_mgn-action-ListExportErrors")                                                                                  |               |                   | List           |
-| ListExports                                                                                                           | [mgn:ListExports](#list_mgn-action-ListExports "#list_mgn-action-ListExports")                                                                                                 |               |                   | List           |
-| ListImportErrors                                                                                                      | [mgn:ListImportErrors](#list_mgn-action-ListImportErrors "#list_mgn-action-ListImportErrors")                                                                                  |               |                   | List           |
-| ListImportFileEnrichments                                                                                             | [mgn:ListImportFileEnrichments](#list_mgn-action-ListImportFileEnrichments "#list_mgn-action-ListImportFileEnrichments")                                                       |               |                   | List           |
-| ListImports                                                                                                           | [mgn:ListImports](#list_mgn-action-ListImports "#list_mgn-action-ListImports")                                                                                                 |               |                   | List           |
-| ListManagedAccounts                                                                                                   | [mgn:ListManagedAccounts](#list_mgn-action-ListManagedAccounts "#list_mgn-action-ListManagedAccounts")                                                                         |               |                   | List           |
-| ListNetworkMigrationAnalyses                                                                                          | [mgn:ListNetworkMigrationAnalyses](#list_mgn-action-ListNetworkMigrationAnalyses "#list_mgn-action-ListNetworkMigrationAnalyses")                                              |               |                   | List           |
-| ListNetworkMigrationAnalysisResults                                                                                   | [mgn:ListNetworkMigrationAnalysisResults](#list_mgn-action-ListNetworkMigrationAnalysisResults "#list_mgn-action-ListNetworkMigrationAnalysisResults")                         |               |                   | List           |
-| ListNetworkMigrationCodeGenerationSegments                                                                            | [mgn:ListNetworkMigrationCodeGenerationSegments](#list_mgn-action-ListNetworkMigrationCodeGenerationSegments "#list_mgn-action-ListNetworkMigrationCodeGenerationSegments")    |               |                   | List           |
-| ListNetworkMigrationCodeGenerations                                                                                   | [mgn:ListNetworkMigrationCodeGenerations](#list_mgn-action-ListNetworkMigrationCodeGenerations "#list_mgn-action-ListNetworkMigrationCodeGenerations")                         |               |                   | List           |
-| ListNetworkMigrationDefinitions                                                                                       | [mgn:ListNetworkMigrationDefinitions](#list_mgn-action-ListNetworkMigrationDefinitions "#list_mgn-action-ListNetworkMigrationDefinitions")                                     |               |                   | List           |
-| ListNetworkMigrationDeployedStacks                                                                                    | [mgn:ListNetworkMigrationDeployedStacks](#list_mgn-action-ListNetworkMigrationDeployedStacks "#list_mgn-action-ListNetworkMigrationDeployedStacks")                            |               |                   | List           |
-| ListNetworkMigrationDeployments                                                                                       | [mgn:ListNetworkMigrationDeployments](#list_mgn-action-ListNetworkMigrationDeployments "#list_mgn-action-ListNetworkMigrationDeployments")                                     |               |                   | List           |
-| ListNetworkMigrationExecutions                                                                                        | [mgn:ListNetworkMigrationExecutions](#list_mgn-action-ListNetworkMigrationExecutions "#list_mgn-action-ListNetworkMigrationExecutions")                                        |               |                   | List           |
-| ListNetworkMigrationMapperSegmentConstructs                                                                           | [mgn:ListNetworkMigrationMapperSegmentConstructs](#list_mgn-action-ListNetworkMigrationMapperSegmentConstructs "#list_mgn-action-ListNetworkMigrationMapperSegmentConstructs") |               |                   | List           |
-| ListNetworkMigrationMapperSegments                                                                                    | [mgn:ListNetworkMigrationMapperSegments](#list_mgn-action-ListNetworkMigrationMapperSegments "#list_mgn-action-ListNetworkMigrationMapperSegments")                            |               |                   | List           |
-| ListNetworkMigrationMappingUpdates                                                                                    | [mgn:ListNetworkMigrationMappingUpdates](#list_mgn-action-ListNetworkMigrationMappingUpdates "#list_mgn-action-ListNetworkMigrationMappingUpdates")                            |               |                   | List           |
-| ListNetworkMigrationMappings                                                                                          | [mgn:ListNetworkMigrationMappings](#list_mgn-action-ListNetworkMigrationMappings "#list_mgn-action-ListNetworkMigrationMappings")                                              |               |                   | List           |
-| ListSourceServerActions                                                                                               | [mgn:ListSourceServerActions](#list_mgn-action-ListSourceServerActions "#list_mgn-action-ListSourceServerActions")                                                             |               |                   | List           |
-| ListTagsForResource                                                                                                   | [mgn:ListTagsForResource](#list_mgn-action-ListTagsForResource "#list_mgn-action-ListTagsForResource")                                                                         |               |                   | Read           |
-| ListTemplateActions                                                                                                   | [mgn:ListTemplateActions](#list_mgn-action-ListTemplateActions "#list_mgn-action-ListTemplateActions")                                                                         |               |                   | List           |
-| ListWaves                                                                                                             | [mgn:ListWaves](#list_mgn-action-ListWaves "#list_mgn-action-ListWaves")                                                                                                       |               |                   | List           |
-| MarkAsArchived                                                                                                        | [mgn:MarkAsArchived](#list_mgn-action-MarkAsArchived "#list_mgn-action-MarkAsArchived")                                                                                        |               |                   | Write          |
-| PauseReplication                                                                                                      | [mgn:PauseReplication](#list_mgn-action-PauseReplication "#list_mgn-action-PauseReplication")                                                                                  |               |                   | Write          |
-| PutSourceServerAction                                                                                                 | [mgn:PutSourceServerAction](#list_mgn-action-PutSourceServerAction "#list_mgn-action-PutSourceServerAction")                                                                   |               |                   | Write          |
-| PutTemplateAction                                                                                                     | [mgn:PutTemplateAction](#list_mgn-action-PutTemplateAction "#list_mgn-action-PutTemplateAction")                                                                               |               |                   | Write          |
-| RemoveSourceServerAction                                                                                              | [mgn:RemoveSourceServerAction](#list_mgn-action-RemoveSourceServerAction "#list_mgn-action-RemoveSourceServerAction")                                                          |               |                   | Write          |
-| RemoveTemplateAction                                                                                                  | [mgn:RemoveTemplateAction](#list_mgn-action-RemoveTemplateAction "#list_mgn-action-RemoveTemplateAction")                                                                      |               |                   | Write          |
-| ResumeReplication                                                                                                     | [mgn:ResumeReplication](#list_mgn-action-ResumeReplication "#list_mgn-action-ResumeReplication")                                                                               |               |                   | Write          |
-| RetryDataReplication                                                                                                  | [mgn:RetryDataReplication](#list_mgn-action-RetryDataReplication "#list_mgn-action-RetryDataReplication")                                                                      |               |                   | Write          |
-| StartCutover                                                                                                          | [mgn:StartCutover](#list_mgn-action-StartCutover "#list_mgn-action-StartCutover")                                                                                              |               |                   | Write          |
-| [mgn:TagResource](#list_mgn-action-TagResource "#list_mgn-action-TagResource")                                        |                                                                                                                                                                                |               | Tagging, Write    |
-| StartExport                                                                                                           | [mgn:StartExport](#list_mgn-action-StartExport "#list_mgn-action-StartExport")                                                                                                 |               |                   | Write          |
-| [mgn:TagResource](#list_mgn-action-TagResource "#list_mgn-action-TagResource")                                        |                                                                                                                                                                                |               | Tagging, Write    |
-| StartImport                                                                                                           | [mgn:StartImport](#list_mgn-action-StartImport "#list_mgn-action-StartImport")                                                                                                 |               |                   | Write          |
-| [mgn:TagResource](#list_mgn-action-TagResource "#list_mgn-action-TagResource")                                        |                                                                                                                                                                                |               | Tagging, Write    |
-| StartImportFileEnrichment                                                                                             | [mgn:StartImportFileEnrichment](#list_mgn-action-StartImportFileEnrichment "#list_mgn-action-StartImportFileEnrichment")                                                       |               |                   | Write          |
-| StartNetworkMigrationAnalysis                                                                                         | [mgn:StartNetworkMigrationAnalysis](#list_mgn-action-StartNetworkMigrationAnalysis "#list_mgn-action-StartNetworkMigrationAnalysis")                                           |               |                   | Write          |
-| StartNetworkMigrationCodeGeneration                                                                                   | [mgn:StartNetworkMigrationCodeGeneration](#list_mgn-action-StartNetworkMigrationCodeGeneration "#list_mgn-action-StartNetworkMigrationCodeGeneration")                         |               |                   | Write          |
-| StartNetworkMigrationDeployment                                                                                       | [mgn:StartNetworkMigrationDeployment](#list_mgn-action-StartNetworkMigrationDeployment "#list_mgn-action-StartNetworkMigrationDeployment")                                     |               |                   | Write          |
-| StartNetworkMigrationMapping                                                                                          | [mgn:StartNetworkMigrationMapping](#list_mgn-action-StartNetworkMigrationMapping "#list_mgn-action-StartNetworkMigrationMapping")                                              |               |                   | Write          |
-| StartNetworkMigrationMappingUpdate                                                                                    | [mgn:StartNetworkMigrationMappingUpdate](#list_mgn-action-StartNetworkMigrationMappingUpdate "#list_mgn-action-StartNetworkMigrationMappingUpdate")                            |               |                   | Write          |
-| StartReplication                                                                                                      | [mgn:StartReplication](#list_mgn-action-StartReplication "#list_mgn-action-StartReplication")                                                                                  |               |                   | Write          |
-| StartTest                                                                                                             | [mgn:StartTest](#list_mgn-action-StartTest "#list_mgn-action-StartTest")                                                                                                       |               |                   | Write          |
-| [mgn:TagResource](#list_mgn-action-TagResource "#list_mgn-action-TagResource")                                        |                                                                                                                                                                                |               | Tagging, Write    |
-| StopReplication                                                                                                       | [mgn:StopReplication](#list_mgn-action-StopReplication "#list_mgn-action-StopReplication")                                                                                     |               |                   | Write          |
-| TagResource                                                                                                           | [mgn:TagResource](#list_mgn-action-TagResource "#list_mgn-action-TagResource")                                                                                                 |               |                   | Tagging, Write |
-| TerminateTargetInstances                                                                                              | [mgn:TagResource](#list_mgn-action-TagResource "#list_mgn-action-TagResource")                                                                                                 |               |                   | Tagging, Write |
-| [mgn:TerminateTargetInstances](#list_mgn-action-TerminateTargetInstances "#list_mgn-action-TerminateTargetInstances") |                                                                                                                                                                                |               | Write             |
-| UnarchiveApplication                                                                                                  | [mgn:UnarchiveApplication](#list_mgn-action-UnarchiveApplication "#list_mgn-action-UnarchiveApplication")                                                                      |               |                   | Write          |
-| UnarchiveWave                                                                                                         | [mgn:UnarchiveWave](#list_mgn-action-UnarchiveWave "#list_mgn-action-UnarchiveWave")                                                                                           |               |                   | Write          |
-| UntagResource                                                                                                         | [mgn:UntagResource](#list_mgn-action-UntagResource "#list_mgn-action-UntagResource")                                                                                           |               |                   | Tagging, Write |
-| UpdateApplication                                                                                                     | [mgn:UpdateApplication](#list_mgn-action-UpdateApplication "#list_mgn-action-UpdateApplication")                                                                               |               |                   | Write          |
-| UpdateConnector                                                                                                       | [mgn:UpdateConnector](#list_mgn-action-UpdateConnector "#list_mgn-action-UpdateConnector")                                                                                     |               |                   | Write          |
-| UpdateLaunchConfiguration                                                                                             | [mgn:UpdateLaunchConfiguration](#list_mgn-action-UpdateLaunchConfiguration "#list_mgn-action-UpdateLaunchConfiguration")                                                       |               |                   | Write          |
-| UpdateLaunchConfigurationTemplate                                                                                     | [mgn:UpdateLaunchConfigurationTemplate](#list_mgn-action-UpdateLaunchConfigurationTemplate "#list_mgn-action-UpdateLaunchConfigurationTemplate")                               |               |                   | Write          |
-| UpdateNetworkMigrationDefinition                                                                                      | [mgn:UpdateNetworkMigrationDefinition](#list_mgn-action-UpdateNetworkMigrationDefinition "#list_mgn-action-UpdateNetworkMigrationDefinition")                                  |               |                   | Write          |
-| UpdateNetworkMigrationMapperSegment                                                                                   | [mgn:UpdateNetworkMigrationMapperSegment](#list_mgn-action-UpdateNetworkMigrationMapperSegment "#list_mgn-action-UpdateNetworkMigrationMapperSegment")                         |               |                   | Write          |
-| UpdateReplicationConfiguration                                                                                        | [mgn:UpdateReplicationConfiguration](#list_mgn-action-UpdateReplicationConfiguration "#list_mgn-action-UpdateReplicationConfiguration")                                        |               |                   | Write          |
-| UpdateReplicationConfigurationTemplate                                                                                | [mgn:UpdateReplicationConfigurationTemplate](#list_mgn-action-UpdateReplicationConfigurationTemplate "#list_mgn-action-UpdateReplicationConfigurationTemplate")                |               |                   | Write          |
-| UpdateSourceServer                                                                                                    | [mgn:UpdateSourceServer](#list_mgn-action-UpdateSourceServer "#list_mgn-action-UpdateSourceServer")                                                                            |               |                   | Write          |
-| UpdateSourceServerReplicationType                                                                                     | [mgn:UpdateSourceServerReplicationType](#list_mgn-action-UpdateSourceServerReplicationType "#list_mgn-action-UpdateSourceServerReplicationType")                               |               |                   | Write          |
-| UpdateWave                                                                                                            | [mgn:UpdateWave](#list_mgn-action-UpdateWave "#list_mgn-action-UpdateWave")                                                                                                    |               |                   | Write          |
+
+
+
+- **   ArchiveApplication  **
+  - **IAM action:**  [mgn:ArchiveApplication](#list_mgn-action-ArchiveApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ArchiveWave  **
+  - **IAM action:**  [mgn:ArchiveWave](#list_mgn-action-ArchiveWave) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateApplications  **
+  - **IAM action:**  [mgn:AssociateApplications](#list_mgn-action-AssociateApplications) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateSourceServers  **
+  - **IAM action:**  [mgn:AssociateSourceServers](#list_mgn-action-AssociateSourceServers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ChangeServerLifeCycleState  **
+  - **IAM action:**  [mgn:ChangeServerLifeCycleState](#list_mgn-action-ChangeServerLifeCycleState) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateApplication  **
+  - **IAM action:**  [mgn:CreateApplication](#list_mgn-action-CreateApplication)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mgn:TagResource](#list_mgn-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateConnector  **
+  - **IAM action:**  [mgn:CreateConnector](#list_mgn-action-CreateConnector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mgn:TagResource](#list_mgn-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateLaunchConfigurationTemplate  **
+  - **IAM action:**  [mgn:CreateLaunchConfigurationTemplate](#list_mgn-action-CreateLaunchConfigurationTemplate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mgn:TagResource](#list_mgn-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateNetworkMigrationDefinition  **
+  - **IAM action:**  [mgn:CreateNetworkMigrationDefinition](#list_mgn-action-CreateNetworkMigrationDefinition)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mgn:TagResource](#list_mgn-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateReplicationConfigurationTemplate  **
+  - **IAM action:**  [mgn:CreateReplicationConfigurationTemplate](#list_mgn-action-CreateReplicationConfigurationTemplate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mgn:TagResource](#list_mgn-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateWave  **
+  - **IAM action:**  [mgn:CreateWave](#list_mgn-action-CreateWave)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mgn:TagResource](#list_mgn-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteApplication  **
+  - **IAM action:**  [mgn:DeleteApplication](#list_mgn-action-DeleteApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConnector  **
+  - **IAM action:**  [mgn:DeleteConnector](#list_mgn-action-DeleteConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteJob  **
+  - **IAM action:**  [mgn:DeleteJob](#list_mgn-action-DeleteJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteLaunchConfigurationTemplate  **
+  - **IAM action:**  [mgn:DeleteLaunchConfigurationTemplate](#list_mgn-action-DeleteLaunchConfigurationTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteNetworkMigrationDefinition  **
+  - **IAM action:**  [mgn:DeleteNetworkMigrationDefinition](#list_mgn-action-DeleteNetworkMigrationDefinition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteReplicationConfigurationTemplate  **
+  - **IAM action:**  [mgn:DeleteReplicationConfigurationTemplate](#list_mgn-action-DeleteReplicationConfigurationTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSourceServer  **
+  - **IAM action:**  [mgn:DeleteSourceServer](#list_mgn-action-DeleteSourceServer) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVcenterClient  **
+  - **IAM action:**  [mgn:DeleteVcenterClient](#list_mgn-action-DeleteVcenterClient) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteWave  **
+  - **IAM action:**  [mgn:DeleteWave](#list_mgn-action-DeleteWave) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeJobLogItems  **
+  - **IAM action:**  [mgn:DescribeJobLogItems](#list_mgn-action-DescribeJobLogItems) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeJobs  **
+  - **IAM action:**  [mgn:DescribeJobs](#list_mgn-action-DescribeJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeLaunchConfigurationTemplates  **
+  - **IAM action:**  [mgn:DescribeLaunchConfigurationTemplates](#list_mgn-action-DescribeLaunchConfigurationTemplates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeReplicationConfigurationTemplates  **
+  - **IAM action:**  [mgn:DescribeReplicationConfigurationTemplates](#list_mgn-action-DescribeReplicationConfigurationTemplates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeSourceServers  **
+  - **IAM action:**  [mgn:DescribeSourceServers](#list_mgn-action-DescribeSourceServers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeVcenterClients  **
+  - **IAM action:**  [mgn:DescribeVcenterClients](#list_mgn-action-DescribeVcenterClients) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DisassociateApplications  **
+  - **IAM action:**  [mgn:DisassociateApplications](#list_mgn-action-DisassociateApplications) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateSourceServers  **
+  - **IAM action:**  [mgn:DisassociateSourceServers](#list_mgn-action-DisassociateSourceServers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisconnectFromService  **
+  - **IAM action:**  [mgn:DisconnectFromService](#list_mgn-action-DisconnectFromService) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   FinalizeCutover  **
+  - **IAM action:**  [mgn:FinalizeCutover](#list_mgn-action-FinalizeCutover) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetLaunchConfiguration  **
+  - **IAM action:**  [mgn:GetLaunchConfiguration](#list_mgn-action-GetLaunchConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetNetworkMigrationDefinition  **
+  - **IAM action:**  [mgn:GetNetworkMigrationDefinition](#list_mgn-action-GetNetworkMigrationDefinition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetNetworkMigrationMapperSegmentConstruct  **
+  - **IAM action:**  [mgn:GetNetworkMigrationMapperSegmentConstruct](#list_mgn-action-GetNetworkMigrationMapperSegmentConstruct) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReplicationConfiguration  **
+  - **IAM action:**  [mgn:GetReplicationConfiguration](#list_mgn-action-GetReplicationConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   InitializeService  **
+  - **IAM action:**  [mgn:InitializeService](#list_mgn-action-InitializeService) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ListApplications  **
+  - **IAM action:**  [mgn:ListApplications](#list_mgn-action-ListApplications) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConnectors  **
+  - **IAM action:**  [mgn:ListConnectors](#list_mgn-action-ListConnectors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListExportErrors  **
+  - **IAM action:**  [mgn:ListExportErrors](#list_mgn-action-ListExportErrors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListExports  **
+  - **IAM action:**  [mgn:ListExports](#list_mgn-action-ListExports) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListImportErrors  **
+  - **IAM action:**  [mgn:ListImportErrors](#list_mgn-action-ListImportErrors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListImportFileEnrichments  **
+  - **IAM action:**  [mgn:ListImportFileEnrichments](#list_mgn-action-ListImportFileEnrichments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListImports  **
+  - **IAM action:**  [mgn:ListImports](#list_mgn-action-ListImports) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListManagedAccounts  **
+  - **IAM action:**  [mgn:ListManagedAccounts](#list_mgn-action-ListManagedAccounts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListNetworkMigrationAnalyses  **
+  - **IAM action:**  [mgn:ListNetworkMigrationAnalyses](#list_mgn-action-ListNetworkMigrationAnalyses) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListNetworkMigrationAnalysisResults  **
+  - **IAM action:**  [mgn:ListNetworkMigrationAnalysisResults](#list_mgn-action-ListNetworkMigrationAnalysisResults) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListNetworkMigrationCodeGenerationSegments  **
+  - **IAM action:**  [mgn:ListNetworkMigrationCodeGenerationSegments](#list_mgn-action-ListNetworkMigrationCodeGenerationSegments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListNetworkMigrationCodeGenerations  **
+  - **IAM action:**  [mgn:ListNetworkMigrationCodeGenerations](#list_mgn-action-ListNetworkMigrationCodeGenerations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListNetworkMigrationDefinitions  **
+  - **IAM action:**  [mgn:ListNetworkMigrationDefinitions](#list_mgn-action-ListNetworkMigrationDefinitions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListNetworkMigrationDeployedStacks  **
+  - **IAM action:**  [mgn:ListNetworkMigrationDeployedStacks](#list_mgn-action-ListNetworkMigrationDeployedStacks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListNetworkMigrationDeployments  **
+  - **IAM action:**  [mgn:ListNetworkMigrationDeployments](#list_mgn-action-ListNetworkMigrationDeployments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListNetworkMigrationExecutions  **
+  - **IAM action:**  [mgn:ListNetworkMigrationExecutions](#list_mgn-action-ListNetworkMigrationExecutions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListNetworkMigrationMapperSegmentConstructs  **
+  - **IAM action:**  [mgn:ListNetworkMigrationMapperSegmentConstructs](#list_mgn-action-ListNetworkMigrationMapperSegmentConstructs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListNetworkMigrationMapperSegments  **
+  - **IAM action:**  [mgn:ListNetworkMigrationMapperSegments](#list_mgn-action-ListNetworkMigrationMapperSegments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListNetworkMigrationMappingUpdates  **
+  - **IAM action:**  [mgn:ListNetworkMigrationMappingUpdates](#list_mgn-action-ListNetworkMigrationMappingUpdates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListNetworkMigrationMappings  **
+  - **IAM action:**  [mgn:ListNetworkMigrationMappings](#list_mgn-action-ListNetworkMigrationMappings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSourceServerActions  **
+  - **IAM action:**  [mgn:ListSourceServerActions](#list_mgn-action-ListSourceServerActions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [mgn:ListTagsForResource](#list_mgn-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTemplateActions  **
+  - **IAM action:**  [mgn:ListTemplateActions](#list_mgn-action-ListTemplateActions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListWaves  **
+  - **IAM action:**  [mgn:ListWaves](#list_mgn-action-ListWaves) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   MarkAsArchived  **
+  - **IAM action:**  [mgn:MarkAsArchived](#list_mgn-action-MarkAsArchived) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PauseReplication  **
+  - **IAM action:**  [mgn:PauseReplication](#list_mgn-action-PauseReplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutSourceServerAction  **
+  - **IAM action:**  [mgn:PutSourceServerAction](#list_mgn-action-PutSourceServerAction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutTemplateAction  **
+  - **IAM action:**  [mgn:PutTemplateAction](#list_mgn-action-PutTemplateAction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RemoveSourceServerAction  **
+  - **IAM action:**  [mgn:RemoveSourceServerAction](#list_mgn-action-RemoveSourceServerAction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RemoveTemplateAction  **
+  - **IAM action:**  [mgn:RemoveTemplateAction](#list_mgn-action-RemoveTemplateAction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ResumeReplication  **
+  - **IAM action:**  [mgn:ResumeReplication](#list_mgn-action-ResumeReplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RetryDataReplication  **
+  - **IAM action:**  [mgn:RetryDataReplication](#list_mgn-action-RetryDataReplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartCutover  **
+  - **IAM action:**  [mgn:StartCutover](#list_mgn-action-StartCutover)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mgn:TagResource](#list_mgn-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   StartExport  **
+  - **IAM action:**  [mgn:StartExport](#list_mgn-action-StartExport)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mgn:TagResource](#list_mgn-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   StartImport  **
+  - **IAM action:**  [mgn:StartImport](#list_mgn-action-StartImport)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mgn:TagResource](#list_mgn-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   StartImportFileEnrichment  **
+  - **IAM action:**  [mgn:StartImportFileEnrichment](#list_mgn-action-StartImportFileEnrichment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartNetworkMigrationAnalysis  **
+  - **IAM action:**  [mgn:StartNetworkMigrationAnalysis](#list_mgn-action-StartNetworkMigrationAnalysis) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartNetworkMigrationCodeGeneration  **
+  - **IAM action:**  [mgn:StartNetworkMigrationCodeGeneration](#list_mgn-action-StartNetworkMigrationCodeGeneration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartNetworkMigrationDeployment  **
+  - **IAM action:**  [mgn:StartNetworkMigrationDeployment](#list_mgn-action-StartNetworkMigrationDeployment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartNetworkMigrationMapping  **
+  - **IAM action:**  [mgn:StartNetworkMigrationMapping](#list_mgn-action-StartNetworkMigrationMapping) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartNetworkMigrationMappingUpdate  **
+  - **IAM action:**  [mgn:StartNetworkMigrationMappingUpdate](#list_mgn-action-StartNetworkMigrationMappingUpdate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartReplication  **
+  - **IAM action:**  [mgn:StartReplication](#list_mgn-action-StartReplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartTest  **
+  - **IAM action:**  [mgn:StartTest](#list_mgn-action-StartTest)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [mgn:TagResource](#list_mgn-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   StopReplication  **
+  - **IAM action:**  [mgn:StopReplication](#list_mgn-action-StopReplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [mgn:TagResource](#list_mgn-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   TerminateTargetInstances  **
+  - **IAM action:**  [mgn:TagResource](#list_mgn-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [mgn:TerminateTargetInstances](#list_mgn-action-TerminateTargetInstances)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   UnarchiveApplication  **
+  - **IAM action:**  [mgn:UnarchiveApplication](#list_mgn-action-UnarchiveApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UnarchiveWave  **
+  - **IAM action:**  [mgn:UnarchiveWave](#list_mgn-action-UnarchiveWave) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UntagResource  **
+  - **IAM action:**  [mgn:UntagResource](#list_mgn-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateApplication  **
+  - **IAM action:**  [mgn:UpdateApplication](#list_mgn-action-UpdateApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateConnector  **
+  - **IAM action:**  [mgn:UpdateConnector](#list_mgn-action-UpdateConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateLaunchConfiguration  **
+  - **IAM action:**  [mgn:UpdateLaunchConfiguration](#list_mgn-action-UpdateLaunchConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateLaunchConfigurationTemplate  **
+  - **IAM action:**  [mgn:UpdateLaunchConfigurationTemplate](#list_mgn-action-UpdateLaunchConfigurationTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateNetworkMigrationDefinition  **
+  - **IAM action:**  [mgn:UpdateNetworkMigrationDefinition](#list_mgn-action-UpdateNetworkMigrationDefinition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateNetworkMigrationMapperSegment  **
+  - **IAM action:**  [mgn:UpdateNetworkMigrationMapperSegment](#list_mgn-action-UpdateNetworkMigrationMapperSegment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateReplicationConfiguration  **
+  - **IAM action:**  [mgn:UpdateReplicationConfiguration](#list_mgn-action-UpdateReplicationConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateReplicationConfigurationTemplate  **
+  - **IAM action:**  [mgn:UpdateReplicationConfigurationTemplate](#list_mgn-action-UpdateReplicationConfigurationTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSourceServer  **
+  - **IAM action:**  [mgn:UpdateSourceServer](#list_mgn-action-UpdateSourceServer) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSourceServerReplicationType  **
+  - **IAM action:**  [mgn:UpdateSourceServerReplicationType](#list_mgn-action-UpdateSourceServerReplicationType) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateWave  **
+  - **IAM action:**  [mgn:UpdateWave](#list_mgn-action-UpdateWave) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS Application Migration Service
+<a name="list_mgn-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                                                                                  | Resource types (\*required)                                                                                                                                             | Condition keys                                                                                                                                                                                                                                                                                                                                               | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- |
-| [ArchiveApplication](../../../mgn/latest/APIReference/API_ArchiveApplication.md "../../../mgn/latest/APIReference/API_ArchiveApplication.md")                                                                               | Grants permission to archive an application                                                                                                                                                                                                                                                                                                                  | [ApplicationResource\*](#list_mgn-resource-ApplicationResource "#list_mgn-resource-ApplicationResource")                                                                | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [ArchiveWave](../../../mgn/latest/APIReference/API_ArchiveWave.md "../../../mgn/latest/APIReference/API_ArchiveWave.md")                                                                                                    | Grants permission to archive a wave                                                                                                                                                                                                                                                                                                                          | [WaveResource\*](#list_mgn-resource-WaveResource "#list_mgn-resource-WaveResource")                                                                                     | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [AssociateApplications](../../../mgn/latest/APIReference/API_AssociateApplications.md "../../../mgn/latest/APIReference/API_AssociateApplications.md")                                                                      | Grants permission to associate applications to a wave                                                                                                                                                                                                                                                                                                        | [ApplicationResource\*](#list_mgn-resource-ApplicationResource "#list_mgn-resource-ApplicationResource")                                                                | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [WaveResource\*](#list_mgn-resource-WaveResource "#list_mgn-resource-WaveResource")                                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       |
-| [AssociateSourceServers](../../../mgn/latest/APIReference/API_AssociateSourceServers.md "../../../mgn/latest/APIReference/API_AssociateSourceServers.md")                                                                   | Grants permission to associate source servers to an application                                                                                                                                                                                                                                                                                              | [ApplicationResource\*](#list_mgn-resource-ApplicationResource "#list_mgn-resource-ApplicationResource")                                                                | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       |
-| [ChangeServerLifeCycleState](../../../mgn/latest/APIReference/API_ChangeServerLifeCycleState.md "../../../mgn/latest/APIReference/API_ChangeServerLifeCycleState.md")                                                       | Grants permission to change source server life cycle state                                                                                                                                                                                                                                                                                                   | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [CreateApplication](../../../mgn/latest/APIReference/API_CreateApplication.md "../../../mgn/latest/APIReference/API_CreateApplication.md")                                                                                  | Grants permission to create an application                                                                                                                                                                                                                                                                                                                   |                                                                                                                                                                         | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                                                                                                                          | Write          |
-| [CreateConnector](../../../mgn/latest/APIReference/API_CreateConnector.md "../../../mgn/latest/APIReference/API_CreateConnector.md")                                                                                        | Grants permission to create connector                                                                                                                                                                                                                                                                                                                        |                                                                                                                                                                         | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                                                                                                                          | Write          |
-| [CreateLaunchConfigurationTemplate](../../../mgn/latest/APIReference/API_CreateLaunchConfigurationTemplate.md "../../../mgn/latest/APIReference/API_CreateLaunchConfigurationTemplate.md")                                  | Grants permission to create launch configuration template                                                                                                                                                                                                                                                                                                    |                                                                                                                                                                         | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                                                                                                                          | Write          |
-| [CreateNetworkMigrationDefinition](../../../mgn/latest/APIReference/API_CreateNetworkMigrationDefinition.md "../../../mgn/latest/APIReference/API_CreateNetworkMigrationDefinition.md")                                     | Grants permission to create a network migration definition                                                                                                                                                                                                                                                                                                   |                                                                                                                                                                         | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                                                                                                                          | Write          |
-| [CreateReplicationConfigurationTemplate](../../../mgn/latest/APIReference/API_CreateReplicationConfigurationTemplate.md "../../../mgn/latest/APIReference/API_CreateReplicationConfigurationTemplate.md")                   | Grants permission to create replication configuration template                                                                                                                                                                                                                                                                                               |                                                                                                                                                                         | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                                                                                                                          | Write          |
-| [CreateWave](../../../mgn/latest/APIReference/API_CreateWave.md "../../../mgn/latest/APIReference/API_CreateWave.md")                                                                                                       | Grants permission to create a wave                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                         | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                                                                                                                          | Write          |
-| [DeleteApplication](../../../mgn/latest/APIReference/API_DeleteApplication.md "../../../mgn/latest/APIReference/API_DeleteApplication.md")                                                                                  | Grants permission to delete an application                                                                                                                                                                                                                                                                                                                   | [ApplicationResource\*](#list_mgn-resource-ApplicationResource "#list_mgn-resource-ApplicationResource")                                                                | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [DeleteConnector](../../../mgn/latest/APIReference/API_DeleteConnector.md "../../../mgn/latest/APIReference/API_DeleteConnector.md")                                                                                        | Grants permission to delete connector                                                                                                                                                                                                                                                                                                                        | [ConnectorResource\*](#list_mgn-resource-ConnectorResource "#list_mgn-resource-ConnectorResource")                                                                      | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [DeleteJob](../../../mgn/latest/APIReference/API_DeleteJob.md "../../../mgn/latest/APIReference/API_DeleteJob.md")                                                                                                          | Grants permission to delete job                                                                                                                                                                                                                                                                                                                              | [JobResource\*](#list_mgn-resource-JobResource "#list_mgn-resource-JobResource")                                                                                        | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [DeleteLaunchConfigurationTemplate](../../../mgn/latest/APIReference/API_DeleteLaunchConfigurationTemplate.md "../../../mgn/latest/APIReference/API_DeleteLaunchConfigurationTemplate.md")                                  | Grants permission to delete launch configuration template                                                                                                                                                                                                                                                                                                    | [LaunchConfigurationTemplateResource\*](#list_mgn-resource-LaunchConfigurationTemplateResource "#list_mgn-resource-LaunchConfigurationTemplateResource")                | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [DeleteNetworkMigrationDefinition](../../../mgn/latest/APIReference/API_DeleteNetworkMigrationDefinition.md "../../../mgn/latest/APIReference/API_DeleteNetworkMigrationDefinition.md")                                     | Grants permission to delete a network migration definition                                                                                                                                                                                                                                                                                                   | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [DeleteReplicationConfigurationTemplate](../../../mgn/latest/APIReference/API_DeleteReplicationConfigurationTemplate.md "../../../mgn/latest/APIReference/API_DeleteReplicationConfigurationTemplate.md")                   | Grants permission to delete replication configuration template                                                                                                                                                                                                                                                                                               | [ReplicationConfigurationTemplateResource\*](#list_mgn-resource-ReplicationConfigurationTemplateResource "#list_mgn-resource-ReplicationConfigurationTemplateResource") | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [DeleteSourceServer](../../../mgn/latest/APIReference/API_DeleteSourceServer.md "../../../mgn/latest/APIReference/API_DeleteSourceServer.md")                                                                               | Grants permission to delete source server                                                                                                                                                                                                                                                                                                                    | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [DeleteVcenterClient](../../../mgn/latest/APIReference/API_DeleteVcenterClient.md "../../../mgn/latest/APIReference/API_DeleteVcenterClient.md")                                                                            | Grants permission to delete vcenter client                                                                                                                                                                                                                                                                                                                   | [VcenterClientResource\*](#list_mgn-resource-VcenterClientResource "#list_mgn-resource-VcenterClientResource")                                                          | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [DeleteWave](../../../mgn/latest/APIReference/API_DeleteWave.md "../../../mgn/latest/APIReference/API_DeleteWave.md")                                                                                                       | Grants permission to delete a wave                                                                                                                                                                                                                                                                                                                           | [WaveResource\*](#list_mgn-resource-WaveResource "#list_mgn-resource-WaveResource")                                                                                     | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [DescribeJobLogItems](../../../mgn/latest/APIReference/API_DescribeJobLogItems.md "../../../mgn/latest/APIReference/API_DescribeJobLogItems.md")                                                                            | Grants permission to describe job log items                                                                                                                                                                                                                                                                                                                  | [JobResource\*](#list_mgn-resource-JobResource "#list_mgn-resource-JobResource")                                                                                        | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Read           |
-| [DescribeJobs](../../../mgn/latest/APIReference/API_DescribeJobs.md "../../../mgn/latest/APIReference/API_DescribeJobs.md")                                                                                                 | Grants permission to describe jobs                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [DescribeLaunchConfigurationTemplates](../../../mgn/latest/APIReference/API_DescribeLaunchConfigurationTemplates.md "../../../mgn/latest/APIReference/API_DescribeLaunchConfigurationTemplates.md")                         | Grants permission to describe launch configuration template                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [DescribeReplicationConfigurationTemplates](../../../mgn/latest/APIReference/API_DescribeReplicationConfigurationTemplates.md "../../../mgn/latest/APIReference/API_DescribeReplicationConfigurationTemplates.md")          | Grants permission to describe replication configuration template                                                                                                                                                                                                                                                                                             |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [DescribeSourceServers](../../../mgn/latest/APIReference/API_DescribeSourceServers.md "../../../mgn/latest/APIReference/API_DescribeSourceServers.md")                                                                      | Grants permission to describe source servers                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [DescribeVcenterClients](../../../mgn/latest/APIReference/API_DescribeVcenterClients.md "../../../mgn/latest/APIReference/API_DescribeVcenterClients.md")                                                                   | Grants permission to describe vcenter clients                                                                                                                                                                                                                                                                                                                |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [DisassociateApplications](../../../mgn/latest/APIReference/API_DisassociateApplications.md "../../../mgn/latest/APIReference/API_DisassociateApplications.md")                                                             | Grants permission to disassociate applications from a wave                                                                                                                                                                                                                                                                                                   | [ApplicationResource\*](#list_mgn-resource-ApplicationResource "#list_mgn-resource-ApplicationResource")                                                                | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [WaveResource\*](#list_mgn-resource-WaveResource "#list_mgn-resource-WaveResource")                                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       |
-| [DisassociateSourceServers](../../../mgn/latest/APIReference/API_DisassociateSourceServers.md "../../../mgn/latest/APIReference/API_DisassociateSourceServers.md")                                                          | Grants permission to disassociate source servers from an application                                                                                                                                                                                                                                                                                         | [ApplicationResource\*](#list_mgn-resource-ApplicationResource "#list_mgn-resource-ApplicationResource")                                                                | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       |
-| [DisconnectFromService](../../../mgn/latest/APIReference/API_DisconnectFromService.md "../../../mgn/latest/APIReference/API_DisconnectFromService.md")                                                                      | Grants permission to disconnect source server from service                                                                                                                                                                                                                                                                                                   | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [FinalizeCutover](../../../mgn/latest/APIReference/API_FinalizeCutover.md "../../../mgn/latest/APIReference/API_FinalizeCutover.md")                                                                                        | Grants permission to finalize cutover                                                                                                                                                                                                                                                                                                                        | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [GetAccountSettings](../../../mgn/latest/APIReference/API_GetAccountSettings.md "../../../mgn/latest/APIReference/API_GetAccountSettings.md")                                                                               | Grants permission to get account settings                                                                                                                                                                                                                                                                                                                    |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | Read           |
-| [GetLaunchConfiguration](../../../mgn/latest/APIReference/API_GetLaunchConfiguration.md "../../../mgn/latest/APIReference/API_GetLaunchConfiguration.md")                                                                   | Grants permission to get launch configuration                                                                                                                                                                                                                                                                                                                | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Read           |
-| [GetNetworkMigrationDefinition](../../../mgn/latest/APIReference/API_GetNetworkMigrationDefinition.md "../../../mgn/latest/APIReference/API_GetNetworkMigrationDefinition.md")                                              | Grants permission to get a network migration definition                                                                                                                                                                                                                                                                                                      | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Read           |
-| [GetNetworkMigrationMapperSegmentConstruct](../../../mgn/latest/APIReference/API_GetNetworkMigrationMapperSegmentConstruct.md "../../../mgn/latest/APIReference/API_GetNetworkMigrationMapperSegmentConstruct.md")          | Grants permission to get a network migration mapper segment construct                                                                                                                                                                                                                                                                                        | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Read           |
-| [GetReplicationConfiguration](../../../mgn/latest/APIReference/API_GetReplicationConfiguration.md "../../../mgn/latest/APIReference/API_GetReplicationConfiguration.md")                                                    | Grants permission to get replication configuration                                                                                                                                                                                                                                                                                                           | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Read           |
-| [InitializeService](../../../mgn/latest/APIReference/API_InitializeService.md "../../../mgn/latest/APIReference/API_InitializeService.md")                                                                                  | Grants permission to initialize service                                                                                                                                                                                                                                                                                                                      |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | Write          |
-| [ListApplications](../../../mgn/latest/APIReference/API_ListApplications.md "../../../mgn/latest/APIReference/API_ListApplications.md")                                                                                     | Grants permission to list application summaries                                                                                                                                                                                                                                                                                                              |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [ListConnectors](../../../mgn/latest/APIReference/API_ListConnectors.md "../../../mgn/latest/APIReference/API_ListConnectors.md")                                                                                           | Grants permission to list connectors                                                                                                                                                                                                                                                                                                                         |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | Read           |
-| [ListExportErrors](../../../mgn/latest/APIReference/API_ListExportErrors.md "../../../mgn/latest/APIReference/API_ListExportErrors.md")                                                                                     | Grants permission to list the errors of an export task                                                                                                                                                                                                                                                                                                       | [ExportResource\*](#list_mgn-resource-ExportResource "#list_mgn-resource-ExportResource")                                                                               | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListExports](../../../mgn/latest/APIReference/API_ListExports.md "../../../mgn/latest/APIReference/API_ListExports.md")                                                                                                    | Grants permission to list export tasks                                                                                                                                                                                                                                                                                                                       |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [ListImportErrors](../../../mgn/latest/APIReference/API_ListImportErrors.md "../../../mgn/latest/APIReference/API_ListImportErrors.md")                                                                                     | Grants permission to list the errors of an import task                                                                                                                                                                                                                                                                                                       | [ImportResource\*](#list_mgn-resource-ImportResource "#list_mgn-resource-ImportResource")                                                                               | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListImportFileEnrichments](../../../mgn/latest/APIReference/API_ListImportFileEnrichments.md "../../../mgn/latest/APIReference/API_ListImportFileEnrichments.md")                                                          | Grants permission to list the import file enrichment tasks                                                                                                                                                                                                                                                                                                   |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [ListImports](../../../mgn/latest/APIReference/API_ListImports.md "../../../mgn/latest/APIReference/API_ListImports.md")                                                                                                    | Grants permission to list the import tasks                                                                                                                                                                                                                                                                                                                   |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [ListManagedAccounts](../../../mgn/latest/APIReference/API_ListManagedAccounts.md "../../../mgn/latest/APIReference/API_ListManagedAccounts.md")                                                                            | Grants permission to list managed accounts                                                                                                                                                                                                                                                                                                                   |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [ListNetworkMigrationAnalyses](../../../mgn/latest/APIReference/API_ListNetworkMigrationAnalyses.md "../../../mgn/latest/APIReference/API_ListNetworkMigrationAnalyses.md")                                                 | Grants permission to list network migration analyses                                                                                                                                                                                                                                                                                                         | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListNetworkMigrationAnalysisResults](../../../mgn/latest/APIReference/API_ListNetworkMigrationAnalysisResults.md "../../../mgn/latest/APIReference/API_ListNetworkMigrationAnalysisResults.md")                            | Grants permission to list network migration analysis results                                                                                                                                                                                                                                                                                                 | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListNetworkMigrationCodeGenerationSegments](../../../mgn/latest/APIReference/API_ListNetworkMigrationCodeGenerationSegments.md "../../../mgn/latest/APIReference/API_ListNetworkMigrationCodeGenerationSegments.md")       | Grants permission to list network migration code generation segments                                                                                                                                                                                                                                                                                         | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListNetworkMigrationCodeGenerations](../../../mgn/latest/APIReference/API_ListNetworkMigrationCodeGenerations.md "../../../mgn/latest/APIReference/API_ListNetworkMigrationCodeGenerations.md")                            | Grants permission to list network migration code generations                                                                                                                                                                                                                                                                                                 | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListNetworkMigrationDefinitions](../../../mgn/latest/APIReference/API_ListNetworkMigrationDefinitions.md "../../../mgn/latest/APIReference/API_ListNetworkMigrationDefinitions.md")                                        | Grants permission to list network migration definitions                                                                                                                                                                                                                                                                                                      |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [ListNetworkMigrationDeployedStacks](../../../mgn/latest/APIReference/API_ListNetworkMigrationDeployedStacks.md "../../../mgn/latest/APIReference/API_ListNetworkMigrationDeployedStacks.md")                               | Grants permission to list network migration deployed stacks                                                                                                                                                                                                                                                                                                  | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListNetworkMigrationDeployedStacksDeletions](../../../mgn/latest/APIReference/API_ListNetworkMigrationDeployedStacksDeletions.md "../../../mgn/latest/APIReference/API_ListNetworkMigrationDeployedStacksDeletions.md")    | Grants permission to list network migration deployed stacks deletions                                                                                                                                                                                                                                                                                        | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListNetworkMigrationDeployments](../../../mgn/latest/APIReference/API_ListNetworkMigrationDeployments.md "../../../mgn/latest/APIReference/API_ListNetworkMigrationDeployments.md")                                        | Grants permission to list network migration deployments                                                                                                                                                                                                                                                                                                      | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListNetworkMigrationExecutionArtifacts](../../../mgn/latest/APIReference/API_ListNetworkMigrationExecutionArtifacts.md "../../../mgn/latest/APIReference/API_ListNetworkMigrationExecutionArtifacts.md")                   | Grants permission to list network migration execution artifacts                                                                                                                                                                                                                                                                                              | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListNetworkMigrationExecutions](../../../mgn/latest/APIReference/API_ListNetworkMigrationExecutions.md "../../../mgn/latest/APIReference/API_ListNetworkMigrationExecutions.md")                                           | Grants permission to list network migration executions                                                                                                                                                                                                                                                                                                       | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListNetworkMigrationMapperSegmentConstructs](../../../mgn/latest/APIReference/API_ListNetworkMigrationMapperSegmentConstructs.md "../../../mgn/latest/APIReference/API_ListNetworkMigrationMapperSegmentConstructs.md")    | Grants permission to list network migration mapper segment constructs                                                                                                                                                                                                                                                                                        | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListNetworkMigrationMapperSegments](../../../mgn/latest/APIReference/API_ListNetworkMigrationMapperSegments.md "../../../mgn/latest/APIReference/API_ListNetworkMigrationMapperSegments.md")                               | Grants permission to list network migration mapper segments                                                                                                                                                                                                                                                                                                  | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListNetworkMigrationMappingUpdates](../../../mgn/latest/APIReference/API_ListNetworkMigrationMappingUpdates.md "../../../mgn/latest/APIReference/API_ListNetworkMigrationMappingUpdates.md")                               | Grants permission to list network migration mapping updates                                                                                                                                                                                                                                                                                                  | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListNetworkMigrationMappings](../../../mgn/latest/APIReference/API_ListNetworkMigrationMappings.md "../../../mgn/latest/APIReference/API_ListNetworkMigrationMappings.md")                                                 | Grants permission to list network migration mappings                                                                                                                                                                                                                                                                                                         | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListSourceServerActions](../../../mgn/latest/APIReference/API_ListSourceServerActions.md "../../../mgn/latest/APIReference/API_ListSourceServerActions.md")                                                                | Grants permission to list source server action documents                                                                                                                                                                                                                                                                                                     | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListTagsForResource](../../../mgn/latest/APIReference/API_ListTagsForResource.md "../../../mgn/latest/APIReference/API_ListTagsForResource.md")                                                                            | Grants permission to list tags for a resource                                                                                                                                                                                                                                                                                                                |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | Read           |
-| [ListTemplateActions](../../../mgn/latest/APIReference/API_ListTemplateActions.md "../../../mgn/latest/APIReference/API_ListTemplateActions.md")                                                                            | Grants permission to list launch configuration template action documents                                                                                                                                                                                                                                                                                     | [LaunchConfigurationTemplateResource\*](#list_mgn-resource-LaunchConfigurationTemplateResource "#list_mgn-resource-LaunchConfigurationTemplateResource")                | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | List           |
-| [ListWaves](../../../mgn/latest/APIReference/API_ListWaves.md "../../../mgn/latest/APIReference/API_ListWaves.md")                                                                                                          | Grants permission to list wave summaries                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [MarkAsArchived](../../../mgn/latest/APIReference/API_MarkAsArchived.md "../../../mgn/latest/APIReference/API_MarkAsArchived.md")                                                                                           | Grants permission to mark source server as archived                                                                                                                                                                                                                                                                                                          | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [PauseReplication](../../../mgn/latest/APIReference/API_PauseReplication.md "../../../mgn/latest/APIReference/API_PauseReplication.md")                                                                                     | Grants permission to pause replication                                                                                                                                                                                                                                                                                                                       | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [PutSourceServerAction](../../../mgn/latest/APIReference/API_PutSourceServerAction.md "../../../mgn/latest/APIReference/API_PutSourceServerAction.md")                                                                      | Grants permission to put source server action document                                                                                                                                                                                                                                                                                                       | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [PutTemplateAction](../../../mgn/latest/APIReference/API_PutTemplateAction.md "../../../mgn/latest/APIReference/API_PutTemplateAction.md")                                                                                  | Grants permission to put launch configuration template action document                                                                                                                                                                                                                                                                                       | [LaunchConfigurationTemplateResource\*](#list_mgn-resource-LaunchConfigurationTemplateResource "#list_mgn-resource-LaunchConfigurationTemplateResource")                | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [RemoveSourceServerAction](../../../mgn/latest/APIReference/API_RemoveSourceServerAction.md "../../../mgn/latest/APIReference/API_RemoveSourceServerAction.md")                                                             | Grants permission to remove source server action document                                                                                                                                                                                                                                                                                                    | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [RemoveTemplateAction](../../../mgn/latest/APIReference/API_RemoveTemplateAction.md "../../../mgn/latest/APIReference/API_RemoveTemplateAction.md")                                                                         | Grants permission to remove launch configuration template action document                                                                                                                                                                                                                                                                                    | [LaunchConfigurationTemplateResource\*](#list_mgn-resource-LaunchConfigurationTemplateResource "#list_mgn-resource-LaunchConfigurationTemplateResource")                | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [ResumeReplication](../../../mgn/latest/APIReference/API_ResumeReplication.md "../../../mgn/latest/APIReference/API_ResumeReplication.md")                                                                                  | Grants permission to resume replication                                                                                                                                                                                                                                                                                                                      | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [RetryDataReplication](../../../mgn/latest/APIReference/API_RetryDataReplication.md "../../../mgn/latest/APIReference/API_RetryDataReplication.md")                                                                         | Grants permission to retry replication                                                                                                                                                                                                                                                                                                                       | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [StartCutover](../../../mgn/latest/APIReference/API_StartCutover.md "../../../mgn/latest/APIReference/API_StartCutover.md")                                                                                                 | Grants permission to start cutover                                                                                                                                                                                                                                                                                                                           | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                | Write          |
-| [StartExport](../../../mgn/latest/APIReference/API_StartExport.md "../../../mgn/latest/APIReference/API_StartExport.md")                                                                                                    | Grants permission to start an export task                                                                                                                                                                                                                                                                                                                    |                                                                                                                                                                         | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                                                                                                                          | Write          |
-| [StartImport](../../../mgn/latest/APIReference/API_StartImport.md "../../../mgn/latest/APIReference/API_StartImport.md")                                                                                                    | Grants permission to create an import task                                                                                                                                                                                                                                                                                                                   |                                                                                                                                                                         | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                                                                                                                          | Write          |
-| [StartImportFileEnrichment](../../../mgn/latest/APIReference/API_StartImportFileEnrichment.md "../../../mgn/latest/APIReference/API_StartImportFileEnrichment.md")                                                          | Grants permission to start import file enrichment                                                                                                                                                                                                                                                                                                            |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | Write          |
-| [StartNetworkMigrationAnalysis](../../../mgn/latest/APIReference/API_StartNetworkMigrationAnalysis.md "../../../mgn/latest/APIReference/API_StartNetworkMigrationAnalysis.md")                                              | Grants permission to start a network migration analysis                                                                                                                                                                                                                                                                                                      | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [StartNetworkMigrationCodeGeneration](../../../mgn/latest/APIReference/API_StartNetworkMigrationCodeGeneration.md "../../../mgn/latest/APIReference/API_StartNetworkMigrationCodeGeneration.md")                            | Grants permission to start network migration code generation                                                                                                                                                                                                                                                                                                 | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [StartNetworkMigrationDeployedStacksDeletion](../../../mgn/latest/APIReference/API_StartNetworkMigrationDeployedStacksDeletion.md "../../../mgn/latest/APIReference/API_StartNetworkMigrationDeployedStacksDeletion.md")    | Grants permission to start deletion of network migration deployed stacks                                                                                                                                                                                                                                                                                     | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [StartNetworkMigrationDeployment](../../../mgn/latest/APIReference/API_StartNetworkMigrationDeployment.md "../../../mgn/latest/APIReference/API_StartNetworkMigrationDeployment.md")                                        | Grants permission to start a network migration deployment                                                                                                                                                                                                                                                                                                    | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [StartNetworkMigrationMapping](../../../mgn/latest/APIReference/API_StartNetworkMigrationMapping.md "../../../mgn/latest/APIReference/API_StartNetworkMigrationMapping.md")                                                 | Grants permission to start a network migration mapping                                                                                                                                                                                                                                                                                                       | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [StartNetworkMigrationMappingUpdate](../../../mgn/latest/APIReference/API_StartNetworkMigrationMappingUpdate.md "../../../mgn/latest/APIReference/API_StartNetworkMigrationMappingUpdate.md")                               | Grants permission to start a network migration mapping update                                                                                                                                                                                                                                                                                                | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [StartReplication](../../../mgn/latest/APIReference/API_StartReplication.md "../../../mgn/latest/APIReference/API_StartReplication.md")                                                                                     | Grants permission to start replication                                                                                                                                                                                                                                                                                                                       | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [StartTest](../../../mgn/latest/APIReference/API_StartTest.md "../../../mgn/latest/APIReference/API_StartTest.md")                                                                                                          | Grants permission to start test                                                                                                                                                                                                                                                                                                                              | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                | Write          |
-| [StopReplication](../../../mgn/latest/APIReference/API_StopReplication.md "../../../mgn/latest/APIReference/API_StopReplication.md")                                                                                        | Grants permission to stop replication                                                                                                                                                                                                                                                                                                                        | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [TagResource](../../../mgn/latest/APIReference/API_TagResource.md "../../../mgn/latest/APIReference/API_TagResource.md")                                                                                                    | Grants permission to assign a resource tag                                                                                                                                                                                                                                                                                                                   | [ApplicationResource](#list_mgn-resource-ApplicationResource "#list_mgn-resource-ApplicationResource")                                                                  | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")<br>[mgn:CreateAction](#list_mgn-mgn_CreateAction "#list_mgn-mgn_CreateAction") | Tagging, Write |
-| [ConnectorResource](#list_mgn-resource-ConnectorResource "#list_mgn-resource-ConnectorResource")                                                                                                                            | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")<br>[mgn:CreateAction](#list_mgn-mgn_CreateAction "#list_mgn-mgn_CreateAction") |
-| [ExportResource](#list_mgn-resource-ExportResource "#list_mgn-resource-ExportResource")                                                                                                                                     | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")<br>[mgn:CreateAction](#list_mgn-mgn_CreateAction "#list_mgn-mgn_CreateAction") |
-| [ImportResource](#list_mgn-resource-ImportResource "#list_mgn-resource-ImportResource")                                                                                                                                     | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")<br>[mgn:CreateAction](#list_mgn-mgn_CreateAction "#list_mgn-mgn_CreateAction") |
-| [JobResource](#list_mgn-resource-JobResource "#list_mgn-resource-JobResource")                                                                                                                                              | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")<br>[mgn:CreateAction](#list_mgn-mgn_CreateAction "#list_mgn-mgn_CreateAction") |
-| [LaunchConfigurationTemplateResource](#list_mgn-resource-LaunchConfigurationTemplateResource "#list_mgn-resource-LaunchConfigurationTemplateResource")                                                                      | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")<br>[mgn:CreateAction](#list_mgn-mgn_CreateAction "#list_mgn-mgn_CreateAction") |
-| [ReplicationConfigurationTemplateResource](#list_mgn-resource-ReplicationConfigurationTemplateResource "#list_mgn-resource-ReplicationConfigurationTemplateResource")                                                       | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")<br>[mgn:CreateAction](#list_mgn-mgn_CreateAction "#list_mgn-mgn_CreateAction") |
-| [SourceServerResource](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                                                                                   | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")<br>[mgn:CreateAction](#list_mgn-mgn_CreateAction "#list_mgn-mgn_CreateAction") |
-| [VcenterClientResource](#list_mgn-resource-VcenterClientResource "#list_mgn-resource-VcenterClientResource")                                                                                                                | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")<br>[mgn:CreateAction](#list_mgn-mgn_CreateAction "#list_mgn-mgn_CreateAction") |
-| [WaveResource](#list_mgn-resource-WaveResource "#list_mgn-resource-WaveResource")                                                                                                                                           | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")<br>[mgn:CreateAction](#list_mgn-mgn_CreateAction "#list_mgn-mgn_CreateAction") |
-| [TerminateTargetInstances](../../../mgn/latest/APIReference/API_TerminateTargetInstances.md "../../../mgn/latest/APIReference/API_TerminateTargetInstances.md")                                                             | Grants permission to terminate target instances                                                                                                                                                                                                                                                                                                              | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                | Write          |
-| [UnarchiveApplication](../../../mgn/latest/APIReference/API_UnarchiveApplication.md "../../../mgn/latest/APIReference/API_UnarchiveApplication.md")                                                                         | Grants permission to unarchive an application                                                                                                                                                                                                                                                                                                                | [ApplicationResource\*](#list_mgn-resource-ApplicationResource "#list_mgn-resource-ApplicationResource")                                                                | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [UnarchiveWave](../../../mgn/latest/APIReference/API_UnarchiveWave.md "../../../mgn/latest/APIReference/API_UnarchiveWave.md")                                                                                              | Grants permission to unarchive a wave                                                                                                                                                                                                                                                                                                                        | [WaveResource\*](#list_mgn-resource-WaveResource "#list_mgn-resource-WaveResource")                                                                                     | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [UntagResource](../../../mgn/latest/APIReference/API_UntagResource.md "../../../mgn/latest/APIReference/API_UntagResource.md")                                                                                              | Grants permission to untag a resource                                                                                                                                                                                                                                                                                                                        | [ApplicationResource](#list_mgn-resource-ApplicationResource "#list_mgn-resource-ApplicationResource")                                                                  | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                                                                                                                       | Tagging, Write |
-| [ConnectorResource](#list_mgn-resource-ConnectorResource "#list_mgn-resource-ConnectorResource")                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                                                                                                                       |
-| [JobResource](#list_mgn-resource-JobResource "#list_mgn-resource-JobResource")                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                                                                                                                       |
-| [LaunchConfigurationTemplateResource](#list_mgn-resource-LaunchConfigurationTemplateResource "#list_mgn-resource-LaunchConfigurationTemplateResource")                                                                      | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                                                                                                                       |
-| [ReplicationConfigurationTemplateResource](#list_mgn-resource-ReplicationConfigurationTemplateResource "#list_mgn-resource-ReplicationConfigurationTemplateResource")                                                       | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                                                                                                                       |
-| [SourceServerResource](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                                                                                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                                                                                                                       |
-| [VcenterClientResource](#list_mgn-resource-VcenterClientResource "#list_mgn-resource-VcenterClientResource")                                                                                                                | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                                                                                                                       |
-| [WaveResource](#list_mgn-resource-WaveResource "#list_mgn-resource-WaveResource")                                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys")                                                                                                                                                                                       |
-| [UpdateAccountSettings](../../../mgn/latest/APIReference/API_UpdateAccountSettings.md "../../../mgn/latest/APIReference/API_UpdateAccountSettings.md")                                                                      | Grants permission to update account settings                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                              | Write          |
-| [UpdateApplication](../../../mgn/latest/APIReference/API_UpdateApplication.md "../../../mgn/latest/APIReference/API_UpdateApplication.md")                                                                                  | Grants permission to update an application                                                                                                                                                                                                                                                                                                                   | [ApplicationResource\*](#list_mgn-resource-ApplicationResource "#list_mgn-resource-ApplicationResource")                                                                | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [UpdateConnector](../../../mgn/latest/APIReference/API_UpdateConnector.md "../../../mgn/latest/APIReference/API_UpdateConnector.md")                                                                                        | Grants permission to update connector                                                                                                                                                                                                                                                                                                                        | [ConnectorResource\*](#list_mgn-resource-ConnectorResource "#list_mgn-resource-ConnectorResource")                                                                      | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [UpdateLaunchConfiguration](../../../mgn/latest/APIReference/API_UpdateLaunchConfiguration.md "../../../mgn/latest/APIReference/API_UpdateLaunchConfiguration.md")                                                          | Grants permission to update launch configuration                                                                                                                                                                                                                                                                                                             | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [UpdateLaunchConfigurationTemplate](../../../mgn/latest/APIReference/API_UpdateLaunchConfigurationTemplate.md "../../../mgn/latest/APIReference/API_UpdateLaunchConfigurationTemplate.md")                                  | Grants permission to update launch configuration                                                                                                                                                                                                                                                                                                             | [LaunchConfigurationTemplateResource\*](#list_mgn-resource-LaunchConfigurationTemplateResource "#list_mgn-resource-LaunchConfigurationTemplateResource")                | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [UpdateNetworkMigrationDefinition](../../../mgn/latest/APIReference/API_UpdateNetworkMigrationDefinition.md "../../../mgn/latest/APIReference/API_UpdateNetworkMigrationDefinition.md")                                     | Grants permission to update a network migration definition                                                                                                                                                                                                                                                                                                   | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [UpdateNetworkMigrationMapperSegment](../../../mgn/latest/APIReference/API_UpdateNetworkMigrationMapperSegment.md "../../../mgn/latest/APIReference/API_UpdateNetworkMigrationMapperSegment.md")                            | Grants permission to update a network migration mapper segment                                                                                                                                                                                                                                                                                               | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [UpdateNetworkMigrationMapperSegmentConstruct](../../../mgn/latest/APIReference/API_UpdateNetworkMigrationMapperSegmentConstruct.md "../../../mgn/latest/APIReference/API_UpdateNetworkMigrationMapperSegmentConstruct.md") | Grants permission to update a network migration mapper segment construct                                                                                                                                                                                                                                                                                     | [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource "#list_mgn-resource-NetworkMigrationDefinitionResource")                   | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [UpdateReplicationConfiguration](../../../mgn/latest/APIReference/API_UpdateReplicationConfiguration.md "../../../mgn/latest/APIReference/API_UpdateReplicationConfiguration.md")                                           | Grants permission to update replication configuration                                                                                                                                                                                                                                                                                                        | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [UpdateReplicationConfigurationTemplate](../../../mgn/latest/APIReference/API_UpdateReplicationConfigurationTemplate.md "../../../mgn/latest/APIReference/API_UpdateReplicationConfigurationTemplate.md")                   | Grants permission to update replication configuration template                                                                                                                                                                                                                                                                                               | [ReplicationConfigurationTemplateResource\*](#list_mgn-resource-ReplicationConfigurationTemplateResource "#list_mgn-resource-ReplicationConfigurationTemplateResource") | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [UpdateSourceServer](../../../mgn/latest/APIReference/API_UpdateSourceServer.md "../../../mgn/latest/APIReference/API_UpdateSourceServer.md")                                                                               | Grants permission to update source server                                                                                                                                                                                                                                                                                                                    | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [UpdateSourceServerReplicationType](../../../mgn/latest/APIReference/API_UpdateSourceServerReplicationType.md "../../../mgn/latest/APIReference/API_UpdateSourceServerReplicationType.md")                                  | Grants permission to update source server replication type                                                                                                                                                                                                                                                                                                   | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
-| [UpdateWave](../../../mgn/latest/APIReference/API_UpdateWave.md "../../../mgn/latest/APIReference/API_UpdateWave.md")                                                                                                       | Grants permission to update a wave                                                                                                                                                                                                                                                                                                                           | [WaveResource\*](#list_mgn-resource-WaveResource "#list_mgn-resource-WaveResource")                                                                                     | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                       | Write          |
+
+
+
+- **   [ArchiveApplication](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ArchiveApplication.html)  **
+  - **Description:** Grants permission to archive an application
+  - **Resource types (\*required):** [ApplicationResource\*](#list_mgn-resource-ApplicationResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ArchiveWave](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ArchiveWave.html)  **
+  - **Description:** Grants permission to archive a wave
+  - **Resource types (\*required):** [WaveResource\*](#list_mgn-resource-WaveResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateApplications](https://docs.aws.amazon.com/mgn/latest/APIReference/API_AssociateApplications.html)  **
+  - **Description:** Grants permission to associate applications to a wave
+  - **Resource types (\*required):** [ApplicationResource\*](#list_mgn-resource-ApplicationResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [WaveResource\*](#list_mgn-resource-WaveResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateSourceServers](https://docs.aws.amazon.com/mgn/latest/APIReference/API_AssociateSourceServers.html)  **
+  - **Description:** Grants permission to associate source servers to an application
+  - **Resource types (\*required):** [ApplicationResource\*](#list_mgn-resource-ApplicationResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ChangeServerLifeCycleState](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ChangeServerLifeCycleState.html)  **
+  - **Description:** Grants permission to change source server life cycle state
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateApplication](https://docs.aws.amazon.com/mgn/latest/APIReference/API_CreateApplication.html)  **
+  - **Description:** Grants permission to create an application
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateConnector](https://docs.aws.amazon.com/mgn/latest/APIReference/API_CreateConnector.html)  **
+  - **Description:** Grants permission to create connector
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateLaunchConfigurationTemplate](https://docs.aws.amazon.com/mgn/latest/APIReference/API_CreateLaunchConfigurationTemplate.html)  **
+  - **Description:** Grants permission to create launch configuration template
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateNetworkMigrationDefinition](https://docs.aws.amazon.com/mgn/latest/APIReference/API_CreateNetworkMigrationDefinition.html)  **
+  - **Description:** Grants permission to create a network migration definition
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateReplicationConfigurationTemplate](https://docs.aws.amazon.com/mgn/latest/APIReference/API_CreateReplicationConfigurationTemplate.html)  **
+  - **Description:** Grants permission to create replication configuration template
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateWave](https://docs.aws.amazon.com/mgn/latest/APIReference/API_CreateWave.html)  **
+  - **Description:** Grants permission to create a wave
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteApplication](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DeleteApplication.html)  **
+  - **Description:** Grants permission to delete an application
+  - **Resource types (\*required):** [ApplicationResource\*](#list_mgn-resource-ApplicationResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConnector](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DeleteConnector.html)  **
+  - **Description:** Grants permission to delete connector
+  - **Resource types (\*required):** [ConnectorResource\*](#list_mgn-resource-ConnectorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteJob](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DeleteJob.html)  **
+  - **Description:** Grants permission to delete job
+  - **Resource types (\*required):** [JobResource\*](#list_mgn-resource-JobResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteLaunchConfigurationTemplate](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DeleteLaunchConfigurationTemplate.html)  **
+  - **Description:** Grants permission to delete launch configuration template
+  - **Resource types (\*required):** [LaunchConfigurationTemplateResource\*](#list_mgn-resource-LaunchConfigurationTemplateResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteNetworkMigrationDefinition](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DeleteNetworkMigrationDefinition.html)  **
+  - **Description:** Grants permission to delete a network migration definition
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteReplicationConfigurationTemplate](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DeleteReplicationConfigurationTemplate.html)  **
+  - **Description:** Grants permission to delete replication configuration template
+  - **Resource types (\*required):** [ReplicationConfigurationTemplateResource\*](#list_mgn-resource-ReplicationConfigurationTemplateResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteSourceServer](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DeleteSourceServer.html)  **
+  - **Description:** Grants permission to delete source server
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteVcenterClient](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DeleteVcenterClient.html)  **
+  - **Description:** Grants permission to delete vcenter client
+  - **Resource types (\*required):** [VcenterClientResource\*](#list_mgn-resource-VcenterClientResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteWave](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DeleteWave.html)  **
+  - **Description:** Grants permission to delete a wave
+  - **Resource types (\*required):** [WaveResource\*](#list_mgn-resource-WaveResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeJobLogItems](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DescribeJobLogItems.html)  **
+  - **Description:** Grants permission to describe job log items
+  - **Resource types (\*required):** [JobResource\*](#list_mgn-resource-JobResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeJobs](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DescribeJobs.html)  **
+  - **Description:** Grants permission to describe jobs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeLaunchConfigurationTemplates](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DescribeLaunchConfigurationTemplates.html)  **
+  - **Description:** Grants permission to describe launch configuration template
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeReplicationConfigurationTemplates](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DescribeReplicationConfigurationTemplates.html)  **
+  - **Description:** Grants permission to describe replication configuration template
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeSourceServers](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DescribeSourceServers.html)  **
+  - **Description:** Grants permission to describe source servers
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeVcenterClients](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DescribeVcenterClients.html)  **
+  - **Description:** Grants permission to describe vcenter clients
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DisassociateApplications](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DisassociateApplications.html)  **
+  - **Description:** Grants permission to disassociate applications from a wave
+  - **Resource types (\*required):** [ApplicationResource\*](#list_mgn-resource-ApplicationResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [WaveResource\*](#list_mgn-resource-WaveResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateSourceServers](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DisassociateSourceServers.html)  **
+  - **Description:** Grants permission to disassociate source servers from an application
+  - **Resource types (\*required):** [ApplicationResource\*](#list_mgn-resource-ApplicationResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisconnectFromService](https://docs.aws.amazon.com/mgn/latest/APIReference/API_DisconnectFromService.html)  **
+  - **Description:** Grants permission to disconnect source server from service
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [FinalizeCutover](https://docs.aws.amazon.com/mgn/latest/APIReference/API_FinalizeCutover.html)  **
+  - **Description:** Grants permission to finalize cutover
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetAccountSettings](https://docs.aws.amazon.com/mgn/latest/APIReference/API_GetAccountSettings.html)  **
+  - **Description:** Grants permission to get account settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetLaunchConfiguration](https://docs.aws.amazon.com/mgn/latest/APIReference/API_GetLaunchConfiguration.html)  **
+  - **Description:** Grants permission to get launch configuration
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetNetworkMigrationDefinition](https://docs.aws.amazon.com/mgn/latest/APIReference/API_GetNetworkMigrationDefinition.html)  **
+  - **Description:** Grants permission to get a network migration definition
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetNetworkMigrationMapperSegmentConstruct](https://docs.aws.amazon.com/mgn/latest/APIReference/API_GetNetworkMigrationMapperSegmentConstruct.html)  **
+  - **Description:** Grants permission to get a network migration mapper segment construct
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetReplicationConfiguration](https://docs.aws.amazon.com/mgn/latest/APIReference/API_GetReplicationConfiguration.html)  **
+  - **Description:** Grants permission to get replication configuration
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [InitializeService](https://docs.aws.amazon.com/mgn/latest/APIReference/API_InitializeService.html)  **
+  - **Description:** Grants permission to initialize service
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ListApplications](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListApplications.html)  **
+  - **Description:** Grants permission to list application summaries
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListConnectors](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListConnectors.html)  **
+  - **Description:** Grants permission to list connectors
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListExportErrors](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListExportErrors.html)  **
+  - **Description:** Grants permission to list the errors of an export task
+  - **Resource types (\*required):** [ExportResource\*](#list_mgn-resource-ExportResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListExports](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListExports.html)  **
+  - **Description:** Grants permission to list export tasks
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListImportErrors](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListImportErrors.html)  **
+  - **Description:** Grants permission to list the errors of an import task
+  - **Resource types (\*required):** [ImportResource\*](#list_mgn-resource-ImportResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListImportFileEnrichments](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListImportFileEnrichments.html)  **
+  - **Description:** Grants permission to list the import file enrichment tasks
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListImports](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListImports.html)  **
+  - **Description:** Grants permission to list the import tasks
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListManagedAccounts](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListManagedAccounts.html)  **
+  - **Description:** Grants permission to list managed accounts
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListNetworkMigrationAnalyses](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListNetworkMigrationAnalyses.html)  **
+  - **Description:** Grants permission to list network migration analyses
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListNetworkMigrationAnalysisResults](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListNetworkMigrationAnalysisResults.html)  **
+  - **Description:** Grants permission to list network migration analysis results
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListNetworkMigrationCodeGenerationSegments](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListNetworkMigrationCodeGenerationSegments.html)  **
+  - **Description:** Grants permission to list network migration code generation segments
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListNetworkMigrationCodeGenerations](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListNetworkMigrationCodeGenerations.html)  **
+  - **Description:** Grants permission to list network migration code generations
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListNetworkMigrationDefinitions](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListNetworkMigrationDefinitions.html)  **
+  - **Description:** Grants permission to list network migration definitions
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListNetworkMigrationDeployedStacks](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListNetworkMigrationDeployedStacks.html)  **
+  - **Description:** Grants permission to list network migration deployed stacks
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListNetworkMigrationDeployedStacksDeletions](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListNetworkMigrationDeployedStacksDeletions.html)  **
+  - **Description:** Grants permission to list network migration deployed stacks deletions
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListNetworkMigrationDeployments](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListNetworkMigrationDeployments.html)  **
+  - **Description:** Grants permission to list network migration deployments
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListNetworkMigrationExecutionArtifacts](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListNetworkMigrationExecutionArtifacts.html)  **
+  - **Description:** Grants permission to list network migration execution artifacts
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListNetworkMigrationExecutions](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListNetworkMigrationExecutions.html)  **
+  - **Description:** Grants permission to list network migration executions
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListNetworkMigrationMapperSegmentConstructs](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListNetworkMigrationMapperSegmentConstructs.html)  **
+  - **Description:** Grants permission to list network migration mapper segment constructs
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListNetworkMigrationMapperSegments](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListNetworkMigrationMapperSegments.html)  **
+  - **Description:** Grants permission to list network migration mapper segments
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListNetworkMigrationMappingUpdates](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListNetworkMigrationMappingUpdates.html)  **
+  - **Description:** Grants permission to list network migration mapping updates
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListNetworkMigrationMappings](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListNetworkMigrationMappings.html)  **
+  - **Description:** Grants permission to list network migration mappings
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSourceServerActions](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListSourceServerActions.html)  **
+  - **Description:** Grants permission to list source server action documents
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for a resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListTemplateActions](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListTemplateActions.html)  **
+  - **Description:** Grants permission to list launch configuration template action documents
+  - **Resource types (\*required):** [LaunchConfigurationTemplateResource\*](#list_mgn-resource-LaunchConfigurationTemplateResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListWaves](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListWaves.html)  **
+  - **Description:** Grants permission to list wave summaries
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [MarkAsArchived](https://docs.aws.amazon.com/mgn/latest/APIReference/API_MarkAsArchived.html)  **
+  - **Description:** Grants permission to mark source server as archived
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PauseReplication](https://docs.aws.amazon.com/mgn/latest/APIReference/API_PauseReplication.html)  **
+  - **Description:** Grants permission to pause replication
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutSourceServerAction](https://docs.aws.amazon.com/mgn/latest/APIReference/API_PutSourceServerAction.html)  **
+  - **Description:** Grants permission to put source server action document
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutTemplateAction](https://docs.aws.amazon.com/mgn/latest/APIReference/API_PutTemplateAction.html)  **
+  - **Description:** Grants permission to put launch configuration template action document
+  - **Resource types (\*required):** [LaunchConfigurationTemplateResource\*](#list_mgn-resource-LaunchConfigurationTemplateResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RemoveSourceServerAction](https://docs.aws.amazon.com/mgn/latest/APIReference/API_RemoveSourceServerAction.html)  **
+  - **Description:** Grants permission to remove source server action document
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RemoveTemplateAction](https://docs.aws.amazon.com/mgn/latest/APIReference/API_RemoveTemplateAction.html)  **
+  - **Description:** Grants permission to remove launch configuration template action document
+  - **Resource types (\*required):** [LaunchConfigurationTemplateResource\*](#list_mgn-resource-LaunchConfigurationTemplateResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ResumeReplication](https://docs.aws.amazon.com/mgn/latest/APIReference/API_ResumeReplication.html)  **
+  - **Description:** Grants permission to resume replication
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RetryDataReplication](https://docs.aws.amazon.com/mgn/latest/APIReference/API_RetryDataReplication.html)  **
+  - **Description:** Grants permission to retry replication
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartCutover](https://docs.aws.amazon.com/mgn/latest/APIReference/API_StartCutover.html)  **
+  - **Description:** Grants permission to start cutover
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [StartExport](https://docs.aws.amazon.com/mgn/latest/APIReference/API_StartExport.html)  **
+  - **Description:** Grants permission to start an export task
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [StartImport](https://docs.aws.amazon.com/mgn/latest/APIReference/API_StartImport.html)  **
+  - **Description:** Grants permission to create an import task
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [StartImportFileEnrichment](https://docs.aws.amazon.com/mgn/latest/APIReference/API_StartImportFileEnrichment.html)  **
+  - **Description:** Grants permission to start import file enrichment
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartNetworkMigrationAnalysis](https://docs.aws.amazon.com/mgn/latest/APIReference/API_StartNetworkMigrationAnalysis.html)  **
+  - **Description:** Grants permission to start a network migration analysis
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartNetworkMigrationCodeGeneration](https://docs.aws.amazon.com/mgn/latest/APIReference/API_StartNetworkMigrationCodeGeneration.html)  **
+  - **Description:** Grants permission to start network migration code generation
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartNetworkMigrationDeployedStacksDeletion](https://docs.aws.amazon.com/mgn/latest/APIReference/API_StartNetworkMigrationDeployedStacksDeletion.html)  **
+  - **Description:** Grants permission to start deletion of network migration deployed stacks
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartNetworkMigrationDeployment](https://docs.aws.amazon.com/mgn/latest/APIReference/API_StartNetworkMigrationDeployment.html)  **
+  - **Description:** Grants permission to start a network migration deployment
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartNetworkMigrationMapping](https://docs.aws.amazon.com/mgn/latest/APIReference/API_StartNetworkMigrationMapping.html)  **
+  - **Description:** Grants permission to start a network migration mapping
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartNetworkMigrationMappingUpdate](https://docs.aws.amazon.com/mgn/latest/APIReference/API_StartNetworkMigrationMappingUpdate.html)  **
+  - **Description:** Grants permission to start a network migration mapping update
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartReplication](https://docs.aws.amazon.com/mgn/latest/APIReference/API_StartReplication.html)  **
+  - **Description:** Grants permission to start replication
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartTest](https://docs.aws.amazon.com/mgn/latest/APIReference/API_StartTest.html)  **
+  - **Description:** Grants permission to start test
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [StopReplication](https://docs.aws.amazon.com/mgn/latest/APIReference/API_StopReplication.html)  **
+  - **Description:** Grants permission to stop replication
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/mgn/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to assign a resource tag
+  - **Resource types (\*required):** [ApplicationResource](#list_mgn-resource-ApplicationResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
+  - **Resource types (\*required):** [ConnectorResource](#list_mgn-resource-ConnectorResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
+  - **Resource types (\*required):** [ExportResource](#list_mgn-resource-ExportResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
+  - **Resource types (\*required):** [ImportResource](#list_mgn-resource-ImportResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
+  - **Resource types (\*required):** [JobResource](#list_mgn-resource-JobResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
+  - **Resource types (\*required):** [LaunchConfigurationTemplateResource](#list_mgn-resource-LaunchConfigurationTemplateResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
+  - **Resource types (\*required):** [ReplicationConfigurationTemplateResource](#list_mgn-resource-ReplicationConfigurationTemplateResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
+  - **Resource types (\*required):** [SourceServerResource](#list_mgn-resource-SourceServerResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
+  - **Resource types (\*required):** [VcenterClientResource](#list_mgn-resource-VcenterClientResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
+  - **Resource types (\*required):** [WaveResource](#list_mgn-resource-WaveResource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)<br />[mgn:CreateAction](#list_mgn-mgn_CreateAction)
+  - **Access level:** Tagging, Write
+
+- **   [TerminateTargetInstances](https://docs.aws.amazon.com/mgn/latest/APIReference/API_TerminateTargetInstances.html)  **
+  - **Description:** Grants permission to terminate target instances
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [UnarchiveApplication](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UnarchiveApplication.html)  **
+  - **Description:** Grants permission to unarchive an application
+  - **Resource types (\*required):** [ApplicationResource\*](#list_mgn-resource-ApplicationResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UnarchiveWave](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UnarchiveWave.html)  **
+  - **Description:** Grants permission to unarchive a wave
+  - **Resource types (\*required):** [WaveResource\*](#list_mgn-resource-WaveResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag a resource
+  - **Resource types (\*required):** [ApplicationResource](#list_mgn-resource-ApplicationResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Resource types (\*required):** [ConnectorResource](#list_mgn-resource-ConnectorResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Resource types (\*required):** [JobResource](#list_mgn-resource-JobResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Resource types (\*required):** [LaunchConfigurationTemplateResource](#list_mgn-resource-LaunchConfigurationTemplateResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Resource types (\*required):** [ReplicationConfigurationTemplateResource](#list_mgn-resource-ReplicationConfigurationTemplateResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Resource types (\*required):** [SourceServerResource](#list_mgn-resource-SourceServerResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Resource types (\*required):** [VcenterClientResource](#list_mgn-resource-VcenterClientResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Resource types (\*required):** [WaveResource](#list_mgn-resource-WaveResource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAccountSettings](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateAccountSettings.html)  **
+  - **Description:** Grants permission to update account settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateApplication](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateApplication.html)  **
+  - **Description:** Grants permission to update an application
+  - **Resource types (\*required):** [ApplicationResource\*](#list_mgn-resource-ApplicationResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateConnector](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateConnector.html)  **
+  - **Description:** Grants permission to update connector
+  - **Resource types (\*required):** [ConnectorResource\*](#list_mgn-resource-ConnectorResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateLaunchConfiguration](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateLaunchConfiguration.html)  **
+  - **Description:** Grants permission to update launch configuration
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateLaunchConfigurationTemplate](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateLaunchConfigurationTemplate.html)  **
+  - **Description:** Grants permission to update launch configuration
+  - **Resource types (\*required):** [LaunchConfigurationTemplateResource\*](#list_mgn-resource-LaunchConfigurationTemplateResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateNetworkMigrationDefinition](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateNetworkMigrationDefinition.html)  **
+  - **Description:** Grants permission to update a network migration definition
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateNetworkMigrationMapperSegment](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateNetworkMigrationMapperSegment.html)  **
+  - **Description:** Grants permission to update a network migration mapper segment
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateNetworkMigrationMapperSegmentConstruct](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateNetworkMigrationMapperSegmentConstruct.html)  **
+  - **Description:** Grants permission to update a network migration mapper segment construct
+  - **Resource types (\*required):** [NetworkMigrationDefinitionResource\*](#list_mgn-resource-NetworkMigrationDefinitionResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateReplicationConfiguration](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateReplicationConfiguration.html)  **
+  - **Description:** Grants permission to update replication configuration
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateReplicationConfigurationTemplate](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateReplicationConfigurationTemplate.html)  **
+  - **Description:** Grants permission to update replication configuration template
+  - **Resource types (\*required):** [ReplicationConfigurationTemplateResource\*](#list_mgn-resource-ReplicationConfigurationTemplateResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSourceServer](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateSourceServer.html)  **
+  - **Description:** Grants permission to update source server
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSourceServerReplicationType](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateSourceServerReplicationType.html)  **
+  - **Description:** Grants permission to update source server replication type
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateWave](https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateWave.html)  **
+  - **Description:** Grants permission to update a wave
+  - **Resource types (\*required):** [WaveResource\*](#list_mgn-resource-WaveResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for AWS Application Migration Service
+<a name="list_mgn-permission-only-actions"></a>
 
-The following actions are defined by AWS Application Migration Service but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by AWS Application Migration Service but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                | Description                                                   | Resource types (\*required)                                                                                    | Condition keys                                                                                                                                                      | Access level |
-| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [BatchCreateVolumeSnapshotGroupForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")        | Grants permission to create volume snapshot group             | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [BatchDeleteSnapshotRequestForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")            | Grants permission to batch delete snapshot request            |                                                                                                                |                                                                                                                                                                     | Write        |
-| [CreateVcenterClientForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")                   | Grants permission to create vcenter client                    |                                                                                                                | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys") | Write        |
-| [DescribeReplicationServerAssociationsForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md") | Grants permission to describe replication server associations |                                                                                                                |                                                                                                                                                                     | Read         |
-| [DescribeSnapshotRequestsForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")              | Grants permission to describe snapshots requests              |                                                                                                                |                                                                                                                                                                     | Read         |
-| [GetAgentCommandForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")                       | Grants permission to get agent command                        | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Read         |
-| [GetAgentConfirmedResumeInfoForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")           | Grants permission to get agent confirmed resume info          | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Read         |
-| [GetAgentInstallationAssetsForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")            | Grants permission to get agent installation assets            |                                                                                                                |                                                                                                                                                                     | Read         |
-| [GetAgentReplicationInfoForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")               | Grants permission to get agent replication info               | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Read         |
-| [GetAgentRuntimeConfigurationForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")          | Grants permission to get agent runtime configuration          | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Read         |
-| [GetAgentSnapshotCreditsForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")               | Grants permission to get agent snapshots credits              | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Read         |
-| [GetChannelCommandsForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")                    | Grants permission to get channel commands                     |                                                                                                                |                                                                                                                                                                     | Read         |
-| [GetVcenterClientCommandsForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")              | Grants permission to get vcenter client commands              | [VcenterClientResource\*](#list_mgn-resource-VcenterClientResource "#list_mgn-resource-VcenterClientResource") | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Read         |
-| [IssueClientCertificateForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")                | Grants permission to issue a client certificate               | [SourceServerResource](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")      | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [NotifyAgentAuthenticationForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")             | Grants permission to notify agent authentication              | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [NotifyAgentConnectedForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")                  | Grants permission to notify agent is connected                | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [NotifyAgentDisconnectedForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")               | Grants permission to notify agent is disconnected             | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [NotifyAgentReplicationProgressForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")        | Grants permission to notify agent replication progress        | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [NotifyVcenterClientStartedForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")            | Grants permission to notify vcenter client started            | [VcenterClientResource\*](#list_mgn-resource-VcenterClientResource "#list_mgn-resource-VcenterClientResource") | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [RegisterAgentForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")                         | Grants permission to register agent                           |                                                                                                                | [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_ "#list_mgn-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_mgn-aws_TagKeys "#list_mgn-aws_TagKeys") | Write        |
-| [SendAgentLogsForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")                         | Grants permission to send agent logs                          | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [SendAgentMetricsForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")                      | Grants permission to send agent metrics                       | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [SendChannelCommandResultForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")              | Grants permission to send channel command result              |                                                                                                                |                                                                                                                                                                     | Write        |
-| [SendClientLogsForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")                        | Grants permission to send client logs                         |                                                                                                                |                                                                                                                                                                     | Write        |
-| [SendClientMetricsForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")                     | Grants permission to send client metrics                      |                                                                                                                |                                                                                                                                                                     | Write        |
-| [SendVcenterClientCommandResultForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")        | Grants permission to send vcenter client command result       | [VcenterClientResource\*](#list_mgn-resource-VcenterClientResource "#list_mgn-resource-VcenterClientResource") | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [SendVcenterClientLogsForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")                 | Grants permission to send vcenter client logs                 | [VcenterClientResource\*](#list_mgn-resource-VcenterClientResource "#list_mgn-resource-VcenterClientResource") | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [SendVcenterClientMetricsForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")              | Grants permission to send vcenter client metrics              | [VcenterClientResource\*](#list_mgn-resource-VcenterClientResource "#list_mgn-resource-VcenterClientResource") | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [StartSnapshotGroupForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")                    | Grants permission to start snapshot group requests            |                                                                                                                |                                                                                                                                                                     | Write        |
-| [UpdateAgentBacklogForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")                    | Grants permission to update agent backlog                     | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [UpdateAgentConversionInfoForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")             | Grants permission to update agent conversion info             | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [UpdateAgentReplicationInfoForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")            | Grants permission to update agent replication info            | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [UpdateAgentReplicationProcessStateForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")    | Grants permission to update agent replication process state   | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [UpdateAgentSourcePropertiesForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")           | Grants permission to update agent source properties           | [SourceServerResource\*](#list_mgn-resource-SourceServerResource "#list_mgn-resource-SourceServerResource")    | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_")                                                              | Write        |
-| [VerifyClientRoleForMgn](../../../mgn/latest/ug/mgn-apis.md "../../../mgn/latest/ug/mgn-apis.md")                      | Grants permission to verify client role                       |                                                                                                                |                                                                                                                                                                     | Read         |
+
+
+
+- **   [BatchCreateVolumeSnapshotGroupForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to create volume snapshot group
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDeleteSnapshotRequestForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to batch delete snapshot request
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateVcenterClientForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to create vcenter client
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DescribeReplicationServerAssociationsForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to describe replication server associations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeSnapshotRequestsForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to describe snapshots requests
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAgentCommandForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to get agent command
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAgentConfirmedResumeInfoForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to get agent confirmed resume info
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAgentInstallationAssetsForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to get agent installation assets
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAgentReplicationInfoForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to get agent replication info
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAgentRuntimeConfigurationForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to get agent runtime configuration
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAgentSnapshotCreditsForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to get agent snapshots credits
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetChannelCommandsForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to get channel commands
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetVcenterClientCommandsForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to get vcenter client commands
+  - **Resource types (\*required):** [VcenterClientResource\*](#list_mgn-resource-VcenterClientResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [IssueClientCertificateForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to issue a client certificate
+  - **Resource types (\*required):** [SourceServerResource](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [NotifyAgentAuthenticationForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to notify agent authentication
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [NotifyAgentConnectedForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to notify agent is connected
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [NotifyAgentDisconnectedForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to notify agent is disconnected
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [NotifyAgentReplicationProgressForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to notify agent replication progress
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [NotifyVcenterClientStartedForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to notify vcenter client started
+  - **Resource types (\*required):** [VcenterClientResource\*](#list_mgn-resource-VcenterClientResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RegisterAgentForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to register agent
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_mgn-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_mgn-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [SendAgentLogsForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to send agent logs
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SendAgentMetricsForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to send agent metrics
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SendChannelCommandResultForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to send channel command result
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SendClientLogsForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to send client logs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SendClientMetricsForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to send client metrics
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SendVcenterClientCommandResultForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to send vcenter client command result
+  - **Resource types (\*required):** [VcenterClientResource\*](#list_mgn-resource-VcenterClientResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SendVcenterClientLogsForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to send vcenter client logs
+  - **Resource types (\*required):** [VcenterClientResource\*](#list_mgn-resource-VcenterClientResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SendVcenterClientMetricsForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to send vcenter client metrics
+  - **Resource types (\*required):** [VcenterClientResource\*](#list_mgn-resource-VcenterClientResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartSnapshotGroupForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to start snapshot group requests
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateAgentBacklogForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to update agent backlog
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAgentConversionInfoForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to update agent conversion info
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAgentReplicationInfoForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to update agent replication info
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAgentReplicationProcessStateForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to update agent replication process state
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAgentSourcePropertiesForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to update agent source properties
+  - **Resource types (\*required):** [SourceServerResource\*](#list_mgn-resource-SourceServerResource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [VerifyClientRoleForMgn](https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html)  **
+  - **Description:** Grants permission to verify client role
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+
 
 ## Resource types defined by AWS Application Migration Service
+<a name="list_mgn-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                | ARN                                                                                                                | Condition keys                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| [ApplicationResource](../../../mgn/latest/ug/applications.md "../../../mgn/latest/ug/applications.md")                                                        | arn:${Partition}:mgn:${Region}:${Account}:application/${ApplicationID}                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_") |
-| [ConnectorResource](../../../mgn/latest/ug/connectors.md "../../../mgn/latest/ug/connectors.md")                                                              | arn:${Partition}:mgn:${Region}:${Account}:connector/${ConnectorID}                                                 | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_") |
-| [ExportResource](../../../mgn/latest/ug/exports.md "../../../mgn/latest/ug/exports.md")                                                                       | arn:${Partition}:mgn:${Region}:${Account}:export/${ExportID}                                                       | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_") |
-| [ImportResource](../../../mgn/latest/ug/imports.md "../../../mgn/latest/ug/imports.md")                                                                       | arn:${Partition}:mgn:${Region}:${Account}:import/${ImportID}                                                       | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_") |
-| [JobResource](../../../mgn/latest/ug/launching-target-servers.md "../../../mgn/latest/ug/launching-target-servers.md")                                        | arn:${Partition}:mgn:${Region}:${Account}:job/${JobID}                                                             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_") |
-| [LaunchConfigurationTemplateResource](../../../mgn/latest/ug/post-launch-settings.md "../../../mgn/latest/ug/post-launch-settings.md")                        | arn:${Partition}:mgn:${Region}:${Account}:launch-configuration-template/${LaunchConfigurationTemplateID}           | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_") |
-| [NetworkMigrationDefinitionResource](../../../mgn/latest/ug/network-migration-definition.md "../../../mgn/latest/ug/network-migration-definition.md")         | arn:${Partition}:mgn:${Region}:${Account}:network-migration-definition/${NetworkMigrationDefinitionID}             | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_") |
-| [ReplicationConfigurationTemplateResource](../../../mgn/latest/ug/replication-settings-template.md "../../../mgn/latest/ug/replication-settings-template.md") | arn:${Partition}:mgn:${Region}:${Account}:replication-configuration-template/${ReplicationConfigurationTemplateID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_") |
-| [SourceServerResource](../../../mgn/latest/ug/source-servers.md "../../../mgn/latest/ug/source-servers.md")                                                   | arn:${Partition}:mgn:${Region}:${Account}:source-server/${SourceServerID}                                          | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_") |
-| [VcenterClientResource](../../../mgn/latest/ug/agentless-mgn.md "../../../mgn/latest/ug/agentless-mgn.md")                                                    | arn:${Partition}:mgn:${Region}:${Account}:vcenter-client/${VcenterClientID}                                        | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_") |
-| [WaveResource](../../../mgn/latest/ug/waves.md "../../../mgn/latest/ug/waves.md")                                                                             | arn:${Partition}:mgn:${Region}:${Account}:wave/${WaveID}                                                           | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_ "#list_mgn-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [ApplicationResource](https://docs.aws.amazon.com/mgn/latest/ug/applications.html)  | arn:${Partition}:mgn:${Region}:${Account}:application/${ApplicationID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
+|  [ConnectorResource](https://docs.aws.amazon.com/mgn/latest/ug/connectors.html)  | arn:${Partition}:mgn:${Region}:${Account}:connector/${ConnectorID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
+|  [ExportResource](https://docs.aws.amazon.com/mgn/latest/ug/exports.html)  | arn:${Partition}:mgn:${Region}:${Account}:export/${ExportID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
+|  [ImportResource](https://docs.aws.amazon.com/mgn/latest/ug/imports.html)  | arn:${Partition}:mgn:${Region}:${Account}:import/${ImportID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
+|  [JobResource](https://docs.aws.amazon.com/mgn/latest/ug/launching-target-servers.html)  | arn:${Partition}:mgn:${Region}:${Account}:job/${JobID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
+|  [LaunchConfigurationTemplateResource](https://docs.aws.amazon.com/mgn/latest/ug/post-launch-settings.html)  | arn:${Partition}:mgn:${Region}:${Account}:launch-configuration-template/${LaunchConfigurationTemplateID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
+|  [NetworkMigrationDefinitionResource](https://docs.aws.amazon.com/mgn/latest/ug/network-migration-definition.html)  | arn:${Partition}:mgn:${Region}:${Account}:network-migration-definition/${NetworkMigrationDefinitionID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
+|  [ReplicationConfigurationTemplateResource](https://docs.aws.amazon.com/mgn/latest/ug/replication-settings-template.html)  | arn:${Partition}:mgn:${Region}:${Account}:replication-configuration-template/${ReplicationConfigurationTemplateID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
+|  [SourceServerResource](https://docs.aws.amazon.com/mgn/latest/ug/source-servers.html)  | arn:${Partition}:mgn:${Region}:${Account}:source-server/${SourceServerID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
+|  [VcenterClientResource](https://docs.aws.amazon.com/mgn/latest/ug/agentless-mgn.html)  | arn:${Partition}:mgn:${Region}:${Account}:vcenter-client/${VcenterClientID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
+|  [WaveResource](https://docs.aws.amazon.com/mgn/latest/ug/waves.html)  | arn:${Partition}:mgn:${Region}:${Account}:wave/${WaveID} | [aws:ResourceTag/${TagKey}](#list_mgn-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Application Migration Service
+<a name="list_mgn-policy-keys"></a>
 
-AWS Application Migration Service defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Application Migration Service defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                      | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by presence of tag key-value pairs in the request | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by tag key-value pairs attached to the resource   | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by presence of tag keys in the request            | ArrayOfString |
-| [mgn:CreateAction](../../../mgn/latest/ug/supported-iam-actions-tagging.md "../../../mgn/latest/ug/supported-iam-actions-tagging.md")                                                                                      | Filters access by the name of a resource-creating API action     | String        |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by presence of tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by presence of tag keys in the request | ArrayOfString | 
+|   [mgn:CreateAction](https://docs.aws.amazon.com/mgn/latest/ug/supported-iam-actions-tagging.html)  | Filters access by the name of a resource-creating API action | String | 

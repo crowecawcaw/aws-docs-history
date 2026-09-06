@@ -1,133 +1,408 @@
-# Actions, resources, and condition keys for AWS IoT Greengrass V2
 
-AWS IoT Greengrass V2 (service prefix: `greengrass`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS IoT Greengrass V2
+<a name="list_greengrassv2"></a>
+
+AWS IoT Greengrass V2 (service prefix: `greengrass`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/greengrass/v2/developerguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/greengrass/v2/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/greengrass/v2/developerguide/security_iam_service-with-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/greengrass/greengrass.json) for this service.
 
-- Learn how to [configure this service](../../../greengrass/v2/developerguide.md "../../../greengrass/v2/developerguide.md").
-- View a list of the [API operations available for
-  this service](../../../greengrass/v2/APIReference.md "../../../greengrass/v2/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../greengrass/v2/developerguide/security_iam_service-with-iam.md "../../../greengrass/v2/developerguide/security_iam_service-with-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/greengrass/greengrass.json "https://servicereference.us-east-1.amazonaws.com/v1/greengrass/greengrass.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS IoT Greengrass V2](#list_greengrassv2-operations "#list_greengrassv2-operations")
-- [Actions defined by AWS IoT Greengrass V2](#list_greengrassv2-actions-as-permissions "#list_greengrassv2-actions-as-permissions")
-- [Resource types defined by AWS IoT Greengrass V2](#list_greengrassv2-resources-for-iam-policies "#list_greengrassv2-resources-for-iam-policies")
-- [Condition keys for AWS IoT Greengrass V2](#list_greengrassv2-policy-keys "#list_greengrassv2-policy-keys")
+**Topics**
++ [API operations defined by AWS IoT Greengrass V2](#list_greengrassv2-operations)
++ [Actions defined by AWS IoT Greengrass V2](#list_greengrassv2-actions-as-permissions)
++ [Resource types defined by AWS IoT Greengrass V2](#list_greengrassv2-resources-for-iam-policies)
++ [Condition keys for AWS IoT Greengrass V2](#list_greengrassv2-policy-keys)
 
 ## API operations defined by AWS IoT Greengrass V2
+<a name="list_greengrassv2-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_greengrassv2-actions-as-permissions "#list_greengrassv2-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_greengrassv2-actions-as-permissions).
 
-| Operation                                                                                                                       | IAM action                                                                                                                                                                                              | Condition key            | Possible value(s) | Access level                  |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ----------------- | ----------------------------- |
-| AssociateServiceRoleToAccount                                                                                                   | [greengrass:AssociateServiceRoleToAccount](#list_greengrassv2-action-AssociateServiceRoleToAccount "#list_greengrassv2-action-AssociateServiceRoleToAccount")                                           |                          |                   | Permissions management, Write |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                                     | greengrass.amazonaws.com | Write             |
-| BatchAssociateClientDeviceWithCoreDevice                                                                                        | [greengrass:BatchAssociateClientDeviceWithCoreDevice](#list_greengrassv2-action-BatchAssociateClientDeviceWithCoreDevice "#list_greengrassv2-action-BatchAssociateClientDeviceWithCoreDevice")          |                          |                   | Write                         |
-| BatchDisassociateClientDeviceFromCoreDevice                                                                                     | [greengrass:BatchDisassociateClientDeviceFromCoreDevice](#list_greengrassv2-action-BatchDisassociateClientDeviceFromCoreDevice "#list_greengrassv2-action-BatchDisassociateClientDeviceFromCoreDevice") |                          |                   | Write                         |
-| CancelDeployment                                                                                                                | [greengrass:CancelDeployment](#list_greengrassv2-action-CancelDeployment "#list_greengrassv2-action-CancelDeployment")                                                                                  |                          |                   | Write                         |
-| CreateComponentVersion                                                                                                          | [greengrass:CreateComponentVersion](#list_greengrassv2-action-CreateComponentVersion "#list_greengrassv2-action-CreateComponentVersion")                                                                |                          |                   | Write                         |
-| [greengrass:TagResource](#list_greengrassv2-action-TagResource "#list_greengrassv2-action-TagResource")                         |                                                                                                                                                                                                         |                          | Tagging, Write    |
-| CreateDeployment                                                                                                                | [greengrass:CreateDeployment](#list_greengrassv2-action-CreateDeployment "#list_greengrassv2-action-CreateDeployment")                                                                                  |                          |                   | Write                         |
-| [greengrass:TagResource](#list_greengrassv2-action-TagResource "#list_greengrassv2-action-TagResource")                         |                                                                                                                                                                                                         |                          | Tagging, Write    |
-| DeleteComponent                                                                                                                 | [greengrass:DeleteComponent](#list_greengrassv2-action-DeleteComponent "#list_greengrassv2-action-DeleteComponent")                                                                                     |                          |                   | Write                         |
-| DeleteCoreDevice                                                                                                                | [greengrass:DeleteCoreDevice](#list_greengrassv2-action-DeleteCoreDevice "#list_greengrassv2-action-DeleteCoreDevice")                                                                                  |                          |                   | Write                         |
-| DeleteDeployment                                                                                                                | [greengrass:DeleteDeployment](#list_greengrassv2-action-DeleteDeployment "#list_greengrassv2-action-DeleteDeployment")                                                                                  |                          |                   | Write                         |
-| DescribeComponent                                                                                                               | [greengrass:DescribeComponent](#list_greengrassv2-action-DescribeComponent "#list_greengrassv2-action-DescribeComponent")                                                                               |                          |                   | Read                          |
-| DisassociateServiceRoleFromAccount                                                                                              | [greengrass:DisassociateServiceRoleFromAccount](#list_greengrassv2-action-DisassociateServiceRoleFromAccount "#list_greengrassv2-action-DisassociateServiceRoleFromAccount")                            |                          |                   | Write                         |
-| GetComponent                                                                                                                    | [greengrass:GetComponent](#list_greengrassv2-action-GetComponent "#list_greengrassv2-action-GetComponent")                                                                                              |                          |                   | Read                          |
-| GetComponentVersionArtifact                                                                                                     | [greengrass:GetComponentVersionArtifact](#list_greengrassv2-action-GetComponentVersionArtifact "#list_greengrassv2-action-GetComponentVersionArtifact")                                                 |                          |                   | Read                          |
-| GetConnectivityInfo                                                                                                             | [greengrass:GetConnectivityInfo](#list_greengrassv2-action-GetConnectivityInfo "#list_greengrassv2-action-GetConnectivityInfo")                                                                         |                          |                   | Read                          |
-| GetCoreDevice                                                                                                                   | [greengrass:GetCoreDevice](#list_greengrassv2-action-GetCoreDevice "#list_greengrassv2-action-GetCoreDevice")                                                                                           |                          |                   | Read                          |
-| GetDeployment                                                                                                                   | [greengrass:GetDeployment](#list_greengrassv2-action-GetDeployment "#list_greengrassv2-action-GetDeployment")                                                                                           |                          |                   | Read                          |
-| GetServiceRoleForAccount                                                                                                        | [greengrass:GetServiceRoleForAccount](#list_greengrassv2-action-GetServiceRoleForAccount "#list_greengrassv2-action-GetServiceRoleForAccount")                                                          |                          |                   | Read                          |
-| ListClientDevicesAssociatedWithCoreDevice                                                                                       | [greengrass:ListClientDevicesAssociatedWithCoreDevice](#list_greengrassv2-action-ListClientDevicesAssociatedWithCoreDevice "#list_greengrassv2-action-ListClientDevicesAssociatedWithCoreDevice")       |                          |                   | List                          |
-| ListComponentVersions                                                                                                           | [greengrass:ListComponentVersions](#list_greengrassv2-action-ListComponentVersions "#list_greengrassv2-action-ListComponentVersions")                                                                   |                          |                   | List                          |
-| ListComponents                                                                                                                  | [greengrass:ListComponents](#list_greengrassv2-action-ListComponents "#list_greengrassv2-action-ListComponents")                                                                                        |                          |                   | List                          |
-| ListCoreDevices                                                                                                                 | [greengrass:ListCoreDevices](#list_greengrassv2-action-ListCoreDevices "#list_greengrassv2-action-ListCoreDevices")                                                                                     |                          |                   | List                          |
-| ListDeployments                                                                                                                 | [greengrass:ListDeployments](#list_greengrassv2-action-ListDeployments "#list_greengrassv2-action-ListDeployments")                                                                                     |                          |                   | List                          |
-| ListEffectiveDeployments                                                                                                        | [greengrass:ListEffectiveDeployments](#list_greengrassv2-action-ListEffectiveDeployments "#list_greengrassv2-action-ListEffectiveDeployments")                                                          |                          |                   | List                          |
-| ListInstalledComponents                                                                                                         | [greengrass:ListInstalledComponents](#list_greengrassv2-action-ListInstalledComponents "#list_greengrassv2-action-ListInstalledComponents")                                                             |                          |                   | List                          |
-| ListTagsForResource                                                                                                             | [greengrass:ListTagsForResource](#list_greengrassv2-action-ListTagsForResource "#list_greengrassv2-action-ListTagsForResource")                                                                         |                          |                   | Read                          |
-| TagResource                                                                                                                     | [greengrass:TagResource](#list_greengrassv2-action-TagResource "#list_greengrassv2-action-TagResource")                                                                                                 |                          |                   | Tagging, Write                |
-| UntagResource                                                                                                                   | [greengrass:UntagResource](#list_greengrassv2-action-UntagResource "#list_greengrassv2-action-UntagResource")                                                                                           |                          |                   | Tagging, Write                |
-| UpdateConnectivityInfo                                                                                                          | [greengrass:UpdateConnectivityInfo](#list_greengrassv2-action-UpdateConnectivityInfo "#list_greengrassv2-action-UpdateConnectivityInfo")                                                                |                          |                   | Write                         |
+
+
+
+- **   AssociateServiceRoleToAccount  **
+  - **IAM action:**  [greengrass:AssociateServiceRoleToAccount](#list_greengrassv2-action-AssociateServiceRoleToAccount)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** greengrass.amazonaws.com / **Access level:** Write
+
+- **   BatchAssociateClientDeviceWithCoreDevice  **
+  - **IAM action:**  [greengrass:BatchAssociateClientDeviceWithCoreDevice](#list_greengrassv2-action-BatchAssociateClientDeviceWithCoreDevice) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchDisassociateClientDeviceFromCoreDevice  **
+  - **IAM action:**  [greengrass:BatchDisassociateClientDeviceFromCoreDevice](#list_greengrassv2-action-BatchDisassociateClientDeviceFromCoreDevice) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CancelDeployment  **
+  - **IAM action:**  [greengrass:CancelDeployment](#list_greengrassv2-action-CancelDeployment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateComponentVersion  **
+  - **IAM action:**  [greengrass:CreateComponentVersion](#list_greengrassv2-action-CreateComponentVersion)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [greengrass:TagResource](#list_greengrassv2-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateDeployment  **
+  - **IAM action:**  [greengrass:CreateDeployment](#list_greengrassv2-action-CreateDeployment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [greengrass:TagResource](#list_greengrassv2-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteComponent  **
+  - **IAM action:**  [greengrass:DeleteComponent](#list_greengrassv2-action-DeleteComponent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteCoreDevice  **
+  - **IAM action:**  [greengrass:DeleteCoreDevice](#list_greengrassv2-action-DeleteCoreDevice) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDeployment  **
+  - **IAM action:**  [greengrass:DeleteDeployment](#list_greengrassv2-action-DeleteDeployment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeComponent  **
+  - **IAM action:**  [greengrass:DescribeComponent](#list_greengrassv2-action-DescribeComponent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DisassociateServiceRoleFromAccount  **
+  - **IAM action:**  [greengrass:DisassociateServiceRoleFromAccount](#list_greengrassv2-action-DisassociateServiceRoleFromAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetComponent  **
+  - **IAM action:**  [greengrass:GetComponent](#list_greengrassv2-action-GetComponent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetComponentVersionArtifact  **
+  - **IAM action:**  [greengrass:GetComponentVersionArtifact](#list_greengrassv2-action-GetComponentVersionArtifact) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetConnectivityInfo  **
+  - **IAM action:**  [greengrass:GetConnectivityInfo](#list_greengrassv2-action-GetConnectivityInfo) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCoreDevice  **
+  - **IAM action:**  [greengrass:GetCoreDevice](#list_greengrassv2-action-GetCoreDevice) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDeployment  **
+  - **IAM action:**  [greengrass:GetDeployment](#list_greengrassv2-action-GetDeployment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetServiceRoleForAccount  **
+  - **IAM action:**  [greengrass:GetServiceRoleForAccount](#list_greengrassv2-action-GetServiceRoleForAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListClientDevicesAssociatedWithCoreDevice  **
+  - **IAM action:**  [greengrass:ListClientDevicesAssociatedWithCoreDevice](#list_greengrassv2-action-ListClientDevicesAssociatedWithCoreDevice) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListComponentVersions  **
+  - **IAM action:**  [greengrass:ListComponentVersions](#list_greengrassv2-action-ListComponentVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListComponents  **
+  - **IAM action:**  [greengrass:ListComponents](#list_greengrassv2-action-ListComponents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCoreDevices  **
+  - **IAM action:**  [greengrass:ListCoreDevices](#list_greengrassv2-action-ListCoreDevices) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDeployments  **
+  - **IAM action:**  [greengrass:ListDeployments](#list_greengrassv2-action-ListDeployments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEffectiveDeployments  **
+  - **IAM action:**  [greengrass:ListEffectiveDeployments](#list_greengrassv2-action-ListEffectiveDeployments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListInstalledComponents  **
+  - **IAM action:**  [greengrass:ListInstalledComponents](#list_greengrassv2-action-ListInstalledComponents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [greengrass:ListTagsForResource](#list_greengrassv2-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   TagResource  **
+  - **IAM action:**  [greengrass:TagResource](#list_greengrassv2-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [greengrass:UntagResource](#list_greengrassv2-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateConnectivityInfo  **
+  - **IAM action:**  [greengrass:UpdateConnectivityInfo](#list_greengrassv2-action-UpdateConnectivityInfo) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS IoT Greengrass V2
+<a name="list_greengrassv2-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                                         | Resource types (\*required)                                                                                       | Condition keys                                                                                                                                                                                                                                                                                                                      | Access level                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| [AssociateServiceRoleToAccount](../../../greengrass/v2/APIReference/API_AssociateServiceRoleToAccount.md "../../../greengrass/v2/APIReference/API_AssociateServiceRoleToAccount.md")                                           | Grants permission to associate a role with your account. AWS IoT Greengrass uses this role to access your Lambda functions and AWS IoT resources                                                                                                                                                                                    |                                                                                                                   |                                                                                                                                                                                                                                                                                                                                     | Permissions management, Write |
-| [BatchAssociateClientDeviceWithCoreDevice](../../../greengrass/v2/APIReference/API_BatchAssociateClientDeviceWithCoreDevice.md "../../../greengrass/v2/APIReference/API_BatchAssociateClientDeviceWithCoreDevice.md")          | Grants permission to associate a list of client devices with a core device                                                                                                                                                                                                                                                          | [coreDevice\*](#list_greengrassv2-resource-coreDevice "#list_greengrassv2-resource-coreDevice")                   | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write                         |
-| [BatchDisassociateClientDeviceFromCoreDevice](../../../greengrass/v2/APIReference/API_BatchDisassociateClientDeviceFromCoreDevice.md "../../../greengrass/v2/APIReference/API_BatchDisassociateClientDeviceFromCoreDevice.md") | Grants permission to disassociate a list of client devices from a core device                                                                                                                                                                                                                                                       | [coreDevice\*](#list_greengrassv2-resource-coreDevice "#list_greengrassv2-resource-coreDevice")                   | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write                         |
-| [CancelDeployment](../../../greengrass/v2/APIReference/API_CancelDeployment.md "../../../greengrass/v2/APIReference/API_CancelDeployment.md")                                                                                  | Grants permission to cancel a deployment                                                                                                                                                                                                                                                                                            | [deployment\*](#list_greengrassv2-resource-deployment "#list_greengrassv2-resource-deployment")                   | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write                         |
-| [CreateComponentVersion](../../../greengrass/v2/APIReference/API_CreateComponentVersion.md "../../../greengrass/v2/APIReference/API_CreateComponentVersion.md")                                                                | Grants permission to create a component                                                                                                                                                                                                                                                                                             | [component\*](#list_greengrassv2-resource-component "#list_greengrassv2-resource-component")                      | [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_ "#list_greengrassv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_greengrassv2-aws_TagKeys "#list_greengrassv2-aws_TagKeys") | Write                         |
-| [CreateDeployment](../../../greengrass/v2/APIReference/API_CreateDeployment.md "../../../greengrass/v2/APIReference/API_CreateDeployment.md")                                                                                  | Grants permission to create a deployment                                                                                                                                                                                                                                                                                            |                                                                                                                   | [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_ "#list_greengrassv2-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_greengrassv2-aws_TagKeys "#list_greengrassv2-aws_TagKeys")                                                                                                                             | Write                         |
-| [DeleteComponent](../../../greengrass/v2/APIReference/API_DeleteComponent.md "../../../greengrass/v2/APIReference/API_DeleteComponent.md")                                                                                     | Grants permission to delete a component                                                                                                                                                                                                                                                                                             | [componentVersion\*](#list_greengrassv2-resource-componentVersion "#list_greengrassv2-resource-componentVersion") | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write                         |
-| [DeleteCoreDevice](../../../greengrass/v2/APIReference/API_DeleteCoreDevice.md "../../../greengrass/v2/APIReference/API_DeleteCoreDevice.md")                                                                                  | Grants permission to delete a AWS IoT Greengrass core device, which is an AWS IoT thing. This operation removes the core device from the list of core devices. This operation doesn't delete the AWS IoT thing                                                                                                                      | [coreDevice\*](#list_greengrassv2-resource-coreDevice "#list_greengrassv2-resource-coreDevice")                   | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write                         |
-| [DeleteDeployment](../../../greengrass/v2/APIReference/API_DeleteDeployment.md "../../../greengrass/v2/APIReference/API_DeleteDeployment.md")                                                                                  | Grants permission to delete a deployment. To delete an active deployment, it needs to be cancelled first                                                                                                                                                                                                                            | [deployment\*](#list_greengrassv2-resource-deployment "#list_greengrassv2-resource-deployment")                   | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write                         |
-| [DescribeComponent](../../../greengrass/v2/APIReference/API_DescribeComponent.md "../../../greengrass/v2/APIReference/API_DescribeComponent.md")                                                                               | Grants permission to retrieve metadata for a version of a component                                                                                                                                                                                                                                                                 | [componentVersion\*](#list_greengrassv2-resource-componentVersion "#list_greengrassv2-resource-componentVersion") | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read                          |
-| [DisassociateServiceRoleFromAccount](../../../greengrass/v2/APIReference/API_DisassociateServiceRoleFromAccount.md "../../../greengrass/v2/APIReference/API_DisassociateServiceRoleFromAccount.md")                            | Grants permission to disassociate the service role from an account. Without a service role, deployments will not work                                                                                                                                                                                                               |                                                                                                                   |                                                                                                                                                                                                                                                                                                                                     | Write                         |
-| [GetComponent](../../../greengrass/v2/APIReference/API_GetComponent.md "../../../greengrass/v2/APIReference/API_GetComponent.md")                                                                                              | Grants permission to get the recipe for a version of a component                                                                                                                                                                                                                                                                    | [componentVersion\*](#list_greengrassv2-resource-componentVersion "#list_greengrassv2-resource-componentVersion") | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read                          |
-| [GetComponentVersionArtifact](../../../greengrass/v2/APIReference/API_GetComponentVersionArtifact.md "../../../greengrass/v2/APIReference/API_GetComponentVersionArtifact.md")                                                 | Grants permission to get the pre-signed URL to download a public component artifact                                                                                                                                                                                                                                                 | [componentVersion\*](#list_greengrassv2-resource-componentVersion "#list_greengrassv2-resource-componentVersion") | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read                          |
-| [GetConnectivityInfo](../../../greengrass/v2/APIReference/API_GetConnectivityInfo.md "../../../greengrass/v2/APIReference/API_GetConnectivityInfo.md")                                                                         | Grants permission to retrieve the connectivity information for a Greengrass core device                                                                                                                                                                                                                                             | [connectivityInfo\*](#list_greengrassv2-resource-connectivityInfo "#list_greengrassv2-resource-connectivityInfo") |                                                                                                                                                                                                                                                                                                                                     | Read                          |
-| [GetCoreDevice](../../../greengrass/v2/APIReference/API_GetCoreDevice.md "../../../greengrass/v2/APIReference/API_GetCoreDevice.md")                                                                                           | Grants permission to retrieves metadata for a AWS IoT Greengrass core device                                                                                                                                                                                                                                                        | [coreDevice\*](#list_greengrassv2-resource-coreDevice "#list_greengrassv2-resource-coreDevice")                   | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read                          |
-| [GetDeployment](../../../greengrass/v2/APIReference/API_GetDeployment.md "../../../greengrass/v2/APIReference/API_GetDeployment.md")                                                                                           | Grants permission to get a deployment                                                                                                                                                                                                                                                                                               | [deployment\*](#list_greengrassv2-resource-deployment "#list_greengrassv2-resource-deployment")                   | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read                          |
-| [GetServiceRoleForAccount](../../../greengrass/v2/APIReference/API_GetServiceRoleForAccount.md "../../../greengrass/v2/APIReference/API_GetServiceRoleForAccount.md")                                                          | Grants permission to retrieve the service role that is attached to an account                                                                                                                                                                                                                                                       |                                                                                                                   |                                                                                                                                                                                                                                                                                                                                     | Read                          |
-| [ListClientDevicesAssociatedWithCoreDevice](../../../greengrass/v2/APIReference/API_ListClientDevicesAssociatedWithCoreDevice.md "../../../greengrass/v2/APIReference/API_ListClientDevicesAssociatedWithCoreDevice.md")       | Grants permission to retrieve a paginated list of client devices associated to a AWS IoT Greengrass core device                                                                                                                                                                                                                     | [coreDevice\*](#list_greengrassv2-resource-coreDevice "#list_greengrassv2-resource-coreDevice")                   | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List                          |
-| [ListComponentVersions](../../../greengrass/v2/APIReference/API_ListComponentVersions.md "../../../greengrass/v2/APIReference/API_ListComponentVersions.md")                                                                   | Grants permission to retrieve a paginated list of all versions for a component                                                                                                                                                                                                                                                      | [component\*](#list_greengrassv2-resource-component "#list_greengrassv2-resource-component")                      | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List                          |
-| [ListComponents](../../../greengrass/v2/APIReference/API_ListComponents.md "../../../greengrass/v2/APIReference/API_ListComponents.md")                                                                                        | Grants permission to retrieve a paginated list of component summaries                                                                                                                                                                                                                                                               |                                                                                                                   |                                                                                                                                                                                                                                                                                                                                     | List                          |
-| [ListCoreDevices](../../../greengrass/v2/APIReference/API_ListCoreDevices.md "../../../greengrass/v2/APIReference/API_ListCoreDevices.md")                                                                                     | Grants permission to retrieve a paginated list of AWS IoT Greengrass core devices                                                                                                                                                                                                                                                   |                                                                                                                   |                                                                                                                                                                                                                                                                                                                                     | List                          |
-| [ListDeployments](../../../greengrass/v2/APIReference/API_ListDeployments.md "../../../greengrass/v2/APIReference/API_ListDeployments.md")                                                                                     | Grants permission to retrieves a paginated list of deployments                                                                                                                                                                                                                                                                      |                                                                                                                   |                                                                                                                                                                                                                                                                                                                                     | List                          |
-| [ListEffectiveDeployments](../../../greengrass/v2/APIReference/API_ListEffectiveDeployments.md "../../../greengrass/v2/APIReference/API_ListEffectiveDeployments.md")                                                          | Grants permission to retrieves a paginated list of deployment jobs that AWS IoT Greengrass sends to AWS IoT Greengrass core devices                                                                                                                                                                                                 | [coreDevice\*](#list_greengrassv2-resource-coreDevice "#list_greengrassv2-resource-coreDevice")                   | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List                          |
-| [ListInstalledComponents](../../../greengrass/v2/APIReference/API_ListInstalledComponents.md "../../../greengrass/v2/APIReference/API_ListInstalledComponents.md")                                                             | Grants permission to retrieve a paginated list of the components that a AWS IoT Greengrass core device runs                                                                                                                                                                                                                         | [coreDevice\*](#list_greengrassv2-resource-coreDevice "#list_greengrassv2-resource-coreDevice")                   | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List                          |
-| [ListTagsForResource](../../../greengrass/v2/APIReference/API_ListTagsForResource.md "../../../greengrass/v2/APIReference/API_ListTagsForResource.md")                                                                         | Grants permission to list the tags for a resource                                                                                                                                                                                                                                                                                   | [component](#list_greengrassv2-resource-component "#list_greengrassv2-resource-component")                        | [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_ "#list_greengrassv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_greengrassv2-aws_TagKeys "#list_greengrassv2-aws_TagKeys") | Read                          |
-| [componentVersion](#list_greengrassv2-resource-componentVersion "#list_greengrassv2-resource-componentVersion")                                                                                                                | [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_ "#list_greengrassv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_greengrassv2-aws_TagKeys "#list_greengrassv2-aws_TagKeys") |
-| [coreDevice](#list_greengrassv2-resource-coreDevice "#list_greengrassv2-resource-coreDevice")                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_ "#list_greengrassv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_greengrassv2-aws_TagKeys "#list_greengrassv2-aws_TagKeys") |
-| [deployment](#list_greengrassv2-resource-deployment "#list_greengrassv2-resource-deployment")                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_ "#list_greengrassv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_greengrassv2-aws_TagKeys "#list_greengrassv2-aws_TagKeys") |
-| [ResolveComponentCandidates](../../../greengrass/v2/APIReference/API_ResolveComponentCandidates.md "../../../greengrass/v2/APIReference/API_ResolveComponentCandidates.md")                                                    | Grants permission to list components that meet the component, version, and platform requirements of a deployment                                                                                                                                                                                                                    | [componentVersion\*](#list_greengrassv2-resource-componentVersion "#list_greengrassv2-resource-componentVersion") | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List                          |
-| [TagResource](../../../greengrass/v2/APIReference/API_TagResource.md "../../../greengrass/v2/APIReference/API_TagResource.md")                                                                                                 | Grants permission to add tags to a resource                                                                                                                                                                                                                                                                                         | [component](#list_greengrassv2-resource-component "#list_greengrassv2-resource-component")                        | [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_ "#list_greengrassv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_greengrassv2-aws_TagKeys "#list_greengrassv2-aws_TagKeys") | Tagging, Write                |
-| [componentVersion](#list_greengrassv2-resource-componentVersion "#list_greengrassv2-resource-componentVersion")                                                                                                                | [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_ "#list_greengrassv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_greengrassv2-aws_TagKeys "#list_greengrassv2-aws_TagKeys") |
-| [coreDevice](#list_greengrassv2-resource-coreDevice "#list_greengrassv2-resource-coreDevice")                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_ "#list_greengrassv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_greengrassv2-aws_TagKeys "#list_greengrassv2-aws_TagKeys") |
-| [deployment](#list_greengrassv2-resource-deployment "#list_greengrassv2-resource-deployment")                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_ "#list_greengrassv2-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_greengrassv2-aws_TagKeys "#list_greengrassv2-aws_TagKeys") |
-| [UntagResource](../../../greengrass/v2/APIReference/API_UntagResource.md "../../../greengrass/v2/APIReference/API_UntagResource.md")                                                                                           | Grants permission to remove tags from a resource                                                                                                                                                                                                                                                                                    | [component](#list_greengrassv2-resource-component "#list_greengrassv2-resource-component")                        | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_greengrassv2-aws_TagKeys "#list_greengrassv2-aws_TagKeys")                                                                                                                          | Tagging, Write                |
-| [componentVersion](#list_greengrassv2-resource-componentVersion "#list_greengrassv2-resource-componentVersion")                                                                                                                | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_greengrassv2-aws_TagKeys "#list_greengrassv2-aws_TagKeys")                                                                                                                          |
-| [coreDevice](#list_greengrassv2-resource-coreDevice "#list_greengrassv2-resource-coreDevice")                                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_greengrassv2-aws_TagKeys "#list_greengrassv2-aws_TagKeys")                                                                                                                          |
-| [deployment](#list_greengrassv2-resource-deployment "#list_greengrassv2-resource-deployment")                                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_greengrassv2-aws_TagKeys "#list_greengrassv2-aws_TagKeys")                                                                                                                          |
-| [UpdateConnectivityInfo](../../../greengrass/v2/APIReference/API_UpdateConnectivityInfo.md "../../../greengrass/v2/APIReference/API_UpdateConnectivityInfo.md")                                                                | Grants permission to update the connectivity information for a Greengrass core. Any devices that belong to the group that has this core will receive this information in order to find the location of the core and connect to it                                                                                                   | [connectivityInfo\*](#list_greengrassv2-resource-connectivityInfo "#list_greengrassv2-resource-connectivityInfo") |                                                                                                                                                                                                                                                                                                                                     | Write                         |
+
+
+
+- **   [AssociateServiceRoleToAccount](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_AssociateServiceRoleToAccount.html)  **
+  - **Description:** Grants permission to associate a role with your account. AWS IoT Greengrass uses this role to access your Lambda functions and AWS IoT resources
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+- **   [BatchAssociateClientDeviceWithCoreDevice](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchAssociateClientDeviceWithCoreDevice.html)  **
+  - **Description:** Grants permission to associate a list of client devices with a core device
+  - **Resource types (\*required):** [coreDevice\*](#list_greengrassv2-resource-coreDevice)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDisassociateClientDeviceFromCoreDevice](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchDisassociateClientDeviceFromCoreDevice.html)  **
+  - **Description:** Grants permission to disassociate a list of client devices from a core device
+  - **Resource types (\*required):** [coreDevice\*](#list_greengrassv2-resource-coreDevice)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelDeployment](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_CancelDeployment.html)  **
+  - **Description:** Grants permission to cancel a deployment
+  - **Resource types (\*required):** [deployment\*](#list_greengrassv2-resource-deployment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateComponentVersion](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_CreateComponentVersion.html)  **
+  - **Description:** Grants permission to create a component
+  - **Resource types (\*required):** [component\*](#list_greengrassv2-resource-component)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_greengrassv2-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDeployment](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_CreateDeployment.html)  **
+  - **Description:** Grants permission to create a deployment
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_greengrassv2-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteComponent](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_DeleteComponent.html)  **
+  - **Description:** Grants permission to delete a component
+  - **Resource types (\*required):** [componentVersion\*](#list_greengrassv2-resource-componentVersion)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteCoreDevice](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_DeleteCoreDevice.html)  **
+  - **Description:** Grants permission to delete a AWS IoT Greengrass core device, which is an AWS IoT thing. This operation removes the core device from the list of core devices. This operation doesn't delete the AWS IoT thing
+  - **Resource types (\*required):** [coreDevice\*](#list_greengrassv2-resource-coreDevice)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDeployment](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_DeleteDeployment.html)  **
+  - **Description:** Grants permission to delete a deployment. To delete an active deployment, it needs to be cancelled first
+  - **Resource types (\*required):** [deployment\*](#list_greengrassv2-resource-deployment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeComponent](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_DescribeComponent.html)  **
+  - **Description:** Grants permission to retrieve metadata for a version of a component
+  - **Resource types (\*required):** [componentVersion\*](#list_greengrassv2-resource-componentVersion)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DisassociateServiceRoleFromAccount](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_DisassociateServiceRoleFromAccount.html)  **
+  - **Description:** Grants permission to disassociate the service role from an account. Without a service role, deployments will not work
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [GetComponent](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_GetComponent.html)  **
+  - **Description:** Grants permission to get the recipe for a version of a component
+  - **Resource types (\*required):** [componentVersion\*](#list_greengrassv2-resource-componentVersion)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetComponentVersionArtifact](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_GetComponentVersionArtifact.html)  **
+  - **Description:** Grants permission to get the pre-signed URL to download a public component artifact
+  - **Resource types (\*required):** [componentVersion\*](#list_greengrassv2-resource-componentVersion)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetConnectivityInfo](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_GetConnectivityInfo.html)  **
+  - **Description:** Grants permission to retrieve the connectivity information for a Greengrass core device
+  - **Resource types (\*required):** [connectivityInfo\*](#list_greengrassv2-resource-connectivityInfo)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetCoreDevice](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_GetCoreDevice.html)  **
+  - **Description:** Grants permission to retrieves metadata for a AWS IoT Greengrass core device
+  - **Resource types (\*required):** [coreDevice\*](#list_greengrassv2-resource-coreDevice)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDeployment](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_GetDeployment.html)  **
+  - **Description:** Grants permission to get a deployment
+  - **Resource types (\*required):** [deployment\*](#list_greengrassv2-resource-deployment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetServiceRoleForAccount](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_GetServiceRoleForAccount.html)  **
+  - **Description:** Grants permission to retrieve the service role that is attached to an account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListClientDevicesAssociatedWithCoreDevice](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListClientDevicesAssociatedWithCoreDevice.html)  **
+  - **Description:** Grants permission to retrieve a paginated list of client devices associated to a AWS IoT Greengrass core device
+  - **Resource types (\*required):** [coreDevice\*](#list_greengrassv2-resource-coreDevice)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListComponentVersions](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListComponentVersions.html)  **
+  - **Description:** Grants permission to retrieve a paginated list of all versions for a component
+  - **Resource types (\*required):** [component\*](#list_greengrassv2-resource-component)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListComponents](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListComponents.html)  **
+  - **Description:** Grants permission to retrieve a paginated list of component summaries
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListCoreDevices](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListCoreDevices.html)  **
+  - **Description:** Grants permission to retrieve a paginated list of AWS IoT Greengrass core devices
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDeployments](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListDeployments.html)  **
+  - **Description:** Grants permission to retrieves a paginated list of deployments
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListEffectiveDeployments](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListEffectiveDeployments.html)  **
+  - **Description:** Grants permission to retrieves a paginated list of deployment jobs that AWS IoT Greengrass sends to AWS IoT Greengrass core devices
+  - **Resource types (\*required):** [coreDevice\*](#list_greengrassv2-resource-coreDevice)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListInstalledComponents](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListInstalledComponents.html)  **
+  - **Description:** Grants permission to retrieve a paginated list of the components that a AWS IoT Greengrass core device runs
+  - **Resource types (\*required):** [coreDevice\*](#list_greengrassv2-resource-coreDevice)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list the tags for a resource
+  - **Resource types (\*required):** [component](#list_greengrassv2-resource-component) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_greengrassv2-aws_TagKeys)
+  - **Resource types (\*required):** [componentVersion](#list_greengrassv2-resource-componentVersion) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_greengrassv2-aws_TagKeys)
+  - **Resource types (\*required):** [coreDevice](#list_greengrassv2-resource-coreDevice) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_greengrassv2-aws_TagKeys)
+  - **Resource types (\*required):** [deployment](#list_greengrassv2-resource-deployment) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_greengrassv2-aws_TagKeys)
+  - **Access level:** Read
+
+- **   [ResolveComponentCandidates](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ResolveComponentCandidates.html)  **
+  - **Description:** Grants permission to list components that meet the component, version, and platform requirements of a deployment
+  - **Resource types (\*required):** [componentVersion\*](#list_greengrassv2-resource-componentVersion)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [TagResource](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to add tags to a resource
+  - **Resource types (\*required):** [component](#list_greengrassv2-resource-component) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_greengrassv2-aws_TagKeys)
+  - **Resource types (\*required):** [componentVersion](#list_greengrassv2-resource-componentVersion) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_greengrassv2-aws_TagKeys)
+  - **Resource types (\*required):** [coreDevice](#list_greengrassv2-resource-coreDevice) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_greengrassv2-aws_TagKeys)
+  - **Resource types (\*required):** [deployment](#list_greengrassv2-resource-deployment) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_greengrassv2-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_greengrassv2-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove tags from a resource
+  - **Resource types (\*required):** [component](#list_greengrassv2-resource-component) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_greengrassv2-aws_TagKeys)
+  - **Resource types (\*required):** [componentVersion](#list_greengrassv2-resource-componentVersion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_greengrassv2-aws_TagKeys)
+  - **Resource types (\*required):** [coreDevice](#list_greengrassv2-resource-coreDevice) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_greengrassv2-aws_TagKeys)
+  - **Resource types (\*required):** [deployment](#list_greengrassv2-resource-deployment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_greengrassv2-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateConnectivityInfo](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_UpdateConnectivityInfo.html)  **
+  - **Description:** Grants permission to update the connectivity information for a Greengrass core. Any devices that belong to the group that has this core will receive this information in order to find the location of the core and connect to it
+  - **Resource types (\*required):** [connectivityInfo\*](#list_greengrassv2-resource-connectivityInfo)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS IoT Greengrass V2
+<a name="list_greengrassv2-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                | ARN                                                                                                                                                                                      | Condition keys                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| [component](../../../greengrass/v2/APIReference/API_Component.md "../../../greengrass/v2/APIReference/API_Component.md")                      | arn:${Partition}:greengrass:${Region}:${Account}:components:${ComponentName}                                                                                                             | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_") |
-| [componentVersion](../../../greengrass/v2/APIReference/API_Component.md "../../../greengrass/v2/APIReference/API_Component.md")               | arn:${Partition}:greengrass:${Region}:${Account}:components:${ComponentName}:versions:${ComponentVersion}                                                                                | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_") |
-| [connectivityInfo](../../../greengrass/v2/APIReference/API_ConnectivityInfo.md "../../../greengrass/v2/APIReference/API_ConnectivityInfo.md") | arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/things/${ThingName}/connectivityInfo                                                                                        |                                                                                                                          |
-| [coreDevice](../../../greengrass/v2/APIReference/API_CoreDevice.md "../../../greengrass/v2/APIReference/API_CoreDevice.md")                   | arn:${Partition}:greengrass:${Region}:${Account}:coreDevices:${CoreDeviceThingName}                                                                                                      | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_") |
-| [deployment](../../../greengrass/v2/APIReference/API_Deployment.md "../../../greengrass/v2/APIReference/API_Deployment.md")                   | arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/groups/${GroupId}/deployments/${DeploymentId}, arn:${Partition}:greengrass:${Region}:${Account}:deployments:${DeploymentId} | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_ "#list_greengrassv2-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [component](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_Component.html)  | arn:${Partition}:greengrass:${Region}:${Account}:components:${ComponentName} | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_) | 
+|  [componentVersion](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_Component.html)  | arn:${Partition}:greengrass:${Region}:${Account}:components:${ComponentName}:versions:${ComponentVersion} | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_) | 
+|  [connectivityInfo](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ConnectivityInfo.html)  | arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/things/${ThingName}/connectivityInfo |   | 
+|  [coreDevice](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_CoreDevice.html)  | arn:${Partition}:greengrass:${Region}:${Account}:coreDevices:${CoreDeviceThingName} | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_) | 
+|  [deployment](https://docs.aws.amazon.com/greengrass/v2/APIReference/API_Deployment.html)  | arn:${Partition}:greengrass:${Region}:${Account}:/greengrass/groups/${GroupId}/deployments/${DeploymentId}, arn:${Partition}:greengrass:${Region}:${Account}:deployments:${DeploymentId} | [aws:ResourceTag/${TagKey}](#list_greengrassv2-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS IoT Greengrass V2
+<a name="list_greengrassv2-policy-keys"></a>
 
-AWS IoT Greengrass V2 defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS IoT Greengrass V2 defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                                        | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by checking tag key/value pairs included in the request             | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by checking tag key/value pairs associated with a specific resource | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by checking tag keys passed in the request                          | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by checking tag key/value pairs included in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by checking tag key/value pairs associated with a specific resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by checking tag keys passed in the request | ArrayOfString | 

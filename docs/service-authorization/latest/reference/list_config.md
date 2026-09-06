@@ -1,312 +1,1301 @@
-# Actions, resources, and condition keys for AWS Config
 
-AWS Config (service prefix: `config`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Config
+<a name="list_config"></a>
+
+AWS Config (service prefix: `config`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/config/latest/developerguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/config/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/config/latest/developerguide/example-policies.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/config/config.json) for this service.
 
-- Learn how to [configure this service](../../../config/latest/developerguide.md "../../../config/latest/developerguide.md").
-- View a list of the [API operations available for
-  this service](../../../config/latest/APIReference.md "../../../config/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../config/latest/developerguide/example-policies.md "../../../config/latest/developerguide/example-policies.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/config/config.json "https://servicereference.us-east-1.amazonaws.com/v1/config/config.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Config](#list_config-operations "#list_config-operations")
-- [Actions defined by AWS Config](#list_config-actions-as-permissions "#list_config-actions-as-permissions")
-- [Resource types defined by AWS Config](#list_config-resources-for-iam-policies "#list_config-resources-for-iam-policies")
-- [Condition keys for AWS Config](#list_config-policy-keys "#list_config-policy-keys")
+**Topics**
++ [API operations defined by AWS Config](#list_config-operations)
++ [Actions defined by AWS Config](#list_config-actions-as-permissions)
++ [Resource types defined by AWS Config](#list_config-resources-for-iam-policies)
++ [Condition keys for AWS Config](#list_config-policy-keys)
 
 ## API operations defined by AWS Config
+<a name="list_config-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_config-actions-as-permissions "#list_config-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_config-actions-as-permissions).
 
-| Operation                                                                                                                                                                                           | IAM action                                                                                                                                                                                    | Condition key        | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ----------------- | -------------- |
-| AssociateResourceTypes                                                                                                                                                                              | [config:AssociateResourceTypes](#list_config-action-AssociateResourceTypes "#list_config-action-AssociateResourceTypes")                                                                      |                      |                   | Write          |
-| BatchGetAggregateResourceConfig                                                                                                                                                                     | [config:BatchGetAggregateResourceConfig](#list_config-action-BatchGetAggregateResourceConfig "#list_config-action-BatchGetAggregateResourceConfig")                                           |                      |                   | Read           |
-| BatchGetResourceConfig                                                                                                                                                                              | [config:BatchGetResourceConfig](#list_config-action-BatchGetResourceConfig "#list_config-action-BatchGetResourceConfig")                                                                      |                      |                   | Read           |
-| DeleteAggregationAuthorization                                                                                                                                                                      | [config:DeleteAggregationAuthorization](#list_config-action-DeleteAggregationAuthorization "#list_config-action-DeleteAggregationAuthorization")                                              |                      |                   | Write          |
-| DeleteConfigRule                                                                                                                                                                                    | [config:DeleteConfigRule](#list_config-action-DeleteConfigRule "#list_config-action-DeleteConfigRule")                                                                                        |                      |                   | Write          |
-| DeleteConfigurationAggregator                                                                                                                                                                       | [config:DeleteConfigurationAggregator](#list_config-action-DeleteConfigurationAggregator "#list_config-action-DeleteConfigurationAggregator")                                                 |                      |                   | Write          |
-| DeleteConfigurationRecorder                                                                                                                                                                         | [config:DeleteConfigurationRecorder](#list_config-action-DeleteConfigurationRecorder "#list_config-action-DeleteConfigurationRecorder")                                                       |                      |                   | Write          |
-| DeleteConformancePack                                                                                                                                                                               | [config:DeleteConformancePack](#list_config-action-DeleteConformancePack "#list_config-action-DeleteConformancePack")                                                                         |                      |                   | Write          |
-| DeleteConnector                                                                                                                                                                                     | [config:DeleteConnector](#list_config-action-DeleteConnector "#list_config-action-DeleteConnector")                                                                                           |                      |                   | Write          |
-| DeleteDeliveryChannel                                                                                                                                                                               | [config:DeleteDeliveryChannel](#list_config-action-DeleteDeliveryChannel "#list_config-action-DeleteDeliveryChannel")                                                                         |                      |                   | Write          |
-| DeleteEvaluationResults                                                                                                                                                                             | [config:DeleteEvaluationResults](#list_config-action-DeleteEvaluationResults "#list_config-action-DeleteEvaluationResults")                                                                   |                      |                   | Write          |
-| DeleteOrganizationConfigRule                                                                                                                                                                        | [config:DeleteOrganizationConfigRule](#list_config-action-DeleteOrganizationConfigRule "#list_config-action-DeleteOrganizationConfigRule")                                                    |                      |                   | Write          |
-| DeleteOrganizationConformancePack                                                                                                                                                                   | [config:DeleteOrganizationConformancePack](#list_config-action-DeleteOrganizationConformancePack "#list_config-action-DeleteOrganizationConformancePack")                                     |                      |                   | Write          |
-| DeletePendingAggregationRequest                                                                                                                                                                     | [config:DeletePendingAggregationRequest](#list_config-action-DeletePendingAggregationRequest "#list_config-action-DeletePendingAggregationRequest")                                           |                      |                   | Write          |
-| DeleteRemediationConfiguration                                                                                                                                                                      | [config:DeleteRemediationConfiguration](#list_config-action-DeleteRemediationConfiguration "#list_config-action-DeleteRemediationConfiguration")                                              |                      |                   | Write          |
-| DeleteRemediationExceptions                                                                                                                                                                         | [config:DeleteRemediationExceptions](#list_config-action-DeleteRemediationExceptions "#list_config-action-DeleteRemediationExceptions")                                                       |                      |                   | Write          |
-| DeleteResourceConfig                                                                                                                                                                                | [config:DeleteResourceConfig](#list_config-action-DeleteResourceConfig "#list_config-action-DeleteResourceConfig")                                                                            |                      |                   | Write          |
-| DeleteRetentionConfiguration                                                                                                                                                                        | [config:DeleteRetentionConfiguration](#list_config-action-DeleteRetentionConfiguration "#list_config-action-DeleteRetentionConfiguration")                                                    |                      |                   | Write          |
-| DeleteServiceLinkedConfigurationRecorder                                                                                                                                                            | [config:DeleteServiceLinkedConfigurationRecorder](#list_config-action-DeleteServiceLinkedConfigurationRecorder "#list_config-action-DeleteServiceLinkedConfigurationRecorder")                |                      |                   | Write          |
-| DeleteStoredQuery                                                                                                                                                                                   | [config:DeleteStoredQuery](#list_config-action-DeleteStoredQuery "#list_config-action-DeleteStoredQuery")                                                                                     |                      |                   | Write          |
-| DeliverConfigSnapshot                                                                                                                                                                               | [config:DeliverConfigSnapshot](#list_config-action-DeliverConfigSnapshot "#list_config-action-DeliverConfigSnapshot")                                                                         |                      |                   | Read           |
-| DescribeAggregateComplianceByConfigRules                                                                                                                                                            | [config:DescribeAggregateComplianceByConfigRules](#list_config-action-DescribeAggregateComplianceByConfigRules "#list_config-action-DescribeAggregateComplianceByConfigRules")                |                      |                   | Read           |
-| DescribeAggregateComplianceByConformancePacks                                                                                                                                                       | [config:DescribeAggregateComplianceByConformancePacks](#list_config-action-DescribeAggregateComplianceByConformancePacks "#list_config-action-DescribeAggregateComplianceByConformancePacks") |                      |                   | Read           |
-| DescribeAggregationAuthorizations                                                                                                                                                                   | [config:DescribeAggregationAuthorizations](#list_config-action-DescribeAggregationAuthorizations "#list_config-action-DescribeAggregationAuthorizations")                                     |                      |                   | List           |
-| DescribeComplianceByConfigRule                                                                                                                                                                      | [config:DescribeComplianceByConfigRule](#list_config-action-DescribeComplianceByConfigRule "#list_config-action-DescribeComplianceByConfigRule")                                              |                      |                   | Read           |
-| DescribeComplianceByResource                                                                                                                                                                        | [config:DescribeComplianceByResource](#list_config-action-DescribeComplianceByResource "#list_config-action-DescribeComplianceByResource")                                                    |                      |                   | Read           |
-| DescribeConfigRuleEvaluationStatus                                                                                                                                                                  | [config:DescribeConfigRuleEvaluationStatus](#list_config-action-DescribeConfigRuleEvaluationStatus "#list_config-action-DescribeConfigRuleEvaluationStatus")                                  |                      |                   | Read           |
-| DescribeConfigRules                                                                                                                                                                                 | [config:DescribeConfigRules](#list_config-action-DescribeConfigRules "#list_config-action-DescribeConfigRules")                                                                               |                      |                   | List           |
-| DescribeConfigurationAggregatorSourcesStatus                                                                                                                                                        | [config:DescribeConfigurationAggregatorSourcesStatus](#list_config-action-DescribeConfigurationAggregatorSourcesStatus "#list_config-action-DescribeConfigurationAggregatorSourcesStatus")    |                      |                   | Read           |
-| DescribeConfigurationAggregators                                                                                                                                                                    | [config:DescribeConfigurationAggregators](#list_config-action-DescribeConfigurationAggregators "#list_config-action-DescribeConfigurationAggregators")                                        |                      |                   | List           |
-| DescribeConfigurationRecorderStatus                                                                                                                                                                 | [config:DescribeConfigurationRecorderStatus](#list_config-action-DescribeConfigurationRecorderStatus "#list_config-action-DescribeConfigurationRecorderStatus")                               |                      |                   | Read           |
-| DescribeConfigurationRecorders                                                                                                                                                                      | [config:DescribeConfigurationRecorders](#list_config-action-DescribeConfigurationRecorders "#list_config-action-DescribeConfigurationRecorders")                                              |                      |                   | Read           |
-| DescribeConformancePackCompliance                                                                                                                                                                   | [config:DescribeConformancePackCompliance](#list_config-action-DescribeConformancePackCompliance "#list_config-action-DescribeConformancePackCompliance")                                     |                      |                   | Read           |
-| DescribeConformancePackStatus                                                                                                                                                                       | [config:DescribeConformancePackStatus](#list_config-action-DescribeConformancePackStatus "#list_config-action-DescribeConformancePackStatus")                                                 |                      |                   | Read           |
-| DescribeConformancePacks                                                                                                                                                                            | [config:DescribeConformancePacks](#list_config-action-DescribeConformancePacks "#list_config-action-DescribeConformancePacks")                                                                |                      |                   | List           |
-| DescribeDeliveryChannelStatus                                                                                                                                                                       | [config:DescribeDeliveryChannelStatus](#list_config-action-DescribeDeliveryChannelStatus "#list_config-action-DescribeDeliveryChannelStatus")                                                 |                      |                   | Read           |
-| DescribeDeliveryChannels                                                                                                                                                                            | [config:DescribeDeliveryChannels](#list_config-action-DescribeDeliveryChannels "#list_config-action-DescribeDeliveryChannels")                                                                |                      |                   | List           |
-| DescribeOrganizationConfigRuleStatuses                                                                                                                                                              | [config:DescribeOrganizationConfigRuleStatuses](#list_config-action-DescribeOrganizationConfigRuleStatuses "#list_config-action-DescribeOrganizationConfigRuleStatuses")                      |                      |                   | Read           |
-| DescribeOrganizationConfigRules                                                                                                                                                                     | [config:DescribeOrganizationConfigRules](#list_config-action-DescribeOrganizationConfigRules "#list_config-action-DescribeOrganizationConfigRules")                                           |                      |                   | List           |
-| DescribeOrganizationConformancePackStatuses                                                                                                                                                         | [config:DescribeOrganizationConformancePackStatuses](#list_config-action-DescribeOrganizationConformancePackStatuses "#list_config-action-DescribeOrganizationConformancePackStatuses")       |                      |                   | Read           |
-| DescribeOrganizationConformancePacks                                                                                                                                                                | [config:DescribeOrganizationConformancePacks](#list_config-action-DescribeOrganizationConformancePacks "#list_config-action-DescribeOrganizationConformancePacks")                            |                      |                   | List           |
-| DescribePendingAggregationRequests                                                                                                                                                                  | [config:DescribePendingAggregationRequests](#list_config-action-DescribePendingAggregationRequests "#list_config-action-DescribePendingAggregationRequests")                                  |                      |                   | List           |
-| DescribeRemediationConfigurations                                                                                                                                                                   | [config:DescribeRemediationConfigurations](#list_config-action-DescribeRemediationConfigurations "#list_config-action-DescribeRemediationConfigurations")                                     |                      |                   | List           |
-| DescribeRemediationExceptions                                                                                                                                                                       | [config:DescribeRemediationExceptions](#list_config-action-DescribeRemediationExceptions "#list_config-action-DescribeRemediationExceptions")                                                 |                      |                   | List           |
-| DescribeRemediationExecutionStatus                                                                                                                                                                  | [config:DescribeRemediationExecutionStatus](#list_config-action-DescribeRemediationExecutionStatus "#list_config-action-DescribeRemediationExecutionStatus")                                  |                      |                   | Read           |
-| DescribeRetentionConfigurations                                                                                                                                                                     | [config:DescribeRetentionConfigurations](#list_config-action-DescribeRetentionConfigurations "#list_config-action-DescribeRetentionConfigurations")                                           |                      |                   | List           |
-| DisassociateResourceTypes                                                                                                                                                                           | [config:DisassociateResourceTypes](#list_config-action-DisassociateResourceTypes "#list_config-action-DisassociateResourceTypes")                                                             |                      |                   | Write          |
-| GetAggregateComplianceDetailsByConfigRule                                                                                                                                                           | [config:GetAggregateComplianceDetailsByConfigRule](#list_config-action-GetAggregateComplianceDetailsByConfigRule "#list_config-action-GetAggregateComplianceDetailsByConfigRule")             |                      |                   | Read           |
-| GetAggregateConfigRuleComplianceSummary                                                                                                                                                             | [config:GetAggregateConfigRuleComplianceSummary](#list_config-action-GetAggregateConfigRuleComplianceSummary "#list_config-action-GetAggregateConfigRuleComplianceSummary")                   |                      |                   | Read           |
-| GetAggregateConformancePackComplianceSummary                                                                                                                                                        | [config:GetAggregateConformancePackComplianceSummary](#list_config-action-GetAggregateConformancePackComplianceSummary "#list_config-action-GetAggregateConformancePackComplianceSummary")    |                      |                   | Read           |
-| GetAggregateDiscoveredResourceCounts                                                                                                                                                                | [config:GetAggregateDiscoveredResourceCounts](#list_config-action-GetAggregateDiscoveredResourceCounts "#list_config-action-GetAggregateDiscoveredResourceCounts")                            |                      |                   | Read           |
-| GetAggregateResourceConfig                                                                                                                                                                          | [config:GetAggregateResourceConfig](#list_config-action-GetAggregateResourceConfig "#list_config-action-GetAggregateResourceConfig")                                                          |                      |                   | Read           |
-| GetComplianceDetailsByConfigRule                                                                                                                                                                    | [config:GetComplianceDetailsByConfigRule](#list_config-action-GetComplianceDetailsByConfigRule "#list_config-action-GetComplianceDetailsByConfigRule")                                        |                      |                   | Read           |
-| GetComplianceDetailsByResource                                                                                                                                                                      | [config:GetComplianceDetailsByResource](#list_config-action-GetComplianceDetailsByResource "#list_config-action-GetComplianceDetailsByResource")                                              |                      |                   | Read           |
-| GetComplianceSummaryByConfigRule                                                                                                                                                                    | [config:GetComplianceSummaryByConfigRule](#list_config-action-GetComplianceSummaryByConfigRule "#list_config-action-GetComplianceSummaryByConfigRule")                                        |                      |                   | Read           |
-| GetComplianceSummaryByResourceType                                                                                                                                                                  | [config:GetComplianceSummaryByResourceType](#list_config-action-GetComplianceSummaryByResourceType "#list_config-action-GetComplianceSummaryByResourceType")                                  |                      |                   | Read           |
-| GetConformancePackComplianceDetails                                                                                                                                                                 | [config:GetConformancePackComplianceDetails](#list_config-action-GetConformancePackComplianceDetails "#list_config-action-GetConformancePackComplianceDetails")                               |                      |                   | Read           |
-| GetConformancePackComplianceSummary                                                                                                                                                                 | [config:GetConformancePackComplianceSummary](#list_config-action-GetConformancePackComplianceSummary "#list_config-action-GetConformancePackComplianceSummary")                               |                      |                   | Read           |
-| GetConnector                                                                                                                                                                                        | [config:GetConnector](#list_config-action-GetConnector "#list_config-action-GetConnector")                                                                                                    |                      |                   | Read           |
-| GetCustomRulePolicy                                                                                                                                                                                 | [config:GetCustomRulePolicy](#list_config-action-GetCustomRulePolicy "#list_config-action-GetCustomRulePolicy")                                                                               |                      |                   | Read           |
-| GetDiscoveredResourceCounts                                                                                                                                                                         | [config:GetDiscoveredResourceCounts](#list_config-action-GetDiscoveredResourceCounts "#list_config-action-GetDiscoveredResourceCounts")                                                       |                      |                   | Read           |
-| GetOrganizationConfigRuleDetailedStatus                                                                                                                                                             | [config:GetOrganizationConfigRuleDetailedStatus](#list_config-action-GetOrganizationConfigRuleDetailedStatus "#list_config-action-GetOrganizationConfigRuleDetailedStatus")                   |                      |                   | Read           |
-| GetOrganizationConformancePackDetailedStatus                                                                                                                                                        | [config:GetOrganizationConformancePackDetailedStatus](#list_config-action-GetOrganizationConformancePackDetailedStatus "#list_config-action-GetOrganizationConformancePackDetailedStatus")    |                      |                   | Read           |
-| GetOrganizationCustomRulePolicy                                                                                                                                                                     | [config:GetOrganizationCustomRulePolicy](#list_config-action-GetOrganizationCustomRulePolicy "#list_config-action-GetOrganizationCustomRulePolicy")                                           |                      |                   | Read           |
-| GetResourceConfigHistory                                                                                                                                                                            | [config:GetResourceConfigHistory](#list_config-action-GetResourceConfigHistory "#list_config-action-GetResourceConfigHistory")                                                                |                      |                   | Read           |
-| GetResourceEvaluationSummary                                                                                                                                                                        | [config:GetResourceEvaluationSummary](#list_config-action-GetResourceEvaluationSummary "#list_config-action-GetResourceEvaluationSummary")                                                    |                      |                   | Read           |
-| GetStoredQuery                                                                                                                                                                                      | [config:GetStoredQuery](#list_config-action-GetStoredQuery "#list_config-action-GetStoredQuery")                                                                                              |                      |                   | Read           |
-| ListAggregateDiscoveredResources                                                                                                                                                                    | [config:ListAggregateDiscoveredResources](#list_config-action-ListAggregateDiscoveredResources "#list_config-action-ListAggregateDiscoveredResources")                                        |                      |                   | List           |
-| ListConfigurationRecorders                                                                                                                                                                          | [config:ListConfigurationRecorders](#list_config-action-ListConfigurationRecorders "#list_config-action-ListConfigurationRecorders")                                                          |                      |                   | List           |
-| ListConformancePackComplianceScores                                                                                                                                                                 | [config:ListConformancePackComplianceScores](#list_config-action-ListConformancePackComplianceScores "#list_config-action-ListConformancePackComplianceScores")                               |                      |                   | List           |
-| ListConnectors                                                                                                                                                                                      | [config:ListConnectors](#list_config-action-ListConnectors "#list_config-action-ListConnectors")                                                                                              |                      |                   | List           |
-| ListDiscoveredResources                                                                                                                                                                             | [config:ListDiscoveredResources](#list_config-action-ListDiscoveredResources "#list_config-action-ListDiscoveredResources")                                                                   |                      |                   | List           |
-| ListResourceEvaluations                                                                                                                                                                             | [config:ListResourceEvaluations](#list_config-action-ListResourceEvaluations "#list_config-action-ListResourceEvaluations")                                                                   |                      |                   | List           |
-| ListStoredQueries                                                                                                                                                                                   | [config:ListStoredQueries](#list_config-action-ListStoredQueries "#list_config-action-ListStoredQueries")                                                                                     |                      |                   | List           |
-| ListTagsForResource                                                                                                                                                                                 | [config:ListTagsForResource](#list_config-action-ListTagsForResource "#list_config-action-ListTagsForResource")                                                                               |                      |                   | Read           |
-| PutAggregationAuthorization                                                                                                                                                                         | [config:PutAggregationAuthorization](#list_config-action-PutAggregationAuthorization "#list_config-action-PutAggregationAuthorization")                                                       |                      |                   | Write          |
-| [config:TagResource](#list_config-action-TagResource "#list_config-action-TagResource")                                                                                                             |                                                                                                                                                                                               |                      | Tagging, Write    |
-| PutConfigRule                                                                                                                                                                                       | [config:PutConfigRule](#list_config-action-PutConfigRule "#list_config-action-PutConfigRule")                                                                                                 |                      |                   | Write          |
-| [config:TagResource](#list_config-action-TagResource "#list_config-action-TagResource")                                                                                                             |                                                                                                                                                                                               |                      | Tagging, Write    |
-| PutConfigurationAggregator                                                                                                                                                                          | [config:PutConfigurationAggregator](#list_config-action-PutConfigurationAggregator "#list_config-action-PutConfigurationAggregator")                                                          |                      |                   | Write          |
-| [config:TagResource](#list_config-action-TagResource "#list_config-action-TagResource")                                                                                                             |                                                                                                                                                                                               |                      | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                     | iam:PassedToService                                                                                                                                                                           | config.amazonaws.com | Write             |
-| PutConfigurationRecorder                                                                                                                                                                            | [config:PutConfigurationRecorder](#list_config-action-PutConfigurationRecorder "#list_config-action-PutConfigurationRecorder")                                                                |                      |                   | Write          |
-| [config:TagResource](#list_config-action-TagResource "#list_config-action-TagResource")                                                                                                             |                                                                                                                                                                                               |                      | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                     | iam:PassedToService                                                                                                                                                                           | config.amazonaws.com | Write             |
-| PutConformancePack                                                                                                                                                                                  | [config:PutConformancePack](#list_config-action-PutConformancePack "#list_config-action-PutConformancePack")                                                                                  |                      |                   | Write          |
-| [config:TagResource](#list_config-action-TagResource "#list_config-action-TagResource")                                                                                                             |                                                                                                                                                                                               |                      | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                     | iam:PassedToService                                                                                                                                                                           | ssm.amazonaws.com    | Write             |
-| PutConnector                                                                                                                                                                                        | [config:PutConnector](#list_config-action-PutConnector "#list_config-action-PutConnector")                                                                                                    |                      |                   | Write          |
-| [config:TagResource](#list_config-action-TagResource "#list_config-action-TagResource")                                                                                                             |                                                                                                                                                                                               |                      | Tagging, Write    |
-| PutDeliveryChannel                                                                                                                                                                                  | [config:PutDeliveryChannel](#list_config-action-PutDeliveryChannel "#list_config-action-PutDeliveryChannel")                                                                                  |                      |                   | Write          |
-| PutEvaluations                                                                                                                                                                                      | [config:PutEvaluations](#list_config-action-PutEvaluations "#list_config-action-PutEvaluations")                                                                                              |                      |                   | Write          |
-| PutExternalEvaluation                                                                                                                                                                               | [config:PutExternalEvaluation](#list_config-action-PutExternalEvaluation "#list_config-action-PutExternalEvaluation")                                                                         |                      |                   | Write          |
-| PutOrganizationConfigRule                                                                                                                                                                           | [config:PutOrganizationConfigRule](#list_config-action-PutOrganizationConfigRule "#list_config-action-PutOrganizationConfigRule")                                                             |                      |                   | Write          |
-| PutOrganizationConformancePack                                                                                                                                                                      | [config:PutOrganizationConformancePack](#list_config-action-PutOrganizationConformancePack "#list_config-action-PutOrganizationConformancePack")                                              |                      |                   | Write          |
-| [config:TagResource](#list_config-action-TagResource "#list_config-action-TagResource")                                                                                                             |                                                                                                                                                                                               |                      | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                     | iam:PassedToService                                                                                                                                                                           | ssm.amazonaws.com    | Write             |
-| PutRemediationConfigurations                                                                                                                                                                        | [config:PutRemediationConfigurations](#list_config-action-PutRemediationConfigurations "#list_config-action-PutRemediationConfigurations")                                                    |                      |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                     | iam:PassedToService                                                                                                                                                                           | ssm.amazonaws.com    | Write             |
-| PutRemediationExceptions                                                                                                                                                                            | [config:PutRemediationExceptions](#list_config-action-PutRemediationExceptions "#list_config-action-PutRemediationExceptions")                                                                |                      |                   | Write          |
-| PutResourceConfig                                                                                                                                                                                   | [config:PutResourceConfig](#list_config-action-PutResourceConfig "#list_config-action-PutResourceConfig")                                                                                     |                      |                   | Write          |
-| PutRetentionConfiguration                                                                                                                                                                           | [config:PutRetentionConfiguration](#list_config-action-PutRetentionConfiguration "#list_config-action-PutRetentionConfiguration")                                                             |                      |                   | Write          |
-| PutServiceLinkedConfigurationRecorder                                                                                                                                                               | [config:PutServiceLinkedConfigurationRecorder](#list_config-action-PutServiceLinkedConfigurationRecorder "#list_config-action-PutServiceLinkedConfigurationRecorder")                         |                      |                   | Write          |
-| PutStoredQuery                                                                                                                                                                                      | [config:PutStoredQuery](#list_config-action-PutStoredQuery "#list_config-action-PutStoredQuery")                                                                                              |                      |                   | Write          |
-| [config:TagResource](#list_config-action-TagResource "#list_config-action-TagResource")                                                                                                             |                                                                                                                                                                                               |                      | Tagging, Write    |
-| PutThirdPartyServiceLinkedConfigurationRecorder                                                                                                                                                     | [config:GetConnector](#list_config-action-GetConnector "#list_config-action-GetConnector")                                                                                                    |                      |                   | Read           |
-| [config:PutThirdPartyServiceLinkedConfigurationRecorder](#list_config-action-PutThirdPartyServiceLinkedConfigurationRecorder "#list_config-action-PutThirdPartyServiceLinkedConfigurationRecorder") |                                                                                                                                                                                               |                      | Write             |
-| SelectAggregateResourceConfig                                                                                                                                                                       | [config:SelectAggregateResourceConfig](#list_config-action-SelectAggregateResourceConfig "#list_config-action-SelectAggregateResourceConfig")                                                 |                      |                   | Read           |
-| SelectResourceConfig                                                                                                                                                                                | [config:SelectResourceConfig](#list_config-action-SelectResourceConfig "#list_config-action-SelectResourceConfig")                                                                            |                      |                   | Read           |
-| StartConfigRulesEvaluation                                                                                                                                                                          | [config:StartConfigRulesEvaluation](#list_config-action-StartConfigRulesEvaluation "#list_config-action-StartConfigRulesEvaluation")                                                          |                      |                   | Write          |
-| StartConfigurationRecorder                                                                                                                                                                          | [config:StartConfigurationRecorder](#list_config-action-StartConfigurationRecorder "#list_config-action-StartConfigurationRecorder")                                                          |                      |                   | Write          |
-| StartRemediationExecution                                                                                                                                                                           | [config:StartRemediationExecution](#list_config-action-StartRemediationExecution "#list_config-action-StartRemediationExecution")                                                             |                      |                   | Write          |
-| StartResourceEvaluation                                                                                                                                                                             | [config:StartResourceEvaluation](#list_config-action-StartResourceEvaluation "#list_config-action-StartResourceEvaluation")                                                                   |                      |                   | Write          |
-| StopConfigurationRecorder                                                                                                                                                                           | [config:StopConfigurationRecorder](#list_config-action-StopConfigurationRecorder "#list_config-action-StopConfigurationRecorder")                                                             |                      |                   | Write          |
-| TagResource                                                                                                                                                                                         | [config:TagResource](#list_config-action-TagResource "#list_config-action-TagResource")                                                                                                       |                      |                   | Tagging, Write |
-| UntagResource                                                                                                                                                                                       | [config:UntagResource](#list_config-action-UntagResource "#list_config-action-UntagResource")                                                                                                 |                      |                   | Tagging, Write |
+
+
+
+- **   AssociateResourceTypes  **
+  - **IAM action:**  [config:AssociateResourceTypes](#list_config-action-AssociateResourceTypes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchGetAggregateResourceConfig  **
+  - **IAM action:**  [config:BatchGetAggregateResourceConfig](#list_config-action-BatchGetAggregateResourceConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetResourceConfig  **
+  - **IAM action:**  [config:BatchGetResourceConfig](#list_config-action-BatchGetResourceConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DeleteAggregationAuthorization  **
+  - **IAM action:**  [config:DeleteAggregationAuthorization](#list_config-action-DeleteAggregationAuthorization) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConfigRule  **
+  - **IAM action:**  [config:DeleteConfigRule](#list_config-action-DeleteConfigRule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConfigurationAggregator  **
+  - **IAM action:**  [config:DeleteConfigurationAggregator](#list_config-action-DeleteConfigurationAggregator) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConfigurationRecorder  **
+  - **IAM action:**  [config:DeleteConfigurationRecorder](#list_config-action-DeleteConfigurationRecorder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConformancePack  **
+  - **IAM action:**  [config:DeleteConformancePack](#list_config-action-DeleteConformancePack) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConnector  **
+  - **IAM action:**  [config:DeleteConnector](#list_config-action-DeleteConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDeliveryChannel  **
+  - **IAM action:**  [config:DeleteDeliveryChannel](#list_config-action-DeleteDeliveryChannel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteEvaluationResults  **
+  - **IAM action:**  [config:DeleteEvaluationResults](#list_config-action-DeleteEvaluationResults) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteOrganizationConfigRule  **
+  - **IAM action:**  [config:DeleteOrganizationConfigRule](#list_config-action-DeleteOrganizationConfigRule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteOrganizationConformancePack  **
+  - **IAM action:**  [config:DeleteOrganizationConformancePack](#list_config-action-DeleteOrganizationConformancePack) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeletePendingAggregationRequest  **
+  - **IAM action:**  [config:DeletePendingAggregationRequest](#list_config-action-DeletePendingAggregationRequest) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRemediationConfiguration  **
+  - **IAM action:**  [config:DeleteRemediationConfiguration](#list_config-action-DeleteRemediationConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRemediationExceptions  **
+  - **IAM action:**  [config:DeleteRemediationExceptions](#list_config-action-DeleteRemediationExceptions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteResourceConfig  **
+  - **IAM action:**  [config:DeleteResourceConfig](#list_config-action-DeleteResourceConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRetentionConfiguration  **
+  - **IAM action:**  [config:DeleteRetentionConfiguration](#list_config-action-DeleteRetentionConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteServiceLinkedConfigurationRecorder  **
+  - **IAM action:**  [config:DeleteServiceLinkedConfigurationRecorder](#list_config-action-DeleteServiceLinkedConfigurationRecorder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteStoredQuery  **
+  - **IAM action:**  [config:DeleteStoredQuery](#list_config-action-DeleteStoredQuery) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeliverConfigSnapshot  **
+  - **IAM action:**  [config:DeliverConfigSnapshot](#list_config-action-DeliverConfigSnapshot) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeAggregateComplianceByConfigRules  **
+  - **IAM action:**  [config:DescribeAggregateComplianceByConfigRules](#list_config-action-DescribeAggregateComplianceByConfigRules) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeAggregateComplianceByConformancePacks  **
+  - **IAM action:**  [config:DescribeAggregateComplianceByConformancePacks](#list_config-action-DescribeAggregateComplianceByConformancePacks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeAggregationAuthorizations  **
+  - **IAM action:**  [config:DescribeAggregationAuthorizations](#list_config-action-DescribeAggregationAuthorizations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeComplianceByConfigRule  **
+  - **IAM action:**  [config:DescribeComplianceByConfigRule](#list_config-action-DescribeComplianceByConfigRule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeComplianceByResource  **
+  - **IAM action:**  [config:DescribeComplianceByResource](#list_config-action-DescribeComplianceByResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeConfigRuleEvaluationStatus  **
+  - **IAM action:**  [config:DescribeConfigRuleEvaluationStatus](#list_config-action-DescribeConfigRuleEvaluationStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeConfigRules  **
+  - **IAM action:**  [config:DescribeConfigRules](#list_config-action-DescribeConfigRules) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeConfigurationAggregatorSourcesStatus  **
+  - **IAM action:**  [config:DescribeConfigurationAggregatorSourcesStatus](#list_config-action-DescribeConfigurationAggregatorSourcesStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeConfigurationAggregators  **
+  - **IAM action:**  [config:DescribeConfigurationAggregators](#list_config-action-DescribeConfigurationAggregators) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeConfigurationRecorderStatus  **
+  - **IAM action:**  [config:DescribeConfigurationRecorderStatus](#list_config-action-DescribeConfigurationRecorderStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeConfigurationRecorders  **
+  - **IAM action:**  [config:DescribeConfigurationRecorders](#list_config-action-DescribeConfigurationRecorders) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeConformancePackCompliance  **
+  - **IAM action:**  [config:DescribeConformancePackCompliance](#list_config-action-DescribeConformancePackCompliance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeConformancePackStatus  **
+  - **IAM action:**  [config:DescribeConformancePackStatus](#list_config-action-DescribeConformancePackStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeConformancePacks  **
+  - **IAM action:**  [config:DescribeConformancePacks](#list_config-action-DescribeConformancePacks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeDeliveryChannelStatus  **
+  - **IAM action:**  [config:DescribeDeliveryChannelStatus](#list_config-action-DescribeDeliveryChannelStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeDeliveryChannels  **
+  - **IAM action:**  [config:DescribeDeliveryChannels](#list_config-action-DescribeDeliveryChannels) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeOrganizationConfigRuleStatuses  **
+  - **IAM action:**  [config:DescribeOrganizationConfigRuleStatuses](#list_config-action-DescribeOrganizationConfigRuleStatuses) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeOrganizationConfigRules  **
+  - **IAM action:**  [config:DescribeOrganizationConfigRules](#list_config-action-DescribeOrganizationConfigRules) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeOrganizationConformancePackStatuses  **
+  - **IAM action:**  [config:DescribeOrganizationConformancePackStatuses](#list_config-action-DescribeOrganizationConformancePackStatuses) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeOrganizationConformancePacks  **
+  - **IAM action:**  [config:DescribeOrganizationConformancePacks](#list_config-action-DescribeOrganizationConformancePacks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribePendingAggregationRequests  **
+  - **IAM action:**  [config:DescribePendingAggregationRequests](#list_config-action-DescribePendingAggregationRequests) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeRemediationConfigurations  **
+  - **IAM action:**  [config:DescribeRemediationConfigurations](#list_config-action-DescribeRemediationConfigurations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeRemediationExceptions  **
+  - **IAM action:**  [config:DescribeRemediationExceptions](#list_config-action-DescribeRemediationExceptions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeRemediationExecutionStatus  **
+  - **IAM action:**  [config:DescribeRemediationExecutionStatus](#list_config-action-DescribeRemediationExecutionStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeRetentionConfigurations  **
+  - **IAM action:**  [config:DescribeRetentionConfigurations](#list_config-action-DescribeRetentionConfigurations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DisassociateResourceTypes  **
+  - **IAM action:**  [config:DisassociateResourceTypes](#list_config-action-DisassociateResourceTypes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAggregateComplianceDetailsByConfigRule  **
+  - **IAM action:**  [config:GetAggregateComplianceDetailsByConfigRule](#list_config-action-GetAggregateComplianceDetailsByConfigRule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAggregateConfigRuleComplianceSummary  **
+  - **IAM action:**  [config:GetAggregateConfigRuleComplianceSummary](#list_config-action-GetAggregateConfigRuleComplianceSummary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAggregateConformancePackComplianceSummary  **
+  - **IAM action:**  [config:GetAggregateConformancePackComplianceSummary](#list_config-action-GetAggregateConformancePackComplianceSummary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAggregateDiscoveredResourceCounts  **
+  - **IAM action:**  [config:GetAggregateDiscoveredResourceCounts](#list_config-action-GetAggregateDiscoveredResourceCounts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAggregateResourceConfig  **
+  - **IAM action:**  [config:GetAggregateResourceConfig](#list_config-action-GetAggregateResourceConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetComplianceDetailsByConfigRule  **
+  - **IAM action:**  [config:GetComplianceDetailsByConfigRule](#list_config-action-GetComplianceDetailsByConfigRule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetComplianceDetailsByResource  **
+  - **IAM action:**  [config:GetComplianceDetailsByResource](#list_config-action-GetComplianceDetailsByResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetComplianceSummaryByConfigRule  **
+  - **IAM action:**  [config:GetComplianceSummaryByConfigRule](#list_config-action-GetComplianceSummaryByConfigRule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetComplianceSummaryByResourceType  **
+  - **IAM action:**  [config:GetComplianceSummaryByResourceType](#list_config-action-GetComplianceSummaryByResourceType) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetConformancePackComplianceDetails  **
+  - **IAM action:**  [config:GetConformancePackComplianceDetails](#list_config-action-GetConformancePackComplianceDetails) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetConformancePackComplianceSummary  **
+  - **IAM action:**  [config:GetConformancePackComplianceSummary](#list_config-action-GetConformancePackComplianceSummary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetConnector  **
+  - **IAM action:**  [config:GetConnector](#list_config-action-GetConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCustomRulePolicy  **
+  - **IAM action:**  [config:GetCustomRulePolicy](#list_config-action-GetCustomRulePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDiscoveredResourceCounts  **
+  - **IAM action:**  [config:GetDiscoveredResourceCounts](#list_config-action-GetDiscoveredResourceCounts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetOrganizationConfigRuleDetailedStatus  **
+  - **IAM action:**  [config:GetOrganizationConfigRuleDetailedStatus](#list_config-action-GetOrganizationConfigRuleDetailedStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetOrganizationConformancePackDetailedStatus  **
+  - **IAM action:**  [config:GetOrganizationConformancePackDetailedStatus](#list_config-action-GetOrganizationConformancePackDetailedStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetOrganizationCustomRulePolicy  **
+  - **IAM action:**  [config:GetOrganizationCustomRulePolicy](#list_config-action-GetOrganizationCustomRulePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetResourceConfigHistory  **
+  - **IAM action:**  [config:GetResourceConfigHistory](#list_config-action-GetResourceConfigHistory) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetResourceEvaluationSummary  **
+  - **IAM action:**  [config:GetResourceEvaluationSummary](#list_config-action-GetResourceEvaluationSummary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetStoredQuery  **
+  - **IAM action:**  [config:GetStoredQuery](#list_config-action-GetStoredQuery) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAggregateDiscoveredResources  **
+  - **IAM action:**  [config:ListAggregateDiscoveredResources](#list_config-action-ListAggregateDiscoveredResources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConfigurationRecorders  **
+  - **IAM action:**  [config:ListConfigurationRecorders](#list_config-action-ListConfigurationRecorders) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConformancePackComplianceScores  **
+  - **IAM action:**  [config:ListConformancePackComplianceScores](#list_config-action-ListConformancePackComplianceScores) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConnectors  **
+  - **IAM action:**  [config:ListConnectors](#list_config-action-ListConnectors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDiscoveredResources  **
+  - **IAM action:**  [config:ListDiscoveredResources](#list_config-action-ListDiscoveredResources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListResourceEvaluations  **
+  - **IAM action:**  [config:ListResourceEvaluations](#list_config-action-ListResourceEvaluations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListStoredQueries  **
+  - **IAM action:**  [config:ListStoredQueries](#list_config-action-ListStoredQueries) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [config:ListTagsForResource](#list_config-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   PutAggregationAuthorization  **
+  - **IAM action:**  [config:PutAggregationAuthorization](#list_config-action-PutAggregationAuthorization)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [config:TagResource](#list_config-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   PutConfigRule  **
+  - **IAM action:**  [config:PutConfigRule](#list_config-action-PutConfigRule)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [config:TagResource](#list_config-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   PutConfigurationAggregator  **
+  - **IAM action:**  [config:PutConfigurationAggregator](#list_config-action-PutConfigurationAggregator)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [config:TagResource](#list_config-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** config.amazonaws.com / **Access level:** Write
+
+- **   PutConfigurationRecorder  **
+  - **IAM action:**  [config:PutConfigurationRecorder](#list_config-action-PutConfigurationRecorder)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [config:TagResource](#list_config-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** config.amazonaws.com / **Access level:** Write
+
+- **   PutConformancePack  **
+  - **IAM action:**  [config:PutConformancePack](#list_config-action-PutConformancePack)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [config:TagResource](#list_config-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** ssm.amazonaws.com / **Access level:** Write
+
+- **   PutConnector  **
+  - **IAM action:**  [config:PutConnector](#list_config-action-PutConnector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [config:TagResource](#list_config-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   PutDeliveryChannel  **
+  - **IAM action:**  [config:PutDeliveryChannel](#list_config-action-PutDeliveryChannel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutEvaluations  **
+  - **IAM action:**  [config:PutEvaluations](#list_config-action-PutEvaluations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutExternalEvaluation  **
+  - **IAM action:**  [config:PutExternalEvaluation](#list_config-action-PutExternalEvaluation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutOrganizationConfigRule  **
+  - **IAM action:**  [config:PutOrganizationConfigRule](#list_config-action-PutOrganizationConfigRule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutOrganizationConformancePack  **
+  - **IAM action:**  [config:PutOrganizationConformancePack](#list_config-action-PutOrganizationConformancePack)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [config:TagResource](#list_config-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** ssm.amazonaws.com / **Access level:** Write
+
+- **   PutRemediationConfigurations  **
+  - **IAM action:**  [config:PutRemediationConfigurations](#list_config-action-PutRemediationConfigurations)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** ssm.amazonaws.com / **Access level:** Write
+
+- **   PutRemediationExceptions  **
+  - **IAM action:**  [config:PutRemediationExceptions](#list_config-action-PutRemediationExceptions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutResourceConfig  **
+  - **IAM action:**  [config:PutResourceConfig](#list_config-action-PutResourceConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutRetentionConfiguration  **
+  - **IAM action:**  [config:PutRetentionConfiguration](#list_config-action-PutRetentionConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutServiceLinkedConfigurationRecorder  **
+  - **IAM action:**  [config:PutServiceLinkedConfigurationRecorder](#list_config-action-PutServiceLinkedConfigurationRecorder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutStoredQuery  **
+  - **IAM action:**  [config:PutStoredQuery](#list_config-action-PutStoredQuery)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [config:TagResource](#list_config-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   PutThirdPartyServiceLinkedConfigurationRecorder  **
+  - **IAM action:**  [config:GetConnector](#list_config-action-GetConnector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [config:PutThirdPartyServiceLinkedConfigurationRecorder](#list_config-action-PutThirdPartyServiceLinkedConfigurationRecorder)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   SelectAggregateResourceConfig  **
+  - **IAM action:**  [config:SelectAggregateResourceConfig](#list_config-action-SelectAggregateResourceConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   SelectResourceConfig  **
+  - **IAM action:**  [config:SelectResourceConfig](#list_config-action-SelectResourceConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartConfigRulesEvaluation  **
+  - **IAM action:**  [config:StartConfigRulesEvaluation](#list_config-action-StartConfigRulesEvaluation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartConfigurationRecorder  **
+  - **IAM action:**  [config:StartConfigurationRecorder](#list_config-action-StartConfigurationRecorder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartRemediationExecution  **
+  - **IAM action:**  [config:StartRemediationExecution](#list_config-action-StartRemediationExecution) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartResourceEvaluation  **
+  - **IAM action:**  [config:StartResourceEvaluation](#list_config-action-StartResourceEvaluation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopConfigurationRecorder  **
+  - **IAM action:**  [config:StopConfigurationRecorder](#list_config-action-StopConfigurationRecorder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [config:TagResource](#list_config-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [config:UntagResource](#list_config-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+
 
 ## Actions defined by AWS Config
+<a name="list_config-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                                    | Description                                                                                                                                                                                                                                                                                     | Resource types (\*required)                                                                                                            | Condition keys                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- |
-| [AssociateResourceTypes](../../../config/latest/APIReference/API_AssociateResourceTypes.md "../../../config/latest/APIReference/API_AssociateResourceTypes.md")                                                                            | Grants permission to add all specified resource types to the RecordingGroup of configuration recorder and includes those resource types when recording                                                                                                                                          | [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder "#list_config-resource-ConfigurationRecorder")                   | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [BatchGetAggregateResourceConfig](../../../config/latest/APIReference/API_BatchGetAggregateResourceConfig.md "../../../config/latest/APIReference/API_BatchGetAggregateResourceConfig.md")                                                 | Grants permission to return the current configuration items for resources that are present in your AWS Config aggregator                                                                                                                                                                        | [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator "#list_config-resource-ConfigurationAggregator")             | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [BatchGetResourceConfig](../../../config/latest/APIReference/API_BatchGetResourceConfig.md "../../../config/latest/APIReference/API_BatchGetResourceConfig.md")                                                                            | Grants permission to return the current configuration for one or more requested resources                                                                                                                                                                                                       |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [DeleteAggregationAuthorization](../../../config/latest/APIReference/API_DeleteAggregationAuthorization.md "../../../config/latest/APIReference/API_DeleteAggregationAuthorization.md")                                                    | Grants permission to delete the authorization granted to the specified configuration aggregator account in a specified region                                                                                                                                                                   | [AggregationAuthorization\*](#list_config-resource-AggregationAuthorization "#list_config-resource-AggregationAuthorization")          | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [DeleteConfigRule](../../../config/latest/APIReference/API_DeleteConfigRule.md "../../../config/latest/APIReference/API_DeleteConfigRule.md")                                                                                              | Grants permission to delete the specified AWS Config rule and all of its evaluation results                                                                                                                                                                                                     | [ConfigRule\*](#list_config-resource-ConfigRule "#list_config-resource-ConfigRule")                                                    | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [DeleteConfigurationAggregator](../../../config/latest/APIReference/API_DeleteConfigurationAggregator.md "../../../config/latest/APIReference/API_DeleteConfigurationAggregator.md")                                                       | Grants permission to delete the specified configuration aggregator and the aggregated data associated with the aggregator                                                                                                                                                                       | [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator "#list_config-resource-ConfigurationAggregator")             | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [DeleteConfigurationRecorder](../../../config/latest/APIReference/API_DeleteConfigurationRecorder.md "../../../config/latest/APIReference/API_DeleteConfigurationRecorder.md")                                                             | Grants permission to delete the customer managed configuration recorder                                                                                                                                                                                                                         | [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder "#list_config-resource-ConfigurationRecorder")                   | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [DeleteConformancePack](../../../config/latest/APIReference/API_DeleteConformancePack.md "../../../config/latest/APIReference/API_DeleteConformancePack.md")                                                                               | Grants permission to delete the specified conformance pack and all the AWS Config rules and all evaluation results within that conformance pack                                                                                                                                                 | [ConformancePack\*](#list_config-resource-ConformancePack "#list_config-resource-ConformancePack")                                     | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [DeleteConnector](../../../config/latest/APIReference/API_DeleteConnector.md "../../../config/latest/APIReference/API_DeleteConnector.md")                                                                                                 | Grants permission to delete a connector configuration                                                                                                                                                                                                                                           | [Connector\*](#list_config-resource-Connector "#list_config-resource-Connector")                                                       | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [DeleteDeliveryChannel](../../../config/latest/APIReference/API_DeleteDeliveryChannel.md "../../../config/latest/APIReference/API_DeleteDeliveryChannel.md")                                                                               | Grants permission to delete the delivery channel                                                                                                                                                                                                                                                |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write          |
-| [DeleteEvaluationResults](../../../config/latest/APIReference/API_DeleteEvaluationResults.md "../../../config/latest/APIReference/API_DeleteEvaluationResults.md")                                                                         | Grants permission to delete the evaluation results for the specified Config rule                                                                                                                                                                                                                | [ConfigRule\*](#list_config-resource-ConfigRule "#list_config-resource-ConfigRule")                                                    | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [DeleteOrganizationConfigRule](../../../config/latest/APIReference/API_DeleteOrganizationConfigRule.md "../../../config/latest/APIReference/API_DeleteOrganizationConfigRule.md")                                                          | Grants permission to delete the specified organization config rule and all of its evaluation results from all member accounts in that organization                                                                                                                                              | [OrganizationConfigRule\*](#list_config-resource-OrganizationConfigRule "#list_config-resource-OrganizationConfigRule")                | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [DeleteOrganizationConformancePack](../../../config/latest/APIReference/API_DeleteOrganizationConformancePack.md "../../../config/latest/APIReference/API_DeleteOrganizationConformancePack.md")                                           | Grants permission to delete the specified organization conformance pack and all of its evaluation results from all member accounts in that organization                                                                                                                                         | [OrganizationConformancePack\*](#list_config-resource-OrganizationConformancePack "#list_config-resource-OrganizationConformancePack") | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [DeletePendingAggregationRequest](../../../config/latest/APIReference/API_DeletePendingAggregationRequest.md "../../../config/latest/APIReference/API_DeletePendingAggregationRequest.md")                                                 | Grants permission to delete pending authorization requests for a specified aggregator account in a specified region                                                                                                                                                                             |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write          |
-| [DeleteRemediationConfiguration](../../../config/latest/APIReference/API_DeleteRemediationConfiguration.md "../../../config/latest/APIReference/API_DeleteRemediationConfiguration.md")                                                    | Grants permission to delete the remediation configuration                                                                                                                                                                                                                                       | [RemediationConfiguration\*](#list_config-resource-RemediationConfiguration "#list_config-resource-RemediationConfiguration")          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write          |
-| [DeleteRemediationExceptions](../../../config/latest/APIReference/API_DeleteRemediationExceptions.md "../../../config/latest/APIReference/API_DeleteRemediationExceptions.md")                                                             | Grants permission to delete one or more remediation exceptions for specific resource keys for a specific AWS Config Rule                                                                                                                                                                        |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write          |
-| [DeleteResourceConfig](../../../config/latest/APIReference/API_DeleteResourceConfig.md "../../../config/latest/APIReference/API_DeleteResourceConfig.md")                                                                                  | Grants permission to record the configuration state for a custom resource that has been deleted                                                                                                                                                                                                 |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write          |
-| [DeleteRetentionConfiguration](../../../config/latest/APIReference/API_DeleteRetentionConfiguration.md "../../../config/latest/APIReference/API_DeleteRetentionConfiguration.md")                                                          | Grants permission to delete the retention configuration                                                                                                                                                                                                                                         |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write          |
-| [DeleteServiceLinkedConfigurationRecorder](../../../config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.md "../../../config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.md")                      | Grants permission to delete the service-linked configuration recorder                                                                                                                                                                                                                           | [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder "#list_config-resource-ConfigurationRecorder")                   | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[config:ConfigurationRecorderServicePrincipal](#list_config-config_ConfigurationRecorderServicePrincipal "#list_config-config_ConfigurationRecorderServicePrincipal")                                                                                                                                                                                    | Write          |
-| [DeleteStoredQuery](../../../config/latest/APIReference/API_DeleteStoredQuery.md "../../../config/latest/APIReference/API_DeleteStoredQuery.md")                                                                                           | Grants permission to delete the stored query for an AWS account in an AWS Region                                                                                                                                                                                                                | [StoredQuery\*](#list_config-resource-StoredQuery "#list_config-resource-StoredQuery")                                                 | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [DeliverConfigSnapshot](../../../config/latest/APIReference/API_DeliverConfigSnapshot.md "../../../config/latest/APIReference/API_DeliverConfigSnapshot.md")                                                                               | Grants permission to schedule delivery of a configuration snapshot to the Amazon S3 bucket in the specified delivery channel                                                                                                                                                                    |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [DescribeAggregateComplianceByConfigRules](../../../config/latest/APIReference/API_DescribeAggregateComplianceByConfigRules.md "../../../config/latest/APIReference/API_DescribeAggregateComplianceByConfigRules.md")                      | Grants permission to return a list of compliant and noncompliant rules with the number of resources for compliant and noncompliant rules                                                                                                                                                        | [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator "#list_config-resource-ConfigurationAggregator")             | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [DescribeAggregateComplianceByConformancePacks](../../../config/latest/APIReference/API_DescribeAggregateComplianceByConformancePacks.md "../../../config/latest/APIReference/API_DescribeAggregateComplianceByConformancePacks.md")       | Grants permission to return a list of compliant and noncompliant conformance packs along with count of compliant, non-compliant and total rules within each conformance pack                                                                                                                    | [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator "#list_config-resource-ConfigurationAggregator")             | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [DescribeAggregationAuthorizations](../../../config/latest/APIReference/API_DescribeAggregationAuthorizations.md "../../../config/latest/APIReference/API_DescribeAggregationAuthorizations.md")                                           | Grants permission to return a list of authorizations granted to various aggregator accounts and regions                                                                                                                                                                                         |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [DescribeComplianceByConfigRule](../../../config/latest/APIReference/API_DescribeComplianceByConfigRule.md "../../../config/latest/APIReference/API_DescribeComplianceByConfigRule.md")                                                    | Grants permission to indicate whether the specified AWS Config rules are compliant                                                                                                                                                                                                              |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [DescribeComplianceByResource](../../../config/latest/APIReference/API_DescribeComplianceByResource.md "../../../config/latest/APIReference/API_DescribeComplianceByResource.md")                                                          | Grants permission to indicate whether the specified AWS resources are compliant                                                                                                                                                                                                                 |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [DescribeConfigRuleEvaluationStatus](../../../config/latest/APIReference/API_DescribeConfigRuleEvaluationStatus.md "../../../config/latest/APIReference/API_DescribeConfigRuleEvaluationStatus.md")                                        | Grants permission to return status information for each of your AWS managed Config rules                                                                                                                                                                                                        |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [DescribeConfigRules](../../../config/latest/APIReference/API_DescribeConfigRules.md "../../../config/latest/APIReference/API_DescribeConfigRules.md")                                                                                     | Grants permission to return details about your AWS Config rules                                                                                                                                                                                                                                 |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [DescribeConfigurationAggregatorSourcesStatus](../../../config/latest/APIReference/API_DescribeConfigurationAggregatorSourcesStatus.md "../../../config/latest/APIReference/API_DescribeConfigurationAggregatorSourcesStatus.md")          | Grants permission to return status information for sources within an aggregator                                                                                                                                                                                                                 | [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator "#list_config-resource-ConfigurationAggregator")             | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [DescribeConfigurationAggregators](../../../config/latest/APIReference/API_DescribeConfigurationAggregators.md "../../../config/latest/APIReference/API_DescribeConfigurationAggregators.md")                                              | Grants permission to return the details of one or more configuration aggregators                                                                                                                                                                                                                |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [DescribeConfigurationRecorderStatus](../../../config/latest/APIReference/API_DescribeConfigurationRecorderStatus.md "../../../config/latest/APIReference/API_DescribeConfigurationRecorderStatus.md")                                     | Grants permission to return the current status of the specified configuration recorder                                                                                                                                                                                                          | [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder "#list_config-resource-ConfigurationRecorder")                   | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[config:ConfigurationRecorderServicePrincipal](#list_config-config_ConfigurationRecorderServicePrincipal "#list_config-config_ConfigurationRecorderServicePrincipal")                                                                                                                                                                                    | Read           |
-| [DescribeConfigurationRecorders](../../../config/latest/APIReference/API_DescribeConfigurationRecorders.md "../../../config/latest/APIReference/API_DescribeConfigurationRecorders.md")                                                    | Grants permission to return the names of one or more specified configuration recorders                                                                                                                                                                                                          | [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder "#list_config-resource-ConfigurationRecorder")                   | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[config:ConfigurationRecorderServicePrincipal](#list_config-config_ConfigurationRecorderServicePrincipal "#list_config-config_ConfigurationRecorderServicePrincipal")                                                                                                                                                                                    | Read           |
-| [DescribeConformancePackCompliance](../../../config/latest/APIReference/API_DescribeConformancePackCompliance.md "../../../config/latest/APIReference/API_DescribeConformancePackCompliance.md")                                           | Grants permission to return compliance information for each rule in that conformance pack                                                                                                                                                                                                       | [ConformancePack\*](#list_config-resource-ConformancePack "#list_config-resource-ConformancePack")                                     | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [DescribeConformancePackStatus](../../../config/latest/APIReference/API_DescribeConformancePackStatus.md "../../../config/latest/APIReference/API_DescribeConformancePackStatus.md")                                                       | Grants permission to provide one or more conformance packs deployment status                                                                                                                                                                                                                    |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [DescribeConformancePacks](../../../config/latest/APIReference/API_DescribeConformancePacks.md "../../../config/latest/APIReference/API_DescribeConformancePacks.md")                                                                      | Grants permission to return a list of one or more conformance packs                                                                                                                                                                                                                             |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [DescribeDeliveryChannelStatus](../../../config/latest/APIReference/API_DescribeDeliveryChannelStatus.md "../../../config/latest/APIReference/API_DescribeDeliveryChannelStatus.md")                                                       | Grants permission to return the current status of the specified delivery channel                                                                                                                                                                                                                |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [DescribeDeliveryChannels](../../../config/latest/APIReference/API_DescribeDeliveryChannels.md "../../../config/latest/APIReference/API_DescribeDeliveryChannels.md")                                                                      | Grants permission to return details about the specified delivery channel                                                                                                                                                                                                                        |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [DescribeOrganizationConfigRuleStatuses](../../../config/latest/APIReference/API_DescribeOrganizationConfigRuleStatuses.md "../../../config/latest/APIReference/API_DescribeOrganizationConfigRuleStatuses.md")                            | Grants permission to provide organization config rule deployment status for an organization                                                                                                                                                                                                     |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [DescribeOrganizationConfigRules](../../../config/latest/APIReference/API_DescribeOrganizationConfigRules.md "../../../config/latest/APIReference/API_DescribeOrganizationConfigRules.md")                                                 | Grants permission to return a list of organization config rules                                                                                                                                                                                                                                 |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [DescribeOrganizationConformancePackStatuses](../../../config/latest/APIReference/API_DescribeOrganizationConformancePackStatuses.md "../../../config/latest/APIReference/API_DescribeOrganizationConformancePackStatuses.md")             | Grants permission to provide organization conformance pack deployment status for an organization                                                                                                                                                                                                |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [DescribeOrganizationConformancePacks](../../../config/latest/APIReference/API_DescribeOrganizationConformancePacks.md "../../../config/latest/APIReference/API_DescribeOrganizationConformancePacks.md")                                  | Grants permission to return a list of organization conformance packs                                                                                                                                                                                                                            |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [DescribePendingAggregationRequests](../../../config/latest/APIReference/API_DescribePendingAggregationRequests.md "../../../config/latest/APIReference/API_DescribePendingAggregationRequests.md")                                        | Grants permission to return a list of all pending aggregation requests                                                                                                                                                                                                                          |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [DescribeRemediationConfigurations](../../../config/latest/APIReference/API_DescribeRemediationConfigurations.md "../../../config/latest/APIReference/API_DescribeRemediationConfigurations.md")                                           | Grants permission to return the details of one or more remediation configurations                                                                                                                                                                                                               | [RemediationConfiguration\*](#list_config-resource-RemediationConfiguration "#list_config-resource-RemediationConfiguration")          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [DescribeRemediationExceptions](../../../config/latest/APIReference/API_DescribeRemediationExceptions.md "../../../config/latest/APIReference/API_DescribeRemediationExceptions.md")                                                       | Grants permission to return the details of one or more remediation exceptions                                                                                                                                                                                                                   |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [DescribeRemediationExecutionStatus](../../../config/latest/APIReference/API_DescribeRemediationExecutionStatus.md "../../../config/latest/APIReference/API_DescribeRemediationExecutionStatus.md")                                        | Grants permission to provide a detailed view of a Remediation Execution for a set of resources including state, timestamps and any error messages for steps that have failed                                                                                                                    | [RemediationConfiguration\*](#list_config-resource-RemediationConfiguration "#list_config-resource-RemediationConfiguration")          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [DescribeRetentionConfigurations](../../../config/latest/APIReference/API_DescribeRetentionConfigurations.md "../../../config/latest/APIReference/API_DescribeRetentionConfigurations.md")                                                 | Grants permission to return the details of one or more retention configurations                                                                                                                                                                                                                 |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [DisassociateResourceTypes](../../../config/latest/APIReference/API_DisassociateResourceTypes.md "../../../config/latest/APIReference/API_DisassociateResourceTypes.md")                                                                   | Grants permission to remove all specified resource types from the RecordingGroup of configuration recorder and excludes these resource types when recording                                                                                                                                     | [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder "#list_config-resource-ConfigurationRecorder")                   | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [GetAggregateComplianceDetailsByConfigRule](../../../config/latest/APIReference/API_GetAggregateComplianceDetailsByConfigRule.md "../../../config/latest/APIReference/API_GetAggregateComplianceDetailsByConfigRule.md")                   | Grants permission to return the evaluation results for the specified AWS Config rule for a specific resource in a rule                                                                                                                                                                          | [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator "#list_config-resource-ConfigurationAggregator")             | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [GetAggregateConfigRuleComplianceSummary](../../../config/latest/APIReference/API_GetAggregateConfigRuleComplianceSummary.md "../../../config/latest/APIReference/API_GetAggregateConfigRuleComplianceSummary.md")                         | Grants permission to return the number of compliant and noncompliant rules for one or more accounts and regions in an aggregator                                                                                                                                                                | [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator "#list_config-resource-ConfigurationAggregator")             | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [GetAggregateConformancePackComplianceSummary](../../../config/latest/APIReference/API_GetAggregateConformancePackComplianceSummary.md "../../../config/latest/APIReference/API_GetAggregateConformancePackComplianceSummary.md")          | Grants permission to return the number of compliant and noncompliant conformance packs for one or more accounts and regions in an aggregator                                                                                                                                                    | [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator "#list_config-resource-ConfigurationAggregator")             | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [GetAggregateDiscoveredResourceCounts](../../../config/latest/APIReference/API_GetAggregateDiscoveredResourceCounts.md "../../../config/latest/APIReference/API_GetAggregateDiscoveredResourceCounts.md")                                  | Grants permission to return the resource counts across accounts and regions that are present in your AWS Config aggregator                                                                                                                                                                      | [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator "#list_config-resource-ConfigurationAggregator")             | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [GetAggregateResourceConfig](../../../config/latest/APIReference/API_GetAggregateResourceConfig.md "../../../config/latest/APIReference/API_GetAggregateResourceConfig.md")                                                                | Grants permission to return configuration item that is aggregated for your specific resource in a specific source account and region                                                                                                                                                            | [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator "#list_config-resource-ConfigurationAggregator")             | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [GetComplianceDetailsByConfigRule](../../../config/latest/APIReference/API_GetComplianceDetailsByConfigRule.md "../../../config/latest/APIReference/API_GetComplianceDetailsByConfigRule.md")                                              | Grants permission to return the evaluation results for the specified AWS Config rule                                                                                                                                                                                                            | [ConfigRule\*](#list_config-resource-ConfigRule "#list_config-resource-ConfigRule")                                                    | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [GetComplianceDetailsByResource](../../../config/latest/APIReference/API_GetComplianceDetailsByResource.md "../../../config/latest/APIReference/API_GetComplianceDetailsByResource.md")                                                    | Grants permission to return the evaluation results for the specified AWS resource                                                                                                                                                                                                               |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [GetComplianceSummaryByConfigRule](../../../config/latest/APIReference/API_GetComplianceSummaryByConfigRule.md "../../../config/latest/APIReference/API_GetComplianceSummaryByConfigRule.md")                                              | Grants permission to return the number of AWS Config rules that are compliant and noncompliant, up to a maximum of 25 for each                                                                                                                                                                  |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [GetComplianceSummaryByResourceType](../../../config/latest/APIReference/API_GetComplianceSummaryByResourceType.md "../../../config/latest/APIReference/API_GetComplianceSummaryByResourceType.md")                                        | Grants permission to return the number of resources that are compliant and the number that are noncompliant                                                                                                                                                                                     |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [GetConformancePackComplianceDetails](../../../config/latest/APIReference/API_GetConformancePackComplianceDetails.md "../../../config/latest/APIReference/API_GetConformancePackComplianceDetails.md")                                     | Grants permission to return compliance details of a conformance pack for all AWS resources that are monitered by conformance pack                                                                                                                                                               | [ConformancePack\*](#list_config-resource-ConformancePack "#list_config-resource-ConformancePack")                                     | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [GetConformancePackComplianceSummary](../../../config/latest/APIReference/API_GetConformancePackComplianceSummary.md "../../../config/latest/APIReference/API_GetConformancePackComplianceSummary.md")                                     | Grants permission to provide compliance summary for one or more conformance packs                                                                                                                                                                                                               | [ConformancePack\*](#list_config-resource-ConformancePack "#list_config-resource-ConformancePack")                                     | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [GetConnector](../../../config/latest/APIReference/API_GetConnector.md "../../../config/latest/APIReference/API_GetConnector.md")                                                                                                          | Grants permission to return the details of a specific connector configuration                                                                                                                                                                                                                   | [Connector\*](#list_config-resource-Connector "#list_config-resource-Connector")                                                       | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [GetCustomRulePolicy](../../../config/latest/APIReference/API_GetCustomRulePolicy.md "../../../config/latest/APIReference/API_GetCustomRulePolicy.md")                                                                                     | Grants permission to return the policy definition containing the logic for your AWS Config Custom Policy rule                                                                                                                                                                                   | [ConfigRule\*](#list_config-resource-ConfigRule "#list_config-resource-ConfigRule")                                                    | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [GetDiscoveredResourceCounts](../../../config/latest/APIReference/API_GetDiscoveredResourceCounts.md "../../../config/latest/APIReference/API_GetDiscoveredResourceCounts.md")                                                             | Grants permission to return the resource types, the number of each resource type, and the total number of resources that AWS Config is recording in this region for your AWS account                                                                                                            |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [GetOrganizationConfigRuleDetailedStatus](../../../config/latest/APIReference/API_GetOrganizationConfigRuleDetailedStatus.md "../../../config/latest/APIReference/API_GetOrganizationConfigRuleDetailedStatus.md")                         | Grants permission to return detailed status for each member account within an organization for a given organization config rule                                                                                                                                                                 | [OrganizationConfigRule\*](#list_config-resource-OrganizationConfigRule "#list_config-resource-OrganizationConfigRule")                | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [GetOrganizationConformancePackDetailedStatus](../../../config/latest/APIReference/API_GetOrganizationConformancePackDetailedStatus.md "../../../config/latest/APIReference/API_GetOrganizationConformancePackDetailedStatus.md")          | Grants permission to return detailed status for each member account within an organization for a given organization conformance pack                                                                                                                                                            | [OrganizationConformancePack\*](#list_config-resource-OrganizationConformancePack "#list_config-resource-OrganizationConformancePack") | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [GetOrganizationCustomRulePolicy](../../../config/latest/APIReference/API_GetOrganizationCustomRulePolicy.md "../../../config/latest/APIReference/API_GetOrganizationCustomRulePolicy.md")                                                 | Grants permission to return the policy definition containing the logic for your organization AWS Config Custom Policy rule                                                                                                                                                                      | [OrganizationConfigRule\*](#list_config-resource-OrganizationConfigRule "#list_config-resource-OrganizationConfigRule")                | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [GetResourceConfigHistory](../../../config/latest/APIReference/API_GetResourceConfigHistory.md "../../../config/latest/APIReference/API_GetResourceConfigHistory.md")                                                                      | Grants permission to return a list of configuration items for the specified resource                                                                                                                                                                                                            |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [GetResourceEvaluationSummary](../../../config/latest/APIReference/API_GetResourceEvaluationSummary.md "../../../config/latest/APIReference/API_GetResourceEvaluationSummary.md")                                                          | Grants permission to return the summary of resource evaluations for a specific resource evaluation ID                                                                                                                                                                                           |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [GetStoredQuery](../../../config/latest/APIReference/API_GetStoredQuery.md "../../../config/latest/APIReference/API_GetStoredQuery.md")                                                                                                    | Grants permission to return the details of a specific stored query                                                                                                                                                                                                                              | [StoredQuery\*](#list_config-resource-StoredQuery "#list_config-resource-StoredQuery")                                                 | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [ListAggregateDiscoveredResources](../../../config/latest/APIReference/API_ListAggregateDiscoveredResources.md "../../../config/latest/APIReference/API_ListAggregateDiscoveredResources.md")                                              | Grants permission to accept a resource type and returns a list of resource identifiers that are aggregated for a specific resource type across accounts and regions                                                                                                                             | [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator "#list_config-resource-ConfigurationAggregator")             | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | List           |
-| [ListConfigurationRecorders](../../../config/latest/APIReference/API_ListConfigurationRecorders.md "../../../config/latest/APIReference/API_ListConfigurationRecorders.md")                                                                | Grants permission to list the configuration recorder summaries for an AWS account in an AWS Region                                                                                                                                                                                              |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [ListConformancePackComplianceScores](../../../config/latest/APIReference/API_ListConformancePackComplianceScores.md "../../../config/latest/APIReference/API_ListConformancePackComplianceScores.md")                                     | Grants permission to return the percentage of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations                                                                                                                    |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [ListConnectors](../../../config/latest/APIReference/API_ListConnectors.md "../../../config/latest/APIReference/API_ListConnectors.md")                                                                                                    | Grants permission to list all connectors in the AWS account and region                                                                                                                                                                                                                          |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [ListDiscoveredResources](../../../config/latest/APIReference/API_ListDiscoveredResources.md "../../../config/latest/APIReference/API_ListDiscoveredResources.md")                                                                         | Grants permission to accept a resource type and returns a list of resource identifiers for the resources of that type                                                                                                                                                                           |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [ListResourceEvaluations](../../../config/latest/APIReference/API_ListResourceEvaluations.md "../../../config/latest/APIReference/API_ListResourceEvaluations.md")                                                                         | Grants permission to list the resource evaluation summaries for an AWS account in an AWS Region                                                                                                                                                                                                 |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [ListStoredQueries](../../../config/latest/APIReference/API_ListStoredQueries.md "../../../config/latest/APIReference/API_ListStoredQueries.md")                                                                                           | Grants permission to list the stored queries for an AWS account in an AWS Region                                                                                                                                                                                                                |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List           |
-| [ListTagsForResource](../../../config/latest/APIReference/API_ListTagsForResource.md "../../../config/latest/APIReference/API_ListTagsForResource.md")                                                                                     | Grants permission to list the tags for AWS Config resource                                                                                                                                                                                                                                      | [AggregationAuthorization](#list_config-resource-AggregationAuthorization "#list_config-resource-AggregationAuthorization")            | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [ConfigRule](#list_config-resource-ConfigRule "#list_config-resource-ConfigRule")                                                                                                                                                          | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [ConfigurationAggregator](#list_config-resource-ConfigurationAggregator "#list_config-resource-ConfigurationAggregator")                                                                                                                   | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [ConfigurationRecorder](#list_config-resource-ConfigurationRecorder "#list_config-resource-ConfigurationRecorder")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [ConformancePack](#list_config-resource-ConformancePack "#list_config-resource-ConformancePack")                                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [Connector](#list_config-resource-Connector "#list_config-resource-Connector")                                                                                                                                                             | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [OrganizationConfigRule](#list_config-resource-OrganizationConfigRule "#list_config-resource-OrganizationConfigRule")                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [OrganizationConformancePack](#list_config-resource-OrganizationConformancePack "#list_config-resource-OrganizationConformancePack")                                                                                                       | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [StoredQuery](#list_config-resource-StoredQuery "#list_config-resource-StoredQuery")                                                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [PutAggregationAuthorization](../../../config/latest/APIReference/API_PutAggregationAuthorization.md "../../../config/latest/APIReference/API_PutAggregationAuthorization.md")                                                             | Grants permission to authorize the aggregator account and region to collect data from the source account and region                                                                                                                                                                             | [AggregationAuthorization\*](#list_config-resource-AggregationAuthorization "#list_config-resource-AggregationAuthorization")          | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")                                                                                                                                                                          | Write          |
-| [PutConfigRule](../../../config/latest/APIReference/API_PutConfigRule.md "../../../config/latest/APIReference/API_PutConfigRule.md")                                                                                                       | Grants permission to add or update an AWS Config rule for evaluating whether your AWS resources comply with your desired configurations                                                                                                                                                         | [ConfigRule\*](#list_config-resource-ConfigRule "#list_config-resource-ConfigRule")                                                    | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")                                                                                                                                                                          | Write          |
-| [PutConfigurationAggregator](../../../config/latest/APIReference/API_PutConfigurationAggregator.md "../../../config/latest/APIReference/API_PutConfigurationAggregator.md")                                                                | Grants permission to create and update the configuration aggregator with the selected source accounts and regions                                                                                                                                                                               | [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator "#list_config-resource-ConfigurationAggregator")             | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")                                                                                                                                                                          | Write          |
-| [PutConfigurationRecorder](../../../config/latest/APIReference/API_PutConfigurationRecorder.md "../../../config/latest/APIReference/API_PutConfigurationRecorder.md")                                                                      | Grants permission to create or update a customer managed configuration recorder to record the selected resource configurations                                                                                                                                                                  | [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder "#list_config-resource-ConfigurationRecorder")                   | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")                                                                                                                                                                          | Write          |
-| [PutConformancePack](../../../config/latest/APIReference/API_PutConformancePack.md "../../../config/latest/APIReference/API_PutConformancePack.md")                                                                                        | Grants permission to create or update a conformance pack                                                                                                                                                                                                                                        | [ConformancePack\*](#list_config-resource-ConformancePack "#list_config-resource-ConformancePack")                                     | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [PutConnector](../../../config/latest/APIReference/API_PutConnector.md "../../../config/latest/APIReference/API_PutConnector.md")                                                                                                          | Grants permission to create a connector configuration that contains provider identity information, as well as other optional provider-specific information required for third-party recording                                                                                                   | [Connector\*](#list_config-resource-Connector "#list_config-resource-Connector")                                                       | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")                                                                                                                                                                          | Write          |
-| [PutDeliveryChannel](../../../config/latest/APIReference/API_PutDeliveryChannel.md "../../../config/latest/APIReference/API_PutDeliveryChannel.md")                                                                                        | Grants permission to create a delivery channel object to deliver configuration information to an Amazon S3 bucket and Amazon SNS topic                                                                                                                                                          |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write          |
-| [PutEvaluations](../../../config/latest/APIReference/API_PutEvaluations.md "../../../config/latest/APIReference/API_PutEvaluations.md")                                                                                                    | Grants permission to be used by an AWS Lambda function to deliver evaluation results to AWS Config                                                                                                                                                                                              |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write          |
-| [PutExternalEvaluation](../../../config/latest/APIReference/API_PutExternalEvaluation.md "../../../config/latest/APIReference/API_PutExternalEvaluation.md")                                                                               | Grants permission to deliver evaluation result to AWS Config                                                                                                                                                                                                                                    | [ConfigRule\*](#list_config-resource-ConfigRule "#list_config-resource-ConfigRule")                                                    | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [PutOrganizationConfigRule](../../../config/latest/APIReference/API_PutOrganizationConfigRule.md "../../../config/latest/APIReference/API_PutOrganizationConfigRule.md")                                                                   | Grants permission to add or update organization config rule for your entire organization evaluating whether your AWS resources comply with your desired configurations                                                                                                                          | [OrganizationConfigRule\*](#list_config-resource-OrganizationConfigRule "#list_config-resource-OrganizationConfigRule")                | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [PutOrganizationConformancePack](../../../config/latest/APIReference/API_PutOrganizationConformancePack.md "../../../config/latest/APIReference/API_PutOrganizationConformancePack.md")                                                    | Grants permission to add or update organization conformance pack for your entire organization evaluating whether your AWS resources comply with your desired configurations                                                                                                                     | [OrganizationConformancePack\*](#list_config-resource-OrganizationConformancePack "#list_config-resource-OrganizationConformancePack") | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [PutRemediationConfigurations](../../../config/latest/APIReference/API_PutRemediationConfigurations.md "../../../config/latest/APIReference/API_PutRemediationConfigurations.md")                                                          | Grants permission to add or update the remediation configuration with a specific AWS Config rule with the selected target or action                                                                                                                                                             | [RemediationConfiguration\*](#list_config-resource-RemediationConfiguration "#list_config-resource-RemediationConfiguration")          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write          |
-| [PutRemediationExceptions](../../../config/latest/APIReference/API_PutRemediationExceptions.md "../../../config/latest/APIReference/API_PutRemediationExceptions.md")                                                                      | Grants permission to add or update remediation exceptions for specific resources for a specific AWS Config rule                                                                                                                                                                                 |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write          |
-| [PutResourceConfig](../../../config/latest/APIReference/API_PutResourceConfig.md "../../../config/latest/APIReference/API_PutResourceConfig.md")                                                                                           | Grants permission to record the configuration state for the resource provided in the request                                                                                                                                                                                                    |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write          |
-| [PutRetentionConfiguration](../../../config/latest/APIReference/API_PutRetentionConfiguration.md "../../../config/latest/APIReference/API_PutRetentionConfiguration.md")                                                                   | Grants permission to create and update the retention configuration with details about retention period (number of days) that AWS Config stores your historical information                                                                                                                      |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write          |
-| [PutServiceLinkedConfigurationRecorder](../../../config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.md "../../../config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.md")                               | Grants permission to create a new service-linked configuration recorder to record the resource configurations in scope for the linked service                                                                                                                                                   |                                                                                                                                        | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")<br>[config:ConfigurationRecorderServicePrincipal](#list_config-config_ConfigurationRecorderServicePrincipal "#list_config-config_ConfigurationRecorderServicePrincipal")                                                                                                                 | Write          |
-| [PutStoredQuery](../../../config/latest/APIReference/API_PutStoredQuery.md "../../../config/latest/APIReference/API_PutStoredQuery.md")                                                                                                    | Grants permission to save a new query or updates an existing saved query                                                                                                                                                                                                                        | [StoredQuery\*](#list_config-resource-StoredQuery "#list_config-resource-StoredQuery")                                                 | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")                                                                                                                                                                          | Write          |
-| [PutThirdPartyServiceLinkedConfigurationRecorder](../../../config/latest/APIReference/API_PutThirdPartyServiceLinkedConfigurationRecorder.md "../../../config/latest/APIReference/API_PutThirdPartyServiceLinkedConfigurationRecorder.md") | Grants permission to create or update a service-linked configuration recorder for a third-party provider linked to a specific AWS partner service                                                                                                                                               | [Connector\*](#list_config-resource-Connector "#list_config-resource-Connector")                                                       | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")<br>[config:ConfigurationRecorderServicePrincipal](#list_config-config_ConfigurationRecorderServicePrincipal "#list_config-config_ConfigurationRecorderServicePrincipal") | Write          |
-| [SelectAggregateResourceConfig](../../../config/latest/APIReference/API_SelectAggregateResourceConfig.md "../../../config/latest/APIReference/API_SelectAggregateResourceConfig.md")                                                       | Grants permission to accept a structured query language (SQL) SELECT command and an aggregator to query configuration state of AWS resources across multiple accounts and regions, performs the corresponding search, and returns resource configurations matching the properties               | [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator "#list_config-resource-ConfigurationAggregator")             | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Read           |
-| [SelectResourceConfig](../../../config/latest/APIReference/API_SelectResourceConfig.md "../../../config/latest/APIReference/API_SelectResourceConfig.md")                                                                                  | Grants permission to accept a structured query language (SQL) SELECT command, performs the corresponding search, and returns resource configurations matching the properties                                                                                                                    |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read           |
-| [StartConfigRulesEvaluation](../../../config/latest/APIReference/API_StartConfigRulesEvaluation.md "../../../config/latest/APIReference/API_StartConfigRulesEvaluation.md")                                                                | Grants permission to evaluate your resources against the specified Config rules                                                                                                                                                                                                                 | [ConfigRule\*](#list_config-resource-ConfigRule "#list_config-resource-ConfigRule")                                                    | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [StartConfigurationRecorder](../../../config/latest/APIReference/API_StartConfigurationRecorder.md "../../../config/latest/APIReference/API_StartConfigurationRecorder.md")                                                                | Grants permission to the customer managed configuration recorder to start recording configurations of the AWS resources you have selected to record in your AWS account                                                                                                                         | [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder "#list_config-resource-ConfigurationRecorder")                   | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [StartRemediationExecution](../../../config/latest/APIReference/API_StartRemediationExecution.md "../../../config/latest/APIReference/API_StartRemediationExecution.md")                                                                   | Grants permission to run an on-demand remediation for the specified AWS Config rules against the last known remediation configuration                                                                                                                                                           |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write          |
-| [StartResourceEvaluation](../../../config/latest/APIReference/API_StartResourceEvaluation.md "../../../config/latest/APIReference/API_StartResourceEvaluation.md")                                                                         | Grants permission to evaluate your resource details against the AWS Config rules in your account                                                                                                                                                                                                |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write          |
-| [StopConfigurationRecorder](../../../config/latest/APIReference/API_StopConfigurationRecorder.md "../../../config/latest/APIReference/API_StopConfigurationRecorder.md")                                                                   | Grants permission to the customer managed configuration recorder to stop recording configurations of the AWS resources you have selected to record in your AWS account                                                                                                                          | [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder "#list_config-resource-ConfigurationRecorder")                   | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                             | Write          |
-| [TagResource](../../../config/latest/APIReference/API_TagResource.md "../../../config/latest/APIReference/API_TagResource.md")                                                                                                             | Grants permission to associate the specified tags to a resource with the specified resourceArn                                                                                                                                                                                                  | [AggregationAuthorization](#list_config-resource-AggregationAuthorization "#list_config-resource-AggregationAuthorization")            | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")                                                                                                                                                                          | Tagging, Write |
-| [ConfigRule](#list_config-resource-ConfigRule "#list_config-resource-ConfigRule")                                                                                                                                                          | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys") |
-| [ConfigurationAggregator](#list_config-resource-ConfigurationAggregator "#list_config-resource-ConfigurationAggregator")                                                                                                                   | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys") |
-| [ConfigurationRecorder](#list_config-resource-ConfigurationRecorder "#list_config-resource-ConfigurationRecorder")                                                                                                                         | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys") |
-| [ConformancePack](#list_config-resource-ConformancePack "#list_config-resource-ConformancePack")                                                                                                                                           | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys") |
-| [Connector](#list_config-resource-Connector "#list_config-resource-Connector")                                                                                                                                                             | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys") |
-| [OrganizationConfigRule](#list_config-resource-OrganizationConfigRule "#list_config-resource-OrganizationConfigRule")                                                                                                                      | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys") |
-| [OrganizationConformancePack](#list_config-resource-OrganizationConformancePack "#list_config-resource-OrganizationConformancePack")                                                                                                       | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys") |
-| [StoredQuery](#list_config-resource-StoredQuery "#list_config-resource-StoredQuery")                                                                                                                                                       | [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_ "#list_config-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys") |
-| [UntagResource](../../../config/latest/APIReference/API_UntagResource.md "../../../config/latest/APIReference/API_UntagResource.md")                                                                                                       | Grants permission to delete specified tags from a resource                                                                                                                                                                                                                                      | [AggregationAuthorization](#list_config-resource-AggregationAuthorization "#list_config-resource-AggregationAuthorization")            | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")                                                                                                                                                                                                                                                                                       | Tagging, Write |
-| [ConfigRule](#list_config-resource-ConfigRule "#list_config-resource-ConfigRule")                                                                                                                                                          | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")                                                                                                              |
-| [ConfigurationAggregator](#list_config-resource-ConfigurationAggregator "#list_config-resource-ConfigurationAggregator")                                                                                                                   | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")                                                                                                              |
-| [ConfigurationRecorder](#list_config-resource-ConfigurationRecorder "#list_config-resource-ConfigurationRecorder")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")                                                                                                              |
-| [ConformancePack](#list_config-resource-ConformancePack "#list_config-resource-ConformancePack")                                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")                                                                                                              |
-| [Connector](#list_config-resource-Connector "#list_config-resource-Connector")                                                                                                                                                             | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")                                                                                                              |
-| [OrganizationConfigRule](#list_config-resource-OrganizationConfigRule "#list_config-resource-OrganizationConfigRule")                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")                                                                                                              |
-| [OrganizationConformancePack](#list_config-resource-OrganizationConformancePack "#list_config-resource-OrganizationConformancePack")                                                                                                       | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")                                                                                                              |
-| [StoredQuery](#list_config-resource-StoredQuery "#list_config-resource-StoredQuery")                                                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_config-aws_TagKeys "#list_config-aws_TagKeys")                                                                                                              |
+
+
+
+- **   [AssociateResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html)  **
+  - **Description:** Grants permission to add all specified resource types to the RecordingGroup of configuration recorder and includes those resource types when recording
+  - **Resource types (\*required):** [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchGetAggregateResourceConfig](https://docs.aws.amazon.com/config/latest/APIReference/API_BatchGetAggregateResourceConfig.html)  **
+  - **Description:** Grants permission to return the current configuration items for resources that are present in your AWS Config aggregator
+  - **Resource types (\*required):** [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetResourceConfig](https://docs.aws.amazon.com/config/latest/APIReference/API_BatchGetResourceConfig.html)  **
+  - **Description:** Grants permission to return the current configuration for one or more requested resources
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DeleteAggregationAuthorization](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteAggregationAuthorization.html)  **
+  - **Description:** Grants permission to delete the authorization granted to the specified configuration aggregator account in a specified region
+  - **Resource types (\*required):** [AggregationAuthorization\*](#list_config-resource-AggregationAuthorization)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConfigRule](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConfigRule.html)  **
+  - **Description:** Grants permission to delete the specified AWS Config rule and all of its evaluation results
+  - **Resource types (\*required):** [ConfigRule\*](#list_config-resource-ConfigRule)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConfigurationAggregator](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConfigurationAggregator.html)  **
+  - **Description:** Grants permission to delete the specified configuration aggregator and the aggregated data associated with the aggregator
+  - **Resource types (\*required):** [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConfigurationRecorder.html)  **
+  - **Description:** Grants permission to delete the customer managed configuration recorder
+  - **Resource types (\*required):** [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConformancePack](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConformancePack.html)  **
+  - **Description:** Grants permission to delete the specified conformance pack and all the AWS Config rules and all evaluation results within that conformance pack
+  - **Resource types (\*required):** [ConformancePack\*](#list_config-resource-ConformancePack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConnector](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConnector.html)  **
+  - **Description:** Grants permission to delete a connector configuration
+  - **Resource types (\*required):** [Connector\*](#list_config-resource-Connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDeliveryChannel](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteDeliveryChannel.html)  **
+  - **Description:** Grants permission to delete the delivery channel
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteEvaluationResults](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteEvaluationResults.html)  **
+  - **Description:** Grants permission to delete the evaluation results for the specified Config rule
+  - **Resource types (\*required):** [ConfigRule\*](#list_config-resource-ConfigRule)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteOrganizationConfigRule](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteOrganizationConfigRule.html)  **
+  - **Description:** Grants permission to delete the specified organization config rule and all of its evaluation results from all member accounts in that organization
+  - **Resource types (\*required):** [OrganizationConfigRule\*](#list_config-resource-OrganizationConfigRule)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteOrganizationConformancePack](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteOrganizationConformancePack.html)  **
+  - **Description:** Grants permission to delete the specified organization conformance pack and all of its evaluation results from all member accounts in that organization
+  - **Resource types (\*required):** [OrganizationConformancePack\*](#list_config-resource-OrganizationConformancePack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeletePendingAggregationRequest](https://docs.aws.amazon.com/config/latest/APIReference/API_DeletePendingAggregationRequest.html)  **
+  - **Description:** Grants permission to delete pending authorization requests for a specified aggregator account in a specified region
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteRemediationConfiguration](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteRemediationConfiguration.html)  **
+  - **Description:** Grants permission to delete the remediation configuration
+  - **Resource types (\*required):** [RemediationConfiguration\*](#list_config-resource-RemediationConfiguration)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteRemediationExceptions](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteRemediationExceptions.html)  **
+  - **Description:** Grants permission to delete one or more remediation exceptions for specific resource keys for a specific AWS Config Rule
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteResourceConfig](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteResourceConfig.html)  **
+  - **Description:** Grants permission to record the configuration state for a custom resource that has been deleted
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteRetentionConfiguration](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteRetentionConfiguration.html)  **
+  - **Description:** Grants permission to delete the retention configuration
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteServiceLinkedConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html)  **
+  - **Description:** Grants permission to delete the service-linked configuration recorder
+  - **Resource types (\*required):** [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[config:ConfigurationRecorderServicePrincipal](#list_config-config_ConfigurationRecorderServicePrincipal)
+  - **Access level:** Write
+
+- **   [DeleteStoredQuery](https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteStoredQuery.html)  **
+  - **Description:** Grants permission to delete the stored query for an AWS account in an AWS Region
+  - **Resource types (\*required):** [StoredQuery\*](#list_config-resource-StoredQuery)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeliverConfigSnapshot](https://docs.aws.amazon.com/config/latest/APIReference/API_DeliverConfigSnapshot.html)  **
+  - **Description:** Grants permission to schedule delivery of a configuration snapshot to the Amazon S3 bucket in the specified delivery channel
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeAggregateComplianceByConfigRules](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeAggregateComplianceByConfigRules.html)  **
+  - **Description:** Grants permission to return a list of compliant and noncompliant rules with the number of resources for compliant and noncompliant rules
+  - **Resource types (\*required):** [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeAggregateComplianceByConformancePacks](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeAggregateComplianceByConformancePacks.html)  **
+  - **Description:** Grants permission to return a list of compliant and noncompliant conformance packs along with count of compliant, non-compliant and total rules within each conformance pack
+  - **Resource types (\*required):** [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeAggregationAuthorizations](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeAggregationAuthorizations.html)  **
+  - **Description:** Grants permission to return a list of authorizations granted to various aggregator accounts and regions
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeComplianceByConfigRule](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeComplianceByConfigRule.html)  **
+  - **Description:** Grants permission to indicate whether the specified AWS Config rules are compliant
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeComplianceByResource](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeComplianceByResource.html)  **
+  - **Description:** Grants permission to indicate whether the specified AWS resources are compliant
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeConfigRuleEvaluationStatus](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigRuleEvaluationStatus.html)  **
+  - **Description:** Grants permission to return status information for each of your AWS managed Config rules
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeConfigRules](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigRules.html)  **
+  - **Description:** Grants permission to return details about your AWS Config rules
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeConfigurationAggregatorSourcesStatus](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationAggregatorSourcesStatus.html)  **
+  - **Description:** Grants permission to return status information for sources within an aggregator
+  - **Resource types (\*required):** [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeConfigurationAggregators](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationAggregators.html)  **
+  - **Description:** Grants permission to return the details of one or more configuration aggregators
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeConfigurationRecorderStatus](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html)  **
+  - **Description:** Grants permission to return the current status of the specified configuration recorder
+  - **Resource types (\*required):** [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[config:ConfigurationRecorderServicePrincipal](#list_config-config_ConfigurationRecorderServicePrincipal)
+  - **Access level:** Read
+
+- **   [DescribeConfigurationRecorders](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html)  **
+  - **Description:** Grants permission to return the names of one or more specified configuration recorders
+  - **Resource types (\*required):** [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[config:ConfigurationRecorderServicePrincipal](#list_config-config_ConfigurationRecorderServicePrincipal)
+  - **Access level:** Read
+
+- **   [DescribeConformancePackCompliance](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConformancePackCompliance.html)  **
+  - **Description:** Grants permission to return compliance information for each rule in that conformance pack
+  - **Resource types (\*required):** [ConformancePack\*](#list_config-resource-ConformancePack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeConformancePackStatus](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConformancePackStatus.html)  **
+  - **Description:** Grants permission to provide one or more conformance packs deployment status
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeConformancePacks](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConformancePacks.html)  **
+  - **Description:** Grants permission to return a list of one or more conformance packs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeDeliveryChannelStatus](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeDeliveryChannelStatus.html)  **
+  - **Description:** Grants permission to return the current status of the specified delivery channel
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeDeliveryChannels](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeDeliveryChannels.html)  **
+  - **Description:** Grants permission to return details about the specified delivery channel
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeOrganizationConfigRuleStatuses](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeOrganizationConfigRuleStatuses.html)  **
+  - **Description:** Grants permission to provide organization config rule deployment status for an organization
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeOrganizationConfigRules](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeOrganizationConfigRules.html)  **
+  - **Description:** Grants permission to return a list of organization config rules
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeOrganizationConformancePackStatuses](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeOrganizationConformancePackStatuses.html)  **
+  - **Description:** Grants permission to provide organization conformance pack deployment status for an organization
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeOrganizationConformancePacks](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeOrganizationConformancePacks.html)  **
+  - **Description:** Grants permission to return a list of organization conformance packs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribePendingAggregationRequests](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribePendingAggregationRequests.html)  **
+  - **Description:** Grants permission to return a list of all pending aggregation requests
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeRemediationConfigurations](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeRemediationConfigurations.html)  **
+  - **Description:** Grants permission to return the details of one or more remediation configurations
+  - **Resource types (\*required):** [RemediationConfiguration\*](#list_config-resource-RemediationConfiguration)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeRemediationExceptions](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeRemediationExceptions.html)  **
+  - **Description:** Grants permission to return the details of one or more remediation exceptions
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeRemediationExecutionStatus](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeRemediationExecutionStatus.html)  **
+  - **Description:** Grants permission to provide a detailed view of a Remediation Execution for a set of resources including state, timestamps and any error messages for steps that have failed
+  - **Resource types (\*required):** [RemediationConfiguration\*](#list_config-resource-RemediationConfiguration)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeRetentionConfigurations](https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeRetentionConfigurations.html)  **
+  - **Description:** Grants permission to return the details of one or more retention configurations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DisassociateResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html)  **
+  - **Description:** Grants permission to remove all specified resource types from the RecordingGroup of configuration recorder and excludes these resource types when recording
+  - **Resource types (\*required):** [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetAggregateComplianceDetailsByConfigRule](https://docs.aws.amazon.com/config/latest/APIReference/API_GetAggregateComplianceDetailsByConfigRule.html)  **
+  - **Description:** Grants permission to return the evaluation results for the specified AWS Config rule for a specific resource in a rule
+  - **Resource types (\*required):** [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAggregateConfigRuleComplianceSummary](https://docs.aws.amazon.com/config/latest/APIReference/API_GetAggregateConfigRuleComplianceSummary.html)  **
+  - **Description:** Grants permission to return the number of compliant and noncompliant rules for one or more accounts and regions in an aggregator
+  - **Resource types (\*required):** [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAggregateConformancePackComplianceSummary](https://docs.aws.amazon.com/config/latest/APIReference/API_GetAggregateConformancePackComplianceSummary.html)  **
+  - **Description:** Grants permission to return the number of compliant and noncompliant conformance packs for one or more accounts and regions in an aggregator
+  - **Resource types (\*required):** [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAggregateDiscoveredResourceCounts](https://docs.aws.amazon.com/config/latest/APIReference/API_GetAggregateDiscoveredResourceCounts.html)  **
+  - **Description:** Grants permission to return the resource counts across accounts and regions that are present in your AWS Config aggregator
+  - **Resource types (\*required):** [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAggregateResourceConfig](https://docs.aws.amazon.com/config/latest/APIReference/API_GetAggregateResourceConfig.html)  **
+  - **Description:** Grants permission to return configuration item that is aggregated for your specific resource in a specific source account and region
+  - **Resource types (\*required):** [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetComplianceDetailsByConfigRule](https://docs.aws.amazon.com/config/latest/APIReference/API_GetComplianceDetailsByConfigRule.html)  **
+  - **Description:** Grants permission to return the evaluation results for the specified AWS Config rule
+  - **Resource types (\*required):** [ConfigRule\*](#list_config-resource-ConfigRule)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetComplianceDetailsByResource](https://docs.aws.amazon.com/config/latest/APIReference/API_GetComplianceDetailsByResource.html)  **
+  - **Description:** Grants permission to return the evaluation results for the specified AWS resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetComplianceSummaryByConfigRule](https://docs.aws.amazon.com/config/latest/APIReference/API_GetComplianceSummaryByConfigRule.html)  **
+  - **Description:** Grants permission to return the number of AWS Config rules that are compliant and noncompliant, up to a maximum of 25 for each
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetComplianceSummaryByResourceType](https://docs.aws.amazon.com/config/latest/APIReference/API_GetComplianceSummaryByResourceType.html)  **
+  - **Description:** Grants permission to return the number of resources that are compliant and the number that are noncompliant
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetConformancePackComplianceDetails](https://docs.aws.amazon.com/config/latest/APIReference/API_GetConformancePackComplianceDetails.html)  **
+  - **Description:** Grants permission to return compliance details of a conformance pack for all AWS resources that are monitered by conformance pack
+  - **Resource types (\*required):** [ConformancePack\*](#list_config-resource-ConformancePack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetConformancePackComplianceSummary](https://docs.aws.amazon.com/config/latest/APIReference/API_GetConformancePackComplianceSummary.html)  **
+  - **Description:** Grants permission to provide compliance summary for one or more conformance packs
+  - **Resource types (\*required):** [ConformancePack\*](#list_config-resource-ConformancePack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetConnector](https://docs.aws.amazon.com/config/latest/APIReference/API_GetConnector.html)  **
+  - **Description:** Grants permission to return the details of a specific connector configuration
+  - **Resource types (\*required):** [Connector\*](#list_config-resource-Connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCustomRulePolicy](https://docs.aws.amazon.com/config/latest/APIReference/API_GetCustomRulePolicy.html)  **
+  - **Description:** Grants permission to return the policy definition containing the logic for your AWS Config Custom Policy rule
+  - **Resource types (\*required):** [ConfigRule\*](#list_config-resource-ConfigRule)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDiscoveredResourceCounts](https://docs.aws.amazon.com/config/latest/APIReference/API_GetDiscoveredResourceCounts.html)  **
+  - **Description:** Grants permission to return the resource types, the number of each resource type, and the total number of resources that AWS Config is recording in this region for your AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetOrganizationConfigRuleDetailedStatus](https://docs.aws.amazon.com/config/latest/APIReference/API_GetOrganizationConfigRuleDetailedStatus.html)  **
+  - **Description:** Grants permission to return detailed status for each member account within an organization for a given organization config rule
+  - **Resource types (\*required):** [OrganizationConfigRule\*](#list_config-resource-OrganizationConfigRule)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetOrganizationConformancePackDetailedStatus](https://docs.aws.amazon.com/config/latest/APIReference/API_GetOrganizationConformancePackDetailedStatus.html)  **
+  - **Description:** Grants permission to return detailed status for each member account within an organization for a given organization conformance pack
+  - **Resource types (\*required):** [OrganizationConformancePack\*](#list_config-resource-OrganizationConformancePack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetOrganizationCustomRulePolicy](https://docs.aws.amazon.com/config/latest/APIReference/API_GetOrganizationCustomRulePolicy.html)  **
+  - **Description:** Grants permission to return the policy definition containing the logic for your organization AWS Config Custom Policy rule
+  - **Resource types (\*required):** [OrganizationConfigRule\*](#list_config-resource-OrganizationConfigRule)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetResourceConfigHistory](https://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html)  **
+  - **Description:** Grants permission to return a list of configuration items for the specified resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetResourceEvaluationSummary](https://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceEvaluationSummary.html)  **
+  - **Description:** Grants permission to return the summary of resource evaluations for a specific resource evaluation ID
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetStoredQuery](https://docs.aws.amazon.com/config/latest/APIReference/API_GetStoredQuery.html)  **
+  - **Description:** Grants permission to return the details of a specific stored query
+  - **Resource types (\*required):** [StoredQuery\*](#list_config-resource-StoredQuery)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListAggregateDiscoveredResources](https://docs.aws.amazon.com/config/latest/APIReference/API_ListAggregateDiscoveredResources.html)  **
+  - **Description:** Grants permission to accept a resource type and returns a list of resource identifiers that are aggregated for a specific resource type across accounts and regions
+  - **Resource types (\*required):** [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListConfigurationRecorders](https://docs.aws.amazon.com/config/latest/APIReference/API_ListConfigurationRecorders.html)  **
+  - **Description:** Grants permission to list the configuration recorder summaries for an AWS account in an AWS Region
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListConformancePackComplianceScores](https://docs.aws.amazon.com/config/latest/APIReference/API_ListConformancePackComplianceScores.html)  **
+  - **Description:** Grants permission to return the percentage of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListConnectors](https://docs.aws.amazon.com/config/latest/APIReference/API_ListConnectors.html)  **
+  - **Description:** Grants permission to list all connectors in the AWS account and region
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDiscoveredResources](https://docs.aws.amazon.com/config/latest/APIReference/API_ListDiscoveredResources.html)  **
+  - **Description:** Grants permission to accept a resource type and returns a list of resource identifiers for the resources of that type
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListResourceEvaluations](https://docs.aws.amazon.com/config/latest/APIReference/API_ListResourceEvaluations.html)  **
+  - **Description:** Grants permission to list the resource evaluation summaries for an AWS account in an AWS Region
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListStoredQueries](https://docs.aws.amazon.com/config/latest/APIReference/API_ListStoredQueries.html)  **
+  - **Description:** Grants permission to list the stored queries for an AWS account in an AWS Region
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/config/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list the tags for AWS Config resource
+  - **Resource types (\*required):** [AggregationAuthorization](#list_config-resource-AggregationAuthorization) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ConfigRule](#list_config-resource-ConfigRule) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ConfigurationAggregator](#list_config-resource-ConfigurationAggregator) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ConfigurationRecorder](#list_config-resource-ConfigurationRecorder) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ConformancePack](#list_config-resource-ConformancePack) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Connector](#list_config-resource-Connector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [OrganizationConfigRule](#list_config-resource-OrganizationConfigRule) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [OrganizationConformancePack](#list_config-resource-OrganizationConformancePack) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [StoredQuery](#list_config-resource-StoredQuery) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [PutAggregationAuthorization](https://docs.aws.amazon.com/config/latest/APIReference/API_PutAggregationAuthorization.html)  **
+  - **Description:** Grants permission to authorize the aggregator account and region to collect data from the source account and region
+  - **Resource types (\*required):** [AggregationAuthorization\*](#list_config-resource-AggregationAuthorization)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [PutConfigRule](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html)  **
+  - **Description:** Grants permission to add or update an AWS Config rule for evaluating whether your AWS resources comply with your desired configurations
+  - **Resource types (\*required):** [ConfigRule\*](#list_config-resource-ConfigRule)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [PutConfigurationAggregator](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationAggregator.html)  **
+  - **Description:** Grants permission to create and update the configuration aggregator with the selected source accounts and regions
+  - **Resource types (\*required):** [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [PutConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html)  **
+  - **Description:** Grants permission to create or update a customer managed configuration recorder to record the selected resource configurations
+  - **Resource types (\*required):** [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [PutConformancePack](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html)  **
+  - **Description:** Grants permission to create or update a conformance pack
+  - **Resource types (\*required):** [ConformancePack\*](#list_config-resource-ConformancePack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutConnector](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConnector.html)  **
+  - **Description:** Grants permission to create a connector configuration that contains provider identity information, as well as other optional provider-specific information required for third-party recording
+  - **Resource types (\*required):** [Connector\*](#list_config-resource-Connector)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [PutDeliveryChannel](https://docs.aws.amazon.com/config/latest/APIReference/API_PutDeliveryChannel.html)  **
+  - **Description:** Grants permission to create a delivery channel object to deliver configuration information to an Amazon S3 bucket and Amazon SNS topic
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [PutEvaluations](https://docs.aws.amazon.com/config/latest/APIReference/API_PutEvaluations.html)  **
+  - **Description:** Grants permission to be used by an AWS Lambda function to deliver evaluation results to AWS Config
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [PutExternalEvaluation](https://docs.aws.amazon.com/config/latest/APIReference/API_PutExternalEvaluation.html)  **
+  - **Description:** Grants permission to deliver evaluation result to AWS Config
+  - **Resource types (\*required):** [ConfigRule\*](#list_config-resource-ConfigRule)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutOrganizationConfigRule](https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html)  **
+  - **Description:** Grants permission to add or update organization config rule for your entire organization evaluating whether your AWS resources comply with your desired configurations
+  - **Resource types (\*required):** [OrganizationConfigRule\*](#list_config-resource-OrganizationConfigRule)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutOrganizationConformancePack](https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html)  **
+  - **Description:** Grants permission to add or update organization conformance pack for your entire organization evaluating whether your AWS resources comply with your desired configurations
+  - **Resource types (\*required):** [OrganizationConformancePack\*](#list_config-resource-OrganizationConformancePack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutRemediationConfigurations](https://docs.aws.amazon.com/config/latest/APIReference/API_PutRemediationConfigurations.html)  **
+  - **Description:** Grants permission to add or update the remediation configuration with a specific AWS Config rule with the selected target or action
+  - **Resource types (\*required):** [RemediationConfiguration\*](#list_config-resource-RemediationConfiguration)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [PutRemediationExceptions](https://docs.aws.amazon.com/config/latest/APIReference/API_PutRemediationExceptions.html)  **
+  - **Description:** Grants permission to add or update remediation exceptions for specific resources for a specific AWS Config rule
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [PutResourceConfig](https://docs.aws.amazon.com/config/latest/APIReference/API_PutResourceConfig.html)  **
+  - **Description:** Grants permission to record the configuration state for the resource provided in the request
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [PutRetentionConfiguration](https://docs.aws.amazon.com/config/latest/APIReference/API_PutRetentionConfiguration.html)  **
+  - **Description:** Grants permission to create and update the retention configuration with details about retention period (number of days) that AWS Config stores your historical information
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [PutServiceLinkedConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html)  **
+  - **Description:** Grants permission to create a new service-linked configuration recorder to record the resource configurations in scope for the linked service
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)<br />[config:ConfigurationRecorderServicePrincipal](#list_config-config_ConfigurationRecorderServicePrincipal)
+  - **Access level:** Write
+
+- **   [PutStoredQuery](https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html)  **
+  - **Description:** Grants permission to save a new query or updates an existing saved query
+  - **Resource types (\*required):** [StoredQuery\*](#list_config-resource-StoredQuery)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [PutThirdPartyServiceLinkedConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_PutThirdPartyServiceLinkedConfigurationRecorder.html)  **
+  - **Description:** Grants permission to create or update a service-linked configuration recorder for a third-party provider linked to a specific AWS partner service
+  - **Resource types (\*required):** [Connector\*](#list_config-resource-Connector)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)<br />[config:ConfigurationRecorderServicePrincipal](#list_config-config_ConfigurationRecorderServicePrincipal)
+  - **Access level:** Write
+
+- **   [SelectAggregateResourceConfig](https://docs.aws.amazon.com/config/latest/APIReference/API_SelectAggregateResourceConfig.html)  **
+  - **Description:** Grants permission to accept a structured query language (SQL) SELECT command and an aggregator to query configuration state of AWS resources across multiple accounts and regions, performs the corresponding search, and returns resource configurations matching the properties
+  - **Resource types (\*required):** [ConfigurationAggregator\*](#list_config-resource-ConfigurationAggregator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [SelectResourceConfig](https://docs.aws.amazon.com/config/latest/APIReference/API_SelectResourceConfig.html)  **
+  - **Description:** Grants permission to accept a structured query language (SQL) SELECT command, performs the corresponding search, and returns resource configurations matching the properties
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [StartConfigRulesEvaluation](https://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigRulesEvaluation.html)  **
+  - **Description:** Grants permission to evaluate your resources against the specified Config rules
+  - **Resource types (\*required):** [ConfigRule\*](#list_config-resource-ConfigRule)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html)  **
+  - **Description:** Grants permission to the customer managed configuration recorder to start recording configurations of the AWS resources you have selected to record in your AWS account
+  - **Resource types (\*required):** [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartRemediationExecution](https://docs.aws.amazon.com/config/latest/APIReference/API_StartRemediationExecution.html)  **
+  - **Description:** Grants permission to run an on-demand remediation for the specified AWS Config rules against the last known remediation configuration
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartResourceEvaluation](https://docs.aws.amazon.com/config/latest/APIReference/API_StartResourceEvaluation.html)  **
+  - **Description:** Grants permission to evaluate your resource details against the AWS Config rules in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StopConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html)  **
+  - **Description:** Grants permission to the customer managed configuration recorder to stop recording configurations of the AWS resources you have selected to record in your AWS account
+  - **Resource types (\*required):** [ConfigurationRecorder\*](#list_config-resource-ConfigurationRecorder)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to associate the specified tags to a resource with the specified resourceArn
+  - **Resource types (\*required):** [AggregationAuthorization](#list_config-resource-AggregationAuthorization) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Resource types (\*required):** [ConfigRule](#list_config-resource-ConfigRule) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Resource types (\*required):** [ConfigurationAggregator](#list_config-resource-ConfigurationAggregator) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Resource types (\*required):** [ConfigurationRecorder](#list_config-resource-ConfigurationRecorder) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Resource types (\*required):** [ConformancePack](#list_config-resource-ConformancePack) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Resource types (\*required):** [Connector](#list_config-resource-Connector) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Resource types (\*required):** [OrganizationConfigRule](#list_config-resource-OrganizationConfigRule) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Resource types (\*required):** [OrganizationConformancePack](#list_config-resource-OrganizationConformancePack) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Resource types (\*required):** [StoredQuery](#list_config-resource-StoredQuery) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_config-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to delete specified tags from a resource
+  - **Resource types (\*required):** [AggregationAuthorization](#list_config-resource-AggregationAuthorization) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Resource types (\*required):** [ConfigRule](#list_config-resource-ConfigRule) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Resource types (\*required):** [ConfigurationAggregator](#list_config-resource-ConfigurationAggregator) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Resource types (\*required):** [ConfigurationRecorder](#list_config-resource-ConfigurationRecorder) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Resource types (\*required):** [ConformancePack](#list_config-resource-ConformancePack) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Resource types (\*required):** [Connector](#list_config-resource-Connector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Resource types (\*required):** [OrganizationConfigRule](#list_config-resource-OrganizationConfigRule) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Resource types (\*required):** [OrganizationConformancePack](#list_config-resource-OrganizationConformancePack) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Resource types (\*required):** [StoredQuery](#list_config-resource-StoredQuery) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_config-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+
 
 ## Resource types defined by AWS Config
+<a name="list_config-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                                 | ARN                                                                                                             | Condition keys                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| [AggregationAuthorization](../../../config/latest/APIReference/API_AggregationAuthorization.md "../../../config/latest/APIReference/API_AggregationAuthorization.md")          | arn:${Partition}:config:${Region}:${Account}:aggregation-authorization/${AggregatorAccount}/${AggregatorRegion} | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_") |
-| [ConfigRule](../../../config/latest/APIReference/API_ConfigRule.md "../../../config/latest/APIReference/API_ConfigRule.md")                                                    | arn:${Partition}:config:${Region}:${Account}:config-rule/${ConfigRuleId}                                        | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_") |
-| [ConfigurationAggregator](../../../config/latest/APIReference/API_ConfigurationAggregator.md "../../../config/latest/APIReference/API_ConfigurationAggregator.md")             | arn:${Partition}:config:${Region}:${Account}:config-aggregator/${AggregatorId}                                  | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_") |
-| [ConfigurationRecorder](../../../config/latest/APIReference/API_ConfigurationRecorder.md "../../../config/latest/APIReference/API_ConfigurationRecorder.md")                   | arn:${Partition}:config:${Region}:${Account}:configuration-recorder/${RecorderName}/${RecorderId}               | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_") |
-| [ConformancePack](../../../config/latest/APIReference/API_ConformancePackDetail.md "../../../config/latest/APIReference/API_ConformancePackDetail.md")                         | arn:${Partition}:config:${Region}:${Account}:conformance-pack/${ConformancePackName}/${ConformancePackId}       | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_") |
-| [Connector](../../../config/latest/APIReference/API_Connector.md "../../../config/latest/APIReference/API_Connector.md")                                                       | arn:${Partition}:config:${Region}:${Account}:connector/${Provider}/${ProviderId}/${ConnectorId}                 | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_") |
-| [OrganizationConfigRule](../../../config/latest/APIReference/API_OrganizationConfigRule.md "../../../config/latest/APIReference/API_OrganizationConfigRule.md")                | arn:${Partition}:config:${Region}:${Account}:organization-config-rule/${OrganizationConfigRuleId}               | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_") |
-| [OrganizationConformancePack](../../../config/latest/APIReference/API_OrganizationConformancePack.md "../../../config/latest/APIReference/API_OrganizationConformancePack.md") | arn:${Partition}:config:${Region}:${Account}:organization-conformance-pack/${OrganizationConformancePackId}     | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_") |
-| [RemediationConfiguration](../../../config/latest/APIReference/API_RemediationConfiguration.md "../../../config/latest/APIReference/API_RemediationConfiguration.md")          | arn:${Partition}:config:${Region}:${Account}:remediation-configuration/${RemediationConfigurationId}            |                                                                                                              |
-| [StoredQuery](../../../config/latest/APIReference/API_StoredQuery.md "../../../config/latest/APIReference/API_StoredQuery.md")                                                 | arn:${Partition}:config:${Region}:${Account}:stored-query/${StoredQueryName}/${StoredQueryId}                   | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_ "#list_config-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [AggregationAuthorization](https://docs.aws.amazon.com/config/latest/APIReference/API_AggregationAuthorization.html)  | arn:${Partition}:config:${Region}:${Account}:aggregation-authorization/${AggregatorAccount}/${AggregatorRegion} | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_) | 
+|  [ConfigRule](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigRule.html)  | arn:${Partition}:config:${Region}:${Account}:config-rule/${ConfigRuleId} | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_) | 
+|  [ConfigurationAggregator](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationAggregator.html)  | arn:${Partition}:config:${Region}:${Account}:config-aggregator/${AggregatorId} | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_) | 
+|  [ConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigurationRecorder.html)  | arn:${Partition}:config:${Region}:${Account}:configuration-recorder/${RecorderName}/${RecorderId} | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_) | 
+|  [ConformancePack](https://docs.aws.amazon.com/config/latest/APIReference/API_ConformancePackDetail.html)  | arn:${Partition}:config:${Region}:${Account}:conformance-pack/${ConformancePackName}/${ConformancePackId} | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_) | 
+|  [Connector](https://docs.aws.amazon.com/config/latest/APIReference/API_Connector.html)  | arn:${Partition}:config:${Region}:${Account}:connector/${Provider}/${ProviderId}/${ConnectorId} | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_) | 
+|  [OrganizationConfigRule](https://docs.aws.amazon.com/config/latest/APIReference/API_OrganizationConfigRule.html)  | arn:${Partition}:config:${Region}:${Account}:organization-config-rule/${OrganizationConfigRuleId} | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_) | 
+|  [OrganizationConformancePack](https://docs.aws.amazon.com/config/latest/APIReference/API_OrganizationConformancePack.html)  | arn:${Partition}:config:${Region}:${Account}:organization-conformance-pack/${OrganizationConformancePackId} | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_) | 
+|  [RemediationConfiguration](https://docs.aws.amazon.com/config/latest/APIReference/API_RemediationConfiguration.html)  | arn:${Partition}:config:${Region}:${Account}:remediation-configuration/${RemediationConfigurationId} |   | 
+|  [StoredQuery](https://docs.aws.amazon.com/config/latest/APIReference/API_StoredQuery.html)  | arn:${Partition}:config:${Region}:${Account}:stored-query/${StoredQueryName}/${StoredQueryId} | [aws:ResourceTag/${TagKey}](#list_config-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Config
+<a name="list_config-policy-keys"></a>
 
-AWS Config defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Config defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                                                                                                              | Description                                                       | Type          |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")                                                                                                     | Filters access by the allowed set of values for each of the tags  | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag")                                                                                                  | Filters access by tag-value associated with the resource          | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                                                                                                                        | Filters access by the presence of mandatory tags in the request   | ArrayOfString |
-| [config:ConfigurationRecorderServicePrincipal](../../../config/latest/developerguide/security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "../../../config/latest/developerguide/security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys") | Filters access by service principal of the configuration recorder | String        |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the allowed set of values for each of the tags | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag-value associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the presence of mandatory tags in the request | ArrayOfString | 
+|   [config:ConfigurationRecorderServicePrincipal](https://docs.aws.amazon.com/config/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-conditionkeys)  | Filters access by service principal of the configuration recorder | String | 

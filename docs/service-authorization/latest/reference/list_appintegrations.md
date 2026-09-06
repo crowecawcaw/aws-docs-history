@@ -1,150 +1,431 @@
-# Actions, resources, and condition keys for Amazon AppIntegrations
 
-Amazon AppIntegrations (service prefix: `app-integrations`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon AppIntegrations
+<a name="list_appintegrations"></a>
+
+Amazon AppIntegrations (service prefix: `app-integrations`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/connect/latest/adminguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/appintegrations/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/connect/latest/adminguide/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/app-integrations/app-integrations.json) for this service.
 
-- Learn how to [configure this service](../../../connect/latest/adminguide.md "../../../connect/latest/adminguide.md").
-- View a list of the [API operations available for
-  this service](../../../appintegrations/latest/APIReference.md "../../../appintegrations/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../connect/latest/adminguide/security-iam.md "../../../connect/latest/adminguide/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/app-integrations/app-integrations.json "https://servicereference.us-east-1.amazonaws.com/v1/app-integrations/app-integrations.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon AppIntegrations](#list_appintegrations-operations "#list_appintegrations-operations")
-- [Actions defined by Amazon AppIntegrations](#list_appintegrations-actions-as-permissions "#list_appintegrations-actions-as-permissions")
-- [Permission-only actions for Amazon AppIntegrations](#list_appintegrations-permission-only-actions "#list_appintegrations-permission-only-actions")
-- [Resource types defined by Amazon AppIntegrations](#list_appintegrations-resources-for-iam-policies "#list_appintegrations-resources-for-iam-policies")
-- [Condition keys for Amazon AppIntegrations](#list_appintegrations-policy-keys "#list_appintegrations-policy-keys")
+**Topics**
++ [API operations defined by Amazon AppIntegrations](#list_appintegrations-operations)
++ [Actions defined by Amazon AppIntegrations](#list_appintegrations-actions-as-permissions)
++ [Permission-only actions for Amazon AppIntegrations](#list_appintegrations-permission-only-actions)
++ [Resource types defined by Amazon AppIntegrations](#list_appintegrations-resources-for-iam-policies)
++ [Condition keys for Amazon AppIntegrations](#list_appintegrations-policy-keys)
 
 ## API operations defined by Amazon AppIntegrations
+<a name="list_appintegrations-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_appintegrations-actions-as-permissions "#list_appintegrations-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_appintegrations-actions-as-permissions).
 
-| Operation                                                                                                           | IAM action                                                                                                                                                                         | Condition key | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------- | -------------- |
-| CreateApplication                                                                                                   | [app-integrations:CreateApplication](#list_appintegrations-action-CreateApplication "#list_appintegrations-action-CreateApplication")                                              |               |                   | Write          |
-| [app-integrations:TagResource](#list_appintegrations-action-TagResource "#list_appintegrations-action-TagResource") |                                                                                                                                                                                    |               | Tagging, Write    |
-| CreateDataIntegration                                                                                               | [app-integrations:CreateDataIntegration](#list_appintegrations-action-CreateDataIntegration "#list_appintegrations-action-CreateDataIntegration")                                  |               |                   | Write          |
-| [app-integrations:TagResource](#list_appintegrations-action-TagResource "#list_appintegrations-action-TagResource") |                                                                                                                                                                                    |               | Tagging, Write    |
-| CreateDataIntegrationAssociation                                                                                    | [app-integrations:CreateDataIntegrationAssociation](#list_appintegrations-action-CreateDataIntegrationAssociation "#list_appintegrations-action-CreateDataIntegrationAssociation") |               |                   | Write          |
-| CreateEventIntegration                                                                                              | [app-integrations:CreateEventIntegration](#list_appintegrations-action-CreateEventIntegration "#list_appintegrations-action-CreateEventIntegration")                               |               |                   | Write          |
-| [app-integrations:TagResource](#list_appintegrations-action-TagResource "#list_appintegrations-action-TagResource") |                                                                                                                                                                                    |               | Tagging, Write    |
-| DeleteApplication                                                                                                   | [app-integrations:DeleteApplication](#list_appintegrations-action-DeleteApplication "#list_appintegrations-action-DeleteApplication")                                              |               |                   | Write          |
-| DeleteDataIntegration                                                                                               | [app-integrations:DeleteDataIntegration](#list_appintegrations-action-DeleteDataIntegration "#list_appintegrations-action-DeleteDataIntegration")                                  |               |                   | Write          |
-| DeleteEventIntegration                                                                                              | [app-integrations:DeleteEventIntegration](#list_appintegrations-action-DeleteEventIntegration "#list_appintegrations-action-DeleteEventIntegration")                               |               |                   | Write          |
-| GetApplication                                                                                                      | [app-integrations:GetApplication](#list_appintegrations-action-GetApplication "#list_appintegrations-action-GetApplication")                                                       |               |                   | Read           |
-| GetDataIntegration                                                                                                  | [app-integrations:GetDataIntegration](#list_appintegrations-action-GetDataIntegration "#list_appintegrations-action-GetDataIntegration")                                           |               |                   | Read           |
-| GetEventIntegration                                                                                                 | [app-integrations:GetEventIntegration](#list_appintegrations-action-GetEventIntegration "#list_appintegrations-action-GetEventIntegration")                                        |               |                   | Read           |
-| ListApplicationAssociations                                                                                         | [app-integrations:ListApplicationAssociations](#list_appintegrations-action-ListApplicationAssociations "#list_appintegrations-action-ListApplicationAssociations")                |               |                   | List           |
-| ListApplications                                                                                                    | [app-integrations:ListApplications](#list_appintegrations-action-ListApplications "#list_appintegrations-action-ListApplications")                                                 |               |                   | List           |
-| ListDataIntegrationAssociations                                                                                     | [app-integrations:ListDataIntegrationAssociations](#list_appintegrations-action-ListDataIntegrationAssociations "#list_appintegrations-action-ListDataIntegrationAssociations")    |               |                   | List           |
-| ListDataIntegrations                                                                                                | [app-integrations:ListDataIntegrations](#list_appintegrations-action-ListDataIntegrations "#list_appintegrations-action-ListDataIntegrations")                                     |               |                   | List           |
-| ListEventIntegrationAssociations                                                                                    | [app-integrations:ListEventIntegrationAssociations](#list_appintegrations-action-ListEventIntegrationAssociations "#list_appintegrations-action-ListEventIntegrationAssociations") |               |                   | Read           |
-| ListEventIntegrations                                                                                               | [app-integrations:ListEventIntegrations](#list_appintegrations-action-ListEventIntegrations "#list_appintegrations-action-ListEventIntegrations")                                  |               |                   | List           |
-| ListTagsForResource                                                                                                 | [app-integrations:ListTagsForResource](#list_appintegrations-action-ListTagsForResource "#list_appintegrations-action-ListTagsForResource")                                        |               |                   | Read           |
-| TagResource                                                                                                         | [app-integrations:TagResource](#list_appintegrations-action-TagResource "#list_appintegrations-action-TagResource")                                                                |               |                   | Tagging, Write |
-| UntagResource                                                                                                       | [app-integrations:UntagResource](#list_appintegrations-action-UntagResource "#list_appintegrations-action-UntagResource")                                                          |               |                   | Tagging, Write |
-| UpdateApplication                                                                                                   | [app-integrations:UpdateApplication](#list_appintegrations-action-UpdateApplication "#list_appintegrations-action-UpdateApplication")                                              |               |                   | Write          |
-| UpdateDataIntegration                                                                                               | [app-integrations:UpdateDataIntegration](#list_appintegrations-action-UpdateDataIntegration "#list_appintegrations-action-UpdateDataIntegration")                                  |               |                   | Write          |
-| UpdateDataIntegrationAssociation                                                                                    | [app-integrations:UpdateDataIntegrationAssociation](#list_appintegrations-action-UpdateDataIntegrationAssociation "#list_appintegrations-action-UpdateDataIntegrationAssociation") |               |                   | Write          |
-| UpdateEventIntegration                                                                                              | [app-integrations:UpdateEventIntegration](#list_appintegrations-action-UpdateEventIntegration "#list_appintegrations-action-UpdateEventIntegration")                               |               |                   | Write          |
+
+
+
+- **   CreateApplication  **
+  - **IAM action:**  [app-integrations:CreateApplication](#list_appintegrations-action-CreateApplication)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [app-integrations:TagResource](#list_appintegrations-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateDataIntegration  **
+  - **IAM action:**  [app-integrations:CreateDataIntegration](#list_appintegrations-action-CreateDataIntegration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [app-integrations:TagResource](#list_appintegrations-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateDataIntegrationAssociation  **
+  - **IAM action:**  [app-integrations:CreateDataIntegrationAssociation](#list_appintegrations-action-CreateDataIntegrationAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateEventIntegration  **
+  - **IAM action:**  [app-integrations:CreateEventIntegration](#list_appintegrations-action-CreateEventIntegration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [app-integrations:TagResource](#list_appintegrations-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteApplication  **
+  - **IAM action:**  [app-integrations:DeleteApplication](#list_appintegrations-action-DeleteApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDataIntegration  **
+  - **IAM action:**  [app-integrations:DeleteDataIntegration](#list_appintegrations-action-DeleteDataIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteEventIntegration  **
+  - **IAM action:**  [app-integrations:DeleteEventIntegration](#list_appintegrations-action-DeleteEventIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetApplication  **
+  - **IAM action:**  [app-integrations:GetApplication](#list_appintegrations-action-GetApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDataIntegration  **
+  - **IAM action:**  [app-integrations:GetDataIntegration](#list_appintegrations-action-GetDataIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEventIntegration  **
+  - **IAM action:**  [app-integrations:GetEventIntegration](#list_appintegrations-action-GetEventIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListApplicationAssociations  **
+  - **IAM action:**  [app-integrations:ListApplicationAssociations](#list_appintegrations-action-ListApplicationAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListApplications  **
+  - **IAM action:**  [app-integrations:ListApplications](#list_appintegrations-action-ListApplications) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDataIntegrationAssociations  **
+  - **IAM action:**  [app-integrations:ListDataIntegrationAssociations](#list_appintegrations-action-ListDataIntegrationAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDataIntegrations  **
+  - **IAM action:**  [app-integrations:ListDataIntegrations](#list_appintegrations-action-ListDataIntegrations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEventIntegrationAssociations  **
+  - **IAM action:**  [app-integrations:ListEventIntegrationAssociations](#list_appintegrations-action-ListEventIntegrationAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListEventIntegrations  **
+  - **IAM action:**  [app-integrations:ListEventIntegrations](#list_appintegrations-action-ListEventIntegrations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [app-integrations:ListTagsForResource](#list_appintegrations-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   TagResource  **
+  - **IAM action:**  [app-integrations:TagResource](#list_appintegrations-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [app-integrations:UntagResource](#list_appintegrations-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateApplication  **
+  - **IAM action:**  [app-integrations:UpdateApplication](#list_appintegrations-action-UpdateApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateDataIntegration  **
+  - **IAM action:**  [app-integrations:UpdateDataIntegration](#list_appintegrations-action-UpdateDataIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateDataIntegrationAssociation  **
+  - **IAM action:**  [app-integrations:UpdateDataIntegrationAssociation](#list_appintegrations-action-UpdateDataIntegrationAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateEventIntegration  **
+  - **IAM action:**  [app-integrations:UpdateEventIntegration](#list_appintegrations-action-UpdateEventIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon AppIntegrations
+<a name="list_appintegrations-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                         | Description                                                                                                                                                                                                                                                                                                                                           | Resource types (\*required)                                                                                                                                 | Condition keys                                                                                                                                                                                                                                                                                                                                        | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [CreateApplication](../../../appintegrations/latest/APIReference/API_CreateApplication.md "../../../appintegrations/latest/APIReference/API_CreateApplication.md")                                              | Grants permission to create a new Application                                                                                                                                                                                                                                                                                                         | [application\*](#list_appintegrations-resource-application "#list_appintegrations-resource-application")                                                    | [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_ "#list_appintegrations-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys") | Write          |
-| [CreateDataIntegration](../../../appintegrations/latest/APIReference/API_CreateDataIntegration.md "../../../appintegrations/latest/APIReference/API_CreateDataIntegration.md")                                  | Grants permission to create a new DataIntegration                                                                                                                                                                                                                                                                                                     | [data-integration\*](#list_appintegrations-resource-data-integration "#list_appintegrations-resource-data-integration")                                     | [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_ "#list_appintegrations-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys") | Write          |
-| [CreateDataIntegrationAssociation](../../../appintegrations/latest/APIReference/API_CreateDataIntegration.md "../../../appintegrations/latest/APIReference/API_CreateDataIntegration.md")                       | Grants permission to create a DataIntegrationAssociation                                                                                                                                                                                                                                                                                              | [data-integration\*](#list_appintegrations-resource-data-integration "#list_appintegrations-resource-data-integration")                                     | [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_ "#list_appintegrations-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys") | Write          |
-| [CreateDataIntegrationSchedule](../../../appintegrations/latest/APIReference/API_CreateDataIntegrationSchedule.md "../../../appintegrations/latest/APIReference/API_CreateDataIntegrationSchedule.md")          | Grants permission to create a data integration schedule                                                                                                                                                                                                                                                                                               | [data-integration\*](#list_appintegrations-resource-data-integration "#list_appintegrations-resource-data-integration")                                     | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Write          |
-| [CreateEventIntegration](../../../appintegrations/latest/APIReference/API_CreateEventIntegration.md "../../../appintegrations/latest/APIReference/API_CreateEventIntegration.md")                               | Grants permission to create a new EventIntegration                                                                                                                                                                                                                                                                                                    | [event-integration\*](#list_appintegrations-resource-event-integration "#list_appintegrations-resource-event-integration")                                  | [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_ "#list_appintegrations-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys") | Write          |
-| [DeleteApplication](../../../appintegrations/latest/APIReference/API_DeleteApplication.md "../../../appintegrations/latest/APIReference/API_DeleteApplication.md")                                              | Grants permission to delete an Application                                                                                                                                                                                                                                                                                                            | [application\*](#list_appintegrations-resource-application "#list_appintegrations-resource-application")                                                    | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Write          |
-| [DeleteDataIntegration](../../../appintegrations/latest/APIReference/API_DeleteDataIntegration.md "../../../appintegrations/latest/APIReference/API_DeleteDataIntegration.md")                                  | Grants permission to delete a DataIntegration                                                                                                                                                                                                                                                                                                         | [data-integration\*](#list_appintegrations-resource-data-integration "#list_appintegrations-resource-data-integration")                                     | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Write          |
-| [DeleteEventIntegration](../../../appintegrations/latest/APIReference/API_DeleteEventIntegration.md "../../../appintegrations/latest/APIReference/API_DeleteEventIntegration.md")                               | Grants permission to delete an EventIntegration                                                                                                                                                                                                                                                                                                       | [event-integration\*](#list_appintegrations-resource-event-integration "#list_appintegrations-resource-event-integration")                                  | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Write          |
-| [GetApplication](../../../appintegrations/latest/APIReference/API_GetApplication.md "../../../appintegrations/latest/APIReference/API_GetApplication.md")                                                       | Grants permission to view details about Application                                                                                                                                                                                                                                                                                                   | [application\*](#list_appintegrations-resource-application "#list_appintegrations-resource-application")                                                    | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Read           |
-| [GetDataIntegration](../../../appintegrations/latest/APIReference/API_GetDataIntegration.md "../../../appintegrations/latest/APIReference/API_GetDataIntegration.md")                                           | Grants permission to view details about DataIntegrations                                                                                                                                                                                                                                                                                              | [data-integration\*](#list_appintegrations-resource-data-integration "#list_appintegrations-resource-data-integration")                                     | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Read           |
-| [GetDataIntegrationExecution](../../../appintegrations/latest/APIReference/API_GetDataIntegrationExecution.md "../../../appintegrations/latest/APIReference/API_GetDataIntegrationExecution.md")                | Grants permission to get details about a data integration execution                                                                                                                                                                                                                                                                                   | [data-integration\*](#list_appintegrations-resource-data-integration "#list_appintegrations-resource-data-integration")                                     | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Read           |
-| [GetDataIntegrationSchedule](../../../appintegrations/latest/APIReference/API_GetDataIntegrationSchedule.md "../../../appintegrations/latest/APIReference/API_GetDataIntegrationSchedule.md")                   | Grants permission to get details about a data integration schedule                                                                                                                                                                                                                                                                                    | [data-integration\*](#list_appintegrations-resource-data-integration "#list_appintegrations-resource-data-integration")                                     | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Read           |
-| [GetEventIntegration](../../../appintegrations/latest/APIReference/API_GetEventIntegration.md "../../../appintegrations/latest/APIReference/API_GetEventIntegration.md")                                        | Grants permission to view details about EventIntegrations                                                                                                                                                                                                                                                                                             | [event-integration\*](#list_appintegrations-resource-event-integration "#list_appintegrations-resource-event-integration")                                  | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Read           |
-| [ListApplicationAssociations](../../../appintegrations/latest/APIReference/API_ListApplicationAssociations.md "../../../appintegrations/latest/APIReference/API_ListApplicationAssociations.md")                | Grants permission to list ApplicationAssociations                                                                                                                                                                                                                                                                                                     |                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                       | List           |
-| [ListApplications](../../../appintegrations/latest/APIReference/API_ListApplications.md "../../../appintegrations/latest/APIReference/API_ListApplications.md")                                                 | Grants permission to list Applications                                                                                                                                                                                                                                                                                                                |                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                       | List           |
-| [ListDataIntegrationAssociations](../../../appintegrations/latest/APIReference/API_ListDataIntegrationAssociations.md "../../../appintegrations/latest/APIReference/API_ListDataIntegrationAssociations.md")    | Grants permission to list DataIntegrationAssociations                                                                                                                                                                                                                                                                                                 |                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                       | List           |
-| [ListDataIntegrationExecutions](../../../appintegrations/latest/APIReference/API_ListDataIntegrationExecutions.md "../../../appintegrations/latest/APIReference/API_ListDataIntegrationExecutions.md")          | Grants permission to list data integration executions                                                                                                                                                                                                                                                                                                 | [data-integration\*](#list_appintegrations-resource-data-integration "#list_appintegrations-resource-data-integration")                                     | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | List           |
-| [ListDataIntegrationSchedules](../../../appintegrations/latest/APIReference/API_ListDataIntegrationSchedules.md "../../../appintegrations/latest/APIReference/API_ListDataIntegrationSchedules.md")             | Grants permission to list data integration schedules                                                                                                                                                                                                                                                                                                  | [data-integration\*](#list_appintegrations-resource-data-integration "#list_appintegrations-resource-data-integration")                                     | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | List           |
-| [ListDataIntegrations](../../../appintegrations/latest/APIReference/API_ListDataIntegrations.md "../../../appintegrations/latest/APIReference/API_ListDataIntegrations.md")                                     | Grants permission to list DataIntegrations                                                                                                                                                                                                                                                                                                            |                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                       | List           |
-| [ListEventIntegrationAssociations](../../../appintegrations/latest/APIReference/API_ListEventIntegrationAssociations.md "../../../appintegrations/latest/APIReference/API_ListEventIntegrationAssociations.md") | Grants permission to list EventIntegrationAssociations                                                                                                                                                                                                                                                                                                |                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [ListEventIntegrations](../../../appintegrations/latest/APIReference/API_ListEventIntegrations.md "../../../appintegrations/latest/APIReference/API_ListEventIntegrations.md")                                  | Grants permission to list EventIntegrations                                                                                                                                                                                                                                                                                                           |                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                       | List           |
-| [ListTagsForResource](../../../appintegrations/latest/APIReference/API_ListTagsForResource.md "../../../appintegrations/latest/APIReference/API_ListTagsForResource.md")                                        | Grants permission to lists tag for an Amazon AppIntegration resource                                                                                                                                                                                                                                                                                  | [application](#list_appintegrations-resource-application "#list_appintegrations-resource-application")                                                      | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Read           |
-| [data-integration](#list_appintegrations-resource-data-integration "#list_appintegrations-resource-data-integration")                                                                                           | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        |
-| [data-integration-association](#list_appintegrations-resource-data-integration-association "#list_appintegrations-resource-data-integration-association")                                                       | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        |
-| [event-integration](#list_appintegrations-resource-event-integration "#list_appintegrations-resource-event-integration")                                                                                        | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        |
-| [event-integration-association](#list_appintegrations-resource-event-integration-association "#list_appintegrations-resource-event-integration-association")                                                    | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        |
-| [StartDataIntegrationExecution](../../../appintegrations/latest/APIReference/API_StartDataIntegrationExecution.md "../../../appintegrations/latest/APIReference/API_StartDataIntegrationExecution.md")          | Grants permission to start a data integration execution                                                                                                                                                                                                                                                                                               | [data-integration\*](#list_appintegrations-resource-data-integration "#list_appintegrations-resource-data-integration")                                     | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Write          |
-| [TagResource](../../../appintegrations/latest/APIReference/API_TagResource.md "../../../appintegrations/latest/APIReference/API_TagResource.md")                                                                | Grants permission to tag an Amazon AppIntegration resource                                                                                                                                                                                                                                                                                            | [application](#list_appintegrations-resource-application "#list_appintegrations-resource-application")                                                      | [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_ "#list_appintegrations-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys") | Tagging, Write |
-| [application-association](#list_appintegrations-resource-application-association "#list_appintegrations-resource-application-association")                                                                      | [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_ "#list_appintegrations-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys") |
-| [data-integration](#list_appintegrations-resource-data-integration "#list_appintegrations-resource-data-integration")                                                                                           | [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_ "#list_appintegrations-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys") |
-| [data-integration-association](#list_appintegrations-resource-data-integration-association "#list_appintegrations-resource-data-integration-association")                                                       | [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_ "#list_appintegrations-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys") |
-| [event-integration](#list_appintegrations-resource-event-integration "#list_appintegrations-resource-event-integration")                                                                                        | [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_ "#list_appintegrations-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys") |
-| [event-integration-association](#list_appintegrations-resource-event-integration-association "#list_appintegrations-resource-event-integration-association")                                                    | [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_ "#list_appintegrations-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys") |
-| [UntagResource](../../../appintegrations/latest/APIReference/API_UntagResource.md "../../../appintegrations/latest/APIReference/API_UntagResource.md")                                                          | Grants permission to untag an Amazon AppIntegration resource                                                                                                                                                                                                                                                                                          | [application](#list_appintegrations-resource-application "#list_appintegrations-resource-application")                                                      | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys")                                                                                                                                | Tagging, Write |
-| [application-association](#list_appintegrations-resource-application-association "#list_appintegrations-resource-application-association")                                                                      | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys")                                                                                                                                |
-| [data-integration](#list_appintegrations-resource-data-integration "#list_appintegrations-resource-data-integration")                                                                                           | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys")                                                                                                                                |
-| [data-integration-association](#list_appintegrations-resource-data-integration-association "#list_appintegrations-resource-data-integration-association")                                                       | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys")                                                                                                                                |
-| [event-integration](#list_appintegrations-resource-event-integration "#list_appintegrations-resource-event-integration")                                                                                        | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys")                                                                                                                                |
-| [event-integration-association](#list_appintegrations-resource-event-integration-association "#list_appintegrations-resource-event-integration-association")                                                    | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys")                                                                                                                                |
-| [UpdateApplication](../../../appintegrations/latest/APIReference/API_UpdateApplication.md "../../../appintegrations/latest/APIReference/API_UpdateApplication.md")                                              | Grants permission to modify an Application                                                                                                                                                                                                                                                                                                            | [application\*](#list_appintegrations-resource-application "#list_appintegrations-resource-application")                                                    | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Write          |
-| [UpdateDataIntegration](../../../appintegrations/latest/APIReference/API_UpdateDataIntegration.md "../../../appintegrations/latest/APIReference/API_UpdateDataIntegration.md")                                  | Grants permission to modify a DataIntegration                                                                                                                                                                                                                                                                                                         | [data-integration\*](#list_appintegrations-resource-data-integration "#list_appintegrations-resource-data-integration")                                     | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Write          |
-| [UpdateDataIntegrationAssociation](../../../appintegrations/latest/APIReference/API_UpdateDataIntegrationAssociation.md "../../../appintegrations/latest/APIReference/API_UpdateDataIntegrationAssociation.md") | Grants permission to modify a DataIntegrationAssociation                                                                                                                                                                                                                                                                                              | [data-integration-association\*](#list_appintegrations-resource-data-integration-association "#list_appintegrations-resource-data-integration-association") | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Write          |
-| [UpdateDataIntegrationSchedule](../../../appintegrations/latest/APIReference/API_UpdateDataIntegrationSchedule.md "../../../appintegrations/latest/APIReference/API_UpdateDataIntegrationSchedule.md")          | Grants permission to update a data integration schedule                                                                                                                                                                                                                                                                                               | [data-integration\*](#list_appintegrations-resource-data-integration "#list_appintegrations-resource-data-integration")                                     | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Write          |
-| [UpdateEventIntegration](../../../appintegrations/latest/APIReference/API_UpdateEventIntegration.md "../../../appintegrations/latest/APIReference/API_UpdateEventIntegration.md")                               | Grants permission to modify an EventIntegration                                                                                                                                                                                                                                                                                                       | [event-integration\*](#list_appintegrations-resource-event-integration "#list_appintegrations-resource-event-integration")                                  | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Write          |
+
+
+
+- **   [CreateApplication](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateApplication.html)  **
+  - **Description:** Grants permission to create a new Application
+  - **Resource types (\*required):** [application\*](#list_appintegrations-resource-application)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)  **
+  - **Description:** Grants permission to create a new DataIntegration
+  - **Resource types (\*required):** [data-integration\*](#list_appintegrations-resource-data-integration)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDataIntegrationAssociation](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html)  **
+  - **Description:** Grants permission to create a DataIntegrationAssociation
+  - **Resource types (\*required):** [data-integration\*](#list_appintegrations-resource-data-integration)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDataIntegrationSchedule](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegrationSchedule.html)  **
+  - **Description:** Grants permission to create a data integration schedule
+  - **Resource types (\*required):** [data-integration\*](#list_appintegrations-resource-data-integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateEventIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateEventIntegration.html)  **
+  - **Description:** Grants permission to create a new EventIntegration
+  - **Resource types (\*required):** [event-integration\*](#list_appintegrations-resource-event-integration)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteApplication](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteApplication.html)  **
+  - **Description:** Grants permission to delete an Application
+  - **Resource types (\*required):** [application\*](#list_appintegrations-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html)  **
+  - **Description:** Grants permission to delete a DataIntegration
+  - **Resource types (\*required):** [data-integration\*](#list_appintegrations-resource-data-integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteEventIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteEventIntegration.html)  **
+  - **Description:** Grants permission to delete an EventIntegration
+  - **Resource types (\*required):** [event-integration\*](#list_appintegrations-resource-event-integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetApplication](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_GetApplication.html)  **
+  - **Description:** Grants permission to view details about Application
+  - **Resource types (\*required):** [application\*](#list_appintegrations-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_GetDataIntegration.html)  **
+  - **Description:** Grants permission to view details about DataIntegrations
+  - **Resource types (\*required):** [data-integration\*](#list_appintegrations-resource-data-integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDataIntegrationExecution](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_GetDataIntegrationExecution.html)  **
+  - **Description:** Grants permission to get details about a data integration execution
+  - **Resource types (\*required):** [data-integration\*](#list_appintegrations-resource-data-integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDataIntegrationSchedule](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_GetDataIntegrationSchedule.html)  **
+  - **Description:** Grants permission to get details about a data integration schedule
+  - **Resource types (\*required):** [data-integration\*](#list_appintegrations-resource-data-integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetEventIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_GetEventIntegration.html)  **
+  - **Description:** Grants permission to view details about EventIntegrations
+  - **Resource types (\*required):** [event-integration\*](#list_appintegrations-resource-event-integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListApplicationAssociations](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListApplicationAssociations.html)  **
+  - **Description:** Grants permission to list ApplicationAssociations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListApplications](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListApplications.html)  **
+  - **Description:** Grants permission to list Applications
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDataIntegrationAssociations](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListDataIntegrationAssociations.html)  **
+  - **Description:** Grants permission to list DataIntegrationAssociations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDataIntegrationExecutions](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListDataIntegrationExecutions.html)  **
+  - **Description:** Grants permission to list data integration executions
+  - **Resource types (\*required):** [data-integration\*](#list_appintegrations-resource-data-integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDataIntegrationSchedules](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListDataIntegrationSchedules.html)  **
+  - **Description:** Grants permission to list data integration schedules
+  - **Resource types (\*required):** [data-integration\*](#list_appintegrations-resource-data-integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDataIntegrations](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListDataIntegrations.html)  **
+  - **Description:** Grants permission to list DataIntegrations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListEventIntegrationAssociations](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListEventIntegrationAssociations.html)  **
+  - **Description:** Grants permission to list EventIntegrationAssociations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListEventIntegrations](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListEventIntegrations.html)  **
+  - **Description:** Grants permission to list EventIntegrations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to lists tag for an Amazon AppIntegration resource
+  - **Resource types (\*required):** [application](#list_appintegrations-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [data-integration](#list_appintegrations-resource-data-integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [data-integration-association](#list_appintegrations-resource-data-integration-association) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [event-integration](#list_appintegrations-resource-event-integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [event-integration-association](#list_appintegrations-resource-event-integration-association) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [StartDataIntegrationExecution](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_StartDataIntegrationExecution.html)  **
+  - **Description:** Grants permission to start a data integration execution
+  - **Resource types (\*required):** [data-integration\*](#list_appintegrations-resource-data-integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag an Amazon AppIntegration resource
+  - **Resource types (\*required):** [application](#list_appintegrations-resource-application) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Resource types (\*required):** [application-association](#list_appintegrations-resource-application-association) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Resource types (\*required):** [data-integration](#list_appintegrations-resource-data-integration) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Resource types (\*required):** [data-integration-association](#list_appintegrations-resource-data-integration-association) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Resource types (\*required):** [event-integration](#list_appintegrations-resource-event-integration) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Resource types (\*required):** [event-integration-association](#list_appintegrations-resource-event-integration-association) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag an Amazon AppIntegration resource
+  - **Resource types (\*required):** [application](#list_appintegrations-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Resource types (\*required):** [application-association](#list_appintegrations-resource-application-association) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Resource types (\*required):** [data-integration](#list_appintegrations-resource-data-integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Resource types (\*required):** [data-integration-association](#list_appintegrations-resource-data-integration-association) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Resource types (\*required):** [event-integration](#list_appintegrations-resource-event-integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Resource types (\*required):** [event-integration-association](#list_appintegrations-resource-event-integration-association) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateApplication](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_UpdateApplication.html)  **
+  - **Description:** Grants permission to modify an Application
+  - **Resource types (\*required):** [application\*](#list_appintegrations-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDataIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_UpdateDataIntegration.html)  **
+  - **Description:** Grants permission to modify a DataIntegration
+  - **Resource types (\*required):** [data-integration\*](#list_appintegrations-resource-data-integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDataIntegrationAssociation](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_UpdateDataIntegrationAssociation.html)  **
+  - **Description:** Grants permission to modify a DataIntegrationAssociation
+  - **Resource types (\*required):** [data-integration-association\*](#list_appintegrations-resource-data-integration-association)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDataIntegrationSchedule](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_UpdateDataIntegrationSchedule.html)  **
+  - **Description:** Grants permission to update a data integration schedule
+  - **Resource types (\*required):** [data-integration\*](#list_appintegrations-resource-data-integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateEventIntegration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_UpdateEventIntegration.html)  **
+  - **Description:** Grants permission to modify an EventIntegration
+  - **Resource types (\*required):** [event-integration\*](#list_appintegrations-resource-event-integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for Amazon AppIntegrations
+<a name="list_appintegrations-permission-only-actions"></a>
 
-The following actions are defined by Amazon AppIntegrations but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by Amazon AppIntegrations but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                                                                      | Description                                                | Resource types (\*required)                                                                                                                                    | Condition keys                                                                                                                                                                                                                                                                                                                                        | Access level |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [CreateApplicationAssociation](../../../connect/latest/adminguide/onboard-3p-apps.md "../../../connect/latest/adminguide/onboard-3p-apps.md")                                                | Grants permission to create an ApplicationAssociation      | [application\*](#list_appintegrations-resource-application "#list_appintegrations-resource-application")                                                       | [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_ "#list_appintegrations-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys") | Write        |
-| [CreateEventIntegrationAssociation](../../../appintegrations/latest/APIReference/API_CreateEventIntegration.md "../../../appintegrations/latest/APIReference/API_CreateEventIntegration.md") | Grants permission to create an EventIntegrationAssociation | [event-integration\*](#list_appintegrations-resource-event-integration "#list_appintegrations-resource-event-integration")                                     | [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_ "#list_appintegrations-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appintegrations-aws_TagKeys "#list_appintegrations-aws_TagKeys") | Write        |
-| [DeleteApplicationAssociation](../../../connect/latest/adminguide/onboard-3p-apps.md "../../../connect/latest/adminguide/onboard-3p-apps.md")                                                | Grants permission to delete an ApplicationAssociation      | [application-association\*](#list_appintegrations-resource-application-association "#list_appintegrations-resource-application-association")                   | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Write        |
-| [DeleteDataIntegrationAssociation](../../../appintegrations/latest/APIReference/API_DeleteDataIntegration.md "../../../appintegrations/latest/APIReference/API_DeleteDataIntegration.md")    | Grants permission to delete a DataIntegrationAssociation   | [data-integration-association\*](#list_appintegrations-resource-data-integration-association "#list_appintegrations-resource-data-integration-association")    | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Write        |
-| [DeleteEventIntegrationAssociation](../../../appintegrations/latest/APIReference/API_DeleteEventIntegration.md "../../../appintegrations/latest/APIReference/API_DeleteEventIntegration.md") | Grants permission to delete an EventIntegrationAssociation | [event-integration-association\*](#list_appintegrations-resource-event-integration-association "#list_appintegrations-resource-event-integration-association") | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        | Write        |
+
+
+
+- **   [CreateApplicationAssociation](https://docs.aws.amazon.com/connect/latest/adminguide/onboard-3p-apps.html)  **
+  - **Description:** Grants permission to create an ApplicationAssociation
+  - **Resource types (\*required):** [application\*](#list_appintegrations-resource-application)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateEventIntegrationAssociation](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateEventIntegration.html)  **
+  - **Description:** Grants permission to create an EventIntegrationAssociation
+  - **Resource types (\*required):** [event-integration\*](#list_appintegrations-resource-event-integration)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appintegrations-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appintegrations-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteApplicationAssociation](https://docs.aws.amazon.com/connect/latest/adminguide/onboard-3p-apps.html)  **
+  - **Description:** Grants permission to delete an ApplicationAssociation
+  - **Resource types (\*required):** [application-association\*](#list_appintegrations-resource-application-association)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDataIntegrationAssociation](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html)  **
+  - **Description:** Grants permission to delete a DataIntegrationAssociation
+  - **Resource types (\*required):** [data-integration-association\*](#list_appintegrations-resource-data-integration-association)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteEventIntegrationAssociation](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteEventIntegration.html)  **
+  - **Description:** Grants permission to delete an EventIntegrationAssociation
+  - **Resource types (\*required):** [event-integration-association\*](#list_appintegrations-resource-event-integration-association)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon AppIntegrations
+<a name="list_appintegrations-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                                                                | ARN                                                                                                                         | Condition keys                                                                                                                 |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| [application](../../../appintegrations/latest/APIReference/API_ApplicationSummary.md "../../../appintegrations/latest/APIReference/API_ApplicationSummary.md")                                                | arn:${Partition}:app-integrations:${Region}:${Account}:application/${ApplicationId}                                         | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_") |
-| [application-association](../../../appintegrations/latest/APIReference/API_ApplicationAssociationSummary.md "../../../appintegrations/latest/APIReference/API_ApplicationAssociationSummary.md")              | arn:${Partition}:app-integrations:${Region}:${Account}:application-association/${ApplicationId}/${ApplicationAssociationId} | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_") |
-| [data-integration](../../../appintegrations/latest/APIReference/API_DataIntegrationSummary.md "../../../appintegrations/latest/APIReference/API_DataIntegrationSummary.md")                                   | arn:${Partition}:app-integrations:${Region}:${Account}:data-integration/${DataIntegrationId}                                | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_") |
-| [data-integration-association](../../../appintegrations/latest/APIReference/API_DataIntegrationAssociationSummary.md "../../../appintegrations/latest/APIReference/API_DataIntegrationAssociationSummary.md") | arn:${Partition}:app-integrations:${Region}:${Account}:data-integration-association/${DataIntegrationId}/${ResourceId}      | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_") |
-| [event-integration](../../../appintegrations/latest/APIReference/API_EventIntegration.md "../../../appintegrations/latest/APIReference/API_EventIntegration.md")                                              | arn:${Partition}:app-integrations:${Region}:${Account}:event-integration/${EventIntegrationName}                            | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_") |
-| [event-integration-association](../../../appintegrations/latest/APIReference/API_EventIntegrationAssociation.md "../../../appintegrations/latest/APIReference/API_EventIntegrationAssociation.md")            | arn:${Partition}:app-integrations:${Region}:${Account}:event-integration-association/${EventIntegrationName}/${ResourceId}  | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_ "#list_appintegrations-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [application](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ApplicationSummary.html)  | arn:${Partition}:app-integrations:${Region}:${Account}:application/${ApplicationId} | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_) | 
+|  [application-association](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ApplicationAssociationSummary.html)  | arn:${Partition}:app-integrations:${Region}:${Account}:application-association/${ApplicationId}/${ApplicationAssociationId} | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_) | 
+|  [data-integration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DataIntegrationSummary.html)  | arn:${Partition}:app-integrations:${Region}:${Account}:data-integration/${DataIntegrationId} | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_) | 
+|  [data-integration-association](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DataIntegrationAssociationSummary.html)  | arn:${Partition}:app-integrations:${Region}:${Account}:data-integration-association/${DataIntegrationId}/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_) | 
+|  [event-integration](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_EventIntegration.html)  | arn:${Partition}:app-integrations:${Region}:${Account}:event-integration/${EventIntegrationName} | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_) | 
+|  [event-integration-association](https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_EventIntegrationAssociation.html)  | arn:${Partition}:app-integrations:${Region}:${Account}:event-integration-association/${EventIntegrationName}/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_appintegrations-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon AppIntegrations
+<a name="list_appintegrations-policy-keys"></a>
 
-Amazon AppIntegrations defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon AppIntegrations defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                               | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by tags associated with the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by tag keys that are passed in the request | ArrayOfString | 

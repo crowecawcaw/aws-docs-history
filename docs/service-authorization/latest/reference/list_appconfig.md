@@ -1,263 +1,839 @@
-# Actions, resources, and condition keys for AWS AppConfig
 
-AWS AppConfig (service prefix: `appconfig`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS AppConfig
+<a name="list_appconfig"></a>
+
+AWS AppConfig (service prefix: `appconfig`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/Welcome.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-security.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/appconfig/appconfig.json) for this service.
 
-- Learn how to [configure this service](../../../appconfig/latest/userguide/what-is-appconfig.md "../../../appconfig/latest/userguide/what-is-appconfig.md").
-- View a list of the [API operations available for
-  this service](../../../appconfig/2019-10-09/APIReference/Welcome.md "../../../appconfig/2019-10-09/APIReference/Welcome.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../appconfig/latest/userguide/appconfig-security.md "../../../appconfig/latest/userguide/appconfig-security.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/appconfig/appconfig.json "https://servicereference.us-east-1.amazonaws.com/v1/appconfig/appconfig.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS AppConfig](#list_appconfig-operations "#list_appconfig-operations")
-- [Actions defined by AWS AppConfig](#list_appconfig-actions-as-permissions "#list_appconfig-actions-as-permissions")
-- [Resource types defined by AWS AppConfig](#list_appconfig-resources-for-iam-policies "#list_appconfig-resources-for-iam-policies")
-- [Condition keys for AWS AppConfig](#list_appconfig-policy-keys "#list_appconfig-policy-keys")
+**Topics**
++ [API operations defined by AWS AppConfig](#list_appconfig-operations)
++ [Actions defined by AWS AppConfig](#list_appconfig-actions-as-permissions)
++ [Resource types defined by AWS AppConfig](#list_appconfig-resources-for-iam-policies)
++ [Condition keys for AWS AppConfig](#list_appconfig-policy-keys)
 
 ## API operations defined by AWS AppConfig
+<a name="list_appconfig-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_appconfig-actions-as-permissions "#list_appconfig-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_appconfig-actions-as-permissions).
 
-| Operation                                                                                                                       | SDK client          | IAM action                                                                                                                                                      | Condition key  | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------- | -------------- |
-| CreateApplication                                                                                                               | appconfig           | [appconfig:CreateApplication](#list_appconfig-action-CreateApplication "#list_appconfig-action-CreateApplication")                                              |                |                   | Write          |
-| [appconfig:TagResource](#list_appconfig-action-TagResource "#list_appconfig-action-TagResource")                                |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateConfigurationProfile                                                                                                      | appconfig           | [appconfig:CreateConfigurationProfile](#list_appconfig-action-CreateConfigurationProfile "#list_appconfig-action-CreateConfigurationProfile")                   |                |                   | Write          |
-| [appconfig:TagResource](#list_appconfig-action-TagResource "#list_appconfig-action-TagResource")                                |                     |                                                                                                                                                                 | Tagging, Write |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService | appconfig.amazonaws.com                                                                                                                                         | Write          |
-| CreateDeploymentStrategy                                                                                                        | appconfig           | [appconfig:CreateDeploymentStrategy](#list_appconfig-action-CreateDeploymentStrategy "#list_appconfig-action-CreateDeploymentStrategy")                         |                |                   | Write          |
-| [appconfig:TagResource](#list_appconfig-action-TagResource "#list_appconfig-action-TagResource")                                |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateEnvironment                                                                                                               | appconfig           | [appconfig:CreateEnvironment](#list_appconfig-action-CreateEnvironment "#list_appconfig-action-CreateEnvironment")                                              |                |                   | Write          |
-| [appconfig:TagResource](#list_appconfig-action-TagResource "#list_appconfig-action-TagResource")                                |                     |                                                                                                                                                                 | Tagging, Write |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService | appconfig.amazonaws.com                                                                                                                                         | Write          |
-| CreateExperimentDefinition                                                                                                      | appconfig           | [appconfig:CreateExperimentDefinition](#list_appconfig-action-CreateExperimentDefinition "#list_appconfig-action-CreateExperimentDefinition")                   |                |                   | Write          |
-| [appconfig:TagResource](#list_appconfig-action-TagResource "#list_appconfig-action-TagResource")                                |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateExtension                                                                                                                 | appconfig           | [appconfig:CreateExtension](#list_appconfig-action-CreateExtension "#list_appconfig-action-CreateExtension")                                                    |                |                   | Write          |
-| [appconfig:TagResource](#list_appconfig-action-TagResource "#list_appconfig-action-TagResource")                                |                     |                                                                                                                                                                 | Tagging, Write |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService | appconfig.amazonaws.com                                                                                                                                         | Write          |
-| CreateExtensionAssociation                                                                                                      | appconfig           | [appconfig:CreateExtensionAssociation](#list_appconfig-action-CreateExtensionAssociation "#list_appconfig-action-CreateExtensionAssociation")                   |                |                   | Write          |
-| [appconfig:TagResource](#list_appconfig-action-TagResource "#list_appconfig-action-TagResource")                                |                     |                                                                                                                                                                 | Tagging, Write |
-| CreateHostedConfigurationVersion                                                                                                | appconfig           | [appconfig:CreateHostedConfigurationVersion](#list_appconfig-action-CreateHostedConfigurationVersion "#list_appconfig-action-CreateHostedConfigurationVersion") |                |                   | Write          |
-| DeleteApplication                                                                                                               | appconfig           | [appconfig:DeleteApplication](#list_appconfig-action-DeleteApplication "#list_appconfig-action-DeleteApplication")                                              |                |                   | Write          |
-| DeleteConfigurationProfile                                                                                                      | appconfig           | [appconfig:DeleteConfigurationProfile](#list_appconfig-action-DeleteConfigurationProfile "#list_appconfig-action-DeleteConfigurationProfile")                   |                |                   | Write          |
-| DeleteDeploymentStrategy                                                                                                        | appconfig           | [appconfig:DeleteDeploymentStrategy](#list_appconfig-action-DeleteDeploymentStrategy "#list_appconfig-action-DeleteDeploymentStrategy")                         |                |                   | Write          |
-| DeleteEnvironment                                                                                                               | appconfig           | [appconfig:DeleteEnvironment](#list_appconfig-action-DeleteEnvironment "#list_appconfig-action-DeleteEnvironment")                                              |                |                   | Write          |
-| DeleteExperimentDefinition                                                                                                      | appconfig           | [appconfig:DeleteExperimentDefinition](#list_appconfig-action-DeleteExperimentDefinition "#list_appconfig-action-DeleteExperimentDefinition")                   |                |                   | Write          |
-| DeleteExtension                                                                                                                 | appconfig           | [appconfig:DeleteExtension](#list_appconfig-action-DeleteExtension "#list_appconfig-action-DeleteExtension")                                                    |                |                   | Write          |
-| DeleteExtensionAssociation                                                                                                      | appconfig           | [appconfig:DeleteExtensionAssociation](#list_appconfig-action-DeleteExtensionAssociation "#list_appconfig-action-DeleteExtensionAssociation")                   |                |                   | Write          |
-| DeleteHostedConfigurationVersion                                                                                                | appconfig           | [appconfig:DeleteHostedConfigurationVersion](#list_appconfig-action-DeleteHostedConfigurationVersion "#list_appconfig-action-DeleteHostedConfigurationVersion") |                |                   | Write          |
-| GetAccountSettings                                                                                                              | appconfig           | [appconfig:GetAccountSettings](#list_appconfig-action-GetAccountSettings "#list_appconfig-action-GetAccountSettings")                                           |                |                   | Read           |
-| GetApplication                                                                                                                  | appconfig           | [appconfig:GetApplication](#list_appconfig-action-GetApplication "#list_appconfig-action-GetApplication")                                                       |                |                   | Read           |
-| GetConfiguration                                                                                                                | appconfig           | [appconfig:GetConfiguration](#list_appconfig-action-GetConfiguration "#list_appconfig-action-GetConfiguration")                                                 |                |                   | Read           |
-| GetConfigurationProfile                                                                                                         | appconfig           | [appconfig:GetConfigurationProfile](#list_appconfig-action-GetConfigurationProfile "#list_appconfig-action-GetConfigurationProfile")                            |                |                   | Read           |
-| GetDeployment                                                                                                                   | appconfig           | [appconfig:GetDeployment](#list_appconfig-action-GetDeployment "#list_appconfig-action-GetDeployment")                                                          |                |                   | Read           |
-| GetDeploymentStrategy                                                                                                           | appconfig           | [appconfig:GetDeploymentStrategy](#list_appconfig-action-GetDeploymentStrategy "#list_appconfig-action-GetDeploymentStrategy")                                  |                |                   | Read           |
-| GetEnvironment                                                                                                                  | appconfig           | [appconfig:GetEnvironment](#list_appconfig-action-GetEnvironment "#list_appconfig-action-GetEnvironment")                                                       |                |                   | Read           |
-| GetExperimentDefinition                                                                                                         | appconfig           | [appconfig:GetExperimentDefinition](#list_appconfig-action-GetExperimentDefinition "#list_appconfig-action-GetExperimentDefinition")                            |                |                   | Read           |
-| GetExperimentRun                                                                                                                | appconfig           | [appconfig:GetExperimentRun](#list_appconfig-action-GetExperimentRun "#list_appconfig-action-GetExperimentRun")                                                 |                |                   | Read           |
-| GetExtension                                                                                                                    | appconfig           | [appconfig:GetExtension](#list_appconfig-action-GetExtension "#list_appconfig-action-GetExtension")                                                             |                |                   | Read           |
-| GetExtensionAssociation                                                                                                         | appconfig           | [appconfig:GetExtensionAssociation](#list_appconfig-action-GetExtensionAssociation "#list_appconfig-action-GetExtensionAssociation")                            |                |                   | Read           |
-| GetHostedConfigurationVersion                                                                                                   | appconfig           | [appconfig:GetHostedConfigurationVersion](#list_appconfig-action-GetHostedConfigurationVersion "#list_appconfig-action-GetHostedConfigurationVersion")          |                |                   | Read           |
-| ListApplications                                                                                                                | appconfig           | [appconfig:ListApplications](#list_appconfig-action-ListApplications "#list_appconfig-action-ListApplications")                                                 |                |                   | List           |
-| ListConfigurationProfiles                                                                                                       | appconfig           | [appconfig:ListConfigurationProfiles](#list_appconfig-action-ListConfigurationProfiles "#list_appconfig-action-ListConfigurationProfiles")                      |                |                   | List           |
-| ListDeploymentStrategies                                                                                                        | appconfig           | [appconfig:ListDeploymentStrategies](#list_appconfig-action-ListDeploymentStrategies "#list_appconfig-action-ListDeploymentStrategies")                         |                |                   | List           |
-| ListDeployments                                                                                                                 | appconfig           | [appconfig:ListDeployments](#list_appconfig-action-ListDeployments "#list_appconfig-action-ListDeployments")                                                    |                |                   | List           |
-| ListEnvironments                                                                                                                | appconfig           | [appconfig:ListEnvironments](#list_appconfig-action-ListEnvironments "#list_appconfig-action-ListEnvironments")                                                 |                |                   | List           |
-| ListExperimentDefinitions                                                                                                       | appconfig           | [appconfig:ListExperimentDefinitions](#list_appconfig-action-ListExperimentDefinitions "#list_appconfig-action-ListExperimentDefinitions")                      |                |                   | List           |
-| ListExperimentRunEvents                                                                                                         | appconfig           | [appconfig:ListExperimentRunEvents](#list_appconfig-action-ListExperimentRunEvents "#list_appconfig-action-ListExperimentRunEvents")                            |                |                   | List           |
-| ListExperimentRuns                                                                                                              | appconfig           | [appconfig:ListExperimentRuns](#list_appconfig-action-ListExperimentRuns "#list_appconfig-action-ListExperimentRuns")                                           |                |                   | List           |
-| ListExtensionAssociations                                                                                                       | appconfig           | [appconfig:ListExtensionAssociations](#list_appconfig-action-ListExtensionAssociations "#list_appconfig-action-ListExtensionAssociations")                      |                |                   | List           |
-| ListExtensions                                                                                                                  | appconfig           | [appconfig:ListExtensions](#list_appconfig-action-ListExtensions "#list_appconfig-action-ListExtensions")                                                       |                |                   | List           |
-| ListHostedConfigurationVersions                                                                                                 | appconfig           | [appconfig:ListHostedConfigurationVersions](#list_appconfig-action-ListHostedConfigurationVersions "#list_appconfig-action-ListHostedConfigurationVersions")    |                |                   | List           |
-| ListTagsForResource                                                                                                             | appconfig           | [appconfig:ListTagsForResource](#list_appconfig-action-ListTagsForResource "#list_appconfig-action-ListTagsForResource")                                        |                |                   | Read           |
-| StartDeployment                                                                                                                 | appconfig           | [appconfig:StartDeployment](#list_appconfig-action-StartDeployment "#list_appconfig-action-StartDeployment")                                                    |                |                   | Write          |
-| [appconfig:TagResource](#list_appconfig-action-TagResource "#list_appconfig-action-TagResource")                                |                     |                                                                                                                                                                 | Tagging, Write |
-| StartExperimentRun                                                                                                              | appconfig           | [appconfig:StartExperimentRun](#list_appconfig-action-StartExperimentRun "#list_appconfig-action-StartExperimentRun")                                           |                |                   | Write          |
-| [appconfig:TagResource](#list_appconfig-action-TagResource "#list_appconfig-action-TagResource")                                |                     |                                                                                                                                                                 | Tagging, Write |
-| StopDeployment                                                                                                                  | appconfig           | [appconfig:StopDeployment](#list_appconfig-action-StopDeployment "#list_appconfig-action-StopDeployment")                                                       |                |                   | Write          |
-| StopExperimentRun                                                                                                               | appconfig           | [appconfig:StopExperimentRun](#list_appconfig-action-StopExperimentRun "#list_appconfig-action-StopExperimentRun")                                              |                |                   | Write          |
-| TagResource                                                                                                                     | appconfig           | [appconfig:TagResource](#list_appconfig-action-TagResource "#list_appconfig-action-TagResource")                                                                |                |                   | Tagging, Write |
-| UntagResource                                                                                                                   | appconfig           | [appconfig:UntagResource](#list_appconfig-action-UntagResource "#list_appconfig-action-UntagResource")                                                          |                |                   | Tagging, Write |
-| UpdateAccountSettings                                                                                                           | appconfig           | [appconfig:UpdateAccountSettings](#list_appconfig-action-UpdateAccountSettings "#list_appconfig-action-UpdateAccountSettings")                                  |                |                   | Write          |
-| UpdateApplication                                                                                                               | appconfig           | [appconfig:UpdateApplication](#list_appconfig-action-UpdateApplication "#list_appconfig-action-UpdateApplication")                                              |                |                   | Write          |
-| UpdateConfigurationProfile                                                                                                      | appconfig           | [appconfig:UpdateConfigurationProfile](#list_appconfig-action-UpdateConfigurationProfile "#list_appconfig-action-UpdateConfigurationProfile")                   |                |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService | appconfig.amazonaws.com                                                                                                                                         | Write          |
-| UpdateDeploymentStrategy                                                                                                        | appconfig           | [appconfig:UpdateDeploymentStrategy](#list_appconfig-action-UpdateDeploymentStrategy "#list_appconfig-action-UpdateDeploymentStrategy")                         |                |                   | Write          |
-| UpdateEnvironment                                                                                                               | appconfig           | [appconfig:UpdateEnvironment](#list_appconfig-action-UpdateEnvironment "#list_appconfig-action-UpdateEnvironment")                                              |                |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService | appconfig.amazonaws.com                                                                                                                                         | Write          |
-| UpdateExperimentDefinition                                                                                                      | appconfig           | [appconfig:UpdateExperimentDefinition](#list_appconfig-action-UpdateExperimentDefinition "#list_appconfig-action-UpdateExperimentDefinition")                   |                |                   | Write          |
-| UpdateExperimentRun                                                                                                             | appconfig           | [appconfig:UpdateExperimentRun](#list_appconfig-action-UpdateExperimentRun "#list_appconfig-action-UpdateExperimentRun")                                        |                |                   | Write          |
-| UpdateExtension                                                                                                                 | appconfig           | [appconfig:UpdateExtension](#list_appconfig-action-UpdateExtension "#list_appconfig-action-UpdateExtension")                                                    |                |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService | appconfig.amazonaws.com                                                                                                                                         | Write          |
-| UpdateExtensionAssociation                                                                                                      | appconfig           | [appconfig:UpdateExtensionAssociation](#list_appconfig-action-UpdateExtensionAssociation "#list_appconfig-action-UpdateExtensionAssociation")                   |                |                   | Write          |
-| ValidateConfiguration                                                                                                           | appconfig           | [appconfig:ValidateConfiguration](#list_appconfig-action-ValidateConfiguration "#list_appconfig-action-ValidateConfiguration")                                  |                |                   | Write          |
-| GetLatestConfiguration                                                                                                          | appconfigdata       | [appconfig:GetLatestConfiguration](#list_appconfig-action-GetLatestConfiguration "#list_appconfig-action-GetLatestConfiguration")                               |                |                   | Read           |
-| StartConfigurationSession                                                                                                       | appconfigdata       | [appconfig:StartConfigurationSession](#list_appconfig-action-StartConfigurationSession "#list_appconfig-action-StartConfigurationSession")                      |                |                   | Write          |
+
+
+
+- **   CreateApplication  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:CreateApplication](#list_appconfig-action-CreateApplication)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appconfig:TagResource](#list_appconfig-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateConfigurationProfile  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:CreateConfigurationProfile](#list_appconfig-action-CreateConfigurationProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appconfig:TagResource](#list_appconfig-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appconfig.amazonaws.com / **Access level:** Write
+
+- **   CreateDeploymentStrategy  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:CreateDeploymentStrategy](#list_appconfig-action-CreateDeploymentStrategy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appconfig:TagResource](#list_appconfig-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateEnvironment  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:CreateEnvironment](#list_appconfig-action-CreateEnvironment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appconfig:TagResource](#list_appconfig-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appconfig.amazonaws.com / **Access level:** Write
+
+- **   CreateExperimentDefinition  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:CreateExperimentDefinition](#list_appconfig-action-CreateExperimentDefinition)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appconfig:TagResource](#list_appconfig-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateExtension  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:CreateExtension](#list_appconfig-action-CreateExtension)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appconfig:TagResource](#list_appconfig-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appconfig.amazonaws.com / **Access level:** Write
+
+- **   CreateExtensionAssociation  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:CreateExtensionAssociation](#list_appconfig-action-CreateExtensionAssociation)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appconfig:TagResource](#list_appconfig-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateHostedConfigurationVersion  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:CreateHostedConfigurationVersion](#list_appconfig-action-CreateHostedConfigurationVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteApplication  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:DeleteApplication](#list_appconfig-action-DeleteApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConfigurationProfile  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:DeleteConfigurationProfile](#list_appconfig-action-DeleteConfigurationProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDeploymentStrategy  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:DeleteDeploymentStrategy](#list_appconfig-action-DeleteDeploymentStrategy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteEnvironment  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:DeleteEnvironment](#list_appconfig-action-DeleteEnvironment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteExperimentDefinition  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:DeleteExperimentDefinition](#list_appconfig-action-DeleteExperimentDefinition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteExtension  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:DeleteExtension](#list_appconfig-action-DeleteExtension) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteExtensionAssociation  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:DeleteExtensionAssociation](#list_appconfig-action-DeleteExtensionAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteHostedConfigurationVersion  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:DeleteHostedConfigurationVersion](#list_appconfig-action-DeleteHostedConfigurationVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAccountSettings  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:GetAccountSettings](#list_appconfig-action-GetAccountSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetApplication  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:GetApplication](#list_appconfig-action-GetApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetConfiguration  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:GetConfiguration](#list_appconfig-action-GetConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetConfigurationProfile  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:GetConfigurationProfile](#list_appconfig-action-GetConfigurationProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDeployment  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:GetDeployment](#list_appconfig-action-GetDeployment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDeploymentStrategy  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:GetDeploymentStrategy](#list_appconfig-action-GetDeploymentStrategy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEnvironment  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:GetEnvironment](#list_appconfig-action-GetEnvironment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetExperimentDefinition  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:GetExperimentDefinition](#list_appconfig-action-GetExperimentDefinition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetExperimentRun  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:GetExperimentRun](#list_appconfig-action-GetExperimentRun) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetExtension  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:GetExtension](#list_appconfig-action-GetExtension) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetExtensionAssociation  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:GetExtensionAssociation](#list_appconfig-action-GetExtensionAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetHostedConfigurationVersion  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:GetHostedConfigurationVersion](#list_appconfig-action-GetHostedConfigurationVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListApplications  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:ListApplications](#list_appconfig-action-ListApplications) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConfigurationProfiles  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:ListConfigurationProfiles](#list_appconfig-action-ListConfigurationProfiles) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDeploymentStrategies  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:ListDeploymentStrategies](#list_appconfig-action-ListDeploymentStrategies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDeployments  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:ListDeployments](#list_appconfig-action-ListDeployments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEnvironments  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:ListEnvironments](#list_appconfig-action-ListEnvironments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListExperimentDefinitions  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:ListExperimentDefinitions](#list_appconfig-action-ListExperimentDefinitions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListExperimentRunEvents  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:ListExperimentRunEvents](#list_appconfig-action-ListExperimentRunEvents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListExperimentRuns  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:ListExperimentRuns](#list_appconfig-action-ListExperimentRuns) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListExtensionAssociations  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:ListExtensionAssociations](#list_appconfig-action-ListExtensionAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListExtensions  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:ListExtensions](#list_appconfig-action-ListExtensions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListHostedConfigurationVersions  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:ListHostedConfigurationVersions](#list_appconfig-action-ListHostedConfigurationVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:ListTagsForResource](#list_appconfig-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartDeployment  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:StartDeployment](#list_appconfig-action-StartDeployment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appconfig:TagResource](#list_appconfig-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   StartExperimentRun  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:StartExperimentRun](#list_appconfig-action-StartExperimentRun)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appconfig:TagResource](#list_appconfig-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   StopDeployment  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:StopDeployment](#list_appconfig-action-StopDeployment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopExperimentRun  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:StopExperimentRun](#list_appconfig-action-StopExperimentRun) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:TagResource](#list_appconfig-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:UntagResource](#list_appconfig-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAccountSettings  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:UpdateAccountSettings](#list_appconfig-action-UpdateAccountSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateApplication  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:UpdateApplication](#list_appconfig-action-UpdateApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateConfigurationProfile  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:UpdateConfigurationProfile](#list_appconfig-action-UpdateConfigurationProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appconfig.amazonaws.com / **Access level:** Write
+
+- **   UpdateDeploymentStrategy  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:UpdateDeploymentStrategy](#list_appconfig-action-UpdateDeploymentStrategy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateEnvironment  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:UpdateEnvironment](#list_appconfig-action-UpdateEnvironment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appconfig.amazonaws.com / **Access level:** Write
+
+- **   UpdateExperimentDefinition  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:UpdateExperimentDefinition](#list_appconfig-action-UpdateExperimentDefinition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateExperimentRun  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:UpdateExperimentRun](#list_appconfig-action-UpdateExperimentRun) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateExtension  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:UpdateExtension](#list_appconfig-action-UpdateExtension)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appconfig.amazonaws.com / **Access level:** Write
+
+- **   UpdateExtensionAssociation  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:UpdateExtensionAssociation](#list_appconfig-action-UpdateExtensionAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ValidateConfiguration  **
+  - **SDK client:** appconfig
+  - **IAM action:**  [appconfig:ValidateConfiguration](#list_appconfig-action-ValidateConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetLatestConfiguration  **
+  - **SDK client:** appconfigdata
+  - **IAM action:**  [appconfig:GetLatestConfiguration](#list_appconfig-action-GetLatestConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartConfigurationSession  **
+  - **SDK client:** appconfigdata
+  - **IAM action:**  [appconfig:StartConfigurationSession](#list_appconfig-action-StartConfigurationSession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS AppConfig
+<a name="list_appconfig-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                            | Description                                                                                                                                                                                                                                                                                                       | Resource types (\*required)                                                                                             | Condition keys                                                                                                                                                                                                                                                                                                    | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [CreateApplication](../../../appconfig/2019-10-09/APIReference/API_CreateApplication.md "../../../appconfig/2019-10-09/APIReference/API_CreateApplication.md")                                                     | Grants permission to create an application                                                                                                                                                                                                                                                                        |                                                                                                                         | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys")                                                                                                                       | Write          |
-| [CreateConfigurationProfile](../../../appconfig/2019-10-09/APIReference/API_CreateConfigurationProfile.md "../../../appconfig/2019-10-09/APIReference/API_CreateConfigurationProfile.md")                          | Grants permission to create a configuration profile                                                                                                                                                                                                                                                               | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") | Write          |
-| [CreateDeploymentStrategy](../../../appconfig/2019-10-09/APIReference/API_CreateDeploymentStrategy.md "../../../appconfig/2019-10-09/APIReference/API_CreateDeploymentStrategy.md")                                | Grants permission to create a deployment strategy                                                                                                                                                                                                                                                                 |                                                                                                                         | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys")                                                                                                                       | Write          |
-| [CreateEnvironment](../../../appconfig/2019-10-09/APIReference/API_CreateEnvironment.md "../../../appconfig/2019-10-09/APIReference/API_CreateEnvironment.md")                                                     | Grants permission to create an environment                                                                                                                                                                                                                                                                        | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") | Write          |
-| [CreateExperimentDefinition](../../../appconfig/2019-10-09/APIReference/API_CreateExperimentDefinition.md "../../../appconfig/2019-10-09/APIReference/API_CreateExperimentDefinition.md")                          | Grants permission to create an experiment definition                                                                                                                                                                                                                                                              | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") | Write          |
-| [CreateExtension](../../../appconfig/2019-10-09/APIReference/API_CreateExtension.md "../../../appconfig/2019-10-09/APIReference/API_CreateExtension.md")                                                           | Grants permission to create an extension                                                                                                                                                                                                                                                                          |                                                                                                                         | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys")                                                                                                                       | Write          |
-| [CreateExtensionAssociation](../../../appconfig/2019-10-09/APIReference/API_CreateExtensionAssociation.md "../../../appconfig/2019-10-09/APIReference/API_CreateExtensionAssociation.md")                          | Grants permission to create an extension association                                                                                                                                                                                                                                                              |                                                                                                                         | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys")                                                                                                                       | Write          |
-| [CreateHostedConfigurationVersion](../../../appconfig/2019-10-09/APIReference/API_CreateHostedConfigurationVersion.md "../../../appconfig/2019-10-09/APIReference/API_CreateHostedConfigurationVersion.md")        | Grants permission to create a hosted configuration version                                                                                                                                                                                                                                                        | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [configurationprofile\*](#list_appconfig-resource-configurationprofile "#list_appconfig-resource-configurationprofile")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DeleteApplication](../../../appconfig/2019-10-09/APIReference/API_DeleteApplication.md "../../../appconfig/2019-10-09/APIReference/API_DeleteApplication.md")                                                     | Grants permission to delete an application                                                                                                                                                                                                                                                                        | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteConfigurationProfile](../../../appconfig/2019-10-09/APIReference/API_DeleteConfigurationProfile.md "../../../appconfig/2019-10-09/APIReference/API_DeleteConfigurationProfile.md")                          | Grants permission to delete a configuration profile                                                                                                                                                                                                                                                               | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [configurationprofile\*](#list_appconfig-resource-configurationprofile "#list_appconfig-resource-configurationprofile")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DeleteDeploymentStrategy](../../../appconfig/2019-10-09/APIReference/API_DeleteDeploymentStrategy.md "../../../appconfig/2019-10-09/APIReference/API_DeleteDeploymentStrategy.md")                                | Grants permission to delete a deployment strategy                                                                                                                                                                                                                                                                 | [deploymentstrategy\*](#list_appconfig-resource-deploymentstrategy "#list_appconfig-resource-deploymentstrategy")       | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteEnvironment](../../../appconfig/2019-10-09/APIReference/API_DeleteEnvironment.md "../../../appconfig/2019-10-09/APIReference/API_DeleteEnvironment.md")                                                     | Grants permission to delete an environment                                                                                                                                                                                                                                                                        | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [environment\*](#list_appconfig-resource-environment "#list_appconfig-resource-environment")                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DeleteExperimentDefinition](../../../appconfig/2019-10-09/APIReference/API_DeleteExperimentDefinition.md "../../../appconfig/2019-10-09/APIReference/API_DeleteExperimentDefinition.md")                          | Grants permission to delete an experiment definition                                                                                                                                                                                                                                                              | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [experimentdefinition\*](#list_appconfig-resource-experimentdefinition "#list_appconfig-resource-experimentdefinition")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DeleteExtension](../../../appconfig/2019-10-09/APIReference/API_DeleteExtension.md "../../../appconfig/2019-10-09/APIReference/API_DeleteExtension.md")                                                           | Grants permission to delete an extension                                                                                                                                                                                                                                                                          | [extension\*](#list_appconfig-resource-extension "#list_appconfig-resource-extension")                                  | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteExtensionAssociation](../../../appconfig/2019-10-09/APIReference/API_DeleteExtensionAssociation.md "../../../appconfig/2019-10-09/APIReference/API_DeleteExtensionAssociation.md")                          | Grants permission to delete an extension association                                                                                                                                                                                                                                                              | [extensionassociation\*](#list_appconfig-resource-extensionassociation "#list_appconfig-resource-extensionassociation") | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteHostedConfigurationVersion](../../../appconfig/2019-10-09/APIReference/API_DeleteHostedConfigurationVersion.md "../../../appconfig/2019-10-09/APIReference/API_DeleteHostedConfigurationVersion.md")        | Grants permission to delete a hosted configuration version                                                                                                                                                                                                                                                        | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [configurationprofile\*](#list_appconfig-resource-configurationprofile "#list_appconfig-resource-configurationprofile")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [hostedconfigurationversion\*](#list_appconfig-resource-hostedconfigurationversion "#list_appconfig-resource-hostedconfigurationversion")                                                                          |                                                                                                                                                                                                                                                                                                                   |
-| [GetAccountSettings](../../../appconfig/2019-10-09/APIReference/API_GetAccountSettings.md "../../../appconfig/2019-10-09/APIReference/API_GetAccountSettings.md")                                                  | Grants permission to view account-wide AppConfig settings                                                                                                                                                                                                                                                         |                                                                                                                         |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetApplication](../../../appconfig/2019-10-09/APIReference/API_GetApplication.md "../../../appconfig/2019-10-09/APIReference/API_GetApplication.md")                                                              | Grants permission to view details about an application                                                                                                                                                                                                                                                            | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetConfiguration](../../../appconfig/2019-10-09/APIReference/API_GetConfiguration.md "../../../appconfig/2019-10-09/APIReference/API_GetConfiguration.md")                                                        | Grants permission to view details about a configuration                                                                                                                                                                                                                                                           | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [configurationprofile\*](#list_appconfig-resource-configurationprofile "#list_appconfig-resource-configurationprofile")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [environment\*](#list_appconfig-resource-environment "#list_appconfig-resource-environment")                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetConfigurationProfile](../../../appconfig/2019-10-09/APIReference/API_GetConfigurationProfile.md "../../../appconfig/2019-10-09/APIReference/API_GetConfigurationProfile.md")                                   | Grants permission to view details about a configuration profile                                                                                                                                                                                                                                                   | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [configurationprofile\*](#list_appconfig-resource-configurationprofile "#list_appconfig-resource-configurationprofile")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetDeployment](../../../appconfig/2019-10-09/APIReference/API_GetDeployment.md "../../../appconfig/2019-10-09/APIReference/API_GetDeployment.md")                                                                 | Grants permission to view details about a deployment                                                                                                                                                                                                                                                              | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [deployment\*](#list_appconfig-resource-deployment "#list_appconfig-resource-deployment")                                                                                                                          | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [environment\*](#list_appconfig-resource-environment "#list_appconfig-resource-environment")                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetDeploymentStrategy](../../../appconfig/2019-10-09/APIReference/API_GetDeploymentStrategy.md "../../../appconfig/2019-10-09/APIReference/API_GetDeploymentStrategy.md")                                         | Grants permission to view details about a deployment strategy                                                                                                                                                                                                                                                     | [deploymentstrategy\*](#list_appconfig-resource-deploymentstrategy "#list_appconfig-resource-deploymentstrategy")       | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetEnvironment](../../../appconfig/2019-10-09/APIReference/API_GetEnvironment.md "../../../appconfig/2019-10-09/APIReference/API_GetEnvironment.md")                                                              | Grants permission to view details about an environment                                                                                                                                                                                                                                                            | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [environment\*](#list_appconfig-resource-environment "#list_appconfig-resource-environment")                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetExperimentDefinition](../../../appconfig/2019-10-09/APIReference/API_GetExperimentDefinition.md "../../../appconfig/2019-10-09/APIReference/API_GetExperimentDefinition.md")                                   | Grants permission to view details about an experiment definition                                                                                                                                                                                                                                                  | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [experimentdefinition\*](#list_appconfig-resource-experimentdefinition "#list_appconfig-resource-experimentdefinition")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetExperimentRun](../../../appconfig/2019-10-09/APIReference/API_GetExperimentRun.md "../../../appconfig/2019-10-09/APIReference/API_GetExperimentRun.md")                                                        | Grants permission to view details about an experiment run                                                                                                                                                                                                                                                         | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [experimentdefinition\*](#list_appconfig-resource-experimentdefinition "#list_appconfig-resource-experimentdefinition")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [experimentrun\*](#list_appconfig-resource-experimentrun "#list_appconfig-resource-experimentrun")                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetExtension](../../../appconfig/2019-10-09/APIReference/API_GetExtension.md "../../../appconfig/2019-10-09/APIReference/API_GetExtension.md")                                                                    | Grants permission to view details about an extension                                                                                                                                                                                                                                                              | [extension\*](#list_appconfig-resource-extension "#list_appconfig-resource-extension")                                  | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetExtensionAssociation](../../../appconfig/2019-10-09/APIReference/API_GetExtensionAssociation.md "../../../appconfig/2019-10-09/APIReference/API_GetExtensionAssociation.md")                                   | Grants permission to view details about an extension association                                                                                                                                                                                                                                                  | [extensionassociation\*](#list_appconfig-resource-extensionassociation "#list_appconfig-resource-extensionassociation") | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetHostedConfigurationVersion](../../../appconfig/2019-10-09/APIReference/API_GetHostedConfigurationVersion.md "../../../appconfig/2019-10-09/APIReference/API_GetHostedConfigurationVersion.md")                 | Grants permission to view details about a hosted configuration version                                                                                                                                                                                                                                            | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [configurationprofile\*](#list_appconfig-resource-configurationprofile "#list_appconfig-resource-configurationprofile")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [hostedconfigurationversion\*](#list_appconfig-resource-hostedconfigurationversion "#list_appconfig-resource-hostedconfigurationversion")                                                                          |                                                                                                                                                                                                                                                                                                                   |
-| [GetLatestConfiguration](../../../appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.md "../../../appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.md")          | Grants permission to retrieve a deployed configuration                                                                                                                                                                                                                                                            | [configuration\*](#list_appconfig-resource-configuration "#list_appconfig-resource-configuration")                      | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [ListApplications](../../../appconfig/2019-10-09/APIReference/API_ListApplications.md "../../../appconfig/2019-10-09/APIReference/API_ListApplications.md")                                                        | Grants permission to list the applications in your account                                                                                                                                                                                                                                                        |                                                                                                                         |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListConfigurationProfiles](../../../appconfig/2019-10-09/APIReference/API_ListConfigurationProfiles.md "../../../appconfig/2019-10-09/APIReference/API_ListConfigurationProfiles.md")                             | Grants permission to list the configuration profiles for an application                                                                                                                                                                                                                                           | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | List           |
-| [ListDeploymentStrategies](../../../appconfig/2019-10-09/APIReference/API_ListDeploymentStrategies.md "../../../appconfig/2019-10-09/APIReference/API_ListDeploymentStrategies.md")                                | Grants permission to list the deployment strategies for your account                                                                                                                                                                                                                                              |                                                                                                                         |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListDeployments](../../../appconfig/2019-10-09/APIReference/API_ListDeployments.md "../../../appconfig/2019-10-09/APIReference/API_ListDeployments.md")                                                           | Grants permission to list the deployments for an environment                                                                                                                                                                                                                                                      | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | List           |
-| [environment\*](#list_appconfig-resource-environment "#list_appconfig-resource-environment")                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ListEnvironments](../../../appconfig/2019-10-09/APIReference/API_ListEnvironments.md "../../../appconfig/2019-10-09/APIReference/API_ListEnvironments.md")                                                        | Grants permission to list the environments for an application                                                                                                                                                                                                                                                     | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | List           |
-| [ListExperimentDefinitions](../../../appconfig/2019-10-09/APIReference/API_ListExperimentDefinitions.md "../../../appconfig/2019-10-09/APIReference/API_ListExperimentDefinitions.md")                             | Grants permission to list the experiment definitions in your account                                                                                                                                                                                                                                              |                                                                                                                         |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListExperimentRunEvents](../../../appconfig/2019-10-09/APIReference/API_ListExperimentRunEvents.md "../../../appconfig/2019-10-09/APIReference/API_ListExperimentRunEvents.md")                                   | Grants permission to list the events for an experiment run                                                                                                                                                                                                                                                        | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | List           |
-| [experimentdefinition\*](#list_appconfig-resource-experimentdefinition "#list_appconfig-resource-experimentdefinition")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [experimentrun\*](#list_appconfig-resource-experimentrun "#list_appconfig-resource-experimentrun")                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ListExperimentRuns](../../../appconfig/2019-10-09/APIReference/API_ListExperimentRuns.md "../../../appconfig/2019-10-09/APIReference/API_ListExperimentRuns.md")                                                  | Grants permission to list the experiment runs for an experiment definition                                                                                                                                                                                                                                        | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | List           |
-| [experimentdefinition\*](#list_appconfig-resource-experimentdefinition "#list_appconfig-resource-experimentdefinition")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ListExtensionAssociations](../../../appconfig/2019-10-09/APIReference/API_ListExtensionAssociations.md "../../../appconfig/2019-10-09/APIReference/API_ListExtensionAssociations.md")                             | Grants permission to list the extension associations in your account                                                                                                                                                                                                                                              |                                                                                                                         |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListExtensions](../../../appconfig/2019-10-09/APIReference/API_ListExtensions.md "../../../appconfig/2019-10-09/APIReference/API_ListExtensions.md")                                                              | Grants permission to list the extensions in your account                                                                                                                                                                                                                                                          |                                                                                                                         |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListHostedConfigurationVersions](../../../appconfig/2019-10-09/APIReference/API_ListHostedConfigurationVersions.md "../../../appconfig/2019-10-09/APIReference/API_ListHostedConfigurationVersions.md")           | Grants permission to list the hosted configuration versions for a configuration profile                                                                                                                                                                                                                           | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | List           |
-| [configurationprofile\*](#list_appconfig-resource-configurationprofile "#list_appconfig-resource-configurationprofile")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ListTagsForResource](../../../appconfig/2019-10-09/APIReference/API_ListTagsForResource.md "../../../appconfig/2019-10-09/APIReference/API_ListTagsForResource.md")                                               | Grants permission to view a list of resource tags for a specified resource                                                                                                                                                                                                                                        | [application](#list_appconfig-resource-application "#list_appconfig-resource-application")                              | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [configurationprofile](#list_appconfig-resource-configurationprofile "#list_appconfig-resource-configurationprofile")                                                                                              | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [deployment](#list_appconfig-resource-deployment "#list_appconfig-resource-deployment")                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [deploymentstrategy](#list_appconfig-resource-deploymentstrategy "#list_appconfig-resource-deploymentstrategy")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [environment](#list_appconfig-resource-environment "#list_appconfig-resource-environment")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [experimentdefinition](#list_appconfig-resource-experimentdefinition "#list_appconfig-resource-experimentdefinition")                                                                                              | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [experimentrun](#list_appconfig-resource-experimentrun "#list_appconfig-resource-experimentrun")                                                                                                                   | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [extension](#list_appconfig-resource-extension "#list_appconfig-resource-extension")                                                                                                                               | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [extensionassociation](#list_appconfig-resource-extensionassociation "#list_appconfig-resource-extensionassociation")                                                                                              | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [StartConfigurationSession](../../../appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.md "../../../appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.md") | Grants permission to start a configuration session                                                                                                                                                                                                                                                                | [configuration\*](#list_appconfig-resource-configuration "#list_appconfig-resource-configuration")                      | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [StartDeployment](../../../appconfig/2019-10-09/APIReference/API_StartDeployment.md "../../../appconfig/2019-10-09/APIReference/API_StartDeployment.md")                                                           | Grants permission to initiate a deployment                                                                                                                                                                                                                                                                        | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") | Write          |
-| [configurationprofile\*](#list_appconfig-resource-configurationprofile "#list_appconfig-resource-configurationprofile")                                                                                            | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") |
-| [deploymentstrategy\*](#list_appconfig-resource-deploymentstrategy "#list_appconfig-resource-deploymentstrategy")                                                                                                  | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") |
-| [environment\*](#list_appconfig-resource-environment "#list_appconfig-resource-environment")                                                                                                                       | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") |
-| [StartExperimentRun](../../../appconfig/2019-10-09/APIReference/API_StartExperimentRun.md "../../../appconfig/2019-10-09/APIReference/API_StartExperimentRun.md")                                                  | Grants permission to start an experiment run                                                                                                                                                                                                                                                                      | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") | Write          |
-| [experimentdefinition\*](#list_appconfig-resource-experimentdefinition "#list_appconfig-resource-experimentdefinition")                                                                                            | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") |
-| [StopDeployment](../../../appconfig/2019-10-09/APIReference/API_StopDeployment.md "../../../appconfig/2019-10-09/APIReference/API_StopDeployment.md")                                                              | Grants permission to stop a deployment                                                                                                                                                                                                                                                                            | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [deployment\*](#list_appconfig-resource-deployment "#list_appconfig-resource-deployment")                                                                                                                          | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [environment\*](#list_appconfig-resource-environment "#list_appconfig-resource-environment")                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [StopExperimentRun](../../../appconfig/2019-10-09/APIReference/API_StopExperimentRun.md "../../../appconfig/2019-10-09/APIReference/API_StopExperimentRun.md")                                                     | Grants permission to stop an experiment run                                                                                                                                                                                                                                                                       | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [experimentdefinition\*](#list_appconfig-resource-experimentdefinition "#list_appconfig-resource-experimentdefinition")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [experimentrun\*](#list_appconfig-resource-experimentrun "#list_appconfig-resource-experimentrun")                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [TagResource](../../../appconfig/2019-10-09/APIReference/API_TagResource.md "../../../appconfig/2019-10-09/APIReference/API_TagResource.md")                                                                       | Grants permission to tag an appconfig resource                                                                                                                                                                                                                                                                    | [application](#list_appconfig-resource-application "#list_appconfig-resource-application")                              | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") | Tagging, Write |
-| [configuration](#list_appconfig-resource-configuration "#list_appconfig-resource-configuration")                                                                                                                   | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") |
-| [configurationprofile](#list_appconfig-resource-configurationprofile "#list_appconfig-resource-configurationprofile")                                                                                              | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") |
-| [deployment](#list_appconfig-resource-deployment "#list_appconfig-resource-deployment")                                                                                                                            | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") |
-| [deploymentstrategy](#list_appconfig-resource-deploymentstrategy "#list_appconfig-resource-deploymentstrategy")                                                                                                    | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") |
-| [environment](#list_appconfig-resource-environment "#list_appconfig-resource-environment")                                                                                                                         | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") |
-| [experimentdefinition](#list_appconfig-resource-experimentdefinition "#list_appconfig-resource-experimentdefinition")                                                                                              | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") |
-| [experimentrun](#list_appconfig-resource-experimentrun "#list_appconfig-resource-experimentrun")                                                                                                                   | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") |
-| [extension](#list_appconfig-resource-extension "#list_appconfig-resource-extension")                                                                                                                               | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") |
-| [extensionassociation](#list_appconfig-resource-extensionassociation "#list_appconfig-resource-extensionassociation")                                                                                              | [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_ "#list_appconfig-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys") |
-| [UntagResource](../../../appconfig/2019-10-09/APIReference/API_UntagResource.md "../../../appconfig/2019-10-09/APIReference/API_UntagResource.md")                                                                 | Grants permission to untag an appconfig resource                                                                                                                                                                                                                                                                  | [application](#list_appconfig-resource-application "#list_appconfig-resource-application")                              | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys")                                                                                                                    | Tagging, Write |
-| [configuration](#list_appconfig-resource-configuration "#list_appconfig-resource-configuration")                                                                                                                   | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys")                                                                                                                    |
-| [configurationprofile](#list_appconfig-resource-configurationprofile "#list_appconfig-resource-configurationprofile")                                                                                              | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys")                                                                                                                    |
-| [deployment](#list_appconfig-resource-deployment "#list_appconfig-resource-deployment")                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys")                                                                                                                    |
-| [deploymentstrategy](#list_appconfig-resource-deploymentstrategy "#list_appconfig-resource-deploymentstrategy")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys")                                                                                                                    |
-| [environment](#list_appconfig-resource-environment "#list_appconfig-resource-environment")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys")                                                                                                                    |
-| [experimentdefinition](#list_appconfig-resource-experimentdefinition "#list_appconfig-resource-experimentdefinition")                                                                                              | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys")                                                                                                                    |
-| [experimentrun](#list_appconfig-resource-experimentrun "#list_appconfig-resource-experimentrun")                                                                                                                   | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys")                                                                                                                    |
-| [extension](#list_appconfig-resource-extension "#list_appconfig-resource-extension")                                                                                                                               | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys")                                                                                                                    |
-| [extensionassociation](#list_appconfig-resource-extensionassociation "#list_appconfig-resource-extensionassociation")                                                                                              | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appconfig-aws_TagKeys "#list_appconfig-aws_TagKeys")                                                                                                                    |
-| [UpdateAccountSettings](../../../appconfig/2019-10-09/APIReference/API_UpdateAccountSettings.md "../../../appconfig/2019-10-09/APIReference/API_UpdateAccountSettings.md")                                         | Grants permission to modify account-wide AppConfig settings                                                                                                                                                                                                                                                       |                                                                                                                         |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [UpdateApplication](../../../appconfig/2019-10-09/APIReference/API_UpdateApplication.md "../../../appconfig/2019-10-09/APIReference/API_UpdateApplication.md")                                                     | Grants permission to modify an application                                                                                                                                                                                                                                                                        | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [UpdateConfigurationProfile](../../../appconfig/2019-10-09/APIReference/API_UpdateConfigurationProfile.md "../../../appconfig/2019-10-09/APIReference/API_UpdateConfigurationProfile.md")                          | Grants permission to modify a configuration profile                                                                                                                                                                                                                                                               | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [configurationprofile\*](#list_appconfig-resource-configurationprofile "#list_appconfig-resource-configurationprofile")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [UpdateDeploymentStrategy](../../../appconfig/2019-10-09/APIReference/API_UpdateDeploymentStrategy.md "../../../appconfig/2019-10-09/APIReference/API_UpdateDeploymentStrategy.md")                                | Grants permission to modify a deployment strategy                                                                                                                                                                                                                                                                 | [deploymentstrategy\*](#list_appconfig-resource-deploymentstrategy "#list_appconfig-resource-deploymentstrategy")       | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [UpdateEnvironment](../../../appconfig/2019-10-09/APIReference/API_UpdateEnvironment.md "../../../appconfig/2019-10-09/APIReference/API_UpdateEnvironment.md")                                                     | Grants permission to modify an environment                                                                                                                                                                                                                                                                        | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [environment\*](#list_appconfig-resource-environment "#list_appconfig-resource-environment")                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [UpdateExperimentDefinition](../../../appconfig/2019-10-09/APIReference/API_UpdateExperimentDefinition.md "../../../appconfig/2019-10-09/APIReference/API_UpdateExperimentDefinition.md")                          | Grants permission to modify an experiment definition                                                                                                                                                                                                                                                              | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [experimentdefinition\*](#list_appconfig-resource-experimentdefinition "#list_appconfig-resource-experimentdefinition")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [UpdateExperimentRun](../../../appconfig/2019-10-09/APIReference/API_UpdateExperimentRun.md "../../../appconfig/2019-10-09/APIReference/API_UpdateExperimentRun.md")                                               | Grants permission to modify an experiment run                                                                                                                                                                                                                                                                     | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [experimentdefinition\*](#list_appconfig-resource-experimentdefinition "#list_appconfig-resource-experimentdefinition")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [experimentrun\*](#list_appconfig-resource-experimentrun "#list_appconfig-resource-experimentrun")                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [UpdateExtension](../../../appconfig/2019-10-09/APIReference/API_UpdateExtension.md "../../../appconfig/2019-10-09/APIReference/API_UpdateExtension.md")                                                           | Grants permission to modify an extension                                                                                                                                                                                                                                                                          | [extension\*](#list_appconfig-resource-extension "#list_appconfig-resource-extension")                                  | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [UpdateExtensionAssociation](../../../appconfig/2019-10-09/APIReference/API_UpdateExtensionAssociation.md "../../../appconfig/2019-10-09/APIReference/API_UpdateExtensionAssociation.md")                          | Grants permission to modify an extension association                                                                                                                                                                                                                                                              | [extensionassociation\*](#list_appconfig-resource-extensionassociation "#list_appconfig-resource-extensionassociation") | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [ValidateConfiguration](../../../appconfig/2019-10-09/APIReference/API_ValidateConfiguration.md "../../../appconfig/2019-10-09/APIReference/API_ValidateConfiguration.md")                                         | Grants permission to validate a configuration                                                                                                                                                                                                                                                                     | [application\*](#list_appconfig-resource-application "#list_appconfig-resource-application")                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [configurationprofile\*](#list_appconfig-resource-configurationprofile "#list_appconfig-resource-configurationprofile")                                                                                            | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
+
+
+
+- **   [CreateApplication](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateApplication.html)  **
+  - **Description:** Grants permission to create an application
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateConfigurationProfile](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateConfigurationProfile.html)  **
+  - **Description:** Grants permission to create a configuration profile
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDeploymentStrategy](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateDeploymentStrategy.html)  **
+  - **Description:** Grants permission to create a deployment strategy
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateEnvironment](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateEnvironment.html)  **
+  - **Description:** Grants permission to create an environment
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateExperimentDefinition](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateExperimentDefinition.html)  **
+  - **Description:** Grants permission to create an experiment definition
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateExtension](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateExtension.html)  **
+  - **Description:** Grants permission to create an extension
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateExtensionAssociation](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateExtensionAssociation.html)  **
+  - **Description:** Grants permission to create an extension association
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateHostedConfigurationVersion](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateHostedConfigurationVersion.html)  **
+  - **Description:** Grants permission to create a hosted configuration version
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [configurationprofile\*](#list_appconfig-resource-configurationprofile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteApplication](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteApplication.html)  **
+  - **Description:** Grants permission to delete an application
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConfigurationProfile](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteConfigurationProfile.html)  **
+  - **Description:** Grants permission to delete a configuration profile
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [configurationprofile\*](#list_appconfig-resource-configurationprofile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDeploymentStrategy](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteDeploymentStrategy.html)  **
+  - **Description:** Grants permission to delete a deployment strategy
+  - **Resource types (\*required):** [deploymentstrategy\*](#list_appconfig-resource-deploymentstrategy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteEnvironment](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteEnvironment.html)  **
+  - **Description:** Grants permission to delete an environment
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [environment\*](#list_appconfig-resource-environment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteExperimentDefinition](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteExperimentDefinition.html)  **
+  - **Description:** Grants permission to delete an experiment definition
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [experimentdefinition\*](#list_appconfig-resource-experimentdefinition) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteExtension](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteExtension.html)  **
+  - **Description:** Grants permission to delete an extension
+  - **Resource types (\*required):** [extension\*](#list_appconfig-resource-extension)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteExtensionAssociation](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteExtensionAssociation.html)  **
+  - **Description:** Grants permission to delete an extension association
+  - **Resource types (\*required):** [extensionassociation\*](#list_appconfig-resource-extensionassociation)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteHostedConfigurationVersion](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteHostedConfigurationVersion.html)  **
+  - **Description:** Grants permission to delete a hosted configuration version
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [configurationprofile\*](#list_appconfig-resource-configurationprofile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [hostedconfigurationversion\*](#list_appconfig-resource-hostedconfigurationversion) / **Condition keys:**  
+  - **Access level:** Write
+
+- **   [GetAccountSettings](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetAccountSettings.html)  **
+  - **Description:** Grants permission to view account-wide AppConfig settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetApplication](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetApplication.html)  **
+  - **Description:** Grants permission to view details about an application
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetConfiguration.html)  **
+  - **Description:** Grants permission to view details about a configuration
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [configurationprofile\*](#list_appconfig-resource-configurationprofile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [environment\*](#list_appconfig-resource-environment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetConfigurationProfile](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetConfigurationProfile.html)  **
+  - **Description:** Grants permission to view details about a configuration profile
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [configurationprofile\*](#list_appconfig-resource-configurationprofile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDeployment](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetDeployment.html)  **
+  - **Description:** Grants permission to view details about a deployment
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [deployment\*](#list_appconfig-resource-deployment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [environment\*](#list_appconfig-resource-environment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDeploymentStrategy](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetDeploymentStrategy.html)  **
+  - **Description:** Grants permission to view details about a deployment strategy
+  - **Resource types (\*required):** [deploymentstrategy\*](#list_appconfig-resource-deploymentstrategy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetEnvironment](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetEnvironment.html)  **
+  - **Description:** Grants permission to view details about an environment
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [environment\*](#list_appconfig-resource-environment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetExperimentDefinition](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetExperimentDefinition.html)  **
+  - **Description:** Grants permission to view details about an experiment definition
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [experimentdefinition\*](#list_appconfig-resource-experimentdefinition) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetExperimentRun](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetExperimentRun.html)  **
+  - **Description:** Grants permission to view details about an experiment run
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [experimentdefinition\*](#list_appconfig-resource-experimentdefinition) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [experimentrun\*](#list_appconfig-resource-experimentrun) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetExtension](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetExtension.html)  **
+  - **Description:** Grants permission to view details about an extension
+  - **Resource types (\*required):** [extension\*](#list_appconfig-resource-extension)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetExtensionAssociation](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetExtensionAssociation.html)  **
+  - **Description:** Grants permission to view details about an extension association
+  - **Resource types (\*required):** [extensionassociation\*](#list_appconfig-resource-extensionassociation)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetHostedConfigurationVersion](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetHostedConfigurationVersion.html)  **
+  - **Description:** Grants permission to view details about a hosted configuration version
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [configurationprofile\*](#list_appconfig-resource-configurationprofile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [hostedconfigurationversion\*](#list_appconfig-resource-hostedconfigurationversion) / **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html)  **
+  - **Description:** Grants permission to retrieve a deployed configuration
+  - **Resource types (\*required):** [configuration\*](#list_appconfig-resource-configuration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListApplications](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListApplications.html)  **
+  - **Description:** Grants permission to list the applications in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListConfigurationProfiles](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListConfigurationProfiles.html)  **
+  - **Description:** Grants permission to list the configuration profiles for an application
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDeploymentStrategies](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListDeploymentStrategies.html)  **
+  - **Description:** Grants permission to list the deployment strategies for your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDeployments](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListDeployments.html)  **
+  - **Description:** Grants permission to list the deployments for an environment
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [environment\*](#list_appconfig-resource-environment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListEnvironments](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListEnvironments.html)  **
+  - **Description:** Grants permission to list the environments for an application
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListExperimentDefinitions](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListExperimentDefinitions.html)  **
+  - **Description:** Grants permission to list the experiment definitions in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListExperimentRunEvents](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListExperimentRunEvents.html)  **
+  - **Description:** Grants permission to list the events for an experiment run
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [experimentdefinition\*](#list_appconfig-resource-experimentdefinition) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [experimentrun\*](#list_appconfig-resource-experimentrun) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListExperimentRuns](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListExperimentRuns.html)  **
+  - **Description:** Grants permission to list the experiment runs for an experiment definition
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [experimentdefinition\*](#list_appconfig-resource-experimentdefinition) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListExtensionAssociations](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListExtensionAssociations.html)  **
+  - **Description:** Grants permission to list the extension associations in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListExtensions](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListExtensions.html)  **
+  - **Description:** Grants permission to list the extensions in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListHostedConfigurationVersions](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListHostedConfigurationVersions.html)  **
+  - **Description:** Grants permission to list the hosted configuration versions for a configuration profile
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [configurationprofile\*](#list_appconfig-resource-configurationprofile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to view a list of resource tags for a specified resource
+  - **Resource types (\*required):** [application](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [configurationprofile](#list_appconfig-resource-configurationprofile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [deployment](#list_appconfig-resource-deployment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [deploymentstrategy](#list_appconfig-resource-deploymentstrategy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [environment](#list_appconfig-resource-environment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [experimentdefinition](#list_appconfig-resource-experimentdefinition) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [experimentrun](#list_appconfig-resource-experimentrun) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [extension](#list_appconfig-resource-extension) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [extensionassociation](#list_appconfig-resource-extensionassociation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [StartConfigurationSession](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html)  **
+  - **Description:** Grants permission to start a configuration session
+  - **Resource types (\*required):** [configuration\*](#list_appconfig-resource-configuration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartDeployment](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_StartDeployment.html)  **
+  - **Description:** Grants permission to initiate a deployment
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [configurationprofile\*](#list_appconfig-resource-configurationprofile) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [deploymentstrategy\*](#list_appconfig-resource-deploymentstrategy) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [environment\*](#list_appconfig-resource-environment) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [StartExperimentRun](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_StartExperimentRun.html)  **
+  - **Description:** Grants permission to start an experiment run
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [experimentdefinition\*](#list_appconfig-resource-experimentdefinition) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [StopDeployment](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_StopDeployment.html)  **
+  - **Description:** Grants permission to stop a deployment
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [deployment\*](#list_appconfig-resource-deployment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [environment\*](#list_appconfig-resource-environment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopExperimentRun](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_StopExperimentRun.html)  **
+  - **Description:** Grants permission to stop an experiment run
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [experimentdefinition\*](#list_appconfig-resource-experimentdefinition) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [experimentrun\*](#list_appconfig-resource-experimentrun) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag an appconfig resource
+  - **Resource types (\*required):** [application](#list_appconfig-resource-application) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [configuration](#list_appconfig-resource-configuration) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [configurationprofile](#list_appconfig-resource-configurationprofile) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [deployment](#list_appconfig-resource-deployment) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [deploymentstrategy](#list_appconfig-resource-deploymentstrategy) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [environment](#list_appconfig-resource-environment) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [experimentdefinition](#list_appconfig-resource-experimentdefinition) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [experimentrun](#list_appconfig-resource-experimentrun) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [extension](#list_appconfig-resource-extension) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [extensionassociation](#list_appconfig-resource-extensionassociation) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appconfig-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag an appconfig resource
+  - **Resource types (\*required):** [application](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [configuration](#list_appconfig-resource-configuration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [configurationprofile](#list_appconfig-resource-configurationprofile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [deployment](#list_appconfig-resource-deployment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [deploymentstrategy](#list_appconfig-resource-deploymentstrategy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [environment](#list_appconfig-resource-environment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [experimentdefinition](#list_appconfig-resource-experimentdefinition) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [experimentrun](#list_appconfig-resource-experimentrun) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [extension](#list_appconfig-resource-extension) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Resource types (\*required):** [extensionassociation](#list_appconfig-resource-extensionassociation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appconfig-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAccountSettings](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_UpdateAccountSettings.html)  **
+  - **Description:** Grants permission to modify account-wide AppConfig settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateApplication](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_UpdateApplication.html)  **
+  - **Description:** Grants permission to modify an application
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateConfigurationProfile](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_UpdateConfigurationProfile.html)  **
+  - **Description:** Grants permission to modify a configuration profile
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [configurationprofile\*](#list_appconfig-resource-configurationprofile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDeploymentStrategy](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_UpdateDeploymentStrategy.html)  **
+  - **Description:** Grants permission to modify a deployment strategy
+  - **Resource types (\*required):** [deploymentstrategy\*](#list_appconfig-resource-deploymentstrategy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateEnvironment](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_UpdateEnvironment.html)  **
+  - **Description:** Grants permission to modify an environment
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [environment\*](#list_appconfig-resource-environment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateExperimentDefinition](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_UpdateExperimentDefinition.html)  **
+  - **Description:** Grants permission to modify an experiment definition
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [experimentdefinition\*](#list_appconfig-resource-experimentdefinition) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateExperimentRun](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_UpdateExperimentRun.html)  **
+  - **Description:** Grants permission to modify an experiment run
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [experimentdefinition\*](#list_appconfig-resource-experimentdefinition) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [experimentrun\*](#list_appconfig-resource-experimentrun) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateExtension](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_UpdateExtension.html)  **
+  - **Description:** Grants permission to modify an extension
+  - **Resource types (\*required):** [extension\*](#list_appconfig-resource-extension)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateExtensionAssociation](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_UpdateExtensionAssociation.html)  **
+  - **Description:** Grants permission to modify an extension association
+  - **Resource types (\*required):** [extensionassociation\*](#list_appconfig-resource-extensionassociation)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ValidateConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ValidateConfiguration.html)  **
+  - **Description:** Grants permission to validate a configuration
+  - **Resource types (\*required):** [application\*](#list_appconfig-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [configurationprofile\*](#list_appconfig-resource-configurationprofile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS AppConfig
+<a name="list_appconfig-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                                                  | ARN                                                                                                                                                              | Condition keys                                                                                                     |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [application](../../../appconfig/latest/userguide/appconfig-creating-namespace.md "../../../appconfig/latest/userguide/appconfig-creating-namespace.md")                                        | arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}                                                                                     | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_") |
-| [configuration](../../../appconfig/latest/userguide/retrieving-feature-flags.md "../../../appconfig/latest/userguide/retrieving-feature-flags.md")                                              | arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/environment/${EnvironmentId}/configuration/${ConfigurationProfileId}                | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_") |
-| [configurationprofile](../../../appconfig/latest/userguide/appconfig-creating-configuration-profile.md "../../../appconfig/latest/userguide/appconfig-creating-configuration-profile.md")       | arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/configurationprofile/${ConfigurationProfileId}                                      | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_") |
-| [deployment](../../../appconfig/latest/userguide/appconfig-deploying.md "../../../appconfig/latest/userguide/appconfig-deploying.md")                                                           | arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/environment/${EnvironmentId}/deployment/${DeploymentNumber}                         | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_") |
-| [deploymentstrategy](../../../appconfig/latest/userguide/appconfig-creating-deployment-strategy.md "../../../appconfig/latest/userguide/appconfig-creating-deployment-strategy.md")             | arn:${Partition}:appconfig:${Region}:${Account}:deploymentstrategy/${DeploymentStrategyId}                                                                       | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_") |
-| [environment](../../../appconfig/latest/userguide/appconfig-creating-environment.md "../../../appconfig/latest/userguide/appconfig-creating-environment.md")                                    | arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/environment/${EnvironmentId}                                                        | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_") |
-| [experimentdefinition](../../../appconfig/latest/userguide/appconfig-creating-experiment-definition.md "../../../appconfig/latest/userguide/appconfig-creating-experiment-definition.md")       | arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/experimentdefinition/${ExperimentDefinitionId}                                      | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_") |
-| [experimentrun](../../../appconfig/latest/userguide/appconfig-experimentation-creating-starting.md "../../../appconfig/latest/userguide/appconfig-experimentation-creating-starting.md")        | arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/experimentdefinition/${ExperimentDefinitionId}/experimentrun/${ExperimentRunNumber} | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_") |
-| [extension](../../../appconfig/latest/userguide/working-with-appconfig-extensions.md "../../../appconfig/latest/userguide/working-with-appconfig-extensions.md")                                | arn:${Partition}:appconfig:${Region}:${Account}:extension/${ExtensionId}/${ExtensionVersionNumber}                                                               | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_") |
-| [extensionassociation](../../../appconfig/latest/userguide/working-with-appconfig-extensions.md "../../../appconfig/latest/userguide/working-with-appconfig-extensions.md")                     | arn:${Partition}:appconfig:${Region}:${Account}:extensionassociation/${ExtensionAssociationId}                                                                   | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_ "#list_appconfig-aws_ResourceTag___TagKey_") |
-| [hostedconfigurationversion](../../../appconfig/latest/userguide/appconfig-creating-configuration-profile.md "../../../appconfig/latest/userguide/appconfig-creating-configuration-profile.md") | arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/configurationprofile/${ConfigurationProfileId}                                      |                                                                                                                    |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [application](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-namespace.html)  | arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId} | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_) | 
+|  [configuration](https://docs.aws.amazon.com/appconfig/latest/userguide/retrieving-feature-flags.html)  | arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/environment/${EnvironmentId}/configuration/${ConfigurationProfileId} | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_) | 
+|  [configurationprofile](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-profile.html)  | arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/configurationprofile/${ConfigurationProfileId} | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_) | 
+|  [deployment](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-deploying.html)  | arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/environment/${EnvironmentId}/deployment/${DeploymentNumber} | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_) | 
+|  [deploymentstrategy](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html)  | arn:${Partition}:appconfig:${Region}:${Account}:deploymentstrategy/${DeploymentStrategyId} | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_) | 
+|  [environment](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-environment.html)  | arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/environment/${EnvironmentId} | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_) | 
+|  [experimentdefinition](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-experiment-definition.html)  | arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/experimentdefinition/${ExperimentDefinitionId} | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_) | 
+|  [experimentrun](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-experimentation-creating-starting.html)  | arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/experimentdefinition/${ExperimentDefinitionId}/experimentrun/${ExperimentRunNumber} | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_) | 
+|  [extension](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)  | arn:${Partition}:appconfig:${Region}:${Account}:extension/${ExtensionId}/${ExtensionVersionNumber} | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_) | 
+|  [extensionassociation](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html)  | arn:${Partition}:appconfig:${Region}:${Account}:extensionassociation/${ExtensionAssociationId} | [aws:ResourceTag/${TagKey}](#list_appconfig-aws_ResourceTag___TagKey_) | 
+|  [hostedconfigurationversion](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-profile.html)  | arn:${Partition}:appconfig:${Region}:${Account}:application/${ApplicationId}/configurationprofile/${ConfigurationProfileId} |   | 
 
 ## Condition keys for AWS AppConfig
+<a name="list_appconfig-policy-keys"></a>
 
-AWS AppConfig defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS AppConfig defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                                             | Description                                                          | Type          |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../systems-manager/latest/userguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags "../../../systems-manager/latest/userguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags")  | Filters access by the allowed set of values for a specified tag      | String        |
-| [aws:ResourceTag/${TagKey}](../../../systems-manager/latest/userguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags "../../../systems-manager/latest/userguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags") | Filters access by a tag key-value pair assigned to the AWS resource  | String        |
-| [aws:TagKeys](../../../systems-manager/latest/userguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags "../../../systems-manager/latest/userguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags")               | Filters access by a list of tag keys that are allowed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/systems-manager/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags)  | Filters access by the allowed set of values for a specified tag | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/systems-manager/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags)  | Filters access by a tag key-value pair assigned to the AWS resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/systems-manager/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags)  | Filters access by a list of tag keys that are allowed in the request | ArrayOfString | 

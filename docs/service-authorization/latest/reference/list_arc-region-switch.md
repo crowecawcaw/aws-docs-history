@@ -1,120 +1,342 @@
-# Actions, resources, and condition keys for Amazon ARC Region switch
 
-Amazon ARC Region switch (service prefix: `arc-region-switch`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon ARC Region switch
+<a name="list_arc-region-switch"></a>
+
+Amazon ARC Region switch (service prefix: `arc-region-switch`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/r53recovery/latest/dg/region-switch.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/arc-region-switch/latest/api/Welcome.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/r53recovery/latest/dg/security-iam-region-switch.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/arc-region-switch/arc-region-switch.json) for this service.
 
-- Learn how to [configure this service](../../../r53recovery/latest/dg/region-switch.md "../../../r53recovery/latest/dg/region-switch.md").
-- View a list of the [API operations available for
-  this service](../../../arc-region-switch/latest/api/Welcome.md "../../../arc-region-switch/latest/api/Welcome.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../r53recovery/latest/dg/security-iam-region-switch.md "../../../r53recovery/latest/dg/security-iam-region-switch.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/arc-region-switch/arc-region-switch.json "https://servicereference.us-east-1.amazonaws.com/v1/arc-region-switch/arc-region-switch.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon ARC Region switch](#list_arc-region-switch-operations "#list_arc-region-switch-operations")
-- [Actions defined by Amazon ARC Region switch](#list_arc-region-switch-actions-as-permissions "#list_arc-region-switch-actions-as-permissions")
-- [Permission-only actions for Amazon ARC Region switch](#list_arc-region-switch-permission-only-actions "#list_arc-region-switch-permission-only-actions")
-- [Resource types defined by Amazon ARC Region switch](#list_arc-region-switch-resources-for-iam-policies "#list_arc-region-switch-resources-for-iam-policies")
-- [Condition keys for Amazon ARC Region switch](#list_arc-region-switch-policy-keys "#list_arc-region-switch-policy-keys")
+**Topics**
++ [API operations defined by Amazon ARC Region switch](#list_arc-region-switch-operations)
++ [Actions defined by Amazon ARC Region switch](#list_arc-region-switch-actions-as-permissions)
++ [Permission-only actions for Amazon ARC Region switch](#list_arc-region-switch-permission-only-actions)
++ [Resource types defined by Amazon ARC Region switch](#list_arc-region-switch-resources-for-iam-policies)
++ [Condition keys for Amazon ARC Region switch](#list_arc-region-switch-policy-keys)
 
 ## API operations defined by Amazon ARC Region switch
+<a name="list_arc-region-switch-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_arc-region-switch-actions-as-permissions "#list_arc-region-switch-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_arc-region-switch-actions-as-permissions).
 
-| Operation                                                                                                                       | IAM action                                                                                                                                                                           | Condition key                   | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------- | ----------------- | -------------- |
-| ApprovePlanExecutionStep                                                                                                        | [arc-region-switch:ApprovePlanExecutionStep](#list_arc-region-switch-action-ApprovePlanExecutionStep "#list_arc-region-switch-action-ApprovePlanExecutionStep")                      |                                 |                   | Write          |
-| CancelPlanExecution                                                                                                             | [arc-region-switch:CancelPlanExecution](#list_arc-region-switch-action-CancelPlanExecution "#list_arc-region-switch-action-CancelPlanExecution")                                     |                                 |                   | Write          |
-| CreatePlan                                                                                                                      | [arc-region-switch:CreatePlan](#list_arc-region-switch-action-CreatePlan "#list_arc-region-switch-action-CreatePlan")                                                                |                                 |                   | Write          |
-| [arc-region-switch:GetPlan](#list_arc-region-switch-action-GetPlan "#list_arc-region-switch-action-GetPlan")                    |                                                                                                                                                                                      |                                 | Read              |
-| [arc-region-switch:TagResource](#list_arc-region-switch-action-TagResource "#list_arc-region-switch-action-TagResource")        |                                                                                                                                                                                      |                                 | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                  | arc-region-switch.amazonaws.com | Write             |
-| DeletePlan                                                                                                                      | [arc-region-switch:DeletePlan](#list_arc-region-switch-action-DeletePlan "#list_arc-region-switch-action-DeletePlan")                                                                |                                 |                   | Write          |
-| GetPlan                                                                                                                         | [arc-region-switch:GetPlan](#list_arc-region-switch-action-GetPlan "#list_arc-region-switch-action-GetPlan")                                                                         |                                 |                   | Read           |
-| GetPlanEvaluationStatus                                                                                                         | [arc-region-switch:GetPlanEvaluationStatus](#list_arc-region-switch-action-GetPlanEvaluationStatus "#list_arc-region-switch-action-GetPlanEvaluationStatus")                         |                                 |                   | Read           |
-| GetPlanExecution                                                                                                                | [arc-region-switch:GetPlanExecution](#list_arc-region-switch-action-GetPlanExecution "#list_arc-region-switch-action-GetPlanExecution")                                              |                                 |                   | Read           |
-| GetPlanInRegion                                                                                                                 | [arc-region-switch:GetPlanInRegion](#list_arc-region-switch-action-GetPlanInRegion "#list_arc-region-switch-action-GetPlanInRegion")                                                 |                                 |                   | Read           |
-| ListPlanExecutionEvents                                                                                                         | [arc-region-switch:ListPlanExecutionEvents](#list_arc-region-switch-action-ListPlanExecutionEvents "#list_arc-region-switch-action-ListPlanExecutionEvents")                         |                                 |                   | List           |
-| ListPlanExecutions                                                                                                              | [arc-region-switch:ListPlanExecutions](#list_arc-region-switch-action-ListPlanExecutions "#list_arc-region-switch-action-ListPlanExecutions")                                        |                                 |                   | List           |
-| ListPlans                                                                                                                       | [arc-region-switch:ListPlans](#list_arc-region-switch-action-ListPlans "#list_arc-region-switch-action-ListPlans")                                                                   |                                 |                   | List           |
-| ListPlansInRegion                                                                                                               | [arc-region-switch:ListPlansInRegion](#list_arc-region-switch-action-ListPlansInRegion "#list_arc-region-switch-action-ListPlansInRegion")                                           |                                 |                   | List           |
-| ListRoute53HealthChecks                                                                                                         | [arc-region-switch:ListRoute53HealthChecks](#list_arc-region-switch-action-ListRoute53HealthChecks "#list_arc-region-switch-action-ListRoute53HealthChecks")                         |                                 |                   | List           |
-| ListRoute53HealthChecksInRegion                                                                                                 | [arc-region-switch:ListRoute53HealthChecksInRegion](#list_arc-region-switch-action-ListRoute53HealthChecksInRegion "#list_arc-region-switch-action-ListRoute53HealthChecksInRegion") |                                 |                   | List           |
-| ListTagsForResource                                                                                                             | [arc-region-switch:ListTagsForResource](#list_arc-region-switch-action-ListTagsForResource "#list_arc-region-switch-action-ListTagsForResource")                                     |                                 |                   | Read           |
-| StartPlanExecution                                                                                                              | [arc-region-switch:StartPlanExecution](#list_arc-region-switch-action-StartPlanExecution "#list_arc-region-switch-action-StartPlanExecution")                                        |                                 |                   | Write          |
-| TagResource                                                                                                                     | [arc-region-switch:TagResource](#list_arc-region-switch-action-TagResource "#list_arc-region-switch-action-TagResource")                                                             |                                 |                   | Tagging, Write |
-| UntagResource                                                                                                                   | [arc-region-switch:UntagResource](#list_arc-region-switch-action-UntagResource "#list_arc-region-switch-action-UntagResource")                                                       |                                 |                   | Tagging, Write |
-| UpdatePlan                                                                                                                      | [arc-region-switch:GetPlan](#list_arc-region-switch-action-GetPlan "#list_arc-region-switch-action-GetPlan")                                                                         |                                 |                   | Read           |
-| [arc-region-switch:UpdatePlan](#list_arc-region-switch-action-UpdatePlan "#list_arc-region-switch-action-UpdatePlan")           |                                                                                                                                                                                      |                                 | Write             |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                  | arc-region-switch.amazonaws.com | Write             |
-| UpdatePlanExecution                                                                                                             | [arc-region-switch:UpdatePlanExecution](#list_arc-region-switch-action-UpdatePlanExecution "#list_arc-region-switch-action-UpdatePlanExecution")                                     |                                 |                   | Write          |
-| UpdatePlanExecutionStep                                                                                                         | [arc-region-switch:UpdatePlanExecutionStep](#list_arc-region-switch-action-UpdatePlanExecutionStep "#list_arc-region-switch-action-UpdatePlanExecutionStep")                         |                                 |                   | Write          |
+
+
+
+- **   ApprovePlanExecutionStep  **
+  - **IAM action:**  [arc-region-switch:ApprovePlanExecutionStep](#list_arc-region-switch-action-ApprovePlanExecutionStep) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CancelPlanExecution  **
+  - **IAM action:**  [arc-region-switch:CancelPlanExecution](#list_arc-region-switch-action-CancelPlanExecution) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreatePlan  **
+  - **IAM action:**  [arc-region-switch:CreatePlan](#list_arc-region-switch-action-CreatePlan)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [arc-region-switch:GetPlan](#list_arc-region-switch-action-GetPlan)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [arc-region-switch:TagResource](#list_arc-region-switch-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** arc-region-switch.amazonaws.com / **Access level:** Write
+
+- **   DeletePlan  **
+  - **IAM action:**  [arc-region-switch:DeletePlan](#list_arc-region-switch-action-DeletePlan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetPlan  **
+  - **IAM action:**  [arc-region-switch:GetPlan](#list_arc-region-switch-action-GetPlan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPlanEvaluationStatus  **
+  - **IAM action:**  [arc-region-switch:GetPlanEvaluationStatus](#list_arc-region-switch-action-GetPlanEvaluationStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPlanExecution  **
+  - **IAM action:**  [arc-region-switch:GetPlanExecution](#list_arc-region-switch-action-GetPlanExecution) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPlanInRegion  **
+  - **IAM action:**  [arc-region-switch:GetPlanInRegion](#list_arc-region-switch-action-GetPlanInRegion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListPlanExecutionEvents  **
+  - **IAM action:**  [arc-region-switch:ListPlanExecutionEvents](#list_arc-region-switch-action-ListPlanExecutionEvents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPlanExecutions  **
+  - **IAM action:**  [arc-region-switch:ListPlanExecutions](#list_arc-region-switch-action-ListPlanExecutions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPlans  **
+  - **IAM action:**  [arc-region-switch:ListPlans](#list_arc-region-switch-action-ListPlans) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPlansInRegion  **
+  - **IAM action:**  [arc-region-switch:ListPlansInRegion](#list_arc-region-switch-action-ListPlansInRegion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRoute53HealthChecks  **
+  - **IAM action:**  [arc-region-switch:ListRoute53HealthChecks](#list_arc-region-switch-action-ListRoute53HealthChecks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRoute53HealthChecksInRegion  **
+  - **IAM action:**  [arc-region-switch:ListRoute53HealthChecksInRegion](#list_arc-region-switch-action-ListRoute53HealthChecksInRegion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [arc-region-switch:ListTagsForResource](#list_arc-region-switch-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartPlanExecution  **
+  - **IAM action:**  [arc-region-switch:StartPlanExecution](#list_arc-region-switch-action-StartPlanExecution) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [arc-region-switch:TagResource](#list_arc-region-switch-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [arc-region-switch:UntagResource](#list_arc-region-switch-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdatePlan  **
+  - **IAM action:**  [arc-region-switch:GetPlan](#list_arc-region-switch-action-GetPlan)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [arc-region-switch:UpdatePlan](#list_arc-region-switch-action-UpdatePlan)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** arc-region-switch.amazonaws.com / **Access level:** Write
+
+- **   UpdatePlanExecution  **
+  - **IAM action:**  [arc-region-switch:UpdatePlanExecution](#list_arc-region-switch-action-UpdatePlanExecution) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdatePlanExecutionStep  **
+  - **IAM action:**  [arc-region-switch:UpdatePlanExecutionStep](#list_arc-region-switch-action-UpdatePlanExecutionStep) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon ARC Region switch
+<a name="list_arc-region-switch-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                        | Description                                                                                                            | Resource types (\*required)                                                             | Condition keys                                                                                                                                                                                                                                                                                                                                                    | Access level   |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [ApprovePlanExecutionStep](../../../arc-region-switch/latest/api/API_ApprovePlanExecutionStep.md "../../../arc-region-switch/latest/api/API_ApprovePlanExecutionStep.md")                      | Grants permission to approve a plan execution step                                                                     | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [CancelPlanExecution](../../../arc-region-switch/latest/api/API_CancelPlanExecution.md "../../../arc-region-switch/latest/api/API_CancelPlanExecution.md")                                     | Grants permission to cancel a plan execution                                                                           | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [CreatePlan](../../../arc-region-switch/latest/api/API_CreatePlan.md "../../../arc-region-switch/latest/api/API_CreatePlan.md")                                                                | Grants permission to create a plan                                                                                     | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:RequestTag/${TagKey}](#list_arc-region-switch-aws_RequestTag___TagKey_ "#list_arc-region-switch-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_arc-region-switch-aws_TagKeys "#list_arc-region-switch-aws_TagKeys") | Write          |
-| [DeletePlan](../../../arc-region-switch/latest/api/API_DeletePlan.md "../../../arc-region-switch/latest/api/API_DeletePlan.md")                                                                | Grants permission to delete a plan                                                                                     | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [GetPlan](../../../arc-region-switch/latest/api/API_GetPlan.md "../../../arc-region-switch/latest/api/API_GetPlan.md")                                                                         | Grants permission to get information about plans in all AWS Regions using a control plane                              | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [GetPlanEvaluationStatus](../../../arc-region-switch/latest/api/API_GetPlanEvaluationStatus.md "../../../arc-region-switch/latest/api/API_GetPlanEvaluationStatus.md")                         | Grants permission to get a plan's evaluation status                                                                    | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [GetPlanExecution](../../../arc-region-switch/latest/api/API_GetPlanExecution.md "../../../arc-region-switch/latest/api/API_GetPlanExecution.md")                                              | Grants permission to get plan execution details and setup information                                                  | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [GetPlanInRegion](../../../arc-region-switch/latest/api/API_GetPlanInRegion.md "../../../arc-region-switch/latest/api/API_GetPlanInRegion.md")                                                 | Grants permission to get information about a plan in a specific AWS Region using the Region switch Regional data plane | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [ListPlanExecutionEvents](../../../arc-region-switch/latest/api/API_ListPlanExecutionEvents.md "../../../arc-region-switch/latest/api/API_ListPlanExecutionEvents.md")                         | Grants permission to list plan execution events                                                                        | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListPlanExecutions](../../../arc-region-switch/latest/api/API_ListPlanExecutions.md "../../../arc-region-switch/latest/api/API_ListPlanExecutions.md")                                        | Grants permission to list plan executions                                                                              | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListPlans](../../../arc-region-switch/latest/api/API_ListPlans.md "../../../arc-region-switch/latest/api/API_ListPlans.md")                                                                   | Grants permission to list plans in all AWS Regions using a control plane                                               |                                                                                         |                                                                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListPlansInRegion](../../../arc-region-switch/latest/api/API_ListPlansInRegion.md "../../../arc-region-switch/latest/api/API_ListPlansInRegion.md")                                           | Grants permission to list plans in a specific AWS Region using the Region switch Regional data plane                   |                                                                                         |                                                                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListRoute53HealthChecks](../../../arc-region-switch/latest/api/API_ListRoute53HealthChecks.md "../../../arc-region-switch/latest/api/API_ListRoute53HealthChecks.md")                         | Grants permission to list Route 53 health checks                                                                       | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListRoute53HealthChecksInRegion](../../../arc-region-switch/latest/api/API_ListRoute53HealthChecksInRegion.md "../../../arc-region-switch/latest/api/API_ListRoute53HealthChecksInRegion.md") | Grants permission to list Route 53 health checks in a specific AWS Region using the Region switch Regional data plane  | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListTagsForResource](../../../arc-region-switch/latest/api/API_ListTagsForResource.md "../../../arc-region-switch/latest/api/API_ListTagsForResource.md")                                     | Grants permission to list tags for a resource                                                                          | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [StartPlanExecution](../../../arc-region-switch/latest/api/API_StartPlanExecution.md "../../../arc-region-switch/latest/api/API_StartPlanExecution.md")                                        | Grants permission to start a plan execution                                                                            | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [TagResource](../../../arc-region-switch/latest/api/API_TagResource.md "../../../arc-region-switch/latest/api/API_TagResource.md")                                                             | Grants permission to tag a resource                                                                                    | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:RequestTag/${TagKey}](#list_arc-region-switch-aws_RequestTag___TagKey_ "#list_arc-region-switch-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_arc-region-switch-aws_TagKeys "#list_arc-region-switch-aws_TagKeys") | Tagging, Write |
-| [UntagResource](../../../arc-region-switch/latest/api/API_UntagResource.md "../../../arc-region-switch/latest/api/API_UntagResource.md")                                                       | Grants permission to remove tags from a resource                                                                       | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_arc-region-switch-aws_TagKeys "#list_arc-region-switch-aws_TagKeys")                                                                                                                                    | Tagging, Write |
-| [UpdatePlan](../../../arc-region-switch/latest/api/API_UpdatePlan.md "../../../arc-region-switch/latest/api/API_UpdatePlan.md")                                                                | Grants permission to update a plan                                                                                     | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [UpdatePlanExecution](../../../arc-region-switch/latest/api/API_UpdatePlanExecution.md "../../../arc-region-switch/latest/api/API_UpdatePlanExecution.md")                                     | Grants permission to update a plan execution                                                                           | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [UpdatePlanExecutionStep](../../../arc-region-switch/latest/api/API_UpdatePlanExecutionStep.md "../../../arc-region-switch/latest/api/API_UpdatePlanExecutionStep.md")                         | Grants permission to update a plan execution step                                                                      | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
+
+
+
+- **   [ApprovePlanExecutionStep](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_ApprovePlanExecutionStep.html)  **
+  - **Description:** Grants permission to approve a plan execution step
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelPlanExecution](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_CancelPlanExecution.html)  **
+  - **Description:** Grants permission to cancel a plan execution
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreatePlan](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_CreatePlan.html)  **
+  - **Description:** Grants permission to create a plan
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_arc-region-switch-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_arc-region-switch-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeletePlan](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_DeletePlan.html)  **
+  - **Description:** Grants permission to delete a plan
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetPlan](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_GetPlan.html)  **
+  - **Description:** Grants permission to get information about plans in all AWS Regions using a control plane
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPlanEvaluationStatus](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_GetPlanEvaluationStatus.html)  **
+  - **Description:** Grants permission to get a plan's evaluation status
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPlanExecution](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_GetPlanExecution.html)  **
+  - **Description:** Grants permission to get plan execution details and setup information
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPlanInRegion](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_GetPlanInRegion.html)  **
+  - **Description:** Grants permission to get information about a plan in a specific AWS Region using the Region switch Regional data plane
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListPlanExecutionEvents](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_ListPlanExecutionEvents.html)  **
+  - **Description:** Grants permission to list plan execution events
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListPlanExecutions](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_ListPlanExecutions.html)  **
+  - **Description:** Grants permission to list plan executions
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListPlans](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_ListPlans.html)  **
+  - **Description:** Grants permission to list plans in all AWS Regions using a control plane
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListPlansInRegion](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_ListPlansInRegion.html)  **
+  - **Description:** Grants permission to list plans in a specific AWS Region using the Region switch Regional data plane
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRoute53HealthChecks](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_ListRoute53HealthChecks.html)  **
+  - **Description:** Grants permission to list Route 53 health checks
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRoute53HealthChecksInRegion](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_ListRoute53HealthChecksInRegion.html)  **
+  - **Description:** Grants permission to list Route 53 health checks in a specific AWS Region using the Region switch Regional data plane
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for a resource
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [StartPlanExecution](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_StartPlanExecution.html)  **
+  - **Description:** Grants permission to start a plan execution
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_TagResource.html)  **
+  - **Description:** Grants permission to tag a resource
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_arc-region-switch-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_arc-region-switch-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove tags from a resource
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_arc-region-switch-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdatePlan](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_UpdatePlan.html)  **
+  - **Description:** Grants permission to update a plan
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdatePlanExecution](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_UpdatePlanExecution.html)  **
+  - **Description:** Grants permission to update a plan execution
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdatePlanExecutionStep](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_UpdatePlanExecutionStep.html)  **
+  - **Description:** Grants permission to update a plan execution step
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for Amazon ARC Region switch
+<a name="list_arc-region-switch-permission-only-actions"></a>
 
-The following actions are defined by Amazon ARC Region switch but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by Amazon ARC Region switch but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                                                                             | Description                                                          | Resource types (\*required)                                                             | Condition keys                                                                                                                     | Access level                  |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| [DeleteResourcePolicy](../../../r53recovery/latest/dg/arc-region-switch.region-switch-different-accounts.md "../../../r53recovery/latest/dg/arc-region-switch.region-switch-different-accounts.md") | Grants permission to delete the RAM access control policy for a plan |                                                                                         |                                                                                                                                    | Permissions management, Write |
-| [GetResourcePolicy](../../../r53recovery/latest/dg/arc-region-switch.region-switch-different-accounts.md "../../../r53recovery/latest/dg/arc-region-switch.region-switch-different-accounts.md")    | Grants permission to get the resource policy of a plan               | [plan\*](#list_arc-region-switch-resource-plan "#list_arc-region-switch-resource-plan") | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_") | Permissions management, Write |
-| [PutResourcePolicy](../../../r53recovery/latest/dg/arc-region-switch.region-switch-different-accounts.md "../../../r53recovery/latest/dg/arc-region-switch.region-switch-different-accounts.md")    | Grants permission to define the RAM access control policy for a plan |                                                                                         |                                                                                                                                    | Permissions management, Write |
+
+
+
+- **   [DeleteResourcePolicy](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-region-switch.region-switch-different-accounts.html)  **
+  - **Description:** Grants permission to delete the RAM access control policy for a plan
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+- **   [GetResourcePolicy](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-region-switch.region-switch-different-accounts.html)  **
+  - **Description:** Grants permission to get the resource policy of a plan
+  - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [PutResourcePolicy](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-region-switch.region-switch-different-accounts.html)  **
+  - **Description:** Grants permission to define the RAM access control policy for a plan
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+
 
 ## Resource types defined by Amazon ARC Region switch
+<a name="list_arc-region-switch-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                | ARN                                                               | Condition keys                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| [plan](../../../arc-region-switch/latest/api/API_Plan.md "../../../arc-region-switch/latest/api/API_Plan.md") | arn:${Partition}:arc-region-switch::${Account}:plan/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_ "#list_arc-region-switch-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [plan](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_Plan.html)  | arn:${Partition}:arc-region-switch::${Account}:plan/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon ARC Region switch
+<a name="list_arc-region-switch-policy-keys"></a>
 
-Amazon ARC Region switch defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon ARC Region switch defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                    | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by tag key-value pairs attached to the resource | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by a tag's key and value in a request           | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the presence of tag keys in the request      | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by tag key-value pairs attached to the resource | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by a tag's key and value in a request | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the presence of tag keys in the request | ArrayOfString | 

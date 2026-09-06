@@ -1,81 +1,180 @@
-# Actions, resources, and condition keys for AWS Savings Plans
 
-AWS Savings Plans (service prefix: `savingsplans`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Savings Plans
+<a name="list_savingsplans"></a>
+
+AWS Savings Plans (service prefix: `savingsplans`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/savingsplans/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/savingsplans/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/savingsplans/latest/userguide/identity-access-management.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/savingsplans/savingsplans.json) for this service.
 
-- Learn how to [configure this service](../../../savingsplans/latest/userguide.md "../../../savingsplans/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../savingsplans/latest/APIReference.md "../../../savingsplans/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../savingsplans/latest/userguide/identity-access-management.md "../../../savingsplans/latest/userguide/identity-access-management.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/savingsplans/savingsplans.json "https://servicereference.us-east-1.amazonaws.com/v1/savingsplans/savingsplans.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Savings Plans](#list_savingsplans-operations "#list_savingsplans-operations")
-- [Actions defined by AWS Savings Plans](#list_savingsplans-actions-as-permissions "#list_savingsplans-actions-as-permissions")
-- [Resource types defined by AWS Savings Plans](#list_savingsplans-resources-for-iam-policies "#list_savingsplans-resources-for-iam-policies")
-- [Condition keys for AWS Savings Plans](#list_savingsplans-policy-keys "#list_savingsplans-policy-keys")
+**Topics**
++ [API operations defined by AWS Savings Plans](#list_savingsplans-operations)
++ [Actions defined by AWS Savings Plans](#list_savingsplans-actions-as-permissions)
++ [Resource types defined by AWS Savings Plans](#list_savingsplans-resources-for-iam-policies)
++ [Condition keys for AWS Savings Plans](#list_savingsplans-policy-keys)
 
 ## API operations defined by AWS Savings Plans
+<a name="list_savingsplans-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_savingsplans-actions-as-permissions "#list_savingsplans-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_savingsplans-actions-as-permissions).
 
-| Operation                                                                                                 | IAM action                                                                                                                                                                  | Condition key | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------- | -------------- |
-| CreateSavingsPlan                                                                                         | [savingsplans:CreateSavingsPlan](#list_savingsplans-action-CreateSavingsPlan "#list_savingsplans-action-CreateSavingsPlan")                                                 |               |                   | Write          |
-| [savingsplans:TagResource](#list_savingsplans-action-TagResource "#list_savingsplans-action-TagResource") |                                                                                                                                                                             |               | Tagging, Write    |
-| DeleteQueuedSavingsPlan                                                                                   | [savingsplans:DeleteQueuedSavingsPlan](#list_savingsplans-action-DeleteQueuedSavingsPlan "#list_savingsplans-action-DeleteQueuedSavingsPlan")                               |               |                   | Write          |
-| DescribeSavingsPlanRates                                                                                  | [savingsplans:DescribeSavingsPlanRates](#list_savingsplans-action-DescribeSavingsPlanRates "#list_savingsplans-action-DescribeSavingsPlanRates")                            |               |                   | Read           |
-| DescribeSavingsPlans                                                                                      | [savingsplans:DescribeSavingsPlans](#list_savingsplans-action-DescribeSavingsPlans "#list_savingsplans-action-DescribeSavingsPlans")                                        |               |                   | Read           |
-| DescribeSavingsPlansOfferingRates                                                                         | [savingsplans:DescribeSavingsPlansOfferingRates](#list_savingsplans-action-DescribeSavingsPlansOfferingRates "#list_savingsplans-action-DescribeSavingsPlansOfferingRates") |               |                   | Read           |
-| DescribeSavingsPlansOfferings                                                                             | [savingsplans:DescribeSavingsPlansOfferings](#list_savingsplans-action-DescribeSavingsPlansOfferings "#list_savingsplans-action-DescribeSavingsPlansOfferings")             |               |                   | Read           |
-| ListTagsForResource                                                                                       | [savingsplans:ListTagsForResource](#list_savingsplans-action-ListTagsForResource "#list_savingsplans-action-ListTagsForResource")                                           |               |                   | List           |
-| ReturnSavingsPlan                                                                                         | [savingsplans:ReturnSavingsPlan](#list_savingsplans-action-ReturnSavingsPlan "#list_savingsplans-action-ReturnSavingsPlan")                                                 |               |                   | Write          |
-| TagResource                                                                                               | [savingsplans:TagResource](#list_savingsplans-action-TagResource "#list_savingsplans-action-TagResource")                                                                   |               |                   | Tagging, Write |
-| UntagResource                                                                                             | [savingsplans:UntagResource](#list_savingsplans-action-UntagResource "#list_savingsplans-action-UntagResource")                                                             |               |                   | Tagging, Write |
+
+
+
+- **   CreateSavingsPlan  **
+  - **IAM action:**  [savingsplans:CreateSavingsPlan](#list_savingsplans-action-CreateSavingsPlan)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [savingsplans:TagResource](#list_savingsplans-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteQueuedSavingsPlan  **
+  - **IAM action:**  [savingsplans:DeleteQueuedSavingsPlan](#list_savingsplans-action-DeleteQueuedSavingsPlan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeSavingsPlanRates  **
+  - **IAM action:**  [savingsplans:DescribeSavingsPlanRates](#list_savingsplans-action-DescribeSavingsPlanRates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeSavingsPlans  **
+  - **IAM action:**  [savingsplans:DescribeSavingsPlans](#list_savingsplans-action-DescribeSavingsPlans) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeSavingsPlansOfferingRates  **
+  - **IAM action:**  [savingsplans:DescribeSavingsPlansOfferingRates](#list_savingsplans-action-DescribeSavingsPlansOfferingRates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeSavingsPlansOfferings  **
+  - **IAM action:**  [savingsplans:DescribeSavingsPlansOfferings](#list_savingsplans-action-DescribeSavingsPlansOfferings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [savingsplans:ListTagsForResource](#list_savingsplans-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ReturnSavingsPlan  **
+  - **IAM action:**  [savingsplans:ReturnSavingsPlan](#list_savingsplans-action-ReturnSavingsPlan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [savingsplans:TagResource](#list_savingsplans-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [savingsplans:UntagResource](#list_savingsplans-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+
 
 ## Actions defined by AWS Savings Plans
+<a name="list_savingsplans-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                      | Description                                                                                     | Resource types (\*required)                                                                        | Condition keys                                                                                                                                                                                                                                                                                                                      | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [CreateSavingsPlan](../../../savingsplans/latest/APIReference/API_CreateSavingsPlan.md "../../../savingsplans/latest/APIReference/API_CreateSavingsPlan.md")                                                 | Grants permission to create a savings plan                                                      |                                                                                                    | [aws:RequestTag/${TagKey}](#list_savingsplans-aws_RequestTag___TagKey_ "#list_savingsplans-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_savingsplans-aws_TagKeys "#list_savingsplans-aws_TagKeys")                                                                                                                             | Write          |
-| [DeleteQueuedSavingsPlan](../../../savingsplans/latest/APIReference/API_DeleteQueuedSavingsPlan.md "../../../savingsplans/latest/APIReference/API_DeleteQueuedSavingsPlan.md")                               | Grants permission to delete the queued savings plan associated with customers account           | [savingsplan\*](#list_savingsplans-resource-savingsplan "#list_savingsplans-resource-savingsplan") | [aws:ResourceTag/${TagKey}](#list_savingsplans-aws_ResourceTag___TagKey_ "#list_savingsplans-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [DescribeSavingsPlanRates](../../../savingsplans/latest/APIReference/API_DescribeSavingsPlanRates.md "../../../savingsplans/latest/APIReference/API_DescribeSavingsPlanRates.md")                            | Grants permission to describe the rates associated with customers savings plan                  | [savingsplan\*](#list_savingsplans-resource-savingsplan "#list_savingsplans-resource-savingsplan") | [aws:ResourceTag/${TagKey}](#list_savingsplans-aws_ResourceTag___TagKey_ "#list_savingsplans-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [DescribeSavingsPlans](../../../savingsplans/latest/APIReference/API_DescribeSavingsPlans.md "../../../savingsplans/latest/APIReference/API_DescribeSavingsPlans.md")                                        | Grants permission to describe the savings plans associated with customers account               | [savingsplan\*](#list_savingsplans-resource-savingsplan "#list_savingsplans-resource-savingsplan") | [aws:ResourceTag/${TagKey}](#list_savingsplans-aws_ResourceTag___TagKey_ "#list_savingsplans-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [DescribeSavingsPlansOfferingRates](../../../savingsplans/latest/APIReference/API_DescribeSavingsPlansOfferingRates.md "../../../savingsplans/latest/APIReference/API_DescribeSavingsPlansOfferingRates.md") | Grants permission to describe the rates assciated with savings plans offerings                  |                                                                                                    |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [DescribeSavingsPlansOfferings](../../../savingsplans/latest/APIReference/API_DescribeSavingsPlansOfferings.md "../../../savingsplans/latest/APIReference/API_DescribeSavingsPlansOfferings.md")             | Grants permission to describe the savings plans offerings that customer is eligible to purchase |                                                                                                    |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [ListTagsForResource](../../../savingsplans/latest/APIReference/API_ListTagsForResource.md "../../../savingsplans/latest/APIReference/API_ListTagsForResource.md")                                           | Grants permission to list tags for a savings plan                                               | [savingsplan\*](#list_savingsplans-resource-savingsplan "#list_savingsplans-resource-savingsplan") | [aws:ResourceTag/${TagKey}](#list_savingsplans-aws_ResourceTag___TagKey_ "#list_savingsplans-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | List           |
-| [ReturnSavingsPlan](../../../savingsplans/latest/APIReference/API_ReturnSavingsPlan.md "../../../savingsplans/latest/APIReference/API_ReturnSavingsPlan.md")                                                 | Grants permission to return a savings plan                                                      | [savingsplan\*](#list_savingsplans-resource-savingsplan "#list_savingsplans-resource-savingsplan") | [aws:ResourceTag/${TagKey}](#list_savingsplans-aws_ResourceTag___TagKey_ "#list_savingsplans-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [TagResource](../../../savingsplans/latest/APIReference/API_TagResource.md "../../../savingsplans/latest/APIReference/API_TagResource.md")                                                                   | Grants permission to tag a savings plan                                                         | [savingsplan\*](#list_savingsplans-resource-savingsplan "#list_savingsplans-resource-savingsplan") | [aws:RequestTag/${TagKey}](#list_savingsplans-aws_RequestTag___TagKey_ "#list_savingsplans-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_savingsplans-aws_ResourceTag___TagKey_ "#list_savingsplans-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_savingsplans-aws_TagKeys "#list_savingsplans-aws_TagKeys") | Tagging, Write |
-| [UntagResource](../../../savingsplans/latest/APIReference/API_UntagResource.md "../../../savingsplans/latest/APIReference/API_UntagResource.md")                                                             | Grants permission to untag a savings plan                                                       | [savingsplan\*](#list_savingsplans-resource-savingsplan "#list_savingsplans-resource-savingsplan") | [aws:ResourceTag/${TagKey}](#list_savingsplans-aws_ResourceTag___TagKey_ "#list_savingsplans-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_savingsplans-aws_TagKeys "#list_savingsplans-aws_TagKeys")                                                                                                                          | Tagging, Write |
+
+
+
+- **   [CreateSavingsPlan](https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_CreateSavingsPlan.html)  **
+  - **Description:** Grants permission to create a savings plan
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_savingsplans-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_savingsplans-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteQueuedSavingsPlan](https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_DeleteQueuedSavingsPlan.html)  **
+  - **Description:** Grants permission to delete the queued savings plan associated with customers account
+  - **Resource types (\*required):** [savingsplan\*](#list_savingsplans-resource-savingsplan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_savingsplans-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeSavingsPlanRates](https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_DescribeSavingsPlanRates.html)  **
+  - **Description:** Grants permission to describe the rates associated with customers savings plan
+  - **Resource types (\*required):** [savingsplan\*](#list_savingsplans-resource-savingsplan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_savingsplans-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeSavingsPlans](https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_DescribeSavingsPlans.html)  **
+  - **Description:** Grants permission to describe the savings plans associated with customers account
+  - **Resource types (\*required):** [savingsplan\*](#list_savingsplans-resource-savingsplan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_savingsplans-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeSavingsPlansOfferingRates](https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_DescribeSavingsPlansOfferingRates.html)  **
+  - **Description:** Grants permission to describe the rates assciated with savings plans offerings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeSavingsPlansOfferings](https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_DescribeSavingsPlansOfferings.html)  **
+  - **Description:** Grants permission to describe the savings plans offerings that customer is eligible to purchase
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for a savings plan
+  - **Resource types (\*required):** [savingsplan\*](#list_savingsplans-resource-savingsplan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_savingsplans-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ReturnSavingsPlan](https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_ReturnSavingsPlan.html)  **
+  - **Description:** Grants permission to return a savings plan
+  - **Resource types (\*required):** [savingsplan\*](#list_savingsplans-resource-savingsplan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_savingsplans-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag a savings plan
+  - **Resource types (\*required):** [savingsplan\*](#list_savingsplans-resource-savingsplan)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_savingsplans-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_savingsplans-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_savingsplans-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag a savings plan
+  - **Resource types (\*required):** [savingsplan\*](#list_savingsplans-resource-savingsplan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_savingsplans-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_savingsplans-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+
 
 ## Resource types defined by AWS Savings Plans
+<a name="list_savingsplans-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                   | ARN                                                                 | Condition keys                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| [savingsplan](../../../savingsplans/latest/userguide/what-is-savings-plans.md "../../../savingsplans/latest/userguide/what-is-savings-plans.md") | arn:${Partition}:savingsplans::${Account}:savingsplan/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_savingsplans-aws_ResourceTag___TagKey_ "#list_savingsplans-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [savingsplan](https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html)  | arn:${Partition}:savingsplans::${Account}:savingsplan/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_savingsplans-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Savings Plans
+<a name="list_savingsplans-policy-keys"></a>
 
-AWS Savings Plans defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Savings Plans defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                      | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the allowed set of values for each of the tags | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by tag-value associated with the resource         | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the presence of mandatory tags in the request  | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the allowed set of values for each of the tags | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag-value associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the presence of mandatory tags in the request | ArrayOfString | 

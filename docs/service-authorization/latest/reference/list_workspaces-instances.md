@@ -1,88 +1,217 @@
-# Actions, resources, and condition keys for AWS WorkSpaces Managed Instances
 
-AWS WorkSpaces Managed Instances (service prefix: `workspaces-instances`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS WorkSpaces Managed Instances
+<a name="list_workspaces-instances"></a>
+
+AWS WorkSpaces Managed Instances (service prefix: `workspaces-instances`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/workspaces/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/workspaces/latest/api/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/workspaces/latest/userguide/workspaces-instances-access-control.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/workspaces-instances/workspaces-instances.json) for this service.
 
-- Learn how to [configure this service](../../../workspaces/latest/userguide.md "../../../workspaces/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../workspaces/latest/api.md "../../../workspaces/latest/api.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../workspaces/latest/userguide/workspaces-instances-access-control.md "../../../workspaces/latest/userguide/workspaces-instances-access-control.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/workspaces-instances/workspaces-instances.json "https://servicereference.us-east-1.amazonaws.com/v1/workspaces-instances/workspaces-instances.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS WorkSpaces Managed Instances](#list_workspaces-instances-operations "#list_workspaces-instances-operations")
-- [Actions defined by AWS WorkSpaces Managed Instances](#list_workspaces-instances-actions-as-permissions "#list_workspaces-instances-actions-as-permissions")
-- [Resource types defined by AWS WorkSpaces Managed Instances](#list_workspaces-instances-resources-for-iam-policies "#list_workspaces-instances-resources-for-iam-policies")
-- [Condition keys for AWS WorkSpaces Managed Instances](#list_workspaces-instances-policy-keys "#list_workspaces-instances-policy-keys")
+**Topics**
++ [API operations defined by AWS WorkSpaces Managed Instances](#list_workspaces-instances-operations)
++ [Actions defined by AWS WorkSpaces Managed Instances](#list_workspaces-instances-actions-as-permissions)
++ [Resource types defined by AWS WorkSpaces Managed Instances](#list_workspaces-instances-resources-for-iam-policies)
++ [Condition keys for AWS WorkSpaces Managed Instances](#list_workspaces-instances-policy-keys)
 
 ## API operations defined by AWS WorkSpaces Managed Instances
+<a name="list_workspaces-instances-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_workspaces-instances-actions-as-permissions "#list_workspaces-instances-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_workspaces-instances-actions-as-permissions).
 
-| Operation                                                                                                                         | IAM action                                                                                                                                                            | Condition key | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------- | -------------- |
-| AssociateVolume                                                                                                                   | [workspaces-instances:AssociateVolume](#list_workspaces-instances-action-AssociateVolume "#list_workspaces-instances-action-AssociateVolume")                         |               |                   | Write          |
-| CreateVolume                                                                                                                      | [workspaces-instances:CreateVolume](#list_workspaces-instances-action-CreateVolume "#list_workspaces-instances-action-CreateVolume")                                  |               |                   | Write          |
-| CreateWorkspaceInstance                                                                                                           | [workspaces-instances:CreateWorkspaceInstance](#list_workspaces-instances-action-CreateWorkspaceInstance "#list_workspaces-instances-action-CreateWorkspaceInstance") |               |                   | Write          |
-| [workspaces-instances:TagResource](#list_workspaces-instances-action-TagResource "#list_workspaces-instances-action-TagResource") |                                                                                                                                                                       |               | Tagging, Write    |
-| DeleteVolume                                                                                                                      | [workspaces-instances:DeleteVolume](#list_workspaces-instances-action-DeleteVolume "#list_workspaces-instances-action-DeleteVolume")                                  |               |                   | Write          |
-| DeleteWorkspaceInstance                                                                                                           | [workspaces-instances:DeleteWorkspaceInstance](#list_workspaces-instances-action-DeleteWorkspaceInstance "#list_workspaces-instances-action-DeleteWorkspaceInstance") |               |                   | Write          |
-| DisassociateVolume                                                                                                                | [workspaces-instances:DisassociateVolume](#list_workspaces-instances-action-DisassociateVolume "#list_workspaces-instances-action-DisassociateVolume")                |               |                   | Write          |
-| GetWorkspaceInstance                                                                                                              | [workspaces-instances:GetWorkspaceInstance](#list_workspaces-instances-action-GetWorkspaceInstance "#list_workspaces-instances-action-GetWorkspaceInstance")          |               |                   | Read           |
-| ListInstanceTypes                                                                                                                 | [workspaces-instances:ListInstanceTypes](#list_workspaces-instances-action-ListInstanceTypes "#list_workspaces-instances-action-ListInstanceTypes")                   |               |                   | List           |
-| ListRegions                                                                                                                       | [workspaces-instances:ListRegions](#list_workspaces-instances-action-ListRegions "#list_workspaces-instances-action-ListRegions")                                     |               |                   | List           |
-| ListTagsForResource                                                                                                               | [workspaces-instances:ListTagsForResource](#list_workspaces-instances-action-ListTagsForResource "#list_workspaces-instances-action-ListTagsForResource")             |               |                   | List           |
-| ListWorkspaceInstances                                                                                                            | [workspaces-instances:ListWorkspaceInstances](#list_workspaces-instances-action-ListWorkspaceInstances "#list_workspaces-instances-action-ListWorkspaceInstances")    |               |                   | List           |
-| TagResource                                                                                                                       | [workspaces-instances:TagResource](#list_workspaces-instances-action-TagResource "#list_workspaces-instances-action-TagResource")                                     |               |                   | Tagging, Write |
-| UntagResource                                                                                                                     | [workspaces-instances:UntagResource](#list_workspaces-instances-action-UntagResource "#list_workspaces-instances-action-UntagResource")                               |               |                   | Tagging, Write |
+
+
+
+- **   AssociateVolume  **
+  - **IAM action:**  [workspaces-instances:AssociateVolume](#list_workspaces-instances-action-AssociateVolume) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateVolume  **
+  - **IAM action:**  [workspaces-instances:CreateVolume](#list_workspaces-instances-action-CreateVolume) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateWorkspaceInstance  **
+  - **IAM action:**  [workspaces-instances:CreateWorkspaceInstance](#list_workspaces-instances-action-CreateWorkspaceInstance)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [workspaces-instances:TagResource](#list_workspaces-instances-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteVolume  **
+  - **IAM action:**  [workspaces-instances:DeleteVolume](#list_workspaces-instances-action-DeleteVolume) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteWorkspaceInstance  **
+  - **IAM action:**  [workspaces-instances:DeleteWorkspaceInstance](#list_workspaces-instances-action-DeleteWorkspaceInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateVolume  **
+  - **IAM action:**  [workspaces-instances:DisassociateVolume](#list_workspaces-instances-action-DisassociateVolume) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetWorkspaceInstance  **
+  - **IAM action:**  [workspaces-instances:GetWorkspaceInstance](#list_workspaces-instances-action-GetWorkspaceInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListInstanceTypes  **
+  - **IAM action:**  [workspaces-instances:ListInstanceTypes](#list_workspaces-instances-action-ListInstanceTypes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRegions  **
+  - **IAM action:**  [workspaces-instances:ListRegions](#list_workspaces-instances-action-ListRegions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [workspaces-instances:ListTagsForResource](#list_workspaces-instances-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListWorkspaceInstances  **
+  - **IAM action:**  [workspaces-instances:ListWorkspaceInstances](#list_workspaces-instances-action-ListWorkspaceInstances) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   TagResource  **
+  - **IAM action:**  [workspaces-instances:TagResource](#list_workspaces-instances-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [workspaces-instances:UntagResource](#list_workspaces-instances-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+
 
 ## Actions defined by AWS WorkSpaces Managed Instances
+<a name="list_workspaces-instances-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                  | Description                                                                                                    | Resource types (\*required)                                                                                                                | Condition keys                                                                                                                                                                                                                                                                                                                                                                      | Access level   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AssociateVolume](../../../workspaces/latest/api/API_AssociateVolume.md "../../../workspaces/latest/api/API_AssociateVolume.md")                         | Grants permission to associate a workspace managed volume to a workspace managed instance in your account      | [WorkspaceInstanceId\*](#list_workspaces-instances-resource-WorkspaceInstanceId "#list_workspaces-instances-resource-WorkspaceInstanceId") | [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_ "#list_workspaces-instances-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Write          |
-| [CreateVolume](../../../workspaces/latest/api/API_CreateVolume.md "../../../workspaces/latest/api/API_CreateVolume.md")                                  | Grants permission to create a workspace managed volume in your account                                         |                                                                                                                                            |                                                                                                                                                                                                                                                                                                                                                                                     | Write          |
-| [CreateWorkspaceInstance](../../../workspaces/latest/api/API_CreateWorkspaceInstance.md "../../../workspaces/latest/api/API_CreateWorkspaceInstance.md") | Grants permission to create a workspace managed instance in your account                                       |                                                                                                                                            | [aws:RequestTag/${TagKey}](#list_workspaces-instances-aws_RequestTag___TagKey_ "#list_workspaces-instances-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-instances-aws_TagKeys "#list_workspaces-instances-aws_TagKeys")                                                                                                                                             | Write          |
-| [DeleteVolume](../../../workspaces/latest/api/API_DeleteVolume.md "../../../workspaces/latest/api/API_DeleteVolume.md")                                  | Grants permission to delete a workspace managed volume in your account                                         | [VolumeId\*](#list_workspaces-instances-resource-VolumeId "#list_workspaces-instances-resource-VolumeId")                                  | [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_ "#list_workspaces-instances-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Write          |
-| [DeleteWorkspaceInstance](../../../workspaces/latest/api/API_DeleteWorkspaceInstance.md "../../../workspaces/latest/api/API_DeleteWorkspaceInstance.md") | Grants permission to delete a workspace managed instance in your account                                       | [WorkspaceInstanceId\*](#list_workspaces-instances-resource-WorkspaceInstanceId "#list_workspaces-instances-resource-WorkspaceInstanceId") | [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_ "#list_workspaces-instances-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Write          |
-| [DisassociateVolume](../../../workspaces/latest/api/API_DisassociateVolume.md "../../../workspaces/latest/api/API_DisassociateVolume.md")                | Grants permission to disassociate a workspace managed volume from a workspace managed instance in your account | [WorkspaceInstanceId\*](#list_workspaces-instances-resource-WorkspaceInstanceId "#list_workspaces-instances-resource-WorkspaceInstanceId") | [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_ "#list_workspaces-instances-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Write          |
-| [GetWorkspaceInstance](../../../workspaces/latest/api/API_GetWorkspaceInstance.md "../../../workspaces/latest/api/API_GetWorkspaceInstance.md")          | Grants permission to get details for a specific workspace managed instance in your account                     | [WorkspaceInstanceId\*](#list_workspaces-instances-resource-WorkspaceInstanceId "#list_workspaces-instances-resource-WorkspaceInstanceId") | [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_ "#list_workspaces-instances-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Read           |
-| [ListInstanceTypes](../../../workspaces/latest/api/API_ListInstanceTypes.md "../../../workspaces/latest/api/API_ListInstanceTypes.md")                   | Grants permission to list all supported instance types                                                         |                                                                                                                                            |                                                                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListRegions](../../../workspaces/latest/api/API_ListRegions.md "../../../workspaces/latest/api/API_ListRegions.md")                                     | Grants permission to list all supported AWS regions                                                            |                                                                                                                                            |                                                                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListTagsForResource](../../../workspaces/latest/api/API_ListTagsForResource.md "../../../workspaces/latest/api/API_ListTagsForResource.md")             | Grants permission to list user tags for resources in your account                                              | [WorkspaceInstanceId\*](#list_workspaces-instances-resource-WorkspaceInstanceId "#list_workspaces-instances-resource-WorkspaceInstanceId") | [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_ "#list_workspaces-instances-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | List           |
-| [ListWorkspaceInstances](../../../workspaces/latest/api/API_ListWorkspaceInstances.md "../../../workspaces/latest/api/API_ListWorkspaceInstances.md")    | Grants permission to list workspace managed instances in your account                                          |                                                                                                                                            |                                                                                                                                                                                                                                                                                                                                                                                     | List           |
-| [TagResource](../../../workspaces/latest/api/API_TagResource.md "../../../workspaces/latest/api/API_TagResource.md")                                     | Grants permission to add user tags to resources in your account                                                | [WorkspaceInstanceId\*](#list_workspaces-instances-resource-WorkspaceInstanceId "#list_workspaces-instances-resource-WorkspaceInstanceId") | [aws:RequestTag/${TagKey}](#list_workspaces-instances-aws_RequestTag___TagKey_ "#list_workspaces-instances-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_ "#list_workspaces-instances-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-instances-aws_TagKeys "#list_workspaces-instances-aws_TagKeys") | Tagging, Write |
-| [UntagResource](../../../workspaces/latest/api/API_UntagResource.md "../../../workspaces/latest/api/API_UntagResource.md")                               | Grants permission to remove user tags from resources in your account                                           | [WorkspaceInstanceId\*](#list_workspaces-instances-resource-WorkspaceInstanceId "#list_workspaces-instances-resource-WorkspaceInstanceId") | [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_ "#list_workspaces-instances-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_workspaces-instances-aws_TagKeys "#list_workspaces-instances-aws_TagKeys")                                                                                                                                          | Tagging, Write |
+
+
+
+- **   [AssociateVolume](https://docs.aws.amazon.com/workspaces/latest/api/API_AssociateVolume.html)  **
+  - **Description:** Grants permission to associate a workspace managed volume to a workspace managed instance in your account
+  - **Resource types (\*required):** [WorkspaceInstanceId\*](#list_workspaces-instances-resource-WorkspaceInstanceId)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateVolume](https://docs.aws.amazon.com/workspaces/latest/api/API_CreateVolume.html)  **
+  - **Description:** Grants permission to create a workspace managed volume in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateWorkspaceInstance](https://docs.aws.amazon.com/workspaces/latest/api/API_CreateWorkspaceInstance.html)  **
+  - **Description:** Grants permission to create a workspace managed instance in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-instances-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-instances-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteVolume](https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteVolume.html)  **
+  - **Description:** Grants permission to delete a workspace managed volume in your account
+  - **Resource types (\*required):** [VolumeId\*](#list_workspaces-instances-resource-VolumeId)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteWorkspaceInstance](https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteWorkspaceInstance.html)  **
+  - **Description:** Grants permission to delete a workspace managed instance in your account
+  - **Resource types (\*required):** [WorkspaceInstanceId\*](#list_workspaces-instances-resource-WorkspaceInstanceId)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateVolume](https://docs.aws.amazon.com/workspaces/latest/api/API_DisassociateVolume.html)  **
+  - **Description:** Grants permission to disassociate a workspace managed volume from a workspace managed instance in your account
+  - **Resource types (\*required):** [WorkspaceInstanceId\*](#list_workspaces-instances-resource-WorkspaceInstanceId)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetWorkspaceInstance](https://docs.aws.amazon.com/workspaces/latest/api/API_GetWorkspaceInstance.html)  **
+  - **Description:** Grants permission to get details for a specific workspace managed instance in your account
+  - **Resource types (\*required):** [WorkspaceInstanceId\*](#list_workspaces-instances-resource-WorkspaceInstanceId)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListInstanceTypes](https://docs.aws.amazon.com/workspaces/latest/api/API_ListInstanceTypes.html)  **
+  - **Description:** Grants permission to list all supported instance types
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRegions](https://docs.aws.amazon.com/workspaces/latest/api/API_ListRegions.html)  **
+  - **Description:** Grants permission to list all supported AWS regions
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/workspaces/latest/api/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list user tags for resources in your account
+  - **Resource types (\*required):** [WorkspaceInstanceId\*](#list_workspaces-instances-resource-WorkspaceInstanceId)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListWorkspaceInstances](https://docs.aws.amazon.com/workspaces/latest/api/API_ListWorkspaceInstances.html)  **
+  - **Description:** Grants permission to list workspace managed instances in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [TagResource](https://docs.aws.amazon.com/workspaces/latest/api/API_TagResource.html)  **
+  - **Description:** Grants permission to add user tags to resources in your account
+  - **Resource types (\*required):** [WorkspaceInstanceId\*](#list_workspaces-instances-resource-WorkspaceInstanceId)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_workspaces-instances-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-instances-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/workspaces/latest/api/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove user tags from resources in your account
+  - **Resource types (\*required):** [WorkspaceInstanceId\*](#list_workspaces-instances-resource-WorkspaceInstanceId)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_workspaces-instances-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+
 
 ## Resource types defined by AWS WorkSpaces Managed Instances
+<a name="list_workspaces-instances-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                         | ARN                                                                                                 | Condition keys                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| [VolumeId](../../../workspaces/latest/api/managed-workspaces-volumes.md "../../../workspaces/latest/api/managed-workspaces-volumes.md")                | arn:${Partition}:ec2:${Region}:${Account}:volume/${VolumeId}                                        | [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_ "#list_workspaces-instances-aws_ResourceTag___TagKey_") |
-| [WorkspaceInstanceId](../../../workspaces/latest/api/managed-workspaces-instances.md "../../../workspaces/latest/api/managed-workspaces-instances.md") | arn:${Partition}:workspaces-instances:${Region}:${Account}:workspaceinstance/${WorkspaceInstanceId} | [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_ "#list_workspaces-instances-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [VolumeId](https://docs.aws.amazon.com/workspaces/latest/api/managed-workspaces-volumes.html)  | arn:${Partition}:ec2:${Region}:${Account}:volume/${VolumeId} | [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_) | 
+|  [WorkspaceInstanceId](https://docs.aws.amazon.com/workspaces/latest/api/managed-workspaces-instances.html)  | arn:${Partition}:workspaces-instances:${Region}:${Account}:workspaceinstance/${WorkspaceInstanceId} | [aws:ResourceTag/${TagKey}](#list_workspaces-instances-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS WorkSpaces Managed Instances
+<a name="list_workspaces-instances-policy-keys"></a>
 
-AWS WorkSpaces Managed Instances defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS WorkSpaces Managed Instances defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                         | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access based on the tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access based on the tags associated with the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access based on the tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access based on the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access based on the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access based on the tag keys that are passed in the request | ArrayOfString | 

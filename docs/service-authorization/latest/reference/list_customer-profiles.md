@@ -1,414 +1,1468 @@
-# Actions, resources, and condition keys for Amazon Connect Customer Profiles
 
-Amazon Connect Customer Profiles (service prefix: `profile`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Connect Customer Profiles
+<a name="list_customer-profiles"></a>
+
+Amazon Connect Customer Profiles (service prefix: `profile`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/connect/latest/adminguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/profile/profile.json) for this service.
 
-- Learn how to [configure this service](../../../connect/latest/adminguide.md "../../../connect/latest/adminguide.md").
-- View a list of the [API operations available for
-  this service](../../../customerprofiles/latest/APIReference.md "../../../customerprofiles/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../customerprofiles/latest/APIReference.md "../../../customerprofiles/latest/APIReference.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/profile/profile.json "https://servicereference.us-east-1.amazonaws.com/v1/profile/profile.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon Connect Customer Profiles](#list_customer-profiles-operations "#list_customer-profiles-operations")
-- [Actions defined by Amazon Connect Customer Profiles](#list_customer-profiles-actions-as-permissions "#list_customer-profiles-actions-as-permissions")
-- [Permission-only actions for Amazon Connect Customer Profiles](#list_customer-profiles-permission-only-actions "#list_customer-profiles-permission-only-actions")
-- [Resource types defined by Amazon Connect Customer Profiles](#list_customer-profiles-resources-for-iam-policies "#list_customer-profiles-resources-for-iam-policies")
-- [Condition keys for Amazon Connect Customer Profiles](#list_customer-profiles-policy-keys "#list_customer-profiles-policy-keys")
+**Topics**
++ [API operations defined by Amazon Connect Customer Profiles](#list_customer-profiles-operations)
++ [Actions defined by Amazon Connect Customer Profiles](#list_customer-profiles-actions-as-permissions)
++ [Permission-only actions for Amazon Connect Customer Profiles](#list_customer-profiles-permission-only-actions)
++ [Resource types defined by Amazon Connect Customer Profiles](#list_customer-profiles-resources-for-iam-policies)
++ [Condition keys for Amazon Connect Customer Profiles](#list_customer-profiles-policy-keys)
 
 ## API operations defined by Amazon Connect Customer Profiles
+<a name="list_customer-profiles-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_customer-profiles-actions-as-permissions "#list_customer-profiles-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_customer-profiles-actions-as-permissions).
 
-| Operation                                                                                                                       | IAM action                                                                                                                                                                                   | Condition key         | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------------- | -------------- |
-| AddProfileKey                                                                                                                   | [profile:AddProfileKey](#list_customer-profiles-action-AddProfileKey "#list_customer-profiles-action-AddProfileKey")                                                                         |                       |                   | Write          |
-| AssociateStreamForSegments                                                                                                      | [profile:AssociateStreamForSegments](#list_customer-profiles-action-AssociateStreamForSegments "#list_customer-profiles-action-AssociateStreamForSegments")                                  |                       |                   | Write          |
-| BatchGetCalculatedAttributeForProfile                                                                                           | [profile:BatchGetCalculatedAttributeForProfile](#list_customer-profiles-action-BatchGetCalculatedAttributeForProfile "#list_customer-profiles-action-BatchGetCalculatedAttributeForProfile") |                       |                   | Read           |
-| BatchGetProfile                                                                                                                 | [profile:BatchGetProfile](#list_customer-profiles-action-BatchGetProfile "#list_customer-profiles-action-BatchGetProfile")                                                                   |                       |                   | Read           |
-| CreateCalculatedAttributeDefinition                                                                                             | [profile:CreateCalculatedAttributeDefinition](#list_customer-profiles-action-CreateCalculatedAttributeDefinition "#list_customer-profiles-action-CreateCalculatedAttributeDefinition")       |                       |                   | Write          |
-| [profile:TagResource](#list_customer-profiles-action-TagResource "#list_customer-profiles-action-TagResource")                  |                                                                                                                                                                                              |                       | Tagging, Write    |
-| CreateDomain                                                                                                                    | [profile:CreateDomain](#list_customer-profiles-action-CreateDomain "#list_customer-profiles-action-CreateDomain")                                                                            |                       |                   | Write          |
-| [profile:TagResource](#list_customer-profiles-action-TagResource "#list_customer-profiles-action-TagResource")                  |                                                                                                                                                                                              |                       | Tagging, Write    |
-| CreateDomainLayout                                                                                                              | [profile:CreateDomainLayout](#list_customer-profiles-action-CreateDomainLayout "#list_customer-profiles-action-CreateDomainLayout")                                                          |                       |                   | Write          |
-| [profile:TagResource](#list_customer-profiles-action-TagResource "#list_customer-profiles-action-TagResource")                  |                                                                                                                                                                                              |                       | Tagging, Write    |
-| CreateEventStream                                                                                                               | [profile:CreateEventStream](#list_customer-profiles-action-CreateEventStream "#list_customer-profiles-action-CreateEventStream")                                                             |                       |                   | Write          |
-| [profile:TagResource](#list_customer-profiles-action-TagResource "#list_customer-profiles-action-TagResource")                  |                                                                                                                                                                                              |                       | Tagging, Write    |
-| CreateEventTrigger                                                                                                              | [profile:CreateEventTrigger](#list_customer-profiles-action-CreateEventTrigger "#list_customer-profiles-action-CreateEventTrigger")                                                          |                       |                   | Write          |
-| [profile:TagResource](#list_customer-profiles-action-TagResource "#list_customer-profiles-action-TagResource")                  |                                                                                                                                                                                              |                       | Tagging, Write    |
-| CreateIntegrationWorkflow                                                                                                       | [profile:CreateIntegrationWorkflow](#list_customer-profiles-action-CreateIntegrationWorkflow "#list_customer-profiles-action-CreateIntegrationWorkflow")                                     |                       |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                          | profile.amazonaws.com | Write             |
-| CreateProfile                                                                                                                   | [profile:CreateProfile](#list_customer-profiles-action-CreateProfile "#list_customer-profiles-action-CreateProfile")                                                                         |                       |                   | Write          |
-| CreateRecommender                                                                                                               | [profile:CreateRecommender](#list_customer-profiles-action-CreateRecommender "#list_customer-profiles-action-CreateRecommender")                                                             |                       |                   | Write          |
-| CreateRecommenderFilter                                                                                                         | [profile:CreateRecommenderFilter](#list_customer-profiles-action-CreateRecommenderFilter "#list_customer-profiles-action-CreateRecommenderFilter")                                           |                       |                   | Write          |
-| [profile:TagResource](#list_customer-profiles-action-TagResource "#list_customer-profiles-action-TagResource")                  |                                                                                                                                                                                              |                       | Tagging, Write    |
-| CreateRecommenderSchema                                                                                                         | [profile:CreateRecommenderSchema](#list_customer-profiles-action-CreateRecommenderSchema "#list_customer-profiles-action-CreateRecommenderSchema")                                           |                       |                   | Write          |
-| [profile:TagResource](#list_customer-profiles-action-TagResource "#list_customer-profiles-action-TagResource")                  |                                                                                                                                                                                              |                       | Tagging, Write    |
-| CreateSegmentDefinition                                                                                                         | [profile:CreateSegmentDefinition](#list_customer-profiles-action-CreateSegmentDefinition "#list_customer-profiles-action-CreateSegmentDefinition")                                           |                       |                   | Write          |
-| [profile:TagResource](#list_customer-profiles-action-TagResource "#list_customer-profiles-action-TagResource")                  |                                                                                                                                                                                              |                       | Tagging, Write    |
-| CreateSegmentEstimate                                                                                                           | [profile:CreateSegmentEstimate](#list_customer-profiles-action-CreateSegmentEstimate "#list_customer-profiles-action-CreateSegmentEstimate")                                                 |                       |                   | Write          |
-| CreateSegmentSnapshot                                                                                                           | [profile:CreateSegmentSnapshot](#list_customer-profiles-action-CreateSegmentSnapshot "#list_customer-profiles-action-CreateSegmentSnapshot")                                                 |                       |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                          | profile.amazonaws.com | Write             |
-| CreateUploadJob                                                                                                                 | [profile:CreateUploadJob](#list_customer-profiles-action-CreateUploadJob "#list_customer-profiles-action-CreateUploadJob")                                                                   |                       |                   | Write          |
-| DeleteCalculatedAttributeDefinition                                                                                             | [profile:DeleteCalculatedAttributeDefinition](#list_customer-profiles-action-DeleteCalculatedAttributeDefinition "#list_customer-profiles-action-DeleteCalculatedAttributeDefinition")       |                       |                   | Write          |
-| DeleteDomain                                                                                                                    | [profile:DeleteDomain](#list_customer-profiles-action-DeleteDomain "#list_customer-profiles-action-DeleteDomain")                                                                            |                       |                   | Write          |
-| DeleteDomainLayout                                                                                                              | [profile:DeleteDomainLayout](#list_customer-profiles-action-DeleteDomainLayout "#list_customer-profiles-action-DeleteDomainLayout")                                                          |                       |                   | Write          |
-| DeleteDomainObjectType                                                                                                          | [profile:DeleteDomainObjectType](#list_customer-profiles-action-DeleteDomainObjectType "#list_customer-profiles-action-DeleteDomainObjectType")                                              |                       |                   | Write          |
-| DeleteEventStream                                                                                                               | [profile:DeleteEventStream](#list_customer-profiles-action-DeleteEventStream "#list_customer-profiles-action-DeleteEventStream")                                                             |                       |                   | Write          |
-| DeleteEventTrigger                                                                                                              | [profile:DeleteEventTrigger](#list_customer-profiles-action-DeleteEventTrigger "#list_customer-profiles-action-DeleteEventTrigger")                                                          |                       |                   | Write          |
-| DeleteIntegration                                                                                                               | [profile:DeleteIntegration](#list_customer-profiles-action-DeleteIntegration "#list_customer-profiles-action-DeleteIntegration")                                                             |                       |                   | Write          |
-| DeleteProfile                                                                                                                   | [profile:DeleteProfile](#list_customer-profiles-action-DeleteProfile "#list_customer-profiles-action-DeleteProfile")                                                                         |                       |                   | Write          |
-| DeleteProfileKey                                                                                                                | [profile:DeleteProfileKey](#list_customer-profiles-action-DeleteProfileKey "#list_customer-profiles-action-DeleteProfileKey")                                                                |                       |                   | Write          |
-| DeleteProfileObject                                                                                                             | [profile:DeleteProfileObject](#list_customer-profiles-action-DeleteProfileObject "#list_customer-profiles-action-DeleteProfileObject")                                                       |                       |                   | Write          |
-| DeleteProfileObjectType                                                                                                         | [profile:DeleteProfileObjectType](#list_customer-profiles-action-DeleteProfileObjectType "#list_customer-profiles-action-DeleteProfileObjectType")                                           |                       |                   | Write          |
-| DeleteRecommender                                                                                                               | [profile:DeleteRecommender](#list_customer-profiles-action-DeleteRecommender "#list_customer-profiles-action-DeleteRecommender")                                                             |                       |                   | Write          |
-| DeleteRecommenderFilter                                                                                                         | [profile:DeleteRecommenderFilter](#list_customer-profiles-action-DeleteRecommenderFilter "#list_customer-profiles-action-DeleteRecommenderFilter")                                           |                       |                   | Write          |
-| DeleteRecommenderSchema                                                                                                         | [profile:DeleteRecommenderSchema](#list_customer-profiles-action-DeleteRecommenderSchema "#list_customer-profiles-action-DeleteRecommenderSchema")                                           |                       |                   | Write          |
-| DeleteSegmentDefinition                                                                                                         | [profile:DeleteSegmentDefinition](#list_customer-profiles-action-DeleteSegmentDefinition "#list_customer-profiles-action-DeleteSegmentDefinition")                                           |                       |                   | Write          |
-| DeleteSegmentSubscription                                                                                                       | [profile:DeleteSegmentSubscription](#list_customer-profiles-action-DeleteSegmentSubscription "#list_customer-profiles-action-DeleteSegmentSubscription")                                     |                       |                   | Write          |
-| DeleteWorkflow                                                                                                                  | [profile:DeleteWorkflow](#list_customer-profiles-action-DeleteWorkflow "#list_customer-profiles-action-DeleteWorkflow")                                                                      |                       |                   | Write          |
-| DetectProfileObjectType                                                                                                         | [profile:DetectProfileObjectType](#list_customer-profiles-action-DetectProfileObjectType "#list_customer-profiles-action-DetectProfileObjectType")                                           |                       |                   | Read           |
-| DisassociateStreamForSegments                                                                                                   | [profile:DisassociateStreamForSegments](#list_customer-profiles-action-DisassociateStreamForSegments "#list_customer-profiles-action-DisassociateStreamForSegments")                         |                       |                   | Write          |
-| GetAutoMergingPreview                                                                                                           | [profile:GetAutoMergingPreview](#list_customer-profiles-action-GetAutoMergingPreview "#list_customer-profiles-action-GetAutoMergingPreview")                                                 |                       |                   | Read           |
-| GetCalculatedAttributeDefinition                                                                                                | [profile:GetCalculatedAttributeDefinition](#list_customer-profiles-action-GetCalculatedAttributeDefinition "#list_customer-profiles-action-GetCalculatedAttributeDefinition")                |                       |                   | Read           |
-| GetCalculatedAttributeForProfile                                                                                                | [profile:GetCalculatedAttributeForProfile](#list_customer-profiles-action-GetCalculatedAttributeForProfile "#list_customer-profiles-action-GetCalculatedAttributeForProfile")                |                       |                   | Read           |
-| GetDomain                                                                                                                       | [profile:GetDomain](#list_customer-profiles-action-GetDomain "#list_customer-profiles-action-GetDomain")                                                                                     |                       |                   | Read           |
-| GetDomainLayout                                                                                                                 | [profile:GetDomainLayout](#list_customer-profiles-action-GetDomainLayout "#list_customer-profiles-action-GetDomainLayout")                                                                   |                       |                   | Read           |
-| GetDomainObjectType                                                                                                             | [profile:GetDomainObjectType](#list_customer-profiles-action-GetDomainObjectType "#list_customer-profiles-action-GetDomainObjectType")                                                       |                       |                   | Read           |
-| GetEventStream                                                                                                                  | [profile:GetEventStream](#list_customer-profiles-action-GetEventStream "#list_customer-profiles-action-GetEventStream")                                                                      |                       |                   | Read           |
-| GetEventTrigger                                                                                                                 | [profile:GetEventTrigger](#list_customer-profiles-action-GetEventTrigger "#list_customer-profiles-action-GetEventTrigger")                                                                   |                       |                   | Read           |
-| GetIdentityResolutionJob                                                                                                        | [profile:GetIdentityResolutionJob](#list_customer-profiles-action-GetIdentityResolutionJob "#list_customer-profiles-action-GetIdentityResolutionJob")                                        |                       |                   | Read           |
-| GetIntegration                                                                                                                  | [profile:GetIntegration](#list_customer-profiles-action-GetIntegration "#list_customer-profiles-action-GetIntegration")                                                                      |                       |                   | Read           |
-| GetMatches                                                                                                                      | [profile:GetMatches](#list_customer-profiles-action-GetMatches "#list_customer-profiles-action-GetMatches")                                                                                  |                       |                   | List           |
-| GetObjectTypeAttributeStatistics                                                                                                | [profile:GetObjectTypeAttributeStatistics](#list_customer-profiles-action-GetObjectTypeAttributeStatistics "#list_customer-profiles-action-GetObjectTypeAttributeStatistics")                |                       |                   | Read           |
-| GetProfileHistoryRecord                                                                                                         | [profile:GetProfileHistoryRecord](#list_customer-profiles-action-GetProfileHistoryRecord "#list_customer-profiles-action-GetProfileHistoryRecord")                                           |                       |                   | Read           |
-| GetProfileObjectType                                                                                                            | [profile:GetProfileObjectType](#list_customer-profiles-action-GetProfileObjectType "#list_customer-profiles-action-GetProfileObjectType")                                                    |                       |                   | Read           |
-| GetProfileObjectTypeTemplate                                                                                                    | [profile:GetProfileObjectTypeTemplate](#list_customer-profiles-action-GetProfileObjectTypeTemplate "#list_customer-profiles-action-GetProfileObjectTypeTemplate")                            |                       |                   | Read           |
-| GetProfileRecommendations                                                                                                       | [profile:GetProfileRecommendations](#list_customer-profiles-action-GetProfileRecommendations "#list_customer-profiles-action-GetProfileRecommendations")                                     |                       |                   | Read           |
-| GetRecommender                                                                                                                  | [profile:GetRecommender](#list_customer-profiles-action-GetRecommender "#list_customer-profiles-action-GetRecommender")                                                                      |                       |                   | Read           |
-| GetRecommenderFilter                                                                                                            | [profile:GetRecommenderFilter](#list_customer-profiles-action-GetRecommenderFilter "#list_customer-profiles-action-GetRecommenderFilter")                                                    |                       |                   | Read           |
-| GetRecommenderSchema                                                                                                            | [profile:GetRecommenderSchema](#list_customer-profiles-action-GetRecommenderSchema "#list_customer-profiles-action-GetRecommenderSchema")                                                    |                       |                   | Read           |
-| GetSegmentDefinition                                                                                                            | [profile:GetSegmentDefinition](#list_customer-profiles-action-GetSegmentDefinition "#list_customer-profiles-action-GetSegmentDefinition")                                                    |                       |                   | Read           |
-| GetSegmentEstimate                                                                                                              | [profile:GetSegmentEstimate](#list_customer-profiles-action-GetSegmentEstimate "#list_customer-profiles-action-GetSegmentEstimate")                                                          |                       |                   | Read           |
-| GetSegmentMembership                                                                                                            | [profile:GetSegmentMembership](#list_customer-profiles-action-GetSegmentMembership "#list_customer-profiles-action-GetSegmentMembership")                                                    |                       |                   | Read           |
-| GetSegmentSnapshot                                                                                                              | [profile:GetSegmentSnapshot](#list_customer-profiles-action-GetSegmentSnapshot "#list_customer-profiles-action-GetSegmentSnapshot")                                                          |                       |                   | Read           |
-| GetSegmentSubscription                                                                                                          | [profile:GetSegmentSubscription](#list_customer-profiles-action-GetSegmentSubscription "#list_customer-profiles-action-GetSegmentSubscription")                                              |                       |                   | Read           |
-| GetSimilarProfiles                                                                                                              | [profile:GetSimilarProfiles](#list_customer-profiles-action-GetSimilarProfiles "#list_customer-profiles-action-GetSimilarProfiles")                                                          |                       |                   | List           |
-| GetStreamForSegments                                                                                                            | [profile:GetStreamForSegments](#list_customer-profiles-action-GetStreamForSegments "#list_customer-profiles-action-GetStreamForSegments")                                                    |                       |                   | Read           |
-| GetUploadJob                                                                                                                    | [profile:GetUploadJob](#list_customer-profiles-action-GetUploadJob "#list_customer-profiles-action-GetUploadJob")                                                                            |                       |                   | Read           |
-| GetUploadJobPath                                                                                                                | [profile:GetUploadJobPath](#list_customer-profiles-action-GetUploadJobPath "#list_customer-profiles-action-GetUploadJobPath")                                                                |                       |                   | Read           |
-| GetWorkflow                                                                                                                     | [profile:GetWorkflow](#list_customer-profiles-action-GetWorkflow "#list_customer-profiles-action-GetWorkflow")                                                                               |                       |                   | Read           |
-| GetWorkflowSteps                                                                                                                | [profile:GetWorkflowSteps](#list_customer-profiles-action-GetWorkflowSteps "#list_customer-profiles-action-GetWorkflowSteps")                                                                |                       |                   | Read           |
-| ListAccountIntegrations                                                                                                         | [profile:ListAccountIntegrations](#list_customer-profiles-action-ListAccountIntegrations "#list_customer-profiles-action-ListAccountIntegrations")                                           |                       |                   | List           |
-| ListCalculatedAttributeDefinitions                                                                                              | [profile:ListCalculatedAttributeDefinitions](#list_customer-profiles-action-ListCalculatedAttributeDefinitions "#list_customer-profiles-action-ListCalculatedAttributeDefinitions")          |                       |                   | List           |
-| ListCalculatedAttributesForProfile                                                                                              | [profile:ListCalculatedAttributesForProfile](#list_customer-profiles-action-ListCalculatedAttributesForProfile "#list_customer-profiles-action-ListCalculatedAttributesForProfile")          |                       |                   | List           |
-| ListDomainLayouts                                                                                                               | [profile:ListDomainLayouts](#list_customer-profiles-action-ListDomainLayouts "#list_customer-profiles-action-ListDomainLayouts")                                                             |                       |                   | List           |
-| ListDomainObjectTypes                                                                                                           | [profile:ListDomainObjectTypes](#list_customer-profiles-action-ListDomainObjectTypes "#list_customer-profiles-action-ListDomainObjectTypes")                                                 |                       |                   | List           |
-| ListDomains                                                                                                                     | [profile:ListDomains](#list_customer-profiles-action-ListDomains "#list_customer-profiles-action-ListDomains")                                                                               |                       |                   | List           |
-| ListEventStreams                                                                                                                | [profile:ListEventStreams](#list_customer-profiles-action-ListEventStreams "#list_customer-profiles-action-ListEventStreams")                                                                |                       |                   | List           |
-| ListEventTriggers                                                                                                               | [profile:ListEventTriggers](#list_customer-profiles-action-ListEventTriggers "#list_customer-profiles-action-ListEventTriggers")                                                             |                       |                   | List           |
-| ListIdentityResolutionJobs                                                                                                      | [profile:ListIdentityResolutionJobs](#list_customer-profiles-action-ListIdentityResolutionJobs "#list_customer-profiles-action-ListIdentityResolutionJobs")                                  |                       |                   | List           |
-| ListIntegrations                                                                                                                | [profile:ListIntegrations](#list_customer-profiles-action-ListIntegrations "#list_customer-profiles-action-ListIntegrations")                                                                |                       |                   | List           |
-| ListObjectTypeAttributeValues                                                                                                   | [profile:ListObjectTypeAttributeValues](#list_customer-profiles-action-ListObjectTypeAttributeValues "#list_customer-profiles-action-ListObjectTypeAttributeValues")                         |                       |                   | List           |
-| ListObjectTypeAttributes                                                                                                        | [profile:ListObjectTypeAttributes](#list_customer-profiles-action-ListObjectTypeAttributes "#list_customer-profiles-action-ListObjectTypeAttributes")                                        |                       |                   | List           |
-| ListProfileAttributeValues                                                                                                      | [profile:ListProfileAttributeValues](#list_customer-profiles-action-ListProfileAttributeValues "#list_customer-profiles-action-ListProfileAttributeValues")                                  |                       |                   | List           |
-| ListProfileHistoryRecords                                                                                                       | [profile:ListProfileHistoryRecords](#list_customer-profiles-action-ListProfileHistoryRecords "#list_customer-profiles-action-ListProfileHistoryRecords")                                     |                       |                   | List           |
-| ListProfileObjectTypeTemplates                                                                                                  | [profile:ListProfileObjectTypeTemplates](#list_customer-profiles-action-ListProfileObjectTypeTemplates "#list_customer-profiles-action-ListProfileObjectTypeTemplates")                      |                       |                   | List           |
-| ListProfileObjectTypes                                                                                                          | [profile:ListProfileObjectTypes](#list_customer-profiles-action-ListProfileObjectTypes "#list_customer-profiles-action-ListProfileObjectTypes")                                              |                       |                   | List           |
-| ListProfileObjects                                                                                                              | [profile:ListProfileObjects](#list_customer-profiles-action-ListProfileObjects "#list_customer-profiles-action-ListProfileObjects")                                                          |                       |                   | List           |
-| ListRecommenderFilters                                                                                                          | [profile:ListRecommenderFilters](#list_customer-profiles-action-ListRecommenderFilters "#list_customer-profiles-action-ListRecommenderFilters")                                              |                       |                   | List           |
-| ListRecommenderRecipes                                                                                                          | [profile:ListRecommenderRecipes](#list_customer-profiles-action-ListRecommenderRecipes "#list_customer-profiles-action-ListRecommenderRecipes")                                              |                       |                   | List           |
-| ListRecommenderSchemas                                                                                                          | [profile:ListRecommenderSchemas](#list_customer-profiles-action-ListRecommenderSchemas "#list_customer-profiles-action-ListRecommenderSchemas")                                              |                       |                   | List           |
-| ListRecommenders                                                                                                                | [profile:ListRecommenders](#list_customer-profiles-action-ListRecommenders "#list_customer-profiles-action-ListRecommenders")                                                                |                       |                   | List           |
-| ListRuleBasedMatches                                                                                                            | [profile:ListRuleBasedMatches](#list_customer-profiles-action-ListRuleBasedMatches "#list_customer-profiles-action-ListRuleBasedMatches")                                                    |                       |                   | List           |
-| ListSegmentDefinitions                                                                                                          | [profile:ListSegmentDefinitions](#list_customer-profiles-action-ListSegmentDefinitions "#list_customer-profiles-action-ListSegmentDefinitions")                                              |                       |                   | List           |
-| ListSegmentSubscriptionEvents                                                                                                   | [profile:ListSegmentSubscriptionEvents](#list_customer-profiles-action-ListSegmentSubscriptionEvents "#list_customer-profiles-action-ListSegmentSubscriptionEvents")                         |                       |                   | Read           |
-| ListTagsForResource                                                                                                             | [profile:ListTagsForResource](#list_customer-profiles-action-ListTagsForResource "#list_customer-profiles-action-ListTagsForResource")                                                       |                       |                   | Read           |
-| ListUploadJobs                                                                                                                  | [profile:ListUploadJobs](#list_customer-profiles-action-ListUploadJobs "#list_customer-profiles-action-ListUploadJobs")                                                                      |                       |                   | List           |
-| ListWorkflows                                                                                                                   | [profile:ListWorkflows](#list_customer-profiles-action-ListWorkflows "#list_customer-profiles-action-ListWorkflows")                                                                         |                       |                   | List           |
-| MergeProfiles                                                                                                                   | [profile:MergeProfiles](#list_customer-profiles-action-MergeProfiles "#list_customer-profiles-action-MergeProfiles")                                                                         |                       |                   | Write          |
-| PutDomainObjectType                                                                                                             | [profile:PutDomainObjectType](#list_customer-profiles-action-PutDomainObjectType "#list_customer-profiles-action-PutDomainObjectType")                                                       |                       |                   | Write          |
-| [profile:TagResource](#list_customer-profiles-action-TagResource "#list_customer-profiles-action-TagResource")                  |                                                                                                                                                                                              |                       | Tagging, Write    |
-| PutIntegration                                                                                                                  | [profile:PutIntegration](#list_customer-profiles-action-PutIntegration "#list_customer-profiles-action-PutIntegration")                                                                      |                       |                   | Write          |
-| [profile:TagResource](#list_customer-profiles-action-TagResource "#list_customer-profiles-action-TagResource")                  |                                                                                                                                                                                              |                       | Tagging, Write    |
-| PutProfileObject                                                                                                                | [profile:PutProfileObject](#list_customer-profiles-action-PutProfileObject "#list_customer-profiles-action-PutProfileObject")                                                                |                       |                   | Write          |
-| PutProfileObjectType                                                                                                            | [profile:PutProfileObjectType](#list_customer-profiles-action-PutProfileObjectType "#list_customer-profiles-action-PutProfileObjectType")                                                    |                       |                   | Write          |
-| [profile:TagResource](#list_customer-profiles-action-TagResource "#list_customer-profiles-action-TagResource")                  |                                                                                                                                                                                              |                       | Tagging, Write    |
-| PutSegmentSubscription                                                                                                          | [profile:PutSegmentSubscription](#list_customer-profiles-action-PutSegmentSubscription "#list_customer-profiles-action-PutSegmentSubscription")                                              |                       |                   | Write          |
-| SearchProfiles                                                                                                                  | [profile:SearchProfiles](#list_customer-profiles-action-SearchProfiles "#list_customer-profiles-action-SearchProfiles")                                                                      |                       |                   | Read           |
-| StartRecommender                                                                                                                | [profile:StartRecommender](#list_customer-profiles-action-StartRecommender "#list_customer-profiles-action-StartRecommender")                                                                |                       |                   | Write          |
-| StartUploadJob                                                                                                                  | [profile:StartUploadJob](#list_customer-profiles-action-StartUploadJob "#list_customer-profiles-action-StartUploadJob")                                                                      |                       |                   | Write          |
-| StopRecommender                                                                                                                 | [profile:StopRecommender](#list_customer-profiles-action-StopRecommender "#list_customer-profiles-action-StopRecommender")                                                                   |                       |                   | Write          |
-| StopUploadJob                                                                                                                   | [profile:StopUploadJob](#list_customer-profiles-action-StopUploadJob "#list_customer-profiles-action-StopUploadJob")                                                                         |                       |                   | Write          |
-| TagResource                                                                                                                     | [profile:TagResource](#list_customer-profiles-action-TagResource "#list_customer-profiles-action-TagResource")                                                                               |                       |                   | Tagging, Write |
-| UntagResource                                                                                                                   | [profile:UntagResource](#list_customer-profiles-action-UntagResource "#list_customer-profiles-action-UntagResource")                                                                         |                       |                   | Tagging, Write |
-| UpdateCalculatedAttributeDefinition                                                                                             | [profile:UpdateCalculatedAttributeDefinition](#list_customer-profiles-action-UpdateCalculatedAttributeDefinition "#list_customer-profiles-action-UpdateCalculatedAttributeDefinition")       |                       |                   | Write          |
-| UpdateDomain                                                                                                                    | [profile:UpdateDomain](#list_customer-profiles-action-UpdateDomain "#list_customer-profiles-action-UpdateDomain")                                                                            |                       |                   | Write          |
-| UpdateDomainLayout                                                                                                              | [profile:UpdateDomainLayout](#list_customer-profiles-action-UpdateDomainLayout "#list_customer-profiles-action-UpdateDomainLayout")                                                          |                       |                   | Write          |
-| UpdateEventTrigger                                                                                                              | [profile:UpdateEventTrigger](#list_customer-profiles-action-UpdateEventTrigger "#list_customer-profiles-action-UpdateEventTrigger")                                                          |                       |                   | Write          |
-| UpdateProfile                                                                                                                   | [profile:UpdateProfile](#list_customer-profiles-action-UpdateProfile "#list_customer-profiles-action-UpdateProfile")                                                                         |                       |                   | Write          |
-| UpdateRecommender                                                                                                               | [profile:UpdateRecommender](#list_customer-profiles-action-UpdateRecommender "#list_customer-profiles-action-UpdateRecommender")                                                             |                       |                   | Write          |
+
+
+
+- **   AddProfileKey  **
+  - **IAM action:**  [profile:AddProfileKey](#list_customer-profiles-action-AddProfileKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateStreamForSegments  **
+  - **IAM action:**  [profile:AssociateStreamForSegments](#list_customer-profiles-action-AssociateStreamForSegments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchGetCalculatedAttributeForProfile  **
+  - **IAM action:**  [profile:BatchGetCalculatedAttributeForProfile](#list_customer-profiles-action-BatchGetCalculatedAttributeForProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetProfile  **
+  - **IAM action:**  [profile:BatchGetProfile](#list_customer-profiles-action-BatchGetProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   CreateCalculatedAttributeDefinition  **
+  - **IAM action:**  [profile:CreateCalculatedAttributeDefinition](#list_customer-profiles-action-CreateCalculatedAttributeDefinition)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [profile:TagResource](#list_customer-profiles-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateDomain  **
+  - **IAM action:**  [profile:CreateDomain](#list_customer-profiles-action-CreateDomain)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [profile:TagResource](#list_customer-profiles-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateDomainLayout  **
+  - **IAM action:**  [profile:CreateDomainLayout](#list_customer-profiles-action-CreateDomainLayout)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [profile:TagResource](#list_customer-profiles-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateEventStream  **
+  - **IAM action:**  [profile:CreateEventStream](#list_customer-profiles-action-CreateEventStream)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [profile:TagResource](#list_customer-profiles-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateEventTrigger  **
+  - **IAM action:**  [profile:CreateEventTrigger](#list_customer-profiles-action-CreateEventTrigger)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [profile:TagResource](#list_customer-profiles-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateIntegrationWorkflow  **
+  - **IAM action:**  [profile:CreateIntegrationWorkflow](#list_customer-profiles-action-CreateIntegrationWorkflow)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** profile.amazonaws.com / **Access level:** Write
+
+- **   CreateProfile  **
+  - **IAM action:**  [profile:CreateProfile](#list_customer-profiles-action-CreateProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateRecommender  **
+  - **IAM action:**  [profile:CreateRecommender](#list_customer-profiles-action-CreateRecommender) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateRecommenderFilter  **
+  - **IAM action:**  [profile:CreateRecommenderFilter](#list_customer-profiles-action-CreateRecommenderFilter)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [profile:TagResource](#list_customer-profiles-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateRecommenderSchema  **
+  - **IAM action:**  [profile:CreateRecommenderSchema](#list_customer-profiles-action-CreateRecommenderSchema)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [profile:TagResource](#list_customer-profiles-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateSegmentDefinition  **
+  - **IAM action:**  [profile:CreateSegmentDefinition](#list_customer-profiles-action-CreateSegmentDefinition)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [profile:TagResource](#list_customer-profiles-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateSegmentEstimate  **
+  - **IAM action:**  [profile:CreateSegmentEstimate](#list_customer-profiles-action-CreateSegmentEstimate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateSegmentSnapshot  **
+  - **IAM action:**  [profile:CreateSegmentSnapshot](#list_customer-profiles-action-CreateSegmentSnapshot)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** profile.amazonaws.com / **Access level:** Write
+
+- **   CreateUploadJob  **
+  - **IAM action:**  [profile:CreateUploadJob](#list_customer-profiles-action-CreateUploadJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteCalculatedAttributeDefinition  **
+  - **IAM action:**  [profile:DeleteCalculatedAttributeDefinition](#list_customer-profiles-action-DeleteCalculatedAttributeDefinition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDomain  **
+  - **IAM action:**  [profile:DeleteDomain](#list_customer-profiles-action-DeleteDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDomainLayout  **
+  - **IAM action:**  [profile:DeleteDomainLayout](#list_customer-profiles-action-DeleteDomainLayout) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDomainObjectType  **
+  - **IAM action:**  [profile:DeleteDomainObjectType](#list_customer-profiles-action-DeleteDomainObjectType) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteEventStream  **
+  - **IAM action:**  [profile:DeleteEventStream](#list_customer-profiles-action-DeleteEventStream) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteEventTrigger  **
+  - **IAM action:**  [profile:DeleteEventTrigger](#list_customer-profiles-action-DeleteEventTrigger) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteIntegration  **
+  - **IAM action:**  [profile:DeleteIntegration](#list_customer-profiles-action-DeleteIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteProfile  **
+  - **IAM action:**  [profile:DeleteProfile](#list_customer-profiles-action-DeleteProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteProfileKey  **
+  - **IAM action:**  [profile:DeleteProfileKey](#list_customer-profiles-action-DeleteProfileKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteProfileObject  **
+  - **IAM action:**  [profile:DeleteProfileObject](#list_customer-profiles-action-DeleteProfileObject) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteProfileObjectType  **
+  - **IAM action:**  [profile:DeleteProfileObjectType](#list_customer-profiles-action-DeleteProfileObjectType) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRecommender  **
+  - **IAM action:**  [profile:DeleteRecommender](#list_customer-profiles-action-DeleteRecommender) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRecommenderFilter  **
+  - **IAM action:**  [profile:DeleteRecommenderFilter](#list_customer-profiles-action-DeleteRecommenderFilter) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRecommenderSchema  **
+  - **IAM action:**  [profile:DeleteRecommenderSchema](#list_customer-profiles-action-DeleteRecommenderSchema) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSegmentDefinition  **
+  - **IAM action:**  [profile:DeleteSegmentDefinition](#list_customer-profiles-action-DeleteSegmentDefinition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSegmentSubscription  **
+  - **IAM action:**  [profile:DeleteSegmentSubscription](#list_customer-profiles-action-DeleteSegmentSubscription) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteWorkflow  **
+  - **IAM action:**  [profile:DeleteWorkflow](#list_customer-profiles-action-DeleteWorkflow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DetectProfileObjectType  **
+  - **IAM action:**  [profile:DetectProfileObjectType](#list_customer-profiles-action-DetectProfileObjectType) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DisassociateStreamForSegments  **
+  - **IAM action:**  [profile:DisassociateStreamForSegments](#list_customer-profiles-action-DisassociateStreamForSegments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAutoMergingPreview  **
+  - **IAM action:**  [profile:GetAutoMergingPreview](#list_customer-profiles-action-GetAutoMergingPreview) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCalculatedAttributeDefinition  **
+  - **IAM action:**  [profile:GetCalculatedAttributeDefinition](#list_customer-profiles-action-GetCalculatedAttributeDefinition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCalculatedAttributeForProfile  **
+  - **IAM action:**  [profile:GetCalculatedAttributeForProfile](#list_customer-profiles-action-GetCalculatedAttributeForProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDomain  **
+  - **IAM action:**  [profile:GetDomain](#list_customer-profiles-action-GetDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDomainLayout  **
+  - **IAM action:**  [profile:GetDomainLayout](#list_customer-profiles-action-GetDomainLayout) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDomainObjectType  **
+  - **IAM action:**  [profile:GetDomainObjectType](#list_customer-profiles-action-GetDomainObjectType) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEventStream  **
+  - **IAM action:**  [profile:GetEventStream](#list_customer-profiles-action-GetEventStream) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEventTrigger  **
+  - **IAM action:**  [profile:GetEventTrigger](#list_customer-profiles-action-GetEventTrigger) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIdentityResolutionJob  **
+  - **IAM action:**  [profile:GetIdentityResolutionJob](#list_customer-profiles-action-GetIdentityResolutionJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIntegration  **
+  - **IAM action:**  [profile:GetIntegration](#list_customer-profiles-action-GetIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMatches  **
+  - **IAM action:**  [profile:GetMatches](#list_customer-profiles-action-GetMatches) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetObjectTypeAttributeStatistics  **
+  - **IAM action:**  [profile:GetObjectTypeAttributeStatistics](#list_customer-profiles-action-GetObjectTypeAttributeStatistics) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetProfileHistoryRecord  **
+  - **IAM action:**  [profile:GetProfileHistoryRecord](#list_customer-profiles-action-GetProfileHistoryRecord) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetProfileObjectType  **
+  - **IAM action:**  [profile:GetProfileObjectType](#list_customer-profiles-action-GetProfileObjectType) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetProfileObjectTypeTemplate  **
+  - **IAM action:**  [profile:GetProfileObjectTypeTemplate](#list_customer-profiles-action-GetProfileObjectTypeTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetProfileRecommendations  **
+  - **IAM action:**  [profile:GetProfileRecommendations](#list_customer-profiles-action-GetProfileRecommendations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRecommender  **
+  - **IAM action:**  [profile:GetRecommender](#list_customer-profiles-action-GetRecommender) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRecommenderFilter  **
+  - **IAM action:**  [profile:GetRecommenderFilter](#list_customer-profiles-action-GetRecommenderFilter) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRecommenderSchema  **
+  - **IAM action:**  [profile:GetRecommenderSchema](#list_customer-profiles-action-GetRecommenderSchema) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSegmentDefinition  **
+  - **IAM action:**  [profile:GetSegmentDefinition](#list_customer-profiles-action-GetSegmentDefinition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSegmentEstimate  **
+  - **IAM action:**  [profile:GetSegmentEstimate](#list_customer-profiles-action-GetSegmentEstimate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSegmentMembership  **
+  - **IAM action:**  [profile:GetSegmentMembership](#list_customer-profiles-action-GetSegmentMembership) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSegmentSnapshot  **
+  - **IAM action:**  [profile:GetSegmentSnapshot](#list_customer-profiles-action-GetSegmentSnapshot) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSegmentSubscription  **
+  - **IAM action:**  [profile:GetSegmentSubscription](#list_customer-profiles-action-GetSegmentSubscription) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSimilarProfiles  **
+  - **IAM action:**  [profile:GetSimilarProfiles](#list_customer-profiles-action-GetSimilarProfiles) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetStreamForSegments  **
+  - **IAM action:**  [profile:GetStreamForSegments](#list_customer-profiles-action-GetStreamForSegments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetUploadJob  **
+  - **IAM action:**  [profile:GetUploadJob](#list_customer-profiles-action-GetUploadJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetUploadJobPath  **
+  - **IAM action:**  [profile:GetUploadJobPath](#list_customer-profiles-action-GetUploadJobPath) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetWorkflow  **
+  - **IAM action:**  [profile:GetWorkflow](#list_customer-profiles-action-GetWorkflow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetWorkflowSteps  **
+  - **IAM action:**  [profile:GetWorkflowSteps](#list_customer-profiles-action-GetWorkflowSteps) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAccountIntegrations  **
+  - **IAM action:**  [profile:ListAccountIntegrations](#list_customer-profiles-action-ListAccountIntegrations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCalculatedAttributeDefinitions  **
+  - **IAM action:**  [profile:ListCalculatedAttributeDefinitions](#list_customer-profiles-action-ListCalculatedAttributeDefinitions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCalculatedAttributesForProfile  **
+  - **IAM action:**  [profile:ListCalculatedAttributesForProfile](#list_customer-profiles-action-ListCalculatedAttributesForProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDomainLayouts  **
+  - **IAM action:**  [profile:ListDomainLayouts](#list_customer-profiles-action-ListDomainLayouts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDomainObjectTypes  **
+  - **IAM action:**  [profile:ListDomainObjectTypes](#list_customer-profiles-action-ListDomainObjectTypes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDomains  **
+  - **IAM action:**  [profile:ListDomains](#list_customer-profiles-action-ListDomains) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEventStreams  **
+  - **IAM action:**  [profile:ListEventStreams](#list_customer-profiles-action-ListEventStreams) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEventTriggers  **
+  - **IAM action:**  [profile:ListEventTriggers](#list_customer-profiles-action-ListEventTriggers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListIdentityResolutionJobs  **
+  - **IAM action:**  [profile:ListIdentityResolutionJobs](#list_customer-profiles-action-ListIdentityResolutionJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListIntegrations  **
+  - **IAM action:**  [profile:ListIntegrations](#list_customer-profiles-action-ListIntegrations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListObjectTypeAttributeValues  **
+  - **IAM action:**  [profile:ListObjectTypeAttributeValues](#list_customer-profiles-action-ListObjectTypeAttributeValues) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListObjectTypeAttributes  **
+  - **IAM action:**  [profile:ListObjectTypeAttributes](#list_customer-profiles-action-ListObjectTypeAttributes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListProfileAttributeValues  **
+  - **IAM action:**  [profile:ListProfileAttributeValues](#list_customer-profiles-action-ListProfileAttributeValues) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListProfileHistoryRecords  **
+  - **IAM action:**  [profile:ListProfileHistoryRecords](#list_customer-profiles-action-ListProfileHistoryRecords) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListProfileObjectTypeTemplates  **
+  - **IAM action:**  [profile:ListProfileObjectTypeTemplates](#list_customer-profiles-action-ListProfileObjectTypeTemplates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListProfileObjectTypes  **
+  - **IAM action:**  [profile:ListProfileObjectTypes](#list_customer-profiles-action-ListProfileObjectTypes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListProfileObjects  **
+  - **IAM action:**  [profile:ListProfileObjects](#list_customer-profiles-action-ListProfileObjects) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRecommenderFilters  **
+  - **IAM action:**  [profile:ListRecommenderFilters](#list_customer-profiles-action-ListRecommenderFilters) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRecommenderRecipes  **
+  - **IAM action:**  [profile:ListRecommenderRecipes](#list_customer-profiles-action-ListRecommenderRecipes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRecommenderSchemas  **
+  - **IAM action:**  [profile:ListRecommenderSchemas](#list_customer-profiles-action-ListRecommenderSchemas) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRecommenders  **
+  - **IAM action:**  [profile:ListRecommenders](#list_customer-profiles-action-ListRecommenders) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRuleBasedMatches  **
+  - **IAM action:**  [profile:ListRuleBasedMatches](#list_customer-profiles-action-ListRuleBasedMatches) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSegmentDefinitions  **
+  - **IAM action:**  [profile:ListSegmentDefinitions](#list_customer-profiles-action-ListSegmentDefinitions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSegmentSubscriptionEvents  **
+  - **IAM action:**  [profile:ListSegmentSubscriptionEvents](#list_customer-profiles-action-ListSegmentSubscriptionEvents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [profile:ListTagsForResource](#list_customer-profiles-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListUploadJobs  **
+  - **IAM action:**  [profile:ListUploadJobs](#list_customer-profiles-action-ListUploadJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListWorkflows  **
+  - **IAM action:**  [profile:ListWorkflows](#list_customer-profiles-action-ListWorkflows) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   MergeProfiles  **
+  - **IAM action:**  [profile:MergeProfiles](#list_customer-profiles-action-MergeProfiles) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutDomainObjectType  **
+  - **IAM action:**  [profile:PutDomainObjectType](#list_customer-profiles-action-PutDomainObjectType)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [profile:TagResource](#list_customer-profiles-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   PutIntegration  **
+  - **IAM action:**  [profile:PutIntegration](#list_customer-profiles-action-PutIntegration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [profile:TagResource](#list_customer-profiles-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   PutProfileObject  **
+  - **IAM action:**  [profile:PutProfileObject](#list_customer-profiles-action-PutProfileObject) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutProfileObjectType  **
+  - **IAM action:**  [profile:PutProfileObjectType](#list_customer-profiles-action-PutProfileObjectType)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [profile:TagResource](#list_customer-profiles-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   PutSegmentSubscription  **
+  - **IAM action:**  [profile:PutSegmentSubscription](#list_customer-profiles-action-PutSegmentSubscription) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SearchProfiles  **
+  - **IAM action:**  [profile:SearchProfiles](#list_customer-profiles-action-SearchProfiles) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartRecommender  **
+  - **IAM action:**  [profile:StartRecommender](#list_customer-profiles-action-StartRecommender) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartUploadJob  **
+  - **IAM action:**  [profile:StartUploadJob](#list_customer-profiles-action-StartUploadJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopRecommender  **
+  - **IAM action:**  [profile:StopRecommender](#list_customer-profiles-action-StopRecommender) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopUploadJob  **
+  - **IAM action:**  [profile:StopUploadJob](#list_customer-profiles-action-StopUploadJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [profile:TagResource](#list_customer-profiles-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [profile:UntagResource](#list_customer-profiles-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateCalculatedAttributeDefinition  **
+  - **IAM action:**  [profile:UpdateCalculatedAttributeDefinition](#list_customer-profiles-action-UpdateCalculatedAttributeDefinition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateDomain  **
+  - **IAM action:**  [profile:UpdateDomain](#list_customer-profiles-action-UpdateDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateDomainLayout  **
+  - **IAM action:**  [profile:UpdateDomainLayout](#list_customer-profiles-action-UpdateDomainLayout) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateEventTrigger  **
+  - **IAM action:**  [profile:UpdateEventTrigger](#list_customer-profiles-action-UpdateEventTrigger) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateProfile  **
+  - **IAM action:**  [profile:UpdateProfile](#list_customer-profiles-action-UpdateProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRecommender  **
+  - **IAM action:**  [profile:UpdateRecommender](#list_customer-profiles-action-UpdateRecommender) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon Connect Customer Profiles
+<a name="list_customer-profiles-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                          | Description                                                                                                                                                                                                                                                                                                                                                       | Resource types (\*required)                                                                                                                | Condition keys                                                                                                                                                                                                                                                                                                                                                    | Access level   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AddProfileKey](../../../customerprofiles/latest/APIReference/API_AddProfileKey.md "../../../customerprofiles/latest/APIReference/API_AddProfileKey.md")                                                                         | Grants permission to add a profile key                                                                                                                                                                                                                                                                                                                            | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [AssociateStreamForSegments](../../../customerprofiles/latest/APIReference/API_AssociateStreamForSegments.md "../../../customerprofiles/latest/APIReference/API_AssociateStreamForSegments.md")                                  | Grants permission to associate an Amazon Kinesis data stream to receive segment membership events for a domain                                                                                                                                                                                                                                                    | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [BatchGetCalculatedAttributeForProfile](../../../customerprofiles/latest/APIReference/API_BatchGetCalculatedAttributeForProfile.md "../../../customerprofiles/latest/APIReference/API_BatchGetCalculatedAttributeForProfile.md") | Grants permission to retrieve a calculated attribute for the specific profiles in the domain                                                                                                                                                                                                                                                                      | [calculated-attributes\*](#list_customer-profiles-resource-calculated-attributes "#list_customer-profiles-resource-calculated-attributes") | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [BatchGetProfile](../../../customerprofiles/latest/APIReference/API_BatchGetProfile.md "../../../customerprofiles/latest/APIReference/API_BatchGetProfile.md")                                                                   | Grants permission to get profiles in the domain                                                                                                                                                                                                                                                                                                                   | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [CreateCalculatedAttributeDefinition](../../../customerprofiles/latest/APIReference/API_CreateCalculatedAttributeDefinition.md "../../../customerprofiles/latest/APIReference/API_CreateCalculatedAttributeDefinition.md")       | Grants permission to create a calculated attribute definition in the domain                                                                                                                                                                                                                                                                                       | [calculated-attributes\*](#list_customer-profiles-resource-calculated-attributes "#list_customer-profiles-resource-calculated-attributes") | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") | Write          |
-| [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [CreateDomain](../../../customerprofiles/latest/APIReference/API_CreateDomain.md "../../../customerprofiles/latest/APIReference/API_CreateDomain.md")                                                                            | Grants permission to create a Domain                                                                                                                                                                                                                                                                                                                              | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") | Write          |
-| [CreateDomainLayout](../../../customerprofiles/latest/APIReference/API_CreateDomainLayout.md "../../../customerprofiles/latest/APIReference/API_CreateDomainLayout.md")                                                          | Grants permission to create a layout in the domain                                                                                                                                                                                                                                                                                                                | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [layouts\*](#list_customer-profiles-resource-layouts "#list_customer-profiles-resource-layouts")                                                                                                                                 | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [CreateEventStream](../../../customerprofiles/latest/APIReference/API_CreateEventStream.md "../../../customerprofiles/latest/APIReference/API_CreateEventStream.md")                                                             | Grants permission to put an event stream in a domain                                                                                                                                                                                                                                                                                                              | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [event-streams\*](#list_customer-profiles-resource-event-streams "#list_customer-profiles-resource-event-streams")                                                                                                               | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [CreateEventTrigger](../../../customerprofiles/latest/APIReference/API_CreateEventTrigger.md "../../../customerprofiles/latest/APIReference/API_CreateEventTrigger.md")                                                          | Grants permission to create an event trigger in the domain                                                                                                                                                                                                                                                                                                        | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [event-triggers\*](#list_customer-profiles-resource-event-triggers "#list_customer-profiles-resource-event-triggers")                                                                                                            | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [CreateIntegrationWorkflow](../../../customerprofiles/latest/APIReference/API_CreateIntegrationWorkflow.md "../../../customerprofiles/latest/APIReference/API_CreateIntegrationWorkflow.md")                                     | Grants permission to create an integration workflow in a domain                                                                                                                                                                                                                                                                                                   | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [integrations\*](#list_customer-profiles-resource-integrations "#list_customer-profiles-resource-integrations")                                                                                                                  | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [CreateProfile](../../../customerprofiles/latest/APIReference/API_CreateProfile.md "../../../customerprofiles/latest/APIReference/API_CreateProfile.md")                                                                         | Grants permission to create a profile in the domain                                                                                                                                                                                                                                                                                                               | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [CreateRecommender](../../../customerprofiles/latest/APIReference/API_CreateRecommender.md "../../../customerprofiles/latest/APIReference/API_CreateRecommender.md")                                                             | Grants permission to create a Recommender in the domain                                                                                                                                                                                                                                                                                                           | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [recommenders\*](#list_customer-profiles-resource-recommenders "#list_customer-profiles-resource-recommenders")                                                                                                                  | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [CreateRecommenderFilter](../../../customerprofiles/latest/APIReference/API_CreateRecommenderFilter.md "../../../customerprofiles/latest/APIReference/API_CreateRecommenderFilter.md")                                           | Grants permission to create a recommender filter in the domain                                                                                                                                                                                                                                                                                                    | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") | Write          |
-| [recommender-filters\*](#list_customer-profiles-resource-recommender-filters "#list_customer-profiles-resource-recommender-filters")                                                                                             | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [CreateRecommenderSchema](../../../customerprofiles/latest/APIReference/API_CreateRecommenderSchema.md "../../../customerprofiles/latest/APIReference/API_CreateRecommenderSchema.md")                                           | Grants permission to create a recommender schema in the domain                                                                                                                                                                                                                                                                                                    | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") | Write          |
-| [recommender-schemas\*](#list_customer-profiles-resource-recommender-schemas "#list_customer-profiles-resource-recommender-schemas")                                                                                             | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [CreateSegmentDefinition](../../../customerprofiles/latest/APIReference/API_CreateSegmentDefinition.md "../../../customerprofiles/latest/APIReference/API_CreateSegmentDefinition.md")                                           | Grants permission to create a segment definition in the domain                                                                                                                                                                                                                                                                                                    | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [segment-definitions\*](#list_customer-profiles-resource-segment-definitions "#list_customer-profiles-resource-segment-definitions")                                                                                             | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [CreateSegmentEstimate](../../../customerprofiles/latest/APIReference/API_CreateSegmentEstimate.md "../../../customerprofiles/latest/APIReference/API_CreateSegmentEstimate.md")                                                 | Grants permission to create a segment estimate in the domain                                                                                                                                                                                                                                                                                                      | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [CreateSegmentSnapshot](../../../customerprofiles/latest/APIReference/API_CreateSegmentSnapshot.md "../../../customerprofiles/latest/APIReference/API_CreateSegmentSnapshot.md")                                                 | Grants permission to create a segment snapshot in the domain                                                                                                                                                                                                                                                                                                      | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [segment-definitions\*](#list_customer-profiles-resource-segment-definitions "#list_customer-profiles-resource-segment-definitions")                                                                                             | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [CreateUploadJob](../../../customerprofiles/latest/APIReference/API_CreateUploadJob.md "../../../customerprofiles/latest/APIReference/API_CreateUploadJob.md")                                                                   | Grants permission to create an upload job in the domain                                                                                                                                                                                                                                                                                                           | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [DeleteCalculatedAttributeDefinition](../../../customerprofiles/latest/APIReference/API_DeleteCalculatedAttributeDefinition.md "../../../customerprofiles/latest/APIReference/API_DeleteCalculatedAttributeDefinition.md")       | Grants permission to delete a calculated attribute definition in the domain                                                                                                                                                                                                                                                                                       | [calculated-attributes\*](#list_customer-profiles-resource-calculated-attributes "#list_customer-profiles-resource-calculated-attributes") | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [DeleteDomain](../../../customerprofiles/latest/APIReference/API_DeleteDomain.md "../../../customerprofiles/latest/APIReference/API_DeleteDomain.md")                                                                            | Grants permission to delete a Domain                                                                                                                                                                                                                                                                                                                              | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [DeleteDomainLayout](../../../customerprofiles/latest/APIReference/API_DeleteDomainLayout.md "../../../customerprofiles/latest/APIReference/API_DeleteDomainLayout.md")                                                          | Grants permission to delete a layout in the domain                                                                                                                                                                                                                                                                                                                | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [layouts\*](#list_customer-profiles-resource-layouts "#list_customer-profiles-resource-layouts")                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [DeleteDomainObjectType](../../../customerprofiles/latest/APIReference/API_DeleteDomainObjectType.md "../../../customerprofiles/latest/APIReference/API_DeleteDomainObjectType.md")                                              | Grants permission to delete a specific domain object type in the domain                                                                                                                                                                                                                                                                                           | [domain-object-types\*](#list_customer-profiles-resource-domain-object-types "#list_customer-profiles-resource-domain-object-types")       | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [DeleteEventStream](../../../customerprofiles/latest/APIReference/API_DeleteEventStream.md "../../../customerprofiles/latest/APIReference/API_DeleteEventStream.md")                                                             | Grants permission to delete an event stream in a domain                                                                                                                                                                                                                                                                                                           | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [event-streams\*](#list_customer-profiles-resource-event-streams "#list_customer-profiles-resource-event-streams")                                                                                                               | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [DeleteEventTrigger](../../../customerprofiles/latest/APIReference/API_DeleteEventTrigger.md "../../../customerprofiles/latest/APIReference/API_DeleteEventTrigger.md")                                                          | Grants permission to delete an event trigger in the domain                                                                                                                                                                                                                                                                                                        | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [event-triggers\*](#list_customer-profiles-resource-event-triggers "#list_customer-profiles-resource-event-triggers")                                                                                                            | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [DeleteIntegration](../../../customerprofiles/latest/APIReference/API_DeleteIntegration.md "../../../customerprofiles/latest/APIReference/API_DeleteIntegration.md")                                                             | Grants permission to delete a integration in a domain                                                                                                                                                                                                                                                                                                             | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [integrations\*](#list_customer-profiles-resource-integrations "#list_customer-profiles-resource-integrations")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [DeleteProfile](../../../customerprofiles/latest/APIReference/API_DeleteProfile.md "../../../customerprofiles/latest/APIReference/API_DeleteProfile.md")                                                                         | Grants permission to delete a profile                                                                                                                                                                                                                                                                                                                             | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [DeleteProfileKey](../../../customerprofiles/latest/APIReference/API_DeleteProfileKey.md "../../../customerprofiles/latest/APIReference/API_DeleteProfileKey.md")                                                                | Grants permission to delete a profile key                                                                                                                                                                                                                                                                                                                         | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [DeleteProfileObject](../../../customerprofiles/latest/APIReference/API_DeleteProfileObject.md "../../../customerprofiles/latest/APIReference/API_DeleteProfileObject.md")                                                       | Grants permission to delete a profile object                                                                                                                                                                                                                                                                                                                      | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [object-types\*](#list_customer-profiles-resource-object-types "#list_customer-profiles-resource-object-types")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [DeleteProfileObjectType](../../../customerprofiles/latest/APIReference/API_DeleteProfileObjectType.md "../../../customerprofiles/latest/APIReference/API_DeleteProfileObjectType.md")                                           | Grants permission to delete a specific profile object type in the domain                                                                                                                                                                                                                                                                                          | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [object-types\*](#list_customer-profiles-resource-object-types "#list_customer-profiles-resource-object-types")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [DeleteRecommender](../../../customerprofiles/latest/APIReference/API_DeleteRecommender.md "../../../customerprofiles/latest/APIReference/API_DeleteRecommender.md")                                                             | Grants permission to delete a recommender in a domain                                                                                                                                                                                                                                                                                                             | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [recommenders\*](#list_customer-profiles-resource-recommenders "#list_customer-profiles-resource-recommenders")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [DeleteRecommenderFilter](../../../customerprofiles/latest/APIReference/API_DeleteRecommenderFilter.md "../../../customerprofiles/latest/APIReference/API_DeleteRecommenderFilter.md")                                           | Grants permission to delete a recommender filter in the domain                                                                                                                                                                                                                                                                                                    | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [recommender-filters\*](#list_customer-profiles-resource-recommender-filters "#list_customer-profiles-resource-recommender-filters")                                                                                             | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [DeleteRecommenderSchema](../../../customerprofiles/latest/APIReference/API_DeleteRecommenderSchema.md "../../../customerprofiles/latest/APIReference/API_DeleteRecommenderSchema.md")                                           | Grants permission to delete a recommender schema in the domain                                                                                                                                                                                                                                                                                                    | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [recommender-schemas\*](#list_customer-profiles-resource-recommender-schemas "#list_customer-profiles-resource-recommender-schemas")                                                                                             | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [DeleteSegmentDefinition](../../../customerprofiles/latest/APIReference/API_DeleteSegmentDefinition.md "../../../customerprofiles/latest/APIReference/API_DeleteSegmentDefinition.md")                                           | Grants permission to delete a segment definition in the domain                                                                                                                                                                                                                                                                                                    | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [segment-definitions\*](#list_customer-profiles-resource-segment-definitions "#list_customer-profiles-resource-segment-definitions")                                                                                             | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [DeleteSegmentSubscription](../../../customerprofiles/latest/APIReference/API_DeleteSegmentSubscription.md "../../../customerprofiles/latest/APIReference/API_DeleteSegmentSubscription.md")                                     | Grants permission to delete a segment subscription for membership events                                                                                                                                                                                                                                                                                          | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [segment-definitions\*](#list_customer-profiles-resource-segment-definitions "#list_customer-profiles-resource-segment-definitions")                                                                                             | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [DeleteWorkflow](../../../customerprofiles/latest/APIReference/API_DeleteWorkflow.md "../../../customerprofiles/latest/APIReference/API_DeleteWorkflow.md")                                                                      | Grants permission to delete a workflow in a domain                                                                                                                                                                                                                                                                                                                | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [DetectProfileObjectType](../../../customerprofiles/latest/APIReference/API_DetectProfileObjectType.md "../../../customerprofiles/latest/APIReference/API_DetectProfileObjectType.md")                                           | Grants permission to auto detect object type                                                                                                                                                                                                                                                                                                                      | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [DisassociateStreamForSegments](../../../customerprofiles/latest/APIReference/API_DisassociateStreamForSegments.md "../../../customerprofiles/latest/APIReference/API_DisassociateStreamForSegments.md")                         | Grants permission to disassociate the Amazon Kinesis data stream configured for segment membership events in a domain                                                                                                                                                                                                                                             | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [GetAutoMergingPreview](../../../customerprofiles/latest/APIReference/API_GetAutoMergingPreview.md "../../../customerprofiles/latest/APIReference/API_GetAutoMergingPreview.md")                                                 | Grants permission to get a preview of auto merging in a domain                                                                                                                                                                                                                                                                                                    | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [GetCalculatedAttributeDefinition](../../../customerprofiles/latest/APIReference/API_GetCalculatedAttributeDefinition.md "../../../customerprofiles/latest/APIReference/API_GetCalculatedAttributeDefinition.md")                | Grants permission to get a calculated attribute definition in the domain                                                                                                                                                                                                                                                                                          | [calculated-attributes\*](#list_customer-profiles-resource-calculated-attributes "#list_customer-profiles-resource-calculated-attributes") | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetCalculatedAttributeForProfile](../../../customerprofiles/latest/APIReference/API_GetCalculatedAttributeForProfile.md "../../../customerprofiles/latest/APIReference/API_GetCalculatedAttributeForProfile.md")                | Grants permission to retrieve a calculated attribute for a specific profile in the domain                                                                                                                                                                                                                                                                         | [calculated-attributes\*](#list_customer-profiles-resource-calculated-attributes "#list_customer-profiles-resource-calculated-attributes") | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetDomain](../../../customerprofiles/latest/APIReference/API_GetDomain.md "../../../customerprofiles/latest/APIReference/API_GetDomain.md")                                                                                     | Grants permission to get a specific domain in an account                                                                                                                                                                                                                                                                                                          | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [GetDomainLayout](../../../customerprofiles/latest/APIReference/API_GetDomainLayout.md "../../../customerprofiles/latest/APIReference/API_GetDomainLayout.md")                                                                   | Grants permission to get a layout in the domain                                                                                                                                                                                                                                                                                                                   | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [layouts\*](#list_customer-profiles-resource-layouts "#list_customer-profiles-resource-layouts")                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetDomainObjectType](../../../customerprofiles/latest/APIReference/API_GetDomainObjectType.md "../../../customerprofiles/latest/APIReference/API_GetDomainObjectType.md")                                                       | Grants permission to get a specific domain object type in the domain                                                                                                                                                                                                                                                                                              | [domain-object-types\*](#list_customer-profiles-resource-domain-object-types "#list_customer-profiles-resource-domain-object-types")       | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetEventStream](../../../customerprofiles/latest/APIReference/API_GetEventStream.md "../../../customerprofiles/latest/APIReference/API_GetEventStream.md")                                                                      | Grants permission to get a specific event stream in a domain                                                                                                                                                                                                                                                                                                      | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [event-streams\*](#list_customer-profiles-resource-event-streams "#list_customer-profiles-resource-event-streams")                                                                                                               | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetEventTrigger](../../../customerprofiles/latest/APIReference/API_GetEventTrigger.md "../../../customerprofiles/latest/APIReference/API_GetEventTrigger.md")                                                                   | Grants permission to get an event trigger in the domain                                                                                                                                                                                                                                                                                                           | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [event-triggers\*](#list_customer-profiles-resource-event-triggers "#list_customer-profiles-resource-event-triggers")                                                                                                            | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetIdentityResolutionJob](../../../customerprofiles/latest/APIReference/API_GetIdentityResolutionJob.md "../../../customerprofiles/latest/APIReference/API_GetIdentityResolutionJob.md")                                        | Grants permission to get an identity resolution job in a domain                                                                                                                                                                                                                                                                                                   | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [GetIntegration](../../../customerprofiles/latest/APIReference/API_GetIntegration.md "../../../customerprofiles/latest/APIReference/API_GetIntegration.md")                                                                      | Grants permission to get a specific integrations in a domain                                                                                                                                                                                                                                                                                                      | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [integrations\*](#list_customer-profiles-resource-integrations "#list_customer-profiles-resource-integrations")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetMatches](../../../customerprofiles/latest/APIReference/API_GetMatches.md "../../../customerprofiles/latest/APIReference/API_GetMatches.md")                                                                                  | Grants permission to get profile matches in a domain                                                                                                                                                                                                                                                                                                              | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [GetObjectTypeAttributeStatistics](../../../customerprofiles/latest/APIReference/API_GetObjectTypeAttributeStatistics.md "../../../customerprofiles/latest/APIReference/API_GetObjectTypeAttributeStatistics.md")                | Grants permission to get statistics of a specific attribute for object type in the domain                                                                                                                                                                                                                                                                         | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [object-types\*](#list_customer-profiles-resource-object-types "#list_customer-profiles-resource-object-types")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetProfileHistoryRecord](../../../customerprofiles/latest/APIReference/API_GetProfileHistoryRecord.md "../../../customerprofiles/latest/APIReference/API_GetProfileHistoryRecord.md")                                           | Grants permission to get a profile history record for a profile in a domain                                                                                                                                                                                                                                                                                       | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [GetProfileInsights](../../../customerprofiles/latest/APIReference/API_GetProfileInsights.md "../../../customerprofiles/latest/APIReference/API_GetProfileInsights.md")                                                          | Grants permission to list insights for a profile                                                                                                                                                                                                                                                                                                                  | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [GetProfileObjectType](../../../customerprofiles/latest/APIReference/API_GetProfileObjectType.md "../../../customerprofiles/latest/APIReference/API_GetProfileObjectType.md")                                                    | Grants permission to get a specific profile object type in the domain                                                                                                                                                                                                                                                                                             | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [object-types\*](#list_customer-profiles-resource-object-types "#list_customer-profiles-resource-object-types")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetProfileObjectTypeTemplate](../../../customerprofiles/latest/APIReference/API_GetProfileObjectTypeTemplate.md "../../../customerprofiles/latest/APIReference/API_GetProfileObjectTypeTemplate.md")                            | Grants permission to get a specific object type template                                                                                                                                                                                                                                                                                                          |                                                                                                                                            |                                                                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetProfileRecommendations](../../../customerprofiles/latest/APIReference/API_GetProfileRecommendations.md "../../../customerprofiles/latest/APIReference/API_GetProfileRecommendations.md")                                     | Grants permission to list recommendations for a profile                                                                                                                                                                                                                                                                                                           | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [recommenders\*](#list_customer-profiles-resource-recommenders "#list_customer-profiles-resource-recommenders")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetRecommender](../../../customerprofiles/latest/APIReference/API_GetRecommender.md "../../../customerprofiles/latest/APIReference/API_GetRecommender.md")                                                                      | Grants permission to get Recommender details in a domain                                                                                                                                                                                                                                                                                                          | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [recommenders\*](#list_customer-profiles-resource-recommenders "#list_customer-profiles-resource-recommenders")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetRecommenderFilter](../../../customerprofiles/latest/APIReference/API_GetRecommenderFilter.md "../../../customerprofiles/latest/APIReference/API_GetRecommenderFilter.md")                                                    | Grants permission to get recommender filter details in the domain                                                                                                                                                                                                                                                                                                 | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [recommender-filters\*](#list_customer-profiles-resource-recommender-filters "#list_customer-profiles-resource-recommender-filters")                                                                                             | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetRecommenderSchema](../../../customerprofiles/latest/APIReference/API_GetRecommenderSchema.md "../../../customerprofiles/latest/APIReference/API_GetRecommenderSchema.md")                                                    | Grants permission to get recommender schema details in the domain                                                                                                                                                                                                                                                                                                 | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [recommender-schemas\*](#list_customer-profiles-resource-recommender-schemas "#list_customer-profiles-resource-recommender-schemas")                                                                                             | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetSegmentDefinition](../../../customerprofiles/latest/APIReference/API_GetSegmentDefinition.md "../../../customerprofiles/latest/APIReference/API_GetSegmentDefinition.md")                                                    | Grants permission to get a segment definition in the domain                                                                                                                                                                                                                                                                                                       | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [segment-definitions\*](#list_customer-profiles-resource-segment-definitions "#list_customer-profiles-resource-segment-definitions")                                                                                             | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetSegmentEstimate](../../../customerprofiles/latest/APIReference/API_GetSegmentEstimate.md "../../../customerprofiles/latest/APIReference/API_GetSegmentEstimate.md")                                                          | Grants permission to get a segment estimate in the domain                                                                                                                                                                                                                                                                                                         | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [GetSegmentMembership](../../../customerprofiles/latest/APIReference/API_GetSegmentMembership.md "../../../customerprofiles/latest/APIReference/API_GetSegmentMembership.md")                                                    | Grants permission to determine if the given profiles are part of a segment in the domain                                                                                                                                                                                                                                                                          | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [segment-definitions\*](#list_customer-profiles-resource-segment-definitions "#list_customer-profiles-resource-segment-definitions")                                                                                             | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetSegmentSnapshot](../../../customerprofiles/latest/APIReference/API_GetSegmentSnapshot.md "../../../customerprofiles/latest/APIReference/API_GetSegmentSnapshot.md")                                                          | Grants permission to get a segment snapshot in the domain                                                                                                                                                                                                                                                                                                         | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [segment-definitions\*](#list_customer-profiles-resource-segment-definitions "#list_customer-profiles-resource-segment-definitions")                                                                                             | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetSegmentSubscription](../../../customerprofiles/latest/APIReference/API_GetSegmentSubscription.md "../../../customerprofiles/latest/APIReference/API_GetSegmentSubscription.md")                                              | Grants permission to get the configuration, schedule, and status of a segment subscription for membership events                                                                                                                                                                                                                                                  | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [segment-definitions\*](#list_customer-profiles-resource-segment-definitions "#list_customer-profiles-resource-segment-definitions")                                                                                             | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [GetSimilarProfiles](../../../customerprofiles/latest/APIReference/API_GetSimilarProfiles.md "../../../customerprofiles/latest/APIReference/API_GetSimilarProfiles.md")                                                          | Grants permission to get all the similar profiles in the domain                                                                                                                                                                                                                                                                                                   | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [GetStreamForSegments](../../../customerprofiles/latest/APIReference/API_GetStreamForSegments.md "../../../customerprofiles/latest/APIReference/API_GetStreamForSegments.md")                                                    | Grants permission to get information about the segment membership event stream configured for a domain                                                                                                                                                                                                                                                            | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [GetUploadJob](../../../customerprofiles/latest/APIReference/API_GetUploadJob.md "../../../customerprofiles/latest/APIReference/API_GetUploadJob.md")                                                                            | Grants permission to get details of an upload job in the domain                                                                                                                                                                                                                                                                                                   | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [GetUploadJobPath](../../../customerprofiles/latest/APIReference/API_GetUploadJobPath.md "../../../customerprofiles/latest/APIReference/API_GetUploadJobPath.md")                                                                | Grants permission to get a pre-signed URL to upload file for an upload job                                                                                                                                                                                                                                                                                        | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [GetWorkflow](../../../customerprofiles/latest/APIReference/API_GetWorkflow.md "../../../customerprofiles/latest/APIReference/API_GetWorkflow.md")                                                                               | Grants permission to get workflow details in a domain                                                                                                                                                                                                                                                                                                             | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [GetWorkflowSteps](../../../customerprofiles/latest/APIReference/API_GetWorkflowSteps.md "../../../customerprofiles/latest/APIReference/API_GetWorkflowSteps.md")                                                                | Grants permission to get workflow step details in a domain                                                                                                                                                                                                                                                                                                        | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [ListAccountIntegrations](../../../customerprofiles/latest/APIReference/API_ListAccountIntegrations.md "../../../customerprofiles/latest/APIReference/API_ListAccountIntegrations.md")                                           | Grants permission to list all the integrations in the account                                                                                                                                                                                                                                                                                                     |                                                                                                                                            |                                                                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListCalculatedAttributeDefinitions](../../../customerprofiles/latest/APIReference/API_ListCalculatedAttributeDefinitions.md "../../../customerprofiles/latest/APIReference/API_ListCalculatedAttributeDefinitions.md")          | Grants permission to list all the calculated attribute definitions in the domain                                                                                                                                                                                                                                                                                  | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListCalculatedAttributesForProfile](../../../customerprofiles/latest/APIReference/API_ListCalculatedAttributesForProfile.md "../../../customerprofiles/latest/APIReference/API_ListCalculatedAttributesForProfile.md")          | Grants permission to list all calculated attributes for a specific profile in the domain                                                                                                                                                                                                                                                                          | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListDomainLayouts](../../../customerprofiles/latest/APIReference/API_ListDomainLayouts.md "../../../customerprofiles/latest/APIReference/API_ListDomainLayouts.md")                                                             | Grants permission to list all the layouts in the domain                                                                                                                                                                                                                                                                                                           | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListDomainObjectTypes](../../../customerprofiles/latest/APIReference/API_ListDomainObjectTypes.md "../../../customerprofiles/latest/APIReference/API_ListDomainObjectTypes.md")                                                 | Grants permission to list all the domain object types in the domain                                                                                                                                                                                                                                                                                               | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListDomainObjects](../../../customerprofiles/latest/APIReference/API_ListDomainObjects.md "../../../customerprofiles/latest/APIReference/API_ListDomainObjects.md")                                                             | Grants permission to list domain objects in a domain                                                                                                                                                                                                                                                                                                              | [domain-object-types\*](#list_customer-profiles-resource-domain-object-types "#list_customer-profiles-resource-domain-object-types")       | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [ListDomains](../../../customerprofiles/latest/APIReference/API_ListDomains.md "../../../customerprofiles/latest/APIReference/API_ListDomains.md")                                                                               | Grants permission to list all the domains in an account                                                                                                                                                                                                                                                                                                           |                                                                                                                                            |                                                                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListEventStreams](../../../customerprofiles/latest/APIReference/API_ListEventStreams.md "../../../customerprofiles/latest/APIReference/API_ListEventStreams.md")                                                                | Grants permission to list all the event streams in a specific domain                                                                                                                                                                                                                                                                                              | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListEventTriggers](../../../customerprofiles/latest/APIReference/API_ListEventTriggers.md "../../../customerprofiles/latest/APIReference/API_ListEventTriggers.md")                                                             | Grants permission to list all the event triggers in the domain                                                                                                                                                                                                                                                                                                    | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListIdentityResolutionJobs](../../../customerprofiles/latest/APIReference/API_ListIdentityResolutionJobs.md "../../../customerprofiles/latest/APIReference/API_ListIdentityResolutionJobs.md")                                  | Grants permission to list identity resolution jobs in a domain                                                                                                                                                                                                                                                                                                    | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListIntegrations](../../../customerprofiles/latest/APIReference/API_ListIntegrations.md "../../../customerprofiles/latest/APIReference/API_ListIntegrations.md")                                                                | Grants permission to list all the integrations in a specific domain                                                                                                                                                                                                                                                                                               | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListObjectTypeAttributeValues](../../../customerprofiles/latest/APIReference/API_ListObjectTypeAttributeValues.md "../../../customerprofiles/latest/APIReference/API_ListObjectTypeAttributeValues.md")                         | Grants permission to list values of a specific attribute for object type in the domain                                                                                                                                                                                                                                                                            | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [object-types\*](#list_customer-profiles-resource-object-types "#list_customer-profiles-resource-object-types")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [ListObjectTypeAttributes](../../../customerprofiles/latest/APIReference/API_ListObjectTypeAttributes.md "../../../customerprofiles/latest/APIReference/API_ListObjectTypeAttributes.md")                                        | Grants permission to list all the attributes of a specific object type in the domain                                                                                                                                                                                                                                                                              | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [object-types\*](#list_customer-profiles-resource-object-types "#list_customer-profiles-resource-object-types")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [ListProfileAttributeValues](../../../customerprofiles/latest/APIReference/API_ListProfileAttributeValues.md "../../../customerprofiles/latest/APIReference/API_ListProfileAttributeValues.md")                                  | Grants permission to list all the values of a profile attribute in the domain                                                                                                                                                                                                                                                                                     | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListProfileHistoryRecords](../../../customerprofiles/latest/APIReference/API_ListProfileHistoryRecords.md "../../../customerprofiles/latest/APIReference/API_ListProfileHistoryRecords.md")                                     | Grants permission to list all the profile history records for a profile in a domain                                                                                                                                                                                                                                                                               | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListProfileObjectTypeTemplates](../../../customerprofiles/latest/APIReference/API_ListProfileObjectTypeTemplates.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjectTypeTemplates.md")                      | Grants permission to list all the profile object type templates in the account                                                                                                                                                                                                                                                                                    |                                                                                                                                            |                                                                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListProfileObjectTypes](../../../customerprofiles/latest/APIReference/API_ListProfileObjectTypes.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjectTypes.md")                                              | Grants permission to list all the profile object types in the domain                                                                                                                                                                                                                                                                                              | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListProfileObjects](../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md "../../../customerprofiles/latest/APIReference/API_ListProfileObjects.md")                                                          | Grants permission to list all the profile objects for a profile                                                                                                                                                                                                                                                                                                   | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [object-types\*](#list_customer-profiles-resource-object-types "#list_customer-profiles-resource-object-types")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [ListRecommenderFilters](../../../customerprofiles/latest/APIReference/API_ListRecommenderFilters.md "../../../customerprofiles/latest/APIReference/API_ListRecommenderFilters.md")                                              | Grants permission to list all recommender filters in the domain                                                                                                                                                                                                                                                                                                   | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListRecommenderRecipes](../../../customerprofiles/latest/APIReference/API_ListRecommenderRecipes.md "../../../customerprofiles/latest/APIReference/API_ListRecommenderRecipes.md")                                              | Grants permission to list all the Recommenders Recipes in the domain                                                                                                                                                                                                                                                                                              |                                                                                                                                            |                                                                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListRecommenderSchemas](../../../customerprofiles/latest/APIReference/API_ListRecommenderSchemas.md "../../../customerprofiles/latest/APIReference/API_ListRecommenderSchemas.md")                                              | Grants permission to list all recommender schemas in the domain                                                                                                                                                                                                                                                                                                   | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListRecommenders](../../../customerprofiles/latest/APIReference/API_ListRecommenders.md "../../../customerprofiles/latest/APIReference/API_ListRecommenders.md")                                                                | Grants permission to list all the Recommenders in the domain                                                                                                                                                                                                                                                                                                      | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListRuleBasedMatches](../../../customerprofiles/latest/APIReference/API_ListRuleBasedMatches.md "../../../customerprofiles/latest/APIReference/API_ListRuleBasedMatches.md")                                                    | Grants permission to list all the rule-based matching result in the domain                                                                                                                                                                                                                                                                                        | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListSegmentDefinitions](../../../customerprofiles/latest/APIReference/API_ListSegmentDefinitions.md "../../../customerprofiles/latest/APIReference/API_ListSegmentDefinitions.md")                                              | Grants permission to list all the segment definitions in the domain                                                                                                                                                                                                                                                                                               | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListSegmentSubscriptionEvents](../../../customerprofiles/latest/APIReference/API_ListSegmentSubscriptionEvents.md "../../../customerprofiles/latest/APIReference/API_ListSegmentSubscriptionEvents.md")                         | Grants permission to list the most recent segment membership events for a segment                                                                                                                                                                                                                                                                                 | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [segment-definitions\*](#list_customer-profiles-resource-segment-definitions "#list_customer-profiles-resource-segment-definitions")                                                                                             | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [ListTagsForResource](../../../customerprofiles/latest/APIReference/API_ListTagsForResource.md "../../../customerprofiles/latest/APIReference/API_ListTagsForResource.md")                                                       | Grants permission to list tags for a resource                                                                                                                                                                                                                                                                                                                     | [calculated-attributes](#list_customer-profiles-resource-calculated-attributes "#list_customer-profiles-resource-calculated-attributes")   | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [domain-object-types](#list_customer-profiles-resource-domain-object-types "#list_customer-profiles-resource-domain-object-types")                                                                                               | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [domains](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                                                                                                                   | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [event-streams](#list_customer-profiles-resource-event-streams "#list_customer-profiles-resource-event-streams")                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [event-triggers](#list_customer-profiles-resource-event-triggers "#list_customer-profiles-resource-event-triggers")                                                                                                              | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [integrations](#list_customer-profiles-resource-integrations "#list_customer-profiles-resource-integrations")                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [layouts](#list_customer-profiles-resource-layouts "#list_customer-profiles-resource-layouts")                                                                                                                                   | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [object-types](#list_customer-profiles-resource-object-types "#list_customer-profiles-resource-object-types")                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [recommender-filters](#list_customer-profiles-resource-recommender-filters "#list_customer-profiles-resource-recommender-filters")                                                                                               | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [recommender-schemas](#list_customer-profiles-resource-recommender-schemas "#list_customer-profiles-resource-recommender-schemas")                                                                                               | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [recommenders](#list_customer-profiles-resource-recommenders "#list_customer-profiles-resource-recommenders")                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [segment-definitions](#list_customer-profiles-resource-segment-definitions "#list_customer-profiles-resource-segment-definitions")                                                                                               | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [ListUploadJobs](../../../customerprofiles/latest/APIReference/API_ListUploadJobs.md "../../../customerprofiles/latest/APIReference/API_ListUploadJobs.md")                                                                      | Grants permission to list all upload jobs in the domain                                                                                                                                                                                                                                                                                                           | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [ListWorkflows](../../../customerprofiles/latest/APIReference/API_ListWorkflows.md "../../../customerprofiles/latest/APIReference/API_ListWorkflows.md")                                                                         | Grants permission to list all the workflows in a specific domain                                                                                                                                                                                                                                                                                                  | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | List           |
-| [MergeProfiles](../../../customerprofiles/latest/APIReference/API_MergeProfiles.md "../../../customerprofiles/latest/APIReference/API_MergeProfiles.md")                                                                         | Grants permission to merge profiles in a domain                                                                                                                                                                                                                                                                                                                   | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [PutDomainObjectType](../../../customerprofiles/latest/APIReference/API_PutDomainObjectType.md "../../../customerprofiles/latest/APIReference/API_PutDomainObjectType.md")                                                       | Grants permission to put a specific domain object type in the domain                                                                                                                                                                                                                                                                                              | [domain-object-types\*](#list_customer-profiles-resource-domain-object-types "#list_customer-profiles-resource-domain-object-types")       | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") | Write          |
-| [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [PutIntegration](../../../customerprofiles/latest/APIReference/API_PutIntegration.md "../../../customerprofiles/latest/APIReference/API_PutIntegration.md")                                                                      | Grants permission to put a integration in a domain                                                                                                                                                                                                                                                                                                                | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [integrations\*](#list_customer-profiles-resource-integrations "#list_customer-profiles-resource-integrations")                                                                                                                  | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [PutProfileObject](../../../customerprofiles/latest/APIReference/API_PutProfileObject.md "../../../customerprofiles/latest/APIReference/API_PutProfileObject.md")                                                                | Grants permission to put an object for a profile                                                                                                                                                                                                                                                                                                                  | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [object-types\*](#list_customer-profiles-resource-object-types "#list_customer-profiles-resource-object-types")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [PutProfileObjectType](../../../customerprofiles/latest/APIReference/API_PutProfileObjectType.md "../../../customerprofiles/latest/APIReference/API_PutProfileObjectType.md")                                                    | Grants permission to put a specific profile object type in the domain                                                                                                                                                                                                                                                                                             | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [object-types\*](#list_customer-profiles-resource-object-types "#list_customer-profiles-resource-object-types")                                                                                                                  | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [PutSegmentSubscription](../../../customerprofiles/latest/APIReference/API_PutSegmentSubscription.md "../../../customerprofiles/latest/APIReference/API_PutSegmentSubscription.md")                                              | Grants permission to create or update a segment subscription for membership events                                                                                                                                                                                                                                                                                | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [segment-definitions\*](#list_customer-profiles-resource-segment-definitions "#list_customer-profiles-resource-segment-definitions")                                                                                             | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md")                                                                      | Grants permission to search for profiles in a domain                                                                                                                                                                                                                                                                                                              | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Read           |
-| [StartRecommender](../../../customerprofiles/latest/APIReference/API_StartRecommender.md "../../../customerprofiles/latest/APIReference/API_StartRecommender.md")                                                                | Grants permission to start a recommender in a domain                                                                                                                                                                                                                                                                                                              | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [recommenders\*](#list_customer-profiles-resource-recommenders "#list_customer-profiles-resource-recommenders")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [StartUploadJob](../../../customerprofiles/latest/APIReference/API_StartUploadJob.md "../../../customerprofiles/latest/APIReference/API_StartUploadJob.md")                                                                      | Grants permission to start an upload job in the domain                                                                                                                                                                                                                                                                                                            | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [StopRecommender](../../../customerprofiles/latest/APIReference/API_StopRecommender.md "../../../customerprofiles/latest/APIReference/API_StopRecommender.md")                                                                   | Grants permission to stop a recommender in a domain                                                                                                                                                                                                                                                                                                               | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [recommenders\*](#list_customer-profiles-resource-recommenders "#list_customer-profiles-resource-recommenders")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [StopUploadJob](../../../customerprofiles/latest/APIReference/API_StopUploadJob.md "../../../customerprofiles/latest/APIReference/API_StopUploadJob.md")                                                                         | Grants permission to stop an upload job in the domain                                                                                                                                                                                                                                                                                                             | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [TagResource](../../../customerprofiles/latest/APIReference/API_TagResource.md "../../../customerprofiles/latest/APIReference/API_TagResource.md")                                                                               | Grants permission to adds tags to a resource                                                                                                                                                                                                                                                                                                                      | [calculated-attributes](#list_customer-profiles-resource-calculated-attributes "#list_customer-profiles-resource-calculated-attributes")   | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") | Tagging, Write |
-| [domain-object-types](#list_customer-profiles-resource-domain-object-types "#list_customer-profiles-resource-domain-object-types")                                                                                               | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [domains](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                                                                                                                   | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [event-streams](#list_customer-profiles-resource-event-streams "#list_customer-profiles-resource-event-streams")                                                                                                                 | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [event-triggers](#list_customer-profiles-resource-event-triggers "#list_customer-profiles-resource-event-triggers")                                                                                                              | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [integrations](#list_customer-profiles-resource-integrations "#list_customer-profiles-resource-integrations")                                                                                                                    | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [layouts](#list_customer-profiles-resource-layouts "#list_customer-profiles-resource-layouts")                                                                                                                                   | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [object-types](#list_customer-profiles-resource-object-types "#list_customer-profiles-resource-object-types")                                                                                                                    | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [recommender-filters](#list_customer-profiles-resource-recommender-filters "#list_customer-profiles-resource-recommender-filters")                                                                                               | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [recommender-schemas](#list_customer-profiles-resource-recommender-schemas "#list_customer-profiles-resource-recommender-schemas")                                                                                               | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [recommenders](#list_customer-profiles-resource-recommenders "#list_customer-profiles-resource-recommenders")                                                                                                                    | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [segment-definitions](#list_customer-profiles-resource-segment-definitions "#list_customer-profiles-resource-segment-definitions")                                                                                               | [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_ "#list_customer-profiles-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys") |
-| [UntagResource](../../../customerprofiles/latest/APIReference/API_UntagResource.md "../../../customerprofiles/latest/APIReference/API_UntagResource.md")                                                                         | Grants permission to remove tags from a resource                                                                                                                                                                                                                                                                                                                  | [calculated-attributes](#list_customer-profiles-resource-calculated-attributes "#list_customer-profiles-resource-calculated-attributes")   | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys")                                                                                                                                    | Tagging, Write |
-| [domain-object-types](#list_customer-profiles-resource-domain-object-types "#list_customer-profiles-resource-domain-object-types")                                                                                               | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys")                                                                                                                                    |
-| [domains](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                                                                                                                   | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys")                                                                                                                                    |
-| [event-streams](#list_customer-profiles-resource-event-streams "#list_customer-profiles-resource-event-streams")                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys")                                                                                                                                    |
-| [event-triggers](#list_customer-profiles-resource-event-triggers "#list_customer-profiles-resource-event-triggers")                                                                                                              | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys")                                                                                                                                    |
-| [integrations](#list_customer-profiles-resource-integrations "#list_customer-profiles-resource-integrations")                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys")                                                                                                                                    |
-| [layouts](#list_customer-profiles-resource-layouts "#list_customer-profiles-resource-layouts")                                                                                                                                   | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys")                                                                                                                                    |
-| [object-types](#list_customer-profiles-resource-object-types "#list_customer-profiles-resource-object-types")                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys")                                                                                                                                    |
-| [recommender-filters](#list_customer-profiles-resource-recommender-filters "#list_customer-profiles-resource-recommender-filters")                                                                                               | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys")                                                                                                                                    |
-| [recommender-schemas](#list_customer-profiles-resource-recommender-schemas "#list_customer-profiles-resource-recommender-schemas")                                                                                               | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys")                                                                                                                                    |
-| [recommenders](#list_customer-profiles-resource-recommenders "#list_customer-profiles-resource-recommenders")                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys")                                                                                                                                    |
-| [segment-definitions](#list_customer-profiles-resource-segment-definitions "#list_customer-profiles-resource-segment-definitions")                                                                                               | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_customer-profiles-aws_TagKeys "#list_customer-profiles-aws_TagKeys")                                                                                                                                    |
-| [UpdateCalculatedAttributeDefinition](../../../customerprofiles/latest/APIReference/API_UpdateCalculatedAttributeDefinition.md "../../../customerprofiles/latest/APIReference/API_UpdateCalculatedAttributeDefinition.md")       | Grants permission to update a calculated attribute definition in the domain                                                                                                                                                                                                                                                                                       | [calculated-attributes\*](#list_customer-profiles-resource-calculated-attributes "#list_customer-profiles-resource-calculated-attributes") | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [UpdateDomain](../../../customerprofiles/latest/APIReference/API_UpdateDomain.md "../../../customerprofiles/latest/APIReference/API_UpdateDomain.md")                                                                            | Grants permission to update a Domain                                                                                                                                                                                                                                                                                                                              | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [UpdateDomainLayout](../../../customerprofiles/latest/APIReference/API_UpdateDomainLayout.md "../../../customerprofiles/latest/APIReference/API_UpdateDomainLayout.md")                                                          | Grants permission to update a layout in the domain                                                                                                                                                                                                                                                                                                                | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [layouts\*](#list_customer-profiles-resource-layouts "#list_customer-profiles-resource-layouts")                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [UpdateEventTrigger](../../../customerprofiles/latest/APIReference/API_UpdateEventTrigger.md "../../../customerprofiles/latest/APIReference/API_UpdateEventTrigger.md")                                                          | Grants permission to update an event trigger in the domain                                                                                                                                                                                                                                                                                                        | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [event-triggers\*](#list_customer-profiles-resource-event-triggers "#list_customer-profiles-resource-event-triggers")                                                                                                            | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
-| [UpdateProfile](../../../customerprofiles/latest/APIReference/API_UpdateProfile.md "../../../customerprofiles/latest/APIReference/API_UpdateProfile.md")                                                                         | Grants permission to update a profile in the domain                                                                                                                                                                                                                                                                                                               | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [UpdateRecommender](../../../customerprofiles/latest/APIReference/API_UpdateRecommender.md "../../../customerprofiles/latest/APIReference/API_UpdateRecommender.md")                                                             | Grants permission to update a Recommender in the domain                                                                                                                                                                                                                                                                                                           | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains")                                           | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                | Write          |
-| [recommenders\*](#list_customer-profiles-resource-recommenders "#list_customer-profiles-resource-recommenders")                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                |
+
+
+
+- **   [AddProfileKey](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_AddProfileKey.html)  **
+  - **Description:** Grants permission to add a profile key
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateStreamForSegments](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_AssociateStreamForSegments.html)  **
+  - **Description:** Grants permission to associate an Amazon Kinesis data stream to receive segment membership events for a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchGetCalculatedAttributeForProfile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_BatchGetCalculatedAttributeForProfile.html)  **
+  - **Description:** Grants permission to retrieve a calculated attribute for the specific profiles in the domain
+  - **Resource types (\*required):** [calculated-attributes\*](#list_customer-profiles-resource-calculated-attributes) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetProfile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_BatchGetProfile.html)  **
+  - **Description:** Grants permission to get profiles in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [CreateCalculatedAttributeDefinition](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateCalculatedAttributeDefinition.html)  **
+  - **Description:** Grants permission to create a calculated attribute definition in the domain
+  - **Resource types (\*required):** [calculated-attributes\*](#list_customer-profiles-resource-calculated-attributes) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html)  **
+  - **Description:** Grants permission to create a Domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDomainLayout](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomainLayout.html)  **
+  - **Description:** Grants permission to create a layout in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [layouts\*](#list_customer-profiles-resource-layouts) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateEventStream](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateEventStream.html)  **
+  - **Description:** Grants permission to put an event stream in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [event-streams\*](#list_customer-profiles-resource-event-streams) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateEventTrigger](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateEventTrigger.html)  **
+  - **Description:** Grants permission to create an event trigger in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [event-triggers\*](#list_customer-profiles-resource-event-triggers) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateIntegrationWorkflow](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateIntegrationWorkflow.html)  **
+  - **Description:** Grants permission to create an integration workflow in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [integrations\*](#list_customer-profiles-resource-integrations) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateProfile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateProfile.html)  **
+  - **Description:** Grants permission to create a profile in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateRecommender](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateRecommender.html)  **
+  - **Description:** Grants permission to create a Recommender in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [recommenders\*](#list_customer-profiles-resource-recommenders) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRecommenderFilter](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateRecommenderFilter.html)  **
+  - **Description:** Grants permission to create a recommender filter in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [recommender-filters\*](#list_customer-profiles-resource-recommender-filters) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRecommenderSchema](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateRecommenderSchema.html)  **
+  - **Description:** Grants permission to create a recommender schema in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [recommender-schemas\*](#list_customer-profiles-resource-recommender-schemas) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateSegmentDefinition](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateSegmentDefinition.html)  **
+  - **Description:** Grants permission to create a segment definition in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [segment-definitions\*](#list_customer-profiles-resource-segment-definitions) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateSegmentEstimate](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateSegmentEstimate.html)  **
+  - **Description:** Grants permission to create a segment estimate in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateSegmentSnapshot](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateSegmentSnapshot.html)  **
+  - **Description:** Grants permission to create a segment snapshot in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [segment-definitions\*](#list_customer-profiles-resource-segment-definitions) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateUploadJob](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateUploadJob.html)  **
+  - **Description:** Grants permission to create an upload job in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteCalculatedAttributeDefinition](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteCalculatedAttributeDefinition.html)  **
+  - **Description:** Grants permission to delete a calculated attribute definition in the domain
+  - **Resource types (\*required):** [calculated-attributes\*](#list_customer-profiles-resource-calculated-attributes) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteDomain.html)  **
+  - **Description:** Grants permission to delete a Domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDomainLayout](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteDomainLayout.html)  **
+  - **Description:** Grants permission to delete a layout in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [layouts\*](#list_customer-profiles-resource-layouts) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDomainObjectType](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteDomainObjectType.html)  **
+  - **Description:** Grants permission to delete a specific domain object type in the domain
+  - **Resource types (\*required):** [domain-object-types\*](#list_customer-profiles-resource-domain-object-types) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteEventStream](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteEventStream.html)  **
+  - **Description:** Grants permission to delete an event stream in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [event-streams\*](#list_customer-profiles-resource-event-streams) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteEventTrigger](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteEventTrigger.html)  **
+  - **Description:** Grants permission to delete an event trigger in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [event-triggers\*](#list_customer-profiles-resource-event-triggers) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteIntegration](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteIntegration.html)  **
+  - **Description:** Grants permission to delete a integration in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [integrations\*](#list_customer-profiles-resource-integrations) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteProfile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteProfile.html)  **
+  - **Description:** Grants permission to delete a profile
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteProfileKey](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteProfileKey.html)  **
+  - **Description:** Grants permission to delete a profile key
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteProfileObject](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteProfileObject.html)  **
+  - **Description:** Grants permission to delete a profile object
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [object-types\*](#list_customer-profiles-resource-object-types) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteProfileObjectType](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteProfileObjectType.html)  **
+  - **Description:** Grants permission to delete a specific profile object type in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [object-types\*](#list_customer-profiles-resource-object-types) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRecommender](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteRecommender.html)  **
+  - **Description:** Grants permission to delete a recommender in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [recommenders\*](#list_customer-profiles-resource-recommenders) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRecommenderFilter](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteRecommenderFilter.html)  **
+  - **Description:** Grants permission to delete a recommender filter in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [recommender-filters\*](#list_customer-profiles-resource-recommender-filters) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRecommenderSchema](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteRecommenderSchema.html)  **
+  - **Description:** Grants permission to delete a recommender schema in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [recommender-schemas\*](#list_customer-profiles-resource-recommender-schemas) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteSegmentDefinition](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteSegmentDefinition.html)  **
+  - **Description:** Grants permission to delete a segment definition in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [segment-definitions\*](#list_customer-profiles-resource-segment-definitions) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteSegmentSubscription](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteSegmentSubscription.html)  **
+  - **Description:** Grants permission to delete a segment subscription for membership events
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [segment-definitions\*](#list_customer-profiles-resource-segment-definitions) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteWorkflow](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteWorkflow.html)  **
+  - **Description:** Grants permission to delete a workflow in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DetectProfileObjectType](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DetectProfileObjectType.html)  **
+  - **Description:** Grants permission to auto detect object type
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DisassociateStreamForSegments](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DisassociateStreamForSegments.html)  **
+  - **Description:** Grants permission to disassociate the Amazon Kinesis data stream configured for segment membership events in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetAutoMergingPreview](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetAutoMergingPreview.html)  **
+  - **Description:** Grants permission to get a preview of auto merging in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCalculatedAttributeDefinition](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetCalculatedAttributeDefinition.html)  **
+  - **Description:** Grants permission to get a calculated attribute definition in the domain
+  - **Resource types (\*required):** [calculated-attributes\*](#list_customer-profiles-resource-calculated-attributes) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCalculatedAttributeForProfile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetCalculatedAttributeForProfile.html)  **
+  - **Description:** Grants permission to retrieve a calculated attribute for a specific profile in the domain
+  - **Resource types (\*required):** [calculated-attributes\*](#list_customer-profiles-resource-calculated-attributes) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetDomain.html)  **
+  - **Description:** Grants permission to get a specific domain in an account
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDomainLayout](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetDomainLayout.html)  **
+  - **Description:** Grants permission to get a layout in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [layouts\*](#list_customer-profiles-resource-layouts) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDomainObjectType](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetDomainObjectType.html)  **
+  - **Description:** Grants permission to get a specific domain object type in the domain
+  - **Resource types (\*required):** [domain-object-types\*](#list_customer-profiles-resource-domain-object-types) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetEventStream](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetEventStream.html)  **
+  - **Description:** Grants permission to get a specific event stream in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [event-streams\*](#list_customer-profiles-resource-event-streams) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetEventTrigger](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetEventTrigger.html)  **
+  - **Description:** Grants permission to get an event trigger in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [event-triggers\*](#list_customer-profiles-resource-event-triggers) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetIdentityResolutionJob](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetIdentityResolutionJob.html)  **
+  - **Description:** Grants permission to get an identity resolution job in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetIntegration](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetIntegration.html)  **
+  - **Description:** Grants permission to get a specific integrations in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [integrations\*](#list_customer-profiles-resource-integrations) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMatches](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html)  **
+  - **Description:** Grants permission to get profile matches in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [GetObjectTypeAttributeStatistics](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetObjectTypeAttributeStatistics.html)  **
+  - **Description:** Grants permission to get statistics of a specific attribute for object type in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [object-types\*](#list_customer-profiles-resource-object-types) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetProfileHistoryRecord](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetProfileHistoryRecord.html)  **
+  - **Description:** Grants permission to get a profile history record for a profile in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetProfileInsights](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetProfileInsights.html)  **
+  - **Description:** Grants permission to list insights for a profile
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetProfileObjectType](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetProfileObjectType.html)  **
+  - **Description:** Grants permission to get a specific profile object type in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [object-types\*](#list_customer-profiles-resource-object-types) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetProfileObjectTypeTemplate](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetProfileObjectTypeTemplate.html)  **
+  - **Description:** Grants permission to get a specific object type template
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetProfileRecommendations](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetProfileRecommendations.html)  **
+  - **Description:** Grants permission to list recommendations for a profile
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [recommenders\*](#list_customer-profiles-resource-recommenders) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRecommender](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetRecommender.html)  **
+  - **Description:** Grants permission to get Recommender details in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [recommenders\*](#list_customer-profiles-resource-recommenders) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRecommenderFilter](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetRecommenderFilter.html)  **
+  - **Description:** Grants permission to get recommender filter details in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [recommender-filters\*](#list_customer-profiles-resource-recommender-filters) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRecommenderSchema](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetRecommenderSchema.html)  **
+  - **Description:** Grants permission to get recommender schema details in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [recommender-schemas\*](#list_customer-profiles-resource-recommender-schemas) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSegmentDefinition](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetSegmentDefinition.html)  **
+  - **Description:** Grants permission to get a segment definition in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [segment-definitions\*](#list_customer-profiles-resource-segment-definitions) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSegmentEstimate](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetSegmentEstimate.html)  **
+  - **Description:** Grants permission to get a segment estimate in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSegmentMembership](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetSegmentMembership.html)  **
+  - **Description:** Grants permission to determine if the given profiles are part of a segment in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [segment-definitions\*](#list_customer-profiles-resource-segment-definitions) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSegmentSnapshot](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetSegmentSnapshot.html)  **
+  - **Description:** Grants permission to get a segment snapshot in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [segment-definitions\*](#list_customer-profiles-resource-segment-definitions) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSegmentSubscription](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetSegmentSubscription.html)  **
+  - **Description:** Grants permission to get the configuration, schedule, and status of a segment subscription for membership events
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [segment-definitions\*](#list_customer-profiles-resource-segment-definitions) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSimilarProfiles](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetSimilarProfiles.html)  **
+  - **Description:** Grants permission to get all the similar profiles in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [GetStreamForSegments](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetStreamForSegments.html)  **
+  - **Description:** Grants permission to get information about the segment membership event stream configured for a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetUploadJob](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetUploadJob.html)  **
+  - **Description:** Grants permission to get details of an upload job in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetUploadJobPath](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetUploadJobPath.html)  **
+  - **Description:** Grants permission to get a pre-signed URL to upload file for an upload job
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetWorkflow](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetWorkflow.html)  **
+  - **Description:** Grants permission to get workflow details in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetWorkflowSteps](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetWorkflowSteps.html)  **
+  - **Description:** Grants permission to get workflow step details in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListAccountIntegrations](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListAccountIntegrations.html)  **
+  - **Description:** Grants permission to list all the integrations in the account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListCalculatedAttributeDefinitions](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListCalculatedAttributeDefinitions.html)  **
+  - **Description:** Grants permission to list all the calculated attribute definitions in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListCalculatedAttributesForProfile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListCalculatedAttributesForProfile.html)  **
+  - **Description:** Grants permission to list all calculated attributes for a specific profile in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDomainLayouts](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListDomainLayouts.html)  **
+  - **Description:** Grants permission to list all the layouts in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDomainObjectTypes](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListDomainObjectTypes.html)  **
+  - **Description:** Grants permission to list all the domain object types in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDomainObjects](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListDomainObjects.html)  **
+  - **Description:** Grants permission to list domain objects in a domain
+  - **Resource types (\*required):** [domain-object-types\*](#list_customer-profiles-resource-domain-object-types) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDomains](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListDomains.html)  **
+  - **Description:** Grants permission to list all the domains in an account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListEventStreams](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListEventStreams.html)  **
+  - **Description:** Grants permission to list all the event streams in a specific domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListEventTriggers](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListEventTriggers.html)  **
+  - **Description:** Grants permission to list all the event triggers in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListIdentityResolutionJobs](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListIdentityResolutionJobs.html)  **
+  - **Description:** Grants permission to list identity resolution jobs in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListIntegrations](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListIntegrations.html)  **
+  - **Description:** Grants permission to list all the integrations in a specific domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListObjectTypeAttributeValues](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListObjectTypeAttributeValues.html)  **
+  - **Description:** Grants permission to list values of a specific attribute for object type in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [object-types\*](#list_customer-profiles-resource-object-types) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListObjectTypeAttributes](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListObjectTypeAttributes.html)  **
+  - **Description:** Grants permission to list all the attributes of a specific object type in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [object-types\*](#list_customer-profiles-resource-object-types) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListProfileAttributeValues](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListProfileAttributeValues.html)  **
+  - **Description:** Grants permission to list all the values of a profile attribute in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListProfileHistoryRecords](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListProfileHistoryRecords.html)  **
+  - **Description:** Grants permission to list all the profile history records for a profile in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListProfileObjectTypeTemplates](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListProfileObjectTypeTemplates.html)  **
+  - **Description:** Grants permission to list all the profile object type templates in the account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListProfileObjectTypes](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListProfileObjectTypes.html)  **
+  - **Description:** Grants permission to list all the profile object types in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListProfileObjects](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListProfileObjects.html)  **
+  - **Description:** Grants permission to list all the profile objects for a profile
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [object-types\*](#list_customer-profiles-resource-object-types) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRecommenderFilters](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListRecommenderFilters.html)  **
+  - **Description:** Grants permission to list all recommender filters in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRecommenderRecipes](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListRecommenderRecipes.html)  **
+  - **Description:** Grants permission to list all the Recommenders Recipes in the domain
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRecommenderSchemas](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListRecommenderSchemas.html)  **
+  - **Description:** Grants permission to list all recommender schemas in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRecommenders](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListRecommenders.html)  **
+  - **Description:** Grants permission to list all the Recommenders in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRuleBasedMatches](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListRuleBasedMatches.html)  **
+  - **Description:** Grants permission to list all the rule-based matching result in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSegmentDefinitions](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListSegmentDefinitions.html)  **
+  - **Description:** Grants permission to list all the segment definitions in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSegmentSubscriptionEvents](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListSegmentSubscriptionEvents.html)  **
+  - **Description:** Grants permission to list the most recent segment membership events for a segment
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [segment-definitions\*](#list_customer-profiles-resource-segment-definitions) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for a resource
+  - **Resource types (\*required):** [calculated-attributes](#list_customer-profiles-resource-calculated-attributes) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [domain-object-types](#list_customer-profiles-resource-domain-object-types) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [domains](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [event-streams](#list_customer-profiles-resource-event-streams) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [event-triggers](#list_customer-profiles-resource-event-triggers) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [integrations](#list_customer-profiles-resource-integrations) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [layouts](#list_customer-profiles-resource-layouts) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [object-types](#list_customer-profiles-resource-object-types) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [recommender-filters](#list_customer-profiles-resource-recommender-filters) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [recommender-schemas](#list_customer-profiles-resource-recommender-schemas) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [recommenders](#list_customer-profiles-resource-recommenders) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [segment-definitions](#list_customer-profiles-resource-segment-definitions) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListUploadJobs](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListUploadJobs.html)  **
+  - **Description:** Grants permission to list all upload jobs in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListWorkflows](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListWorkflows.html)  **
+  - **Description:** Grants permission to list all the workflows in a specific domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [MergeProfiles](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_MergeProfiles.html)  **
+  - **Description:** Grants permission to merge profiles in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutDomainObjectType](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_PutDomainObjectType.html)  **
+  - **Description:** Grants permission to put a specific domain object type in the domain
+  - **Resource types (\*required):** [domain-object-types\*](#list_customer-profiles-resource-domain-object-types) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutIntegration](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_PutIntegration.html)  **
+  - **Description:** Grants permission to put a integration in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [integrations\*](#list_customer-profiles-resource-integrations) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [PutProfileObject](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_PutProfileObject.html)  **
+  - **Description:** Grants permission to put an object for a profile
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [object-types\*](#list_customer-profiles-resource-object-types) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutProfileObjectType](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_PutProfileObjectType.html)  **
+  - **Description:** Grants permission to put a specific profile object type in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [object-types\*](#list_customer-profiles-resource-object-types) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [PutSegmentSubscription](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_PutSegmentSubscription.html)  **
+  - **Description:** Grants permission to create or update a segment subscription for membership events
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [segment-definitions\*](#list_customer-profiles-resource-segment-definitions) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SearchProfiles](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html)  **
+  - **Description:** Grants permission to search for profiles in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [StartRecommender](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_StartRecommender.html)  **
+  - **Description:** Grants permission to start a recommender in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [recommenders\*](#list_customer-profiles-resource-recommenders) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartUploadJob](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_StartUploadJob.html)  **
+  - **Description:** Grants permission to start an upload job in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopRecommender](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_StopRecommender.html)  **
+  - **Description:** Grants permission to stop a recommender in a domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [recommenders\*](#list_customer-profiles-resource-recommenders) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopUploadJob](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_StopUploadJob.html)  **
+  - **Description:** Grants permission to stop an upload job in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to adds tags to a resource
+  - **Resource types (\*required):** [calculated-attributes](#list_customer-profiles-resource-calculated-attributes) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [domain-object-types](#list_customer-profiles-resource-domain-object-types) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [domains](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [event-streams](#list_customer-profiles-resource-event-streams) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [event-triggers](#list_customer-profiles-resource-event-triggers) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [integrations](#list_customer-profiles-resource-integrations) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [layouts](#list_customer-profiles-resource-layouts) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [object-types](#list_customer-profiles-resource-object-types) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [recommender-filters](#list_customer-profiles-resource-recommender-filters) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [recommender-schemas](#list_customer-profiles-resource-recommender-schemas) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [recommenders](#list_customer-profiles-resource-recommenders) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [segment-definitions](#list_customer-profiles-resource-segment-definitions) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_customer-profiles-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove tags from a resource
+  - **Resource types (\*required):** [calculated-attributes](#list_customer-profiles-resource-calculated-attributes) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [domain-object-types](#list_customer-profiles-resource-domain-object-types) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [domains](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [event-streams](#list_customer-profiles-resource-event-streams) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [event-triggers](#list_customer-profiles-resource-event-triggers) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [integrations](#list_customer-profiles-resource-integrations) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [layouts](#list_customer-profiles-resource-layouts) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [object-types](#list_customer-profiles-resource-object-types) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [recommender-filters](#list_customer-profiles-resource-recommender-filters) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [recommender-schemas](#list_customer-profiles-resource-recommender-schemas) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [recommenders](#list_customer-profiles-resource-recommenders) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Resource types (\*required):** [segment-definitions](#list_customer-profiles-resource-segment-definitions) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_customer-profiles-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateCalculatedAttributeDefinition](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateCalculatedAttributeDefinition.html)  **
+  - **Description:** Grants permission to update a calculated attribute definition in the domain
+  - **Resource types (\*required):** [calculated-attributes\*](#list_customer-profiles-resource-calculated-attributes) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDomain](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html)  **
+  - **Description:** Grants permission to update a Domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDomainLayout](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomainLayout.html)  **
+  - **Description:** Grants permission to update a layout in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [layouts\*](#list_customer-profiles-resource-layouts) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateEventTrigger](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateEventTrigger.html)  **
+  - **Description:** Grants permission to update an event trigger in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [event-triggers\*](#list_customer-profiles-resource-event-triggers) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateProfile](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateProfile.html)  **
+  - **Description:** Grants permission to update a profile in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRecommender](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateRecommender.html)  **
+  - **Description:** Grants permission to update a Recommender in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [recommenders\*](#list_customer-profiles-resource-recommenders) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for Amazon Connect Customer Profiles
+<a name="list_customer-profiles-permission-only-actions"></a>
 
-The following actions are defined by Amazon Connect Customer Profiles but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by Amazon Connect Customer Profiles but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                               | Description                                          | Resource types (\*required)                                                                      | Condition keys                                                                                                                     | Access level |
-| ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [CreateSnapshot](${UserGuideDocPage}set-up-bulk-export.md "${UserGuideDocPage}set-up-bulk-export.md") | Grants permission to create a snapshot in the domain | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains") | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_") | Write        |
-| [GetSnapshot](${UserGuideDocPage}set-up-bulk-export.md "${UserGuideDocPage}set-up-bulk-export.md")    | Grants permission to get a snapshot in the domain    | [domains\*](#list_customer-profiles-resource-domains "#list_customer-profiles-resource-domains") | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_") | Read         |
+
+
+
+- **   [CreateSnapshot](${UserGuideDocPage}set-up-bulk-export.html)  **
+  - **Description:** Grants permission to create a snapshot in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetSnapshot](${UserGuideDocPage}set-up-bulk-export.html)  **
+  - **Description:** Grants permission to get a snapshot in the domain
+  - **Resource types (\*required):** [domains\*](#list_customer-profiles-resource-domains)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+
 
 ## Resource types defined by Amazon Connect Customer Profiles
+<a name="list_customer-profiles-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                               | ARN                                                                                                                  | Condition keys                                                                                                                     |
-| ---------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| [calculated-attributes](../../../customerprofiles/latest/APIReference.md "../../../customerprofiles/latest/APIReference.md") | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/calculated-attributes/${CalculatedAttributeName} | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_") |
-| [domain-object-types](../../../customerprofiles/latest/APIReference.md "../../../customerprofiles/latest/APIReference.md")   | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/domain-object-types/${ObjectTypeName}            | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_") |
-| [domains](../../../customerprofiles/latest/APIReference.md "../../../customerprofiles/latest/APIReference.md")               | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}                                                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_") |
-| [event-streams](../../../customerprofiles/latest/APIReference.md "../../../customerprofiles/latest/APIReference.md")         | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/event-streams/${EventStreamName}                 | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_") |
-| [event-triggers](../../../customerprofiles/latest/APIReference.md "../../../customerprofiles/latest/APIReference.md")        | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/event-triggers/${EventTriggerName}               | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_") |
-| [integrations](../../../customerprofiles/latest/APIReference.md "../../../customerprofiles/latest/APIReference.md")          | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/integrations/${Uri}                              | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_") |
-| [layouts](../../../customerprofiles/latest/APIReference.md "../../../customerprofiles/latest/APIReference.md")               | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/layouts/${LayoutDefinitionName}                  | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_") |
-| [object-types](../../../customerprofiles/latest/APIReference.md "../../../customerprofiles/latest/APIReference.md")          | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/object-types/${ObjectTypeName}                   | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_") |
-| [recommender-filters](../../../customerprofiles/latest/APIReference.md "../../../customerprofiles/latest/APIReference.md")   | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/recommender-filters/${RecommenderFilterName}     | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_") |
-| [recommender-schemas](../../../customerprofiles/latest/APIReference.md "../../../customerprofiles/latest/APIReference.md")   | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/recommender-schemas/${RecommenderSchemaName}     | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_") |
-| [recommenders](../../../customerprofiles/latest/APIReference.md "../../../customerprofiles/latest/APIReference.md")          | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/recommenders/${RecommenderTypeName}              | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_") |
-| [segment-definitions](../../../customerprofiles/latest/APIReference.md "../../../customerprofiles/latest/APIReference.md")   | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/segment-definitions/${SegmentDefinitionName}     | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_ "#list_customer-profiles-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [calculated-attributes](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/)  | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/calculated-attributes/${CalculatedAttributeName} | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_) | 
+|  [domain-object-types](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/)  | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/domain-object-types/${ObjectTypeName} | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_) | 
+|  [domains](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/)  | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName} | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_) | 
+|  [event-streams](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/)  | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/event-streams/${EventStreamName} | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_) | 
+|  [event-triggers](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/)  | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/event-triggers/${EventTriggerName} | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_) | 
+|  [integrations](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/)  | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/integrations/${Uri} | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_) | 
+|  [layouts](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/)  | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/layouts/${LayoutDefinitionName} | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_) | 
+|  [object-types](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/)  | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/object-types/${ObjectTypeName} | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_) | 
+|  [recommender-filters](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/)  | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/recommender-filters/${RecommenderFilterName} | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_) | 
+|  [recommender-schemas](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/)  | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/recommender-schemas/${RecommenderSchemaName} | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_) | 
+|  [recommenders](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/)  | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/recommenders/${RecommenderTypeName} | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_) | 
+|  [segment-definitions](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/)  | arn:${Partition}:profile:${Region}:${Account}:domains/${DomainName}/segment-definitions/${SegmentDefinitionName} | [aws:ResourceTag/${TagKey}](#list_customer-profiles-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Connect Customer Profiles
+<a name="list_customer-profiles-policy-keys"></a>
 
-Amazon Connect Customer Profiles defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Connect Customer Profiles defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                       | Description                                                                                                               | Type          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_iam-permissions.md#iam-contextkeys "../../../IAM/latest/UserGuide/reference_iam-permissions.md#iam-contextkeys")  | Filters access by a key that is present in the request the user makes to the customer profile service                     | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_iam-permissions.md#iam-contextkeys "../../../IAM/latest/UserGuide/reference_iam-permissions.md#iam-contextkeys") | Filters access by a tag key and value pair                                                                                | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_iam-permissions.md#iam-contextkeys "../../../IAM/latest/UserGuide/reference_iam-permissions.md#iam-contextkeys")               | Filters access by the list of all the tag key names present in the request the user makes to the customer profile service | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-permissions.html#iam-contextkeys)  | Filters access by a key that is present in the request the user makes to the customer profile service | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-permissions.html#iam-contextkeys)  | Filters access by a tag key and value pair | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-permissions.html#iam-contextkeys)  | Filters access by the list of all the tag key names present in the request the user makes to the customer profile service | ArrayOfString | 

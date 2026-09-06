@@ -1,294 +1,1225 @@
-# Actions, resources, and condition keys for AWS Well-Architected Tool
 
-AWS Well-Architected Tool (service prefix: `wellarchitected`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Well-Architected Tool
+<a name="list_wellarchitected"></a>
+
+AWS Well-Architected Tool (service prefix: `wellarchitected`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/wellarchitected/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/wellarchitected/latest/userguide/iam-auth-access.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/wellarchitected/wellarchitected.json) for this service.
 
-- Learn how to [configure this service](../../../wellarchitected/latest/userguide.md "../../../wellarchitected/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../wellarchitected/latest/APIReference.md "../../../wellarchitected/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../wellarchitected/latest/userguide/iam-auth-access.md "../../../wellarchitected/latest/userguide/iam-auth-access.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/wellarchitected/wellarchitected.json "https://servicereference.us-east-1.amazonaws.com/v1/wellarchitected/wellarchitected.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Well-Architected Tool](#list_wellarchitected-operations "#list_wellarchitected-operations")
-- [Actions defined by AWS Well-Architected Tool](#list_wellarchitected-actions-as-permissions "#list_wellarchitected-actions-as-permissions")
-- [Permission-only actions for AWS Well-Architected Tool](#list_wellarchitected-permission-only-actions "#list_wellarchitected-permission-only-actions")
-- [Resource types defined by AWS Well-Architected Tool](#list_wellarchitected-resources-for-iam-policies "#list_wellarchitected-resources-for-iam-policies")
-- [Condition keys for AWS Well-Architected Tool](#list_wellarchitected-policy-keys "#list_wellarchitected-policy-keys")
+**Topics**
++ [API operations defined by AWS Well-Architected Tool](#list_wellarchitected-operations)
++ [Actions defined by AWS Well-Architected Tool](#list_wellarchitected-actions-as-permissions)
++ [Permission-only actions for AWS Well-Architected Tool](#list_wellarchitected-permission-only-actions)
++ [Resource types defined by AWS Well-Architected Tool](#list_wellarchitected-resources-for-iam-policies)
++ [Condition keys for AWS Well-Architected Tool](#list_wellarchitected-policy-keys)
 
 ## API operations defined by AWS Well-Architected Tool
+<a name="list_wellarchitected-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_wellarchitected-actions-as-permissions "#list_wellarchitected-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_wellarchitected-actions-as-permissions).
 
-| Operation                                                                                                                                                          | IAM action                                                                                                                                                                              | Condition key                 | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ----------------- | -------------- |
-| AssociateLenses                                                                                                                                                    | [wellarchitected:AssociateLenses](#list_wellarchitected-action-AssociateLenses "#list_wellarchitected-action-AssociateLenses")                                                          |                               |                   | Write          |
-| AssociateProfiles                                                                                                                                                  | [wellarchitected:AssociateProfiles](#list_wellarchitected-action-AssociateProfiles "#list_wellarchitected-action-AssociateProfiles")                                                    |                               |                   | Write          |
-| CreateAgentContext                                                                                                                                                 | [wellarchitected:CreateAgentContext](#list_wellarchitected-action-CreateAgentContext "#list_wellarchitected-action-CreateAgentContext")                                                 |                               |                   | Write          |
-| CreateAgentGoal                                                                                                                                                    | [wellarchitected:CreateAgentGoal](#list_wellarchitected-action-CreateAgentGoal "#list_wellarchitected-action-CreateAgentGoal")                                                          |                               |                   | Write          |
-| CreateAgentProfile                                                                                                                                                 | [wellarchitected:CreateAgentProfile](#list_wellarchitected-action-CreateAgentProfile "#list_wellarchitected-action-CreateAgentProfile")                                                 |                               |                   | Write          |
-| [wellarchitected:TagResource](#list_wellarchitected-action-TagResource "#list_wellarchitected-action-TagResource")                                                 |                                                                                                                                                                                         |                               | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                    | iam:PassedToService                                                                                                                                                                     | wellarchitected.amazonaws.com | Write             |
-| CreateLensShare                                                                                                                                                    | [wellarchitected:CreateLensShare](#list_wellarchitected-action-CreateLensShare "#list_wellarchitected-action-CreateLensShare")                                                          |                               |                   | Write          |
-| CreateLensVersion                                                                                                                                                  | [wellarchitected:CreateLensVersion](#list_wellarchitected-action-CreateLensVersion "#list_wellarchitected-action-CreateLensVersion")                                                    |                               |                   | Write          |
-| CreateMilestone                                                                                                                                                    | [wellarchitected:CreateMilestone](#list_wellarchitected-action-CreateMilestone "#list_wellarchitected-action-CreateMilestone")                                                          |                               |                   | Write          |
-| CreateProfile                                                                                                                                                      | [wellarchitected:CreateProfile](#list_wellarchitected-action-CreateProfile "#list_wellarchitected-action-CreateProfile")                                                                |                               |                   | Write          |
-| [wellarchitected:TagResource](#list_wellarchitected-action-TagResource "#list_wellarchitected-action-TagResource")                                                 |                                                                                                                                                                                         |                               | Tagging, Write    |
-| CreateProfileShare                                                                                                                                                 | [wellarchitected:CreateProfileShare](#list_wellarchitected-action-CreateProfileShare "#list_wellarchitected-action-CreateProfileShare")                                                 |                               |                   | Write          |
-| CreateReviewTemplate                                                                                                                                               | [wellarchitected:CreateReviewTemplate](#list_wellarchitected-action-CreateReviewTemplate "#list_wellarchitected-action-CreateReviewTemplate")                                           |                               |                   | Write          |
-| [wellarchitected:TagResource](#list_wellarchitected-action-TagResource "#list_wellarchitected-action-TagResource")                                                 |                                                                                                                                                                                         |                               | Tagging, Write    |
-| CreateTemplateShare                                                                                                                                                | [wellarchitected:CreateTemplateShare](#list_wellarchitected-action-CreateTemplateShare "#list_wellarchitected-action-CreateTemplateShare")                                              |                               |                   | Write          |
-| CreateWorkload                                                                                                                                                     | [wellarchitected:CreateWorkload](#list_wellarchitected-action-CreateWorkload "#list_wellarchitected-action-CreateWorkload")                                                             |                               |                   | Write          |
-| [wellarchitected:GetReviewTemplate](#list_wellarchitected-action-GetReviewTemplate "#list_wellarchitected-action-GetReviewTemplate")                               |                                                                                                                                                                                         |                               | Read              |
-| [wellarchitected:GetReviewTemplateAnswer](#list_wellarchitected-action-GetReviewTemplateAnswer "#list_wellarchitected-action-GetReviewTemplateAnswer")             |                                                                                                                                                                                         |                               | Read              |
-| [wellarchitected:GetReviewTemplateLensReview](#list_wellarchitected-action-GetReviewTemplateLensReview "#list_wellarchitected-action-GetReviewTemplateLensReview") |                                                                                                                                                                                         |                               | Read              |
-| [wellarchitected:ListReviewTemplateAnswers](#list_wellarchitected-action-ListReviewTemplateAnswers "#list_wellarchitected-action-ListReviewTemplateAnswers")       |                                                                                                                                                                                         |                               | List              |
-| [wellarchitected:TagResource](#list_wellarchitected-action-TagResource "#list_wellarchitected-action-TagResource")                                                 |                                                                                                                                                                                         |                               | Tagging, Write    |
-| CreateWorkloadShare                                                                                                                                                | [wellarchitected:CreateWorkloadShare](#list_wellarchitected-action-CreateWorkloadShare "#list_wellarchitected-action-CreateWorkloadShare")                                              |                               |                   | Write          |
-| DeleteAgentContext                                                                                                                                                 | [wellarchitected:DeleteAgentContext](#list_wellarchitected-action-DeleteAgentContext "#list_wellarchitected-action-DeleteAgentContext")                                                 |                               |                   | Write          |
-| DeleteAgentGoal                                                                                                                                                    | [wellarchitected:DeleteAgentGoal](#list_wellarchitected-action-DeleteAgentGoal "#list_wellarchitected-action-DeleteAgentGoal")                                                          |                               |                   | Write          |
-| DeleteAgentProfile                                                                                                                                                 | [wellarchitected:DeleteAgentProfile](#list_wellarchitected-action-DeleteAgentProfile "#list_wellarchitected-action-DeleteAgentProfile")                                                 |                               |                   | Write          |
-| DeleteLens                                                                                                                                                         | [wellarchitected:DeleteLens](#list_wellarchitected-action-DeleteLens "#list_wellarchitected-action-DeleteLens")                                                                         |                               |                   | Write          |
-| DeleteLensShare                                                                                                                                                    | [wellarchitected:DeleteLensShare](#list_wellarchitected-action-DeleteLensShare "#list_wellarchitected-action-DeleteLensShare")                                                          |                               |                   | Write          |
-| DeleteProfile                                                                                                                                                      | [wellarchitected:DeleteProfile](#list_wellarchitected-action-DeleteProfile "#list_wellarchitected-action-DeleteProfile")                                                                |                               |                   | Write          |
-| DeleteProfileShare                                                                                                                                                 | [wellarchitected:DeleteProfileShare](#list_wellarchitected-action-DeleteProfileShare "#list_wellarchitected-action-DeleteProfileShare")                                                 |                               |                   | Write          |
-| DeleteReviewTemplate                                                                                                                                               | [wellarchitected:DeleteReviewTemplate](#list_wellarchitected-action-DeleteReviewTemplate "#list_wellarchitected-action-DeleteReviewTemplate")                                           |                               |                   | Write          |
-| DeleteTemplateShare                                                                                                                                                | [wellarchitected:DeleteTemplateShare](#list_wellarchitected-action-DeleteTemplateShare "#list_wellarchitected-action-DeleteTemplateShare")                                              |                               |                   | Write          |
-| DeleteWorkload                                                                                                                                                     | [wellarchitected:DeleteWorkload](#list_wellarchitected-action-DeleteWorkload "#list_wellarchitected-action-DeleteWorkload")                                                             |                               |                   | Write          |
-| DeleteWorkloadShare                                                                                                                                                | [wellarchitected:DeleteWorkloadShare](#list_wellarchitected-action-DeleteWorkloadShare "#list_wellarchitected-action-DeleteWorkloadShare")                                              |                               |                   | Write          |
-| DisassociateLenses                                                                                                                                                 | [wellarchitected:DisassociateLenses](#list_wellarchitected-action-DisassociateLenses "#list_wellarchitected-action-DisassociateLenses")                                                 |                               |                   | Write          |
-| DisassociateProfiles                                                                                                                                               | [wellarchitected:DisassociateProfiles](#list_wellarchitected-action-DisassociateProfiles "#list_wellarchitected-action-DisassociateProfiles")                                           |                               |                   | Write          |
-| ExportLens                                                                                                                                                         | [wellarchitected:ExportLens](#list_wellarchitected-action-ExportLens "#list_wellarchitected-action-ExportLens")                                                                         |                               |                   | Read           |
-| GetAgentContext                                                                                                                                                    | [wellarchitected:GetAgentContext](#list_wellarchitected-action-GetAgentContext "#list_wellarchitected-action-GetAgentContext")                                                          |                               |                   | Read           |
-| GetAgentGoal                                                                                                                                                       | [wellarchitected:GetAgentGoal](#list_wellarchitected-action-GetAgentGoal "#list_wellarchitected-action-GetAgentGoal")                                                                   |                               |                   | Read           |
-| GetAgentProfile                                                                                                                                                    | [wellarchitected:GetAgentProfile](#list_wellarchitected-action-GetAgentProfile "#list_wellarchitected-action-GetAgentProfile")                                                          |                               |                   | Read           |
-| GetAgentRecommendation                                                                                                                                             | [wellarchitected:GetAgentRecommendation](#list_wellarchitected-action-GetAgentRecommendation "#list_wellarchitected-action-GetAgentRecommendation")                                     |                               |                   | Read           |
-| GetAgentRecommendationGeneration                                                                                                                                   | [wellarchitected:GetAgentRecommendationGeneration](#list_wellarchitected-action-GetAgentRecommendationGeneration "#list_wellarchitected-action-GetAgentRecommendationGeneration")       |                               |                   | Read           |
-| GetAnswer                                                                                                                                                          | [wellarchitected:GetAnswer](#list_wellarchitected-action-GetAnswer "#list_wellarchitected-action-GetAnswer")                                                                            |                               |                   | Read           |
-| GetConsolidatedReport                                                                                                                                              | [wellarchitected:GetConsolidatedReport](#list_wellarchitected-action-GetConsolidatedReport "#list_wellarchitected-action-GetConsolidatedReport")                                        |                               |                   | Read           |
-| GetGlobalSettings                                                                                                                                                  | [wellarchitected:GetGlobalSettings](#list_wellarchitected-action-GetGlobalSettings "#list_wellarchitected-action-GetGlobalSettings")                                                    |                               |                   | Read           |
-| GetLens                                                                                                                                                            | [wellarchitected:GetLens](#list_wellarchitected-action-GetLens "#list_wellarchitected-action-GetLens")                                                                                  |                               |                   | Read           |
-| GetLensReview                                                                                                                                                      | [wellarchitected:GetLensReview](#list_wellarchitected-action-GetLensReview "#list_wellarchitected-action-GetLensReview")                                                                |                               |                   | Read           |
-| GetLensReviewReport                                                                                                                                                | [wellarchitected:GetLensReviewReport](#list_wellarchitected-action-GetLensReviewReport "#list_wellarchitected-action-GetLensReviewReport")                                              |                               |                   | Read           |
-| GetLensVersionDifference                                                                                                                                           | [wellarchitected:GetLensVersionDifference](#list_wellarchitected-action-GetLensVersionDifference "#list_wellarchitected-action-GetLensVersionDifference")                               |                               |                   | Read           |
-| GetMilestone                                                                                                                                                       | [wellarchitected:GetMilestone](#list_wellarchitected-action-GetMilestone "#list_wellarchitected-action-GetMilestone")                                                                   |                               |                   | Read           |
-| GetProfile                                                                                                                                                         | [wellarchitected:GetProfile](#list_wellarchitected-action-GetProfile "#list_wellarchitected-action-GetProfile")                                                                         |                               |                   | Read           |
-| GetProfileTemplate                                                                                                                                                 | [wellarchitected:GetProfileTemplate](#list_wellarchitected-action-GetProfileTemplate "#list_wellarchitected-action-GetProfileTemplate")                                                 |                               |                   | Read           |
-| GetReviewTemplate                                                                                                                                                  | [wellarchitected:GetReviewTemplate](#list_wellarchitected-action-GetReviewTemplate "#list_wellarchitected-action-GetReviewTemplate")                                                    |                               |                   | Read           |
-| GetReviewTemplateAnswer                                                                                                                                            | [wellarchitected:GetReviewTemplateAnswer](#list_wellarchitected-action-GetReviewTemplateAnswer "#list_wellarchitected-action-GetReviewTemplateAnswer")                                  |                               |                   | Read           |
-| GetReviewTemplateLensReview                                                                                                                                        | [wellarchitected:GetReviewTemplateLensReview](#list_wellarchitected-action-GetReviewTemplateLensReview "#list_wellarchitected-action-GetReviewTemplateLensReview")                      |                               |                   | Read           |
-| GetWorkload                                                                                                                                                        | [wellarchitected:GetWorkload](#list_wellarchitected-action-GetWorkload "#list_wellarchitected-action-GetWorkload")                                                                      |                               |                   | Read           |
-| ImportLens                                                                                                                                                         | [wellarchitected:ImportLens](#list_wellarchitected-action-ImportLens "#list_wellarchitected-action-ImportLens")                                                                         |                               |                   | Write          |
-| [wellarchitected:TagResource](#list_wellarchitected-action-TagResource "#list_wellarchitected-action-TagResource")                                                 |                                                                                                                                                                                         |                               | Tagging, Write    |
-| ListAgentContexts                                                                                                                                                  | [wellarchitected:ListAgentContexts](#list_wellarchitected-action-ListAgentContexts "#list_wellarchitected-action-ListAgentContexts")                                                    |                               |                   | Read           |
-| ListAgentGoals                                                                                                                                                     | [wellarchitected:ListAgentGoals](#list_wellarchitected-action-ListAgentGoals "#list_wellarchitected-action-ListAgentGoals")                                                             |                               |                   | Read           |
-| ListAgentProfiles                                                                                                                                                  | [wellarchitected:ListAgentProfiles](#list_wellarchitected-action-ListAgentProfiles "#list_wellarchitected-action-ListAgentProfiles")                                                    |                               |                   | Read           |
-| ListAgentRecommendationGenerations                                                                                                                                 | [wellarchitected:ListAgentRecommendationGenerations](#list_wellarchitected-action-ListAgentRecommendationGenerations "#list_wellarchitected-action-ListAgentRecommendationGenerations") |                               |                   | Read           |
-| ListAgentRecommendationItems                                                                                                                                       | [wellarchitected:ListAgentRecommendationItems](#list_wellarchitected-action-ListAgentRecommendationItems "#list_wellarchitected-action-ListAgentRecommendationItems")                   |                               |                   | Read           |
-| ListAgentRecommendations                                                                                                                                           | [wellarchitected:ListAgentRecommendations](#list_wellarchitected-action-ListAgentRecommendations "#list_wellarchitected-action-ListAgentRecommendations")                               |                               |                   | Read           |
-| ListAnswers                                                                                                                                                        | [wellarchitected:ListAnswers](#list_wellarchitected-action-ListAnswers "#list_wellarchitected-action-ListAnswers")                                                                      |                               |                   | List           |
-| ListCheckDetails                                                                                                                                                   | [wellarchitected:ListCheckDetails](#list_wellarchitected-action-ListCheckDetails "#list_wellarchitected-action-ListCheckDetails")                                                       |                               |                   | List           |
-| ListCheckSummaries                                                                                                                                                 | [wellarchitected:ListCheckSummaries](#list_wellarchitected-action-ListCheckSummaries "#list_wellarchitected-action-ListCheckSummaries")                                                 |                               |                   | List           |
-| ListLensReviewImprovements                                                                                                                                         | [wellarchitected:ListLensReviewImprovements](#list_wellarchitected-action-ListLensReviewImprovements "#list_wellarchitected-action-ListLensReviewImprovements")                         |                               |                   | List           |
-| ListLensReviews                                                                                                                                                    | [wellarchitected:ListLensReviews](#list_wellarchitected-action-ListLensReviews "#list_wellarchitected-action-ListLensReviews")                                                          |                               |                   | List           |
-| ListLensShares                                                                                                                                                     | [wellarchitected:ListLensShares](#list_wellarchitected-action-ListLensShares "#list_wellarchitected-action-ListLensShares")                                                             |                               |                   | List           |
-| ListLenses                                                                                                                                                         | [wellarchitected:ListLenses](#list_wellarchitected-action-ListLenses "#list_wellarchitected-action-ListLenses")                                                                         |                               |                   | List           |
-| ListMilestones                                                                                                                                                     | [wellarchitected:ListMilestones](#list_wellarchitected-action-ListMilestones "#list_wellarchitected-action-ListMilestones")                                                             |                               |                   | List           |
-| ListNotifications                                                                                                                                                  | [wellarchitected:ListNotifications](#list_wellarchitected-action-ListNotifications "#list_wellarchitected-action-ListNotifications")                                                    |                               |                   | List           |
-| ListProfileNotifications                                                                                                                                           | [wellarchitected:ListProfileNotifications](#list_wellarchitected-action-ListProfileNotifications "#list_wellarchitected-action-ListProfileNotifications")                               |                               |                   | List           |
-| ListProfileShares                                                                                                                                                  | [wellarchitected:ListProfileShares](#list_wellarchitected-action-ListProfileShares "#list_wellarchitected-action-ListProfileShares")                                                    |                               |                   | List           |
-| ListProfiles                                                                                                                                                       | [wellarchitected:ListProfiles](#list_wellarchitected-action-ListProfiles "#list_wellarchitected-action-ListProfiles")                                                                   |                               |                   | List           |
-| ListReviewTemplateAnswers                                                                                                                                          | [wellarchitected:ListReviewTemplateAnswers](#list_wellarchitected-action-ListReviewTemplateAnswers "#list_wellarchitected-action-ListReviewTemplateAnswers")                            |                               |                   | List           |
-| ListReviewTemplates                                                                                                                                                | [wellarchitected:ListReviewTemplates](#list_wellarchitected-action-ListReviewTemplates "#list_wellarchitected-action-ListReviewTemplates")                                              |                               |                   | List           |
-| ListShareInvitations                                                                                                                                               | [wellarchitected:ListShareInvitations](#list_wellarchitected-action-ListShareInvitations "#list_wellarchitected-action-ListShareInvitations")                                           |                               |                   | List           |
-| ListTagsForResource                                                                                                                                                | [wellarchitected:ListTagsForResource](#list_wellarchitected-action-ListTagsForResource "#list_wellarchitected-action-ListTagsForResource")                                              |                               |                   | Read           |
-| ListTemplateShares                                                                                                                                                 | [wellarchitected:ListTemplateShares](#list_wellarchitected-action-ListTemplateShares "#list_wellarchitected-action-ListTemplateShares")                                                 |                               |                   | List           |
-| ListWorkloadShares                                                                                                                                                 | [wellarchitected:ListWorkloadShares](#list_wellarchitected-action-ListWorkloadShares "#list_wellarchitected-action-ListWorkloadShares")                                                 |                               |                   | List           |
-| ListWorkloads                                                                                                                                                      | [wellarchitected:ListWorkloads](#list_wellarchitected-action-ListWorkloads "#list_wellarchitected-action-ListWorkloads")                                                                |                               |                   | List           |
-| PutAgentRecommendationFeedback                                                                                                                                     | [wellarchitected:PutAgentRecommendationFeedback](#list_wellarchitected-action-PutAgentRecommendationFeedback "#list_wellarchitected-action-PutAgentRecommendationFeedback")             |                               |                   | Write          |
-| StartAgentRecommendationGeneration                                                                                                                                 | [wellarchitected:StartAgentRecommendationGeneration](#list_wellarchitected-action-StartAgentRecommendationGeneration "#list_wellarchitected-action-StartAgentRecommendationGeneration") |                               |                   | Write          |
-| TagResource                                                                                                                                                        | [wellarchitected:TagResource](#list_wellarchitected-action-TagResource "#list_wellarchitected-action-TagResource")                                                                      |                               |                   | Tagging, Write |
-| UntagResource                                                                                                                                                      | [wellarchitected:UntagResource](#list_wellarchitected-action-UntagResource "#list_wellarchitected-action-UntagResource")                                                                |                               |                   | Tagging, Write |
-| UpdateAgentContext                                                                                                                                                 | [wellarchitected:UpdateAgentContext](#list_wellarchitected-action-UpdateAgentContext "#list_wellarchitected-action-UpdateAgentContext")                                                 |                               |                   | Write          |
-| UpdateAgentGoal                                                                                                                                                    | [wellarchitected:UpdateAgentGoal](#list_wellarchitected-action-UpdateAgentGoal "#list_wellarchitected-action-UpdateAgentGoal")                                                          |                               |                   | Write          |
-| UpdateAgentProfile                                                                                                                                                 | [wellarchitected:UpdateAgentProfile](#list_wellarchitected-action-UpdateAgentProfile "#list_wellarchitected-action-UpdateAgentProfile")                                                 |                               |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                    | iam:PassedToService                                                                                                                                                                     | wellarchitected.amazonaws.com | Write             |
-| UpdateAgentRecommendationStatus                                                                                                                                    | [wellarchitected:UpdateAgentRecommendationStatus](#list_wellarchitected-action-UpdateAgentRecommendationStatus "#list_wellarchitected-action-UpdateAgentRecommendationStatus")          |                               |                   | Write          |
-| UpdateAnswer                                                                                                                                                       | [wellarchitected:UpdateAnswer](#list_wellarchitected-action-UpdateAnswer "#list_wellarchitected-action-UpdateAnswer")                                                                   |                               |                   | Write          |
-| UpdateGlobalSettings                                                                                                                                               | [wellarchitected:UpdateGlobalSettings](#list_wellarchitected-action-UpdateGlobalSettings "#list_wellarchitected-action-UpdateGlobalSettings")                                           |                               |                   | Write          |
-| UpdateIntegration                                                                                                                                                  | [wellarchitected:UpdateIntegration](#list_wellarchitected-action-UpdateIntegration "#list_wellarchitected-action-UpdateIntegration")                                                    |                               |                   | Write          |
-| UpdateLensReview                                                                                                                                                   | [wellarchitected:UpdateLensReview](#list_wellarchitected-action-UpdateLensReview "#list_wellarchitected-action-UpdateLensReview")                                                       |                               |                   | Write          |
-| UpdateProfile                                                                                                                                                      | [wellarchitected:UpdateProfile](#list_wellarchitected-action-UpdateProfile "#list_wellarchitected-action-UpdateProfile")                                                                |                               |                   | Write          |
-| UpdateReviewTemplate                                                                                                                                               | [wellarchitected:UpdateReviewTemplate](#list_wellarchitected-action-UpdateReviewTemplate "#list_wellarchitected-action-UpdateReviewTemplate")                                           |                               |                   | Write          |
-| UpdateReviewTemplateAnswer                                                                                                                                         | [wellarchitected:UpdateReviewTemplateAnswer](#list_wellarchitected-action-UpdateReviewTemplateAnswer "#list_wellarchitected-action-UpdateReviewTemplateAnswer")                         |                               |                   | Write          |
-| UpdateReviewTemplateLensReview                                                                                                                                     | [wellarchitected:UpdateReviewTemplateLensReview](#list_wellarchitected-action-UpdateReviewTemplateLensReview "#list_wellarchitected-action-UpdateReviewTemplateLensReview")             |                               |                   | Write          |
-| UpdateShareInvitation                                                                                                                                              | [wellarchitected:UpdateShareInvitation](#list_wellarchitected-action-UpdateShareInvitation "#list_wellarchitected-action-UpdateShareInvitation")                                        |                               |                   | Write          |
-| UpdateWorkload                                                                                                                                                     | [wellarchitected:UpdateWorkload](#list_wellarchitected-action-UpdateWorkload "#list_wellarchitected-action-UpdateWorkload")                                                             |                               |                   | Write          |
-| UpdateWorkloadShare                                                                                                                                                | [wellarchitected:UpdateWorkloadShare](#list_wellarchitected-action-UpdateWorkloadShare "#list_wellarchitected-action-UpdateWorkloadShare")                                              |                               |                   | Write          |
-| UpgradeLensReview                                                                                                                                                  | [wellarchitected:UpgradeLensReview](#list_wellarchitected-action-UpgradeLensReview "#list_wellarchitected-action-UpgradeLensReview")                                                    |                               |                   | Write          |
-| UpgradeProfileVersion                                                                                                                                              | [wellarchitected:UpgradeProfileVersion](#list_wellarchitected-action-UpgradeProfileVersion "#list_wellarchitected-action-UpgradeProfileVersion")                                        |                               |                   | Write          |
-| UpgradeReviewTemplateLensReview                                                                                                                                    | [wellarchitected:UpgradeReviewTemplateLensReview](#list_wellarchitected-action-UpgradeReviewTemplateLensReview "#list_wellarchitected-action-UpgradeReviewTemplateLensReview")          |                               |                   | Write          |
+
+
+
+- **   AssociateLenses  **
+  - **IAM action:**  [wellarchitected:AssociateLenses](#list_wellarchitected-action-AssociateLenses) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateProfiles  **
+  - **IAM action:**  [wellarchitected:AssociateProfiles](#list_wellarchitected-action-AssociateProfiles) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAgentContext  **
+  - **IAM action:**  [wellarchitected:CreateAgentContext](#list_wellarchitected-action-CreateAgentContext) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAgentGoal  **
+  - **IAM action:**  [wellarchitected:CreateAgentGoal](#list_wellarchitected-action-CreateAgentGoal) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAgentProfile  **
+  - **IAM action:**  [wellarchitected:CreateAgentProfile](#list_wellarchitected-action-CreateAgentProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wellarchitected:TagResource](#list_wellarchitected-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** wellarchitected.amazonaws.com / **Access level:** Write
+
+- **   CreateLensShare  **
+  - **IAM action:**  [wellarchitected:CreateLensShare](#list_wellarchitected-action-CreateLensShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateLensVersion  **
+  - **IAM action:**  [wellarchitected:CreateLensVersion](#list_wellarchitected-action-CreateLensVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateMilestone  **
+  - **IAM action:**  [wellarchitected:CreateMilestone](#list_wellarchitected-action-CreateMilestone) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateProfile  **
+  - **IAM action:**  [wellarchitected:CreateProfile](#list_wellarchitected-action-CreateProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wellarchitected:TagResource](#list_wellarchitected-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateProfileShare  **
+  - **IAM action:**  [wellarchitected:CreateProfileShare](#list_wellarchitected-action-CreateProfileShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateReviewTemplate  **
+  - **IAM action:**  [wellarchitected:CreateReviewTemplate](#list_wellarchitected-action-CreateReviewTemplate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wellarchitected:TagResource](#list_wellarchitected-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateTemplateShare  **
+  - **IAM action:**  [wellarchitected:CreateTemplateShare](#list_wellarchitected-action-CreateTemplateShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateWorkload  **
+  - **IAM action:**  [wellarchitected:CreateWorkload](#list_wellarchitected-action-CreateWorkload)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wellarchitected:GetReviewTemplate](#list_wellarchitected-action-GetReviewTemplate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [wellarchitected:GetReviewTemplateAnswer](#list_wellarchitected-action-GetReviewTemplateAnswer)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [wellarchitected:GetReviewTemplateLensReview](#list_wellarchitected-action-GetReviewTemplateLensReview)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [wellarchitected:ListReviewTemplateAnswers](#list_wellarchitected-action-ListReviewTemplateAnswers)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [wellarchitected:TagResource](#list_wellarchitected-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateWorkloadShare  **
+  - **IAM action:**  [wellarchitected:CreateWorkloadShare](#list_wellarchitected-action-CreateWorkloadShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAgentContext  **
+  - **IAM action:**  [wellarchitected:DeleteAgentContext](#list_wellarchitected-action-DeleteAgentContext) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAgentGoal  **
+  - **IAM action:**  [wellarchitected:DeleteAgentGoal](#list_wellarchitected-action-DeleteAgentGoal) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAgentProfile  **
+  - **IAM action:**  [wellarchitected:DeleteAgentProfile](#list_wellarchitected-action-DeleteAgentProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteLens  **
+  - **IAM action:**  [wellarchitected:DeleteLens](#list_wellarchitected-action-DeleteLens) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteLensShare  **
+  - **IAM action:**  [wellarchitected:DeleteLensShare](#list_wellarchitected-action-DeleteLensShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteProfile  **
+  - **IAM action:**  [wellarchitected:DeleteProfile](#list_wellarchitected-action-DeleteProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteProfileShare  **
+  - **IAM action:**  [wellarchitected:DeleteProfileShare](#list_wellarchitected-action-DeleteProfileShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteReviewTemplate  **
+  - **IAM action:**  [wellarchitected:DeleteReviewTemplate](#list_wellarchitected-action-DeleteReviewTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteTemplateShare  **
+  - **IAM action:**  [wellarchitected:DeleteTemplateShare](#list_wellarchitected-action-DeleteTemplateShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteWorkload  **
+  - **IAM action:**  [wellarchitected:DeleteWorkload](#list_wellarchitected-action-DeleteWorkload) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteWorkloadShare  **
+  - **IAM action:**  [wellarchitected:DeleteWorkloadShare](#list_wellarchitected-action-DeleteWorkloadShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateLenses  **
+  - **IAM action:**  [wellarchitected:DisassociateLenses](#list_wellarchitected-action-DisassociateLenses) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateProfiles  **
+  - **IAM action:**  [wellarchitected:DisassociateProfiles](#list_wellarchitected-action-DisassociateProfiles) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ExportLens  **
+  - **IAM action:**  [wellarchitected:ExportLens](#list_wellarchitected-action-ExportLens) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAgentContext  **
+  - **IAM action:**  [wellarchitected:GetAgentContext](#list_wellarchitected-action-GetAgentContext) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAgentGoal  **
+  - **IAM action:**  [wellarchitected:GetAgentGoal](#list_wellarchitected-action-GetAgentGoal) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAgentProfile  **
+  - **IAM action:**  [wellarchitected:GetAgentProfile](#list_wellarchitected-action-GetAgentProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAgentRecommendation  **
+  - **IAM action:**  [wellarchitected:GetAgentRecommendation](#list_wellarchitected-action-GetAgentRecommendation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAgentRecommendationGeneration  **
+  - **IAM action:**  [wellarchitected:GetAgentRecommendationGeneration](#list_wellarchitected-action-GetAgentRecommendationGeneration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAnswer  **
+  - **IAM action:**  [wellarchitected:GetAnswer](#list_wellarchitected-action-GetAnswer) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetConsolidatedReport  **
+  - **IAM action:**  [wellarchitected:GetConsolidatedReport](#list_wellarchitected-action-GetConsolidatedReport) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetGlobalSettings  **
+  - **IAM action:**  [wellarchitected:GetGlobalSettings](#list_wellarchitected-action-GetGlobalSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetLens  **
+  - **IAM action:**  [wellarchitected:GetLens](#list_wellarchitected-action-GetLens) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetLensReview  **
+  - **IAM action:**  [wellarchitected:GetLensReview](#list_wellarchitected-action-GetLensReview) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetLensReviewReport  **
+  - **IAM action:**  [wellarchitected:GetLensReviewReport](#list_wellarchitected-action-GetLensReviewReport) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetLensVersionDifference  **
+  - **IAM action:**  [wellarchitected:GetLensVersionDifference](#list_wellarchitected-action-GetLensVersionDifference) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMilestone  **
+  - **IAM action:**  [wellarchitected:GetMilestone](#list_wellarchitected-action-GetMilestone) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetProfile  **
+  - **IAM action:**  [wellarchitected:GetProfile](#list_wellarchitected-action-GetProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetProfileTemplate  **
+  - **IAM action:**  [wellarchitected:GetProfileTemplate](#list_wellarchitected-action-GetProfileTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReviewTemplate  **
+  - **IAM action:**  [wellarchitected:GetReviewTemplate](#list_wellarchitected-action-GetReviewTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReviewTemplateAnswer  **
+  - **IAM action:**  [wellarchitected:GetReviewTemplateAnswer](#list_wellarchitected-action-GetReviewTemplateAnswer) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReviewTemplateLensReview  **
+  - **IAM action:**  [wellarchitected:GetReviewTemplateLensReview](#list_wellarchitected-action-GetReviewTemplateLensReview) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetWorkload  **
+  - **IAM action:**  [wellarchitected:GetWorkload](#list_wellarchitected-action-GetWorkload) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ImportLens  **
+  - **IAM action:**  [wellarchitected:ImportLens](#list_wellarchitected-action-ImportLens)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [wellarchitected:TagResource](#list_wellarchitected-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   ListAgentContexts  **
+  - **IAM action:**  [wellarchitected:ListAgentContexts](#list_wellarchitected-action-ListAgentContexts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAgentGoals  **
+  - **IAM action:**  [wellarchitected:ListAgentGoals](#list_wellarchitected-action-ListAgentGoals) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAgentProfiles  **
+  - **IAM action:**  [wellarchitected:ListAgentProfiles](#list_wellarchitected-action-ListAgentProfiles) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAgentRecommendationGenerations  **
+  - **IAM action:**  [wellarchitected:ListAgentRecommendationGenerations](#list_wellarchitected-action-ListAgentRecommendationGenerations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAgentRecommendationItems  **
+  - **IAM action:**  [wellarchitected:ListAgentRecommendationItems](#list_wellarchitected-action-ListAgentRecommendationItems) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAgentRecommendations  **
+  - **IAM action:**  [wellarchitected:ListAgentRecommendations](#list_wellarchitected-action-ListAgentRecommendations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAnswers  **
+  - **IAM action:**  [wellarchitected:ListAnswers](#list_wellarchitected-action-ListAnswers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCheckDetails  **
+  - **IAM action:**  [wellarchitected:ListCheckDetails](#list_wellarchitected-action-ListCheckDetails) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCheckSummaries  **
+  - **IAM action:**  [wellarchitected:ListCheckSummaries](#list_wellarchitected-action-ListCheckSummaries) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListLensReviewImprovements  **
+  - **IAM action:**  [wellarchitected:ListLensReviewImprovements](#list_wellarchitected-action-ListLensReviewImprovements) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListLensReviews  **
+  - **IAM action:**  [wellarchitected:ListLensReviews](#list_wellarchitected-action-ListLensReviews) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListLensShares  **
+  - **IAM action:**  [wellarchitected:ListLensShares](#list_wellarchitected-action-ListLensShares) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListLenses  **
+  - **IAM action:**  [wellarchitected:ListLenses](#list_wellarchitected-action-ListLenses) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMilestones  **
+  - **IAM action:**  [wellarchitected:ListMilestones](#list_wellarchitected-action-ListMilestones) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListNotifications  **
+  - **IAM action:**  [wellarchitected:ListNotifications](#list_wellarchitected-action-ListNotifications) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListProfileNotifications  **
+  - **IAM action:**  [wellarchitected:ListProfileNotifications](#list_wellarchitected-action-ListProfileNotifications) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListProfileShares  **
+  - **IAM action:**  [wellarchitected:ListProfileShares](#list_wellarchitected-action-ListProfileShares) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListProfiles  **
+  - **IAM action:**  [wellarchitected:ListProfiles](#list_wellarchitected-action-ListProfiles) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListReviewTemplateAnswers  **
+  - **IAM action:**  [wellarchitected:ListReviewTemplateAnswers](#list_wellarchitected-action-ListReviewTemplateAnswers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListReviewTemplates  **
+  - **IAM action:**  [wellarchitected:ListReviewTemplates](#list_wellarchitected-action-ListReviewTemplates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListShareInvitations  **
+  - **IAM action:**  [wellarchitected:ListShareInvitations](#list_wellarchitected-action-ListShareInvitations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [wellarchitected:ListTagsForResource](#list_wellarchitected-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTemplateShares  **
+  - **IAM action:**  [wellarchitected:ListTemplateShares](#list_wellarchitected-action-ListTemplateShares) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListWorkloadShares  **
+  - **IAM action:**  [wellarchitected:ListWorkloadShares](#list_wellarchitected-action-ListWorkloadShares) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListWorkloads  **
+  - **IAM action:**  [wellarchitected:ListWorkloads](#list_wellarchitected-action-ListWorkloads) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PutAgentRecommendationFeedback  **
+  - **IAM action:**  [wellarchitected:PutAgentRecommendationFeedback](#list_wellarchitected-action-PutAgentRecommendationFeedback) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartAgentRecommendationGeneration  **
+  - **IAM action:**  [wellarchitected:StartAgentRecommendationGeneration](#list_wellarchitected-action-StartAgentRecommendationGeneration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [wellarchitected:TagResource](#list_wellarchitected-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [wellarchitected:UntagResource](#list_wellarchitected-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAgentContext  **
+  - **IAM action:**  [wellarchitected:UpdateAgentContext](#list_wellarchitected-action-UpdateAgentContext) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAgentGoal  **
+  - **IAM action:**  [wellarchitected:UpdateAgentGoal](#list_wellarchitected-action-UpdateAgentGoal) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAgentProfile  **
+  - **IAM action:**  [wellarchitected:UpdateAgentProfile](#list_wellarchitected-action-UpdateAgentProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** wellarchitected.amazonaws.com / **Access level:** Write
+
+- **   UpdateAgentRecommendationStatus  **
+  - **IAM action:**  [wellarchitected:UpdateAgentRecommendationStatus](#list_wellarchitected-action-UpdateAgentRecommendationStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAnswer  **
+  - **IAM action:**  [wellarchitected:UpdateAnswer](#list_wellarchitected-action-UpdateAnswer) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateGlobalSettings  **
+  - **IAM action:**  [wellarchitected:UpdateGlobalSettings](#list_wellarchitected-action-UpdateGlobalSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateIntegration  **
+  - **IAM action:**  [wellarchitected:UpdateIntegration](#list_wellarchitected-action-UpdateIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateLensReview  **
+  - **IAM action:**  [wellarchitected:UpdateLensReview](#list_wellarchitected-action-UpdateLensReview) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateProfile  **
+  - **IAM action:**  [wellarchitected:UpdateProfile](#list_wellarchitected-action-UpdateProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateReviewTemplate  **
+  - **IAM action:**  [wellarchitected:UpdateReviewTemplate](#list_wellarchitected-action-UpdateReviewTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateReviewTemplateAnswer  **
+  - **IAM action:**  [wellarchitected:UpdateReviewTemplateAnswer](#list_wellarchitected-action-UpdateReviewTemplateAnswer) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateReviewTemplateLensReview  **
+  - **IAM action:**  [wellarchitected:UpdateReviewTemplateLensReview](#list_wellarchitected-action-UpdateReviewTemplateLensReview) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateShareInvitation  **
+  - **IAM action:**  [wellarchitected:UpdateShareInvitation](#list_wellarchitected-action-UpdateShareInvitation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateWorkload  **
+  - **IAM action:**  [wellarchitected:UpdateWorkload](#list_wellarchitected-action-UpdateWorkload) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateWorkloadShare  **
+  - **IAM action:**  [wellarchitected:UpdateWorkloadShare](#list_wellarchitected-action-UpdateWorkloadShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpgradeLensReview  **
+  - **IAM action:**  [wellarchitected:UpgradeLensReview](#list_wellarchitected-action-UpgradeLensReview) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpgradeProfileVersion  **
+  - **IAM action:**  [wellarchitected:UpgradeProfileVersion](#list_wellarchitected-action-UpgradeProfileVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpgradeReviewTemplateLensReview  **
+  - **IAM action:**  [wellarchitected:UpgradeReviewTemplateLensReview](#list_wellarchitected-action-UpgradeReviewTemplateLensReview) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS Well-Architected Tool
+<a name="list_wellarchitected-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                           | Resource types (\*required)                                                                                                         | Condition keys                                                                                                                                                                                                                                                                                                                                                       | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AssociateLenses](../../../wellarchitected/latest/APIReference/API_AssociateLenses.md "../../../wellarchitected/latest/APIReference/API_AssociateLenses.md")                                                          | Grants permission to associate a lens to the specified workload                                                                                                                                                                                                                                                                                       | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [AssociateProfiles](../../../wellarchitected/latest/APIReference/API_AssociateProfiles.md "../../../wellarchitected/latest/APIReference/API_AssociateProfiles.md")                                                    | Grants permission to associate a profile to the specified workload                                                                                                                                                                                                                                                                                    | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [CreateAgentContext](../../../wellarchitected/latest/APIReference/API_CreateAgentContext.md "../../../wellarchitected/latest/APIReference/API_CreateAgentContext.md")                                                 | Grants permission to create a context associated with a profile                                                                                                                                                                                                                                                                                       | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [CreateAgentGoal](../../../wellarchitected/latest/APIReference/API_CreateAgentGoal.md "../../../wellarchitected/latest/APIReference/API_CreateAgentGoal.md")                                                          | Grants permission to create a goal associated with a profile                                                                                                                                                                                                                                                                                          | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [CreateAgentProfile](../../../wellarchitected/latest/APIReference/API_CreateAgentProfile.md "../../../wellarchitected/latest/APIReference/API_CreateAgentProfile.md")                                                 | Grants permission to create an agent profile                                                                                                                                                                                                                                                                                                          |                                                                                                                                     | [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_ "#list_wellarchitected-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys")                                                                                                                                                  | Write          |
-| [CreateLensShare](../../../wellarchitected/latest/APIReference/API_CreateLensShare.md "../../../wellarchitected/latest/APIReference/API_CreateLensShare.md")                                                          | Grants permission to an owner of a lens to share with other AWS accounts and IAM users                                                                                                                                                                                                                                                                | [lens\*](#list_wellarchitected-resource-lens "#list_wellarchitected-resource-lens")                                                 | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [CreateLensVersion](../../../wellarchitected/latest/APIReference/API_CreateLensVersion.md "../../../wellarchitected/latest/APIReference/API_CreateLensVersion.md")                                                    | Grants permission to create a new lens version                                                                                                                                                                                                                                                                                                        | [lens\*](#list_wellarchitected-resource-lens "#list_wellarchitected-resource-lens")                                                 | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [CreateMilestone](../../../wellarchitected/latest/APIReference/API_CreateMilestone.md "../../../wellarchitected/latest/APIReference/API_CreateMilestone.md")                                                          | Grants permission to create a new milestone for the specified workload                                                                                                                                                                                                                                                                                | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [CreateProfile](../../../wellarchitected/latest/APIReference/API_CreateProfile.md "../../../wellarchitected/latest/APIReference/API_CreateProfile.md")                                                                | Grants permission to create a new profile                                                                                                                                                                                                                                                                                                             |                                                                                                                                     | [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_ "#list_wellarchitected-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys")                                                                                                                                                  | Write          |
-| [CreateProfileShare](../../../wellarchitected/latest/APIReference/API_CreateProfileShare.md "../../../wellarchitected/latest/APIReference/API_CreateProfileShare.md")                                                 | Grants permission to an owner of a profile to share with other AWS accounts and IAM users                                                                                                                                                                                                                                                             | [profile\*](#list_wellarchitected-resource-profile "#list_wellarchitected-resource-profile")                                        | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [CreateReviewTemplate](../../../wellarchitected/latest/APIReference/API_CreateReviewTemplate.md "../../../wellarchitected/latest/APIReference/API_CreateReviewTemplate.md")                                           | Grants permission to create a new review template                                                                                                                                                                                                                                                                                                     |                                                                                                                                     | [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_ "#list_wellarchitected-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys")                                                                                                                                                  | Write          |
-| [CreateTemplateShare](../../../wellarchitected/latest/APIReference/API_CreateTemplateShare.md "../../../wellarchitected/latest/APIReference/API_CreateTemplateShare.md")                                              | Grants permission to an owner of a review template to share with other AWS accounts and IAM users                                                                                                                                                                                                                                                     | [review-template\*](#list_wellarchitected-resource-review-template "#list_wellarchitected-resource-review-template")                | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [CreateWorkload](../../../wellarchitected/latest/APIReference/API_CreateWorkload.md "../../../wellarchitected/latest/APIReference/API_CreateWorkload.md")                                                             | Grants permission to create a new workload                                                                                                                                                                                                                                                                                                            |                                                                                                                                     | [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_ "#list_wellarchitected-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys")<br>[wellarchitected:JiraProjectKey](#list_wellarchitected-wellarchitected_JiraProjectKey "#list_wellarchitected-wellarchitected_JiraProjectKey") | Write          |
-| [CreateWorkloadShare](../../../wellarchitected/latest/APIReference/API_CreateWorkloadShare.md "../../../wellarchitected/latest/APIReference/API_CreateWorkloadShare.md")                                              | Grants permission to share a workload with another account                                                                                                                                                                                                                                                                                            | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [DeleteAgentContext](../../../wellarchitected/latest/APIReference/API_DeleteAgentContext.md "../../../wellarchitected/latest/APIReference/API_DeleteAgentContext.md")                                                 | Grants permission to delete a context associated with a profile                                                                                                                                                                                                                                                                                       | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [DeleteAgentGoal](../../../wellarchitected/latest/APIReference/API_DeleteAgentGoal.md "../../../wellarchitected/latest/APIReference/API_DeleteAgentGoal.md")                                                          | Grants permission to delete a goal associated with a profile                                                                                                                                                                                                                                                                                          | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [DeleteAgentProfile](../../../wellarchitected/latest/APIReference/API_DeleteAgentProfile.md "../../../wellarchitected/latest/APIReference/API_DeleteAgentProfile.md")                                                 | Grants permission to delete an agent profile                                                                                                                                                                                                                                                                                                          | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [DeleteLens](../../../wellarchitected/latest/APIReference/API_DeleteLens.md "../../../wellarchitected/latest/APIReference/API_DeleteLens.md")                                                                         | Grants permission to delete a lens                                                                                                                                                                                                                                                                                                                    | [lens\*](#list_wellarchitected-resource-lens "#list_wellarchitected-resource-lens")                                                 | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [DeleteLensShare](../../../wellarchitected/latest/APIReference/API_DeleteLensShare.md "../../../wellarchitected/latest/APIReference/API_DeleteLensShare.md")                                                          | Grants permission to delete an existing lens share                                                                                                                                                                                                                                                                                                    | [lens\*](#list_wellarchitected-resource-lens "#list_wellarchitected-resource-lens")                                                 | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [DeleteProfile](../../../wellarchitected/latest/APIReference/API_DeleteProfile.md "../../../wellarchitected/latest/APIReference/API_DeleteProfile.md")                                                                | Grants permission to delete a profile                                                                                                                                                                                                                                                                                                                 | [profile\*](#list_wellarchitected-resource-profile "#list_wellarchitected-resource-profile")                                        | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [DeleteProfileShare](../../../wellarchitected/latest/APIReference/API_DeleteProfileShare.md "../../../wellarchitected/latest/APIReference/API_DeleteProfileShare.md")                                                 | Grants permission to delete an existing profile share                                                                                                                                                                                                                                                                                                 | [profile\*](#list_wellarchitected-resource-profile "#list_wellarchitected-resource-profile")                                        | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [DeleteReviewTemplate](../../../wellarchitected/latest/APIReference/API_DeleteReviewTemplate.md "../../../wellarchitected/latest/APIReference/API_DeleteReviewTemplate.md")                                           | Grants permission to delete an existing review template                                                                                                                                                                                                                                                                                               | [review-template\*](#list_wellarchitected-resource-review-template "#list_wellarchitected-resource-review-template")                | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [DeleteTemplateShare](../../../wellarchitected/latest/APIReference/API_DeleteTemplateShare.md "../../../wellarchitected/latest/APIReference/API_DeleteTemplateShare.md")                                              | Grants permission to delete an existing review template share                                                                                                                                                                                                                                                                                         | [review-template\*](#list_wellarchitected-resource-review-template "#list_wellarchitected-resource-review-template")                | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [DeleteWorkload](../../../wellarchitected/latest/APIReference/API_DeleteWorkload.md "../../../wellarchitected/latest/APIReference/API_DeleteWorkload.md")                                                             | Grants permission to delete an existing workload                                                                                                                                                                                                                                                                                                      | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [DeleteWorkloadShare](../../../wellarchitected/latest/APIReference/API_DeleteWorkloadShare.md "../../../wellarchitected/latest/APIReference/API_DeleteWorkloadShare.md")                                              | Grants permission to delete an existing workload share                                                                                                                                                                                                                                                                                                | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [DisassociateLenses](../../../wellarchitected/latest/APIReference/API_DisassociateLenses.md "../../../wellarchitected/latest/APIReference/API_DisassociateLenses.md")                                                 | Grants permission to disassociate a lens from the specified workload                                                                                                                                                                                                                                                                                  | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [DisassociateProfiles](../../../wellarchitected/latest/APIReference/API_DisassociateProfiles.md "../../../wellarchitected/latest/APIReference/API_DisassociateProfiles.md")                                           | Grants permission to disassociate a profile from the specified workload                                                                                                                                                                                                                                                                               | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [ExportLens](../../../wellarchitected/latest/APIReference/API_ExportLens.md "../../../wellarchitected/latest/APIReference/API_ExportLens.md")                                                                         | Grants permission to export an existing lens                                                                                                                                                                                                                                                                                                          | [lens\*](#list_wellarchitected-resource-lens "#list_wellarchitected-resource-lens")                                                 | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [GetAgentContext](../../../wellarchitected/latest/APIReference/API_GetAgentContext.md "../../../wellarchitected/latest/APIReference/API_GetAgentContext.md")                                                          | Grants permission to get context associated with a profile                                                                                                                                                                                                                                                                                            | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [GetAgentGoal](../../../wellarchitected/latest/APIReference/API_GetAgentGoal.md "../../../wellarchitected/latest/APIReference/API_GetAgentGoal.md")                                                                   | Grants permission to get goal associated with a profile                                                                                                                                                                                                                                                                                               | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [GetAgentProfile](../../../wellarchitected/latest/APIReference/API_GetAgentProfile.md "../../../wellarchitected/latest/APIReference/API_GetAgentProfile.md")                                                          | Grants permission to get agent profile by profile arn                                                                                                                                                                                                                                                                                                 | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [GetAgentRecommendation](../../../wellarchitected/latest/APIReference/API_GetAgentRecommendation.md "../../../wellarchitected/latest/APIReference/API_GetAgentRecommendation.md")                                     | Grants permission to get a recommendation by recommendation ARN                                                                                                                                                                                                                                                                                       | [agent-recommendation\*](#list_wellarchitected-resource-agent-recommendation "#list_wellarchitected-resource-agent-recommendation") | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [GetAgentRecommendationGeneration](../../../wellarchitected/latest/APIReference/API_GetAgentRecommendationGeneration.md "../../../wellarchitected/latest/APIReference/API_GetAgentRecommendationGeneration.md")       | Grants permission to get a recommendation generation                                                                                                                                                                                                                                                                                                  | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [GetAnswer](../../../wellarchitected/latest/APIReference/API_GetAnswer.md "../../../wellarchitected/latest/APIReference/API_GetAnswer.md")                                                                            | Grants permission to retrieve the specified answer from the specified lens review                                                                                                                                                                                                                                                                     | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [GetConsolidatedReport](../../../wellarchitected/latest/APIReference/API_GetConsolidatedReport.md "../../../wellarchitected/latest/APIReference/API_GetConsolidatedReport.md")                                        | Grants permission to get consolidated report metrics or to generate the consolidated report PDF in this account                                                                                                                                                                                                                                       |                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                      | Read           |
-| [GetGlobalSettings](../../../wellarchitected/latest/APIReference/API_GetGlobalSettings.md "../../../wellarchitected/latest/APIReference/API_GetGlobalSettings.md")                                                    | Grants permission to get all settings for the account                                                                                                                                                                                                                                                                                                 |                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                      | Read           |
-| [GetLens](../../../wellarchitected/latest/APIReference/API_DeleteLensShare.md "../../../wellarchitected/latest/APIReference/API_DeleteLensShare.md")                                                                  | Grants permission to get an existing lens                                                                                                                                                                                                                                                                                                             | [lens\*](#list_wellarchitected-resource-lens "#list_wellarchitected-resource-lens")                                                 | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [GetLensReview](../../../wellarchitected/latest/APIReference/API_GetLensReview.md "../../../wellarchitected/latest/APIReference/API_GetLensReview.md")                                                                | Grants permission to retrieve the specified lens review of the specified workload                                                                                                                                                                                                                                                                     | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [GetLensReviewReport](../../../wellarchitected/latest/APIReference/API_GetLensReviewReport.md "../../../wellarchitected/latest/APIReference/API_GetLensReviewReport.md")                                              | Grants permission to retrieve the report for the specified lens review                                                                                                                                                                                                                                                                                | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [GetLensVersionDifference](../../../wellarchitected/latest/APIReference/API_GetLensVersionDifference.md "../../../wellarchitected/latest/APIReference/API_GetLensVersionDifference.md")                               | Grants permission to get the difference between the specified lens version and latest available lens version                                                                                                                                                                                                                                          | [lens\*](#list_wellarchitected-resource-lens "#list_wellarchitected-resource-lens")                                                 | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [GetMilestone](../../../wellarchitected/latest/APIReference/API_GetMilestone.md "../../../wellarchitected/latest/APIReference/API_GetMilestone.md")                                                                   | Grants permission to retrieve the specified milestone of the specified workload                                                                                                                                                                                                                                                                       | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [GetProfile](../../../wellarchitected/latest/APIReference/API_GetProfile.md "../../../wellarchitected/latest/APIReference/API_GetProfile.md")                                                                         | Grants permission to retrieve the specified profile                                                                                                                                                                                                                                                                                                   | [profile\*](#list_wellarchitected-resource-profile "#list_wellarchitected-resource-profile")                                        | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [GetProfileTemplate](../../../wellarchitected/latest/APIReference/API_GetProfileTemplate.md "../../../wellarchitected/latest/APIReference/API_GetProfileTemplate.md")                                                 | Grants permission to retrieve the specified profile template                                                                                                                                                                                                                                                                                          |                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                      | Read           |
-| [GetReviewTemplate](../../../wellarchitected/latest/APIReference/API_GetReviewTemplate.md "../../../wellarchitected/latest/APIReference/API_GetReviewTemplate.md")                                                    | Grants permission to retrieve the specified review template                                                                                                                                                                                                                                                                                           | [review-template\*](#list_wellarchitected-resource-review-template "#list_wellarchitected-resource-review-template")                | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [GetReviewTemplateAnswer](../../../wellarchitected/latest/APIReference/API_GetReviewTemplateAnswer.md "../../../wellarchitected/latest/APIReference/API_GetReviewTemplateAnswer.md")                                  | Grants permission to retrieve the specified answer from the specified review template lens review                                                                                                                                                                                                                                                     | [review-template\*](#list_wellarchitected-resource-review-template "#list_wellarchitected-resource-review-template")                | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [GetReviewTemplateLensReview](../../../wellarchitected/latest/APIReference/API_GetReviewTemplateLensReview.md "../../../wellarchitected/latest/APIReference/API_GetReviewTemplateLensReview.md")                      | Grants permission to retrieve the specified lens review of the specified review template                                                                                                                                                                                                                                                              | [review-template\*](#list_wellarchitected-resource-review-template "#list_wellarchitected-resource-review-template")                | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [GetWorkload](../../../wellarchitected/latest/APIReference/API_GetWorkload.md "../../../wellarchitected/latest/APIReference/API_GetWorkload.md")                                                                      | Grants permission to retrieve the specified workload                                                                                                                                                                                                                                                                                                  | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [ImportLens](../../../wellarchitected/latest/APIReference/API_ImportLens.md "../../../wellarchitected/latest/APIReference/API_ImportLens.md")                                                                         | Grants permission to import a new lens                                                                                                                                                                                                                                                                                                                |                                                                                                                                     | [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_ "#list_wellarchitected-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys")                                                                                                                                                  | Write          |
-| [ListAgentContexts](../../../wellarchitected/latest/APIReference/API_ListAgentContexts.md "../../../wellarchitected/latest/APIReference/API_ListAgentContexts.md")                                                    | Grants permission to list contexts associated with a profile by filters on the fields                                                                                                                                                                                                                                                                 | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [ListAgentGoals](../../../wellarchitected/latest/APIReference/API_ListAgentGoals.md "../../../wellarchitected/latest/APIReference/API_ListAgentGoals.md")                                                             | Grants permission to list goals associated with a profile by filters on the fields                                                                                                                                                                                                                                                                    | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [ListAgentProfiles](../../../wellarchitected/latest/APIReference/API_ListAgentProfiles.md "../../../wellarchitected/latest/APIReference/API_ListAgentProfiles.md")                                                    | Grants permission to list agent profiles                                                                                                                                                                                                                                                                                                              |                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                      | Read           |
-| [ListAgentRecommendationGenerations](../../../wellarchitected/latest/APIReference/API_ListAgentRecommendationGenerations.md "../../../wellarchitected/latest/APIReference/API_ListAgentRecommendationGenerations.md") | Grants permission to list recommendation generations                                                                                                                                                                                                                                                                                                  | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [ListAgentRecommendationItems](../../../wellarchitected/latest/APIReference/API_ListAgentRecommendationItems.md "../../../wellarchitected/latest/APIReference/API_ListAgentRecommendationItems.md")                   | Grants permission to list recommendation items associated with a recommendation                                                                                                                                                                                                                                                                       | [agent-recommendation\*](#list_wellarchitected-resource-agent-recommendation "#list_wellarchitected-resource-agent-recommendation") | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [ListAgentRecommendations](../../../wellarchitected/latest/APIReference/API_ListAgentRecommendations.md "../../../wellarchitected/latest/APIReference/API_ListAgentRecommendations.md")                               | Grants permission to list recommendations by profile ARN                                                                                                                                                                                                                                                                                              | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [ListAnswers](../../../wellarchitected/latest/APIReference/API_ListAnswers.md "../../../wellarchitected/latest/APIReference/API_ListAnswers.md")                                                                      | Grants permission to list the answers from the specified lens review                                                                                                                                                                                                                                                                                  | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | List           |
-| [ListCheckDetails](../../../wellarchitected/latest/APIReference/API_ListCheckDetails.md "../../../wellarchitected/latest/APIReference/API_ListCheckDetails.md")                                                       | Grants permission to list the check-details for the workload                                                                                                                                                                                                                                                                                          | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | List           |
-| [ListCheckSummaries](../../../wellarchitected/latest/APIReference/API_ListCheckSummaries.md "../../../wellarchitected/latest/APIReference/API_ListCheckSummaries.md")                                                 | Grants permission to list the check-summaries for the workload                                                                                                                                                                                                                                                                                        | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | List           |
-| [ListLensReviewImprovements](../../../wellarchitected/latest/APIReference/API_ListLensReviewImprovements.md "../../../wellarchitected/latest/APIReference/API_ListLensReviewImprovements.md")                         | Grants permission to list the improvements of the specified lens review                                                                                                                                                                                                                                                                               | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | List           |
-| [ListLensReviews](../../../wellarchitected/latest/APIReference/API_ListLensReviews.md "../../../wellarchitected/latest/APIReference/API_ListLensReviews.md")                                                          | Grants permission to list the lens reviews of the specified workload                                                                                                                                                                                                                                                                                  | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | List           |
-| [ListLensShares](../../../wellarchitected/latest/APIReference/API_ListLensShares.md "../../../wellarchitected/latest/APIReference/API_ListLensShares.md")                                                             | Grants permission to list all shares created for a lens                                                                                                                                                                                                                                                                                               | [lens\*](#list_wellarchitected-resource-lens "#list_wellarchitected-resource-lens")                                                 | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | List           |
-| [ListLenses](../../../wellarchitected/latest/APIReference/API_ListLenses.md "../../../wellarchitected/latest/APIReference/API_ListLenses.md")                                                                         | Grants permission to list the lenses available to this account                                                                                                                                                                                                                                                                                        |                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                      | List           |
-| [ListMilestones](../../../wellarchitected/latest/APIReference/API_ListMilestones.md "../../../wellarchitected/latest/APIReference/API_ListMilestones.md")                                                             | Grants permission to list the milestones of the specified workload                                                                                                                                                                                                                                                                                    | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | List           |
-| [ListNotifications](../../../wellarchitected/latest/APIReference/API_ListNotifications.md "../../../wellarchitected/latest/APIReference/API_ListNotifications.md")                                                    | Grants permission to list notifications related to the account or specified resource                                                                                                                                                                                                                                                                  |                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                      | List           |
-| [ListProfileNotifications](../../../wellarchitected/latest/APIReference/API_ListProfileNotifications.md "../../../wellarchitected/latest/APIReference/API_ListProfileNotifications.md")                               | Grants permission to list profile notifications related to specified resource                                                                                                                                                                                                                                                                         |                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                      | List           |
-| [ListProfileShares](../../../wellarchitected/latest/APIReference/API_ListProfileShares.md "../../../wellarchitected/latest/APIReference/API_ListProfileShares.md")                                                    | Grants permission to list all shares created for a profile                                                                                                                                                                                                                                                                                            | [profile\*](#list_wellarchitected-resource-profile "#list_wellarchitected-resource-profile")                                        | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | List           |
-| [ListProfiles](../../../wellarchitected/latest/APIReference/API_ListProfiles.md "../../../wellarchitected/latest/APIReference/API_ListProfiles.md")                                                                   | Grants permission to list the profiles available to this account                                                                                                                                                                                                                                                                                      |                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                      | List           |
-| [ListReviewTemplateAnswers](../../../wellarchitected/latest/APIReference/API_ListReviewTemplateAnswers.md "../../../wellarchitected/latest/APIReference/API_ListReviewTemplateAnswers.md")                            | Grants permission to list the answers from the specified review template lens review                                                                                                                                                                                                                                                                  | [review-template\*](#list_wellarchitected-resource-review-template "#list_wellarchitected-resource-review-template")                | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | List           |
-| [ListReviewTemplates](../../../wellarchitected/latest/APIReference/API_ListReviewTemplates.md "../../../wellarchitected/latest/APIReference/API_ListReviewTemplates.md")                                              | Grants permission to list the review templates available to this account                                                                                                                                                                                                                                                                              |                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                      | List           |
-| [ListShareInvitations](../../../wellarchitected/latest/APIReference/API_ListShareInvitations.md "../../../wellarchitected/latest/APIReference/API_ListShareInvitations.md")                                           | Grants permission to list the workload share invitations of the specified account or user                                                                                                                                                                                                                                                             |                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                      | List           |
-| [ListTagsForResource](../../../wellarchitected/latest/APIReference/API_ListTagsForResource.md "../../../wellarchitected/latest/APIReference/API_ListTagsForResource.md")                                              | Grants permission to list tags for a Well-Architected resource                                                                                                                                                                                                                                                                                        | [agent-profile](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                        | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Read           |
-| [agent-recommendation](#list_wellarchitected-resource-agent-recommendation "#list_wellarchitected-resource-agent-recommendation")                                                                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        |
-| [lens](#list_wellarchitected-resource-lens "#list_wellarchitected-resource-lens")                                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        |
-| [profile](#list_wellarchitected-resource-profile "#list_wellarchitected-resource-profile")                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        |
-| [review-template](#list_wellarchitected-resource-review-template "#list_wellarchitected-resource-review-template")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        |
-| [workload](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        |
-| [ListTemplateShares](../../../wellarchitected/latest/APIReference/API_ListTemplateShares.md "../../../wellarchitected/latest/APIReference/API_ListTemplateShares.md")                                                 | Grants permission to list all shares created for a review template                                                                                                                                                                                                                                                                                    | [review-template\*](#list_wellarchitected-resource-review-template "#list_wellarchitected-resource-review-template")                | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | List           |
-| [ListWorkloadShares](../../../wellarchitected/latest/APIReference/API_ListWorkloadShares.md "../../../wellarchitected/latest/APIReference/API_ListWorkloadShares.md")                                                 | Grants permission to list the workload shares of the specified workload                                                                                                                                                                                                                                                                               | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | List           |
-| [ListWorkloads](../../../wellarchitected/latest/APIReference/API_ListWorkloads.md "../../../wellarchitected/latest/APIReference/API_ListWorkloads.md")                                                                | Grants permission to list the workloads in this account                                                                                                                                                                                                                                                                                               |                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                      | List           |
-| [PutAgentRecommendationFeedback](../../../wellarchitected/latest/APIReference/API_PutAgentRecommendationFeedback.md "../../../wellarchitected/latest/APIReference/API_PutAgentRecommendationFeedback.md")             | Grants permission to put feedback on a recommendation                                                                                                                                                                                                                                                                                                 | [agent-recommendation\*](#list_wellarchitected-resource-agent-recommendation "#list_wellarchitected-resource-agent-recommendation") | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [StartAgentRecommendationGeneration](../../../wellarchitected/latest/APIReference/API_StartAgentRecommendationGeneration.md "../../../wellarchitected/latest/APIReference/API_StartAgentRecommendationGeneration.md") | Grants permission to start a recommendation generation process                                                                                                                                                                                                                                                                                        | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [TagResource](../../../wellarchitected/latest/APIReference/API_TagResource.md "../../../wellarchitected/latest/APIReference/API_TagResource.md")                                                                      | Grants permission to tag a Well-Architected resource                                                                                                                                                                                                                                                                                                  | [agent-profile](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                        | [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_ "#list_wellarchitected-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys")                | Tagging, Write |
-| [agent-recommendation](#list_wellarchitected-resource-agent-recommendation "#list_wellarchitected-resource-agent-recommendation")                                                                                     | [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_ "#list_wellarchitected-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys") |
-| [lens](#list_wellarchitected-resource-lens "#list_wellarchitected-resource-lens")                                                                                                                                     | [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_ "#list_wellarchitected-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys") |
-| [profile](#list_wellarchitected-resource-profile "#list_wellarchitected-resource-profile")                                                                                                                            | [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_ "#list_wellarchitected-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys") |
-| [review-template](#list_wellarchitected-resource-review-template "#list_wellarchitected-resource-review-template")                                                                                                    | [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_ "#list_wellarchitected-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys") |
-| [workload](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                                                                                                         | [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_ "#list_wellarchitected-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys") |
-| [UntagResource](../../../wellarchitected/latest/APIReference/API_UntagResource.md "../../../wellarchitected/latest/APIReference/API_UntagResource.md")                                                                | Grants permission to untag a Well-Architected resource                                                                                                                                                                                                                                                                                                | [agent-profile](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                        | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys")                                                                                                                                               | Tagging, Write |
-| [agent-recommendation](#list_wellarchitected-resource-agent-recommendation "#list_wellarchitected-resource-agent-recommendation")                                                                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys")                                                                                                                                |
-| [lens](#list_wellarchitected-resource-lens "#list_wellarchitected-resource-lens")                                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys")                                                                                                                                |
-| [profile](#list_wellarchitected-resource-profile "#list_wellarchitected-resource-profile")                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys")                                                                                                                                |
-| [review-template](#list_wellarchitected-resource-review-template "#list_wellarchitected-resource-review-template")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys")                                                                                                                                |
-| [workload](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_wellarchitected-aws_TagKeys "#list_wellarchitected-aws_TagKeys")                                                                                                                                |
-| [UpdateAgentContext](../../../wellarchitected/latest/APIReference/API_UpdateAgentContext.md "../../../wellarchitected/latest/APIReference/API_UpdateAgentContext.md")                                                 | Grants permission to update a context associated with a profile                                                                                                                                                                                                                                                                                       | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [UpdateAgentGoal](../../../wellarchitected/latest/APIReference/API_UpdateAgentGoal.md "../../../wellarchitected/latest/APIReference/API_UpdateAgentGoal.md")                                                          | Grants permission to update a goal associated with a profile                                                                                                                                                                                                                                                                                          | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [UpdateAgentProfile](../../../wellarchitected/latest/APIReference/API_UpdateAgentProfile.md "../../../wellarchitected/latest/APIReference/API_UpdateAgentProfile.md")                                                 | Grants permission to update an agent profile                                                                                                                                                                                                                                                                                                          | [agent-profile\*](#list_wellarchitected-resource-agent-profile "#list_wellarchitected-resource-agent-profile")                      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [UpdateAgentRecommendationStatus](../../../wellarchitected/latest/APIReference/API_UpdateAgentRecommendationStatus.md "../../../wellarchitected/latest/APIReference/API_UpdateAgentRecommendationStatus.md")          | Grants permission to update the status of a recommendation                                                                                                                                                                                                                                                                                            | [agent-recommendation\*](#list_wellarchitected-resource-agent-recommendation "#list_wellarchitected-resource-agent-recommendation") | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [UpdateAnswer](../../../wellarchitected/latest/APIReference/API_UpdateAnswer.md "../../../wellarchitected/latest/APIReference/API_UpdateAnswer.md")                                                                   | Grants permission to update properties of the specified answer                                                                                                                                                                                                                                                                                        | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [UpdateGlobalSettings](../../../wellarchitected/latest/APIReference/API_UpdateGlobalSettings.md "../../../wellarchitected/latest/APIReference/API_UpdateGlobalSettings.md")                                           | Grants permission to manage all settings for the account                                                                                                                                                                                                                                                                                              |                                                                                                                                     | [wellarchitected:JiraProjectKey](#list_wellarchitected-wellarchitected_JiraProjectKey "#list_wellarchitected-wellarchitected_JiraProjectKey")                                                                                                                                                                                                                        | Write          |
-| [UpdateIntegration](../../../wellarchitected/latest/APIReference/API_UpdateIntegration.md "../../../wellarchitected/latest/APIReference/API_UpdateIntegration.md")                                                    | Grants permission to update properties of the integration                                                                                                                                                                                                                                                                                             | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [UpdateLensReview](../../../wellarchitected/latest/APIReference/API_UpdateLensReview.md "../../../wellarchitected/latest/APIReference/API_UpdateLensReview.md")                                                       | Grants permission to update properties of the specified lens review                                                                                                                                                                                                                                                                                   | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [UpdateProfile](../../../wellarchitected/latest/APIReference/API_UpdateProfile.md "../../../wellarchitected/latest/APIReference/API_UpdateProfile.md")                                                                | Grants permission to update properties of the specified profile                                                                                                                                                                                                                                                                                       | [profile\*](#list_wellarchitected-resource-profile "#list_wellarchitected-resource-profile")                                        | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [UpdateReviewTemplate](../../../wellarchitected/latest/APIReference/API_UpdateReviewTemplate.md "../../../wellarchitected/latest/APIReference/API_UpdateReviewTemplate.md")                                           | Grants permission to update properties of the specified review template                                                                                                                                                                                                                                                                               | [review-template\*](#list_wellarchitected-resource-review-template "#list_wellarchitected-resource-review-template")                | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [UpdateReviewTemplateAnswer](../../../wellarchitected/latest/APIReference/API_UpdateReviewTemplateAnswer.md "../../../wellarchitected/latest/APIReference/API_UpdateReviewTemplateAnswer.md")                         | Grants permission to update properties of the specified review template answer                                                                                                                                                                                                                                                                        | [review-template\*](#list_wellarchitected-resource-review-template "#list_wellarchitected-resource-review-template")                | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [UpdateReviewTemplateLensReview](../../../wellarchitected/latest/APIReference/API_UpdateReviewTemplateLensReview.md "../../../wellarchitected/latest/APIReference/API_UpdateReviewTemplateLensReview.md")             | Grants permission to update properties of the specified review template lens review                                                                                                                                                                                                                                                                   | [review-template\*](#list_wellarchitected-resource-review-template "#list_wellarchitected-resource-review-template")                | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [UpdateShareInvitation](../../../wellarchitected/latest/APIReference/API_UpdateShareInvitation.md "../../../wellarchitected/latest/APIReference/API_UpdateShareInvitation.md")                                        | Grants permission to update status of the specified workload share invitation                                                                                                                                                                                                                                                                         |                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                      | Write          |
-| [UpdateWorkload](../../../wellarchitected/latest/APIReference/API_UpdateWorkload.md "../../../wellarchitected/latest/APIReference/API_UpdateWorkload.md")                                                             | Grants permission to update properties of the specified workload                                                                                                                                                                                                                                                                                      | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")<br>[wellarchitected:JiraProjectKey](#list_wellarchitected-wellarchitected_JiraProjectKey "#list_wellarchitected-wellarchitected_JiraProjectKey")                                                                                      | Write          |
-| [UpdateWorkloadShare](../../../wellarchitected/latest/APIReference/API_UpdateWorkloadShare.md "../../../wellarchitected/latest/APIReference/API_UpdateWorkloadShare.md")                                              | Grants permission to update properties of the specified workload share                                                                                                                                                                                                                                                                                | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [UpgradeLensReview](../../../wellarchitected/latest/APIReference/API_UpgradeLensReview.md "../../../wellarchitected/latest/APIReference/API_UpgradeLensReview.md")                                                    | Grants permission to upgrade the specified lens review to use the latest version of the associated lens                                                                                                                                                                                                                                               | [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                     | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [UpgradeProfileVersion](../../../wellarchitected/latest/APIReference/API_UpgradeProfileVersion.md "../../../wellarchitected/latest/APIReference/API_UpgradeProfileVersion.md")                                        | Grants permission to upgrade the specified workload to use the latest version of the associated profile                                                                                                                                                                                                                                               | [profile\*](#list_wellarchitected-resource-profile "#list_wellarchitected-resource-profile")                                        | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
-| [workload\*](#list_wellarchitected-resource-workload "#list_wellarchitected-resource-workload")                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                        |
-| [UpgradeReviewTemplateLensReview](../../../wellarchitected/latest/APIReference/API_UpgradeReviewTemplateLensReview.md "../../../wellarchitected/latest/APIReference/API_UpgradeReviewTemplateLensReview.md")          | Grants permission to upgrade the specified lens review of the specified review template                                                                                                                                                                                                                                                               | [review-template\*](#list_wellarchitected-resource-review-template "#list_wellarchitected-resource-review-template")                | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                       | Write          |
+
+
+
+- **   [AssociateLenses](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_AssociateLenses.html)  **
+  - **Description:** Grants permission to associate a lens to the specified workload
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateProfiles](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_AssociateProfiles.html)  **
+  - **Description:** Grants permission to associate a profile to the specified workload
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAgentContext](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateAgentContext.html)  **
+  - **Description:** Grants permission to create a context associated with a profile
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAgentGoal](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateAgentGoal.html)  **
+  - **Description:** Grants permission to create a goal associated with a profile
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAgentProfile](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateAgentProfile.html)  **
+  - **Description:** Grants permission to create an agent profile
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateLensShare](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateLensShare.html)  **
+  - **Description:** Grants permission to an owner of a lens to share with other AWS accounts and IAM users
+  - **Resource types (\*required):** [lens\*](#list_wellarchitected-resource-lens)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateLensVersion](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateLensVersion.html)  **
+  - **Description:** Grants permission to create a new lens version
+  - **Resource types (\*required):** [lens\*](#list_wellarchitected-resource-lens)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateMilestone](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateMilestone.html)  **
+  - **Description:** Grants permission to create a new milestone for the specified workload
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateProfile](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateProfile.html)  **
+  - **Description:** Grants permission to create a new profile
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateProfileShare](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateProfileShare.html)  **
+  - **Description:** Grants permission to an owner of a profile to share with other AWS accounts and IAM users
+  - **Resource types (\*required):** [profile\*](#list_wellarchitected-resource-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateReviewTemplate](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateReviewTemplate.html)  **
+  - **Description:** Grants permission to create a new review template
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateTemplateShare](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateTemplateShare.html)  **
+  - **Description:** Grants permission to an owner of a review template to share with other AWS accounts and IAM users
+  - **Resource types (\*required):** [review-template\*](#list_wellarchitected-resource-review-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateWorkload](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateWorkload.html)  **
+  - **Description:** Grants permission to create a new workload
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)<br />[wellarchitected:JiraProjectKey](#list_wellarchitected-wellarchitected_JiraProjectKey)
+  - **Access level:** Write
+
+- **   [CreateWorkloadShare](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateWorkloadShare.html)  **
+  - **Description:** Grants permission to share a workload with another account
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAgentContext](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteAgentContext.html)  **
+  - **Description:** Grants permission to delete a context associated with a profile
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAgentGoal](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteAgentGoal.html)  **
+  - **Description:** Grants permission to delete a goal associated with a profile
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAgentProfile](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteAgentProfile.html)  **
+  - **Description:** Grants permission to delete an agent profile
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteLens](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteLens.html)  **
+  - **Description:** Grants permission to delete a lens
+  - **Resource types (\*required):** [lens\*](#list_wellarchitected-resource-lens)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteLensShare](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteLensShare.html)  **
+  - **Description:** Grants permission to delete an existing lens share
+  - **Resource types (\*required):** [lens\*](#list_wellarchitected-resource-lens)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteProfile](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteProfile.html)  **
+  - **Description:** Grants permission to delete a profile
+  - **Resource types (\*required):** [profile\*](#list_wellarchitected-resource-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteProfileShare](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteProfileShare.html)  **
+  - **Description:** Grants permission to delete an existing profile share
+  - **Resource types (\*required):** [profile\*](#list_wellarchitected-resource-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteReviewTemplate](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteReviewTemplate.html)  **
+  - **Description:** Grants permission to delete an existing review template
+  - **Resource types (\*required):** [review-template\*](#list_wellarchitected-resource-review-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteTemplateShare](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteTemplateShare.html)  **
+  - **Description:** Grants permission to delete an existing review template share
+  - **Resource types (\*required):** [review-template\*](#list_wellarchitected-resource-review-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteWorkload](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteWorkload.html)  **
+  - **Description:** Grants permission to delete an existing workload
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteWorkloadShare](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteWorkloadShare.html)  **
+  - **Description:** Grants permission to delete an existing workload share
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateLenses](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DisassociateLenses.html)  **
+  - **Description:** Grants permission to disassociate a lens from the specified workload
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateProfiles](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DisassociateProfiles.html)  **
+  - **Description:** Grants permission to disassociate a profile from the specified workload
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ExportLens](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ExportLens.html)  **
+  - **Description:** Grants permission to export an existing lens
+  - **Resource types (\*required):** [lens\*](#list_wellarchitected-resource-lens)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAgentContext](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetAgentContext.html)  **
+  - **Description:** Grants permission to get context associated with a profile
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAgentGoal](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetAgentGoal.html)  **
+  - **Description:** Grants permission to get goal associated with a profile
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAgentProfile](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetAgentProfile.html)  **
+  - **Description:** Grants permission to get agent profile by profile arn
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAgentRecommendation](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetAgentRecommendation.html)  **
+  - **Description:** Grants permission to get a recommendation by recommendation ARN
+  - **Resource types (\*required):** [agent-recommendation\*](#list_wellarchitected-resource-agent-recommendation)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAgentRecommendationGeneration](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetAgentRecommendationGeneration.html)  **
+  - **Description:** Grants permission to get a recommendation generation
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAnswer](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetAnswer.html)  **
+  - **Description:** Grants permission to retrieve the specified answer from the specified lens review
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetConsolidatedReport](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetConsolidatedReport.html)  **
+  - **Description:** Grants permission to get consolidated report metrics or to generate the consolidated report PDF in this account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetGlobalSettings](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetGlobalSettings.html)  **
+  - **Description:** Grants permission to get all settings for the account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetLens](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteLensShare.html)  **
+  - **Description:** Grants permission to get an existing lens
+  - **Resource types (\*required):** [lens\*](#list_wellarchitected-resource-lens)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetLensReview](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetLensReview.html)  **
+  - **Description:** Grants permission to retrieve the specified lens review of the specified workload
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetLensReviewReport](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetLensReviewReport.html)  **
+  - **Description:** Grants permission to retrieve the report for the specified lens review
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetLensVersionDifference](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetLensVersionDifference.html)  **
+  - **Description:** Grants permission to get the difference between the specified lens version and latest available lens version
+  - **Resource types (\*required):** [lens\*](#list_wellarchitected-resource-lens)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMilestone](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetMilestone.html)  **
+  - **Description:** Grants permission to retrieve the specified milestone of the specified workload
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetProfile](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetProfile.html)  **
+  - **Description:** Grants permission to retrieve the specified profile
+  - **Resource types (\*required):** [profile\*](#list_wellarchitected-resource-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetProfileTemplate](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetProfileTemplate.html)  **
+  - **Description:** Grants permission to retrieve the specified profile template
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetReviewTemplate](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetReviewTemplate.html)  **
+  - **Description:** Grants permission to retrieve the specified review template
+  - **Resource types (\*required):** [review-template\*](#list_wellarchitected-resource-review-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetReviewTemplateAnswer](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetReviewTemplateAnswer.html)  **
+  - **Description:** Grants permission to retrieve the specified answer from the specified review template lens review
+  - **Resource types (\*required):** [review-template\*](#list_wellarchitected-resource-review-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetReviewTemplateLensReview](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetReviewTemplateLensReview.html)  **
+  - **Description:** Grants permission to retrieve the specified lens review of the specified review template
+  - **Resource types (\*required):** [review-template\*](#list_wellarchitected-resource-review-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetWorkload](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetWorkload.html)  **
+  - **Description:** Grants permission to retrieve the specified workload
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ImportLens](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ImportLens.html)  **
+  - **Description:** Grants permission to import a new lens
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [ListAgentContexts](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListAgentContexts.html)  **
+  - **Description:** Grants permission to list contexts associated with a profile by filters on the fields
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListAgentGoals](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListAgentGoals.html)  **
+  - **Description:** Grants permission to list goals associated with a profile by filters on the fields
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListAgentProfiles](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListAgentProfiles.html)  **
+  - **Description:** Grants permission to list agent profiles
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListAgentRecommendationGenerations](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListAgentRecommendationGenerations.html)  **
+  - **Description:** Grants permission to list recommendation generations
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListAgentRecommendationItems](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListAgentRecommendationItems.html)  **
+  - **Description:** Grants permission to list recommendation items associated with a recommendation
+  - **Resource types (\*required):** [agent-recommendation\*](#list_wellarchitected-resource-agent-recommendation)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListAgentRecommendations](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListAgentRecommendations.html)  **
+  - **Description:** Grants permission to list recommendations by profile ARN
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListAnswers](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListAnswers.html)  **
+  - **Description:** Grants permission to list the answers from the specified lens review
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListCheckDetails](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListCheckDetails.html)  **
+  - **Description:** Grants permission to list the check-details for the workload
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListCheckSummaries](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListCheckSummaries.html)  **
+  - **Description:** Grants permission to list the check-summaries for the workload
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListLensReviewImprovements](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListLensReviewImprovements.html)  **
+  - **Description:** Grants permission to list the improvements of the specified lens review
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListLensReviews](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListLensReviews.html)  **
+  - **Description:** Grants permission to list the lens reviews of the specified workload
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListLensShares](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListLensShares.html)  **
+  - **Description:** Grants permission to list all shares created for a lens
+  - **Resource types (\*required):** [lens\*](#list_wellarchitected-resource-lens)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListLenses](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListLenses.html)  **
+  - **Description:** Grants permission to list the lenses available to this account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMilestones](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListMilestones.html)  **
+  - **Description:** Grants permission to list the milestones of the specified workload
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListNotifications](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListNotifications.html)  **
+  - **Description:** Grants permission to list notifications related to the account or specified resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListProfileNotifications](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListProfileNotifications.html)  **
+  - **Description:** Grants permission to list profile notifications related to specified resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListProfileShares](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListProfileShares.html)  **
+  - **Description:** Grants permission to list all shares created for a profile
+  - **Resource types (\*required):** [profile\*](#list_wellarchitected-resource-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListProfiles](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListProfiles.html)  **
+  - **Description:** Grants permission to list the profiles available to this account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListReviewTemplateAnswers](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListReviewTemplateAnswers.html)  **
+  - **Description:** Grants permission to list the answers from the specified review template lens review
+  - **Resource types (\*required):** [review-template\*](#list_wellarchitected-resource-review-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListReviewTemplates](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListReviewTemplates.html)  **
+  - **Description:** Grants permission to list the review templates available to this account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListShareInvitations](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListShareInvitations.html)  **
+  - **Description:** Grants permission to list the workload share invitations of the specified account or user
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for a Well-Architected resource
+  - **Resource types (\*required):** [agent-profile](#list_wellarchitected-resource-agent-profile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [agent-recommendation](#list_wellarchitected-resource-agent-recommendation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [lens](#list_wellarchitected-resource-lens) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [profile](#list_wellarchitected-resource-profile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [review-template](#list_wellarchitected-resource-review-template) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [workload](#list_wellarchitected-resource-workload) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListTemplateShares](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListTemplateShares.html)  **
+  - **Description:** Grants permission to list all shares created for a review template
+  - **Resource types (\*required):** [review-template\*](#list_wellarchitected-resource-review-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListWorkloadShares](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListWorkloadShares.html)  **
+  - **Description:** Grants permission to list the workload shares of the specified workload
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListWorkloads](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListWorkloads.html)  **
+  - **Description:** Grants permission to list the workloads in this account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [PutAgentRecommendationFeedback](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_PutAgentRecommendationFeedback.html)  **
+  - **Description:** Grants permission to put feedback on a recommendation
+  - **Resource types (\*required):** [agent-recommendation\*](#list_wellarchitected-resource-agent-recommendation)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartAgentRecommendationGeneration](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_StartAgentRecommendationGeneration.html)  **
+  - **Description:** Grants permission to start a recommendation generation process
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag a Well-Architected resource
+  - **Resource types (\*required):** [agent-profile](#list_wellarchitected-resource-agent-profile) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Resource types (\*required):** [agent-recommendation](#list_wellarchitected-resource-agent-recommendation) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Resource types (\*required):** [lens](#list_wellarchitected-resource-lens) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Resource types (\*required):** [profile](#list_wellarchitected-resource-profile) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Resource types (\*required):** [review-template](#list_wellarchitected-resource-review-template) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Resource types (\*required):** [workload](#list_wellarchitected-resource-workload) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_wellarchitected-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag a Well-Architected resource
+  - **Resource types (\*required):** [agent-profile](#list_wellarchitected-resource-agent-profile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Resource types (\*required):** [agent-recommendation](#list_wellarchitected-resource-agent-recommendation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Resource types (\*required):** [lens](#list_wellarchitected-resource-lens) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Resource types (\*required):** [profile](#list_wellarchitected-resource-profile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Resource types (\*required):** [review-template](#list_wellarchitected-resource-review-template) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Resource types (\*required):** [workload](#list_wellarchitected-resource-workload) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_wellarchitected-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAgentContext](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateAgentContext.html)  **
+  - **Description:** Grants permission to update a context associated with a profile
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAgentGoal](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateAgentGoal.html)  **
+  - **Description:** Grants permission to update a goal associated with a profile
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAgentProfile](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateAgentProfile.html)  **
+  - **Description:** Grants permission to update an agent profile
+  - **Resource types (\*required):** [agent-profile\*](#list_wellarchitected-resource-agent-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAgentRecommendationStatus](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateAgentRecommendationStatus.html)  **
+  - **Description:** Grants permission to update the status of a recommendation
+  - **Resource types (\*required):** [agent-recommendation\*](#list_wellarchitected-resource-agent-recommendation)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAnswer](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateAnswer.html)  **
+  - **Description:** Grants permission to update properties of the specified answer
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateGlobalSettings](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateGlobalSettings.html)  **
+  - **Description:** Grants permission to manage all settings for the account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [wellarchitected:JiraProjectKey](#list_wellarchitected-wellarchitected_JiraProjectKey)
+  - **Access level:** Write
+
+- **   [UpdateIntegration](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateIntegration.html)  **
+  - **Description:** Grants permission to update properties of the integration
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateLensReview](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateLensReview.html)  **
+  - **Description:** Grants permission to update properties of the specified lens review
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateProfile](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateProfile.html)  **
+  - **Description:** Grants permission to update properties of the specified profile
+  - **Resource types (\*required):** [profile\*](#list_wellarchitected-resource-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateReviewTemplate](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateReviewTemplate.html)  **
+  - **Description:** Grants permission to update properties of the specified review template
+  - **Resource types (\*required):** [review-template\*](#list_wellarchitected-resource-review-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateReviewTemplateAnswer](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateReviewTemplateAnswer.html)  **
+  - **Description:** Grants permission to update properties of the specified review template answer
+  - **Resource types (\*required):** [review-template\*](#list_wellarchitected-resource-review-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateReviewTemplateLensReview](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateReviewTemplateLensReview.html)  **
+  - **Description:** Grants permission to update properties of the specified review template lens review
+  - **Resource types (\*required):** [review-template\*](#list_wellarchitected-resource-review-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateShareInvitation](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateShareInvitation.html)  **
+  - **Description:** Grants permission to update status of the specified workload share invitation
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateWorkload](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateWorkload.html)  **
+  - **Description:** Grants permission to update properties of the specified workload
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)<br />[wellarchitected:JiraProjectKey](#list_wellarchitected-wellarchitected_JiraProjectKey)
+  - **Access level:** Write
+
+- **   [UpdateWorkloadShare](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateWorkloadShare.html)  **
+  - **Description:** Grants permission to update properties of the specified workload share
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpgradeLensReview](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpgradeLensReview.html)  **
+  - **Description:** Grants permission to upgrade the specified lens review to use the latest version of the associated lens
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpgradeProfileVersion](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpgradeProfileVersion.html)  **
+  - **Description:** Grants permission to upgrade the specified workload to use the latest version of the associated profile
+  - **Resource types (\*required):** [profile\*](#list_wellarchitected-resource-profile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [workload\*](#list_wellarchitected-resource-workload) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpgradeReviewTemplateLensReview](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpgradeReviewTemplateLensReview.html)  **
+  - **Description:** Grants permission to upgrade the specified lens review of the specified review template
+  - **Resource types (\*required):** [review-template\*](#list_wellarchitected-resource-review-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for AWS Well-Architected Tool
+<a name="list_wellarchitected-permission-only-actions"></a>
 
-The following actions are defined by AWS Well-Architected Tool but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by AWS Well-Architected Tool but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                             | Description                                    | Resource types (\*required) | Condition keys | Access level |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | --------------------------- | -------------- | ------------ |
-| [ConfigureIntegration](../../../wellarchitected/latest/userguide/setting-up-jira.md "../../../wellarchitected/latest/userguide/setting-up-jira.md") | Grants permission to configure the integration |                             |                | Write        |
+
+
+| Actions | Description | Resource types (\*required) | Condition keys | Access level | 
+| --- | --- | --- | --- | --- | 
+|   [ConfigureIntegration](https://docs.aws.amazon.com/wellarchitected/latest/userguide/setting-up-jira.html)  | Grants permission to configure the integration |  |   | Write | 
 
 ## Resource types defined by AWS Well-Architected Tool
+<a name="list_wellarchitected-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                                          | ARN                                                                                      | Condition keys                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| [agent-profile](../../../wellarchitected/latest/APIReference/API_AgentProfileSummary.md "../../../wellarchitected/latest/APIReference/API_AgentProfileSummary.md")                      | arn:${Partition}:wellarchitected:${Region}:${Account}:agent-profile/${ProfileName}       | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_") |
-| [agent-recommendation](../../../wellarchitected/latest/APIReference/API_AgentRecommendationSummary.md "../../../wellarchitected/latest/APIReference/API_AgentRecommendationSummary.md") | arn:${Partition}:wellarchitected:${Region}:${Account}:agent-recommendation/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_") |
-| [lens](../../../wellarchitected/latest/APIReference/API_Lens.md "../../../wellarchitected/latest/APIReference/API_Lens.md")                                                             | arn:${Partition}:wellarchitected:${Region}:${Account}:lens/${ResourceId}                 | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_") |
-| [profile](../../../wellarchitected/latest/APIReference/API_Profile.md "../../../wellarchitected/latest/APIReference/API_Profile.md")                                                    | arn:${Partition}:wellarchitected:${Region}:${Account}:profile/${ResourceId}              | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_") |
-| [review-template](../../../wellarchitected/latest/APIReference/API_ReviewTemplate.md "../../../wellarchitected/latest/APIReference/API_ReviewTemplate.md")                              | arn:${Partition}:wellarchitected:${Region}:${Account}:review-template/${ResourceId}      | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_") |
-| [workload](../../../wellarchitected/latest/APIReference/API_Workload.md "../../../wellarchitected/latest/APIReference/API_Workload.md")                                                 | arn:${Partition}:wellarchitected:${Region}:${Account}:workload/${ResourceId}             | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_ "#list_wellarchitected-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [agent-profile](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_AgentProfileSummary.html)  | arn:${Partition}:wellarchitected:${Region}:${Account}:agent-profile/${ProfileName} | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_) | 
+|  [agent-recommendation](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_AgentRecommendationSummary.html)  | arn:${Partition}:wellarchitected:${Region}:${Account}:agent-recommendation/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_) | 
+|  [lens](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_Lens.html)  | arn:${Partition}:wellarchitected:${Region}:${Account}:lens/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_) | 
+|  [profile](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_Profile.html)  | arn:${Partition}:wellarchitected:${Region}:${Account}:profile/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_) | 
+|  [review-template](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ReviewTemplate.html)  | arn:${Partition}:wellarchitected:${Region}:${Account}:review-template/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_) | 
+|  [workload](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_Workload.html)  | arn:${Partition}:wellarchitected:${Region}:${Account}:workload/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_wellarchitected-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Well-Architected Tool
+<a name="list_wellarchitected-policy-keys"></a>
 
-AWS Well-Architected Tool defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Well-Architected Tool defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                    | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by tag key-value pairs in the request           | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by tag key-value pairs attached to the resource | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by tag keys in the request                      | ArrayOfString |
-| [wellarchitected:JiraProjectKey](../../../wellarchitected/latest/userguide/security_iam_id-based-policy-examples.md "../../../wellarchitected/latest/userguide/security_iam_id-based-policy-examples.md")                  | Filters access by project key                                  | String        |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by tag keys in the request | ArrayOfString | 
+|   [wellarchitected:JiraProjectKey](https://docs.aws.amazon.com/wellarchitected/latest/userguide/security_iam_id-based-policy-examples.html)  | Filters access by project key | String | 

@@ -1,120 +1,487 @@
-# Actions, resources, and condition keys for AWS OpsWorks
 
-AWS OpsWorks (service prefix: `opsworks`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS OpsWorks
+<a name="list_opsworks"></a>
+
+AWS OpsWorks (service prefix: `opsworks`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/opsworks/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/opsworks/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/opsworks/opsworks.json) for this service.
 
-- Learn how to [configure this service](../../../opsworks/latest/userguide.md "../../../opsworks/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../opsworks/latest/APIReference.md "../../../opsworks/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../opsworks/latest/userguide/workingsecurity.md "../../../opsworks/latest/userguide/workingsecurity.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/opsworks/opsworks.json "https://servicereference.us-east-1.amazonaws.com/v1/opsworks/opsworks.json") for this service.
-
-###### Topics
-
-- [Actions defined by AWS OpsWorks](#list_opsworks-actions-as-permissions "#list_opsworks-actions-as-permissions")
-- [Resource types defined by AWS OpsWorks](#list_opsworks-resources-for-iam-policies "#list_opsworks-resources-for-iam-policies")
-- [Condition keys for AWS OpsWorks](#list_opsworks-policy-keys "#list_opsworks-policy-keys")
+**Topics**
++ [Actions defined by AWS OpsWorks](#list_opsworks-actions-as-permissions)
++ [Resource types defined by AWS OpsWorks](#list_opsworks-resources-for-iam-policies)
++ [Condition keys for AWS OpsWorks](#list_opsworks-policy-keys)
 
 ## Actions defined by AWS OpsWorks
+<a name="list_opsworks-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                    | Description                                                                                                                                                   | Resource types (\*required)                                            | Condition keys | Access level                  |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | -------------- | ----------------------------- |
-| [AssignInstance](../../../opsworks/latest/APIReference/API_AssignInstance.md "../../../opsworks/latest/APIReference/API_AssignInstance.md")                                                                | Grants permission to assign a registered instance to a layer                                                                                                  | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [AssignVolume](../../../opsworks/latest/APIReference/API_AssignVolume.md "../../../opsworks/latest/APIReference/API_AssignVolume.md")                                                                      | Grants permission to assign one of the stack's registered Amazon EBS volumes to a specified instance                                                          | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [AssociateElasticIp](../../../opsworks/latest/APIReference/API_AssociateElasticIp.md "../../../opsworks/latest/APIReference/API_AssociateElasticIp.md")                                                    | Grants permission to associate one of the stack's registered Elastic IP addresses with a specified instance                                                   | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [AttachElasticLoadBalancer](../../../opsworks/latest/APIReference/API_AttachElasticLoadBalancer.md "../../../opsworks/latest/APIReference/API_AttachElasticLoadBalancer.md")                               | Grants permission to attach an Elastic Load Balancing load balancer to a specified layer                                                                      | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [CloneStack](../../../opsworks/latest/APIReference/API_CloneStack.md "../../../opsworks/latest/APIReference/API_CloneStack.md")                                                                            | Grants permission to create a clone of a specified stack                                                                                                      | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [CreateApp](../../../opsworks/latest/APIReference/API_CreateApp.md "../../../opsworks/latest/APIReference/API_CreateApp.md")                                                                               | Grants permission to create an app for a specified stack                                                                                                      | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [CreateDeployment](../../../opsworks/latest/APIReference/API_CreateDeployment.md "../../../opsworks/latest/APIReference/API_CreateDeployment.md")                                                          | Grants permission to run deployment or stack commands                                                                                                         | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [CreateInstance](../../../opsworks/latest/APIReference/API_CreateInstance.md "../../../opsworks/latest/APIReference/API_CreateInstance.md")                                                                | Grants permission to create an instance in a specified stack                                                                                                  | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [CreateLayer](../../../opsworks/latest/APIReference/API_CreateLayer.md "../../../opsworks/latest/APIReference/API_CreateLayer.md")                                                                         | Grants permission to create a layer                                                                                                                           | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [CreateStack](../../../opsworks/latest/APIReference/API_CreateStack.md "../../../opsworks/latest/APIReference/API_CreateStack.md")                                                                         | Grants permission to create a new stack                                                                                                                       |                                                                        |                | Write                         |
-| [CreateUserProfile](../../../opsworks/latest/APIReference/API_CreateUserProfile.md "../../../opsworks/latest/APIReference/API_CreateUserProfile.md")                                                       | Grants permission to create a new user profile                                                                                                                |                                                                        |                | Write                         |
-| [DeleteApp](../../../opsworks/latest/APIReference/API_DeleteApp.md "../../../opsworks/latest/APIReference/API_DeleteApp.md")                                                                               | Grants permission to delete a specified app                                                                                                                   | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [DeleteInstance](../../../opsworks/latest/APIReference/API_DeleteInstance.md "../../../opsworks/latest/APIReference/API_DeleteInstance.md")                                                                | Grants permission to delete a specified instance, which terminates the associated Amazon EC2 instance                                                         | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [DeleteLayer](../../../opsworks/latest/APIReference/API_DeleteLayer.md "../../../opsworks/latest/APIReference/API_DeleteLayer.md")                                                                         | Grants permission to delete a specified layer                                                                                                                 | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [DeleteStack](../../../opsworks/latest/APIReference/API_DeleteStack.md "../../../opsworks/latest/APIReference/API_DeleteStack.md")                                                                         | Grants permission to delete a specified stack                                                                                                                 | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [DeleteUserProfile](../../../opsworks/latest/APIReference/API_DeleteUserProfile.md "../../../opsworks/latest/APIReference/API_DeleteUserProfile.md")                                                       | Grants permission to delete a user profile                                                                                                                    |                                                                        |                | Write                         |
-| [DeregisterEcsCluster](../../../opsworks/latest/APIReference/API_DeregisterEcsCluster.md "../../../opsworks/latest/APIReference/API_DeregisterEcsCluster.md")                                              | Grants permission to delete a user profile                                                                                                                    | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [DeregisterElasticIp](../../../opsworks/latest/APIReference/API_DeregisterElasticIp.md "../../../opsworks/latest/APIReference/API_DeregisterElasticIp.md")                                                 | Grants permission to deregister a specified Elastic IP address                                                                                                | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [DeregisterInstance](../../../opsworks/latest/APIReference/API_DeregisterInstance.md "../../../opsworks/latest/APIReference/API_DeregisterInstance.md")                                                    | Grants permission to deregister a registered Amazon EC2 or on-premises instance                                                                               | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [DeregisterRdsDbInstance](../../../opsworks/latest/APIReference/API_DeregisterRdsDbInstance.md "../../../opsworks/latest/APIReference/API_DeregisterRdsDbInstance.md")                                     | Grants permission to deregister an Amazon RDS instance                                                                                                        | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [DeregisterVolume](../../../opsworks/latest/APIReference/API_DeregisterVolume.md "../../../opsworks/latest/APIReference/API_DeregisterVolume.md")                                                          | Grants permission to deregister an Amazon EBS volume                                                                                                          | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [DescribeAgentVersions](../../../opsworks/latest/APIReference/API_DescribeAgentVersions.md "../../../opsworks/latest/APIReference/API_DescribeAgentVersions.md")                                           | Grants permission to describe the available AWS OpsWorks agent versions                                                                                       | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeApps](../../../opsworks/latest/APIReference/API_DescribeApps.md "../../../opsworks/latest/APIReference/API_DescribeApps.md")                                                                      | Grants permission to request a description of a specified set of apps                                                                                         | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeCommands](../../../opsworks/latest/APIReference/API_DescribeCommands.md "../../../opsworks/latest/APIReference/API_DescribeCommands.md")                                                          | Grants permission to describe the results of specified commands                                                                                               | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeDeployments](../../../opsworks/latest/APIReference/API_DescribeDeployments.md "../../../opsworks/latest/APIReference/API_DescribeDeployments.md")                                                 | Grants permission to request a description of a specified set of deployments                                                                                  | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeEcsClusters](../../../opsworks/latest/APIReference/API_DescribeEcsClusters.md "../../../opsworks/latest/APIReference/API_DescribeEcsClusters.md")                                                 | Grants permission to describe Amazon ECS clusters that are registered with a stack                                                                            | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeElasticIps](../../../opsworks/latest/APIReference/API_DescribeElasticIps.md "../../../opsworks/latest/APIReference/API_DescribeElasticIps.md")                                                    | Grants permission to describe Elastic IP addresses                                                                                                            | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeElasticLoadBalancers](../../../opsworks/latest/APIReference/API_DescribeElasticLoadBalancers.md "../../../opsworks/latest/APIReference/API_DescribeElasticLoadBalancers.md")                      | Grants permission to describe a stack's Elastic Load Balancing instances                                                                                      | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeInstances](../../../opsworks/latest/APIReference/API_DescribeInstances.md "../../../opsworks/latest/APIReference/API_DescribeInstances.md")                                                       | Grants permission to request a description of a set of instances                                                                                              | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeLayers](../../../opsworks/latest/APIReference/API_DescribeLayers.md "../../../opsworks/latest/APIReference/API_DescribeLayers.md")                                                                | Grants permission to request a description of one or more layers in a specified stack                                                                         | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeLoadBasedAutoScaling](../../../opsworks/latest/APIReference/API_DescribeLoadBasedAutoScaling.md "../../../opsworks/latest/APIReference/API_DescribeLoadBasedAutoScaling.md")                      | Grants permission to describe load-based auto scaling configurations for specified layers                                                                     | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeMyUserProfile](../../../opsworks/latest/APIReference/API_DescribeMyUserProfile.md "../../../opsworks/latest/APIReference/API_DescribeMyUserProfile.md")                                           | Grants permission to describe a user's SSH information                                                                                                        |                                                                        |                | List                          |
-| [DescribeOperatingSystems](../../../opsworks/latest/APIReference/API_DescribeOperatingSystems.md "../../../opsworks/latest/APIReference/API_DescribeOperatingSystems.md")                                  | Grants permission to describe the operating systems that are supported by AWS OpsWorks Stacks                                                                 |                                                                        |                | List                          |
-| [DescribePermissions](../../../opsworks/latest/APIReference/API_DescribePermissions.md "../../../opsworks/latest/APIReference/API_DescribePermissions.md")                                                 | Grants permission to describe the permissions for a specified stack                                                                                           | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeRaidArrays](../../../opsworks/latest/APIReference/API_DescribeRaidArrays.md "../../../opsworks/latest/APIReference/API_DescribeRaidArrays.md")                                                    | Grants permission to describe an instance's RAID arrays                                                                                                       | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeRdsDbInstances](../../../opsworks/latest/APIReference/API_DescribeRdsDbInstances.md "../../../opsworks/latest/APIReference/API_DescribeRdsDbInstances.md")                                        | Grants permission to describe Amazon RDS instances                                                                                                            | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeServiceErrors](../../../opsworks/latest/APIReference/API_DescribeServiceErrors.md "../../../opsworks/latest/APIReference/API_DescribeServiceErrors.md")                                           | Grants permission to describe AWS OpsWorks service errors                                                                                                     | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeStackProvisioningParameters](../../../opsworks/latest/APIReference/API_DescribeStackProvisioningParameters.md "../../../opsworks/latest/APIReference/API_DescribeStackProvisioningParameters.md") | Grants permission to request a description of a stack's provisioning parameters                                                                               | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeStackSummary](../../../opsworks/latest/APIReference/API_DescribeStackSummary.md "../../../opsworks/latest/APIReference/API_DescribeStackSummary.md")                                              | Grants permission to describe the number of layers and apps in a specified stack, and the number of instances in each state, such as running\_setup or online | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeStacks](../../../opsworks/latest/APIReference/API_DescribeStacks.md "../../../opsworks/latest/APIReference/API_DescribeStacks.md")                                                                | Grants permission to request a description of one or more stacks                                                                                              | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeTimeBasedAutoScaling](../../../opsworks/latest/APIReference/API_DescribeTimeBasedAutoScaling.md "../../../opsworks/latest/APIReference/API_DescribeTimeBasedAutoScaling.md")                      | Grants permission to describe time-based auto scaling configurations for specified instances                                                                  | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DescribeUserProfiles](../../../opsworks/latest/APIReference/API_DescribeUserProfiles.md "../../../opsworks/latest/APIReference/API_DescribeUserProfiles.md")                                              | Grants permission to describe specified users                                                                                                                 |                                                                        |                | List                          |
-| [DescribeVolumes](../../../opsworks/latest/APIReference/API_DescribeVolumes.md "../../../opsworks/latest/APIReference/API_DescribeVolumes.md")                                                             | Grants permission to describe an instance's Amazon EBS volumes                                                                                                | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [DetachElasticLoadBalancer](../../../opsworks/latest/APIReference/API_DetachElasticLoadBalancer.md "../../../opsworks/latest/APIReference/API_DetachElasticLoadBalancer.md")                               | Grants permission to detache a specified Elastic Load Balancing instance from its layer                                                                       | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [DisassociateElasticIp](../../../opsworks/latest/APIReference/API_DisassociateElasticIp.md "../../../opsworks/latest/APIReference/API_DisassociateElasticIp.md")                                           | Grants permission to disassociate an Elastic IP address from its instance                                                                                     | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [GetHostnameSuggestion](../../../opsworks/latest/APIReference/API_GetHostnameSuggestion.md "../../../opsworks/latest/APIReference/API_GetHostnameSuggestion.md")                                           | Grants permission to get a generated host name for the specified layer, based on the current host name theme                                                  | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Read                          |
-| [GrantAccess](../../../opsworks/latest/APIReference/API_RebootInstance.md "../../../opsworks/latest/APIReference/API_RebootInstance.md")                                                                   | Grants permission to grant RDP access to a Windows instance for a specified time period                                                                       | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [ListTags](../../../opsworks/latest/APIReference/API_ListTags.md "../../../opsworks/latest/APIReference/API_ListTags.md")                                                                                  | Grants permission to return a list of tags that are applied to the specified stack or layer                                                                   | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | List                          |
-| [RebootInstance](../../../opsworks/latest/APIReference/API_RebootInstance.md "../../../opsworks/latest/APIReference/API_RebootInstance.md")                                                                | Grants permission to reboot a specified instance                                                                                                              | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [RegisterEcsCluster](../../../opsworks/latest/APIReference/API_RegisterEcsCluster.md "../../../opsworks/latest/APIReference/API_RegisterEcsCluster.md")                                                    | Grants permission to register a specified Amazon ECS cluster with a stack                                                                                     | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [RegisterElasticIp](../../../opsworks/latest/APIReference/API_RegisterElasticIp.md "../../../opsworks/latest/APIReference/API_RegisterElasticIp.md")                                                       | Grants permission to register an Elastic IP address with a specified stack                                                                                    | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [RegisterInstance](../../../opsworks/latest/APIReference/API_RegisterInstance.md "../../../opsworks/latest/APIReference/API_RegisterInstance.md")                                                          | Grants permission to register instances with a specified stack that were created outside of AWS OpsWorks                                                      | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [RegisterRdsDbInstance](../../../opsworks/latest/APIReference/API_RegisterRdsDbInstance.md "../../../opsworks/latest/APIReference/API_RegisterRdsDbInstance.md")                                           | Grants permission to register an Amazon RDS instance with a stack                                                                                             | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [RegisterVolume](../../../opsworks/latest/APIReference/API_RegisterVolume.md "../../../opsworks/latest/APIReference/API_RegisterVolume.md")                                                                | Grants permission to register an Amazon EBS volume with a specified stack                                                                                     | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [SetLoadBasedAutoScaling](../../../opsworks/latest/APIReference/API_SetLoadBasedAutoScaling.md "../../../opsworks/latest/APIReference/API_SetLoadBasedAutoScaling.md")                                     | Grants permission to specify the load-based auto scaling configuration for a specified layer                                                                  | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [SetPermission](../../../opsworks/latest/APIReference/API_SetPermission.md "../../../opsworks/latest/APIReference/API_SetPermission.md")                                                                   | Grants permission to specify a user's permissions                                                                                                             | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Permissions management, Write |
-| [SetTimeBasedAutoScaling](../../../opsworks/latest/APIReference/API_SetTimeBasedAutoScaling.md "../../../opsworks/latest/APIReference/API_SetTimeBasedAutoScaling.md")                                     | Grants permission to specify the time-based auto scaling configuration for a specified instance                                                               | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [StartInstance](../../../opsworks/latest/APIReference/API_StartInstance.md "../../../opsworks/latest/APIReference/API_StartInstance.md")                                                                   | Grants permission to start a specified instance                                                                                                               | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [StartStack](../../../opsworks/latest/APIReference/API_StartStack.md "../../../opsworks/latest/APIReference/API_StartStack.md")                                                                            | Grants permission to start a stack's instances                                                                                                                | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [StopInstance](../../../opsworks/latest/APIReference/API_StopInstance.md "../../../opsworks/latest/APIReference/API_StopInstance.md")                                                                      | Grants permission to stop a specified instance                                                                                                                | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [StopStack](../../../opsworks/latest/APIReference/API_StopStack.md "../../../opsworks/latest/APIReference/API_StopStack.md")                                                                               | Grants permission to stop a specified stack                                                                                                                   | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [TagResource](../../../opsworks/latest/APIReference/API_TagResource.md "../../../opsworks/latest/APIReference/API_TagResource.md")                                                                         | Grants permission to apply tags to a specified stack or layer                                                                                                 | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Tagging, Write                |
-| [UnassignInstance](../../../opsworks/latest/APIReference/API_UnassignInstance.md "../../../opsworks/latest/APIReference/API_UnassignInstance.md")                                                          | Grants permission to unassign a registered instance from all of it's layers                                                                                   | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [UnassignVolume](../../../opsworks/latest/APIReference/API_UnassignVolume.md "../../../opsworks/latest/APIReference/API_UnassignVolume.md")                                                                | Grants permission to unassign an assigned Amazon EBS volume                                                                                                   | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [UntagResource](../../../opsworks/latest/APIReference/API_UntagResource.md "../../../opsworks/latest/APIReference/API_UntagResource.md")                                                                   | Grants permission to remove tags from a specified stack or layer                                                                                              | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Tagging, Write                |
-| [UpdateApp](../../../opsworks/latest/APIReference/API_UpdateApp.md "../../../opsworks/latest/APIReference/API_UpdateApp.md")                                                                               | Grants permission to update a specified app                                                                                                                   | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [UpdateElasticIp](../../../opsworks/latest/APIReference/API_UpdateElasticIp.md "../../../opsworks/latest/APIReference/API_UpdateElasticIp.md")                                                             | Grants permission to update a registered Elastic IP address's name                                                                                            | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [UpdateInstance](../../../opsworks/latest/APIReference/API_UpdateInstance.md "../../../opsworks/latest/APIReference/API_UpdateInstance.md")                                                                | Grants permission to update a specified instance                                                                                                              | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [UpdateLayer](../../../opsworks/latest/APIReference/API_UpdateLayer.md "../../../opsworks/latest/APIReference/API_UpdateLayer.md")                                                                         | Grants permission to update a specified layer                                                                                                                 | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [UpdateMyUserProfile](../../../opsworks/latest/APIReference/API_UpdateMyUserProfile.md "../../../opsworks/latest/APIReference/API_UpdateMyUserProfile.md")                                                 | Grants permission to update a user's SSH public key                                                                                                           |                                                                        |                | Write                         |
-| [UpdateRdsDbInstance](../../../opsworks/latest/APIReference/API_UpdateRdsDbInstance.md "../../../opsworks/latest/APIReference/API_UpdateRdsDbInstance.md")                                                 | Grants permission to update an Amazon RDS instance                                                                                                            | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [UpdateStack](../../../opsworks/latest/APIReference/API_UpdateStack.md "../../../opsworks/latest/APIReference/API_UpdateStack.md")                                                                         | Grants permission to update a specified stack                                                                                                                 | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
-| [UpdateUserProfile](../../../opsworks/latest/APIReference/API_UpdateUserProfile.md "../../../opsworks/latest/APIReference/API_UpdateUserProfile.md")                                                       | Grants permission to update a specified user profile                                                                                                          |                                                                        |                | Permissions management, Write |
-| [UpdateVolume](../../../opsworks/latest/APIReference/API_UpdateVolume.md "../../../opsworks/latest/APIReference/API_UpdateVolume.md")                                                                      | Grants permission to update an Amazon EBS volume's name or mount point                                                                                        | [stack](#list_opsworks-resource-stack "#list_opsworks-resource-stack") |                | Write                         |
+
+
+
+- **   [AssignInstance](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssignInstance.html)  **
+  - **Description:** Grants permission to assign a registered instance to a layer
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [AssignVolume](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssignVolume.html)  **
+  - **Description:** Grants permission to assign one of the stack's registered Amazon EBS volumes to a specified instance
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [AssociateElasticIp](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssociateElasticIp.html)  **
+  - **Description:** Grants permission to associate one of the stack's registered Elastic IP addresses with a specified instance
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [AttachElasticLoadBalancer](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_AttachElasticLoadBalancer.html)  **
+  - **Description:** Grants permission to attach an Elastic Load Balancing load balancer to a specified layer
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CloneStack](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_CloneStack.html)  **
+  - **Description:** Grants permission to create a clone of a specified stack
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateApp](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateApp.html)  **
+  - **Description:** Grants permission to create an app for a specified stack
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateDeployment](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateDeployment.html)  **
+  - **Description:** Grants permission to run deployment or stack commands
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateInstance](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateInstance.html)  **
+  - **Description:** Grants permission to create an instance in a specified stack
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateLayer](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateLayer.html)  **
+  - **Description:** Grants permission to create a layer
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateStack](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateStack.html)  **
+  - **Description:** Grants permission to create a new stack
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateUserProfile](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateUserProfile.html)  **
+  - **Description:** Grants permission to create a new user profile
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteApp](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteApp.html)  **
+  - **Description:** Grants permission to delete a specified app
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteInstance](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteInstance.html)  **
+  - **Description:** Grants permission to delete a specified instance, which terminates the associated Amazon EC2 instance
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteLayer](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteLayer.html)  **
+  - **Description:** Grants permission to delete a specified layer
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteStack](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteStack.html)  **
+  - **Description:** Grants permission to delete a specified stack
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteUserProfile](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteUserProfile.html)  **
+  - **Description:** Grants permission to delete a user profile
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeregisterEcsCluster](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterEcsCluster.html)  **
+  - **Description:** Grants permission to delete a user profile
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeregisterElasticIp](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterElasticIp.html)  **
+  - **Description:** Grants permission to deregister a specified Elastic IP address
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeregisterInstance](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterInstance.html)  **
+  - **Description:** Grants permission to deregister a registered Amazon EC2 or on-premises instance
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeregisterRdsDbInstance](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterRdsDbInstance.html)  **
+  - **Description:** Grants permission to deregister an Amazon RDS instance
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeregisterVolume](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterVolume.html)  **
+  - **Description:** Grants permission to deregister an Amazon EBS volume
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DescribeAgentVersions](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeAgentVersions.html)  **
+  - **Description:** Grants permission to describe the available AWS OpsWorks agent versions
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeApps](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeApps.html)  **
+  - **Description:** Grants permission to request a description of a specified set of apps
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeCommands](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeCommands.html)  **
+  - **Description:** Grants permission to describe the results of specified commands
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeDeployments](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeDeployments.html)  **
+  - **Description:** Grants permission to request a description of a specified set of deployments
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeEcsClusters](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeEcsClusters.html)  **
+  - **Description:** Grants permission to describe Amazon ECS clusters that are registered with a stack
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeElasticIps](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeElasticIps.html)  **
+  - **Description:** Grants permission to describe Elastic IP addresses
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeElasticLoadBalancers](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeElasticLoadBalancers.html)  **
+  - **Description:** Grants permission to describe a stack's Elastic Load Balancing instances
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeInstances](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeInstances.html)  **
+  - **Description:** Grants permission to request a description of a set of instances
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeLayers](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeLayers.html)  **
+  - **Description:** Grants permission to request a description of one or more layers in a specified stack
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeLoadBasedAutoScaling](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeLoadBasedAutoScaling.html)  **
+  - **Description:** Grants permission to describe load-based auto scaling configurations for specified layers
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeMyUserProfile](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeMyUserProfile.html)  **
+  - **Description:** Grants permission to describe a user's SSH information
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeOperatingSystems](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeOperatingSystems.html)  **
+  - **Description:** Grants permission to describe the operating systems that are supported by AWS OpsWorks Stacks
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribePermissions](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribePermissions.html)  **
+  - **Description:** Grants permission to describe the permissions for a specified stack
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeRaidArrays](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeRaidArrays.html)  **
+  - **Description:** Grants permission to describe an instance's RAID arrays
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeRdsDbInstances](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeRdsDbInstances.html)  **
+  - **Description:** Grants permission to describe Amazon RDS instances
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeServiceErrors](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeServiceErrors.html)  **
+  - **Description:** Grants permission to describe AWS OpsWorks service errors
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeStackProvisioningParameters](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeStackProvisioningParameters.html)  **
+  - **Description:** Grants permission to request a description of a stack's provisioning parameters
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeStackSummary](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeStackSummary.html)  **
+  - **Description:** Grants permission to describe the number of layers and apps in a specified stack, and the number of instances in each state, such as running\_setup or online
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeStacks](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeStacks.html)  **
+  - **Description:** Grants permission to request a description of one or more stacks
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeTimeBasedAutoScaling](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeTimeBasedAutoScaling.html)  **
+  - **Description:** Grants permission to describe time-based auto scaling configurations for specified instances
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeUserProfiles](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeUserProfiles.html)  **
+  - **Description:** Grants permission to describe specified users
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeVolumes](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeVolumes.html)  **
+  - **Description:** Grants permission to describe an instance's Amazon EBS volumes
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DetachElasticLoadBalancer](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DetachElasticLoadBalancer.html)  **
+  - **Description:** Grants permission to detache a specified Elastic Load Balancing instance from its layer
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DisassociateElasticIp](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DisassociateElasticIp.html)  **
+  - **Description:** Grants permission to disassociate an Elastic IP address from its instance
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [GetHostnameSuggestion](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_GetHostnameSuggestion.html)  **
+  - **Description:** Grants permission to get a generated host name for the specified layer, based on the current host name theme
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GrantAccess](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_RebootInstance.html)  **
+  - **Description:** Grants permission to grant RDP access to a Windows instance for a specified time period
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ListTags](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_ListTags.html)  **
+  - **Description:** Grants permission to return a list of tags that are applied to the specified stack or layer
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [RebootInstance](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_RebootInstance.html)  **
+  - **Description:** Grants permission to reboot a specified instance
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RegisterEcsCluster](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterEcsCluster.html)  **
+  - **Description:** Grants permission to register a specified Amazon ECS cluster with a stack
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RegisterElasticIp](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterElasticIp.html)  **
+  - **Description:** Grants permission to register an Elastic IP address with a specified stack
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RegisterInstance](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterInstance.html)  **
+  - **Description:** Grants permission to register instances with a specified stack that were created outside of AWS OpsWorks
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RegisterRdsDbInstance](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterRdsDbInstance.html)  **
+  - **Description:** Grants permission to register an Amazon RDS instance with a stack
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RegisterVolume](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterVolume.html)  **
+  - **Description:** Grants permission to register an Amazon EBS volume with a specified stack
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SetLoadBasedAutoScaling](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetLoadBasedAutoScaling.html)  **
+  - **Description:** Grants permission to specify the load-based auto scaling configuration for a specified layer
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SetPermission](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetPermission.html)  **
+  - **Description:** Grants permission to specify a user's permissions
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+- **   [SetTimeBasedAutoScaling](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetTimeBasedAutoScaling.html)  **
+  - **Description:** Grants permission to specify the time-based auto scaling configuration for a specified instance
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartInstance](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_StartInstance.html)  **
+  - **Description:** Grants permission to start a specified instance
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartStack](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_StartStack.html)  **
+  - **Description:** Grants permission to start a stack's instances
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StopInstance](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_StopInstance.html)  **
+  - **Description:** Grants permission to stop a specified instance
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StopStack](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_StopStack.html)  **
+  - **Description:** Grants permission to stop a specified stack
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to apply tags to a specified stack or layer
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Tagging, Write
+
+- **   [UnassignInstance](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_UnassignInstance.html)  **
+  - **Description:** Grants permission to unassign a registered instance from all of it's layers
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UnassignVolume](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_UnassignVolume.html)  **
+  - **Description:** Grants permission to unassign an assigned Amazon EBS volume
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove tags from a specified stack or layer
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Tagging, Write
+
+- **   [UpdateApp](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateApp.html)  **
+  - **Description:** Grants permission to update a specified app
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateElasticIp](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateElasticIp.html)  **
+  - **Description:** Grants permission to update a registered Elastic IP address's name
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateInstance](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateInstance.html)  **
+  - **Description:** Grants permission to update a specified instance
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateLayer](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateLayer.html)  **
+  - **Description:** Grants permission to update a specified layer
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateMyUserProfile](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateMyUserProfile.html)  **
+  - **Description:** Grants permission to update a user's SSH public key
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateRdsDbInstance](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateRdsDbInstance.html)  **
+  - **Description:** Grants permission to update an Amazon RDS instance
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateStack](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateStack.html)  **
+  - **Description:** Grants permission to update a specified stack
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateUserProfile](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateUserProfile.html)  **
+  - **Description:** Grants permission to update a specified user profile
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+- **   [UpdateVolume](https://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateVolume.html)  **
+  - **Description:** Grants permission to update an Amazon EBS volume's name or mount point
+  - **Resource types (\*required):** [stack](#list_opsworks-resource-stack)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS OpsWorks
+<a name="list_opsworks-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                     | ARN                                                              | Condition keys |
-| ------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------- | -------------- |
-| [stack](../../../opsworks/latest/userguide/workingstacks.md "../../../opsworks/latest/userguide/workingstacks.md") | arn:${Partition}:opsworks:${Region}:${Account}:stack/${StackId}/ |                |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [stack](https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks.html)  | arn:${Partition}:opsworks:${Region}:${Account}:stack/${StackId}/ |   | 
 
 ## Condition keys for AWS OpsWorks
+<a name="list_opsworks-policy-keys"></a>
 
-AWS OpsWorks has no service-specific condition keys that can be used in the
-`Condition` element of policy statements.
+AWS OpsWorks has no service-specific condition keys that can be used in the `Condition` element of policy statements.

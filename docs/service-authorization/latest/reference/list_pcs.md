@@ -1,126 +1,304 @@
-# Actions, resources, and condition keys for AWS Parallel Computing Service
 
-AWS Parallel Computing Service (service prefix: `pcs`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Parallel Computing Service
+<a name="list_pcs"></a>
+
+AWS Parallel Computing Service (service prefix: `pcs`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/pcs/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/pcs/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/pcs/latest/userguide/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/pcs/pcs.json) for this service.
 
-- Learn how to [configure this service](../../../pcs/latest/userguide.md "../../../pcs/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../pcs/latest/APIReference.md "../../../pcs/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../pcs/latest/userguide/security-iam.md "../../../pcs/latest/userguide/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/pcs/pcs.json "https://servicereference.us-east-1.amazonaws.com/v1/pcs/pcs.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Parallel Computing Service](#list_pcs-operations "#list_pcs-operations")
-- [Actions defined by AWS Parallel Computing Service](#list_pcs-actions-as-permissions "#list_pcs-actions-as-permissions")
-- [Permission-only actions for AWS Parallel Computing Service](#list_pcs-permission-only-actions "#list_pcs-permission-only-actions")
-- [Resource types defined by AWS Parallel Computing Service](#list_pcs-resources-for-iam-policies "#list_pcs-resources-for-iam-policies")
-- [Condition keys for AWS Parallel Computing Service](#list_pcs-policy-keys "#list_pcs-policy-keys")
+**Topics**
++ [API operations defined by AWS Parallel Computing Service](#list_pcs-operations)
++ [Actions defined by AWS Parallel Computing Service](#list_pcs-actions-as-permissions)
++ [Permission-only actions for AWS Parallel Computing Service](#list_pcs-permission-only-actions)
++ [Resource types defined by AWS Parallel Computing Service](#list_pcs-resources-for-iam-policies)
++ [Condition keys for AWS Parallel Computing Service](#list_pcs-policy-keys)
 
 ## API operations defined by AWS Parallel Computing Service
+<a name="list_pcs-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_pcs-actions-as-permissions "#list_pcs-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_pcs-actions-as-permissions).
 
-| Operation                                                                                                                       | IAM action                                                                                                                                    | Condition key     | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- | -------------- |
-| CreateCluster                                                                                                                   | [pcs:CreateCluster](#list_pcs-action-CreateCluster "#list_pcs-action-CreateCluster")                                                          |                   |                   | Write          |
-| [pcs:TagResource](#list_pcs-action-TagResource "#list_pcs-action-TagResource")                                                  |                                                                                                                                               |                   | Tagging, Write    |
-| CreateComputeNodeGroup                                                                                                          | [pcs:CreateComputeNodeGroup](#list_pcs-action-CreateComputeNodeGroup "#list_pcs-action-CreateComputeNodeGroup")                               |                   |                   | Write          |
-| [pcs:TagResource](#list_pcs-action-TagResource "#list_pcs-action-TagResource")                                                  |                                                                                                                                               |                   | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                           | ec2.amazonaws.com | Write             |
-| CreateQueue                                                                                                                     | [pcs:CreateQueue](#list_pcs-action-CreateQueue "#list_pcs-action-CreateQueue")                                                                |                   |                   | Write          |
-| [pcs:TagResource](#list_pcs-action-TagResource "#list_pcs-action-TagResource")                                                  |                                                                                                                                               |                   | Tagging, Write    |
-| DeleteCluster                                                                                                                   | [pcs:DeleteCluster](#list_pcs-action-DeleteCluster "#list_pcs-action-DeleteCluster")                                                          |                   |                   | Write          |
-| DeleteComputeNodeGroup                                                                                                          | [pcs:DeleteComputeNodeGroup](#list_pcs-action-DeleteComputeNodeGroup "#list_pcs-action-DeleteComputeNodeGroup")                               |                   |                   | Write          |
-| DeleteQueue                                                                                                                     | [pcs:DeleteQueue](#list_pcs-action-DeleteQueue "#list_pcs-action-DeleteQueue")                                                                |                   |                   | Write          |
-| GetCluster                                                                                                                      | [pcs:GetCluster](#list_pcs-action-GetCluster "#list_pcs-action-GetCluster")                                                                   |                   |                   | Read           |
-| GetComputeNodeGroup                                                                                                             | [pcs:GetComputeNodeGroup](#list_pcs-action-GetComputeNodeGroup "#list_pcs-action-GetComputeNodeGroup")                                        |                   |                   | Read           |
-| GetQueue                                                                                                                        | [pcs:GetQueue](#list_pcs-action-GetQueue "#list_pcs-action-GetQueue")                                                                         |                   |                   | Read           |
-| ListClusters                                                                                                                    | [pcs:ListClusters](#list_pcs-action-ListClusters "#list_pcs-action-ListClusters")                                                             |                   |                   | List           |
-| ListComputeNodeGroups                                                                                                           | [pcs:ListComputeNodeGroups](#list_pcs-action-ListComputeNodeGroups "#list_pcs-action-ListComputeNodeGroups")                                  |                   |                   | List           |
-| ListQueues                                                                                                                      | [pcs:ListQueues](#list_pcs-action-ListQueues "#list_pcs-action-ListQueues")                                                                   |                   |                   | List           |
-| ListTagsForResource                                                                                                             | [pcs:ListTagsForResource](#list_pcs-action-ListTagsForResource "#list_pcs-action-ListTagsForResource")                                        |                   |                   | Read           |
-| RegisterComputeNodeGroupInstance                                                                                                | [pcs:RegisterComputeNodeGroupInstance](#list_pcs-action-RegisterComputeNodeGroupInstance "#list_pcs-action-RegisterComputeNodeGroupInstance") |                   |                   | Write          |
-| TagResource                                                                                                                     | [pcs:TagResource](#list_pcs-action-TagResource "#list_pcs-action-TagResource")                                                                |                   |                   | Tagging, Write |
-| UntagResource                                                                                                                   | [pcs:UntagResource](#list_pcs-action-UntagResource "#list_pcs-action-UntagResource")                                                          |                   |                   | Tagging, Write |
-| UpdateCluster                                                                                                                   | [pcs:UpdateCluster](#list_pcs-action-UpdateCluster "#list_pcs-action-UpdateCluster")                                                          |                   |                   | Write          |
-| UpdateComputeNodeGroup                                                                                                          | [pcs:UpdateComputeNodeGroup](#list_pcs-action-UpdateComputeNodeGroup "#list_pcs-action-UpdateComputeNodeGroup")                               |                   |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                           | ec2.amazonaws.com | Write             |
-| UpdateQueue                                                                                                                     | [pcs:UpdateQueue](#list_pcs-action-UpdateQueue "#list_pcs-action-UpdateQueue")                                                                |                   |                   | Write          |
+
+
+
+- **   CreateCluster  **
+  - **IAM action:**  [pcs:CreateCluster](#list_pcs-action-CreateCluster)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [pcs:TagResource](#list_pcs-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateComputeNodeGroup  **
+  - **IAM action:**  [pcs:CreateComputeNodeGroup](#list_pcs-action-CreateComputeNodeGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [pcs:TagResource](#list_pcs-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** ec2.amazonaws.com / **Access level:** Write
+
+- **   CreateQueue  **
+  - **IAM action:**  [pcs:CreateQueue](#list_pcs-action-CreateQueue)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [pcs:TagResource](#list_pcs-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteCluster  **
+  - **IAM action:**  [pcs:DeleteCluster](#list_pcs-action-DeleteCluster) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteComputeNodeGroup  **
+  - **IAM action:**  [pcs:DeleteComputeNodeGroup](#list_pcs-action-DeleteComputeNodeGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteQueue  **
+  - **IAM action:**  [pcs:DeleteQueue](#list_pcs-action-DeleteQueue) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetCluster  **
+  - **IAM action:**  [pcs:GetCluster](#list_pcs-action-GetCluster) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetComputeNodeGroup  **
+  - **IAM action:**  [pcs:GetComputeNodeGroup](#list_pcs-action-GetComputeNodeGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetQueue  **
+  - **IAM action:**  [pcs:GetQueue](#list_pcs-action-GetQueue) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListClusters  **
+  - **IAM action:**  [pcs:ListClusters](#list_pcs-action-ListClusters) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListComputeNodeGroups  **
+  - **IAM action:**  [pcs:ListComputeNodeGroups](#list_pcs-action-ListComputeNodeGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListQueues  **
+  - **IAM action:**  [pcs:ListQueues](#list_pcs-action-ListQueues) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [pcs:ListTagsForResource](#list_pcs-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   RegisterComputeNodeGroupInstance  **
+  - **IAM action:**  [pcs:RegisterComputeNodeGroupInstance](#list_pcs-action-RegisterComputeNodeGroupInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [pcs:TagResource](#list_pcs-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [pcs:UntagResource](#list_pcs-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateCluster  **
+  - **IAM action:**  [pcs:UpdateCluster](#list_pcs-action-UpdateCluster) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateComputeNodeGroup  **
+  - **IAM action:**  [pcs:UpdateComputeNodeGroup](#list_pcs-action-UpdateComputeNodeGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** ec2.amazonaws.com / **Access level:** Write
+
+- **   UpdateQueue  **
+  - **IAM action:**  [pcs:UpdateQueue](#list_pcs-action-UpdateQueue) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS Parallel Computing Service
+<a name="list_pcs-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                 | Description                                                                                                                                                                                                                                                                   | Resource types (\*required)                                          | Condition keys                                                                                                                                                                                                                                                                | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [CreateCluster](../../../pcs/latest/APIReference/API_CreateCluster.md "../../../pcs/latest/APIReference/API_CreateCluster.md")                                                          | Grants permission to create clusters                                                                                                                                                                                                                                          |                                                                      | [aws:RequestTag/${TagKey}](#list_pcs-aws_RequestTag___TagKey_ "#list_pcs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pcs-aws_TagKeys "#list_pcs-aws_TagKeys") | Write          |
-| [CreateComputeNodeGroup](../../../pcs/latest/APIReference/API_CreateComputeNodeGroup.md "../../../pcs/latest/APIReference/API_CreateComputeNodeGroup.md")                               | Grants permission to create compute node groups                                                                                                                                                                                                                               | [cluster\*](#list_pcs-resource-cluster "#list_pcs-resource-cluster") | [aws:RequestTag/${TagKey}](#list_pcs-aws_RequestTag___TagKey_ "#list_pcs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pcs-aws_TagKeys "#list_pcs-aws_TagKeys") | Write          |
-| [CreateQueue](../../../pcs/latest/APIReference/API_CreateQueue.md "../../../pcs/latest/APIReference/API_CreateQueue.md")                                                                | Grants permission to create queues                                                                                                                                                                                                                                            | [cluster\*](#list_pcs-resource-cluster "#list_pcs-resource-cluster") | [aws:RequestTag/${TagKey}](#list_pcs-aws_RequestTag___TagKey_ "#list_pcs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pcs-aws_TagKeys "#list_pcs-aws_TagKeys") | Write          |
-| [DeleteCluster](../../../pcs/latest/APIReference/API_DeleteCluster.md "../../../pcs/latest/APIReference/API_DeleteCluster.md")                                                          | Grants permission to delete clusters                                                                                                                                                                                                                                          | [cluster\*](#list_pcs-resource-cluster "#list_pcs-resource-cluster") | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [DeleteComputeNodeGroup](../../../pcs/latest/APIReference/API_DeleteComputeNodeGroup.md "../../../pcs/latest/APIReference/API_DeleteComputeNodeGroup.md")                               | Grants permission to delete compute node groups                                                                                                                                                                                                                               | [cluster\*](#list_pcs-resource-cluster "#list_pcs-resource-cluster") | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [computenodegroup\*](#list_pcs-resource-computenodegroup "#list_pcs-resource-computenodegroup")                                                                                         | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [DeleteQueue](../../../pcs/latest/APIReference/API_DeleteQueue.md "../../../pcs/latest/APIReference/API_DeleteQueue.md")                                                                | Grants permission to delete queues                                                                                                                                                                                                                                            | [cluster\*](#list_pcs-resource-cluster "#list_pcs-resource-cluster") | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [queue\*](#list_pcs-resource-queue "#list_pcs-resource-queue")                                                                                                                          | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [GetCluster](../../../pcs/latest/APIReference/API_GetCluster.md "../../../pcs/latest/APIReference/API_GetCluster.md")                                                                   | Grants permission to get cluster properties                                                                                                                                                                                                                                   | [cluster\*](#list_pcs-resource-cluster "#list_pcs-resource-cluster") | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [GetComputeNodeGroup](../../../pcs/latest/APIReference/API_GetComputeNodeGroup.md "../../../pcs/latest/APIReference/API_GetComputeNodeGroup.md")                                        | Grants permission to get compute node group properties                                                                                                                                                                                                                        | [cluster\*](#list_pcs-resource-cluster "#list_pcs-resource-cluster") | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [computenodegroup\*](#list_pcs-resource-computenodegroup "#list_pcs-resource-computenodegroup")                                                                                         | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [GetQueue](../../../pcs/latest/APIReference/API_GetQueue.md "../../../pcs/latest/APIReference/API_GetQueue.md")                                                                         | Grants permission to get queue properties                                                                                                                                                                                                                                     | [cluster\*](#list_pcs-resource-cluster "#list_pcs-resource-cluster") | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Read           |
-| [queue\*](#list_pcs-resource-queue "#list_pcs-resource-queue")                                                                                                                          | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [ListClusters](../../../pcs/latest/APIReference/API_ListClusters.md "../../../pcs/latest/APIReference/API_ListClusters.md")                                                             | Grants permission to list clusters                                                                                                                                                                                                                                            |                                                                      |                                                                                                                                                                                                                                                                               | List           |
-| [ListComputeNodeGroups](../../../pcs/latest/APIReference/API_ListComputeNodeGroups.md "../../../pcs/latest/APIReference/API_ListComputeNodeGroups.md")                                  | Grants permission to list compute node groups                                                                                                                                                                                                                                 | [cluster\*](#list_pcs-resource-cluster "#list_pcs-resource-cluster") | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        | List           |
-| [ListQueues](../../../pcs/latest/APIReference/API_ListQueues.md "../../../pcs/latest/APIReference/API_ListQueues.md")                                                                   | Grants permission to list queues                                                                                                                                                                                                                                              | [cluster\*](#list_pcs-resource-cluster "#list_pcs-resource-cluster") | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        | List           |
-| [ListTagsForResource](../../../pcs/latest/APIReference/API_ListTagsForResource.md "../../../pcs/latest/APIReference/API_ListTagsForResource.md")                                        | Grants permission to list the tags for a resource                                                                                                                                                                                                                             |                                                                      |                                                                                                                                                                                                                                                                               | Read           |
-| [RegisterComputeNodeGroupInstance](../../../pcs/latest/APIReference/API_RegisterComputeNodeGroupInstance.md "../../../pcs/latest/APIReference/API_RegisterComputeNodeGroupInstance.md") | Grants permission to register a compute instance in a compute node group                                                                                                                                                                                                      | [cluster\*](#list_pcs-resource-cluster "#list_pcs-resource-cluster") | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [TagResource](../../../pcs/latest/APIReference/API_TagResource.md "../../../pcs/latest/APIReference/API_TagResource.md")                                                                | Grants permission to tag a resource                                                                                                                                                                                                                                           | [cluster](#list_pcs-resource-cluster "#list_pcs-resource-cluster")   | [aws:RequestTag/${TagKey}](#list_pcs-aws_RequestTag___TagKey_ "#list_pcs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pcs-aws_TagKeys "#list_pcs-aws_TagKeys") | Tagging, Write |
-| [computenodegroup](#list_pcs-resource-computenodegroup "#list_pcs-resource-computenodegroup")                                                                                           | [aws:RequestTag/${TagKey}](#list_pcs-aws_RequestTag___TagKey_ "#list_pcs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pcs-aws_TagKeys "#list_pcs-aws_TagKeys") |
-| [queue](#list_pcs-resource-queue "#list_pcs-resource-queue")                                                                                                                            | [aws:RequestTag/${TagKey}](#list_pcs-aws_RequestTag___TagKey_ "#list_pcs-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pcs-aws_TagKeys "#list_pcs-aws_TagKeys") |
-| [UntagResource](../../../pcs/latest/APIReference/API_UntagResource.md "../../../pcs/latest/APIReference/API_UntagResource.md")                                                          | Grants permission to untag a resource                                                                                                                                                                                                                                         | [cluster](#list_pcs-resource-cluster "#list_pcs-resource-cluster")   | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pcs-aws_TagKeys "#list_pcs-aws_TagKeys")                                                                                                        | Tagging, Write |
-| [computenodegroup](#list_pcs-resource-computenodegroup "#list_pcs-resource-computenodegroup")                                                                                           | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pcs-aws_TagKeys "#list_pcs-aws_TagKeys")                                                                                                        |
-| [queue](#list_pcs-resource-queue "#list_pcs-resource-queue")                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pcs-aws_TagKeys "#list_pcs-aws_TagKeys")                                                                                                        |
-| [UpdateCluster](../../../pcs/latest/APIReference/API_UpdateCluster.md "../../../pcs/latest/APIReference/API_UpdateCluster.md")                                                          | Grants permission to update cluster properties                                                                                                                                                                                                                                | [cluster\*](#list_pcs-resource-cluster "#list_pcs-resource-cluster") | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [UpdateComputeNodeGroup](../../../pcs/latest/APIReference/API_UpdateComputeNodeGroup.md "../../../pcs/latest/APIReference/API_UpdateComputeNodeGroup.md")                               | Grants permission to update compute node group properties                                                                                                                                                                                                                     | [cluster\*](#list_pcs-resource-cluster "#list_pcs-resource-cluster") | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [computenodegroup\*](#list_pcs-resource-computenodegroup "#list_pcs-resource-computenodegroup")                                                                                         | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
-| [UpdateQueue](../../../pcs/latest/APIReference/API_UpdateQueue.md "../../../pcs/latest/APIReference/API_UpdateQueue.md")                                                                | Grants permission to update queue properties                                                                                                                                                                                                                                  | [cluster\*](#list_pcs-resource-cluster "#list_pcs-resource-cluster") | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        | Write          |
-| [queue\*](#list_pcs-resource-queue "#list_pcs-resource-queue")                                                                                                                          | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_")                                                                                                                                                                        |
+
+
+
+- **   [CreateCluster](https://docs.aws.amazon.com/pcs/latest/APIReference/API_CreateCluster.html)  **
+  - **Description:** Grants permission to create clusters
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_pcs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pcs-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateComputeNodeGroup](https://docs.aws.amazon.com/pcs/latest/APIReference/API_CreateComputeNodeGroup.html)  **
+  - **Description:** Grants permission to create compute node groups
+  - **Resource types (\*required):** [cluster\*](#list_pcs-resource-cluster)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_pcs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pcs-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateQueue](https://docs.aws.amazon.com/pcs/latest/APIReference/API_CreateQueue.html)  **
+  - **Description:** Grants permission to create queues
+  - **Resource types (\*required):** [cluster\*](#list_pcs-resource-cluster)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_pcs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pcs-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteCluster](https://docs.aws.amazon.com/pcs/latest/APIReference/API_DeleteCluster.html)  **
+  - **Description:** Grants permission to delete clusters
+  - **Resource types (\*required):** [cluster\*](#list_pcs-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteComputeNodeGroup](https://docs.aws.amazon.com/pcs/latest/APIReference/API_DeleteComputeNodeGroup.html)  **
+  - **Description:** Grants permission to delete compute node groups
+  - **Resource types (\*required):** [cluster\*](#list_pcs-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [computenodegroup\*](#list_pcs-resource-computenodegroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteQueue](https://docs.aws.amazon.com/pcs/latest/APIReference/API_DeleteQueue.html)  **
+  - **Description:** Grants permission to delete queues
+  - **Resource types (\*required):** [cluster\*](#list_pcs-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [queue\*](#list_pcs-resource-queue) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetCluster](https://docs.aws.amazon.com/pcs/latest/APIReference/API_GetCluster.html)  **
+  - **Description:** Grants permission to get cluster properties
+  - **Resource types (\*required):** [cluster\*](#list_pcs-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetComputeNodeGroup](https://docs.aws.amazon.com/pcs/latest/APIReference/API_GetComputeNodeGroup.html)  **
+  - **Description:** Grants permission to get compute node group properties
+  - **Resource types (\*required):** [cluster\*](#list_pcs-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [computenodegroup\*](#list_pcs-resource-computenodegroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetQueue](https://docs.aws.amazon.com/pcs/latest/APIReference/API_GetQueue.html)  **
+  - **Description:** Grants permission to get queue properties
+  - **Resource types (\*required):** [cluster\*](#list_pcs-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [queue\*](#list_pcs-resource-queue) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListClusters](https://docs.aws.amazon.com/pcs/latest/APIReference/API_ListClusters.html)  **
+  - **Description:** Grants permission to list clusters
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListComputeNodeGroups](https://docs.aws.amazon.com/pcs/latest/APIReference/API_ListComputeNodeGroups.html)  **
+  - **Description:** Grants permission to list compute node groups
+  - **Resource types (\*required):** [cluster\*](#list_pcs-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListQueues](https://docs.aws.amazon.com/pcs/latest/APIReference/API_ListQueues.html)  **
+  - **Description:** Grants permission to list queues
+  - **Resource types (\*required):** [cluster\*](#list_pcs-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/pcs/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list the tags for a resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [RegisterComputeNodeGroupInstance](https://docs.aws.amazon.com/pcs/latest/APIReference/API_RegisterComputeNodeGroupInstance.html)  **
+  - **Description:** Grants permission to register a compute instance in a compute node group
+  - **Resource types (\*required):** [cluster\*](#list_pcs-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/pcs/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag a resource
+  - **Resource types (\*required):** [cluster](#list_pcs-resource-cluster) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_pcs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pcs-aws_TagKeys)
+  - **Resource types (\*required):** [computenodegroup](#list_pcs-resource-computenodegroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_pcs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pcs-aws_TagKeys)
+  - **Resource types (\*required):** [queue](#list_pcs-resource-queue) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_pcs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pcs-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/pcs/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag a resource
+  - **Resource types (\*required):** [cluster](#list_pcs-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pcs-aws_TagKeys)
+  - **Resource types (\*required):** [computenodegroup](#list_pcs-resource-computenodegroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pcs-aws_TagKeys)
+  - **Resource types (\*required):** [queue](#list_pcs-resource-queue) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pcs-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateCluster](https://docs.aws.amazon.com/pcs/latest/APIReference/API_UpdateCluster.html)  **
+  - **Description:** Grants permission to update cluster properties
+  - **Resource types (\*required):** [cluster\*](#list_pcs-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateComputeNodeGroup](https://docs.aws.amazon.com/pcs/latest/APIReference/API_UpdateComputeNodeGroup.html)  **
+  - **Description:** Grants permission to update compute node group properties
+  - **Resource types (\*required):** [cluster\*](#list_pcs-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [computenodegroup\*](#list_pcs-resource-computenodegroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateQueue](https://docs.aws.amazon.com/pcs/latest/APIReference/API_UpdateQueue.html)  **
+  - **Description:** Grants permission to update queue properties
+  - **Resource types (\*required):** [cluster\*](#list_pcs-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [queue\*](#list_pcs-resource-queue) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for AWS Parallel Computing Service
+<a name="list_pcs-permission-only-actions"></a>
 
-The following actions are defined by AWS Parallel Computing Service but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by AWS Parallel Computing Service but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                                      | Description                                                                 | Resource types (\*required)                                          | Condition keys                                                                                         | Access level |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------ |
-| [AllowVendedLogDeliveryForResource](../../../pcs/latest/userguide/monitoring_scheduler-logs.md "../../../pcs/latest/userguide/monitoring_scheduler-logs.md") | Grants permission to configure vended log delivery for AWS PCS cluster logs | [cluster\*](#list_pcs-resource-cluster "#list_pcs-resource-cluster") | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_") | Write        |
+
+
+
+- **   [AllowVendedLogDeliveryForResource](https://docs.aws.amazon.com/pcs/latest/userguide/monitoring_scheduler-logs.html)  **
+  - **Description:** Grants permission to configure vended log delivery for AWS PCS cluster logs
+  - **Resource types (\*required):** [cluster\*](#list_pcs-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS Parallel Computing Service
+<a name="list_pcs-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                          | ARN                                                                                                                   | Condition keys                                                                                         |
-| --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| [cluster](../../../pcs/latest/APIReference/API_Cluster.md "../../../pcs/latest/APIReference/API_Cluster.md")                            | arn:${Partition}:pcs:${Region}:${Account}:cluster/${ClusterIdentifier}                                                | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_") |
-| [computenodegroup](../../../pcs/latest/APIReference/API_ComputeNodeGroup.md "../../../pcs/latest/APIReference/API_ComputeNodeGroup.md") | arn:${Partition}:pcs:${Region}:${Account}:cluster/${ClusterIdentifier}/computenodegroup/${ComputeNodeGroupIdentifier} | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_") |
-| [queue](../../../pcs/latest/APIReference/API_Queue.md "../../../pcs/latest/APIReference/API_Queue.md")                                  | arn:${Partition}:pcs:${Region}:${Account}:cluster/${ClusterIdentifier}/queue/${QueueIdentifier}                       | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_ "#list_pcs-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [cluster](https://docs.aws.amazon.com/pcs/latest/APIReference/API_Cluster.html)  | arn:${Partition}:pcs:${Region}:${Account}:cluster/${ClusterIdentifier} | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_) | 
+|  [computenodegroup](https://docs.aws.amazon.com/pcs/latest/APIReference/API_ComputeNodeGroup.html)  | arn:${Partition}:pcs:${Region}:${Account}:cluster/${ClusterIdentifier}/computenodegroup/${ComputeNodeGroupIdentifier} | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_) | 
+|  [queue](https://docs.aws.amazon.com/pcs/latest/APIReference/API_Queue.html)  | arn:${Partition}:pcs:${Region}:${Account}:cluster/${ClusterIdentifier}/queue/${QueueIdentifier} | [aws:ResourceTag/${TagKey}](#list_pcs-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Parallel Computing Service
+<a name="list_pcs-policy-keys"></a>
 
-AWS Parallel Computing Service defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Parallel Computing Service defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                   | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by the tags associated with the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 

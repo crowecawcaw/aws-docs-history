@@ -1,199 +1,805 @@
-# Actions, resources, and condition keys for AWS Audit Manager
 
-AWS Audit Manager (service prefix: `auditmanager`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Audit Manager
+<a name="list_auditmanager"></a>
+
+AWS Audit Manager (service prefix: `auditmanager`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/audit-manager/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/audit-manager/latest/APIReference/Welcome.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/audit-manager/latest/userguide/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/auditmanager/auditmanager.json) for this service.
 
-- Learn how to [configure this service](../../../audit-manager/latest/userguide.md "../../../audit-manager/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../audit-manager/latest/APIReference/Welcome.md "../../../audit-manager/latest/APIReference/Welcome.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../audit-manager/latest/userguide/security-iam.md "../../../audit-manager/latest/userguide/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/auditmanager/auditmanager.json "https://servicereference.us-east-1.amazonaws.com/v1/auditmanager/auditmanager.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Audit Manager](#list_auditmanager-operations "#list_auditmanager-operations")
-- [Actions defined by AWS Audit Manager](#list_auditmanager-actions-as-permissions "#list_auditmanager-actions-as-permissions")
-- [Resource types defined by AWS Audit Manager](#list_auditmanager-resources-for-iam-policies "#list_auditmanager-resources-for-iam-policies")
-- [Condition keys for AWS Audit Manager](#list_auditmanager-policy-keys "#list_auditmanager-policy-keys")
+**Topics**
++ [API operations defined by AWS Audit Manager](#list_auditmanager-operations)
++ [Actions defined by AWS Audit Manager](#list_auditmanager-actions-as-permissions)
++ [Resource types defined by AWS Audit Manager](#list_auditmanager-resources-for-iam-policies)
++ [Condition keys for AWS Audit Manager](#list_auditmanager-policy-keys)
 
 ## API operations defined by AWS Audit Manager
+<a name="list_auditmanager-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_auditmanager-actions-as-permissions "#list_auditmanager-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_auditmanager-actions-as-permissions).
 
-| Operation                                                                                                 | IAM action                                                                                                                                                                                                   | Condition key | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | ----------------- | -------------- |
-| AssociateAssessmentReportEvidenceFolder                                                                   | [auditmanager:AssociateAssessmentReportEvidenceFolder](#list_auditmanager-action-AssociateAssessmentReportEvidenceFolder "#list_auditmanager-action-AssociateAssessmentReportEvidenceFolder")                |               |                   | Write          |
-| BatchAssociateAssessmentReportEvidence                                                                    | [auditmanager:BatchAssociateAssessmentReportEvidence](#list_auditmanager-action-BatchAssociateAssessmentReportEvidence "#list_auditmanager-action-BatchAssociateAssessmentReportEvidence")                   |               |                   | Write          |
-| BatchCreateDelegationByAssessment                                                                         | [auditmanager:BatchCreateDelegationByAssessment](#list_auditmanager-action-BatchCreateDelegationByAssessment "#list_auditmanager-action-BatchCreateDelegationByAssessment")                                  |               |                   | Write          |
-| BatchDeleteDelegationByAssessment                                                                         | [auditmanager:BatchDeleteDelegationByAssessment](#list_auditmanager-action-BatchDeleteDelegationByAssessment "#list_auditmanager-action-BatchDeleteDelegationByAssessment")                                  |               |                   | Write          |
-| BatchDisassociateAssessmentReportEvidence                                                                 | [auditmanager:BatchDisassociateAssessmentReportEvidence](#list_auditmanager-action-BatchDisassociateAssessmentReportEvidence "#list_auditmanager-action-BatchDisassociateAssessmentReportEvidence")          |               |                   | Write          |
-| BatchImportEvidenceToAssessmentControl                                                                    | [auditmanager:BatchImportEvidenceToAssessmentControl](#list_auditmanager-action-BatchImportEvidenceToAssessmentControl "#list_auditmanager-action-BatchImportEvidenceToAssessmentControl")                   |               |                   | Write          |
-| CreateAssessment                                                                                          | [auditmanager:CreateAssessment](#list_auditmanager-action-CreateAssessment "#list_auditmanager-action-CreateAssessment")                                                                                     |               |                   | Write          |
-| [auditmanager:TagResource](#list_auditmanager-action-TagResource "#list_auditmanager-action-TagResource") |                                                                                                                                                                                                              |               | Tagging, Write    |
-| CreateAssessmentFramework                                                                                 | [auditmanager:CreateAssessmentFramework](#list_auditmanager-action-CreateAssessmentFramework "#list_auditmanager-action-CreateAssessmentFramework")                                                          |               |                   | Write          |
-| [auditmanager:TagResource](#list_auditmanager-action-TagResource "#list_auditmanager-action-TagResource") |                                                                                                                                                                                                              |               | Tagging, Write    |
-| CreateAssessmentReport                                                                                    | [auditmanager:CreateAssessmentReport](#list_auditmanager-action-CreateAssessmentReport "#list_auditmanager-action-CreateAssessmentReport")                                                                   |               |                   | Write          |
-| CreateControl                                                                                             | [auditmanager:CreateControl](#list_auditmanager-action-CreateControl "#list_auditmanager-action-CreateControl")                                                                                              |               |                   | Write          |
-| [auditmanager:TagResource](#list_auditmanager-action-TagResource "#list_auditmanager-action-TagResource") |                                                                                                                                                                                                              |               | Tagging, Write    |
-| DeleteAssessment                                                                                          | [auditmanager:DeleteAssessment](#list_auditmanager-action-DeleteAssessment "#list_auditmanager-action-DeleteAssessment")                                                                                     |               |                   | Write          |
-| DeleteAssessmentFramework                                                                                 | [auditmanager:DeleteAssessmentFramework](#list_auditmanager-action-DeleteAssessmentFramework "#list_auditmanager-action-DeleteAssessmentFramework")                                                          |               |                   | Write          |
-| DeleteAssessmentFrameworkShare                                                                            | [auditmanager:DeleteAssessmentFrameworkShare](#list_auditmanager-action-DeleteAssessmentFrameworkShare "#list_auditmanager-action-DeleteAssessmentFrameworkShare")                                           |               |                   | Write          |
-| DeleteAssessmentReport                                                                                    | [auditmanager:DeleteAssessmentReport](#list_auditmanager-action-DeleteAssessmentReport "#list_auditmanager-action-DeleteAssessmentReport")                                                                   |               |                   | Write          |
-| DeleteControl                                                                                             | [auditmanager:DeleteControl](#list_auditmanager-action-DeleteControl "#list_auditmanager-action-DeleteControl")                                                                                              |               |                   | Write          |
-| DeregisterAccount                                                                                         | [auditmanager:DeregisterAccount](#list_auditmanager-action-DeregisterAccount "#list_auditmanager-action-DeregisterAccount")                                                                                  |               |                   | Write          |
-| DeregisterOrganizationAdminAccount                                                                        | [auditmanager:DeregisterOrganizationAdminAccount](#list_auditmanager-action-DeregisterOrganizationAdminAccount "#list_auditmanager-action-DeregisterOrganizationAdminAccount")                               |               |                   | Write          |
-| DisassociateAssessmentReportEvidenceFolder                                                                | [auditmanager:DisassociateAssessmentReportEvidenceFolder](#list_auditmanager-action-DisassociateAssessmentReportEvidenceFolder "#list_auditmanager-action-DisassociateAssessmentReportEvidenceFolder")       |               |                   | Write          |
-| GetAccountStatus                                                                                          | [auditmanager:GetAccountStatus](#list_auditmanager-action-GetAccountStatus "#list_auditmanager-action-GetAccountStatus")                                                                                     |               |                   | Read           |
-| GetAssessment                                                                                             | [auditmanager:GetAssessment](#list_auditmanager-action-GetAssessment "#list_auditmanager-action-GetAssessment")                                                                                              |               |                   | Read           |
-| GetAssessmentFramework                                                                                    | [auditmanager:GetAssessmentFramework](#list_auditmanager-action-GetAssessmentFramework "#list_auditmanager-action-GetAssessmentFramework")                                                                   |               |                   | Read           |
-| GetAssessmentReportUrl                                                                                    | [auditmanager:GetAssessmentReportUrl](#list_auditmanager-action-GetAssessmentReportUrl "#list_auditmanager-action-GetAssessmentReportUrl")                                                                   |               |                   | Read           |
-| GetChangeLogs                                                                                             | [auditmanager:GetChangeLogs](#list_auditmanager-action-GetChangeLogs "#list_auditmanager-action-GetChangeLogs")                                                                                              |               |                   | Read           |
-| GetControl                                                                                                | [auditmanager:GetControl](#list_auditmanager-action-GetControl "#list_auditmanager-action-GetControl")                                                                                                       |               |                   | Read           |
-| GetDelegations                                                                                            | [auditmanager:GetDelegations](#list_auditmanager-action-GetDelegations "#list_auditmanager-action-GetDelegations")                                                                                           |               |                   | List           |
-| GetEvidence                                                                                               | [auditmanager:GetEvidence](#list_auditmanager-action-GetEvidence "#list_auditmanager-action-GetEvidence")                                                                                                    |               |                   | Read           |
-| GetEvidenceByEvidenceFolder                                                                               | [auditmanager:GetEvidenceByEvidenceFolder](#list_auditmanager-action-GetEvidenceByEvidenceFolder "#list_auditmanager-action-GetEvidenceByEvidenceFolder")                                                    |               |                   | Read           |
-| GetEvidenceFileUploadUrl                                                                                  | [auditmanager:GetEvidenceFileUploadUrl](#list_auditmanager-action-GetEvidenceFileUploadUrl "#list_auditmanager-action-GetEvidenceFileUploadUrl")                                                             |               |                   | Read           |
-| GetEvidenceFolder                                                                                         | [auditmanager:GetEvidenceFolder](#list_auditmanager-action-GetEvidenceFolder "#list_auditmanager-action-GetEvidenceFolder")                                                                                  |               |                   | Read           |
-| GetEvidenceFoldersByAssessment                                                                            | [auditmanager:GetEvidenceFoldersByAssessment](#list_auditmanager-action-GetEvidenceFoldersByAssessment "#list_auditmanager-action-GetEvidenceFoldersByAssessment")                                           |               |                   | Read           |
-| GetEvidenceFoldersByAssessmentControl                                                                     | [auditmanager:GetEvidenceFoldersByAssessmentControl](#list_auditmanager-action-GetEvidenceFoldersByAssessmentControl "#list_auditmanager-action-GetEvidenceFoldersByAssessmentControl")                      |               |                   | Read           |
-| GetInsights                                                                                               | [auditmanager:GetInsights](#list_auditmanager-action-GetInsights "#list_auditmanager-action-GetInsights")                                                                                                    |               |                   | Read           |
-| GetInsightsByAssessment                                                                                   | [auditmanager:GetInsightsByAssessment](#list_auditmanager-action-GetInsightsByAssessment "#list_auditmanager-action-GetInsightsByAssessment")                                                                |               |                   | Read           |
-| GetOrganizationAdminAccount                                                                               | [auditmanager:GetOrganizationAdminAccount](#list_auditmanager-action-GetOrganizationAdminAccount "#list_auditmanager-action-GetOrganizationAdminAccount")                                                    |               |                   | Read           |
-| GetServicesInScope                                                                                        | [auditmanager:GetServicesInScope](#list_auditmanager-action-GetServicesInScope "#list_auditmanager-action-GetServicesInScope")                                                                               |               |                   | Read           |
-| GetSettings                                                                                               | [auditmanager:GetSettings](#list_auditmanager-action-GetSettings "#list_auditmanager-action-GetSettings")                                                                                                    |               |                   | Read           |
-| ListAssessmentControlInsightsByControlDomain                                                              | [auditmanager:ListAssessmentControlInsightsByControlDomain](#list_auditmanager-action-ListAssessmentControlInsightsByControlDomain "#list_auditmanager-action-ListAssessmentControlInsightsByControlDomain") |               |                   | List           |
-| ListAssessmentFrameworkShareRequests                                                                      | [auditmanager:ListAssessmentFrameworkShareRequests](#list_auditmanager-action-ListAssessmentFrameworkShareRequests "#list_auditmanager-action-ListAssessmentFrameworkShareRequests")                         |               |                   | List           |
-| ListAssessmentFrameworks                                                                                  | [auditmanager:ListAssessmentFrameworks](#list_auditmanager-action-ListAssessmentFrameworks "#list_auditmanager-action-ListAssessmentFrameworks")                                                             |               |                   | List           |
-| ListAssessmentReports                                                                                     | [auditmanager:ListAssessmentReports](#list_auditmanager-action-ListAssessmentReports "#list_auditmanager-action-ListAssessmentReports")                                                                      |               |                   | List           |
-| ListAssessments                                                                                           | [auditmanager:ListAssessments](#list_auditmanager-action-ListAssessments "#list_auditmanager-action-ListAssessments")                                                                                        |               |                   | List           |
-| ListControlDomainInsights                                                                                 | [auditmanager:ListControlDomainInsights](#list_auditmanager-action-ListControlDomainInsights "#list_auditmanager-action-ListControlDomainInsights")                                                          |               |                   | List           |
-| ListControlDomainInsightsByAssessment                                                                     | [auditmanager:ListControlDomainInsightsByAssessment](#list_auditmanager-action-ListControlDomainInsightsByAssessment "#list_auditmanager-action-ListControlDomainInsightsByAssessment")                      |               |                   | List           |
-| ListControlInsightsByControlDomain                                                                        | [auditmanager:ListControlInsightsByControlDomain](#list_auditmanager-action-ListControlInsightsByControlDomain "#list_auditmanager-action-ListControlInsightsByControlDomain")                               |               |                   | List           |
-| ListControls                                                                                              | [auditmanager:ListControls](#list_auditmanager-action-ListControls "#list_auditmanager-action-ListControls")                                                                                                 |               |                   | List           |
-| ListKeywordsForDataSource                                                                                 | [auditmanager:ListKeywordsForDataSource](#list_auditmanager-action-ListKeywordsForDataSource "#list_auditmanager-action-ListKeywordsForDataSource")                                                          |               |                   | List           |
-| ListNotifications                                                                                         | [auditmanager:ListNotifications](#list_auditmanager-action-ListNotifications "#list_auditmanager-action-ListNotifications")                                                                                  |               |                   | List           |
-| ListTagsForResource                                                                                       | [auditmanager:ListTagsForResource](#list_auditmanager-action-ListTagsForResource "#list_auditmanager-action-ListTagsForResource")                                                                            |               |                   | Read           |
-| RegisterAccount                                                                                           | [auditmanager:RegisterAccount](#list_auditmanager-action-RegisterAccount "#list_auditmanager-action-RegisterAccount")                                                                                        |               |                   | Write          |
-| RegisterOrganizationAdminAccount                                                                          | [auditmanager:RegisterOrganizationAdminAccount](#list_auditmanager-action-RegisterOrganizationAdminAccount "#list_auditmanager-action-RegisterOrganizationAdminAccount")                                     |               |                   | Write          |
-| StartAssessmentFrameworkShare                                                                             | [auditmanager:StartAssessmentFrameworkShare](#list_auditmanager-action-StartAssessmentFrameworkShare "#list_auditmanager-action-StartAssessmentFrameworkShare")                                              |               |                   | Write          |
-| TagResource                                                                                               | [auditmanager:TagResource](#list_auditmanager-action-TagResource "#list_auditmanager-action-TagResource")                                                                                                    |               |                   | Tagging, Write |
-| UntagResource                                                                                             | [auditmanager:UntagResource](#list_auditmanager-action-UntagResource "#list_auditmanager-action-UntagResource")                                                                                              |               |                   | Tagging, Write |
-| UpdateAssessment                                                                                          | [auditmanager:UpdateAssessment](#list_auditmanager-action-UpdateAssessment "#list_auditmanager-action-UpdateAssessment")                                                                                     |               |                   | Write          |
-| UpdateAssessmentControl                                                                                   | [auditmanager:UpdateAssessmentControl](#list_auditmanager-action-UpdateAssessmentControl "#list_auditmanager-action-UpdateAssessmentControl")                                                                |               |                   | Write          |
-| UpdateAssessmentControlSetStatus                                                                          | [auditmanager:UpdateAssessmentControlSetStatus](#list_auditmanager-action-UpdateAssessmentControlSetStatus "#list_auditmanager-action-UpdateAssessmentControlSetStatus")                                     |               |                   | Write          |
-| UpdateAssessmentFramework                                                                                 | [auditmanager:UpdateAssessmentFramework](#list_auditmanager-action-UpdateAssessmentFramework "#list_auditmanager-action-UpdateAssessmentFramework")                                                          |               |                   | Write          |
-| UpdateAssessmentFrameworkShare                                                                            | [auditmanager:UpdateAssessmentFrameworkShare](#list_auditmanager-action-UpdateAssessmentFrameworkShare "#list_auditmanager-action-UpdateAssessmentFrameworkShare")                                           |               |                   | Write          |
-| UpdateAssessmentStatus                                                                                    | [auditmanager:UpdateAssessmentStatus](#list_auditmanager-action-UpdateAssessmentStatus "#list_auditmanager-action-UpdateAssessmentStatus")                                                                   |               |                   | Write          |
-| UpdateControl                                                                                             | [auditmanager:UpdateControl](#list_auditmanager-action-UpdateControl "#list_auditmanager-action-UpdateControl")                                                                                              |               |                   | Write          |
-| UpdateSettings                                                                                            | [auditmanager:UpdateSettings](#list_auditmanager-action-UpdateSettings "#list_auditmanager-action-UpdateSettings")                                                                                           |               |                   | Write          |
-| ValidateAssessmentReportIntegrity                                                                         | [auditmanager:ValidateAssessmentReportIntegrity](#list_auditmanager-action-ValidateAssessmentReportIntegrity "#list_auditmanager-action-ValidateAssessmentReportIntegrity")                                  |               |                   | Read           |
+
+
+
+- **   AssociateAssessmentReportEvidenceFolder  **
+  - **IAM action:**  [auditmanager:AssociateAssessmentReportEvidenceFolder](#list_auditmanager-action-AssociateAssessmentReportEvidenceFolder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchAssociateAssessmentReportEvidence  **
+  - **IAM action:**  [auditmanager:BatchAssociateAssessmentReportEvidence](#list_auditmanager-action-BatchAssociateAssessmentReportEvidence) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchCreateDelegationByAssessment  **
+  - **IAM action:**  [auditmanager:BatchCreateDelegationByAssessment](#list_auditmanager-action-BatchCreateDelegationByAssessment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchDeleteDelegationByAssessment  **
+  - **IAM action:**  [auditmanager:BatchDeleteDelegationByAssessment](#list_auditmanager-action-BatchDeleteDelegationByAssessment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchDisassociateAssessmentReportEvidence  **
+  - **IAM action:**  [auditmanager:BatchDisassociateAssessmentReportEvidence](#list_auditmanager-action-BatchDisassociateAssessmentReportEvidence) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchImportEvidenceToAssessmentControl  **
+  - **IAM action:**  [auditmanager:BatchImportEvidenceToAssessmentControl](#list_auditmanager-action-BatchImportEvidenceToAssessmentControl) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAssessment  **
+  - **IAM action:**  [auditmanager:CreateAssessment](#list_auditmanager-action-CreateAssessment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [auditmanager:TagResource](#list_auditmanager-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateAssessmentFramework  **
+  - **IAM action:**  [auditmanager:CreateAssessmentFramework](#list_auditmanager-action-CreateAssessmentFramework)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [auditmanager:TagResource](#list_auditmanager-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateAssessmentReport  **
+  - **IAM action:**  [auditmanager:CreateAssessmentReport](#list_auditmanager-action-CreateAssessmentReport) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateControl  **
+  - **IAM action:**  [auditmanager:CreateControl](#list_auditmanager-action-CreateControl)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [auditmanager:TagResource](#list_auditmanager-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteAssessment  **
+  - **IAM action:**  [auditmanager:DeleteAssessment](#list_auditmanager-action-DeleteAssessment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAssessmentFramework  **
+  - **IAM action:**  [auditmanager:DeleteAssessmentFramework](#list_auditmanager-action-DeleteAssessmentFramework) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAssessmentFrameworkShare  **
+  - **IAM action:**  [auditmanager:DeleteAssessmentFrameworkShare](#list_auditmanager-action-DeleteAssessmentFrameworkShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAssessmentReport  **
+  - **IAM action:**  [auditmanager:DeleteAssessmentReport](#list_auditmanager-action-DeleteAssessmentReport) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteControl  **
+  - **IAM action:**  [auditmanager:DeleteControl](#list_auditmanager-action-DeleteControl) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeregisterAccount  **
+  - **IAM action:**  [auditmanager:DeregisterAccount](#list_auditmanager-action-DeregisterAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeregisterOrganizationAdminAccount  **
+  - **IAM action:**  [auditmanager:DeregisterOrganizationAdminAccount](#list_auditmanager-action-DeregisterOrganizationAdminAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateAssessmentReportEvidenceFolder  **
+  - **IAM action:**  [auditmanager:DisassociateAssessmentReportEvidenceFolder](#list_auditmanager-action-DisassociateAssessmentReportEvidenceFolder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAccountStatus  **
+  - **IAM action:**  [auditmanager:GetAccountStatus](#list_auditmanager-action-GetAccountStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAssessment  **
+  - **IAM action:**  [auditmanager:GetAssessment](#list_auditmanager-action-GetAssessment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAssessmentFramework  **
+  - **IAM action:**  [auditmanager:GetAssessmentFramework](#list_auditmanager-action-GetAssessmentFramework) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAssessmentReportUrl  **
+  - **IAM action:**  [auditmanager:GetAssessmentReportUrl](#list_auditmanager-action-GetAssessmentReportUrl) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetChangeLogs  **
+  - **IAM action:**  [auditmanager:GetChangeLogs](#list_auditmanager-action-GetChangeLogs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetControl  **
+  - **IAM action:**  [auditmanager:GetControl](#list_auditmanager-action-GetControl) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDelegations  **
+  - **IAM action:**  [auditmanager:GetDelegations](#list_auditmanager-action-GetDelegations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetEvidence  **
+  - **IAM action:**  [auditmanager:GetEvidence](#list_auditmanager-action-GetEvidence) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEvidenceByEvidenceFolder  **
+  - **IAM action:**  [auditmanager:GetEvidenceByEvidenceFolder](#list_auditmanager-action-GetEvidenceByEvidenceFolder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEvidenceFileUploadUrl  **
+  - **IAM action:**  [auditmanager:GetEvidenceFileUploadUrl](#list_auditmanager-action-GetEvidenceFileUploadUrl) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEvidenceFolder  **
+  - **IAM action:**  [auditmanager:GetEvidenceFolder](#list_auditmanager-action-GetEvidenceFolder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEvidenceFoldersByAssessment  **
+  - **IAM action:**  [auditmanager:GetEvidenceFoldersByAssessment](#list_auditmanager-action-GetEvidenceFoldersByAssessment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEvidenceFoldersByAssessmentControl  **
+  - **IAM action:**  [auditmanager:GetEvidenceFoldersByAssessmentControl](#list_auditmanager-action-GetEvidenceFoldersByAssessmentControl) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetInsights  **
+  - **IAM action:**  [auditmanager:GetInsights](#list_auditmanager-action-GetInsights) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetInsightsByAssessment  **
+  - **IAM action:**  [auditmanager:GetInsightsByAssessment](#list_auditmanager-action-GetInsightsByAssessment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetOrganizationAdminAccount  **
+  - **IAM action:**  [auditmanager:GetOrganizationAdminAccount](#list_auditmanager-action-GetOrganizationAdminAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetServicesInScope  **
+  - **IAM action:**  [auditmanager:GetServicesInScope](#list_auditmanager-action-GetServicesInScope) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSettings  **
+  - **IAM action:**  [auditmanager:GetSettings](#list_auditmanager-action-GetSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAssessmentControlInsightsByControlDomain  **
+  - **IAM action:**  [auditmanager:ListAssessmentControlInsightsByControlDomain](#list_auditmanager-action-ListAssessmentControlInsightsByControlDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAssessmentFrameworkShareRequests  **
+  - **IAM action:**  [auditmanager:ListAssessmentFrameworkShareRequests](#list_auditmanager-action-ListAssessmentFrameworkShareRequests) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAssessmentFrameworks  **
+  - **IAM action:**  [auditmanager:ListAssessmentFrameworks](#list_auditmanager-action-ListAssessmentFrameworks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAssessmentReports  **
+  - **IAM action:**  [auditmanager:ListAssessmentReports](#list_auditmanager-action-ListAssessmentReports) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAssessments  **
+  - **IAM action:**  [auditmanager:ListAssessments](#list_auditmanager-action-ListAssessments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListControlDomainInsights  **
+  - **IAM action:**  [auditmanager:ListControlDomainInsights](#list_auditmanager-action-ListControlDomainInsights) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListControlDomainInsightsByAssessment  **
+  - **IAM action:**  [auditmanager:ListControlDomainInsightsByAssessment](#list_auditmanager-action-ListControlDomainInsightsByAssessment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListControlInsightsByControlDomain  **
+  - **IAM action:**  [auditmanager:ListControlInsightsByControlDomain](#list_auditmanager-action-ListControlInsightsByControlDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListControls  **
+  - **IAM action:**  [auditmanager:ListControls](#list_auditmanager-action-ListControls) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListKeywordsForDataSource  **
+  - **IAM action:**  [auditmanager:ListKeywordsForDataSource](#list_auditmanager-action-ListKeywordsForDataSource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListNotifications  **
+  - **IAM action:**  [auditmanager:ListNotifications](#list_auditmanager-action-ListNotifications) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [auditmanager:ListTagsForResource](#list_auditmanager-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   RegisterAccount  **
+  - **IAM action:**  [auditmanager:RegisterAccount](#list_auditmanager-action-RegisterAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RegisterOrganizationAdminAccount  **
+  - **IAM action:**  [auditmanager:RegisterOrganizationAdminAccount](#list_auditmanager-action-RegisterOrganizationAdminAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartAssessmentFrameworkShare  **
+  - **IAM action:**  [auditmanager:StartAssessmentFrameworkShare](#list_auditmanager-action-StartAssessmentFrameworkShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [auditmanager:TagResource](#list_auditmanager-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [auditmanager:UntagResource](#list_auditmanager-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAssessment  **
+  - **IAM action:**  [auditmanager:UpdateAssessment](#list_auditmanager-action-UpdateAssessment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAssessmentControl  **
+  - **IAM action:**  [auditmanager:UpdateAssessmentControl](#list_auditmanager-action-UpdateAssessmentControl) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAssessmentControlSetStatus  **
+  - **IAM action:**  [auditmanager:UpdateAssessmentControlSetStatus](#list_auditmanager-action-UpdateAssessmentControlSetStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAssessmentFramework  **
+  - **IAM action:**  [auditmanager:UpdateAssessmentFramework](#list_auditmanager-action-UpdateAssessmentFramework) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAssessmentFrameworkShare  **
+  - **IAM action:**  [auditmanager:UpdateAssessmentFrameworkShare](#list_auditmanager-action-UpdateAssessmentFrameworkShare) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAssessmentStatus  **
+  - **IAM action:**  [auditmanager:UpdateAssessmentStatus](#list_auditmanager-action-UpdateAssessmentStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateControl  **
+  - **IAM action:**  [auditmanager:UpdateControl](#list_auditmanager-action-UpdateControl) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSettings  **
+  - **IAM action:**  [auditmanager:UpdateSettings](#list_auditmanager-action-UpdateSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ValidateAssessmentReportIntegrity  **
+  - **IAM action:**  [auditmanager:ValidateAssessmentReportIntegrity](#list_auditmanager-action-ValidateAssessmentReportIntegrity) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+
 
 ## Actions defined by AWS Audit Manager
+<a name="list_auditmanager-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                                         | Description                                                                                                                                                                                                                                                                                                                         | Resource types (\*required)                                                                                                   | Condition keys                                                                                                                                                                                                                                                                                                                      | Access level   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AssociateAssessmentReportEvidenceFolder](../../../audit-manager/latest/APIReference/API_AssociateAssessmentReportEvidenceFolder.md "../../../audit-manager/latest/APIReference/API_AssociateAssessmentReportEvidenceFolder.md")                | Grants permission to associate an evidence folder with an assessment report in AWS Audit Manager                                                                                                                                                                                                                                    | [assessment\*](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                               | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [BatchAssociateAssessmentReportEvidence](../../../audit-manager/latest/APIReference/API_BatchAssociateAssessmentReportEvidence.md "../../../audit-manager/latest/APIReference/API_BatchAssociateAssessmentReportEvidence.md")                   | Grants permission to associate a list of evidence to an assessment report in AWS Audit Manager                                                                                                                                                                                                                                      | [assessment\*](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                               | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [BatchCreateDelegationByAssessment](../../../audit-manager/latest/APIReference/API_BatchCreateDelegationByAssessment.md "../../../audit-manager/latest/APIReference/API_BatchCreateDelegationByAssessment.md")                                  | Grants permission to create delegations for an assessment in AWS Audit Manager                                                                                                                                                                                                                                                      | [assessment\*](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                               | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet "#list_auditmanager-resource-assessmentControlSet")                                                                                                                   |                                                                                                                                                                                                                                                                                                                                     |
-| [BatchDeleteDelegationByAssessment](../../../audit-manager/latest/APIReference/API_BatchDeleteDelegationByAssessment.md "../../../audit-manager/latest/APIReference/API_BatchDeleteDelegationByAssessment.md")                                  | Grants permission to delete delegations for an assessment in AWS Audit Manager                                                                                                                                                                                                                                                      | [assessment\*](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                               | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet "#list_auditmanager-resource-assessmentControlSet")                                                                                                                   |                                                                                                                                                                                                                                                                                                                                     |
-| [BatchDisassociateAssessmentReportEvidence](../../../audit-manager/latest/APIReference/API_BatchDisassociateAssessmentReportEvidence.md "../../../audit-manager/latest/APIReference/API_BatchDisassociateAssessmentReportEvidence.md")          | Grants permission to disassociate a list of evidence from an assessment report in AWS Audit Manager                                                                                                                                                                                                                                 | [assessment\*](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                               | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [BatchImportEvidenceToAssessmentControl](../../../audit-manager/latest/APIReference/API_BatchImportEvidenceToAssessmentControl.md "../../../audit-manager/latest/APIReference/API_BatchImportEvidenceToAssessmentControl.md")                   | Grants permission to import a list of evidence to an assessment control in AWS Audit Manager                                                                                                                                                                                                                                        | [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet "#list_auditmanager-resource-assessmentControlSet") |                                                                                                                                                                                                                                                                                                                                     | Write          |
-| [CreateAssessment](../../../audit-manager/latest/APIReference/API_CreateAssessment.md "../../../audit-manager/latest/APIReference/API_CreateAssessment.md")                                                                                     | Grants permission to create an assessment to be used with AWS Audit Manager                                                                                                                                                                                                                                                         |                                                                                                                               | [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_ "#list_auditmanager-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_auditmanager-aws_TagKeys "#list_auditmanager-aws_TagKeys") | Write          |
-| [CreateAssessmentFramework](../../../audit-manager/latest/APIReference/API_CreateAssessmentFramework.md "../../../audit-manager/latest/APIReference/API_CreateAssessmentFramework.md")                                                          | Grants permission to create a framework for use in AWS Audit Manager                                                                                                                                                                                                                                                                | [assessmentFramework\*](#list_auditmanager-resource-assessmentFramework "#list_auditmanager-resource-assessmentFramework")    | [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_ "#list_auditmanager-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_auditmanager-aws_TagKeys "#list_auditmanager-aws_TagKeys") | Write          |
-| [control\*](#list_auditmanager-resource-control "#list_auditmanager-resource-control")                                                                                                                                                          | [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_ "#list_auditmanager-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_auditmanager-aws_TagKeys "#list_auditmanager-aws_TagKeys") |
-| [CreateAssessmentReport](../../../audit-manager/latest/APIReference/API_CreateAssessmentReport.md "../../../audit-manager/latest/APIReference/API_CreateAssessmentReport.md")                                                                   | Grants permission to create an assessment report in AWS Audit Manager                                                                                                                                                                                                                                                               | [assessment\*](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                               | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [CreateControl](../../../audit-manager/latest/APIReference/API_CreateControl.md "../../../audit-manager/latest/APIReference/API_CreateControl.md")                                                                                              | Grants permission to create a control to be used in AWS Audit Manager                                                                                                                                                                                                                                                               |                                                                                                                               | [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_ "#list_auditmanager-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_auditmanager-aws_TagKeys "#list_auditmanager-aws_TagKeys") | Write          |
-| [DeleteAssessment](../../../audit-manager/latest/APIReference/API_DeleteAssessment.md "../../../audit-manager/latest/APIReference/API_DeleteAssessment.md")                                                                                     | Grants permission to delete an assessment in AWS Audit Manager                                                                                                                                                                                                                                                                      | [assessment\*](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                               | [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_ "#list_auditmanager-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_auditmanager-aws_TagKeys "#list_auditmanager-aws_TagKeys") | Write          |
-| [DeleteAssessmentFramework](../../../audit-manager/latest/APIReference/API_DeleteAssessmentFramework.md "../../../audit-manager/latest/APIReference/API_DeleteAssessmentFramework.md")                                                          | Grants permission to delete an assessment framework in AWS Audit Manager                                                                                                                                                                                                                                                            | [assessmentFramework\*](#list_auditmanager-resource-assessmentFramework "#list_auditmanager-resource-assessmentFramework")    | [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_ "#list_auditmanager-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_auditmanager-aws_TagKeys "#list_auditmanager-aws_TagKeys") | Write          |
-| [DeleteAssessmentFrameworkShare](../../../audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.md "../../../audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.md")                                           | Grants permission to delete a share request for a custom framework in AWS Audit Manager                                                                                                                                                                                                                                             |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | Write          |
-| [DeleteAssessmentReport](../../../audit-manager/latest/APIReference/API_DeleteAssessmentReport.md "../../../audit-manager/latest/APIReference/API_DeleteAssessmentReport.md")                                                                   | Grants permission to delete an assessment report in AWS Audit Manager                                                                                                                                                                                                                                                               | [assessment\*](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                               | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [DeleteControl](../../../audit-manager/latest/APIReference/API_DeleteControl.md "../../../audit-manager/latest/APIReference/API_DeleteControl.md")                                                                                              | Grants permission to delete a control in AWS Audit Manager                                                                                                                                                                                                                                                                          | [control\*](#list_auditmanager-resource-control "#list_auditmanager-resource-control")                                        | [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_ "#list_auditmanager-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_auditmanager-aws_TagKeys "#list_auditmanager-aws_TagKeys") | Write          |
-| [DeregisterAccount](../../../audit-manager/latest/APIReference/API_DeregisterAccount.md "../../../audit-manager/latest/APIReference/API_DeregisterAccount.md")                                                                                  | Grants permission to deregister an account in AWS Audit Manager                                                                                                                                                                                                                                                                     |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | Write          |
-| [DeregisterOrganizationAdminAccount](../../../audit-manager/latest/APIReference/API_DeregisterOrganizationAdminAccount.md "../../../audit-manager/latest/APIReference/API_DeregisterOrganizationAdminAccount.md")                               | Grants permission to deregister the delegated administrator account for AWS Audit Manager                                                                                                                                                                                                                                           |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | Write          |
-| [DisassociateAssessmentReportEvidenceFolder](../../../audit-manager/latest/APIReference/API_DisassociateAssessmentReportEvidenceFolder.md "../../../audit-manager/latest/APIReference/API_DisassociateAssessmentReportEvidenceFolder.md")       | Grants permission to disassociate an evidence folder from an assessment report in AWS Audit Manager                                                                                                                                                                                                                                 | [assessment\*](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                               | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [GetAccountStatus](../../../audit-manager/latest/APIReference/API_GetAccountStatus.md "../../../audit-manager/latest/APIReference/API_GetAccountStatus.md")                                                                                     | Grants permission to get the status of an account in AWS Audit Manager                                                                                                                                                                                                                                                              |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [GetAssessment](../../../audit-manager/latest/APIReference/API_GetAssessment.md "../../../audit-manager/latest/APIReference/API_GetAssessment.md")                                                                                              | Grants permission to get an assessment created in AWS Audit Manager                                                                                                                                                                                                                                                                 | [assessment\*](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                               | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [GetAssessmentFramework](../../../audit-manager/latest/APIReference/API_GetAssessmentFramework.md "../../../audit-manager/latest/APIReference/API_GetAssessmentFramework.md")                                                                   | Grants permission to get an assessment framework in AWS Audit Manager                                                                                                                                                                                                                                                               | [assessmentFramework\*](#list_auditmanager-resource-assessmentFramework "#list_auditmanager-resource-assessmentFramework")    | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [GetAssessmentReportUrl](../../../audit-manager/latest/APIReference/API_GetAssessmentReportUrl.md "../../../audit-manager/latest/APIReference/API_GetAssessmentReportUrl.md")                                                                   | Grants permission to get the URL for an assessment report in AWS Audit Manager                                                                                                                                                                                                                                                      | [assessment\*](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                               | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [GetChangeLogs](../../../audit-manager/latest/APIReference/API_GetChangeLogs.md "../../../audit-manager/latest/APIReference/API_GetChangeLogs.md")                                                                                              | Grants permission to get changelogs for an assessment in AWS Audit Manager                                                                                                                                                                                                                                                          | [assessment\*](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                               | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [GetControl](../../../audit-manager/latest/APIReference/API_GetControl.md "../../../audit-manager/latest/APIReference/API_GetControl.md")                                                                                                       | Grants permission to get a control in AWS Audit Manager                                                                                                                                                                                                                                                                             | [control\*](#list_auditmanager-resource-control "#list_auditmanager-resource-control")                                        | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [GetDelegations](../../../audit-manager/latest/APIReference/API_GetDelegations.md "../../../audit-manager/latest/APIReference/API_GetDelegations.md")                                                                                           | Grants permission to get all delegations in AWS Audit Manager                                                                                                                                                                                                                                                                       |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [GetEvidence](../../../audit-manager/latest/APIReference/API_GetEvidence.md "../../../audit-manager/latest/APIReference/API_GetEvidence.md")                                                                                                    | Grants permission to get evidence from AWS Audit Manager                                                                                                                                                                                                                                                                            | [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet "#list_auditmanager-resource-assessmentControlSet") |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [GetEvidenceByEvidenceFolder](../../../audit-manager/latest/APIReference/API_GetEvidenceByEvidenceFolder.md "../../../audit-manager/latest/APIReference/API_GetEvidenceByEvidenceFolder.md")                                                    | Grants permission to get all the evidence from an evidence folder in AWS Audit Manager                                                                                                                                                                                                                                              | [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet "#list_auditmanager-resource-assessmentControlSet") |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [GetEvidenceFileUploadUrl](../../../audit-manager/latest/APIReference/API_GetEvidenceFileUploadUrl.md "../../../audit-manager/latest/APIReference/API_GetEvidenceFileUploadUrl.md")                                                             | Grants permission to get a presigned Amazon S3 URL that can be used to upload a file as manual evidence                                                                                                                                                                                                                             |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [GetEvidenceFolder](../../../audit-manager/latest/APIReference/API_GetEvidenceFolder.md "../../../audit-manager/latest/APIReference/API_GetEvidenceFolder.md")                                                                                  | Grants permission to get the evidence folder from AWS Audit Manager                                                                                                                                                                                                                                                                 | [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet "#list_auditmanager-resource-assessmentControlSet") |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [GetEvidenceFoldersByAssessment](../../../audit-manager/latest/APIReference/API_GetEvidenceFoldersByAssessment.md "../../../audit-manager/latest/APIReference/API_GetEvidenceFoldersByAssessment.md")                                           | Grants permission to get the evidence folders from an assessment in AWS Audit Manager                                                                                                                                                                                                                                               | [assessment\*](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                               | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [GetEvidenceFoldersByAssessmentControl](../../../audit-manager/latest/APIReference/API_GetEvidenceFoldersByAssessmentControl.md "../../../audit-manager/latest/APIReference/API_GetEvidenceFoldersByAssessmentControl.md")                      | Grants permission to get the evidence folders from an assessment control in AWS Audit Manager                                                                                                                                                                                                                                       | [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet "#list_auditmanager-resource-assessmentControlSet") |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [GetInsights](../../../audit-manager/latest/APIReference/API_GetInsights.md "../../../audit-manager/latest/APIReference/API_GetInsights.md")                                                                                                    | Grants permission to get analytics data for all active assessments                                                                                                                                                                                                                                                                  |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [GetInsightsByAssessment](../../../audit-manager/latest/APIReference/API_GetInsightsByAssessment.md "../../../audit-manager/latest/APIReference/API_GetInsightsByAssessment.md")                                                                | Grants permission to get analytics data for a specific active assessment                                                                                                                                                                                                                                                            |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [GetOrganizationAdminAccount](../../../audit-manager/latest/APIReference/API_GetOrganizationAdminAccount.md "../../../audit-manager/latest/APIReference/API_GetOrganizationAdminAccount.md")                                                    | Grants permission to get the delegated administrator account in AWS Audit Manager                                                                                                                                                                                                                                                   |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [GetServicesInScope](../../../audit-manager/latest/APIReference/API_GetServicesInScope.md "../../../audit-manager/latest/APIReference/API_GetServicesInScope.md")                                                                               | Grants permission to get the services in scope for an assessment in AWS Audit Manager                                                                                                                                                                                                                                               |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [GetSettings](../../../audit-manager/latest/APIReference/API_GetSettings.md "../../../audit-manager/latest/APIReference/API_GetSettings.md")                                                                                                    | Grants permission to get all settings configured in AWS Audit Manager                                                                                                                                                                                                                                                               |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | Read           |
-| [ListAssessmentControlInsightsByControlDomain](../../../audit-manager/latest/APIReference/API_ListAssessmentControlInsightsByControlDomain.md "../../../audit-manager/latest/APIReference/API_ListAssessmentControlInsightsByControlDomain.md") | Grants permission to list analytics data for controls in a specific control domain and active assessment                                                                                                                                                                                                                            |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListAssessmentFrameworkShareRequests](../../../audit-manager/latest/APIReference/API_ListAssessmentFrameworkShareRequests.md "../../../audit-manager/latest/APIReference/API_ListAssessmentFrameworkShareRequests.md")                         | Grants permission to list all sent or received share requests for custom frameworks in AWS Audit Manager                                                                                                                                                                                                                            |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListAssessmentFrameworks](../../../audit-manager/latest/APIReference/API_ListAssessmentFrameworks.md "../../../audit-manager/latest/APIReference/API_ListAssessmentFrameworks.md")                                                             | Grants permission to list all assessment frameworks in AWS Audit Manager                                                                                                                                                                                                                                                            |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListAssessmentReports](../../../audit-manager/latest/APIReference/API_ListAssessmentReports.md "../../../audit-manager/latest/APIReference/API_ListAssessmentReports.md")                                                                      | Grants permission to list all assessment reports in AWS Audit Manager                                                                                                                                                                                                                                                               |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListAssessments](../../../audit-manager/latest/APIReference/API_ListAssessments.md "../../../audit-manager/latest/APIReference/API_ListAssessments.md")                                                                                        | Grants permission to list all assessments in AWS Audit Manager                                                                                                                                                                                                                                                                      |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListControlDomainInsights](../../../audit-manager/latest/APIReference/API_ListControlDomainInsights.md "../../../audit-manager/latest/APIReference/API_ListControlDomainInsights.md")                                                          | Grants permission to list analytics data for control domains across all active assessments                                                                                                                                                                                                                                          |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListControlDomainInsightsByAssessment](../../../audit-manager/latest/APIReference/API_ListControlDomainInsightsByAssessment.md "../../../audit-manager/latest/APIReference/API_ListControlDomainInsightsByAssessment.md")                      | Grants permission to list analytics data for control domains in a specific active assessment                                                                                                                                                                                                                                        |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListControlInsightsByControlDomain](../../../audit-manager/latest/APIReference/API_ListControlInsightsByControlDomain.md "../../../audit-manager/latest/APIReference/API_ListControlInsightsByControlDomain.md")                               | Grants permission to list analytics data for controls in a specific control domain across all active assessments                                                                                                                                                                                                                    |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListControls](../../../audit-manager/latest/APIReference/API_ListControls.md "../../../audit-manager/latest/APIReference/API_ListControls.md")                                                                                                 | Grants permission to list all controls in AWS Audit Manager                                                                                                                                                                                                                                                                         |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListKeywordsForDataSource](../../../audit-manager/latest/APIReference/API_ListKeywordsForDataSource.md "../../../audit-manager/latest/APIReference/API_ListKeywordsForDataSource.md")                                                          | Grants permission to list all the data source keywords in AWS Audit Manager                                                                                                                                                                                                                                                         |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListNotifications](../../../audit-manager/latest/APIReference/API_ListNotifications.md "../../../audit-manager/latest/APIReference/API_ListNotifications.md")                                                                                  | Grants permission to list all notifications in AWS Audit Manager                                                                                                                                                                                                                                                                    |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | List           |
-| [ListTagsForResource](../../../audit-manager/latest/APIReference/API_ListTagsForResource.md "../../../audit-manager/latest/APIReference/API_ListTagsForResource.md")                                                                            | Grants permission to list tags for an AWS Audit Manager resource                                                                                                                                                                                                                                                                    | [assessment](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                                 | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Read           |
-| [control](#list_auditmanager-resource-control "#list_auditmanager-resource-control")                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            |
-| [RegisterAccount](../../../audit-manager/latest/APIReference/API_RegisterAccount.md "../../../audit-manager/latest/APIReference/API_RegisterAccount.md")                                                                                        | Grants permission to register an account in AWS Audit Manager                                                                                                                                                                                                                                                                       |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | Write          |
-| [RegisterOrganizationAdminAccount](../../../audit-manager/latest/APIReference/API_RegisterOrganizationAdminAccount.md "../../../audit-manager/latest/APIReference/API_RegisterOrganizationAdminAccount.md")                                     | Grants permission to register an account within the organization as the delegated administrator for AWS Audit Manager                                                                                                                                                                                                               |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | Write          |
-| [StartAssessmentFrameworkShare](../../../audit-manager/latest/APIReference/API_StartAssessmentFrameworkShare.md "../../../audit-manager/latest/APIReference/API_StartAssessmentFrameworkShare.md")                                              | Grants permission to create a share request for a custom framework in AWS Audit Manager                                                                                                                                                                                                                                             | [assessmentFramework\*](#list_auditmanager-resource-assessmentFramework "#list_auditmanager-resource-assessmentFramework")    | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [TagResource](../../../audit-manager/latest/APIReference/API_TagResource.md "../../../audit-manager/latest/APIReference/API_TagResource.md")                                                                                                    | Grants permission to tag an AWS Audit Manager resource                                                                                                                                                                                                                                                                              | [assessment](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                                 | [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_ "#list_auditmanager-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_auditmanager-aws_TagKeys "#list_auditmanager-aws_TagKeys") | Tagging, Write |
-| [assessmentFramework](#list_auditmanager-resource-assessmentFramework "#list_auditmanager-resource-assessmentFramework")                                                                                                                        | [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_ "#list_auditmanager-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_auditmanager-aws_TagKeys "#list_auditmanager-aws_TagKeys") |
-| [control](#list_auditmanager-resource-control "#list_auditmanager-resource-control")                                                                                                                                                            | [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_ "#list_auditmanager-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_auditmanager-aws_TagKeys "#list_auditmanager-aws_TagKeys") |
-| [UntagResource](../../../audit-manager/latest/APIReference/API_UntagResource.md "../../../audit-manager/latest/APIReference/API_UntagResource.md")                                                                                              | Grants permission to untag an AWS Audit Manager resource                                                                                                                                                                                                                                                                            | [assessment](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                                 | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_auditmanager-aws_TagKeys "#list_auditmanager-aws_TagKeys")                                                                                                                          | Tagging, Write |
-| [assessmentFramework](#list_auditmanager-resource-assessmentFramework "#list_auditmanager-resource-assessmentFramework")                                                                                                                        | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_auditmanager-aws_TagKeys "#list_auditmanager-aws_TagKeys")                                                                                                                          |
-| [control](#list_auditmanager-resource-control "#list_auditmanager-resource-control")                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_auditmanager-aws_TagKeys "#list_auditmanager-aws_TagKeys")                                                                                                                          |
-| [UpdateAssessment](../../../audit-manager/latest/APIReference/API_UpdateAssessment.md "../../../audit-manager/latest/APIReference/API_UpdateAssessment.md")                                                                                     | Grants permission to update an assessment in AWS Audit Manager                                                                                                                                                                                                                                                                      | [assessment\*](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                               | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [UpdateAssessmentControl](../../../audit-manager/latest/APIReference/API_UpdateAssessmentControl.md "../../../audit-manager/latest/APIReference/API_UpdateAssessmentControl.md")                                                                | Grants permission to update an assessment control in AWS Audit Manager                                                                                                                                                                                                                                                              | [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet "#list_auditmanager-resource-assessmentControlSet") |                                                                                                                                                                                                                                                                                                                                     | Write          |
-| [UpdateAssessmentControlSetStatus](../../../audit-manager/latest/APIReference/API_UpdateAssessmentControlSetStatus.md "../../../audit-manager/latest/APIReference/API_UpdateAssessmentControlSetStatus.md")                                     | Grants permission to update the status of an assessment control set in AWS Audit Manager                                                                                                                                                                                                                                            | [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet "#list_auditmanager-resource-assessmentControlSet") |                                                                                                                                                                                                                                                                                                                                     | Write          |
-| [UpdateAssessmentFramework](../../../audit-manager/latest/APIReference/API_UpdateAssessmentFramework.md "../../../audit-manager/latest/APIReference/API_UpdateAssessmentFramework.md")                                                          | Grants permission to update an assessment framework in AWS Audit Manager                                                                                                                                                                                                                                                            | [assessmentFramework\*](#list_auditmanager-resource-assessmentFramework "#list_auditmanager-resource-assessmentFramework")    | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [control\*](#list_auditmanager-resource-control "#list_auditmanager-resource-control")                                                                                                                                                          | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            |
-| [UpdateAssessmentFrameworkShare](../../../audit-manager/latest/APIReference/API_UpdateAssessmentFrameworkShare.md "../../../audit-manager/latest/APIReference/API_UpdateAssessmentFrameworkShare.md")                                           | Grants permission to update a share request for a custom framework in AWS Audit Manager                                                                                                                                                                                                                                             | [assessmentFramework\*](#list_auditmanager-resource-assessmentFramework "#list_auditmanager-resource-assessmentFramework")    | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [UpdateAssessmentStatus](../../../audit-manager/latest/APIReference/API_UpdateAssessmentStatus.md "../../../audit-manager/latest/APIReference/API_UpdateAssessmentStatus.md")                                                                   | Grants permission to update the status of an assessment in AWS Audit Manager                                                                                                                                                                                                                                                        | [assessment\*](#list_auditmanager-resource-assessment "#list_auditmanager-resource-assessment")                               | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [UpdateControl](../../../audit-manager/latest/APIReference/API_UpdateControl.md "../../../audit-manager/latest/APIReference/API_UpdateControl.md")                                                                                              | Grants permission to update a control in AWS Audit Manager                                                                                                                                                                                                                                                                          | [control\*](#list_auditmanager-resource-control "#list_auditmanager-resource-control")                                        | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_")                                                                                                                                                                                                            | Write          |
-| [UpdateSettings](../../../audit-manager/latest/APIReference/API_UpdateSettings.md "../../../audit-manager/latest/APIReference/API_UpdateSettings.md")                                                                                           | Grants permission to update settings in AWS Audit Manager                                                                                                                                                                                                                                                                           |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | Write          |
-| [ValidateAssessmentReportIntegrity](../../../audit-manager/latest/APIReference/API_ValidateAssessmentReportIntegrity.md "../../../audit-manager/latest/APIReference/API_ValidateAssessmentReportIntegrity.md")                                  | Grants permission to validate the integrity of an assessment report in AWS Audit Manager                                                                                                                                                                                                                                            |                                                                                                                               |                                                                                                                                                                                                                                                                                                                                     | Read           |
+
+
+
+- **   [AssociateAssessmentReportEvidenceFolder](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_AssociateAssessmentReportEvidenceFolder.html)  **
+  - **Description:** Grants permission to associate an evidence folder with an assessment report in AWS Audit Manager
+  - **Resource types (\*required):** [assessment\*](#list_auditmanager-resource-assessment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchAssociateAssessmentReportEvidence](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_BatchAssociateAssessmentReportEvidence.html)  **
+  - **Description:** Grants permission to associate a list of evidence to an assessment report in AWS Audit Manager
+  - **Resource types (\*required):** [assessment\*](#list_auditmanager-resource-assessment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchCreateDelegationByAssessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_BatchCreateDelegationByAssessment.html)  **
+  - **Description:** Grants permission to create delegations for an assessment in AWS Audit Manager
+  - **Resource types (\*required):** [assessment\*](#list_auditmanager-resource-assessment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet) / **Condition keys:**  
+  - **Access level:** Write
+
+- **   [BatchDeleteDelegationByAssessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_BatchDeleteDelegationByAssessment.html)  **
+  - **Description:** Grants permission to delete delegations for an assessment in AWS Audit Manager
+  - **Resource types (\*required):** [assessment\*](#list_auditmanager-resource-assessment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet) / **Condition keys:**  
+  - **Access level:** Write
+
+- **   [BatchDisassociateAssessmentReportEvidence](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_BatchDisassociateAssessmentReportEvidence.html)  **
+  - **Description:** Grants permission to disassociate a list of evidence from an assessment report in AWS Audit Manager
+  - **Resource types (\*required):** [assessment\*](#list_auditmanager-resource-assessment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchImportEvidenceToAssessmentControl](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_BatchImportEvidenceToAssessmentControl.html)  **
+  - **Description:** Grants permission to import a list of evidence to an assessment control in AWS Audit Manager
+  - **Resource types (\*required):** [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateAssessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html)  **
+  - **Description:** Grants permission to create an assessment to be used with AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_auditmanager-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAssessmentFramework](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessmentFramework.html)  **
+  - **Description:** Grants permission to create a framework for use in AWS Audit Manager
+  - **Resource types (\*required):** [assessmentFramework\*](#list_auditmanager-resource-assessmentFramework) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_auditmanager-aws_TagKeys)
+  - **Resource types (\*required):** [control\*](#list_auditmanager-resource-control) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_auditmanager-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAssessmentReport](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessmentReport.html)  **
+  - **Description:** Grants permission to create an assessment report in AWS Audit Manager
+  - **Resource types (\*required):** [assessment\*](#list_auditmanager-resource-assessment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateControl](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateControl.html)  **
+  - **Description:** Grants permission to create a control to be used in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_auditmanager-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteAssessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html)  **
+  - **Description:** Grants permission to delete an assessment in AWS Audit Manager
+  - **Resource types (\*required):** [assessment\*](#list_auditmanager-resource-assessment)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_auditmanager-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteAssessmentFramework](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html)  **
+  - **Description:** Grants permission to delete an assessment framework in AWS Audit Manager
+  - **Resource types (\*required):** [assessmentFramework\*](#list_auditmanager-resource-assessmentFramework)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_auditmanager-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteAssessmentFrameworkShare](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html)  **
+  - **Description:** Grants permission to delete a share request for a custom framework in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteAssessmentReport](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html)  **
+  - **Description:** Grants permission to delete an assessment report in AWS Audit Manager
+  - **Resource types (\*required):** [assessment\*](#list_auditmanager-resource-assessment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteControl](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html)  **
+  - **Description:** Grants permission to delete a control in AWS Audit Manager
+  - **Resource types (\*required):** [control\*](#list_auditmanager-resource-control)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_auditmanager-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeregisterAccount](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html)  **
+  - **Description:** Grants permission to deregister an account in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeregisterOrganizationAdminAccount](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterOrganizationAdminAccount.html)  **
+  - **Description:** Grants permission to deregister the delegated administrator account for AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DisassociateAssessmentReportEvidenceFolder](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DisassociateAssessmentReportEvidenceFolder.html)  **
+  - **Description:** Grants permission to disassociate an evidence folder from an assessment report in AWS Audit Manager
+  - **Resource types (\*required):** [assessment\*](#list_auditmanager-resource-assessment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetAccountStatus](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetAccountStatus.html)  **
+  - **Description:** Grants permission to get the status of an account in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAssessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetAssessment.html)  **
+  - **Description:** Grants permission to get an assessment created in AWS Audit Manager
+  - **Resource types (\*required):** [assessment\*](#list_auditmanager-resource-assessment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAssessmentFramework](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetAssessmentFramework.html)  **
+  - **Description:** Grants permission to get an assessment framework in AWS Audit Manager
+  - **Resource types (\*required):** [assessmentFramework\*](#list_auditmanager-resource-assessmentFramework)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAssessmentReportUrl](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetAssessmentReportUrl.html)  **
+  - **Description:** Grants permission to get the URL for an assessment report in AWS Audit Manager
+  - **Resource types (\*required):** [assessment\*](#list_auditmanager-resource-assessment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetChangeLogs](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetChangeLogs.html)  **
+  - **Description:** Grants permission to get changelogs for an assessment in AWS Audit Manager
+  - **Resource types (\*required):** [assessment\*](#list_auditmanager-resource-assessment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetControl](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetControl.html)  **
+  - **Description:** Grants permission to get a control in AWS Audit Manager
+  - **Resource types (\*required):** [control\*](#list_auditmanager-resource-control)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDelegations](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetDelegations.html)  **
+  - **Description:** Grants permission to get all delegations in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [GetEvidence](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetEvidence.html)  **
+  - **Description:** Grants permission to get evidence from AWS Audit Manager
+  - **Resource types (\*required):** [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetEvidenceByEvidenceFolder](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetEvidenceByEvidenceFolder.html)  **
+  - **Description:** Grants permission to get all the evidence from an evidence folder in AWS Audit Manager
+  - **Resource types (\*required):** [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetEvidenceFileUploadUrl](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetEvidenceFileUploadUrl.html)  **
+  - **Description:** Grants permission to get a presigned Amazon S3 URL that can be used to upload a file as manual evidence
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetEvidenceFolder](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetEvidenceFolder.html)  **
+  - **Description:** Grants permission to get the evidence folder from AWS Audit Manager
+  - **Resource types (\*required):** [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetEvidenceFoldersByAssessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetEvidenceFoldersByAssessment.html)  **
+  - **Description:** Grants permission to get the evidence folders from an assessment in AWS Audit Manager
+  - **Resource types (\*required):** [assessment\*](#list_auditmanager-resource-assessment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetEvidenceFoldersByAssessmentControl](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetEvidenceFoldersByAssessmentControl.html)  **
+  - **Description:** Grants permission to get the evidence folders from an assessment control in AWS Audit Manager
+  - **Resource types (\*required):** [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetInsights](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetInsights.html)  **
+  - **Description:** Grants permission to get analytics data for all active assessments
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetInsightsByAssessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetInsightsByAssessment.html)  **
+  - **Description:** Grants permission to get analytics data for a specific active assessment
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetOrganizationAdminAccount](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetOrganizationAdminAccount.html)  **
+  - **Description:** Grants permission to get the delegated administrator account in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetServicesInScope](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetServicesInScope.html)  **
+  - **Description:** Grants permission to get the services in scope for an assessment in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetSettings](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetSettings.html)  **
+  - **Description:** Grants permission to get all settings configured in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListAssessmentControlInsightsByControlDomain](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_ListAssessmentControlInsightsByControlDomain.html)  **
+  - **Description:** Grants permission to list analytics data for controls in a specific control domain and active assessment
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAssessmentFrameworkShareRequests](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_ListAssessmentFrameworkShareRequests.html)  **
+  - **Description:** Grants permission to list all sent or received share requests for custom frameworks in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAssessmentFrameworks](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_ListAssessmentFrameworks.html)  **
+  - **Description:** Grants permission to list all assessment frameworks in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAssessmentReports](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_ListAssessmentReports.html)  **
+  - **Description:** Grants permission to list all assessment reports in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAssessments](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_ListAssessments.html)  **
+  - **Description:** Grants permission to list all assessments in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListControlDomainInsights](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_ListControlDomainInsights.html)  **
+  - **Description:** Grants permission to list analytics data for control domains across all active assessments
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListControlDomainInsightsByAssessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_ListControlDomainInsightsByAssessment.html)  **
+  - **Description:** Grants permission to list analytics data for control domains in a specific active assessment
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListControlInsightsByControlDomain](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_ListControlInsightsByControlDomain.html)  **
+  - **Description:** Grants permission to list analytics data for controls in a specific control domain across all active assessments
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListControls](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_ListControls.html)  **
+  - **Description:** Grants permission to list all controls in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListKeywordsForDataSource](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_ListKeywordsForDataSource.html)  **
+  - **Description:** Grants permission to list all the data source keywords in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListNotifications](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_ListNotifications.html)  **
+  - **Description:** Grants permission to list all notifications in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for an AWS Audit Manager resource
+  - **Resource types (\*required):** [assessment](#list_auditmanager-resource-assessment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [control](#list_auditmanager-resource-control) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [RegisterAccount](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html)  **
+  - **Description:** Grants permission to register an account in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RegisterOrganizationAdminAccount](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterOrganizationAdminAccount.html)  **
+  - **Description:** Grants permission to register an account within the organization as the delegated administrator for AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartAssessmentFrameworkShare](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_StartAssessmentFrameworkShare.html)  **
+  - **Description:** Grants permission to create a share request for a custom framework in AWS Audit Manager
+  - **Resource types (\*required):** [assessmentFramework\*](#list_auditmanager-resource-assessmentFramework)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag an AWS Audit Manager resource
+  - **Resource types (\*required):** [assessment](#list_auditmanager-resource-assessment) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_auditmanager-aws_TagKeys)
+  - **Resource types (\*required):** [assessmentFramework](#list_auditmanager-resource-assessmentFramework) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_auditmanager-aws_TagKeys)
+  - **Resource types (\*required):** [control](#list_auditmanager-resource-control) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_auditmanager-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_auditmanager-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag an AWS Audit Manager resource
+  - **Resource types (\*required):** [assessment](#list_auditmanager-resource-assessment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_auditmanager-aws_TagKeys)
+  - **Resource types (\*required):** [assessmentFramework](#list_auditmanager-resource-assessmentFramework) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_auditmanager-aws_TagKeys)
+  - **Resource types (\*required):** [control](#list_auditmanager-resource-control) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_auditmanager-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAssessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateAssessment.html)  **
+  - **Description:** Grants permission to update an assessment in AWS Audit Manager
+  - **Resource types (\*required):** [assessment\*](#list_auditmanager-resource-assessment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAssessmentControl](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateAssessmentControl.html)  **
+  - **Description:** Grants permission to update an assessment control in AWS Audit Manager
+  - **Resource types (\*required):** [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateAssessmentControlSetStatus](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateAssessmentControlSetStatus.html)  **
+  - **Description:** Grants permission to update the status of an assessment control set in AWS Audit Manager
+  - **Resource types (\*required):** [assessmentControlSet\*](#list_auditmanager-resource-assessmentControlSet)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateAssessmentFramework](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateAssessmentFramework.html)  **
+  - **Description:** Grants permission to update an assessment framework in AWS Audit Manager
+  - **Resource types (\*required):** [assessmentFramework\*](#list_auditmanager-resource-assessmentFramework) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [control\*](#list_auditmanager-resource-control) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAssessmentFrameworkShare](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateAssessmentFrameworkShare.html)  **
+  - **Description:** Grants permission to update a share request for a custom framework in AWS Audit Manager
+  - **Resource types (\*required):** [assessmentFramework\*](#list_auditmanager-resource-assessmentFramework)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAssessmentStatus](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateAssessmentStatus.html)  **
+  - **Description:** Grants permission to update the status of an assessment in AWS Audit Manager
+  - **Resource types (\*required):** [assessment\*](#list_auditmanager-resource-assessment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateControl](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateControl.html)  **
+  - **Description:** Grants permission to update a control in AWS Audit Manager
+  - **Resource types (\*required):** [control\*](#list_auditmanager-resource-control)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSettings](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html)  **
+  - **Description:** Grants permission to update settings in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ValidateAssessmentReportIntegrity](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_ValidateAssessmentReportIntegrity.html)  **
+  - **Description:** Grants permission to validate the integrity of an assessment report in AWS Audit Manager
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+
 
 ## Resource types defined by AWS Audit Manager
+<a name="list_auditmanager-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                          | ARN                                                                                                      | Condition keys                                                                                                           |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| [assessment](../../../audit-manager/latest/APIReference/API_Assessment.md "../../../audit-manager/latest/APIReference/API_Assessment.md")                               | arn:${Partition}:auditmanager:${Region}:${Account}:assessment/${AssessmentId}                            | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_") |
-| [assessmentControlSet](../../../audit-manager/latest/APIReference/API_AssessmentControlSet.md "../../../audit-manager/latest/APIReference/API_AssessmentControlSet.md") | arn:${Partition}:auditmanager:${Region}:${Account}:assessment/${AssessmentId}/controlSet/${ControlSetId} |                                                                                                                          |
-| [assessmentFramework](../../../audit-manager/latest/APIReference/API_AssessmentFramework.md "../../../audit-manager/latest/APIReference/API_AssessmentFramework.md")    | arn:${Partition}:auditmanager:${Region}:${Account}:assessmentFramework/${AssessmentFrameworkId}          | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_") |
-| [control](../../../audit-manager/latest/APIReference/API_Control.md "../../../audit-manager/latest/APIReference/API_Control.md")                                        | arn:${Partition}:auditmanager:${Region}:${Account}:control/${ControlId}                                  | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_ "#list_auditmanager-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [assessment](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Assessment.html)  | arn:${Partition}:auditmanager:${Region}:${Account}:assessment/${AssessmentId} | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_) | 
+|  [assessmentControlSet](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_AssessmentControlSet.html)  | arn:${Partition}:auditmanager:${Region}:${Account}:assessment/${AssessmentId}/controlSet/${ControlSetId} |   | 
+|  [assessmentFramework](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_AssessmentFramework.html)  | arn:${Partition}:auditmanager:${Region}:${Account}:assessmentFramework/${AssessmentFrameworkId} | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_) | 
+|  [control](https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Control.html)  | arn:${Partition}:auditmanager:${Region}:${Account}:control/${ControlId} | [aws:ResourceTag/${TagKey}](#list_auditmanager-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Audit Manager
+<a name="list_auditmanager-policy-keys"></a>
 
-AWS Audit Manager defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Audit Manager defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                   | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by the tags associated with the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 

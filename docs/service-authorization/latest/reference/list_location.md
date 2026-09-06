@@ -1,270 +1,885 @@
-# Actions, resources, and condition keys for Amazon Location
 
-Amazon Location (service prefix: `geo`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Location
+<a name="list_location"></a>
+
+Amazon Location (service prefix: `geo`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/location/latest/developerguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/location/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/location/latest/developerguide/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/geo/geo.json) for this service.
 
-- Learn how to [configure this service](../../../location/latest/developerguide.md "../../../location/latest/developerguide.md").
-- View a list of the [API operations available for
-  this service](../../../location/latest/APIReference.md "../../../location/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../location/latest/developerguide/security-iam.md "../../../location/latest/developerguide/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/geo/geo.json "https://servicereference.us-east-1.amazonaws.com/v1/geo/geo.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon Location](#list_location-operations "#list_location-operations")
-- [Actions defined by Amazon Location](#list_location-actions-as-permissions "#list_location-actions-as-permissions")
-- [Resource types defined by Amazon Location](#list_location-resources-for-iam-policies "#list_location-resources-for-iam-policies")
-- [Condition keys for Amazon Location](#list_location-policy-keys "#list_location-policy-keys")
+**Topics**
++ [API operations defined by Amazon Location](#list_location-operations)
++ [Actions defined by Amazon Location](#list_location-actions-as-permissions)
++ [Resource types defined by Amazon Location](#list_location-resources-for-iam-policies)
++ [Condition keys for Amazon Location](#list_location-policy-keys)
 
 ## API operations defined by Amazon Location
+<a name="list_location-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_location-actions-as-permissions "#list_location-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_location-actions-as-permissions).
 
-| Operation                                                                                                                                                                  | IAM action                                                                                                                                              | Condition key     | Possible value(s) | Access level   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- | -------------- |
-| AssociateTrackerConsumer                                                                                                                                                   | [geo:AssociateTrackerConsumer](#list_location-action-AssociateTrackerConsumer "#list_location-action-AssociateTrackerConsumer")                         |                   |                   | Write          |
-| BatchDeleteDevicePositionHistory                                                                                                                                           | [geo:BatchDeleteDevicePositionHistory](#list_location-action-BatchDeleteDevicePositionHistory "#list_location-action-BatchDeleteDevicePositionHistory") |                   |                   | Write          |
-| BatchDeleteGeofence                                                                                                                                                        | [geo:BatchDeleteGeofence](#list_location-action-BatchDeleteGeofence "#list_location-action-BatchDeleteGeofence")                                        |                   |                   | Write          |
-| BatchEvaluateGeofences                                                                                                                                                     | [geo:BatchEvaluateGeofences](#list_location-action-BatchEvaluateGeofences "#list_location-action-BatchEvaluateGeofences")                               |                   |                   | Write          |
-| BatchGetDevicePosition                                                                                                                                                     | [geo:BatchGetDevicePosition](#list_location-action-BatchGetDevicePosition "#list_location-action-BatchGetDevicePosition")                               |                   |                   | Read           |
-| BatchPutGeofence                                                                                                                                                           | [geo:BatchPutGeofence](#list_location-action-BatchPutGeofence "#list_location-action-BatchPutGeofence")                                                 |                   |                   | Write          |
-| BatchUpdateDevicePosition                                                                                                                                                  | [geo:BatchUpdateDevicePosition](#list_location-action-BatchUpdateDevicePosition "#list_location-action-BatchUpdateDevicePosition")                      |                   |                   | Write          |
-| CalculateRoute                                                                                                                                                             | [geo:CalculateRoute](#list_location-action-CalculateRoute "#list_location-action-CalculateRoute")                                                       |                   |                   | Read           |
-| CalculateRouteMatrix                                                                                                                                                       | [geo:CalculateRouteMatrix](#list_location-action-CalculateRouteMatrix "#list_location-action-CalculateRouteMatrix")                                     |                   |                   | Read           |
-| CancelJob                                                                                                                                                                  | [geo:CancelJob](#list_location-action-CancelJob "#list_location-action-CancelJob")                                                                      |                   |                   | Write          |
-| CreateGeofenceCollection                                                                                                                                                   | [geo:CreateGeofenceCollection](#list_location-action-CreateGeofenceCollection "#list_location-action-CreateGeofenceCollection")                         |                   |                   | Write          |
-| [geo:TagResource](#list_location-action-TagResource "#list_location-action-TagResource")                                                                                   |                                                                                                                                                         |                   | Tagging, Write    |
-| CreateKey                                                                                                                                                                  | [geo:CalculateRoute](#list_location-action-CalculateRoute "#list_location-action-CalculateRoute")                                                       |                   |                   | Read           |
-| [geo:CalculateRouteMatrix](#list_location-action-CalculateRouteMatrix "#list_location-action-CalculateRouteMatrix")                                                        |                                                                                                                                                         |                   | Read              |
-| [geo:CreateKey](#list_location-action-CreateKey "#list_location-action-CreateKey")                                                                                         |                                                                                                                                                         |                   | Write             |
-| [geo:GetMapGlyphs](#list_location-action-GetMapGlyphs "#list_location-action-GetMapGlyphs")                                                                                |                                                                                                                                                         |                   | Read              |
-| [geo:GetMapSprites](#list_location-action-GetMapSprites "#list_location-action-GetMapSprites")                                                                             |                                                                                                                                                         |                   | Read              |
-| [geo:GetMapStyleDescriptor](#list_location-action-GetMapStyleDescriptor "#list_location-action-GetMapStyleDescriptor")                                                     |                                                                                                                                                         |                   | Read              |
-| [geo:GetMapTile](#list_location-action-GetMapTile "#list_location-action-GetMapTile")                                                                                      |                                                                                                                                                         |                   | Read              |
-| [geo:GetPlace](#list_location-action-GetPlace "#list_location-action-GetPlace")                                                                                            |                                                                                                                                                         |                   | Read              |
-| [geo:SearchPlaceIndexForPosition](#list_location-action-SearchPlaceIndexForPosition "#list_location-action-SearchPlaceIndexForPosition")                                   |                                                                                                                                                         |                   | Read              |
-| [geo:SearchPlaceIndexForSuggestions](#list_location-action-SearchPlaceIndexForSuggestions "#list_location-action-SearchPlaceIndexForSuggestions")                          |                                                                                                                                                         |                   | Read              |
-| [geo:SearchPlaceIndexForText](#list_location-action-SearchPlaceIndexForText "#list_location-action-SearchPlaceIndexForText")                                               |                                                                                                                                                         |                   | Read              |
-| [geo:TagResource](#list_location-action-TagResource "#list_location-action-TagResource")                                                                                   |                                                                                                                                                         |                   | Tagging, Write    |
-| [geo-maps:GetStaticMap](../../../location/latest/APIReference/API_geomaps_GetStaticMap.md "../../../location/latest/APIReference/API_geomaps_GetStaticMap.md")             |                                                                                                                                                         |                   | Read              |
-| [geo-maps:GetTile](../../../location/latest/APIReference/API_geomaps_GetTile.md "../../../location/latest/APIReference/API_geomaps_GetTile.md")                            |                                                                                                                                                         |                   | Read              |
-| [geo-places:Autocomplete](../../../location/latest/APIReference/API_geoplaces_Autocomplete.md "../../../location/latest/APIReference/API_geoplaces_Autocomplete.md")       |                                                                                                                                                         |                   | Read              |
-| [geo-places:Geocode](../../../location/latest/APIReference/API_geoplaces_Geocode.md "../../../location/latest/APIReference/API_geoplaces_Geocode.md")                      |                                                                                                                                                         |                   | Read              |
-| [geo-places:GetPlace](../../../location/latest/APIReference/API_geoplaces_GetPlace.md "../../../location/latest/APIReference/API_geoplaces_GetPlace.md")                   |                                                                                                                                                         |                   | Read              |
-| [geo-places:ReverseGeocode](../../../location/latest/APIReference/API_geoplaces_ReverseGeocode.md "../../../location/latest/APIReference/API_geoplaces_ReverseGeocode.md") |                                                                                                                                                         |                   | Read              |
-| [geo-places:SearchNearby](../../../location/latest/APIReference/API_geoplaces_SearchNearby.md "../../../location/latest/APIReference/API_geoplaces_SearchNearby.md")       |                                                                                                                                                         |                   | Read              |
-| [geo-places:SearchText](../../../location/latest/APIReference/API_geoplaces_SearchText.md "../../../location/latest/APIReference/API_geoplaces_SearchText.md")             |                                                                                                                                                         |                   | Read              |
-| [geo-places:Suggest](../../../location/latest/APIReference/API_geoplaces_Suggest.md "../../../location/latest/APIReference/API_geoplaces_Suggest.md")                      |                                                                                                                                                         |                   | Read              |
-| [geo-routes:CalculateIsolines](../../../location/latest/APIReference/API_CalculateIsolines.md "../../../location/latest/APIReference/API_CalculateIsolines.md")            |                                                                                                                                                         |                   | Read              |
-| [geo-routes:CalculateRouteMatrix](../../../location/latest/APIReference/API_CalculateRouteMatrix.md "../../../location/latest/APIReference/API_CalculateRouteMatrix.md")   |                                                                                                                                                         |                   | Read              |
-| [geo-routes:CalculateRoutes](../../../location/latest/APIReference/API_CalculateRoutes.md "../../../location/latest/APIReference/API_CalculateRoutes.md")                  |                                                                                                                                                         |                   | Read              |
-| [geo-routes:OptimizeWaypoints](../../../location/latest/APIReference/API_OptimizeWaypoints.md "../../../location/latest/APIReference/API_OptimizeWaypoints.md")            |                                                                                                                                                         |                   | Read              |
-| [geo-routes:SnapToRoads](../../../location/latest/APIReference/API_SnapToRoads.md "../../../location/latest/APIReference/API_SnapToRoads.md")                              |                                                                                                                                                         |                   | Read              |
-| CreateMap                                                                                                                                                                  | [geo:CreateMap](#list_location-action-CreateMap "#list_location-action-CreateMap")                                                                      |                   |                   | Write          |
-| [geo:TagResource](#list_location-action-TagResource "#list_location-action-TagResource")                                                                                   |                                                                                                                                                         |                   | Tagging, Write    |
-| CreatePlaceIndex                                                                                                                                                           | [geo:CreatePlaceIndex](#list_location-action-CreatePlaceIndex "#list_location-action-CreatePlaceIndex")                                                 |                   |                   | Write          |
-| [geo:TagResource](#list_location-action-TagResource "#list_location-action-TagResource")                                                                                   |                                                                                                                                                         |                   | Tagging, Write    |
-| CreateRouteCalculator                                                                                                                                                      | [geo:CreateRouteCalculator](#list_location-action-CreateRouteCalculator "#list_location-action-CreateRouteCalculator")                                  |                   |                   | Write          |
-| [geo:TagResource](#list_location-action-TagResource "#list_location-action-TagResource")                                                                                   |                                                                                                                                                         |                   | Tagging, Write    |
-| CreateTracker                                                                                                                                                              | [geo:CreateTracker](#list_location-action-CreateTracker "#list_location-action-CreateTracker")                                                          |                   |                   | Write          |
-| [geo:TagResource](#list_location-action-TagResource "#list_location-action-TagResource")                                                                                   |                                                                                                                                                         |                   | Tagging, Write    |
-| DeleteGeofenceCollection                                                                                                                                                   | [geo:DeleteGeofenceCollection](#list_location-action-DeleteGeofenceCollection "#list_location-action-DeleteGeofenceCollection")                         |                   |                   | Write          |
-| DeleteKey                                                                                                                                                                  | [geo:DeleteKey](#list_location-action-DeleteKey "#list_location-action-DeleteKey")                                                                      |                   |                   | Write          |
-| DeleteMap                                                                                                                                                                  | [geo:DeleteMap](#list_location-action-DeleteMap "#list_location-action-DeleteMap")                                                                      |                   |                   | Write          |
-| DeletePlaceIndex                                                                                                                                                           | [geo:DeletePlaceIndex](#list_location-action-DeletePlaceIndex "#list_location-action-DeletePlaceIndex")                                                 |                   |                   | Write          |
-| DeleteRouteCalculator                                                                                                                                                      | [geo:DeleteRouteCalculator](#list_location-action-DeleteRouteCalculator "#list_location-action-DeleteRouteCalculator")                                  |                   |                   | Write          |
-| DeleteTracker                                                                                                                                                              | [geo:DeleteTracker](#list_location-action-DeleteTracker "#list_location-action-DeleteTracker")                                                          |                   |                   | Write          |
-| DescribeGeofenceCollection                                                                                                                                                 | [geo:DescribeGeofenceCollection](#list_location-action-DescribeGeofenceCollection "#list_location-action-DescribeGeofenceCollection")                   |                   |                   | Read           |
-| DescribeKey                                                                                                                                                                | [geo:DescribeKey](#list_location-action-DescribeKey "#list_location-action-DescribeKey")                                                                |                   |                   | Read           |
-| DescribeMap                                                                                                                                                                | [geo:DescribeMap](#list_location-action-DescribeMap "#list_location-action-DescribeMap")                                                                |                   |                   | Read           |
-| DescribePlaceIndex                                                                                                                                                         | [geo:DescribePlaceIndex](#list_location-action-DescribePlaceIndex "#list_location-action-DescribePlaceIndex")                                           |                   |                   | Read           |
-| DescribeRouteCalculator                                                                                                                                                    | [geo:DescribeRouteCalculator](#list_location-action-DescribeRouteCalculator "#list_location-action-DescribeRouteCalculator")                            |                   |                   | Read           |
-| DescribeTracker                                                                                                                                                            | [geo:DescribeTracker](#list_location-action-DescribeTracker "#list_location-action-DescribeTracker")                                                    |                   |                   | Read           |
-| DisassociateTrackerConsumer                                                                                                                                                | [geo:DisassociateTrackerConsumer](#list_location-action-DisassociateTrackerConsumer "#list_location-action-DisassociateTrackerConsumer")                |                   |                   | Write          |
-| ForecastGeofenceEvents                                                                                                                                                     | [geo:ForecastGeofenceEvents](#list_location-action-ForecastGeofenceEvents "#list_location-action-ForecastGeofenceEvents")                               |                   |                   | Read           |
-| GetDevicePosition                                                                                                                                                          | [geo:GetDevicePosition](#list_location-action-GetDevicePosition "#list_location-action-GetDevicePosition")                                              |                   |                   | Read           |
-| GetDevicePositionHistory                                                                                                                                                   | [geo:GetDevicePositionHistory](#list_location-action-GetDevicePositionHistory "#list_location-action-GetDevicePositionHistory")                         |                   |                   | Read           |
-| GetGeofence                                                                                                                                                                | [geo:GetGeofence](#list_location-action-GetGeofence "#list_location-action-GetGeofence")                                                                |                   |                   | Read           |
-| GetJob                                                                                                                                                                     | [geo:GetJob](#list_location-action-GetJob "#list_location-action-GetJob")                                                                               |                   |                   | Read           |
-| GetMapGlyphs                                                                                                                                                               | [geo:GetMapGlyphs](#list_location-action-GetMapGlyphs "#list_location-action-GetMapGlyphs")                                                             |                   |                   | Read           |
-| GetMapSprites                                                                                                                                                              | [geo:GetMapSprites](#list_location-action-GetMapSprites "#list_location-action-GetMapSprites")                                                          |                   |                   | Read           |
-| GetMapStyleDescriptor                                                                                                                                                      | [geo:GetMapStyleDescriptor](#list_location-action-GetMapStyleDescriptor "#list_location-action-GetMapStyleDescriptor")                                  |                   |                   | Read           |
-| GetMapTile                                                                                                                                                                 | [geo:GetMapTile](#list_location-action-GetMapTile "#list_location-action-GetMapTile")                                                                   |                   |                   | Read           |
-| GetPlace                                                                                                                                                                   | [geo:GetPlace](#list_location-action-GetPlace "#list_location-action-GetPlace")                                                                         |                   |                   | Read           |
-| ListDevicePositions                                                                                                                                                        | [geo:ListDevicePositions](#list_location-action-ListDevicePositions "#list_location-action-ListDevicePositions")                                        |                   |                   | Read           |
-| ListGeofenceCollections                                                                                                                                                    | [geo:ListGeofenceCollections](#list_location-action-ListGeofenceCollections "#list_location-action-ListGeofenceCollections")                            |                   |                   | List           |
-| ListGeofences                                                                                                                                                              | [geo:ListGeofences](#list_location-action-ListGeofences "#list_location-action-ListGeofences")                                                          |                   |                   | Read           |
-| ListJobs                                                                                                                                                                   | [geo:ListJobs](#list_location-action-ListJobs "#list_location-action-ListJobs")                                                                         |                   |                   | List           |
-| ListKeys                                                                                                                                                                   | [geo:ListKeys](#list_location-action-ListKeys "#list_location-action-ListKeys")                                                                         |                   |                   | List           |
-| ListMaps                                                                                                                                                                   | [geo:ListMaps](#list_location-action-ListMaps "#list_location-action-ListMaps")                                                                         |                   |                   | List           |
-| ListPlaceIndexes                                                                                                                                                           | [geo:ListPlaceIndexes](#list_location-action-ListPlaceIndexes "#list_location-action-ListPlaceIndexes")                                                 |                   |                   | List           |
-| ListRouteCalculators                                                                                                                                                       | [geo:ListRouteCalculators](#list_location-action-ListRouteCalculators "#list_location-action-ListRouteCalculators")                                     |                   |                   | List           |
-| ListTagsForResource                                                                                                                                                        | [geo:ListTagsForResource](#list_location-action-ListTagsForResource "#list_location-action-ListTagsForResource")                                        |                   |                   | Read           |
-| ListTrackerConsumers                                                                                                                                                       | [geo:ListTrackerConsumers](#list_location-action-ListTrackerConsumers "#list_location-action-ListTrackerConsumers")                                     |                   |                   | Read           |
-| ListTrackers                                                                                                                                                               | [geo:ListTrackers](#list_location-action-ListTrackers "#list_location-action-ListTrackers")                                                             |                   |                   | List           |
-| PutGeofence                                                                                                                                                                | [geo:PutGeofence](#list_location-action-PutGeofence "#list_location-action-PutGeofence")                                                                |                   |                   | Write          |
-| SearchPlaceIndexForPosition                                                                                                                                                | [geo:SearchPlaceIndexForPosition](#list_location-action-SearchPlaceIndexForPosition "#list_location-action-SearchPlaceIndexForPosition")                |                   |                   | Read           |
-| SearchPlaceIndexForSuggestions                                                                                                                                             | [geo:SearchPlaceIndexForSuggestions](#list_location-action-SearchPlaceIndexForSuggestions "#list_location-action-SearchPlaceIndexForSuggestions")       |                   |                   | Read           |
-| SearchPlaceIndexForText                                                                                                                                                    | [geo:SearchPlaceIndexForText](#list_location-action-SearchPlaceIndexForText "#list_location-action-SearchPlaceIndexForText")                            |                   |                   | Read           |
-| StartJob                                                                                                                                                                   | [geo:StartJob](#list_location-action-StartJob "#list_location-action-StartJob")                                                                         |                   |                   | Write          |
-| [geo:TagResource](#list_location-action-TagResource "#list_location-action-TagResource")                                                                                   |                                                                                                                                                         |                   | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                            | iam:PassedToService                                                                                                                                     | geo.amazonaws.com | Write             |
-| TagResource                                                                                                                                                                | [geo:TagResource](#list_location-action-TagResource "#list_location-action-TagResource")                                                                |                   |                   | Tagging, Write |
-| UntagResource                                                                                                                                                              | [geo:UntagResource](#list_location-action-UntagResource "#list_location-action-UntagResource")                                                          |                   |                   | Tagging, Write |
-| UpdateGeofenceCollection                                                                                                                                                   | [geo:UpdateGeofenceCollection](#list_location-action-UpdateGeofenceCollection "#list_location-action-UpdateGeofenceCollection")                         |                   |                   | Write          |
-| UpdateKey                                                                                                                                                                  | [geo:CalculateRoute](#list_location-action-CalculateRoute "#list_location-action-CalculateRoute")                                                       |                   |                   | Read           |
-| [geo:CalculateRouteMatrix](#list_location-action-CalculateRouteMatrix "#list_location-action-CalculateRouteMatrix")                                                        |                                                                                                                                                         |                   | Read              |
-| [geo:GetMapGlyphs](#list_location-action-GetMapGlyphs "#list_location-action-GetMapGlyphs")                                                                                |                                                                                                                                                         |                   | Read              |
-| [geo:GetMapSprites](#list_location-action-GetMapSprites "#list_location-action-GetMapSprites")                                                                             |                                                                                                                                                         |                   | Read              |
-| [geo:GetMapStyleDescriptor](#list_location-action-GetMapStyleDescriptor "#list_location-action-GetMapStyleDescriptor")                                                     |                                                                                                                                                         |                   | Read              |
-| [geo:GetMapTile](#list_location-action-GetMapTile "#list_location-action-GetMapTile")                                                                                      |                                                                                                                                                         |                   | Read              |
-| [geo:GetPlace](#list_location-action-GetPlace "#list_location-action-GetPlace")                                                                                            |                                                                                                                                                         |                   | Read              |
-| [geo:SearchPlaceIndexForPosition](#list_location-action-SearchPlaceIndexForPosition "#list_location-action-SearchPlaceIndexForPosition")                                   |                                                                                                                                                         |                   | Read              |
-| [geo:SearchPlaceIndexForSuggestions](#list_location-action-SearchPlaceIndexForSuggestions "#list_location-action-SearchPlaceIndexForSuggestions")                          |                                                                                                                                                         |                   | Read              |
-| [geo:SearchPlaceIndexForText](#list_location-action-SearchPlaceIndexForText "#list_location-action-SearchPlaceIndexForText")                                               |                                                                                                                                                         |                   | Read              |
-| [geo:UpdateKey](#list_location-action-UpdateKey "#list_location-action-UpdateKey")                                                                                         |                                                                                                                                                         |                   | Write             |
-| [geo-maps:GetStaticMap](../../../location/latest/APIReference/API_geomaps_GetStaticMap.md "../../../location/latest/APIReference/API_geomaps_GetStaticMap.md")             |                                                                                                                                                         |                   | Read              |
-| [geo-maps:GetTile](../../../location/latest/APIReference/API_geomaps_GetTile.md "../../../location/latest/APIReference/API_geomaps_GetTile.md")                            |                                                                                                                                                         |                   | Read              |
-| [geo-places:Autocomplete](../../../location/latest/APIReference/API_geoplaces_Autocomplete.md "../../../location/latest/APIReference/API_geoplaces_Autocomplete.md")       |                                                                                                                                                         |                   | Read              |
-| [geo-places:Geocode](../../../location/latest/APIReference/API_geoplaces_Geocode.md "../../../location/latest/APIReference/API_geoplaces_Geocode.md")                      |                                                                                                                                                         |                   | Read              |
-| [geo-places:GetPlace](../../../location/latest/APIReference/API_geoplaces_GetPlace.md "../../../location/latest/APIReference/API_geoplaces_GetPlace.md")                   |                                                                                                                                                         |                   | Read              |
-| [geo-places:ReverseGeocode](../../../location/latest/APIReference/API_geoplaces_ReverseGeocode.md "../../../location/latest/APIReference/API_geoplaces_ReverseGeocode.md") |                                                                                                                                                         |                   | Read              |
-| [geo-places:SearchNearby](../../../location/latest/APIReference/API_geoplaces_SearchNearby.md "../../../location/latest/APIReference/API_geoplaces_SearchNearby.md")       |                                                                                                                                                         |                   | Read              |
-| [geo-places:SearchText](../../../location/latest/APIReference/API_geoplaces_SearchText.md "../../../location/latest/APIReference/API_geoplaces_SearchText.md")             |                                                                                                                                                         |                   | Read              |
-| [geo-places:Suggest](../../../location/latest/APIReference/API_geoplaces_Suggest.md "../../../location/latest/APIReference/API_geoplaces_Suggest.md")                      |                                                                                                                                                         |                   | Read              |
-| [geo-routes:CalculateIsolines](../../../location/latest/APIReference/API_CalculateIsolines.md "../../../location/latest/APIReference/API_CalculateIsolines.md")            |                                                                                                                                                         |                   | Read              |
-| [geo-routes:CalculateRouteMatrix](../../../location/latest/APIReference/API_CalculateRouteMatrix.md "../../../location/latest/APIReference/API_CalculateRouteMatrix.md")   |                                                                                                                                                         |                   | Read              |
-| [geo-routes:CalculateRoutes](../../../location/latest/APIReference/API_CalculateRoutes.md "../../../location/latest/APIReference/API_CalculateRoutes.md")                  |                                                                                                                                                         |                   | Read              |
-| [geo-routes:OptimizeWaypoints](../../../location/latest/APIReference/API_OptimizeWaypoints.md "../../../location/latest/APIReference/API_OptimizeWaypoints.md")            |                                                                                                                                                         |                   | Read              |
-| [geo-routes:SnapToRoads](../../../location/latest/APIReference/API_SnapToRoads.md "../../../location/latest/APIReference/API_SnapToRoads.md")                              |                                                                                                                                                         |                   | Read              |
-| UpdateMap                                                                                                                                                                  | [geo:UpdateMap](#list_location-action-UpdateMap "#list_location-action-UpdateMap")                                                                      |                   |                   | Write          |
-| UpdatePlaceIndex                                                                                                                                                           | [geo:UpdatePlaceIndex](#list_location-action-UpdatePlaceIndex "#list_location-action-UpdatePlaceIndex")                                                 |                   |                   | Write          |
-| UpdateRouteCalculator                                                                                                                                                      | [geo:UpdateRouteCalculator](#list_location-action-UpdateRouteCalculator "#list_location-action-UpdateRouteCalculator")                                  |                   |                   | Write          |
-| UpdateTracker                                                                                                                                                              | [geo:UpdateTracker](#list_location-action-UpdateTracker "#list_location-action-UpdateTracker")                                                          |                   |                   | Write          |
-| VerifyDevicePosition                                                                                                                                                       | [geo:VerifyDevicePosition](#list_location-action-VerifyDevicePosition "#list_location-action-VerifyDevicePosition")                                     |                   |                   | Read           |
+
+
+
+- **   AssociateTrackerConsumer  **
+  - **IAM action:**  [geo:AssociateTrackerConsumer](#list_location-action-AssociateTrackerConsumer) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchDeleteDevicePositionHistory  **
+  - **IAM action:**  [geo:BatchDeleteDevicePositionHistory](#list_location-action-BatchDeleteDevicePositionHistory) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchDeleteGeofence  **
+  - **IAM action:**  [geo:BatchDeleteGeofence](#list_location-action-BatchDeleteGeofence) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchEvaluateGeofences  **
+  - **IAM action:**  [geo:BatchEvaluateGeofences](#list_location-action-BatchEvaluateGeofences) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchGetDevicePosition  **
+  - **IAM action:**  [geo:BatchGetDevicePosition](#list_location-action-BatchGetDevicePosition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchPutGeofence  **
+  - **IAM action:**  [geo:BatchPutGeofence](#list_location-action-BatchPutGeofence) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchUpdateDevicePosition  **
+  - **IAM action:**  [geo:BatchUpdateDevicePosition](#list_location-action-BatchUpdateDevicePosition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CalculateRoute  **
+  - **IAM action:**  [geo:CalculateRoute](#list_location-action-CalculateRoute) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   CalculateRouteMatrix  **
+  - **IAM action:**  [geo:CalculateRouteMatrix](#list_location-action-CalculateRouteMatrix) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   CancelJob  **
+  - **IAM action:**  [geo:CancelJob](#list_location-action-CancelJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateGeofenceCollection  **
+  - **IAM action:**  [geo:CreateGeofenceCollection](#list_location-action-CreateGeofenceCollection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [geo:TagResource](#list_location-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateKey  **
+  - **IAM action:**  [geo:CalculateRoute](#list_location-action-CalculateRoute)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:CalculateRouteMatrix](#list_location-action-CalculateRouteMatrix)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:CreateKey](#list_location-action-CreateKey)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [geo:GetMapGlyphs](#list_location-action-GetMapGlyphs)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:GetMapSprites](#list_location-action-GetMapSprites)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:GetMapStyleDescriptor](#list_location-action-GetMapStyleDescriptor)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:GetMapTile](#list_location-action-GetMapTile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:GetPlace](#list_location-action-GetPlace)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:SearchPlaceIndexForPosition](#list_location-action-SearchPlaceIndexForPosition)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:SearchPlaceIndexForSuggestions](#list_location-action-SearchPlaceIndexForSuggestions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:SearchPlaceIndexForText](#list_location-action-SearchPlaceIndexForText)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:TagResource](#list_location-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [geo-maps:GetStaticMap](https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetStaticMap.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-maps:GetTile](https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetTile.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-places:Autocomplete](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_Autocomplete.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-places:Geocode](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_Geocode.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-places:GetPlace](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_GetPlace.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-places:ReverseGeocode](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_ReverseGeocode.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-places:SearchNearby](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_SearchNearby.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-places:SearchText](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_SearchText.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-places:Suggest](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_Suggest.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-routes:CalculateIsolines](https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateIsolines.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-routes:CalculateRouteMatrix](https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRouteMatrix.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-routes:CalculateRoutes](https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRoutes.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-routes:OptimizeWaypoints](https://docs.aws.amazon.com/location/latest/APIReference/API_OptimizeWaypoints.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-routes:SnapToRoads](https://docs.aws.amazon.com/location/latest/APIReference/API_SnapToRoads.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   CreateMap  **
+  - **IAM action:**  [geo:CreateMap](#list_location-action-CreateMap)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [geo:TagResource](#list_location-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreatePlaceIndex  **
+  - **IAM action:**  [geo:CreatePlaceIndex](#list_location-action-CreatePlaceIndex)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [geo:TagResource](#list_location-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateRouteCalculator  **
+  - **IAM action:**  [geo:CreateRouteCalculator](#list_location-action-CreateRouteCalculator)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [geo:TagResource](#list_location-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateTracker  **
+  - **IAM action:**  [geo:CreateTracker](#list_location-action-CreateTracker)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [geo:TagResource](#list_location-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteGeofenceCollection  **
+  - **IAM action:**  [geo:DeleteGeofenceCollection](#list_location-action-DeleteGeofenceCollection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteKey  **
+  - **IAM action:**  [geo:DeleteKey](#list_location-action-DeleteKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteMap  **
+  - **IAM action:**  [geo:DeleteMap](#list_location-action-DeleteMap) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeletePlaceIndex  **
+  - **IAM action:**  [geo:DeletePlaceIndex](#list_location-action-DeletePlaceIndex) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRouteCalculator  **
+  - **IAM action:**  [geo:DeleteRouteCalculator](#list_location-action-DeleteRouteCalculator) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteTracker  **
+  - **IAM action:**  [geo:DeleteTracker](#list_location-action-DeleteTracker) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeGeofenceCollection  **
+  - **IAM action:**  [geo:DescribeGeofenceCollection](#list_location-action-DescribeGeofenceCollection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeKey  **
+  - **IAM action:**  [geo:DescribeKey](#list_location-action-DescribeKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeMap  **
+  - **IAM action:**  [geo:DescribeMap](#list_location-action-DescribeMap) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribePlaceIndex  **
+  - **IAM action:**  [geo:DescribePlaceIndex](#list_location-action-DescribePlaceIndex) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeRouteCalculator  **
+  - **IAM action:**  [geo:DescribeRouteCalculator](#list_location-action-DescribeRouteCalculator) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeTracker  **
+  - **IAM action:**  [geo:DescribeTracker](#list_location-action-DescribeTracker) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DisassociateTrackerConsumer  **
+  - **IAM action:**  [geo:DisassociateTrackerConsumer](#list_location-action-DisassociateTrackerConsumer) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ForecastGeofenceEvents  **
+  - **IAM action:**  [geo:ForecastGeofenceEvents](#list_location-action-ForecastGeofenceEvents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDevicePosition  **
+  - **IAM action:**  [geo:GetDevicePosition](#list_location-action-GetDevicePosition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDevicePositionHistory  **
+  - **IAM action:**  [geo:GetDevicePositionHistory](#list_location-action-GetDevicePositionHistory) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetGeofence  **
+  - **IAM action:**  [geo:GetGeofence](#list_location-action-GetGeofence) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetJob  **
+  - **IAM action:**  [geo:GetJob](#list_location-action-GetJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMapGlyphs  **
+  - **IAM action:**  [geo:GetMapGlyphs](#list_location-action-GetMapGlyphs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMapSprites  **
+  - **IAM action:**  [geo:GetMapSprites](#list_location-action-GetMapSprites) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMapStyleDescriptor  **
+  - **IAM action:**  [geo:GetMapStyleDescriptor](#list_location-action-GetMapStyleDescriptor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMapTile  **
+  - **IAM action:**  [geo:GetMapTile](#list_location-action-GetMapTile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPlace  **
+  - **IAM action:**  [geo:GetPlace](#list_location-action-GetPlace) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListDevicePositions  **
+  - **IAM action:**  [geo:ListDevicePositions](#list_location-action-ListDevicePositions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListGeofenceCollections  **
+  - **IAM action:**  [geo:ListGeofenceCollections](#list_location-action-ListGeofenceCollections) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListGeofences  **
+  - **IAM action:**  [geo:ListGeofences](#list_location-action-ListGeofences) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListJobs  **
+  - **IAM action:**  [geo:ListJobs](#list_location-action-ListJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListKeys  **
+  - **IAM action:**  [geo:ListKeys](#list_location-action-ListKeys) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMaps  **
+  - **IAM action:**  [geo:ListMaps](#list_location-action-ListMaps) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPlaceIndexes  **
+  - **IAM action:**  [geo:ListPlaceIndexes](#list_location-action-ListPlaceIndexes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRouteCalculators  **
+  - **IAM action:**  [geo:ListRouteCalculators](#list_location-action-ListRouteCalculators) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [geo:ListTagsForResource](#list_location-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTrackerConsumers  **
+  - **IAM action:**  [geo:ListTrackerConsumers](#list_location-action-ListTrackerConsumers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTrackers  **
+  - **IAM action:**  [geo:ListTrackers](#list_location-action-ListTrackers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PutGeofence  **
+  - **IAM action:**  [geo:PutGeofence](#list_location-action-PutGeofence) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SearchPlaceIndexForPosition  **
+  - **IAM action:**  [geo:SearchPlaceIndexForPosition](#list_location-action-SearchPlaceIndexForPosition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   SearchPlaceIndexForSuggestions  **
+  - **IAM action:**  [geo:SearchPlaceIndexForSuggestions](#list_location-action-SearchPlaceIndexForSuggestions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   SearchPlaceIndexForText  **
+  - **IAM action:**  [geo:SearchPlaceIndexForText](#list_location-action-SearchPlaceIndexForText) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartJob  **
+  - **IAM action:**  [geo:StartJob](#list_location-action-StartJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [geo:TagResource](#list_location-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** geo.amazonaws.com / **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [geo:TagResource](#list_location-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [geo:UntagResource](#list_location-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateGeofenceCollection  **
+  - **IAM action:**  [geo:UpdateGeofenceCollection](#list_location-action-UpdateGeofenceCollection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateKey  **
+  - **IAM action:**  [geo:CalculateRoute](#list_location-action-CalculateRoute)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:CalculateRouteMatrix](#list_location-action-CalculateRouteMatrix)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:GetMapGlyphs](#list_location-action-GetMapGlyphs)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:GetMapSprites](#list_location-action-GetMapSprites)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:GetMapStyleDescriptor](#list_location-action-GetMapStyleDescriptor)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:GetMapTile](#list_location-action-GetMapTile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:GetPlace](#list_location-action-GetPlace)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:SearchPlaceIndexForPosition](#list_location-action-SearchPlaceIndexForPosition)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:SearchPlaceIndexForSuggestions](#list_location-action-SearchPlaceIndexForSuggestions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:SearchPlaceIndexForText](#list_location-action-SearchPlaceIndexForText)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo:UpdateKey](#list_location-action-UpdateKey)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [geo-maps:GetStaticMap](https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetStaticMap.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-maps:GetTile](https://docs.aws.amazon.com/location/latest/APIReference/API_geomaps_GetTile.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-places:Autocomplete](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_Autocomplete.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-places:Geocode](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_Geocode.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-places:GetPlace](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_GetPlace.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-places:ReverseGeocode](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_ReverseGeocode.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-places:SearchNearby](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_SearchNearby.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-places:SearchText](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_SearchText.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-places:Suggest](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_Suggest.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-routes:CalculateIsolines](https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateIsolines.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-routes:CalculateRouteMatrix](https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRouteMatrix.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-routes:CalculateRoutes](https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRoutes.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-routes:OptimizeWaypoints](https://docs.aws.amazon.com/location/latest/APIReference/API_OptimizeWaypoints.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [geo-routes:SnapToRoads](https://docs.aws.amazon.com/location/latest/APIReference/API_SnapToRoads.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   UpdateMap  **
+  - **IAM action:**  [geo:UpdateMap](#list_location-action-UpdateMap) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdatePlaceIndex  **
+  - **IAM action:**  [geo:UpdatePlaceIndex](#list_location-action-UpdatePlaceIndex) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRouteCalculator  **
+  - **IAM action:**  [geo:UpdateRouteCalculator](#list_location-action-UpdateRouteCalculator) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateTracker  **
+  - **IAM action:**  [geo:UpdateTracker](#list_location-action-UpdateTracker) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   VerifyDevicePosition  **
+  - **IAM action:**  [geo:VerifyDevicePosition](#list_location-action-VerifyDevicePosition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+
 
 ## Actions defined by Amazon Location
+<a name="list_location-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                       | Resource types (\*required)                                                                                        | Condition keys                                                                                                                                                                                                                                                                                                                                                                                    | Access level   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AssociateTrackerConsumer](../../../location/latest/APIReference/API_WaypointTracking_AssociateTrackerConsumer.md "../../../location/latest/APIReference/API_WaypointTracking_AssociateTrackerConsumer.md")                         | Grants permission to create an association between a geofence-collection and a tracker resource                                                                                                                                                                                                                                                                                                   | [tracker\*](#list_location-resource-tracker "#list_location-resource-tracker")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")                                                                                                                                                                                                  | Write          |
-| [BatchDeleteDevicePositionHistory](../../../location/latest/APIReference/API_WaypointTracking_BatchDeleteDevicePositionHistory.md "../../../location/latest/APIReference/API_WaypointTracking_BatchDeleteDevicePositionHistory.md") | Grants permission to delete a batch of device position histories from a tracker resource                                                                                                                                                                                                                                                                                                          | [tracker\*](#list_location-resource-tracker "#list_location-resource-tracker")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")                                                                                                                                                                                                  | Write          |
-| [BatchDeleteGeofence](../../../location/latest/APIReference/API_WaypointGeofencing_BatchDeleteGeofence.md "../../../location/latest/APIReference/API_WaypointGeofencing_BatchDeleteGeofence.md")                                    | Grants permission to delete a batch of geofences from a geofence collection                                                                                                                                                                                                                                                                                                                       | [geofence-collection\*](#list_location-resource-geofence-collection "#list_location-resource-geofence-collection") | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:GeofenceIds](#list_location-geo_GeofenceIds "#list_location-geo_GeofenceIds")                                                                                                                                                                                            | Write          |
-| [BatchEvaluateGeofences](../../../location/latest/APIReference/API_WaypointGeofencing_BatchEvaluateGeofences.md "../../../location/latest/APIReference/API_WaypointGeofencing_BatchEvaluateGeofences.md")                           | Grants permission to evaluate device positions against the position of geofences in a given geofence collection                                                                                                                                                                                                                                                                                   | [geofence-collection\*](#list_location-resource-geofence-collection "#list_location-resource-geofence-collection") | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:GeofenceIds](#list_location-geo_GeofenceIds "#list_location-geo_GeofenceIds")                                                                                                                                                                                            | Write          |
-| [BatchGetDevicePosition](../../../location/latest/APIReference/API_WaypointTracking_BatchGetDevicePosition.md "../../../location/latest/APIReference/API_WaypointTracking_BatchGetDevicePosition.md")                               | Grants permission to send a batch request to retrieve device positions                                                                                                                                                                                                                                                                                                                            | [tracker\*](#list_location-resource-tracker "#list_location-resource-tracker")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")                                                                                                                                                                                                  | Read           |
-| [BatchPutGeofence](../../../location/latest/APIReference/API_WaypointGeofencing_BatchPutGeofence.md "../../../location/latest/APIReference/API_WaypointGeofencing_BatchPutGeofence.md")                                             | Grants permission to send a batch request for adding geofences into a given geofence collection                                                                                                                                                                                                                                                                                                   | [geofence-collection\*](#list_location-resource-geofence-collection "#list_location-resource-geofence-collection") | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:GeofenceIds](#list_location-geo_GeofenceIds "#list_location-geo_GeofenceIds")                                                                                                                                                                                            | Write          |
-| [BatchUpdateDevicePosition](../../../location/latest/APIReference/API_WaypointTracking_BatchUpdateDevicePosition.md "../../../location/latest/APIReference/API_WaypointTracking_BatchUpdateDevicePosition.md")                      | Grants permission to upload a position update for one or more devices to a tracker resource                                                                                                                                                                                                                                                                                                       | [tracker\*](#list_location-resource-tracker "#list_location-resource-tracker")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")                                                                                                                                                                                                  | Write          |
-| [CalculateRoute](../../../location/previous/APIReference/API_CalculateRoute.md "../../../location/previous/APIReference/API_CalculateRoute.md")                                                                                     | Grants permission to calculate routes using a given route calculator resource                                                                                                                                                                                                                                                                                                                     | [route-calculator\*](#list_location-resource-route-calculator "#list_location-resource-route-calculator")          | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Read           |
-| [CalculateRouteMatrix](../../../location/previous/APIReference/API_CalculateRouteMatrix.md "../../../location/previous/APIReference/API_CalculateRouteMatrix.md")                                                                   | Grants permission to calculate a route matrix using a given route calculator resource                                                                                                                                                                                                                                                                                                             | [route-calculator\*](#list_location-resource-route-calculator "#list_location-resource-route-calculator")          | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Read           |
-| [CancelJob](../../../location/latest/APIReference/API_geojobs_CancelJob.md "../../../location/latest/APIReference/API_geojobs_CancelJob.md")                                                                                        | Grants permission to cancel a job                                                                                                                                                                                                                                                                                                                                                                 | [job\*](#list_location-resource-job "#list_location-resource-job")                                                 | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Write          |
-| [CreateGeofenceCollection](../../../location/latest/APIReference/API_WaypointGeofencing_CreateGeofenceCollection.md "../../../location/latest/APIReference/API_WaypointGeofencing_CreateGeofenceCollection.md")                     | Grants permission to create a geofence-collection                                                                                                                                                                                                                                                                                                                                                 | [geofence-collection\*](#list_location-resource-geofence-collection "#list_location-resource-geofence-collection") | [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_ "#list_location-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")<br>[geo:GeofenceIds](#list_location-geo_GeofenceIds "#list_location-geo_GeofenceIds") | Write          |
-| [CreateKey](../../../location/latest/APIReference/API_geotags_CreateKey.md "../../../location/latest/APIReference/API_geotags_CreateKey.md")                                                                                        | Grants permission to create an API key resource                                                                                                                                                                                                                                                                                                                                                   | [api-key\*](#list_location-resource-api-key "#list_location-resource-api-key")                                     | [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_ "#list_location-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")                                                                                       | Write          |
-| [CreateMap](../../../location/previous/APIReference/API_CreateMap.md "../../../location/previous/APIReference/API_CreateMap.md")                                                                                                    | Grants permission to create a map resource                                                                                                                                                                                                                                                                                                                                                        | [map\*](#list_location-resource-map "#list_location-resource-map")                                                 | [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_ "#list_location-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")                                                                                       | Write          |
-| [CreatePlaceIndex](../../../location/previous/APIReference/API_CreatePlaceIndex.md "../../../location/previous/APIReference/API_CreatePlaceIndex.md")                                                                               | Grants permission to create a place index resource                                                                                                                                                                                                                                                                                                                                                | [place-index\*](#list_location-resource-place-index "#list_location-resource-place-index")                         | [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_ "#list_location-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")                                                                                       | Write          |
-| [CreateRouteCalculator](../../../location/previous/APIReference/API_CreateRouteCalculator.md "../../../location/previous/APIReference/API_CreateRouteCalculator.md")                                                                | Grants permission to create a route calculator resource                                                                                                                                                                                                                                                                                                                                           | [route-calculator\*](#list_location-resource-route-calculator "#list_location-resource-route-calculator")          | [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_ "#list_location-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")                                                                                       | Write          |
-| [CreateTracker](../../../location/latest/APIReference/API_WaypointTracking_CreateTracker.md "../../../location/latest/APIReference/API_WaypointTracking_CreateTracker.md")                                                          | Grants permission to create a tracker resource                                                                                                                                                                                                                                                                                                                                                    | [tracker\*](#list_location-resource-tracker "#list_location-resource-tracker")                                     | [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_ "#list_location-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")       | Write          |
-| [DeleteGeofenceCollection](../../../location/latest/APIReference/API_WaypointGeofencing_DeleteGeofenceCollection.md "../../../location/latest/APIReference/API_WaypointGeofencing_DeleteGeofenceCollection.md")                     | Grants permission to delete a geofence-collection                                                                                                                                                                                                                                                                                                                                                 | [geofence-collection\*](#list_location-resource-geofence-collection "#list_location-resource-geofence-collection") | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:GeofenceIds](#list_location-geo_GeofenceIds "#list_location-geo_GeofenceIds")                                                                                                                                                                                            | Write          |
-| [DeleteKey](../../../location/latest/APIReference/API_geotags_DeleteKey.md "../../../location/latest/APIReference/API_geotags_DeleteKey.md")                                                                                        | Grants permission to delete an API key resource                                                                                                                                                                                                                                                                                                                                                   | [api-key\*](#list_location-resource-api-key "#list_location-resource-api-key")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Write          |
-| [DeleteMap](../../../location/previous/APIReference/API_DeleteMap.md "../../../location/previous/APIReference/API_DeleteMap.md")                                                                                                    | Grants permission to delete a map resource                                                                                                                                                                                                                                                                                                                                                        | [map\*](#list_location-resource-map "#list_location-resource-map")                                                 | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Write          |
-| [DeletePlaceIndex](../../../location/previous/APIReference/API_DeletePlaceIndex.md "../../../location/previous/APIReference/API_DeletePlaceIndex.md")                                                                               | Grants permission to delete a place index resource                                                                                                                                                                                                                                                                                                                                                | [place-index\*](#list_location-resource-place-index "#list_location-resource-place-index")                         | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Write          |
-| [DeleteRouteCalculator](../../../location/previous/APIReference/API_DeleteRouteCalculator.md "../../../location/previous/APIReference/API_DeleteRouteCalculator.md")                                                                | Grants permission to delete a route calculator resource                                                                                                                                                                                                                                                                                                                                           | [route-calculator\*](#list_location-resource-route-calculator "#list_location-resource-route-calculator")          | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Write          |
-| [DeleteTracker](../../../location/latest/APIReference/API_WaypointTracking_DeleteTracker.md "../../../location/latest/APIReference/API_WaypointTracking_DeleteTracker.md")                                                          | Grants permission to delete a tracker resource                                                                                                                                                                                                                                                                                                                                                    | [tracker\*](#list_location-resource-tracker "#list_location-resource-tracker")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")                                                                                                                                                                                                  | Write          |
-| [DescribeGeofenceCollection](../../../location/latest/APIReference/API_WaypointGeofencing_DescribeGeofenceCollection.md "../../../location/latest/APIReference/API_WaypointGeofencing_DescribeGeofenceCollection.md")               | Grants permission to retrieve geofence collection details                                                                                                                                                                                                                                                                                                                                         | [geofence-collection\*](#list_location-resource-geofence-collection "#list_location-resource-geofence-collection") | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:GeofenceIds](#list_location-geo_GeofenceIds "#list_location-geo_GeofenceIds")                                                                                                                                                                                            | Read           |
-| [DescribeKey](../../../location/latest/APIReference/API_geotags_DescribeKey.md "../../../location/latest/APIReference/API_geotags_DescribeKey.md")                                                                                  | Grants permission to retrieve API key resource details and secret                                                                                                                                                                                                                                                                                                                                 | [api-key\*](#list_location-resource-api-key "#list_location-resource-api-key")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Read           |
-| [DescribeMap](../../../location/previous/APIReference/API_DescribeMap.md "../../../location/previous/APIReference/API_DescribeMap.md")                                                                                              | Grants permission to retrieve map resource details                                                                                                                                                                                                                                                                                                                                                | [map\*](#list_location-resource-map "#list_location-resource-map")                                                 | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Read           |
-| [DescribePlaceIndex](../../../location/previous/APIReference/API_DescribePlaceIndex.md "../../../location/previous/APIReference/API_DescribePlaceIndex.md")                                                                         | Grants permission to retrieve place-index resource details                                                                                                                                                                                                                                                                                                                                        | [place-index\*](#list_location-resource-place-index "#list_location-resource-place-index")                         | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Read           |
-| [DescribeRouteCalculator](../../../location/previous/APIReference/API_DescribeRouteCalculator.md "../../../location/previous/APIReference/API_DescribeRouteCalculator.md")                                                          | Grants permission to retrieve route calculator resource details                                                                                                                                                                                                                                                                                                                                   | [route-calculator\*](#list_location-resource-route-calculator "#list_location-resource-route-calculator")          | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Read           |
-| [DescribeTracker](../../../location/latest/APIReference/API_WaypointTracking_DescribeTracker.md "../../../location/latest/APIReference/API_WaypointTracking_DescribeTracker.md")                                                    | Grants permission to retrieve a tracker resource details                                                                                                                                                                                                                                                                                                                                          | [tracker\*](#list_location-resource-tracker "#list_location-resource-tracker")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")                                                                                                                                                                                                  | Read           |
-| [DisassociateTrackerConsumer](../../../location/latest/APIReference/API_WaypointTracking_DisassociateTrackerConsumer.md "../../../location/latest/APIReference/API_WaypointTracking_DisassociateTrackerConsumer.md")                | Grants permission to remove the association between a tracker resource and a geofence-collection                                                                                                                                                                                                                                                                                                  | [tracker\*](#list_location-resource-tracker "#list_location-resource-tracker")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")                                                                                                                                                                                                  | Write          |
-| [ForecastGeofenceEvents](../../../location/latest/APIReference/API_WaypointGeofencing_ForecastGeofenceEvents.md "../../../location/latest/APIReference/API_WaypointGeofencing_ForecastGeofenceEvents.md")                           | Grants permission to forecast events for geofences stored in a given geofence collection                                                                                                                                                                                                                                                                                                          | [geofence-collection\*](#list_location-resource-geofence-collection "#list_location-resource-geofence-collection") | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:GeofenceIds](#list_location-geo_GeofenceIds "#list_location-geo_GeofenceIds")                                                                                                                                                                                            | Read           |
-| [GetDevicePosition](../../../location/latest/APIReference/API_WaypointTracking_GetDevicePosition.md "../../../location/latest/APIReference/API_WaypointTracking_GetDevicePosition.md")                                              | Grants permission to retrieve the latest device position                                                                                                                                                                                                                                                                                                                                          | [tracker\*](#list_location-resource-tracker "#list_location-resource-tracker")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")                                                                                                                                                                                                  | Read           |
-| [GetDevicePositionHistory](../../../location/latest/APIReference/API_WaypointTracking_GetDevicePositionHistory.md "../../../location/latest/APIReference/API_WaypointTracking_GetDevicePositionHistory.md")                         | Grants permission to retrieve the device position history                                                                                                                                                                                                                                                                                                                                         | [tracker\*](#list_location-resource-tracker "#list_location-resource-tracker")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")                                                                                                                                                                                                  | Read           |
-| [GetGeofence](../../../location/latest/APIReference/API_WaypointGeofencing_GetGeofence.md "../../../location/latest/APIReference/API_WaypointGeofencing_GetGeofence.md")                                                            | Grants permission to retrieve the geofence details from a geofence-collection                                                                                                                                                                                                                                                                                                                     | [geofence-collection\*](#list_location-resource-geofence-collection "#list_location-resource-geofence-collection") | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:GeofenceIds](#list_location-geo_GeofenceIds "#list_location-geo_GeofenceIds")                                                                                                                                                                                            | Read           |
-| [GetJob](../../../location/latest/APIReference/API_geojobs_GetJob.md "../../../location/latest/APIReference/API_geojobs_GetJob.md")                                                                                                 | Grants permission to retrieve job details                                                                                                                                                                                                                                                                                                                                                         | [job\*](#list_location-resource-job "#list_location-resource-job")                                                 | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Read           |
-| [GetMapGlyphs](../../../location/previous/APIReference/API_GetMapGlyphs.md "../../../location/previous/APIReference/API_GetMapGlyphs.md")                                                                                           | Grants permission to retrieve the glyph file for a map resource                                                                                                                                                                                                                                                                                                                                   | [map\*](#list_location-resource-map "#list_location-resource-map")                                                 | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Read           |
-| [GetMapSprites](../../../location/previous/APIReference/API_GetMapSprites.md "../../../location/previous/APIReference/API_GetMapSprites.md")                                                                                        | Grants permission to retrieve the sprite file for a map resource                                                                                                                                                                                                                                                                                                                                  | [map\*](#list_location-resource-map "#list_location-resource-map")                                                 | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Read           |
-| [GetMapStyleDescriptor](../../../location/previous/APIReference/API_GetMapStyleDescriptor.md "../../../location/previous/APIReference/API_GetMapStyleDescriptor.md")                                                                | Grants permission to retrieve the map style descriptor from a map resource                                                                                                                                                                                                                                                                                                                        | [map\*](#list_location-resource-map "#list_location-resource-map")                                                 | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Read           |
-| [GetMapTile](../../../location/previous/APIReference/API_GetMapTile.md "../../../location/previous/APIReference/API_GetMapTile.md")                                                                                                 | Grants permission to retrieve the map tile from the map resource                                                                                                                                                                                                                                                                                                                                  | [map\*](#list_location-resource-map "#list_location-resource-map")                                                 | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Read           |
-| [GetPlace](../../../location/previous/APIReference/API_GetPlace.md "../../../location/previous/APIReference/API_GetPlace.md")                                                                                                       | Grants permission to find a place by its unique ID                                                                                                                                                                                                                                                                                                                                                | [place-index\*](#list_location-resource-place-index "#list_location-resource-place-index")                         | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Read           |
-| [ListDevicePositions](../../../location/latest/APIReference/API_WaypointTracking_ListDevicePositions.md "../../../location/latest/APIReference/API_WaypointTracking_ListDevicePositions.md")                                        | Grants permission to retrieve a list of devices and their latest positions from the given tracker resource                                                                                                                                                                                                                                                                                        | [tracker\*](#list_location-resource-tracker "#list_location-resource-tracker")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")                                                                                                                                                                                                  | Read           |
-| [ListGeofenceCollections](../../../location/latest/APIReference/API_WaypointGeofencing_ListGeofenceCollections.md "../../../location/latest/APIReference/API_WaypointGeofencing_ListGeofenceCollections.md")                        | Grants permission to lists geofence-collections                                                                                                                                                                                                                                                                                                                                                   | [geofence-collection\*](#list_location-resource-geofence-collection "#list_location-resource-geofence-collection") | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:GeofenceIds](#list_location-geo_GeofenceIds "#list_location-geo_GeofenceIds")                                                                                                                                                                                            | List           |
-| [ListGeofences](../../../location/latest/APIReference/API_WaypointGeofencing_ListGeofences.md "../../../location/latest/APIReference/API_WaypointGeofencing_ListGeofences.md")                                                      | Grants permission to list geofences stored in a given geofence collection                                                                                                                                                                                                                                                                                                                         | [geofence-collection\*](#list_location-resource-geofence-collection "#list_location-resource-geofence-collection") | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:GeofenceIds](#list_location-geo_GeofenceIds "#list_location-geo_GeofenceIds")                                                                                                                                                                                            | Read           |
-| [ListJobs](../../../location/latest/APIReference/API_geojobs_ListJobs.md "../../../location/latest/APIReference/API_geojobs_ListJobs.md")                                                                                           | Grants permission to list jobs                                                                                                                                                                                                                                                                                                                                                                    | [job\*](#list_location-resource-job "#list_location-resource-job")                                                 | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | List           |
-| [ListKeys](../../../location/latest/APIReference/API_geotags_ListKeys.md "../../../location/latest/APIReference/API_geotags_ListKeys.md")                                                                                           | Grants permission to list API key resources                                                                                                                                                                                                                                                                                                                                                       | [api-key\*](#list_location-resource-api-key "#list_location-resource-api-key")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | List           |
-| [ListMaps](../../../location/previous/APIReference/API_ListMaps.md "../../../location/previous/APIReference/API_ListMaps.md")                                                                                                       | Grants permission to list map resources                                                                                                                                                                                                                                                                                                                                                           | [map\*](#list_location-resource-map "#list_location-resource-map")                                                 | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | List           |
-| [ListPlaceIndexes](../../../location/previous/APIReference/API_ListPlaceIndexes.md "../../../location/previous/APIReference/API_ListPlaceIndexes.md")                                                                               | Grants permission to return a list of place index resources                                                                                                                                                                                                                                                                                                                                       | [place-index\*](#list_location-resource-place-index "#list_location-resource-place-index")                         | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | List           |
-| [ListRouteCalculators](../../../location/previous/APIReference/API_ListRouteCalculators.md "../../../location/previous/APIReference/API_ListRouteCalculators.md")                                                                   | Grants permission to return a list of route calculator resources                                                                                                                                                                                                                                                                                                                                  | [route-calculator\*](#list_location-resource-route-calculator "#list_location-resource-route-calculator")          | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | List           |
-| [ListTagsForResource](../../../location/latest/APIReference/API_geotags_ListTagsForResource.md "../../../location/latest/APIReference/API_geotags_ListTagsForResource.md")                                                          | Grants permission to list the tags (metadata) which you have assigned to the resource                                                                                                                                                                                                                                                                                                             | [api-key](#list_location-resource-api-key "#list_location-resource-api-key")                                       | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Read           |
-| [geofence-collection](#list_location-resource-geofence-collection "#list_location-resource-geofence-collection")                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:GeofenceIds](#list_location-geo_GeofenceIds "#list_location-geo_GeofenceIds")                                                                                                                                                                                            |
-| [job](#list_location-resource-job "#list_location-resource-job")                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  |
-| [map](#list_location-resource-map "#list_location-resource-map")                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  |
-| [place-index](#list_location-resource-place-index "#list_location-resource-place-index")                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  |
-| [route-calculator](#list_location-resource-route-calculator "#list_location-resource-route-calculator")                                                                                                                             | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  |
-| [tracker](#list_location-resource-tracker "#list_location-resource-tracker")                                                                                                                                                        | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")                                                                                                                                                                                                  |
-| [ListTrackerConsumers](../../../location/latest/APIReference/API_WaypointTracking_ListTrackerConsumers.md "../../../location/latest/APIReference/API_WaypointTracking_ListTrackerConsumers.md")                                     | Grants permission to retrieve a list of geofence collections currently associated to the given tracker resource                                                                                                                                                                                                                                                                                   | [tracker\*](#list_location-resource-tracker "#list_location-resource-tracker")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")                                                                                                                                                                                                  | Read           |
-| [ListTrackers](../../../location/latest/APIReference/API_WaypointTracking_ListTrackers.md "../../../location/latest/APIReference/API_WaypointTracking_ListTrackers.md")                                                             | Grants permission to return a list of tracker resources                                                                                                                                                                                                                                                                                                                                           | [tracker\*](#list_location-resource-tracker "#list_location-resource-tracker")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")                                                                                                                                                                                                  | List           |
-| [PutGeofence](../../../location/latest/APIReference/API_WaypointGeofencing_PutGeofence.md "../../../location/latest/APIReference/API_WaypointGeofencing_PutGeofence.md")                                                            | Grants permission to add a new geofence or update an existing geofence to a given geofence-collection                                                                                                                                                                                                                                                                                             | [geofence-collection\*](#list_location-resource-geofence-collection "#list_location-resource-geofence-collection") | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:GeofenceIds](#list_location-geo_GeofenceIds "#list_location-geo_GeofenceIds")                                                                                                                                                                                            | Write          |
-| [SearchPlaceIndexForPosition](../../../location/previous/APIReference/API_SearchPlaceIndexForPosition.md "../../../location/previous/APIReference/API_SearchPlaceIndexForPosition.md")                                              | Grants permission to reverse geocodes a given coordinate                                                                                                                                                                                                                                                                                                                                          | [place-index\*](#list_location-resource-place-index "#list_location-resource-place-index")                         | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Read           |
-| [SearchPlaceIndexForSuggestions](../../../location/previous/APIReference/API_SearchPlaceIndexForSuggestions.md "../../../location/previous/APIReference/API_SearchPlaceIndexForSuggestions.md")                                     | Grants permission to generate suggestions for addresses and points of interest based on partial or misspelled free-form text                                                                                                                                                                                                                                                                      | [place-index\*](#list_location-resource-place-index "#list_location-resource-place-index")                         | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Read           |
-| [SearchPlaceIndexForText](../../../location/previous/APIReference/API_SearchPlaceIndexForText.md "../../../location/previous/APIReference/API_SearchPlaceIndexForText.md")                                                          | Grants permission to geocode free-form text, such as an address, name, city or region                                                                                                                                                                                                                                                                                                             | [place-index\*](#list_location-resource-place-index "#list_location-resource-place-index")                         | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Read           |
-| [StartJob](../../../location/latest/APIReference/API_geojobs_StartJob.md "../../../location/latest/APIReference/API_geojobs_StartJob.md")                                                                                           | Grants permission to start a job                                                                                                                                                                                                                                                                                                                                                                  | [job\*](#list_location-resource-job "#list_location-resource-job")                                                 | [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_ "#list_location-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")                                                                                       | Write          |
-| [TagResource](../../../location/latest/APIReference/API_geotags_TagResource.md "../../../location/latest/APIReference/API_geotags_TagResource.md")                                                                                  | Grants permission to adds to or modifies the tags of the given resource. Tags are metadata which can be used to manage a resource                                                                                                                                                                                                                                                                 | [api-key](#list_location-resource-api-key "#list_location-resource-api-key")                                       | [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_ "#list_location-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")                                                                                       | Tagging, Write |
-| [geofence-collection](#list_location-resource-geofence-collection "#list_location-resource-geofence-collection")                                                                                                                    | [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_ "#list_location-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")<br>[geo:GeofenceIds](#list_location-geo_GeofenceIds "#list_location-geo_GeofenceIds") |
-| [job](#list_location-resource-job "#list_location-resource-job")                                                                                                                                                                    | [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_ "#list_location-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")                                                                                       |
-| [map](#list_location-resource-map "#list_location-resource-map")                                                                                                                                                                    | [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_ "#list_location-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")                                                                                       |
-| [place-index](#list_location-resource-place-index "#list_location-resource-place-index")                                                                                                                                            | [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_ "#list_location-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")                                                                                       |
-| [route-calculator](#list_location-resource-route-calculator "#list_location-resource-route-calculator")                                                                                                                             | [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_ "#list_location-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")                                                                                       |
-| [tracker](#list_location-resource-tracker "#list_location-resource-tracker")                                                                                                                                                        | [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_ "#list_location-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")       |
-| [UntagResource](../../../location/latest/APIReference/API_geotags_UntagResource.md "../../../location/latest/APIReference/API_geotags_UntagResource.md")                                                                            | Grants permission to remove the given tags (metadata) from the resource                                                                                                                                                                                                                                                                                                                           | [api-key](#list_location-resource-api-key "#list_location-resource-api-key")                                       | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")                                                                                                                                                                                                        | Tagging, Write |
-| [geofence-collection](#list_location-resource-geofence-collection "#list_location-resource-geofence-collection")                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")<br>[geo:GeofenceIds](#list_location-geo_GeofenceIds "#list_location-geo_GeofenceIds")                                                                                                                  |
-| [job](#list_location-resource-job "#list_location-resource-job")                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")                                                                                                                                                                                                        |
-| [map](#list_location-resource-map "#list_location-resource-map")                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")                                                                                                                                                                                                        |
-| [place-index](#list_location-resource-place-index "#list_location-resource-place-index")                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")                                                                                                                                                                                                        |
-| [route-calculator](#list_location-resource-route-calculator "#list_location-resource-route-calculator")                                                                                                                             | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")                                                                                                                                                                                                        |
-| [tracker](#list_location-resource-tracker "#list_location-resource-tracker")                                                                                                                                                        | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_location-aws_TagKeys "#list_location-aws_TagKeys")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")                                                                                                                        |
-| [UpdateGeofenceCollection](../../../location/latest/APIReference/API_WaypointGeofencing_UpdateGeofenceCollection.md "../../../location/latest/APIReference/API_WaypointGeofencing_UpdateGeofenceCollection.md")                     | Grants permission to update a geofence collection                                                                                                                                                                                                                                                                                                                                                 | [geofence-collection\*](#list_location-resource-geofence-collection "#list_location-resource-geofence-collection") | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:GeofenceIds](#list_location-geo_GeofenceIds "#list_location-geo_GeofenceIds")                                                                                                                                                                                            | Write          |
-| [UpdateKey](../../../location/latest/APIReference/API_geotags_UpdateKey.md "../../../location/latest/APIReference/API_geotags_UpdateKey.md")                                                                                        | Grants permission to update an API key resource                                                                                                                                                                                                                                                                                                                                                   | [api-key\*](#list_location-resource-api-key "#list_location-resource-api-key")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Write          |
-| [UpdateMap](../../../location/previous/APIReference/API_UpdateMap.md "../../../location/previous/APIReference/API_UpdateMap.md")                                                                                                    | Grants permission to update a map resource                                                                                                                                                                                                                                                                                                                                                        | [map\*](#list_location-resource-map "#list_location-resource-map")                                                 | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Write          |
-| [UpdatePlaceIndex](../../../location/previous/APIReference/API_UpdatePlaceIndex.md "../../../location/previous/APIReference/API_UpdatePlaceIndex.md")                                                                               | Grants permission to update a place index resource                                                                                                                                                                                                                                                                                                                                                | [place-index\*](#list_location-resource-place-index "#list_location-resource-place-index")                         | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Write          |
-| [UpdateRouteCalculator](../../../location/previous/APIReference/API_UpdateRouteCalculator.md "../../../location/previous/APIReference/API_UpdateRouteCalculator.md")                                                                | Grants permission to update a route calculator resource                                                                                                                                                                                                                                                                                                                                           | [route-calculator\*](#list_location-resource-route-calculator "#list_location-resource-route-calculator")          | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                  | Write          |
-| [UpdateTracker](../../../location/latest/APIReference/API_WaypointTracking_UpdateTracker.md "../../../location/latest/APIReference/API_WaypointTracking_UpdateTracker.md")                                                          | Grants permission to update a tracker resource                                                                                                                                                                                                                                                                                                                                                    | [tracker\*](#list_location-resource-tracker "#list_location-resource-tracker")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")                                                                                                                                                                                                  | Write          |
-| [VerifyDevicePosition](../../../location/latest/APIReference/API_WaypointTracking_VerifyDevicePosition.md "../../../location/latest/APIReference/API_WaypointTracking_VerifyDevicePosition.md")                                     | Grants permission to verify a device position                                                                                                                                                                                                                                                                                                                                                     | [tracker\*](#list_location-resource-tracker "#list_location-resource-tracker")                                     | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")                                                                                                                                                                                                  | Read           |
+
+
+
+- **   [AssociateTrackerConsumer](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_AssociateTrackerConsumer.html)  **
+  - **Description:** Grants permission to create an association between a geofence-collection and a tracker resource
+  - **Resource types (\*required):** [tracker\*](#list_location-resource-tracker)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Write
+
+- **   [BatchDeleteDevicePositionHistory](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_BatchDeleteDevicePositionHistory.html)  **
+  - **Description:** Grants permission to delete a batch of device position histories from a tracker resource
+  - **Resource types (\*required):** [tracker\*](#list_location-resource-tracker)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Write
+
+- **   [BatchDeleteGeofence](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_BatchDeleteGeofence.html)  **
+  - **Description:** Grants permission to delete a batch of geofences from a geofence collection
+  - **Resource types (\*required):** [geofence-collection\*](#list_location-resource-geofence-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:GeofenceIds](#list_location-geo_GeofenceIds)
+  - **Access level:** Write
+
+- **   [BatchEvaluateGeofences](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_BatchEvaluateGeofences.html)  **
+  - **Description:** Grants permission to evaluate device positions against the position of geofences in a given geofence collection
+  - **Resource types (\*required):** [geofence-collection\*](#list_location-resource-geofence-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:GeofenceIds](#list_location-geo_GeofenceIds)
+  - **Access level:** Write
+
+- **   [BatchGetDevicePosition](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_BatchGetDevicePosition.html)  **
+  - **Description:** Grants permission to send a batch request to retrieve device positions
+  - **Resource types (\*required):** [tracker\*](#list_location-resource-tracker)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Read
+
+- **   [BatchPutGeofence](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_BatchPutGeofence.html)  **
+  - **Description:** Grants permission to send a batch request for adding geofences into a given geofence collection
+  - **Resource types (\*required):** [geofence-collection\*](#list_location-resource-geofence-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:GeofenceIds](#list_location-geo_GeofenceIds)
+  - **Access level:** Write
+
+- **   [BatchUpdateDevicePosition](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_BatchUpdateDevicePosition.html)  **
+  - **Description:** Grants permission to upload a position update for one or more devices to a tracker resource
+  - **Resource types (\*required):** [tracker\*](#list_location-resource-tracker)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Write
+
+- **   [CalculateRoute](https://docs.aws.amazon.com/location/previous/APIReference/API_CalculateRoute.html)  **
+  - **Description:** Grants permission to calculate routes using a given route calculator resource
+  - **Resource types (\*required):** [route-calculator\*](#list_location-resource-route-calculator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [CalculateRouteMatrix](https://docs.aws.amazon.com/location/previous/APIReference/API_CalculateRouteMatrix.html)  **
+  - **Description:** Grants permission to calculate a route matrix using a given route calculator resource
+  - **Resource types (\*required):** [route-calculator\*](#list_location-resource-route-calculator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [CancelJob](https://docs.aws.amazon.com/location/latest/APIReference/API_geojobs_CancelJob.html)  **
+  - **Description:** Grants permission to cancel a job
+  - **Resource types (\*required):** [job\*](#list_location-resource-job)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateGeofenceCollection](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_CreateGeofenceCollection.html)  **
+  - **Description:** Grants permission to create a geofence-collection
+  - **Resource types (\*required):** [geofence-collection\*](#list_location-resource-geofence-collection)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)<br />[geo:GeofenceIds](#list_location-geo_GeofenceIds)
+  - **Access level:** Write
+
+- **   [CreateKey](https://docs.aws.amazon.com/location/latest/APIReference/API_geotags_CreateKey.html)  **
+  - **Description:** Grants permission to create an API key resource
+  - **Resource types (\*required):** [api-key\*](#list_location-resource-api-key)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMap](https://docs.aws.amazon.com/location/previous/APIReference/API_CreateMap.html)  **
+  - **Description:** Grants permission to create a map resource
+  - **Resource types (\*required):** [map\*](#list_location-resource-map)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreatePlaceIndex](https://docs.aws.amazon.com/location/previous/APIReference/API_CreatePlaceIndex.html)  **
+  - **Description:** Grants permission to create a place index resource
+  - **Resource types (\*required):** [place-index\*](#list_location-resource-place-index)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRouteCalculator](https://docs.aws.amazon.com/location/previous/APIReference/API_CreateRouteCalculator.html)  **
+  - **Description:** Grants permission to create a route calculator resource
+  - **Resource types (\*required):** [route-calculator\*](#list_location-resource-route-calculator)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateTracker](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_CreateTracker.html)  **
+  - **Description:** Grants permission to create a tracker resource
+  - **Resource types (\*required):** [tracker\*](#list_location-resource-tracker)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Write
+
+- **   [DeleteGeofenceCollection](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_DeleteGeofenceCollection.html)  **
+  - **Description:** Grants permission to delete a geofence-collection
+  - **Resource types (\*required):** [geofence-collection\*](#list_location-resource-geofence-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:GeofenceIds](#list_location-geo_GeofenceIds)
+  - **Access level:** Write
+
+- **   [DeleteKey](https://docs.aws.amazon.com/location/latest/APIReference/API_geotags_DeleteKey.html)  **
+  - **Description:** Grants permission to delete an API key resource
+  - **Resource types (\*required):** [api-key\*](#list_location-resource-api-key)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteMap](https://docs.aws.amazon.com/location/previous/APIReference/API_DeleteMap.html)  **
+  - **Description:** Grants permission to delete a map resource
+  - **Resource types (\*required):** [map\*](#list_location-resource-map)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeletePlaceIndex](https://docs.aws.amazon.com/location/previous/APIReference/API_DeletePlaceIndex.html)  **
+  - **Description:** Grants permission to delete a place index resource
+  - **Resource types (\*required):** [place-index\*](#list_location-resource-place-index)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRouteCalculator](https://docs.aws.amazon.com/location/previous/APIReference/API_DeleteRouteCalculator.html)  **
+  - **Description:** Grants permission to delete a route calculator resource
+  - **Resource types (\*required):** [route-calculator\*](#list_location-resource-route-calculator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteTracker](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_DeleteTracker.html)  **
+  - **Description:** Grants permission to delete a tracker resource
+  - **Resource types (\*required):** [tracker\*](#list_location-resource-tracker)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Write
+
+- **   [DescribeGeofenceCollection](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_DescribeGeofenceCollection.html)  **
+  - **Description:** Grants permission to retrieve geofence collection details
+  - **Resource types (\*required):** [geofence-collection\*](#list_location-resource-geofence-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:GeofenceIds](#list_location-geo_GeofenceIds)
+  - **Access level:** Read
+
+- **   [DescribeKey](https://docs.aws.amazon.com/location/latest/APIReference/API_geotags_DescribeKey.html)  **
+  - **Description:** Grants permission to retrieve API key resource details and secret
+  - **Resource types (\*required):** [api-key\*](#list_location-resource-api-key)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeMap](https://docs.aws.amazon.com/location/previous/APIReference/API_DescribeMap.html)  **
+  - **Description:** Grants permission to retrieve map resource details
+  - **Resource types (\*required):** [map\*](#list_location-resource-map)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribePlaceIndex](https://docs.aws.amazon.com/location/previous/APIReference/API_DescribePlaceIndex.html)  **
+  - **Description:** Grants permission to retrieve place-index resource details
+  - **Resource types (\*required):** [place-index\*](#list_location-resource-place-index)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeRouteCalculator](https://docs.aws.amazon.com/location/previous/APIReference/API_DescribeRouteCalculator.html)  **
+  - **Description:** Grants permission to retrieve route calculator resource details
+  - **Resource types (\*required):** [route-calculator\*](#list_location-resource-route-calculator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeTracker](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_DescribeTracker.html)  **
+  - **Description:** Grants permission to retrieve a tracker resource details
+  - **Resource types (\*required):** [tracker\*](#list_location-resource-tracker)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Read
+
+- **   [DisassociateTrackerConsumer](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_DisassociateTrackerConsumer.html)  **
+  - **Description:** Grants permission to remove the association between a tracker resource and a geofence-collection
+  - **Resource types (\*required):** [tracker\*](#list_location-resource-tracker)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Write
+
+- **   [ForecastGeofenceEvents](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_ForecastGeofenceEvents.html)  **
+  - **Description:** Grants permission to forecast events for geofences stored in a given geofence collection
+  - **Resource types (\*required):** [geofence-collection\*](#list_location-resource-geofence-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:GeofenceIds](#list_location-geo_GeofenceIds)
+  - **Access level:** Read
+
+- **   [GetDevicePosition](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_GetDevicePosition.html)  **
+  - **Description:** Grants permission to retrieve the latest device position
+  - **Resource types (\*required):** [tracker\*](#list_location-resource-tracker)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Read
+
+- **   [GetDevicePositionHistory](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_GetDevicePositionHistory.html)  **
+  - **Description:** Grants permission to retrieve the device position history
+  - **Resource types (\*required):** [tracker\*](#list_location-resource-tracker)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Read
+
+- **   [GetGeofence](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_GetGeofence.html)  **
+  - **Description:** Grants permission to retrieve the geofence details from a geofence-collection
+  - **Resource types (\*required):** [geofence-collection\*](#list_location-resource-geofence-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:GeofenceIds](#list_location-geo_GeofenceIds)
+  - **Access level:** Read
+
+- **   [GetJob](https://docs.aws.amazon.com/location/latest/APIReference/API_geojobs_GetJob.html)  **
+  - **Description:** Grants permission to retrieve job details
+  - **Resource types (\*required):** [job\*](#list_location-resource-job)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMapGlyphs](https://docs.aws.amazon.com/location/previous/APIReference/API_GetMapGlyphs.html)  **
+  - **Description:** Grants permission to retrieve the glyph file for a map resource
+  - **Resource types (\*required):** [map\*](#list_location-resource-map)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMapSprites](https://docs.aws.amazon.com/location/previous/APIReference/API_GetMapSprites.html)  **
+  - **Description:** Grants permission to retrieve the sprite file for a map resource
+  - **Resource types (\*required):** [map\*](#list_location-resource-map)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMapStyleDescriptor](https://docs.aws.amazon.com/location/previous/APIReference/API_GetMapStyleDescriptor.html)  **
+  - **Description:** Grants permission to retrieve the map style descriptor from a map resource
+  - **Resource types (\*required):** [map\*](#list_location-resource-map)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMapTile](https://docs.aws.amazon.com/location/previous/APIReference/API_GetMapTile.html)  **
+  - **Description:** Grants permission to retrieve the map tile from the map resource
+  - **Resource types (\*required):** [map\*](#list_location-resource-map)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPlace](https://docs.aws.amazon.com/location/previous/APIReference/API_GetPlace.html)  **
+  - **Description:** Grants permission to find a place by its unique ID
+  - **Resource types (\*required):** [place-index\*](#list_location-resource-place-index)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListDevicePositions](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_ListDevicePositions.html)  **
+  - **Description:** Grants permission to retrieve a list of devices and their latest positions from the given tracker resource
+  - **Resource types (\*required):** [tracker\*](#list_location-resource-tracker)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Read
+
+- **   [ListGeofenceCollections](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_ListGeofenceCollections.html)  **
+  - **Description:** Grants permission to lists geofence-collections
+  - **Resource types (\*required):** [geofence-collection\*](#list_location-resource-geofence-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:GeofenceIds](#list_location-geo_GeofenceIds)
+  - **Access level:** List
+
+- **   [ListGeofences](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_ListGeofences.html)  **
+  - **Description:** Grants permission to list geofences stored in a given geofence collection
+  - **Resource types (\*required):** [geofence-collection\*](#list_location-resource-geofence-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:GeofenceIds](#list_location-geo_GeofenceIds)
+  - **Access level:** Read
+
+- **   [ListJobs](https://docs.aws.amazon.com/location/latest/APIReference/API_geojobs_ListJobs.html)  **
+  - **Description:** Grants permission to list jobs
+  - **Resource types (\*required):** [job\*](#list_location-resource-job)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListKeys](https://docs.aws.amazon.com/location/latest/APIReference/API_geotags_ListKeys.html)  **
+  - **Description:** Grants permission to list API key resources
+  - **Resource types (\*required):** [api-key\*](#list_location-resource-api-key)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListMaps](https://docs.aws.amazon.com/location/previous/APIReference/API_ListMaps.html)  **
+  - **Description:** Grants permission to list map resources
+  - **Resource types (\*required):** [map\*](#list_location-resource-map)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListPlaceIndexes](https://docs.aws.amazon.com/location/previous/APIReference/API_ListPlaceIndexes.html)  **
+  - **Description:** Grants permission to return a list of place index resources
+  - **Resource types (\*required):** [place-index\*](#list_location-resource-place-index)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRouteCalculators](https://docs.aws.amazon.com/location/previous/APIReference/API_ListRouteCalculators.html)  **
+  - **Description:** Grants permission to return a list of route calculator resources
+  - **Resource types (\*required):** [route-calculator\*](#list_location-resource-route-calculator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/location/latest/APIReference/API_geotags_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list the tags (metadata) which you have assigned to the resource
+  - **Resource types (\*required):** [api-key](#list_location-resource-api-key) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [geofence-collection](#list_location-resource-geofence-collection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:GeofenceIds](#list_location-geo_GeofenceIds)
+  - **Resource types (\*required):** [job](#list_location-resource-job) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [map](#list_location-resource-map) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [place-index](#list_location-resource-place-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [route-calculator](#list_location-resource-route-calculator) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [tracker](#list_location-resource-tracker) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Read
+
+- **   [ListTrackerConsumers](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_ListTrackerConsumers.html)  **
+  - **Description:** Grants permission to retrieve a list of geofence collections currently associated to the given tracker resource
+  - **Resource types (\*required):** [tracker\*](#list_location-resource-tracker)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Read
+
+- **   [ListTrackers](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_ListTrackers.html)  **
+  - **Description:** Grants permission to return a list of tracker resources
+  - **Resource types (\*required):** [tracker\*](#list_location-resource-tracker)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** List
+
+- **   [PutGeofence](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_PutGeofence.html)  **
+  - **Description:** Grants permission to add a new geofence or update an existing geofence to a given geofence-collection
+  - **Resource types (\*required):** [geofence-collection\*](#list_location-resource-geofence-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:GeofenceIds](#list_location-geo_GeofenceIds)
+  - **Access level:** Write
+
+- **   [SearchPlaceIndexForPosition](https://docs.aws.amazon.com/location/previous/APIReference/API_SearchPlaceIndexForPosition.html)  **
+  - **Description:** Grants permission to reverse geocodes a given coordinate
+  - **Resource types (\*required):** [place-index\*](#list_location-resource-place-index)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [SearchPlaceIndexForSuggestions](https://docs.aws.amazon.com/location/previous/APIReference/API_SearchPlaceIndexForSuggestions.html)  **
+  - **Description:** Grants permission to generate suggestions for addresses and points of interest based on partial or misspelled free-form text
+  - **Resource types (\*required):** [place-index\*](#list_location-resource-place-index)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [SearchPlaceIndexForText](https://docs.aws.amazon.com/location/previous/APIReference/API_SearchPlaceIndexForText.html)  **
+  - **Description:** Grants permission to geocode free-form text, such as an address, name, city or region
+  - **Resource types (\*required):** [place-index\*](#list_location-resource-place-index)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [StartJob](https://docs.aws.amazon.com/location/latest/APIReference/API_geojobs_StartJob.html)  **
+  - **Description:** Grants permission to start a job
+  - **Resource types (\*required):** [job\*](#list_location-resource-job)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/location/latest/APIReference/API_geotags_TagResource.html)  **
+  - **Description:** Grants permission to adds to or modifies the tags of the given resource. Tags are metadata which can be used to manage a resource
+  - **Resource types (\*required):** [api-key](#list_location-resource-api-key) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)
+  - **Resource types (\*required):** [geofence-collection](#list_location-resource-geofence-collection) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)<br />[geo:GeofenceIds](#list_location-geo_GeofenceIds)
+  - **Resource types (\*required):** [job](#list_location-resource-job) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)
+  - **Resource types (\*required):** [map](#list_location-resource-map) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)
+  - **Resource types (\*required):** [place-index](#list_location-resource-place-index) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)
+  - **Resource types (\*required):** [route-calculator](#list_location-resource-route-calculator) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)
+  - **Resource types (\*required):** [tracker](#list_location-resource-tracker) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_location-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/location/latest/APIReference/API_geotags_UntagResource.html)  **
+  - **Description:** Grants permission to remove the given tags (metadata) from the resource
+  - **Resource types (\*required):** [api-key](#list_location-resource-api-key) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)
+  - **Resource types (\*required):** [geofence-collection](#list_location-resource-geofence-collection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)<br />[geo:GeofenceIds](#list_location-geo_GeofenceIds)
+  - **Resource types (\*required):** [job](#list_location-resource-job) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)
+  - **Resource types (\*required):** [map](#list_location-resource-map) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)
+  - **Resource types (\*required):** [place-index](#list_location-resource-place-index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)
+  - **Resource types (\*required):** [route-calculator](#list_location-resource-route-calculator) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)
+  - **Resource types (\*required):** [tracker](#list_location-resource-tracker) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_location-aws_TagKeys)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateGeofenceCollection](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointGeofencing_UpdateGeofenceCollection.html)  **
+  - **Description:** Grants permission to update a geofence collection
+  - **Resource types (\*required):** [geofence-collection\*](#list_location-resource-geofence-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:GeofenceIds](#list_location-geo_GeofenceIds)
+  - **Access level:** Write
+
+- **   [UpdateKey](https://docs.aws.amazon.com/location/latest/APIReference/API_geotags_UpdateKey.html)  **
+  - **Description:** Grants permission to update an API key resource
+  - **Resource types (\*required):** [api-key\*](#list_location-resource-api-key)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateMap](https://docs.aws.amazon.com/location/previous/APIReference/API_UpdateMap.html)  **
+  - **Description:** Grants permission to update a map resource
+  - **Resource types (\*required):** [map\*](#list_location-resource-map)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdatePlaceIndex](https://docs.aws.amazon.com/location/previous/APIReference/API_UpdatePlaceIndex.html)  **
+  - **Description:** Grants permission to update a place index resource
+  - **Resource types (\*required):** [place-index\*](#list_location-resource-place-index)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRouteCalculator](https://docs.aws.amazon.com/location/previous/APIReference/API_UpdateRouteCalculator.html)  **
+  - **Description:** Grants permission to update a route calculator resource
+  - **Resource types (\*required):** [route-calculator\*](#list_location-resource-route-calculator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateTracker](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_UpdateTracker.html)  **
+  - **Description:** Grants permission to update a tracker resource
+  - **Resource types (\*required):** [tracker\*](#list_location-resource-tracker)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Write
+
+- **   [VerifyDevicePosition](https://docs.aws.amazon.com/location/latest/APIReference/API_WaypointTracking_VerifyDevicePosition.html)  **
+  - **Description:** Grants permission to verify a device position
+  - **Resource types (\*required):** [tracker\*](#list_location-resource-tracker)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:DeviceIds](#list_location-geo_DeviceIds)
+  - **Access level:** Read
+
+
 
 ## Resource types defined by Amazon Location
+<a name="list_location-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                         | ARN                                                                                     | Condition keys                                                                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [api-key](../../../location/latest/developerguide/using-apikeys.md "../../../location/latest/developerguide/using-apikeys.md")                         | arn:${Partition}:geo:${Region}:${Account}:api-key/${KeyName}                            | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                       |
-| [geofence-collection](../../../location/latest/developerguide/geofence-components.md "../../../location/latest/developerguide/geofence-components.md") | arn:${Partition}:geo:${Region}:${Account}:geofence-collection/${GeofenceCollectionName} | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:GeofenceIds](#list_location-geo_GeofenceIds "#list_location-geo_GeofenceIds") |
-| [job](../../../location/latest/developerguide/jobs-concepts.md "../../../location/latest/developerguide/jobs-concepts.md")                             | arn:${Partition}:geo:${Region}:${Account}:job/${JobId}                                  | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                       |
-| [map](../../../location/previous/developerguide/map-concepts.md "../../../location/previous/developerguide/map-concepts.md")                           | arn:${Partition}:geo:${Region}:${Account}:map/${MapName}                                | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                       |
-| [place-index](../../../location/previous/developerguide/places-concepts.md "../../../location/previous/developerguide/places-concepts.md")             | arn:${Partition}:geo:${Region}:${Account}:place-index/${IndexName}                      | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                       |
-| [route-calculator](../../../location/previous/developerguide/route-concepts.md "../../../location/previous/developerguide/route-concepts.md")          | arn:${Partition}:geo:${Region}:${Account}:route-calculator/${CalculatorName}            | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")                                                                                       |
-| [tracker](../../../location/latest/developerguide/tracking-components.md "../../../location/latest/developerguide/tracking-components.md")             | arn:${Partition}:geo:${Region}:${Account}:tracker/${TrackerName}                        | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_ "#list_location-aws_ResourceTag___TagKey_")<br>[geo:DeviceIds](#list_location-geo_DeviceIds "#list_location-geo_DeviceIds")       |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [api-key](https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html)  | arn:${Partition}:geo:${Region}:${Account}:api-key/${KeyName} | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_) | 
+|  [geofence-collection](https://docs.aws.amazon.com/location/latest/developerguide/geofence-components.html)  | arn:${Partition}:geo:${Region}:${Account}:geofence-collection/${GeofenceCollectionName} | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:GeofenceIds](#list_location-geo_GeofenceIds) | 
+|  [job](https://docs.aws.amazon.com/location/latest/developerguide/jobs-concepts.html)  | arn:${Partition}:geo:${Region}:${Account}:job/${JobId} | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_) | 
+|  [map](https://docs.aws.amazon.com/location/previous/developerguide/map-concepts.html)  | arn:${Partition}:geo:${Region}:${Account}:map/${MapName} | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_) | 
+|  [place-index](https://docs.aws.amazon.com/location/previous/developerguide/places-concepts.html)  | arn:${Partition}:geo:${Region}:${Account}:place-index/${IndexName} | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_) | 
+|  [route-calculator](https://docs.aws.amazon.com/location/previous/developerguide/route-concepts.html)  | arn:${Partition}:geo:${Region}:${Account}:route-calculator/${CalculatorName} | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_) | 
+|  [tracker](https://docs.aws.amazon.com/location/latest/developerguide/tracking-components.html)  | arn:${Partition}:geo:${Region}:${Account}:tracker/${TrackerName} | [aws:ResourceTag/${TagKey}](#list_location-aws_ResourceTag___TagKey_)<br />[geo:DeviceIds](#list_location-geo_DeviceIds) | 
 
 ## Condition keys for Amazon Location
+<a name="list_location-policy-keys"></a>
 
-Amazon Location defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Location defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                                                                                     | Description                                                          | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")                                                                            | Filters access by a tag's key and value in a request                 | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag")                                                                         | Filters access by the presence of tag key-value pairs in the request | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                                                                                               | Filters access by the tag keys in a request                          | ArrayOfString |
-| [geo:DeviceIds](../../../location/latest/developerguide/security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "../../../location/latest/developerguide/security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys")   | Filters access by the presence of device ids in the request          | ArrayOfString |
-| [geo:GeofenceIds](../../../location/latest/developerguide/security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "../../../location/latest/developerguide/security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys") | Filters access by the presence of geofence ids in the request        | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by a tag's key and value in a request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the presence of tag key-value pairs in the request | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys in a request | ArrayOfString | 
+|   [geo:DeviceIds](https://docs.aws.amazon.com/location/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-conditionkeys)  | Filters access by the presence of device ids in the request | ArrayOfString | 
+|   [geo:GeofenceIds](https://docs.aws.amazon.com/location/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-conditionkeys)  | Filters access by the presence of geofence ids in the request | ArrayOfString | 

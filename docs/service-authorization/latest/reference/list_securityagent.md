@@ -1,294 +1,1283 @@
-# Actions, resources, and condition keys for AWS Security Agent
 
-AWS Security Agent (service prefix: `securityagent`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Security Agent
+<a name="list_securityagent"></a>
+
+AWS Security Agent (service prefix: `securityagent`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/securityagent/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/securityagent/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/securityagent/latest/userguide/security.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/securityagent/securityagent.json) for this service.
 
-- Learn how to [configure this service](../../../securityagent/latest/userguide.md "../../../securityagent/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../securityagent.md "../../../securityagent.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../securityagent/latest/userguide/security.md "../../../securityagent/latest/userguide/security.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/securityagent/securityagent.json "https://servicereference.us-east-1.amazonaws.com/v1/securityagent/securityagent.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Security Agent](#list_securityagent-operations "#list_securityagent-operations")
-- [Actions defined by AWS Security Agent](#list_securityagent-actions-as-permissions "#list_securityagent-actions-as-permissions")
-- [Resource types defined by AWS Security Agent](#list_securityagent-resources-for-iam-policies "#list_securityagent-resources-for-iam-policies")
-- [Condition keys for AWS Security Agent](#list_securityagent-policy-keys "#list_securityagent-policy-keys")
+**Topics**
++ [API operations defined by AWS Security Agent](#list_securityagent-operations)
++ [Actions defined by AWS Security Agent](#list_securityagent-actions-as-permissions)
++ [Resource types defined by AWS Security Agent](#list_securityagent-resources-for-iam-policies)
++ [Condition keys for AWS Security Agent](#list_securityagent-policy-keys)
 
 ## API operations defined by AWS Security Agent
+<a name="list_securityagent-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_securityagent-actions-as-permissions "#list_securityagent-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_securityagent-actions-as-permissions).
 
-| Operation                                                                                                                       | IAM action                                                                                                                                                                        | Condition key               | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ----------------- | -------------- |
-| AddArtifact                                                                                                                     | [securityagent:AddArtifact](#list_securityagent-action-AddArtifact "#list_securityagent-action-AddArtifact")                                                                      |                             |                   | Write          |
-| BatchCreateSecurityRequirements                                                                                                 | [securityagent:BatchCreateSecurityRequirements](#list_securityagent-action-BatchCreateSecurityRequirements "#list_securityagent-action-BatchCreateSecurityRequirements")          |                             |                   | Write          |
-| BatchDeleteCodeReviews                                                                                                          | [securityagent:BatchDeleteCodeReviews](#list_securityagent-action-BatchDeleteCodeReviews "#list_securityagent-action-BatchDeleteCodeReviews")                                     |                             |                   | Write          |
-| BatchDeletePentests                                                                                                             | [securityagent:BatchDeletePentests](#list_securityagent-action-BatchDeletePentests "#list_securityagent-action-BatchDeletePentests")                                              |                             |                   | Write          |
-| BatchDeleteSecurityRequirements                                                                                                 | [securityagent:BatchDeleteSecurityRequirements](#list_securityagent-action-BatchDeleteSecurityRequirements "#list_securityagent-action-BatchDeleteSecurityRequirements")          |                             |                   | Write          |
-| BatchDeleteThreatModels                                                                                                         | [securityagent:BatchDeleteThreatModels](#list_securityagent-action-BatchDeleteThreatModels "#list_securityagent-action-BatchDeleteThreatModels")                                  |                             |                   | Write          |
-| BatchGetAgentSpaces                                                                                                             | [securityagent:BatchGetAgentSpaces](#list_securityagent-action-BatchGetAgentSpaces "#list_securityagent-action-BatchGetAgentSpaces")                                              |                             |                   | Read           |
-| BatchGetArtifactMetadata                                                                                                        | [securityagent:BatchGetArtifactMetadata](#list_securityagent-action-BatchGetArtifactMetadata "#list_securityagent-action-BatchGetArtifactMetadata")                               |                             |                   | Read           |
-| BatchGetCodeReviewJobTasks                                                                                                      | [securityagent:BatchGetCodeReviewJobTasks](#list_securityagent-action-BatchGetCodeReviewJobTasks "#list_securityagent-action-BatchGetCodeReviewJobTasks")                         |                             |                   | Read           |
-| BatchGetCodeReviewJobs                                                                                                          | [securityagent:BatchGetCodeReviewJobs](#list_securityagent-action-BatchGetCodeReviewJobs "#list_securityagent-action-BatchGetCodeReviewJobs")                                     |                             |                   | Read           |
-| BatchGetCodeReviews                                                                                                             | [securityagent:BatchGetCodeReviews](#list_securityagent-action-BatchGetCodeReviews "#list_securityagent-action-BatchGetCodeReviews")                                              |                             |                   | Read           |
-| BatchGetFindings                                                                                                                | [securityagent:BatchGetFindings](#list_securityagent-action-BatchGetFindings "#list_securityagent-action-BatchGetFindings")                                                       |                             |                   | Read           |
-| BatchGetPentestJobTasks                                                                                                         | [securityagent:BatchGetPentestJobTasks](#list_securityagent-action-BatchGetPentestJobTasks "#list_securityagent-action-BatchGetPentestJobTasks")                                  |                             |                   | Read           |
-| BatchGetPentestJobs                                                                                                             | [securityagent:BatchGetPentestJobs](#list_securityagent-action-BatchGetPentestJobs "#list_securityagent-action-BatchGetPentestJobs")                                              |                             |                   | Read           |
-| BatchGetPentests                                                                                                                | [securityagent:BatchGetPentests](#list_securityagent-action-BatchGetPentests "#list_securityagent-action-BatchGetPentests")                                                       |                             |                   | Read           |
-| BatchGetSecurityRequirements                                                                                                    | [securityagent:BatchGetSecurityRequirements](#list_securityagent-action-BatchGetSecurityRequirements "#list_securityagent-action-BatchGetSecurityRequirements")                   |                             |                   | Read           |
-| BatchGetTargetDomains                                                                                                           | [securityagent:BatchGetTargetDomains](#list_securityagent-action-BatchGetTargetDomains "#list_securityagent-action-BatchGetTargetDomains")                                        |                             |                   | Read           |
-| BatchGetThreatModelJobTasks                                                                                                     | [securityagent:BatchGetThreatModelJobTasks](#list_securityagent-action-BatchGetThreatModelJobTasks "#list_securityagent-action-BatchGetThreatModelJobTasks")                      |                             |                   | Read           |
-| BatchGetThreatModelJobs                                                                                                         | [securityagent:BatchGetThreatModelJobs](#list_securityagent-action-BatchGetThreatModelJobs "#list_securityagent-action-BatchGetThreatModelJobs")                                  |                             |                   | Read           |
-| BatchGetThreatModels                                                                                                            | [securityagent:BatchGetThreatModels](#list_securityagent-action-BatchGetThreatModels "#list_securityagent-action-BatchGetThreatModels")                                           |                             |                   | Read           |
-| BatchGetThreats                                                                                                                 | [securityagent:BatchGetThreats](#list_securityagent-action-BatchGetThreats "#list_securityagent-action-BatchGetThreats")                                                          |                             |                   | Read           |
-| BatchUpdateSecurityRequirements                                                                                                 | [securityagent:BatchUpdateSecurityRequirements](#list_securityagent-action-BatchUpdateSecurityRequirements "#list_securityagent-action-BatchUpdateSecurityRequirements")          |                             |                   | Write          |
-| CreateAgentSpace                                                                                                                | [securityagent:CreateAgentSpace](#list_securityagent-action-CreateAgentSpace "#list_securityagent-action-CreateAgentSpace")                                                       |                             |                   | Write          |
-| [securityagent:TagResource](#list_securityagent-action-TagResource "#list_securityagent-action-TagResource")                    |                                                                                                                                                                                   |                             | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                               | securityagent.amazonaws.com | Write             |
-| CreateApplication                                                                                                               | [securityagent:CreateApplication](#list_securityagent-action-CreateApplication "#list_securityagent-action-CreateApplication")                                                    |                             |                   | Write          |
-| [securityagent:TagResource](#list_securityagent-action-TagResource "#list_securityagent-action-TagResource")                    |                                                                                                                                                                                   |                             | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                               | securityagent.amazonaws.com | Write             |
-| CreateCodeReview                                                                                                                | [securityagent:CreateCodeReview](#list_securityagent-action-CreateCodeReview "#list_securityagent-action-CreateCodeReview")                                                       |                             |                   | Write          |
-| CreateIntegration                                                                                                               | [securityagent:CreateIntegration](#list_securityagent-action-CreateIntegration "#list_securityagent-action-CreateIntegration")                                                    |                             |                   | Write          |
-| [securityagent:TagResource](#list_securityagent-action-TagResource "#list_securityagent-action-TagResource")                    |                                                                                                                                                                                   |                             | Tagging, Write    |
-| CreateMembership                                                                                                                | [securityagent:CreateMembership](#list_securityagent-action-CreateMembership "#list_securityagent-action-CreateMembership")                                                       |                             |                   | Write          |
-| CreatePentest                                                                                                                   | [securityagent:CreatePentest](#list_securityagent-action-CreatePentest "#list_securityagent-action-CreatePentest")                                                                |                             |                   | Write          |
-| CreatePrivateConnection                                                                                                         | [securityagent:CreatePrivateConnection](#list_securityagent-action-CreatePrivateConnection "#list_securityagent-action-CreatePrivateConnection")                                  |                             |                   | Write          |
-| [securityagent:TagResource](#list_securityagent-action-TagResource "#list_securityagent-action-TagResource")                    |                                                                                                                                                                                   |                             | Tagging, Write    |
-| CreateSecurityRequirementPack                                                                                                   | [securityagent:CreateSecurityRequirementPack](#list_securityagent-action-CreateSecurityRequirementPack "#list_securityagent-action-CreateSecurityRequirementPack")                |                             |                   | Write          |
-| [securityagent:TagResource](#list_securityagent-action-TagResource "#list_securityagent-action-TagResource")                    |                                                                                                                                                                                   |                             | Tagging, Write    |
-| CreateTargetDomain                                                                                                              | [securityagent:CreateTargetDomain](#list_securityagent-action-CreateTargetDomain "#list_securityagent-action-CreateTargetDomain")                                                 |                             |                   | Write          |
-| [securityagent:TagResource](#list_securityagent-action-TagResource "#list_securityagent-action-TagResource")                    |                                                                                                                                                                                   |                             | Tagging, Write    |
-| CreateThreat                                                                                                                    | [securityagent:CreateThreat](#list_securityagent-action-CreateThreat "#list_securityagent-action-CreateThreat")                                                                   |                             |                   | Write          |
-| CreateThreatModel                                                                                                               | [securityagent:CreateThreatModel](#list_securityagent-action-CreateThreatModel "#list_securityagent-action-CreateThreatModel")                                                    |                             |                   | Write          |
-| DeleteAgentSpace                                                                                                                | [securityagent:DeleteAgentSpace](#list_securityagent-action-DeleteAgentSpace "#list_securityagent-action-DeleteAgentSpace")                                                       |                             |                   | Write          |
-| DeleteApplication                                                                                                               | [securityagent:DeleteApplication](#list_securityagent-action-DeleteApplication "#list_securityagent-action-DeleteApplication")                                                    |                             |                   | Write          |
-| DeleteArtifact                                                                                                                  | [securityagent:DeleteArtifact](#list_securityagent-action-DeleteArtifact "#list_securityagent-action-DeleteArtifact")                                                             |                             |                   | Write          |
-| DeleteIntegration                                                                                                               | [securityagent:DeleteIntegration](#list_securityagent-action-DeleteIntegration "#list_securityagent-action-DeleteIntegration")                                                    |                             |                   | Write          |
-| DeleteMembership                                                                                                                | [securityagent:DeleteMembership](#list_securityagent-action-DeleteMembership "#list_securityagent-action-DeleteMembership")                                                       |                             |                   | Write          |
-| DeletePrivateConnection                                                                                                         | [securityagent:DeletePrivateConnection](#list_securityagent-action-DeletePrivateConnection "#list_securityagent-action-DeletePrivateConnection")                                  |                             |                   | Write          |
-| DeleteSecurityRequirementPack                                                                                                   | [securityagent:DeleteSecurityRequirementPack](#list_securityagent-action-DeleteSecurityRequirementPack "#list_securityagent-action-DeleteSecurityRequirementPack")                |                             |                   | Write          |
-| DeleteTargetDomain                                                                                                              | [securityagent:DeleteTargetDomain](#list_securityagent-action-DeleteTargetDomain "#list_securityagent-action-DeleteTargetDomain")                                                 |                             |                   | Write          |
-| DescribePrivateConnection                                                                                                       | [securityagent:DescribePrivateConnection](#list_securityagent-action-DescribePrivateConnection "#list_securityagent-action-DescribePrivateConnection")                            |                             |                   | Read           |
-| GetApplication                                                                                                                  | [securityagent:GetApplication](#list_securityagent-action-GetApplication "#list_securityagent-action-GetApplication")                                                             |                             |                   | Read           |
-| GetArtifact                                                                                                                     | [securityagent:GetArtifact](#list_securityagent-action-GetArtifact "#list_securityagent-action-GetArtifact")                                                                      |                             |                   | Read           |
-| GetIntegration                                                                                                                  | [securityagent:GetIntegration](#list_securityagent-action-GetIntegration "#list_securityagent-action-GetIntegration")                                                             |                             |                   | Read           |
-| GetSecurityRequirementPack                                                                                                      | [securityagent:GetSecurityRequirementPack](#list_securityagent-action-GetSecurityRequirementPack "#list_securityagent-action-GetSecurityRequirementPack")                         |                             |                   | Read           |
-| ImportSecurityRequirements                                                                                                      | [securityagent:ImportSecurityRequirements](#list_securityagent-action-ImportSecurityRequirements "#list_securityagent-action-ImportSecurityRequirements")                         |                             |                   | Write          |
-| InitiateProviderRegistration                                                                                                    | [securityagent:InitiateProviderRegistration](#list_securityagent-action-InitiateProviderRegistration "#list_securityagent-action-InitiateProviderRegistration")                   |                             |                   | Write          |
-| ListAgentSpaces                                                                                                                 | [securityagent:ListAgentSpaces](#list_securityagent-action-ListAgentSpaces "#list_securityagent-action-ListAgentSpaces")                                                          |                             |                   | List           |
-| ListApplications                                                                                                                | [securityagent:ListApplications](#list_securityagent-action-ListApplications "#list_securityagent-action-ListApplications")                                                       |                             |                   | List           |
-| ListArtifacts                                                                                                                   | [securityagent:ListArtifacts](#list_securityagent-action-ListArtifacts "#list_securityagent-action-ListArtifacts")                                                                |                             |                   | List           |
-| ListCodeReviewJobTasks                                                                                                          | [securityagent:ListCodeReviewJobTasks](#list_securityagent-action-ListCodeReviewJobTasks "#list_securityagent-action-ListCodeReviewJobTasks")                                     |                             |                   | List           |
-| ListCodeReviewJobsForCodeReview                                                                                                 | [securityagent:ListCodeReviewJobsForCodeReview](#list_securityagent-action-ListCodeReviewJobsForCodeReview "#list_securityagent-action-ListCodeReviewJobsForCodeReview")          |                             |                   | List           |
-| ListCodeReviews                                                                                                                 | [securityagent:ListCodeReviews](#list_securityagent-action-ListCodeReviews "#list_securityagent-action-ListCodeReviews")                                                          |                             |                   | List           |
-| ListDiscoveredEndpoints                                                                                                         | [securityagent:ListDiscoveredEndpoints](#list_securityagent-action-ListDiscoveredEndpoints "#list_securityagent-action-ListDiscoveredEndpoints")                                  |                             |                   | List           |
-| ListFindings                                                                                                                    | [securityagent:ListFindings](#list_securityagent-action-ListFindings "#list_securityagent-action-ListFindings")                                                                   |                             |                   | List           |
-| ListIntegratedResources                                                                                                         | [securityagent:ListIntegratedResources](#list_securityagent-action-ListIntegratedResources "#list_securityagent-action-ListIntegratedResources")                                  |                             |                   | List           |
-| ListIntegrations                                                                                                                | [securityagent:ListIntegrations](#list_securityagent-action-ListIntegrations "#list_securityagent-action-ListIntegrations")                                                       |                             |                   | List           |
-| ListMemberships                                                                                                                 | [securityagent:ListMemberships](#list_securityagent-action-ListMemberships "#list_securityagent-action-ListMemberships")                                                          |                             |                   | List           |
-| ListPentestJobTasks                                                                                                             | [securityagent:ListPentestJobTasks](#list_securityagent-action-ListPentestJobTasks "#list_securityagent-action-ListPentestJobTasks")                                              |                             |                   | List           |
-| ListPentestJobsForPentest                                                                                                       | [securityagent:ListPentestJobsForPentest](#list_securityagent-action-ListPentestJobsForPentest "#list_securityagent-action-ListPentestJobsForPentest")                            |                             |                   | List           |
-| ListPentests                                                                                                                    | [securityagent:ListPentests](#list_securityagent-action-ListPentests "#list_securityagent-action-ListPentests")                                                                   |                             |                   | List           |
-| ListPrivateConnections                                                                                                          | [securityagent:ListPrivateConnections](#list_securityagent-action-ListPrivateConnections "#list_securityagent-action-ListPrivateConnections")                                     |                             |                   | List           |
-| ListSecurityRequirementPacks                                                                                                    | [securityagent:ListSecurityRequirementPacks](#list_securityagent-action-ListSecurityRequirementPacks "#list_securityagent-action-ListSecurityRequirementPacks")                   |                             |                   | List           |
-| ListSecurityRequirements                                                                                                        | [securityagent:ListSecurityRequirements](#list_securityagent-action-ListSecurityRequirements "#list_securityagent-action-ListSecurityRequirements")                               |                             |                   | List           |
-| ListTagsForResource                                                                                                             | [securityagent:ListTagsForResource](#list_securityagent-action-ListTagsForResource "#list_securityagent-action-ListTagsForResource")                                              |                             |                   | Read           |
-| ListTargetDomains                                                                                                               | [securityagent:ListTargetDomains](#list_securityagent-action-ListTargetDomains "#list_securityagent-action-ListTargetDomains")                                                    |                             |                   | List           |
-| ListThreatModelJobTasks                                                                                                         | [securityagent:ListThreatModelJobTasks](#list_securityagent-action-ListThreatModelJobTasks "#list_securityagent-action-ListThreatModelJobTasks")                                  |                             |                   | List           |
-| ListThreatModelJobs                                                                                                             | [securityagent:ListThreatModelJobs](#list_securityagent-action-ListThreatModelJobs "#list_securityagent-action-ListThreatModelJobs")                                              |                             |                   | List           |
-| ListThreatModels                                                                                                                | [securityagent:ListThreatModels](#list_securityagent-action-ListThreatModels "#list_securityagent-action-ListThreatModels")                                                       |                             |                   | List           |
-| ListThreats                                                                                                                     | [securityagent:ListThreats](#list_securityagent-action-ListThreats "#list_securityagent-action-ListThreats")                                                                      |                             |                   | List           |
-| StartCodeRemediation                                                                                                            | [securityagent:StartCodeRemediation](#list_securityagent-action-StartCodeRemediation "#list_securityagent-action-StartCodeRemediation")                                           |                             |                   | Write          |
-| StartCodeReviewJob                                                                                                              | [securityagent:StartCodeReviewJob](#list_securityagent-action-StartCodeReviewJob "#list_securityagent-action-StartCodeReviewJob")                                                 |                             |                   | Write          |
-| StartPentestJob                                                                                                                 | [securityagent:StartPentestJob](#list_securityagent-action-StartPentestJob "#list_securityagent-action-StartPentestJob")                                                          |                             |                   | Write          |
-| StartThreatModelJob                                                                                                             | [securityagent:StartThreatModelJob](#list_securityagent-action-StartThreatModelJob "#list_securityagent-action-StartThreatModelJob")                                              |                             |                   | Write          |
-| StopCodeReviewJob                                                                                                               | [securityagent:StopCodeReviewJob](#list_securityagent-action-StopCodeReviewJob "#list_securityagent-action-StopCodeReviewJob")                                                    |                             |                   | Write          |
-| StopPentestJob                                                                                                                  | [securityagent:StopPentestJob](#list_securityagent-action-StopPentestJob "#list_securityagent-action-StopPentestJob")                                                             |                             |                   | Write          |
-| StopThreatModelJob                                                                                                              | [securityagent:StopThreatModelJob](#list_securityagent-action-StopThreatModelJob "#list_securityagent-action-StopThreatModelJob")                                                 |                             |                   | Write          |
-| TagResource                                                                                                                     | [securityagent:TagResource](#list_securityagent-action-TagResource "#list_securityagent-action-TagResource")                                                                      |                             |                   | Tagging, Write |
-| UntagResource                                                                                                                   | [securityagent:UntagResource](#list_securityagent-action-UntagResource "#list_securityagent-action-UntagResource")                                                                |                             |                   | Tagging, Write |
-| UpdateAgentSpace                                                                                                                | [securityagent:UpdateAgentSpace](#list_securityagent-action-UpdateAgentSpace "#list_securityagent-action-UpdateAgentSpace")                                                       |                             |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                               | securityagent.amazonaws.com | Write             |
-| UpdateApplication                                                                                                               | [securityagent:UpdateApplication](#list_securityagent-action-UpdateApplication "#list_securityagent-action-UpdateApplication")                                                    |                             |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                               | securityagent.amazonaws.com | Write             |
-| UpdateCodeReview                                                                                                                | [securityagent:UpdateCodeReview](#list_securityagent-action-UpdateCodeReview "#list_securityagent-action-UpdateCodeReview")                                                       |                             |                   | Write          |
-| UpdateFinding                                                                                                                   | [securityagent:UpdateFinding](#list_securityagent-action-UpdateFinding "#list_securityagent-action-UpdateFinding")                                                                |                             |                   | Write          |
-| UpdateIntegratedResources                                                                                                       | [securityagent:UpdateIntegratedResources](#list_securityagent-action-UpdateIntegratedResources "#list_securityagent-action-UpdateIntegratedResources")                            |                             |                   | Write          |
-| UpdatePentest                                                                                                                   | [securityagent:UpdatePentest](#list_securityagent-action-UpdatePentest "#list_securityagent-action-UpdatePentest")                                                                |                             |                   | Write          |
-| UpdatePrivateConnectionCertificate                                                                                              | [securityagent:UpdatePrivateConnectionCertificate](#list_securityagent-action-UpdatePrivateConnectionCertificate "#list_securityagent-action-UpdatePrivateConnectionCertificate") |                             |                   | Write          |
-| UpdateSecurityRequirementPack                                                                                                   | [securityagent:UpdateSecurityRequirementPack](#list_securityagent-action-UpdateSecurityRequirementPack "#list_securityagent-action-UpdateSecurityRequirementPack")                |                             |                   | Write          |
-| UpdateTargetDomain                                                                                                              | [securityagent:UpdateTargetDomain](#list_securityagent-action-UpdateTargetDomain "#list_securityagent-action-UpdateTargetDomain")                                                 |                             |                   | Write          |
-| UpdateThreat                                                                                                                    | [securityagent:UpdateThreat](#list_securityagent-action-UpdateThreat "#list_securityagent-action-UpdateThreat")                                                                   |                             |                   | Write          |
-| UpdateThreatModel                                                                                                               | [securityagent:UpdateThreatModel](#list_securityagent-action-UpdateThreatModel "#list_securityagent-action-UpdateThreatModel")                                                    |                             |                   | Write          |
-| VerifyTargetDomain                                                                                                              | [securityagent:VerifyTargetDomain](#list_securityagent-action-VerifyTargetDomain "#list_securityagent-action-VerifyTargetDomain")                                                 |                             |                   | Write          |
+
+
+
+- **   AddArtifact  **
+  - **IAM action:**  [securityagent:AddArtifact](#list_securityagent-action-AddArtifact) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchCreateSecurityRequirements  **
+  - **IAM action:**  [securityagent:BatchCreateSecurityRequirements](#list_securityagent-action-BatchCreateSecurityRequirements) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchDeleteCodeReviews  **
+  - **IAM action:**  [securityagent:BatchDeleteCodeReviews](#list_securityagent-action-BatchDeleteCodeReviews) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchDeletePentests  **
+  - **IAM action:**  [securityagent:BatchDeletePentests](#list_securityagent-action-BatchDeletePentests) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchDeleteSecurityRequirements  **
+  - **IAM action:**  [securityagent:BatchDeleteSecurityRequirements](#list_securityagent-action-BatchDeleteSecurityRequirements) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchDeleteThreatModels  **
+  - **IAM action:**  [securityagent:BatchDeleteThreatModels](#list_securityagent-action-BatchDeleteThreatModels) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchGetAgentSpaces  **
+  - **IAM action:**  [securityagent:BatchGetAgentSpaces](#list_securityagent-action-BatchGetAgentSpaces) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetArtifactMetadata  **
+  - **IAM action:**  [securityagent:BatchGetArtifactMetadata](#list_securityagent-action-BatchGetArtifactMetadata) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetCodeReviewJobTasks  **
+  - **IAM action:**  [securityagent:BatchGetCodeReviewJobTasks](#list_securityagent-action-BatchGetCodeReviewJobTasks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetCodeReviewJobs  **
+  - **IAM action:**  [securityagent:BatchGetCodeReviewJobs](#list_securityagent-action-BatchGetCodeReviewJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetCodeReviews  **
+  - **IAM action:**  [securityagent:BatchGetCodeReviews](#list_securityagent-action-BatchGetCodeReviews) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetFindings  **
+  - **IAM action:**  [securityagent:BatchGetFindings](#list_securityagent-action-BatchGetFindings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetPentestJobTasks  **
+  - **IAM action:**  [securityagent:BatchGetPentestJobTasks](#list_securityagent-action-BatchGetPentestJobTasks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetPentestJobs  **
+  - **IAM action:**  [securityagent:BatchGetPentestJobs](#list_securityagent-action-BatchGetPentestJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetPentests  **
+  - **IAM action:**  [securityagent:BatchGetPentests](#list_securityagent-action-BatchGetPentests) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetSecurityRequirements  **
+  - **IAM action:**  [securityagent:BatchGetSecurityRequirements](#list_securityagent-action-BatchGetSecurityRequirements) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetTargetDomains  **
+  - **IAM action:**  [securityagent:BatchGetTargetDomains](#list_securityagent-action-BatchGetTargetDomains) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetThreatModelJobTasks  **
+  - **IAM action:**  [securityagent:BatchGetThreatModelJobTasks](#list_securityagent-action-BatchGetThreatModelJobTasks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetThreatModelJobs  **
+  - **IAM action:**  [securityagent:BatchGetThreatModelJobs](#list_securityagent-action-BatchGetThreatModelJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetThreatModels  **
+  - **IAM action:**  [securityagent:BatchGetThreatModels](#list_securityagent-action-BatchGetThreatModels) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetThreats  **
+  - **IAM action:**  [securityagent:BatchGetThreats](#list_securityagent-action-BatchGetThreats) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchUpdateSecurityRequirements  **
+  - **IAM action:**  [securityagent:BatchUpdateSecurityRequirements](#list_securityagent-action-BatchUpdateSecurityRequirements) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAgentSpace  **
+  - **IAM action:**  [securityagent:CreateAgentSpace](#list_securityagent-action-CreateAgentSpace)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [securityagent:TagResource](#list_securityagent-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** securityagent.amazonaws.com / **Access level:** Write
+
+- **   CreateApplication  **
+  - **IAM action:**  [securityagent:CreateApplication](#list_securityagent-action-CreateApplication)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [securityagent:TagResource](#list_securityagent-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** securityagent.amazonaws.com / **Access level:** Write
+
+- **   CreateCodeReview  **
+  - **IAM action:**  [securityagent:CreateCodeReview](#list_securityagent-action-CreateCodeReview) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateIntegration  **
+  - **IAM action:**  [securityagent:CreateIntegration](#list_securityagent-action-CreateIntegration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [securityagent:TagResource](#list_securityagent-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateMembership  **
+  - **IAM action:**  [securityagent:CreateMembership](#list_securityagent-action-CreateMembership) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreatePentest  **
+  - **IAM action:**  [securityagent:CreatePentest](#list_securityagent-action-CreatePentest) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreatePrivateConnection  **
+  - **IAM action:**  [securityagent:CreatePrivateConnection](#list_securityagent-action-CreatePrivateConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [securityagent:TagResource](#list_securityagent-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateSecurityRequirementPack  **
+  - **IAM action:**  [securityagent:CreateSecurityRequirementPack](#list_securityagent-action-CreateSecurityRequirementPack)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [securityagent:TagResource](#list_securityagent-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateTargetDomain  **
+  - **IAM action:**  [securityagent:CreateTargetDomain](#list_securityagent-action-CreateTargetDomain)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [securityagent:TagResource](#list_securityagent-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateThreat  **
+  - **IAM action:**  [securityagent:CreateThreat](#list_securityagent-action-CreateThreat) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateThreatModel  **
+  - **IAM action:**  [securityagent:CreateThreatModel](#list_securityagent-action-CreateThreatModel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAgentSpace  **
+  - **IAM action:**  [securityagent:DeleteAgentSpace](#list_securityagent-action-DeleteAgentSpace) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteApplication  **
+  - **IAM action:**  [securityagent:DeleteApplication](#list_securityagent-action-DeleteApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteArtifact  **
+  - **IAM action:**  [securityagent:DeleteArtifact](#list_securityagent-action-DeleteArtifact) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteIntegration  **
+  - **IAM action:**  [securityagent:DeleteIntegration](#list_securityagent-action-DeleteIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteMembership  **
+  - **IAM action:**  [securityagent:DeleteMembership](#list_securityagent-action-DeleteMembership) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeletePrivateConnection  **
+  - **IAM action:**  [securityagent:DeletePrivateConnection](#list_securityagent-action-DeletePrivateConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSecurityRequirementPack  **
+  - **IAM action:**  [securityagent:DeleteSecurityRequirementPack](#list_securityagent-action-DeleteSecurityRequirementPack) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteTargetDomain  **
+  - **IAM action:**  [securityagent:DeleteTargetDomain](#list_securityagent-action-DeleteTargetDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribePrivateConnection  **
+  - **IAM action:**  [securityagent:DescribePrivateConnection](#list_securityagent-action-DescribePrivateConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetApplication  **
+  - **IAM action:**  [securityagent:GetApplication](#list_securityagent-action-GetApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetArtifact  **
+  - **IAM action:**  [securityagent:GetArtifact](#list_securityagent-action-GetArtifact) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIntegration  **
+  - **IAM action:**  [securityagent:GetIntegration](#list_securityagent-action-GetIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSecurityRequirementPack  **
+  - **IAM action:**  [securityagent:GetSecurityRequirementPack](#list_securityagent-action-GetSecurityRequirementPack) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ImportSecurityRequirements  **
+  - **IAM action:**  [securityagent:ImportSecurityRequirements](#list_securityagent-action-ImportSecurityRequirements) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   InitiateProviderRegistration  **
+  - **IAM action:**  [securityagent:InitiateProviderRegistration](#list_securityagent-action-InitiateProviderRegistration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ListAgentSpaces  **
+  - **IAM action:**  [securityagent:ListAgentSpaces](#list_securityagent-action-ListAgentSpaces) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListApplications  **
+  - **IAM action:**  [securityagent:ListApplications](#list_securityagent-action-ListApplications) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListArtifacts  **
+  - **IAM action:**  [securityagent:ListArtifacts](#list_securityagent-action-ListArtifacts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCodeReviewJobTasks  **
+  - **IAM action:**  [securityagent:ListCodeReviewJobTasks](#list_securityagent-action-ListCodeReviewJobTasks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCodeReviewJobsForCodeReview  **
+  - **IAM action:**  [securityagent:ListCodeReviewJobsForCodeReview](#list_securityagent-action-ListCodeReviewJobsForCodeReview) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCodeReviews  **
+  - **IAM action:**  [securityagent:ListCodeReviews](#list_securityagent-action-ListCodeReviews) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDiscoveredEndpoints  **
+  - **IAM action:**  [securityagent:ListDiscoveredEndpoints](#list_securityagent-action-ListDiscoveredEndpoints) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListFindings  **
+  - **IAM action:**  [securityagent:ListFindings](#list_securityagent-action-ListFindings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListIntegratedResources  **
+  - **IAM action:**  [securityagent:ListIntegratedResources](#list_securityagent-action-ListIntegratedResources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListIntegrations  **
+  - **IAM action:**  [securityagent:ListIntegrations](#list_securityagent-action-ListIntegrations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMemberships  **
+  - **IAM action:**  [securityagent:ListMemberships](#list_securityagent-action-ListMemberships) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPentestJobTasks  **
+  - **IAM action:**  [securityagent:ListPentestJobTasks](#list_securityagent-action-ListPentestJobTasks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPentestJobsForPentest  **
+  - **IAM action:**  [securityagent:ListPentestJobsForPentest](#list_securityagent-action-ListPentestJobsForPentest) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPentests  **
+  - **IAM action:**  [securityagent:ListPentests](#list_securityagent-action-ListPentests) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPrivateConnections  **
+  - **IAM action:**  [securityagent:ListPrivateConnections](#list_securityagent-action-ListPrivateConnections) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSecurityRequirementPacks  **
+  - **IAM action:**  [securityagent:ListSecurityRequirementPacks](#list_securityagent-action-ListSecurityRequirementPacks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSecurityRequirements  **
+  - **IAM action:**  [securityagent:ListSecurityRequirements](#list_securityagent-action-ListSecurityRequirements) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [securityagent:ListTagsForResource](#list_securityagent-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTargetDomains  **
+  - **IAM action:**  [securityagent:ListTargetDomains](#list_securityagent-action-ListTargetDomains) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListThreatModelJobTasks  **
+  - **IAM action:**  [securityagent:ListThreatModelJobTasks](#list_securityagent-action-ListThreatModelJobTasks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListThreatModelJobs  **
+  - **IAM action:**  [securityagent:ListThreatModelJobs](#list_securityagent-action-ListThreatModelJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListThreatModels  **
+  - **IAM action:**  [securityagent:ListThreatModels](#list_securityagent-action-ListThreatModels) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListThreats  **
+  - **IAM action:**  [securityagent:ListThreats](#list_securityagent-action-ListThreats) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   StartCodeRemediation  **
+  - **IAM action:**  [securityagent:StartCodeRemediation](#list_securityagent-action-StartCodeRemediation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartCodeReviewJob  **
+  - **IAM action:**  [securityagent:StartCodeReviewJob](#list_securityagent-action-StartCodeReviewJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartPentestJob  **
+  - **IAM action:**  [securityagent:StartPentestJob](#list_securityagent-action-StartPentestJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartThreatModelJob  **
+  - **IAM action:**  [securityagent:StartThreatModelJob](#list_securityagent-action-StartThreatModelJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopCodeReviewJob  **
+  - **IAM action:**  [securityagent:StopCodeReviewJob](#list_securityagent-action-StopCodeReviewJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopPentestJob  **
+  - **IAM action:**  [securityagent:StopPentestJob](#list_securityagent-action-StopPentestJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopThreatModelJob  **
+  - **IAM action:**  [securityagent:StopThreatModelJob](#list_securityagent-action-StopThreatModelJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [securityagent:TagResource](#list_securityagent-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [securityagent:UntagResource](#list_securityagent-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAgentSpace  **
+  - **IAM action:**  [securityagent:UpdateAgentSpace](#list_securityagent-action-UpdateAgentSpace)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** securityagent.amazonaws.com / **Access level:** Write
+
+- **   UpdateApplication  **
+  - **IAM action:**  [securityagent:UpdateApplication](#list_securityagent-action-UpdateApplication)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** securityagent.amazonaws.com / **Access level:** Write
+
+- **   UpdateCodeReview  **
+  - **IAM action:**  [securityagent:UpdateCodeReview](#list_securityagent-action-UpdateCodeReview) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateFinding  **
+  - **IAM action:**  [securityagent:UpdateFinding](#list_securityagent-action-UpdateFinding) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateIntegratedResources  **
+  - **IAM action:**  [securityagent:UpdateIntegratedResources](#list_securityagent-action-UpdateIntegratedResources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdatePentest  **
+  - **IAM action:**  [securityagent:UpdatePentest](#list_securityagent-action-UpdatePentest) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdatePrivateConnectionCertificate  **
+  - **IAM action:**  [securityagent:UpdatePrivateConnectionCertificate](#list_securityagent-action-UpdatePrivateConnectionCertificate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSecurityRequirementPack  **
+  - **IAM action:**  [securityagent:UpdateSecurityRequirementPack](#list_securityagent-action-UpdateSecurityRequirementPack) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateTargetDomain  **
+  - **IAM action:**  [securityagent:UpdateTargetDomain](#list_securityagent-action-UpdateTargetDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateThreat  **
+  - **IAM action:**  [securityagent:UpdateThreat](#list_securityagent-action-UpdateThreat) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateThreatModel  **
+  - **IAM action:**  [securityagent:UpdateThreatModel](#list_securityagent-action-UpdateThreatModel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   VerifyTargetDomain  **
+  - **IAM action:**  [securityagent:VerifyTargetDomain](#list_securityagent-action-VerifyTargetDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS Security Agent
+<a name="list_securityagent-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                   | Description                                                                                                                                                                                                                                                                                                                               | Resource types (\*required)                                                                                                              | Condition keys                                                                                                                                                                                                                                                                                                                            | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AddArtifact](../../../securityagent/API_AddArtifact.md "../../../securityagent/API_AddArtifact.md")                                                                      | Grants permission to add an Artifact for the given Agent Space                                                                                                                                                                                                                                                                            | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [BatchCreateSecurityRequirements](../../../securityagent/API_BatchCreateSecurityRequirements.md "../../../securityagent/API_BatchCreateSecurityRequirements.md")          | Grants permission to batch create security requirements in a customer managed pack                                                                                                                                                                                                                                                        | [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack") | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [BatchDeleteCodeReviews](../../../securityagent/API_BatchDeleteCodeReviews.md "../../../securityagent/API_BatchDeleteCodeReviews.md")                                     | Grants permission to delete multiple code reviews in a single request                                                                                                                                                                                                                                                                     | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [BatchDeletePentests](../../../securityagent/API_BatchDeletePentests.md "../../../securityagent/API_BatchDeletePentests.md")                                              | Grants permission to delete multiple penetration tests in a single request                                                                                                                                                                                                                                                                | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [BatchDeleteSecurityRequirements](../../../securityagent/API_BatchDeleteSecurityRequirements.md "../../../securityagent/API_BatchDeleteSecurityRequirements.md")          | Grants permission to batch delete security requirements from a customer managed pack                                                                                                                                                                                                                                                      | [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack") | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [BatchDeleteThreatModels](../../../securityagent/API_BatchDeleteThreatModels.md "../../../securityagent/API_BatchDeleteThreatModels.md")                                  | Grants permission to delete multiple threat models in a single request                                                                                                                                                                                                                                                                    | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [BatchDeleteThreats](../../../securityagent/API_BatchDeleteThreats.md "../../../securityagent/API_BatchDeleteThreats.md")                                                 | Grants permission to delete multiple threats                                                                                                                                                                                                                                                                                              | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [BatchGetAgentSpaces](../../../securityagent/API_BatchGetAgentSpaces.md "../../../securityagent/API_BatchGetAgentSpaces.md")                                              | Grants permission to retrieve multiple agent spaces in a single request                                                                                                                                                                                                                                                                   | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [BatchGetArtifactMetadata](../../../securityagent/API_BatchGetArtifactMetadata.md "../../../securityagent/API_BatchGetArtifactMetadata.md")                               | Grants permission to retrieve one or more Artifact Metadata records for the given Agent Space                                                                                                                                                                                                                                             | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [BatchGetCodeReviewJobTasks](../../../securityagent/API_BatchGetCodeReviewJobTasks.md "../../../securityagent/API_BatchGetCodeReviewJobTasks.md")                         | Grants permission to retrieve multiple code review job tasks in a single request                                                                                                                                                                                                                                                          | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [BatchGetCodeReviewJobs](../../../securityagent/API_BatchGetCodeReviewJobs.md "../../../securityagent/API_BatchGetCodeReviewJobs.md")                                     | Grants permission to retrieve multiple code review jobs in a single request                                                                                                                                                                                                                                                               | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [BatchGetCodeReviews](../../../securityagent/API_BatchGetCodeReviews.md "../../../securityagent/API_BatchGetCodeReviews.md")                                              | Grants permission to retrieve multiple code reviews in a single request                                                                                                                                                                                                                                                                   | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [BatchGetFindings](../../../securityagent/API_BatchGetFindings.md "../../../securityagent/API_BatchGetFindings.md")                                                       | Grants permission to retrieve multiple security testing findings in a single request                                                                                                                                                                                                                                                      | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [BatchGetPentestJobContentMetadata](../../../securityagent/API_BatchGetPentestJobContentMetadata.md "../../../securityagent/API_BatchGetPentestJobContentMetadata.md")    | Grants permission to retrieve multiple pentest job contents metadata in a single request                                                                                                                                                                                                                                                  | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [BatchGetPentestJobTasks](../../../securityagent/API_BatchGetPentestJobTasks.md "../../../securityagent/API_BatchGetPentestJobTasks.md")                                  | Grants permission to retrieve multiple pentest job tasks in a single request                                                                                                                                                                                                                                                              | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [BatchGetPentestJobs](../../../securityagent/API_BatchGetPentestJobs.md "../../../securityagent/API_BatchGetPentestJobs.md")                                              | Grants permission to retrieve multiple security testing jobs in a single request                                                                                                                                                                                                                                                          | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [BatchGetPentests](../../../securityagent/API_BatchGetPentests.md "../../../securityagent/API_BatchGetPentests.md")                                                       | Grants permission to retrieve multiple penetration tests in a single request                                                                                                                                                                                                                                                              | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [BatchGetSecurityRequirements](../../../securityagent/API_BatchGetSecurityRequirements.md "../../../securityagent/API_BatchGetSecurityRequirements.md")                   | Grants permission to retrieve multiple security requirements in a single request                                                                                                                                                                                                                                                          | [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack") | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [BatchGetTargetDomains](../../../securityagent/API_BatchGetTargetDomains.md "../../../securityagent/API_BatchGetTargetDomains.md")                                        | Grants permission to retrieve multiple target domains in a single request                                                                                                                                                                                                                                                                 | [TargetDomain\*](#list_securityagent-resource-TargetDomain "#list_securityagent-resource-TargetDomain")                                  | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [BatchGetThreatModelJobTasks](../../../securityagent/API_BatchGetThreatModelJobTasks.md "../../../securityagent/API_BatchGetThreatModelJobTasks.md")                      | Grants permission to retrieve multiple tasks for a threat model job in a single request                                                                                                                                                                                                                                                   | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [BatchGetThreatModelJobs](../../../securityagent/API_BatchGetThreatModelJobs.md "../../../securityagent/API_BatchGetThreatModelJobs.md")                                  | Grants permission to retrieve details for one or more threat model jobs                                                                                                                                                                                                                                                                   | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [BatchGetThreatModels](../../../securityagent/API_BatchGetThreatModels.md "../../../securityagent/API_BatchGetThreatModels.md")                                           | Grants permission to retrieve multiple threat models in a single request                                                                                                                                                                                                                                                                  | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [BatchGetThreats](../../../securityagent/API_BatchGetThreats.md "../../../securityagent/API_BatchGetThreats.md")                                                          | Grants permission to retrieve details for one or more threats                                                                                                                                                                                                                                                                             | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [BatchUpdateSecurityRequirements](../../../securityagent/API_BatchUpdateSecurityRequirements.md "../../../securityagent/API_BatchUpdateSecurityRequirements.md")          | Grants permission to batch update security requirements within a customer managed pack                                                                                                                                                                                                                                                    | [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack") | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [CreateAgentSpace](../../../securityagent/API_CreateAgentSpace.md "../../../securityagent/API_CreateAgentSpace.md")                                                       | Grants permission to create an agent space record                                                                                                                                                                                                                                                                                         |                                                                                                                                          | [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_ "#list_securityagent-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys")                                                                                                                               | Write          |
-| [CreateApplication](../../../securityagent/API_CreateApplication.md "../../../securityagent/API_CreateApplication.md")                                                    | Grants permission to create a new application                                                                                                                                                                                                                                                                                             |                                                                                                                                          | [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_ "#list_securityagent-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys")                                                                                                                               | Write          |
-| [CreateCodeReview](../../../securityagent/API_CreateCodeReview.md "../../../securityagent/API_CreateCodeReview.md")                                                       | Grants permission to create a new code review configuration                                                                                                                                                                                                                                                                               | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [CreateDesignReview](../../../securityagent/API_CreateDesignReview.md "../../../securityagent/API_CreateDesignReview.md")                                                 | Grants permission to create a design review                                                                                                                                                                                                                                                                                               | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [CreateIntegration](../../../securityagent/API_CreateIntegration.md "../../../securityagent/API_CreateIntegration.md")                                                    | Grants permission to create a security testing integration                                                                                                                                                                                                                                                                                |                                                                                                                                          | [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_ "#list_securityagent-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys")                                                                                                                               | Write          |
-| [CreateMembership](../../../securityagent/API_CreateMembership.md "../../../securityagent/API_CreateMembership.md")                                                       | Grants permission to add a single member to a agent space with specified role                                                                                                                                                                                                                                                             | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [CreateOneTimeLoginSession](../../../securityagent/API_CreateOneTimeLoginSession.md "../../../securityagent/API_CreateOneTimeLoginSession.md")                            | Grants permission to create a one time login session                                                                                                                                                                                                                                                                                      | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [CreatePentest](../../../securityagent/API_CreatePentest.md "../../../securityagent/API_CreatePentest.md")                                                                | Grants permission to create a new penetration test configuration                                                                                                                                                                                                                                                                          | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [CreatePrivateConnection](../../../securityagent/API_CreatePrivateConnection.md "../../../securityagent/API_CreatePrivateConnection.md")                                  | Grants permission to create a private connection for VPC Lattice integration                                                                                                                                                                                                                                                              |                                                                                                                                          | [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_ "#list_securityagent-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys")                                                                                                                               | Write          |
-| [CreateSecurityRequirement](../../../securityagent/API_CreateSecurityRequirement.md "../../../securityagent/API_CreateSecurityRequirement.md")                            | Grants permission to add a customer managed Security Requirement                                                                                                                                                                                                                                                                          | [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack") | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [CreateSecurityRequirementPack](../../../securityagent/API_CreateSecurityRequirementPack.md "../../../securityagent/API_CreateSecurityRequirementPack.md")                | Grants permission to create a customer managed security requirement pack                                                                                                                                                                                                                                                                  |                                                                                                                                          | [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_ "#list_securityagent-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys")                                                                                                                               | Write          |
-| [CreateTargetDomain](../../../securityagent/API_CreateTargetDomain.md "../../../securityagent/API_CreateTargetDomain.md")                                                 | Grants permission to create a target domain record                                                                                                                                                                                                                                                                                        |                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                           | Write          |
-| [CreateThreat](../../../securityagent/API_CreateThreat.md "../../../securityagent/API_CreateThreat.md")                                                                   | Grants permission to create a threat in a threat model                                                                                                                                                                                                                                                                                    | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [CreateThreatModel](../../../securityagent/API_CreateThreatModel.md "../../../securityagent/API_CreateThreatModel.md")                                                    | Grants permission to create a new threat model configuration                                                                                                                                                                                                                                                                              | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DeleteAgentSpace](../../../securityagent/API_DeleteAgentSpace.md "../../../securityagent/API_DeleteAgentSpace.md")                                                       | Grants permission to delete an agent space record                                                                                                                                                                                                                                                                                         | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DeleteApplication](../../../securityagent/API_DeleteApplication.md "../../../securityagent/API_DeleteApplication.md")                                                    | Grants permission to delete application                                                                                                                                                                                                                                                                                                   | [Application\*](#list_securityagent-resource-Application "#list_securityagent-resource-Application")                                     | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DeleteArtifact](../../../securityagent/API_DeleteArtifact.md "../../../securityagent/API_DeleteArtifact.md")                                                             | Grants permission to delete an Artifact                                                                                                                                                                                                                                                                                                   | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DeleteDesignReview](../../../securityagent/API_DeleteDesignReview.md "../../../securityagent/API_DeleteDesignReview.md")                                                 | Grants permission to delete a design review                                                                                                                                                                                                                                                                                               | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DeleteIntegration](../../../securityagent/API_DeleteIntegration.md "../../../securityagent/API_DeleteIntegration.md")                                                    | Grants permission to delete the integration of an application                                                                                                                                                                                                                                                                             | [Integration\*](#list_securityagent-resource-Integration "#list_securityagent-resource-Integration")                                     | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DeleteMembership](../../../securityagent/API_DeleteMembership.md "../../../securityagent/API_DeleteMembership.md")                                                       | Grants permission to remove a single member associated to an agent space                                                                                                                                                                                                                                                                  | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DeletePrivateConnection](../../../securityagent/API_DeletePrivateConnection.md "../../../securityagent/API_DeletePrivateConnection.md")                                  | Grants permission to delete a private connection                                                                                                                                                                                                                                                                                          | [PrivateConnection\*](#list_securityagent-resource-PrivateConnection "#list_securityagent-resource-PrivateConnection")                   | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DeleteSecurityRequirement](../../../securityagent/API_DeleteSecurityRequirement.md "../../../securityagent/API_DeleteSecurityRequirement.md")                            | Grants permission to delete a customer managed Security Requirement                                                                                                                                                                                                                                                                       | [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack") | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DeleteSecurityRequirementPack](../../../securityagent/API_DeleteSecurityRequirementPack.md "../../../securityagent/API_DeleteSecurityRequirementPack.md")                | Grants permission to delete a customer managed security requirement pack and all its associated security requirements                                                                                                                                                                                                                     | [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack") | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DeleteTargetDomain](../../../securityagent/API_DeleteTargetDomain.md "../../../securityagent/API_DeleteTargetDomain.md")                                                 | Grants permission to delete a target domain record                                                                                                                                                                                                                                                                                        | [TargetDomain\*](#list_securityagent-resource-TargetDomain "#list_securityagent-resource-TargetDomain")                                  | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DescribePrivateConnection](../../../securityagent/API_DescribePrivateConnection.md "../../../securityagent/API_DescribePrivateConnection.md")                            | Grants permission to describe a private connection                                                                                                                                                                                                                                                                                        | [PrivateConnection\*](#list_securityagent-resource-PrivateConnection "#list_securityagent-resource-PrivateConnection")                   | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [GetApplication](../../../securityagent/API_GetApplication.md "../../../securityagent/API_GetApplication.md")                                                             | Grants permission to get application details by application ID                                                                                                                                                                                                                                                                            | [Application\*](#list_securityagent-resource-Application "#list_securityagent-resource-Application")                                     | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [GetArtifact](../../../securityagent/API_GetArtifact.md "../../../securityagent/API_GetArtifact.md")                                                                      | Grants permission to retrieve an Artifact for the given Agent Space                                                                                                                                                                                                                                                                       | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [GetDesignReview](../../../securityagent/API_GetDesignReview.md "../../../securityagent/API_GetDesignReview.md")                                                          | Grants permission to get the status of the associated agent space design review                                                                                                                                                                                                                                                           | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [GetDesignReviewArtifact](../../../securityagent/API_GetDesignReviewArtifact.md "../../../securityagent/API_GetDesignReviewArtifact.md")                                  | Grants permission to get design review artifact for a specific document                                                                                                                                                                                                                                                                   | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [GetDesignReviewFeedback](../../../securityagent/API_GetDesignReviewFeedback.md "../../../securityagent/API_GetDesignReviewFeedback.md")                                  | Grants permission to get feedback for a design review comment                                                                                                                                                                                                                                                                             | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [GetIntegration](../../../securityagent/API_GetIntegration.md "../../../securityagent/API_GetIntegration.md")                                                             | Grants permission to get the integration metadata by ID                                                                                                                                                                                                                                                                                   | [Integration\*](#list_securityagent-resource-Integration "#list_securityagent-resource-Integration")                                     | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [GetProviderRegistrationManifest](../../../securityagent/API_GetProviderRegistrationManifest.md "../../../securityagent/API_GetProviderRegistrationManifest.md")          | Grants permission to retrieve the provider registration manifest used for browser-based integration registration                                                                                                                                                                                                                          |                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                           | Read           |
-| [GetSecurityRequirement](../../../securityagent/API_GetSecurityRequirement.md "../../../securityagent/API_GetSecurityRequirement.md")                                     | Grants permission to retrieve a Security Requirement                                                                                                                                                                                                                                                                                      | [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack") | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [GetSecurityRequirementPack](../../../securityagent/API_GetSecurityRequirementPack.md "../../../securityagent/API_GetSecurityRequirementPack.md")                         | Grants permission to retrieve a security requirement pack                                                                                                                                                                                                                                                                                 | [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack") | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [HandleProviderRegistrationCallback](../../../securityagent/API_HandleProviderRegistrationCallback.md "../../../securityagent/API_HandleProviderRegistrationCallback.md") | Grants permission to handle the provider OAuth registration callback that completes integration setup                                                                                                                                                                                                                                     |                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                           | Write          |
-| [ImportSecurityRequirements](../../../securityagent/API_ImportSecurityRequirements.md "../../../securityagent/API_ImportSecurityRequirements.md")                         | Grants permission to import security requirements from uploaded documents for a customer managed security requirement pack                                                                                                                                                                                                                | [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack") | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [InitiateProviderRegistration](../../../securityagent/API_InitiateProviderRegistration.md "../../../securityagent/API_InitiateProviderRegistration.md")                   | Grants permission to initiate the registration of Security Agent App for the given provider (eg: GitHub)                                                                                                                                                                                                                                  |                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                           | Write          |
-| [ListAgentSpaces](../../../securityagent/API_ListAgentSpaces.md "../../../securityagent/API_ListAgentSpaces.md")                                                          | Grants permission to list agent spaces                                                                                                                                                                                                                                                                                                    |                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListApplications](../../../securityagent/API_ListApplications.md "../../../securityagent/API_ListApplications.md")                                                       | Grants permission to list all applications in the account                                                                                                                                                                                                                                                                                 |                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListArtifacts](../../../securityagent/API_ListArtifacts.md "../../../securityagent/API_ListArtifacts.md")                                                                | Grants permission to list all artifacts for the given agent space                                                                                                                                                                                                                                                                         | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListCodeReviewJobTasks](../../../securityagent/API_ListCodeReviewJobTasks.md "../../../securityagent/API_ListCodeReviewJobTasks.md")                                     | Grants permission to list tasks associated with a code review job                                                                                                                                                                                                                                                                         | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListCodeReviewJobsForCodeReview](../../../securityagent/API_ListCodeReviewJobsForCodeReview.md "../../../securityagent/API_ListCodeReviewJobsForCodeReview.md")          | Grants permission to list code review jobs associated with a code review                                                                                                                                                                                                                                                                  | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListCodeReviews](../../../securityagent/API_ListCodeReviews.md "../../../securityagent/API_ListCodeReviews.md")                                                          | Grants permission to list code reviews with optional filtering by status                                                                                                                                                                                                                                                                  | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListDesignReviewComments](../../../securityagent/API_ListDesignReviewComments.md "../../../securityagent/API_ListDesignReviewComments.md")                               | Grants permission to list design review comments                                                                                                                                                                                                                                                                                          | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListDesignReviews](../../../securityagent/API_ListDesignReviews.md "../../../securityagent/API_ListDesignReviews.md")                                                    | Grants permission to list all design reviews for the given agent space                                                                                                                                                                                                                                                                    | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListDiscoveredEndpoints](../../../securityagent/API_ListDiscoveredEndpoints.md "../../../securityagent/API_ListDiscoveredEndpoints.md")                                  | Grants permission to list discovered endpoints associated with a pentest job with optional URI prefix filtering                                                                                                                                                                                                                           | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListFindings](../../../securityagent/API_ListFindings.md "../../../securityagent/API_ListFindings.md")                                                                   | Grants permission to list findings with filtering and pagination support                                                                                                                                                                                                                                                                  | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListIntegratedResources](../../../securityagent/API_ListIntegratedResources.md "../../../securityagent/API_ListIntegratedResources.md")                                  | Grants permission to list integrated resources for an agent space                                                                                                                                                                                                                                                                         | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListIntegrations](../../../securityagent/API_ListIntegrations.md "../../../securityagent/API_ListIntegrations.md")                                                       | Grants permission to get the integrations owned by the caller's AWS account                                                                                                                                                                                                                                                               |                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListMemberships](../../../securityagent/API_ListMemberships.md "../../../securityagent/API_ListMemberships.md")                                                          | Grants permission to list all members associated to an agent space with pagination support                                                                                                                                                                                                                                                | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListPentestJobTasks](../../../securityagent/API_ListPentestJobTasks.md "../../../securityagent/API_ListPentestJobTasks.md")                                              | Grants permission to list pentest job tasks associated with a pentest job                                                                                                                                                                                                                                                                 | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListPentestJobsForPentest](../../../securityagent/API_ListPentestJobsForPentest.md "../../../securityagent/API_ListPentestJobsForPentest.md")                            | Grants permission to list penetration test jobs associated with a penetration test                                                                                                                                                                                                                                                        | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListPentests](../../../securityagent/API_ListPentests.md "../../../securityagent/API_ListPentests.md")                                                                   | Grants permission to list penetration tests with optional filtering by status                                                                                                                                                                                                                                                             | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListPrivateConnections](../../../securityagent/API_ListPrivateConnections.md "../../../securityagent/API_ListPrivateConnections.md")                                     | Grants permission to list private connections in the account                                                                                                                                                                                                                                                                              |                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListResourcesFromIntegration](../../../securityagent/API_ListResourcesFromIntegration.md "../../../securityagent/API_ListResourcesFromIntegration.md")                   | Grants permission to list resources from Integration                                                                                                                                                                                                                                                                                      | [Integration\*](#list_securityagent-resource-Integration "#list_securityagent-resource-Integration")                                     | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListSecurityRequirementPacks](../../../securityagent/API_ListSecurityRequirementPacks.md "../../../securityagent/API_ListSecurityRequirementPacks.md")                   | Grants permission to list all security requirement packs in the account                                                                                                                                                                                                                                                                   |                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListSecurityRequirements](../../../securityagent/API_ListSecurityRequirements.md "../../../securityagent/API_ListSecurityRequirements.md")                               | Grants permission to list all Security Requirements                                                                                                                                                                                                                                                                                       | [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack") | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListTagsForResource](../../../securityagent/API_ListTagsForResource.md "../../../securityagent/API_ListTagsForResource.md")                                              | Grants permission to list the tags for a resource                                                                                                                                                                                                                                                                                         | [AgentSpace](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                          | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [Application](#list_securityagent-resource-Application "#list_securityagent-resource-Application")                                                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [Integration](#list_securityagent-resource-Integration "#list_securityagent-resource-Integration")                                                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [PrivateConnection](#list_securityagent-resource-PrivateConnection "#list_securityagent-resource-PrivateConnection")                                                      | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [SecurityRequirementPack](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack")                                    | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [TargetDomain](#list_securityagent-resource-TargetDomain "#list_securityagent-resource-TargetDomain")                                                                     | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [ListTargetDomains](../../../securityagent/API_ListTargetDomains.md "../../../securityagent/API_ListTargetDomains.md")                                                    | Grants permission to list target domains                                                                                                                                                                                                                                                                                                  |                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListThreatModelJobTasks](../../../securityagent/API_ListThreatModelJobTasks.md "../../../securityagent/API_ListThreatModelJobTasks.md")                                  | Grants permission to list tasks associated with a specific threat model job                                                                                                                                                                                                                                                               | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListThreatModelJobs](../../../securityagent/API_ListThreatModelJobs.md "../../../securityagent/API_ListThreatModelJobs.md")                                              | Grants permission to list threat model jobs for a threat model                                                                                                                                                                                                                                                                            | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListThreatModels](../../../securityagent/API_ListThreatModels.md "../../../securityagent/API_ListThreatModels.md")                                                       | Grants permission to list threat models for an agent space                                                                                                                                                                                                                                                                                | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListThreats](../../../securityagent/API_ListThreats.md "../../../securityagent/API_ListThreats.md")                                                                      | Grants permission to list threats for a threat model job with filtering and pagination support                                                                                                                                                                                                                                            | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [PutDesignReviewFeedback](../../../securityagent/API_PutDesignReviewFeedback.md "../../../securityagent/API_PutDesignReviewFeedback.md")                                  | Grants permission to submit feedback for a design review comment                                                                                                                                                                                                                                                                          | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [StartCodeRemediation](../../../securityagent/API_StartCodeRemediation.md "../../../securityagent/API_StartCodeRemediation.md")                                           | Grants permission to start code remediation for the findings                                                                                                                                                                                                                                                                              | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [StartCodeReviewJob](../../../securityagent/API_StartCodeReviewJob.md "../../../securityagent/API_StartCodeReviewJob.md")                                                 | Grants permission to initiate the execution of a code review                                                                                                                                                                                                                                                                              | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [StartPentestJob](../../../securityagent/API_StartPentestJob.md "../../../securityagent/API_StartPentestJob.md")                                                          | Grants permission to initiate the execution of a penetration test                                                                                                                                                                                                                                                                         | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [StartThreatModelJob](../../../securityagent/API_StartThreatModelJob.md "../../../securityagent/API_StartThreatModelJob.md")                                              | Grants permission to initiate the execution of a threat model job                                                                                                                                                                                                                                                                         | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [StopCodeReviewJob](../../../securityagent/API_StopCodeReviewJob.md "../../../securityagent/API_StopCodeReviewJob.md")                                                    | Grants permission to stop the execution of a running code review                                                                                                                                                                                                                                                                          | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [StopPentestJob](../../../securityagent/API_StopPentestJob.md "../../../securityagent/API_StopPentestJob.md")                                                             | Grants permission to stop the execution of a running penetration test                                                                                                                                                                                                                                                                     | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [StopThreatModelJob](../../../securityagent/API_StopThreatModelJob.md "../../../securityagent/API_StopThreatModelJob.md")                                                 | Grants permission to stop a running threat model job                                                                                                                                                                                                                                                                                      | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [TagResource](../../../securityagent/API_TagResource.md "../../../securityagent/API_TagResource.md")                                                                      | Grants permission to add tags to a resource                                                                                                                                                                                                                                                                                               | [AgentSpace](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                          | [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_ "#list_securityagent-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys") | Tagging, Write |
-| [Application](#list_securityagent-resource-Application "#list_securityagent-resource-Application")                                                                        | [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_ "#list_securityagent-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys") |
-| [Integration](#list_securityagent-resource-Integration "#list_securityagent-resource-Integration")                                                                        | [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_ "#list_securityagent-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys") |
-| [PrivateConnection](#list_securityagent-resource-PrivateConnection "#list_securityagent-resource-PrivateConnection")                                                      | [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_ "#list_securityagent-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys") |
-| [SecurityRequirementPack](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack")                                    | [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_ "#list_securityagent-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys") |
-| [TargetDomain](#list_securityagent-resource-TargetDomain "#list_securityagent-resource-TargetDomain")                                                                     | [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_ "#list_securityagent-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys") |
-| [ToggleManagedSecurityRequirement](../../../securityagent/API_ToggleManagedSecurityRequirement.md "../../../securityagent/API_ToggleManagedSecurityRequirement.md")       | Grants permission to toggle the status of a managed Security Requirement                                                                                                                                                                                                                                                                  | [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack") | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [UntagResource](../../../securityagent/API_UntagResource.md "../../../securityagent/API_UntagResource.md")                                                                | Grants permission to remove tags from a resource                                                                                                                                                                                                                                                                                          | [AgentSpace](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                          | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys")                                                                                                                            | Tagging, Write |
-| [Application](#list_securityagent-resource-Application "#list_securityagent-resource-Application")                                                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys")                                                                                                                            |
-| [Integration](#list_securityagent-resource-Integration "#list_securityagent-resource-Integration")                                                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys")                                                                                                                            |
-| [PrivateConnection](#list_securityagent-resource-PrivateConnection "#list_securityagent-resource-PrivateConnection")                                                      | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys")                                                                                                                            |
-| [SecurityRequirementPack](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack")                                    | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys")                                                                                                                            |
-| [TargetDomain](#list_securityagent-resource-TargetDomain "#list_securityagent-resource-TargetDomain")                                                                     | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_securityagent-aws_TagKeys "#list_securityagent-aws_TagKeys")                                                                                                                            |
-| [UpdateAgentSpace](../../../securityagent/API_UpdateAgentSpace.md "../../../securityagent/API_UpdateAgentSpace.md")                                                       | Grants permission to update an agent space record                                                                                                                                                                                                                                                                                         | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [UpdateApplication](../../../securityagent/API_UpdateApplication.md "../../../securityagent/API_UpdateApplication.md")                                                    | Grants permission to update application configuration                                                                                                                                                                                                                                                                                     | [Application\*](#list_securityagent-resource-Application "#list_securityagent-resource-Application")                                     | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [UpdateCodeReview](../../../securityagent/API_UpdateCodeReview.md "../../../securityagent/API_UpdateCodeReview.md")                                                       | Grants permission to update an existing code review with new configuration or settings                                                                                                                                                                                                                                                    | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [UpdateFinding](../../../securityagent/API_UpdateFinding.md "../../../securityagent/API_UpdateFinding.md")                                                                | Grants permission to update an existing security finding with new details or status                                                                                                                                                                                                                                                       | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [UpdateIntegratedResources](../../../securityagent/API_UpdateIntegratedResources.md "../../../securityagent/API_UpdateIntegratedResources.md")                            | Grants permission to update integrated resources for an agent space                                                                                                                                                                                                                                                                       | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [Integration\*](#list_securityagent-resource-Integration "#list_securityagent-resource-Integration")                                                                      | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [UpdatePentest](../../../securityagent/API_UpdatePentest.md "../../../securityagent/API_UpdatePentest.md")                                                                | Grants permission to update an existing penetration test with new configuration or settings                                                                                                                                                                                                                                               | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [UpdatePrivateConnectionCertificate](../../../securityagent/API_UpdatePrivateConnectionCertificate.md "../../../securityagent/API_UpdatePrivateConnectionCertificate.md") | Grants permission to update the certificate associated with a private connection                                                                                                                                                                                                                                                          | [PrivateConnection\*](#list_securityagent-resource-PrivateConnection "#list_securityagent-resource-PrivateConnection")                   | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [UpdateSecurityRequirement](../../../securityagent/API_UpdateSecurityRequirement.md "../../../securityagent/API_UpdateSecurityRequirement.md")                            | Grants permission to update a customer managed Security Requirement                                                                                                                                                                                                                                                                       | [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack") | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [UpdateSecurityRequirementPack](../../../securityagent/API_UpdateSecurityRequirementPack.md "../../../securityagent/API_UpdateSecurityRequirementPack.md")                | Grants permission to update a security requirement pack                                                                                                                                                                                                                                                                                   | [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack "#list_securityagent-resource-SecurityRequirementPack") | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [UpdateTargetDomain](../../../securityagent/API_UpdateTargetDomain.md "../../../securityagent/API_UpdateTargetDomain.md")                                                 | Grants permission to update a target domain record                                                                                                                                                                                                                                                                                        | [TargetDomain\*](#list_securityagent-resource-TargetDomain "#list_securityagent-resource-TargetDomain")                                  | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [UpdateThreat](../../../securityagent/API_UpdateThreat.md "../../../securityagent/API_UpdateThreat.md")                                                                   | Grants permission to update a threat                                                                                                                                                                                                                                                                                                      | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [UpdateThreatModel](../../../securityagent/API_UpdateThreatModel.md "../../../securityagent/API_UpdateThreatModel.md")                                                    | Grants permission to update an existing threat model with new configuration                                                                                                                                                                                                                                                               | [AgentSpace\*](#list_securityagent-resource-AgentSpace "#list_securityagent-resource-AgentSpace")                                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [VerifyTargetDomain](../../../securityagent/API_VerifyTargetDomain.md "../../../securityagent/API_VerifyTargetDomain.md")                                                 | Grants permission to verify ownership for a registered target domain                                                                                                                                                                                                                                                                      | [TargetDomain\*](#list_securityagent-resource-TargetDomain "#list_securityagent-resource-TargetDomain")                                  | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
+
+
+
+- **   [AddArtifact](https://docs.aws.amazon.com/securityagent/API_AddArtifact.html)  **
+  - **Description:** Grants permission to add an Artifact for the given Agent Space
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchCreateSecurityRequirements](https://docs.aws.amazon.com/securityagent/API_BatchCreateSecurityRequirements.html)  **
+  - **Description:** Grants permission to batch create security requirements in a customer managed pack
+  - **Resource types (\*required):** [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDeleteCodeReviews](https://docs.aws.amazon.com/securityagent/API_BatchDeleteCodeReviews.html)  **
+  - **Description:** Grants permission to delete multiple code reviews in a single request
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDeletePentests](https://docs.aws.amazon.com/securityagent/API_BatchDeletePentests.html)  **
+  - **Description:** Grants permission to delete multiple penetration tests in a single request
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDeleteSecurityRequirements](https://docs.aws.amazon.com/securityagent/API_BatchDeleteSecurityRequirements.html)  **
+  - **Description:** Grants permission to batch delete security requirements from a customer managed pack
+  - **Resource types (\*required):** [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDeleteThreatModels](https://docs.aws.amazon.com/securityagent/API_BatchDeleteThreatModels.html)  **
+  - **Description:** Grants permission to delete multiple threat models in a single request
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDeleteThreats](https://docs.aws.amazon.com/securityagent/API_BatchDeleteThreats.html)  **
+  - **Description:** Grants permission to delete multiple threats
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchGetAgentSpaces](https://docs.aws.amazon.com/securityagent/API_BatchGetAgentSpaces.html)  **
+  - **Description:** Grants permission to retrieve multiple agent spaces in a single request
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetArtifactMetadata](https://docs.aws.amazon.com/securityagent/API_BatchGetArtifactMetadata.html)  **
+  - **Description:** Grants permission to retrieve one or more Artifact Metadata records for the given Agent Space
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetCodeReviewJobTasks](https://docs.aws.amazon.com/securityagent/API_BatchGetCodeReviewJobTasks.html)  **
+  - **Description:** Grants permission to retrieve multiple code review job tasks in a single request
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetCodeReviewJobs](https://docs.aws.amazon.com/securityagent/API_BatchGetCodeReviewJobs.html)  **
+  - **Description:** Grants permission to retrieve multiple code review jobs in a single request
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetCodeReviews](https://docs.aws.amazon.com/securityagent/API_BatchGetCodeReviews.html)  **
+  - **Description:** Grants permission to retrieve multiple code reviews in a single request
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetFindings](https://docs.aws.amazon.com/securityagent/API_BatchGetFindings.html)  **
+  - **Description:** Grants permission to retrieve multiple security testing findings in a single request
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetPentestJobContentMetadata](https://docs.aws.amazon.com/securityagent/API_BatchGetPentestJobContentMetadata.html)  **
+  - **Description:** Grants permission to retrieve multiple pentest job contents metadata in a single request
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetPentestJobTasks](https://docs.aws.amazon.com/securityagent/API_BatchGetPentestJobTasks.html)  **
+  - **Description:** Grants permission to retrieve multiple pentest job tasks in a single request
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetPentestJobs](https://docs.aws.amazon.com/securityagent/API_BatchGetPentestJobs.html)  **
+  - **Description:** Grants permission to retrieve multiple security testing jobs in a single request
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetPentests](https://docs.aws.amazon.com/securityagent/API_BatchGetPentests.html)  **
+  - **Description:** Grants permission to retrieve multiple penetration tests in a single request
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetSecurityRequirements](https://docs.aws.amazon.com/securityagent/API_BatchGetSecurityRequirements.html)  **
+  - **Description:** Grants permission to retrieve multiple security requirements in a single request
+  - **Resource types (\*required):** [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetTargetDomains](https://docs.aws.amazon.com/securityagent/API_BatchGetTargetDomains.html)  **
+  - **Description:** Grants permission to retrieve multiple target domains in a single request
+  - **Resource types (\*required):** [TargetDomain\*](#list_securityagent-resource-TargetDomain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetThreatModelJobTasks](https://docs.aws.amazon.com/securityagent/API_BatchGetThreatModelJobTasks.html)  **
+  - **Description:** Grants permission to retrieve multiple tasks for a threat model job in a single request
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetThreatModelJobs](https://docs.aws.amazon.com/securityagent/API_BatchGetThreatModelJobs.html)  **
+  - **Description:** Grants permission to retrieve details for one or more threat model jobs
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetThreatModels](https://docs.aws.amazon.com/securityagent/API_BatchGetThreatModels.html)  **
+  - **Description:** Grants permission to retrieve multiple threat models in a single request
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetThreats](https://docs.aws.amazon.com/securityagent/API_BatchGetThreats.html)  **
+  - **Description:** Grants permission to retrieve details for one or more threats
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchUpdateSecurityRequirements](https://docs.aws.amazon.com/securityagent/API_BatchUpdateSecurityRequirements.html)  **
+  - **Description:** Grants permission to batch update security requirements within a customer managed pack
+  - **Resource types (\*required):** [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAgentSpace](https://docs.aws.amazon.com/securityagent/API_CreateAgentSpace.html)  **
+  - **Description:** Grants permission to create an agent space record
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateApplication](https://docs.aws.amazon.com/securityagent/API_CreateApplication.html)  **
+  - **Description:** Grants permission to create a new application
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateCodeReview](https://docs.aws.amazon.com/securityagent/API_CreateCodeReview.html)  **
+  - **Description:** Grants permission to create a new code review configuration
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateDesignReview](https://docs.aws.amazon.com/securityagent/API_CreateDesignReview.html)  **
+  - **Description:** Grants permission to create a design review
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateIntegration](https://docs.aws.amazon.com/securityagent/API_CreateIntegration.html)  **
+  - **Description:** Grants permission to create a security testing integration
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMembership](https://docs.aws.amazon.com/securityagent/API_CreateMembership.html)  **
+  - **Description:** Grants permission to add a single member to a agent space with specified role
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateOneTimeLoginSession](https://docs.aws.amazon.com/securityagent/API_CreateOneTimeLoginSession.html)  **
+  - **Description:** Grants permission to create a one time login session
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreatePentest](https://docs.aws.amazon.com/securityagent/API_CreatePentest.html)  **
+  - **Description:** Grants permission to create a new penetration test configuration
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreatePrivateConnection](https://docs.aws.amazon.com/securityagent/API_CreatePrivateConnection.html)  **
+  - **Description:** Grants permission to create a private connection for VPC Lattice integration
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateSecurityRequirement](https://docs.aws.amazon.com/securityagent/API_CreateSecurityRequirement.html)  **
+  - **Description:** Grants permission to add a customer managed Security Requirement
+  - **Resource types (\*required):** [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateSecurityRequirementPack](https://docs.aws.amazon.com/securityagent/API_CreateSecurityRequirementPack.html)  **
+  - **Description:** Grants permission to create a customer managed security requirement pack
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateTargetDomain](https://docs.aws.amazon.com/securityagent/API_CreateTargetDomain.html)  **
+  - **Description:** Grants permission to create a target domain record
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateThreat](https://docs.aws.amazon.com/securityagent/API_CreateThreat.html)  **
+  - **Description:** Grants permission to create a threat in a threat model
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateThreatModel](https://docs.aws.amazon.com/securityagent/API_CreateThreatModel.html)  **
+  - **Description:** Grants permission to create a new threat model configuration
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAgentSpace](https://docs.aws.amazon.com/securityagent/API_DeleteAgentSpace.html)  **
+  - **Description:** Grants permission to delete an agent space record
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteApplication](https://docs.aws.amazon.com/securityagent/API_DeleteApplication.html)  **
+  - **Description:** Grants permission to delete application
+  - **Resource types (\*required):** [Application\*](#list_securityagent-resource-Application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteArtifact](https://docs.aws.amazon.com/securityagent/API_DeleteArtifact.html)  **
+  - **Description:** Grants permission to delete an Artifact
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDesignReview](https://docs.aws.amazon.com/securityagent/API_DeleteDesignReview.html)  **
+  - **Description:** Grants permission to delete a design review
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteIntegration](https://docs.aws.amazon.com/securityagent/API_DeleteIntegration.html)  **
+  - **Description:** Grants permission to delete the integration of an application
+  - **Resource types (\*required):** [Integration\*](#list_securityagent-resource-Integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteMembership](https://docs.aws.amazon.com/securityagent/API_DeleteMembership.html)  **
+  - **Description:** Grants permission to remove a single member associated to an agent space
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeletePrivateConnection](https://docs.aws.amazon.com/securityagent/API_DeletePrivateConnection.html)  **
+  - **Description:** Grants permission to delete a private connection
+  - **Resource types (\*required):** [PrivateConnection\*](#list_securityagent-resource-PrivateConnection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteSecurityRequirement](https://docs.aws.amazon.com/securityagent/API_DeleteSecurityRequirement.html)  **
+  - **Description:** Grants permission to delete a customer managed Security Requirement
+  - **Resource types (\*required):** [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteSecurityRequirementPack](https://docs.aws.amazon.com/securityagent/API_DeleteSecurityRequirementPack.html)  **
+  - **Description:** Grants permission to delete a customer managed security requirement pack and all its associated security requirements
+  - **Resource types (\*required):** [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteTargetDomain](https://docs.aws.amazon.com/securityagent/API_DeleteTargetDomain.html)  **
+  - **Description:** Grants permission to delete a target domain record
+  - **Resource types (\*required):** [TargetDomain\*](#list_securityagent-resource-TargetDomain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribePrivateConnection](https://docs.aws.amazon.com/securityagent/API_DescribePrivateConnection.html)  **
+  - **Description:** Grants permission to describe a private connection
+  - **Resource types (\*required):** [PrivateConnection\*](#list_securityagent-resource-PrivateConnection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetApplication](https://docs.aws.amazon.com/securityagent/API_GetApplication.html)  **
+  - **Description:** Grants permission to get application details by application ID
+  - **Resource types (\*required):** [Application\*](#list_securityagent-resource-Application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetArtifact](https://docs.aws.amazon.com/securityagent/API_GetArtifact.html)  **
+  - **Description:** Grants permission to retrieve an Artifact for the given Agent Space
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDesignReview](https://docs.aws.amazon.com/securityagent/API_GetDesignReview.html)  **
+  - **Description:** Grants permission to get the status of the associated agent space design review
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDesignReviewArtifact](https://docs.aws.amazon.com/securityagent/API_GetDesignReviewArtifact.html)  **
+  - **Description:** Grants permission to get design review artifact for a specific document
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDesignReviewFeedback](https://docs.aws.amazon.com/securityagent/API_GetDesignReviewFeedback.html)  **
+  - **Description:** Grants permission to get feedback for a design review comment
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetIntegration](https://docs.aws.amazon.com/securityagent/API_GetIntegration.html)  **
+  - **Description:** Grants permission to get the integration metadata by ID
+  - **Resource types (\*required):** [Integration\*](#list_securityagent-resource-Integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetProviderRegistrationManifest](https://docs.aws.amazon.com/securityagent/API_GetProviderRegistrationManifest.html)  **
+  - **Description:** Grants permission to retrieve the provider registration manifest used for browser-based integration registration
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetSecurityRequirement](https://docs.aws.amazon.com/securityagent/API_GetSecurityRequirement.html)  **
+  - **Description:** Grants permission to retrieve a Security Requirement
+  - **Resource types (\*required):** [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSecurityRequirementPack](https://docs.aws.amazon.com/securityagent/API_GetSecurityRequirementPack.html)  **
+  - **Description:** Grants permission to retrieve a security requirement pack
+  - **Resource types (\*required):** [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [HandleProviderRegistrationCallback](https://docs.aws.amazon.com/securityagent/API_HandleProviderRegistrationCallback.html)  **
+  - **Description:** Grants permission to handle the provider OAuth registration callback that completes integration setup
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ImportSecurityRequirements](https://docs.aws.amazon.com/securityagent/API_ImportSecurityRequirements.html)  **
+  - **Description:** Grants permission to import security requirements from uploaded documents for a customer managed security requirement pack
+  - **Resource types (\*required):** [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [InitiateProviderRegistration](https://docs.aws.amazon.com/securityagent/API_InitiateProviderRegistration.html)  **
+  - **Description:** Grants permission to initiate the registration of Security Agent App for the given provider (eg: GitHub)
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ListAgentSpaces](https://docs.aws.amazon.com/securityagent/API_ListAgentSpaces.html)  **
+  - **Description:** Grants permission to list agent spaces
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListApplications](https://docs.aws.amazon.com/securityagent/API_ListApplications.html)  **
+  - **Description:** Grants permission to list all applications in the account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListArtifacts](https://docs.aws.amazon.com/securityagent/API_ListArtifacts.html)  **
+  - **Description:** Grants permission to list all artifacts for the given agent space
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListCodeReviewJobTasks](https://docs.aws.amazon.com/securityagent/API_ListCodeReviewJobTasks.html)  **
+  - **Description:** Grants permission to list tasks associated with a code review job
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListCodeReviewJobsForCodeReview](https://docs.aws.amazon.com/securityagent/API_ListCodeReviewJobsForCodeReview.html)  **
+  - **Description:** Grants permission to list code review jobs associated with a code review
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListCodeReviews](https://docs.aws.amazon.com/securityagent/API_ListCodeReviews.html)  **
+  - **Description:** Grants permission to list code reviews with optional filtering by status
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDesignReviewComments](https://docs.aws.amazon.com/securityagent/API_ListDesignReviewComments.html)  **
+  - **Description:** Grants permission to list design review comments
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDesignReviews](https://docs.aws.amazon.com/securityagent/API_ListDesignReviews.html)  **
+  - **Description:** Grants permission to list all design reviews for the given agent space
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDiscoveredEndpoints](https://docs.aws.amazon.com/securityagent/API_ListDiscoveredEndpoints.html)  **
+  - **Description:** Grants permission to list discovered endpoints associated with a pentest job with optional URI prefix filtering
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListFindings](https://docs.aws.amazon.com/securityagent/API_ListFindings.html)  **
+  - **Description:** Grants permission to list findings with filtering and pagination support
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListIntegratedResources](https://docs.aws.amazon.com/securityagent/API_ListIntegratedResources.html)  **
+  - **Description:** Grants permission to list integrated resources for an agent space
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListIntegrations](https://docs.aws.amazon.com/securityagent/API_ListIntegrations.html)  **
+  - **Description:** Grants permission to get the integrations owned by the caller's AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMemberships](https://docs.aws.amazon.com/securityagent/API_ListMemberships.html)  **
+  - **Description:** Grants permission to list all members associated to an agent space with pagination support
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListPentestJobTasks](https://docs.aws.amazon.com/securityagent/API_ListPentestJobTasks.html)  **
+  - **Description:** Grants permission to list pentest job tasks associated with a pentest job
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListPentestJobsForPentest](https://docs.aws.amazon.com/securityagent/API_ListPentestJobsForPentest.html)  **
+  - **Description:** Grants permission to list penetration test jobs associated with a penetration test
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListPentests](https://docs.aws.amazon.com/securityagent/API_ListPentests.html)  **
+  - **Description:** Grants permission to list penetration tests with optional filtering by status
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListPrivateConnections](https://docs.aws.amazon.com/securityagent/API_ListPrivateConnections.html)  **
+  - **Description:** Grants permission to list private connections in the account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListResourcesFromIntegration](https://docs.aws.amazon.com/securityagent/API_ListResourcesFromIntegration.html)  **
+  - **Description:** Grants permission to list resources from Integration
+  - **Resource types (\*required):** [Integration\*](#list_securityagent-resource-Integration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSecurityRequirementPacks](https://docs.aws.amazon.com/securityagent/API_ListSecurityRequirementPacks.html)  **
+  - **Description:** Grants permission to list all security requirement packs in the account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSecurityRequirements](https://docs.aws.amazon.com/securityagent/API_ListSecurityRequirements.html)  **
+  - **Description:** Grants permission to list all Security Requirements
+  - **Resource types (\*required):** [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/securityagent/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list the tags for a resource
+  - **Resource types (\*required):** [AgentSpace](#list_securityagent-resource-AgentSpace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Application](#list_securityagent-resource-Application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration](#list_securityagent-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [PrivateConnection](#list_securityagent-resource-PrivateConnection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [SecurityRequirementPack](#list_securityagent-resource-SecurityRequirementPack) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [TargetDomain](#list_securityagent-resource-TargetDomain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListTargetDomains](https://docs.aws.amazon.com/securityagent/API_ListTargetDomains.html)  **
+  - **Description:** Grants permission to list target domains
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListThreatModelJobTasks](https://docs.aws.amazon.com/securityagent/API_ListThreatModelJobTasks.html)  **
+  - **Description:** Grants permission to list tasks associated with a specific threat model job
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListThreatModelJobs](https://docs.aws.amazon.com/securityagent/API_ListThreatModelJobs.html)  **
+  - **Description:** Grants permission to list threat model jobs for a threat model
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListThreatModels](https://docs.aws.amazon.com/securityagent/API_ListThreatModels.html)  **
+  - **Description:** Grants permission to list threat models for an agent space
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListThreats](https://docs.aws.amazon.com/securityagent/API_ListThreats.html)  **
+  - **Description:** Grants permission to list threats for a threat model job with filtering and pagination support
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [PutDesignReviewFeedback](https://docs.aws.amazon.com/securityagent/API_PutDesignReviewFeedback.html)  **
+  - **Description:** Grants permission to submit feedback for a design review comment
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartCodeRemediation](https://docs.aws.amazon.com/securityagent/API_StartCodeRemediation.html)  **
+  - **Description:** Grants permission to start code remediation for the findings
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartCodeReviewJob](https://docs.aws.amazon.com/securityagent/API_StartCodeReviewJob.html)  **
+  - **Description:** Grants permission to initiate the execution of a code review
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartPentestJob](https://docs.aws.amazon.com/securityagent/API_StartPentestJob.html)  **
+  - **Description:** Grants permission to initiate the execution of a penetration test
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartThreatModelJob](https://docs.aws.amazon.com/securityagent/API_StartThreatModelJob.html)  **
+  - **Description:** Grants permission to initiate the execution of a threat model job
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopCodeReviewJob](https://docs.aws.amazon.com/securityagent/API_StopCodeReviewJob.html)  **
+  - **Description:** Grants permission to stop the execution of a running code review
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopPentestJob](https://docs.aws.amazon.com/securityagent/API_StopPentestJob.html)  **
+  - **Description:** Grants permission to stop the execution of a running penetration test
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopThreatModelJob](https://docs.aws.amazon.com/securityagent/API_StopThreatModelJob.html)  **
+  - **Description:** Grants permission to stop a running threat model job
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/securityagent/API_TagResource.html)  **
+  - **Description:** Grants permission to add tags to a resource
+  - **Resource types (\*required):** [AgentSpace](#list_securityagent-resource-AgentSpace) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Resource types (\*required):** [Application](#list_securityagent-resource-Application) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Resource types (\*required):** [Integration](#list_securityagent-resource-Integration) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Resource types (\*required):** [PrivateConnection](#list_securityagent-resource-PrivateConnection) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Resource types (\*required):** [SecurityRequirementPack](#list_securityagent-resource-SecurityRequirementPack) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Resource types (\*required):** [TargetDomain](#list_securityagent-resource-TargetDomain) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityagent-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [ToggleManagedSecurityRequirement](https://docs.aws.amazon.com/securityagent/API_ToggleManagedSecurityRequirement.html)  **
+  - **Description:** Grants permission to toggle the status of a managed Security Requirement
+  - **Resource types (\*required):** [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/securityagent/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove tags from a resource
+  - **Resource types (\*required):** [AgentSpace](#list_securityagent-resource-AgentSpace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Resource types (\*required):** [Application](#list_securityagent-resource-Application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Resource types (\*required):** [Integration](#list_securityagent-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Resource types (\*required):** [PrivateConnection](#list_securityagent-resource-PrivateConnection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Resource types (\*required):** [SecurityRequirementPack](#list_securityagent-resource-SecurityRequirementPack) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Resource types (\*required):** [TargetDomain](#list_securityagent-resource-TargetDomain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_securityagent-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAgentSpace](https://docs.aws.amazon.com/securityagent/API_UpdateAgentSpace.html)  **
+  - **Description:** Grants permission to update an agent space record
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateApplication](https://docs.aws.amazon.com/securityagent/API_UpdateApplication.html)  **
+  - **Description:** Grants permission to update application configuration
+  - **Resource types (\*required):** [Application\*](#list_securityagent-resource-Application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateCodeReview](https://docs.aws.amazon.com/securityagent/API_UpdateCodeReview.html)  **
+  - **Description:** Grants permission to update an existing code review with new configuration or settings
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateFinding](https://docs.aws.amazon.com/securityagent/API_UpdateFinding.html)  **
+  - **Description:** Grants permission to update an existing security finding with new details or status
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateIntegratedResources](https://docs.aws.amazon.com/securityagent/API_UpdateIntegratedResources.html)  **
+  - **Description:** Grants permission to update integrated resources for an agent space
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_securityagent-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdatePentest](https://docs.aws.amazon.com/securityagent/API_UpdatePentest.html)  **
+  - **Description:** Grants permission to update an existing penetration test with new configuration or settings
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdatePrivateConnectionCertificate](https://docs.aws.amazon.com/securityagent/API_UpdatePrivateConnectionCertificate.html)  **
+  - **Description:** Grants permission to update the certificate associated with a private connection
+  - **Resource types (\*required):** [PrivateConnection\*](#list_securityagent-resource-PrivateConnection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSecurityRequirement](https://docs.aws.amazon.com/securityagent/API_UpdateSecurityRequirement.html)  **
+  - **Description:** Grants permission to update a customer managed Security Requirement
+  - **Resource types (\*required):** [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSecurityRequirementPack](https://docs.aws.amazon.com/securityagent/API_UpdateSecurityRequirementPack.html)  **
+  - **Description:** Grants permission to update a security requirement pack
+  - **Resource types (\*required):** [SecurityRequirementPack\*](#list_securityagent-resource-SecurityRequirementPack)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateTargetDomain](https://docs.aws.amazon.com/securityagent/API_UpdateTargetDomain.html)  **
+  - **Description:** Grants permission to update a target domain record
+  - **Resource types (\*required):** [TargetDomain\*](#list_securityagent-resource-TargetDomain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateThreat](https://docs.aws.amazon.com/securityagent/API_UpdateThreat.html)  **
+  - **Description:** Grants permission to update a threat
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateThreatModel](https://docs.aws.amazon.com/securityagent/API_UpdateThreatModel.html)  **
+  - **Description:** Grants permission to update an existing threat model with new configuration
+  - **Resource types (\*required):** [AgentSpace\*](#list_securityagent-resource-AgentSpace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [VerifyTargetDomain](https://docs.aws.amazon.com/securityagent/API_VerifyTargetDomain.html)  **
+  - **Description:** Grants permission to verify ownership for a registered target domain
+  - **Resource types (\*required):** [TargetDomain\*](#list_securityagent-resource-TargetDomain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS Security Agent
+<a name="list_securityagent-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                                                                                                                 | ARN                                                                                                        | Condition keys                                                                                                             |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| [AgentSpace](../../../securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.md#arn-formats "../../../securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.md#arn-formats")              | arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId}                                 | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_") |
-| [Application](../../../securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.md#arn-formats "../../../securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.md#arn-formats")             | arn:${Partition}:securityagent:${Region}:${Account}:application/${ApplicationId}                           | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_") |
-| [Integration](../../../securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.md#arn-formats "../../../securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.md#arn-formats")             | arn:${Partition}:securityagent:${Region}:${Account}:integration/${IntegrationId}                           | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_") |
-| [PrivateConnection](../../../securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.md#arn-formats "../../../securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.md#arn-formats")       | arn:${Partition}:securityagent:${Region}:${Account}:private-connection/${PrivateConnectionName}            | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_") |
-| [SecurityRequirementPack](../../../securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.md#arn-formats "../../../securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.md#arn-formats") | arn:${Partition}:securityagent:${Region}:${Account}:security-requirement-pack/${SecurityRequirementPackId} | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_") |
-| [TargetDomain](../../../securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.md#arn-formats "../../../securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.md#arn-formats")            | arn:${Partition}:securityagent:${Region}:${Account}:target-domain/${TargetDomainId}                        | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_ "#list_securityagent-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [AgentSpace](https://docs.aws.amazon.com/securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)  | arn:${Partition}:securityagent:${Region}:${Account}:agent-space/${AgentId} | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_) | 
+|  [Application](https://docs.aws.amazon.com/securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)  | arn:${Partition}:securityagent:${Region}:${Account}:application/${ApplicationId} | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_) | 
+|  [Integration](https://docs.aws.amazon.com/securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)  | arn:${Partition}:securityagent:${Region}:${Account}:integration/${IntegrationId} | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_) | 
+|  [PrivateConnection](https://docs.aws.amazon.com/securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)  | arn:${Partition}:securityagent:${Region}:${Account}:private-connection/${PrivateConnectionName} | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_) | 
+|  [SecurityRequirementPack](https://docs.aws.amazon.com/securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)  | arn:${Partition}:securityagent:${Region}:${Account}:security-requirement-pack/${SecurityRequirementPackId} | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_) | 
+|  [TargetDomain](https://docs.aws.amazon.com/securityagent/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats)  | arn:${Partition}:securityagent:${Region}:${Account}:target-domain/${TargetDomainId} | [aws:ResourceTag/${TagKey}](#list_securityagent-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Security Agent
+<a name="list_securityagent-policy-keys"></a>
 
-AWS Security Agent defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Security Agent defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                   | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by the tags associated with the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 

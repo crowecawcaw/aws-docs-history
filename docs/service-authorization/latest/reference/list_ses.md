@@ -1,216 +1,880 @@
-# Actions, resources, and condition keys for Amazon SES
 
-Amazon SES (service prefix: `ses`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon SES
+<a name="list_ses"></a>
+
+Amazon SES (service prefix: `ses`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/ses/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/control-user-access.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/ses/ses.json) for this service.
 
-- Learn how to [configure this service](../../../ses/latest/DeveloperGuide.md "../../../ses/latest/DeveloperGuide.md").
-- View a list of the [API operations available for
-  this service](../../../ses/latest/APIReference.md "../../../ses/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../ses/latest/DeveloperGuide/control-user-access.md "../../../ses/latest/DeveloperGuide/control-user-access.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/ses/ses.json "https://servicereference.us-east-1.amazonaws.com/v1/ses/ses.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon SES](#list_ses-operations "#list_ses-operations")
-- [Actions defined by Amazon SES](#list_ses-actions-as-permissions "#list_ses-actions-as-permissions")
-- [Resource types defined by Amazon SES](#list_ses-resources-for-iam-policies "#list_ses-resources-for-iam-policies")
-- [Condition keys for Amazon SES](#list_ses-policy-keys "#list_ses-policy-keys")
+**Topics**
++ [API operations defined by Amazon SES](#list_ses-operations)
++ [Actions defined by Amazon SES](#list_ses-actions-as-permissions)
++ [Resource types defined by Amazon SES](#list_ses-resources-for-iam-policies)
++ [Condition keys for Amazon SES](#list_ses-policy-keys)
 
 ## API operations defined by Amazon SES
+<a name="list_ses-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_ses-actions-as-permissions "#list_ses-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_ses-actions-as-permissions).
 
-| Operation                                                                                                                                          | IAM action                                                                                                                                                                              | Condition key     | Possible value(s) | Access level                  |
-| -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- | ----------------------------- |
-| CloneReceiptRuleSet                                                                                                                                | [ses:CloneReceiptRuleSet](#list_ses-action-CloneReceiptRuleSet "#list_ses-action-CloneReceiptRuleSet")                                                                                  |                   |                   | Write                         |
-| CreateConfigurationSet                                                                                                                             | [ses:CreateConfigurationSet](#list_ses-action-CreateConfigurationSet "#list_ses-action-CreateConfigurationSet")                                                                         |                   |                   | Write                         |
-| [ses:TagResource](../../../sesmailmanager/latest/APIReference/API_TagResource.md "../../../sesmailmanager/latest/APIReference/API_TagResource.md") |                                                                                                                                                                                         |                   | Tagging, Write    |
-| CreateConfigurationSetEventDestination                                                                                                             | [ses:CreateConfigurationSetEventDestination](#list_ses-action-CreateConfigurationSetEventDestination "#list_ses-action-CreateConfigurationSetEventDestination")                         |                   |                   | Write                         |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                    | iam:PassedToService                                                                                                                                                                     | ses.amazonaws.com | Write             |
-| CreateConfigurationSetTrackingOptions                                                                                                              | [ses:CreateConfigurationSetTrackingOptions](#list_ses-action-CreateConfigurationSetTrackingOptions "#list_ses-action-CreateConfigurationSetTrackingOptions")                            |                   |                   | Write                         |
-| CreateCustomVerificationEmailTemplate                                                                                                              | [ses:CreateCustomVerificationEmailTemplate](#list_ses-action-CreateCustomVerificationEmailTemplate "#list_ses-action-CreateCustomVerificationEmailTemplate")                            |                   |                   | Write                         |
-| [ses:TagResource](../../../sesmailmanager/latest/APIReference/API_TagResource.md "../../../sesmailmanager/latest/APIReference/API_TagResource.md") |                                                                                                                                                                                         |                   | Tagging, Write    |
-| CreateReceiptFilter                                                                                                                                | [ses:CreateReceiptFilter](#list_ses-action-CreateReceiptFilter "#list_ses-action-CreateReceiptFilter")                                                                                  |                   |                   | Write                         |
-| CreateReceiptRule                                                                                                                                  | [ses:CreateReceiptRule](#list_ses-action-CreateReceiptRule "#list_ses-action-CreateReceiptRule")                                                                                        |                   |                   | Write                         |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                    | iam:PassedToService                                                                                                                                                                     | ses.amazonaws.com | Write             |
-| CreateReceiptRuleSet                                                                                                                               | [ses:CreateReceiptRuleSet](#list_ses-action-CreateReceiptRuleSet "#list_ses-action-CreateReceiptRuleSet")                                                                               |                   |                   | Write                         |
-| CreateTemplate                                                                                                                                     | [ses:CreateTemplate](#list_ses-action-CreateTemplate "#list_ses-action-CreateTemplate")                                                                                                 |                   |                   | Write                         |
-| DeleteConfigurationSet                                                                                                                             | [ses:DeleteConfigurationSet](#list_ses-action-DeleteConfigurationSet "#list_ses-action-DeleteConfigurationSet")                                                                         |                   |                   | Write                         |
-| DeleteConfigurationSetEventDestination                                                                                                             | [ses:DeleteConfigurationSetEventDestination](#list_ses-action-DeleteConfigurationSetEventDestination "#list_ses-action-DeleteConfigurationSetEventDestination")                         |                   |                   | Write                         |
-| DeleteConfigurationSetTrackingOptions                                                                                                              | [ses:DeleteConfigurationSetTrackingOptions](#list_ses-action-DeleteConfigurationSetTrackingOptions "#list_ses-action-DeleteConfigurationSetTrackingOptions")                            |                   |                   | Write                         |
-| DeleteCustomVerificationEmailTemplate                                                                                                              | [ses:DeleteCustomVerificationEmailTemplate](#list_ses-action-DeleteCustomVerificationEmailTemplate "#list_ses-action-DeleteCustomVerificationEmailTemplate")                            |                   |                   | Write                         |
-| DeleteIdentity                                                                                                                                     | [ses:DeleteIdentity](#list_ses-action-DeleteIdentity "#list_ses-action-DeleteIdentity")                                                                                                 |                   |                   | Write                         |
-| DeleteIdentityPolicy                                                                                                                               | [ses:DeleteIdentityPolicy](#list_ses-action-DeleteIdentityPolicy "#list_ses-action-DeleteIdentityPolicy")                                                                               |                   |                   | Permissions management, Write |
-| DeleteReceiptFilter                                                                                                                                | [ses:DeleteReceiptFilter](#list_ses-action-DeleteReceiptFilter "#list_ses-action-DeleteReceiptFilter")                                                                                  |                   |                   | Write                         |
-| DeleteReceiptRule                                                                                                                                  | [ses:DeleteReceiptRule](#list_ses-action-DeleteReceiptRule "#list_ses-action-DeleteReceiptRule")                                                                                        |                   |                   | Write                         |
-| DeleteReceiptRuleSet                                                                                                                               | [ses:DeleteReceiptRuleSet](#list_ses-action-DeleteReceiptRuleSet "#list_ses-action-DeleteReceiptRuleSet")                                                                               |                   |                   | Write                         |
-| DeleteTemplate                                                                                                                                     | [ses:DeleteTemplate](#list_ses-action-DeleteTemplate "#list_ses-action-DeleteTemplate")                                                                                                 |                   |                   | Write                         |
-| DeleteVerifiedEmailAddress                                                                                                                         | [ses:DeleteVerifiedEmailAddress](#list_ses-action-DeleteVerifiedEmailAddress "#list_ses-action-DeleteVerifiedEmailAddress")                                                             |                   |                   | Write                         |
-| DescribeActiveReceiptRuleSet                                                                                                                       | [ses:DescribeActiveReceiptRuleSet](#list_ses-action-DescribeActiveReceiptRuleSet "#list_ses-action-DescribeActiveReceiptRuleSet")                                                       |                   |                   | Read                          |
-| DescribeConfigurationSet                                                                                                                           | [ses:DescribeConfigurationSet](#list_ses-action-DescribeConfigurationSet "#list_ses-action-DescribeConfigurationSet")                                                                   |                   |                   | Read                          |
-| DescribeReceiptRule                                                                                                                                | [ses:DescribeReceiptRule](#list_ses-action-DescribeReceiptRule "#list_ses-action-DescribeReceiptRule")                                                                                  |                   |                   | Read                          |
-| DescribeReceiptRuleSet                                                                                                                             | [ses:DescribeReceiptRuleSet](#list_ses-action-DescribeReceiptRuleSet "#list_ses-action-DescribeReceiptRuleSet")                                                                         |                   |                   | Read                          |
-| GetAccountSendingEnabled                                                                                                                           | [ses:GetAccountSendingEnabled](#list_ses-action-GetAccountSendingEnabled "#list_ses-action-GetAccountSendingEnabled")                                                                   |                   |                   | Read                          |
-| GetCustomVerificationEmailTemplate                                                                                                                 | [ses:GetCustomVerificationEmailTemplate](#list_ses-action-GetCustomVerificationEmailTemplate "#list_ses-action-GetCustomVerificationEmailTemplate")                                     |                   |                   | Read                          |
-| GetIdentityDkimAttributes                                                                                                                          | [ses:GetIdentityDkimAttributes](#list_ses-action-GetIdentityDkimAttributes "#list_ses-action-GetIdentityDkimAttributes")                                                                |                   |                   | Read                          |
-| GetIdentityMailFromDomainAttributes                                                                                                                | [ses:GetIdentityMailFromDomainAttributes](#list_ses-action-GetIdentityMailFromDomainAttributes "#list_ses-action-GetIdentityMailFromDomainAttributes")                                  |                   |                   | Read                          |
-| GetIdentityNotificationAttributes                                                                                                                  | [ses:GetIdentityNotificationAttributes](#list_ses-action-GetIdentityNotificationAttributes "#list_ses-action-GetIdentityNotificationAttributes")                                        |                   |                   | Read                          |
-| GetIdentityPolicies                                                                                                                                | [ses:GetIdentityPolicies](#list_ses-action-GetIdentityPolicies "#list_ses-action-GetIdentityPolicies")                                                                                  |                   |                   | Read                          |
-| GetIdentityVerificationAttributes                                                                                                                  | [ses:GetIdentityVerificationAttributes](#list_ses-action-GetIdentityVerificationAttributes "#list_ses-action-GetIdentityVerificationAttributes")                                        |                   |                   | Read                          |
-| GetSendQuota                                                                                                                                       | [ses:GetSendQuota](#list_ses-action-GetSendQuota "#list_ses-action-GetSendQuota")                                                                                                       |                   |                   | Read                          |
-| GetSendStatistics                                                                                                                                  | [ses:GetSendStatistics](#list_ses-action-GetSendStatistics "#list_ses-action-GetSendStatistics")                                                                                        |                   |                   | Read                          |
-| GetTemplate                                                                                                                                        | [ses:GetTemplate](#list_ses-action-GetTemplate "#list_ses-action-GetTemplate")                                                                                                          |                   |                   | Read                          |
-| ListConfigurationSets                                                                                                                              | [ses:ListConfigurationSets](#list_ses-action-ListConfigurationSets "#list_ses-action-ListConfigurationSets")                                                                            |                   |                   | List                          |
-| ListCustomVerificationEmailTemplates                                                                                                               | [ses:ListCustomVerificationEmailTemplates](#list_ses-action-ListCustomVerificationEmailTemplates "#list_ses-action-ListCustomVerificationEmailTemplates")                               |                   |                   | List                          |
-| ListIdentities                                                                                                                                     | [ses:ListIdentities](#list_ses-action-ListIdentities "#list_ses-action-ListIdentities")                                                                                                 |                   |                   | List                          |
-| ListIdentityPolicies                                                                                                                               | [ses:ListIdentityPolicies](#list_ses-action-ListIdentityPolicies "#list_ses-action-ListIdentityPolicies")                                                                               |                   |                   | List                          |
-| ListReceiptFilters                                                                                                                                 | [ses:ListReceiptFilters](#list_ses-action-ListReceiptFilters "#list_ses-action-ListReceiptFilters")                                                                                     |                   |                   | Read                          |
-| ListReceiptRuleSets                                                                                                                                | [ses:ListReceiptRuleSets](#list_ses-action-ListReceiptRuleSets "#list_ses-action-ListReceiptRuleSets")                                                                                  |                   |                   | Read                          |
-| ListTemplates                                                                                                                                      | [ses:ListTemplates](#list_ses-action-ListTemplates "#list_ses-action-ListTemplates")                                                                                                    |                   |                   | List                          |
-| ListVerifiedEmailAddresses                                                                                                                         | [ses:ListVerifiedEmailAddresses](#list_ses-action-ListVerifiedEmailAddresses "#list_ses-action-ListVerifiedEmailAddresses")                                                             |                   |                   | Read                          |
-| PutConfigurationSetDeliveryOptions                                                                                                                 | [ses:PutConfigurationSetDeliveryOptions](#list_ses-action-PutConfigurationSetDeliveryOptions "#list_ses-action-PutConfigurationSetDeliveryOptions")                                     |                   |                   | Write                         |
-| PutIdentityPolicy                                                                                                                                  | [ses:PutIdentityPolicy](#list_ses-action-PutIdentityPolicy "#list_ses-action-PutIdentityPolicy")                                                                                        |                   |                   | Permissions management, Write |
-| ReorderReceiptRuleSet                                                                                                                              | [ses:ReorderReceiptRuleSet](#list_ses-action-ReorderReceiptRuleSet "#list_ses-action-ReorderReceiptRuleSet")                                                                            |                   |                   | Write                         |
-| SendCustomVerificationEmail                                                                                                                        | [ses:SendCustomVerificationEmail](#list_ses-action-SendCustomVerificationEmail "#list_ses-action-SendCustomVerificationEmail")                                                          |                   |                   | Write                         |
-| SetActiveReceiptRuleSet                                                                                                                            | [ses:SetActiveReceiptRuleSet](#list_ses-action-SetActiveReceiptRuleSet "#list_ses-action-SetActiveReceiptRuleSet")                                                                      |                   |                   | Write                         |
-| SetIdentityDkimEnabled                                                                                                                             | [ses:SetIdentityDkimEnabled](#list_ses-action-SetIdentityDkimEnabled "#list_ses-action-SetIdentityDkimEnabled")                                                                         |                   |                   | Write                         |
-| SetIdentityFeedbackForwardingEnabled                                                                                                               | [ses:SetIdentityFeedbackForwardingEnabled](#list_ses-action-SetIdentityFeedbackForwardingEnabled "#list_ses-action-SetIdentityFeedbackForwardingEnabled")                               |                   |                   | Write                         |
-| SetIdentityHeadersInNotificationsEnabled                                                                                                           | [ses:SetIdentityHeadersInNotificationsEnabled](#list_ses-action-SetIdentityHeadersInNotificationsEnabled "#list_ses-action-SetIdentityHeadersInNotificationsEnabled")                   |                   |                   | Write                         |
-| SetIdentityMailFromDomain                                                                                                                          | [ses:SetIdentityMailFromDomain](#list_ses-action-SetIdentityMailFromDomain "#list_ses-action-SetIdentityMailFromDomain")                                                                |                   |                   | Write                         |
-| SetIdentityNotificationTopic                                                                                                                       | [ses:SetIdentityNotificationTopic](#list_ses-action-SetIdentityNotificationTopic "#list_ses-action-SetIdentityNotificationTopic")                                                       |                   |                   | Write                         |
-| SetReceiptRulePosition                                                                                                                             | [ses:SetReceiptRulePosition](#list_ses-action-SetReceiptRulePosition "#list_ses-action-SetReceiptRulePosition")                                                                         |                   |                   | Write                         |
-| TestRenderTemplate                                                                                                                                 | [ses:TestRenderTemplate](#list_ses-action-TestRenderTemplate "#list_ses-action-TestRenderTemplate")                                                                                     |                   |                   | Write                         |
-| UpdateAccountSendingEnabled                                                                                                                        | [ses:UpdateAccountSendingEnabled](#list_ses-action-UpdateAccountSendingEnabled "#list_ses-action-UpdateAccountSendingEnabled")                                                          |                   |                   | Write                         |
-| UpdateConfigurationSetEventDestination                                                                                                             | [ses:UpdateConfigurationSetEventDestination](#list_ses-action-UpdateConfigurationSetEventDestination "#list_ses-action-UpdateConfigurationSetEventDestination")                         |                   |                   | Write                         |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                    | iam:PassedToService                                                                                                                                                                     | ses.amazonaws.com | Write             |
-| UpdateConfigurationSetReputationMetricsEnabled                                                                                                     | [ses:UpdateConfigurationSetReputationMetricsEnabled](#list_ses-action-UpdateConfigurationSetReputationMetricsEnabled "#list_ses-action-UpdateConfigurationSetReputationMetricsEnabled") |                   |                   | Write                         |
-| UpdateConfigurationSetSendingEnabled                                                                                                               | [ses:UpdateConfigurationSetSendingEnabled](#list_ses-action-UpdateConfigurationSetSendingEnabled "#list_ses-action-UpdateConfigurationSetSendingEnabled")                               |                   |                   | Write                         |
-| UpdateConfigurationSetTrackingOptions                                                                                                              | [ses:UpdateConfigurationSetTrackingOptions](#list_ses-action-UpdateConfigurationSetTrackingOptions "#list_ses-action-UpdateConfigurationSetTrackingOptions")                            |                   |                   | Write                         |
-| UpdateCustomVerificationEmailTemplate                                                                                                              | [ses:UpdateCustomVerificationEmailTemplate](#list_ses-action-UpdateCustomVerificationEmailTemplate "#list_ses-action-UpdateCustomVerificationEmailTemplate")                            |                   |                   | Write                         |
-| UpdateReceiptRule                                                                                                                                  | [ses:UpdateReceiptRule](#list_ses-action-UpdateReceiptRule "#list_ses-action-UpdateReceiptRule")                                                                                        |                   |                   | Write                         |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                    | iam:PassedToService                                                                                                                                                                     | ses.amazonaws.com | Write             |
-| UpdateTemplate                                                                                                                                     | [ses:UpdateTemplate](#list_ses-action-UpdateTemplate "#list_ses-action-UpdateTemplate")                                                                                                 |                   |                   | Write                         |
-| VerifyDomainDkim                                                                                                                                   | [ses:VerifyDomainDkim](#list_ses-action-VerifyDomainDkim "#list_ses-action-VerifyDomainDkim")                                                                                           |                   |                   | Write                         |
-| VerifyDomainIdentity                                                                                                                               | [ses:VerifyDomainIdentity](#list_ses-action-VerifyDomainIdentity "#list_ses-action-VerifyDomainIdentity")                                                                               |                   |                   | Write                         |
-| VerifyEmailAddress                                                                                                                                 | [ses:VerifyEmailAddress](#list_ses-action-VerifyEmailAddress "#list_ses-action-VerifyEmailAddress")                                                                                     |                   |                   | Write                         |
-| VerifyEmailIdentity                                                                                                                                | [ses:VerifyEmailIdentity](#list_ses-action-VerifyEmailIdentity "#list_ses-action-VerifyEmailIdentity")                                                                                  |                   |                   | Write                         |
+
+
+
+- **   CloneReceiptRuleSet  **
+  - **IAM action:**  [ses:CloneReceiptRuleSet](#list_ses-action-CloneReceiptRuleSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateConfigurationSet  **
+  - **IAM action:**  [ses:CreateConfigurationSet](#list_ses-action-CreateConfigurationSet)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [ses:TagResource](https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_TagResource.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateConfigurationSetEventDestination  **
+  - **IAM action:**  [ses:CreateConfigurationSetEventDestination](#list_ses-action-CreateConfigurationSetEventDestination)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** ses.amazonaws.com / **Access level:** Write
+
+- **   CreateConfigurationSetTrackingOptions  **
+  - **IAM action:**  [ses:CreateConfigurationSetTrackingOptions](#list_ses-action-CreateConfigurationSetTrackingOptions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateCustomVerificationEmailTemplate  **
+  - **IAM action:**  [ses:CreateCustomVerificationEmailTemplate](#list_ses-action-CreateCustomVerificationEmailTemplate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [ses:TagResource](https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_TagResource.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateReceiptFilter  **
+  - **IAM action:**  [ses:CreateReceiptFilter](#list_ses-action-CreateReceiptFilter) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateReceiptRule  **
+  - **IAM action:**  [ses:CreateReceiptRule](#list_ses-action-CreateReceiptRule)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** ses.amazonaws.com / **Access level:** Write
+
+- **   CreateReceiptRuleSet  **
+  - **IAM action:**  [ses:CreateReceiptRuleSet](#list_ses-action-CreateReceiptRuleSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateTemplate  **
+  - **IAM action:**  [ses:CreateTemplate](#list_ses-action-CreateTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConfigurationSet  **
+  - **IAM action:**  [ses:DeleteConfigurationSet](#list_ses-action-DeleteConfigurationSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConfigurationSetEventDestination  **
+  - **IAM action:**  [ses:DeleteConfigurationSetEventDestination](#list_ses-action-DeleteConfigurationSetEventDestination) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConfigurationSetTrackingOptions  **
+  - **IAM action:**  [ses:DeleteConfigurationSetTrackingOptions](#list_ses-action-DeleteConfigurationSetTrackingOptions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteCustomVerificationEmailTemplate  **
+  - **IAM action:**  [ses:DeleteCustomVerificationEmailTemplate](#list_ses-action-DeleteCustomVerificationEmailTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteIdentity  **
+  - **IAM action:**  [ses:DeleteIdentity](#list_ses-action-DeleteIdentity) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteIdentityPolicy  **
+  - **IAM action:**  [ses:DeleteIdentityPolicy](#list_ses-action-DeleteIdentityPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   DeleteReceiptFilter  **
+  - **IAM action:**  [ses:DeleteReceiptFilter](#list_ses-action-DeleteReceiptFilter) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteReceiptRule  **
+  - **IAM action:**  [ses:DeleteReceiptRule](#list_ses-action-DeleteReceiptRule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteReceiptRuleSet  **
+  - **IAM action:**  [ses:DeleteReceiptRuleSet](#list_ses-action-DeleteReceiptRuleSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteTemplate  **
+  - **IAM action:**  [ses:DeleteTemplate](#list_ses-action-DeleteTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVerifiedEmailAddress  **
+  - **IAM action:**  [ses:DeleteVerifiedEmailAddress](#list_ses-action-DeleteVerifiedEmailAddress) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeActiveReceiptRuleSet  **
+  - **IAM action:**  [ses:DescribeActiveReceiptRuleSet](#list_ses-action-DescribeActiveReceiptRuleSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeConfigurationSet  **
+  - **IAM action:**  [ses:DescribeConfigurationSet](#list_ses-action-DescribeConfigurationSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeReceiptRule  **
+  - **IAM action:**  [ses:DescribeReceiptRule](#list_ses-action-DescribeReceiptRule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeReceiptRuleSet  **
+  - **IAM action:**  [ses:DescribeReceiptRuleSet](#list_ses-action-DescribeReceiptRuleSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAccountSendingEnabled  **
+  - **IAM action:**  [ses:GetAccountSendingEnabled](#list_ses-action-GetAccountSendingEnabled) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCustomVerificationEmailTemplate  **
+  - **IAM action:**  [ses:GetCustomVerificationEmailTemplate](#list_ses-action-GetCustomVerificationEmailTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIdentityDkimAttributes  **
+  - **IAM action:**  [ses:GetIdentityDkimAttributes](#list_ses-action-GetIdentityDkimAttributes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIdentityMailFromDomainAttributes  **
+  - **IAM action:**  [ses:GetIdentityMailFromDomainAttributes](#list_ses-action-GetIdentityMailFromDomainAttributes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIdentityNotificationAttributes  **
+  - **IAM action:**  [ses:GetIdentityNotificationAttributes](#list_ses-action-GetIdentityNotificationAttributes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIdentityPolicies  **
+  - **IAM action:**  [ses:GetIdentityPolicies](#list_ses-action-GetIdentityPolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIdentityVerificationAttributes  **
+  - **IAM action:**  [ses:GetIdentityVerificationAttributes](#list_ses-action-GetIdentityVerificationAttributes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSendQuota  **
+  - **IAM action:**  [ses:GetSendQuota](#list_ses-action-GetSendQuota) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSendStatistics  **
+  - **IAM action:**  [ses:GetSendStatistics](#list_ses-action-GetSendStatistics) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTemplate  **
+  - **IAM action:**  [ses:GetTemplate](#list_ses-action-GetTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListConfigurationSets  **
+  - **IAM action:**  [ses:ListConfigurationSets](#list_ses-action-ListConfigurationSets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCustomVerificationEmailTemplates  **
+  - **IAM action:**  [ses:ListCustomVerificationEmailTemplates](#list_ses-action-ListCustomVerificationEmailTemplates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListIdentities  **
+  - **IAM action:**  [ses:ListIdentities](#list_ses-action-ListIdentities) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListIdentityPolicies  **
+  - **IAM action:**  [ses:ListIdentityPolicies](#list_ses-action-ListIdentityPolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListReceiptFilters  **
+  - **IAM action:**  [ses:ListReceiptFilters](#list_ses-action-ListReceiptFilters) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListReceiptRuleSets  **
+  - **IAM action:**  [ses:ListReceiptRuleSets](#list_ses-action-ListReceiptRuleSets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTemplates  **
+  - **IAM action:**  [ses:ListTemplates](#list_ses-action-ListTemplates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListVerifiedEmailAddresses  **
+  - **IAM action:**  [ses:ListVerifiedEmailAddresses](#list_ses-action-ListVerifiedEmailAddresses) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   PutConfigurationSetDeliveryOptions  **
+  - **IAM action:**  [ses:PutConfigurationSetDeliveryOptions](#list_ses-action-PutConfigurationSetDeliveryOptions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutIdentityPolicy  **
+  - **IAM action:**  [ses:PutIdentityPolicy](#list_ses-action-PutIdentityPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   ReorderReceiptRuleSet  **
+  - **IAM action:**  [ses:ReorderReceiptRuleSet](#list_ses-action-ReorderReceiptRuleSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SendCustomVerificationEmail  **
+  - **IAM action:**  [ses:SendCustomVerificationEmail](#list_ses-action-SendCustomVerificationEmail) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SetActiveReceiptRuleSet  **
+  - **IAM action:**  [ses:SetActiveReceiptRuleSet](#list_ses-action-SetActiveReceiptRuleSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SetIdentityDkimEnabled  **
+  - **IAM action:**  [ses:SetIdentityDkimEnabled](#list_ses-action-SetIdentityDkimEnabled) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SetIdentityFeedbackForwardingEnabled  **
+  - **IAM action:**  [ses:SetIdentityFeedbackForwardingEnabled](#list_ses-action-SetIdentityFeedbackForwardingEnabled) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SetIdentityHeadersInNotificationsEnabled  **
+  - **IAM action:**  [ses:SetIdentityHeadersInNotificationsEnabled](#list_ses-action-SetIdentityHeadersInNotificationsEnabled) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SetIdentityMailFromDomain  **
+  - **IAM action:**  [ses:SetIdentityMailFromDomain](#list_ses-action-SetIdentityMailFromDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SetIdentityNotificationTopic  **
+  - **IAM action:**  [ses:SetIdentityNotificationTopic](#list_ses-action-SetIdentityNotificationTopic) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SetReceiptRulePosition  **
+  - **IAM action:**  [ses:SetReceiptRulePosition](#list_ses-action-SetReceiptRulePosition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TestRenderTemplate  **
+  - **IAM action:**  [ses:TestRenderTemplate](#list_ses-action-TestRenderTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAccountSendingEnabled  **
+  - **IAM action:**  [ses:UpdateAccountSendingEnabled](#list_ses-action-UpdateAccountSendingEnabled) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateConfigurationSetEventDestination  **
+  - **IAM action:**  [ses:UpdateConfigurationSetEventDestination](#list_ses-action-UpdateConfigurationSetEventDestination)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** ses.amazonaws.com / **Access level:** Write
+
+- **   UpdateConfigurationSetReputationMetricsEnabled  **
+  - **IAM action:**  [ses:UpdateConfigurationSetReputationMetricsEnabled](#list_ses-action-UpdateConfigurationSetReputationMetricsEnabled) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateConfigurationSetSendingEnabled  **
+  - **IAM action:**  [ses:UpdateConfigurationSetSendingEnabled](#list_ses-action-UpdateConfigurationSetSendingEnabled) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateConfigurationSetTrackingOptions  **
+  - **IAM action:**  [ses:UpdateConfigurationSetTrackingOptions](#list_ses-action-UpdateConfigurationSetTrackingOptions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateCustomVerificationEmailTemplate  **
+  - **IAM action:**  [ses:UpdateCustomVerificationEmailTemplate](#list_ses-action-UpdateCustomVerificationEmailTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateReceiptRule  **
+  - **IAM action:**  [ses:UpdateReceiptRule](#list_ses-action-UpdateReceiptRule)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** ses.amazonaws.com / **Access level:** Write
+
+- **   UpdateTemplate  **
+  - **IAM action:**  [ses:UpdateTemplate](#list_ses-action-UpdateTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   VerifyDomainDkim  **
+  - **IAM action:**  [ses:VerifyDomainDkim](#list_ses-action-VerifyDomainDkim) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   VerifyDomainIdentity  **
+  - **IAM action:**  [ses:VerifyDomainIdentity](#list_ses-action-VerifyDomainIdentity) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   VerifyEmailAddress  **
+  - **IAM action:**  [ses:VerifyEmailAddress](#list_ses-action-VerifyEmailAddress) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   VerifyEmailIdentity  **
+  - **IAM action:**  [ses:VerifyEmailIdentity](#list_ses-action-VerifyEmailIdentity) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon SES
+<a name="list_ses-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                | Resource types (\*required)                                                                                                                         | Condition keys                                                                                                                                                                                                                                                                                                                                                                                             | Access level                  |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| [CloneReceiptRuleSet](../../../ses/latest/APIReference/API_CloneReceiptRuleSet.md "../../../ses/latest/APIReference/API_CloneReceiptRuleSet.md")                                                                                  | Grants permission to create a receipt rule set by cloning an existing one                                                                                                                                                                                                                                                                                                                                  |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [CreateConfigurationSet](../../../ses/latest/APIReference/API_CreateConfigurationSet.md "../../../ses/latest/APIReference/API_CreateConfigurationSet.md")                                                                         | Grants permission to create a new configuration set                                                                                                                                                                                                                                                                                                                                                        | [configuration-set](#list_ses-resource-configuration-set "#list_ses-resource-configuration-set")                                                    | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [CreateConfigurationSetEventDestination](../../../ses/latest/APIReference/API_CreateConfigurationSetEventDestination.md "../../../ses/latest/APIReference/API_CreateConfigurationSetEventDestination.md")                         | Grants permission to create a configuration set event destination                                                                                                                                                                                                                                                                                                                                          | [configuration-set](#list_ses-resource-configuration-set "#list_ses-resource-configuration-set")                                                    | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [CreateConfigurationSetTrackingOptions](../../../ses/latest/APIReference/API_CreateConfigurationSetTrackingOptions.md "../../../ses/latest/APIReference/API_CreateConfigurationSetTrackingOptions.md")                            | Grants permission to creates an association between a configuration set and a custom domain for open and click event tracking                                                                                                                                                                                                                                                                              |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [CreateCustomVerificationEmailTemplate](../../../ses/latest/APIReference/API_CreateCustomVerificationEmailTemplate.md "../../../ses/latest/APIReference/API_CreateCustomVerificationEmailTemplate.md")                            | Grants permission to create a new custom verification email template                                                                                                                                                                                                                                                                                                                                       | [custom-verification-email-template](#list_ses-resource-custom-verification-email-template "#list_ses-resource-custom-verification-email-template") | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [CreateReceiptFilter](../../../ses/latest/APIReference/API_CreateReceiptFilter.md "../../../ses/latest/APIReference/API_CreateReceiptFilter.md")                                                                                  | Grants permission to create a new IP address filter                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [CreateReceiptRule](../../../ses/latest/APIReference/API_CreateReceiptRule.md "../../../ses/latest/APIReference/API_CreateReceiptRule.md")                                                                                        | Grants permission to create a receipt rule                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [CreateReceiptRuleSet](../../../ses/latest/APIReference/API_CreateReceiptRuleSet.md "../../../ses/latest/APIReference/API_CreateReceiptRuleSet.md")                                                                               | Grants permission to create an empty receipt rule set                                                                                                                                                                                                                                                                                                                                                      |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [CreateTemplate](../../../ses/latest/APIReference/API_CreateTemplate.md "../../../ses/latest/APIReference/API_CreateTemplate.md")                                                                                                 | Grants permission to creates an email template                                                                                                                                                                                                                                                                                                                                                             |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [DeleteConfigurationSet](../../../ses/latest/APIReference/API_DeleteConfigurationSet.md "../../../ses/latest/APIReference/API_DeleteConfigurationSet.md")                                                                         | Grants permission to delete an existing configuration set                                                                                                                                                                                                                                                                                                                                                  | [configuration-set](#list_ses-resource-configuration-set "#list_ses-resource-configuration-set")                                                    | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [DeleteConfigurationSetEventDestination](../../../ses/latest/APIReference/API_DeleteConfigurationSetEventDestination.md "../../../ses/latest/APIReference/API_DeleteConfigurationSetEventDestination.md")                         | Grants permission to delete an event destination                                                                                                                                                                                                                                                                                                                                                           | [configuration-set](#list_ses-resource-configuration-set "#list_ses-resource-configuration-set")                                                    | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [DeleteConfigurationSetTrackingOptions](../../../ses/latest/APIReference/API_DeleteConfigurationSetTrackingOptions.md "../../../ses/latest/APIReference/API_DeleteConfigurationSetTrackingOptions.md")                            | Grants permission to delete an association between a configuration set and a custom domain for open and click event tracking                                                                                                                                                                                                                                                                               |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [DeleteCustomVerificationEmailTemplate](../../../ses/latest/APIReference/API_DeleteCustomVerificationEmailTemplate.md "../../../ses/latest/APIReference/API_DeleteCustomVerificationEmailTemplate.md")                            | Grants permission to delete an existing custom verification email template                                                                                                                                                                                                                                                                                                                                 | [custom-verification-email-template](#list_ses-resource-custom-verification-email-template "#list_ses-resource-custom-verification-email-template") | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [DeleteIdentity](../../../ses/latest/APIReference/API_DeleteIdentity.md "../../../ses/latest/APIReference/API_DeleteIdentity.md")                                                                                                 | Grants permission to delete the specified identity                                                                                                                                                                                                                                                                                                                                                         |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [DeleteIdentityPolicy](../../../ses/latest/APIReference/API_DeleteIdentityPolicy.md "../../../ses/latest/APIReference/API_DeleteIdentityPolicy.md")                                                                               | Grants permission to delete the specified sending authorization policy for the given identity (an email address or a domain)                                                                                                                                                                                                                                                                               |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Permissions management, Write |
-| [DeleteReceiptFilter](../../../ses/latest/APIReference/API_DeleteReceiptFilter.md "../../../ses/latest/APIReference/API_DeleteReceiptFilter.md")                                                                                  | Grants permission to delete the specified IP address filter                                                                                                                                                                                                                                                                                                                                                |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [DeleteReceiptRule](../../../ses/latest/APIReference/API_DeleteReceiptRule.md "../../../ses/latest/APIReference/API_DeleteReceiptRule.md")                                                                                        | Grants permission to delete the specified receipt rule                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [DeleteReceiptRuleSet](../../../ses/latest/APIReference/API_DeleteReceiptRuleSet.md "../../../ses/latest/APIReference/API_DeleteReceiptRuleSet.md")                                                                               | Grants permission to delete the specified receipt rule set and all of the receipt rules it contains                                                                                                                                                                                                                                                                                                        |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [DeleteTemplate](../../../ses/latest/APIReference/API_DeleteTemplate.md "../../../ses/latest/APIReference/API_DeleteTemplate.md")                                                                                                 | Grants permission to delete an email template                                                                                                                                                                                                                                                                                                                                                              |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [DeleteVerifiedEmailAddress](../../../ses/latest/APIReference/API_DeleteVerifiedEmailAddress.md "../../../ses/latest/APIReference/API_DeleteVerifiedEmailAddress.md")                                                             | Grants permission to delete the specified email address from the list of verified addresses                                                                                                                                                                                                                                                                                                                |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [DescribeActiveReceiptRuleSet](../../../ses/latest/APIReference/API_DescribeActiveReceiptRuleSet.md "../../../ses/latest/APIReference/API_DescribeActiveReceiptRuleSet.md")                                                       | Grants permission to return the metadata and receipt rules for the receipt rule set that is currently active                                                                                                                                                                                                                                                                                               |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [DescribeConfigurationSet](../../../ses/latest/APIReference/API_DescribeConfigurationSet.md "../../../ses/latest/APIReference/API_DescribeConfigurationSet.md")                                                                   | Grants permission to return the details of the specified configuration set                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [DescribeReceiptRule](../../../ses/latest/APIReference/API_DescribeReceiptRule.md "../../../ses/latest/APIReference/API_DescribeReceiptRule.md")                                                                                  | Grants permission to return the details of the specified receipt rule                                                                                                                                                                                                                                                                                                                                      |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [DescribeReceiptRuleSet](../../../ses/latest/APIReference/API_DescribeReceiptRuleSet.md "../../../ses/latest/APIReference/API_DescribeReceiptRuleSet.md")                                                                         | Grants permission to return the details of the specified receipt rule set                                                                                                                                                                                                                                                                                                                                  |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [GetAccountSendingEnabled](../../../ses/latest/APIReference/API_GetAccountSendingEnabled.md "../../../ses/latest/APIReference/API_GetAccountSendingEnabled.md")                                                                   | Grants permission to return the email sending status of your account                                                                                                                                                                                                                                                                                                                                       |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [GetCustomVerificationEmailTemplate](../../../ses/latest/APIReference/API_GetCustomVerificationEmailTemplate.md "../../../ses/latest/APIReference/API_GetCustomVerificationEmailTemplate.md")                                     | Grants permission to return the custom email verification template for the template name you specify                                                                                                                                                                                                                                                                                                       | [custom-verification-email-template](#list_ses-resource-custom-verification-email-template "#list_ses-resource-custom-verification-email-template") | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [GetIdentityDkimAttributes](../../../ses/latest/APIReference/API_GetIdentityDkimAttributes.md "../../../ses/latest/APIReference/API_GetIdentityDkimAttributes.md")                                                                | Grants permission to return the current status of Easy DKIM signing for an entity                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [GetIdentityMailFromDomainAttributes](../../../ses/latest/APIReference/API_GetIdentityMailFromDomainAttributes.md "../../../ses/latest/APIReference/API_GetIdentityMailFromDomainAttributes.md")                                  | Grants permission to return the custom MAIL FROM attributes for a list of identities (email addresses and/or domains)                                                                                                                                                                                                                                                                                      |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [GetIdentityNotificationAttributes](../../../ses/latest/APIReference/API_GetIdentityNotificationAttributes.md "../../../ses/latest/APIReference/API_GetIdentityNotificationAttributes.md")                                        | Grants permission to return a structure describing identity notification attributes for a list of verified identities (email addresses and/or domains),                                                                                                                                                                                                                                                    |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [GetIdentityPolicies](../../../ses/latest/APIReference/API_GetIdentityPolicies.md "../../../ses/latest/APIReference/API_GetIdentityPolicies.md")                                                                                  | Grants permission to return the requested sending authorization policies for the given identity (an email address or a domain)                                                                                                                                                                                                                                                                             |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [GetIdentityVerificationAttributes](../../../ses/latest/APIReference/API_GetIdentityVerificationAttributes.md "../../../ses/latest/APIReference/API_GetIdentityVerificationAttributes.md")                                        | Grants permission to return the verification status and (for domain identities) the verification token for a list of identities                                                                                                                                                                                                                                                                            |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [GetSendQuota](../../../ses/latest/APIReference/API_GetSendQuota.md "../../../ses/latest/APIReference/API_GetSendQuota.md")                                                                                                       | Grants permission to return the user's current sending limits                                                                                                                                                                                                                                                                                                                                              |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [GetSendStatistics](../../../ses/latest/APIReference/API_GetSendStatistics.md "../../../ses/latest/APIReference/API_GetSendStatistics.md")                                                                                        | Grants permission to returns the user's sending statistics                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [GetTemplate](../../../ses/latest/APIReference/API_GetTemplate.md "../../../ses/latest/APIReference/API_GetTemplate.md")                                                                                                          | Grants permission to return the template object, which includes the subject line, HTML par, and text part for the template you specify                                                                                                                                                                                                                                                                     |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [ListConfigurationSets](../../../ses/latest/APIReference/API_ListConfigurationSets.md "../../../ses/latest/APIReference/API_ListConfigurationSets.md")                                                                            | Grants permission to list all of the configuration sets for your account                                                                                                                                                                                                                                                                                                                                   |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | List                          |
-| [ListCustomVerificationEmailTemplates](../../../ses/latest/APIReference/API_ListCustomVerificationEmailTemplates.md "../../../ses/latest/APIReference/API_ListCustomVerificationEmailTemplates.md")                               | Grants permission to list all of the existing custom verification email templates for your account                                                                                                                                                                                                                                                                                                         |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | List                          |
-| [ListIdentities](../../../ses/latest/APIReference/API_ListIdentities.md "../../../ses/latest/APIReference/API_ListIdentities.md")                                                                                                 | Grants permission to list the email identities for your account                                                                                                                                                                                                                                                                                                                                            |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | List                          |
-| [ListIdentityPolicies](../../../ses/latest/APIReference/API_ListIdentityPolicies.md "../../../ses/latest/APIReference/API_ListIdentityPolicies.md")                                                                               | Grants permission to list all of the email templates for your account                                                                                                                                                                                                                                                                                                                                      |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | List                          |
-| [ListReceiptFilters](../../../ses/latest/APIReference/API_ListReceiptFilters.md "../../../ses/latest/APIReference/API_ListReceiptFilters.md")                                                                                     | Grants permission to list the IP address filters associated with your account                                                                                                                                                                                                                                                                                                                              |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [ListReceiptRuleSets](../../../ses/latest/APIReference/API_ListReceiptRuleSets.md "../../../ses/latest/APIReference/API_ListReceiptRuleSets.md")                                                                                  | Grants permission to list the receipt rule sets that exist under your account                                                                                                                                                                                                                                                                                                                              |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [ListTemplates](../../../ses/latest/APIReference/API_ListTemplates.md "../../../ses/latest/APIReference/API_ListTemplates.md")                                                                                                    | Grants permission to list the email templates present in your account                                                                                                                                                                                                                                                                                                                                      |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | List                          |
-| [ListVerifiedEmailAddresses](../../../ses/latest/APIReference/API_ListVerifiedEmailAddresses.md "../../../ses/latest/APIReference/API_ListVerifiedEmailAddresses.md")                                                             | Grants permission to list all of the email addresses that have been verified in your account                                                                                                                                                                                                                                                                                                               |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Read                          |
-| [PutConfigurationSetDeliveryOptions](../../../ses/latest/APIReference/API_PutConfigurationSetDeliveryOptions.md "../../../ses/latest/APIReference/API_PutConfigurationSetDeliveryOptions.md")                                     | Grants permission to add or update the delivery options for a configuration set                                                                                                                                                                                                                                                                                                                            | [configuration-set](#list_ses-resource-configuration-set "#list_ses-resource-configuration-set")                                                    | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [PutIdentityPolicy](../../../ses/latest/APIReference/API_PutIdentityPolicy.md "../../../ses/latest/APIReference/API_PutIdentityPolicy.md")                                                                                        | Grants permission to add or update a sending authorization policy for the specified identity (an email address or a domain)                                                                                                                                                                                                                                                                                |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Permissions management, Write |
-| [ReorderReceiptRuleSet](../../../ses/latest/APIReference/API_ReorderReceiptRuleSet.md "../../../ses/latest/APIReference/API_ReorderReceiptRuleSet.md")                                                                            | Grants permission to reorder the receipt rules within a receipt rule set                                                                                                                                                                                                                                                                                                                                   |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [SendBounce](../../../ses/latest/APIReference/API_SendBounce.md "../../../ses/latest/APIReference/API_SendBounce.md")                                                                                                             | Grants permission to generate and send a bounce message to the sender of an email you received through Amazon SES                                                                                                                                                                                                                                                                                          | [identity\*](#list_ses-resource-identity "#list_ses-resource-identity")                                                                             | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")<br>[ses:FromAddress](#list_ses-ses_FromAddress "#list_ses-ses_FromAddress")                                                                                                                                                                                                                                                          | Write                         |
-| [SendBulkTemplatedEmail](../../../ses/latest/APIReference/API_SendBulkTemplatedEmail.md "../../../ses/latest/APIReference/API_SendBulkTemplatedEmail.md")                                                                         | Grants permission to compose an email message to multiple destinations                                                                                                                                                                                                                                                                                                                                     | [configuration-set](#list_ses-resource-configuration-set "#list_ses-resource-configuration-set")                                                    | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")<br>[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress "#list_ses-ses_FeedbackAddress")<br>[ses:FromAddress](#list_ses-ses_FromAddress "#list_ses-ses_FromAddress")<br>[ses:FromDisplayName](#list_ses-ses_FromDisplayName "#list_ses-ses_FromDisplayName")<br>[ses:Recipients](#list_ses-ses_Recipients "#list_ses-ses_Recipients") | Write                         |
-| [identity\*](#list_ses-resource-identity "#list_ses-resource-identity")                                                                                                                                                           | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")<br>[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress "#list_ses-ses_FeedbackAddress")<br>[ses:FromAddress](#list_ses-ses_FromAddress "#list_ses-ses_FromAddress")<br>[ses:FromDisplayName](#list_ses-ses_FromDisplayName "#list_ses-ses_FromDisplayName")<br>[ses:Recipients](#list_ses-ses_Recipients "#list_ses-ses_Recipients") |
-| [template\*](#list_ses-resource-template "#list_ses-resource-template")                                                                                                                                                           | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")<br>[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress "#list_ses-ses_FeedbackAddress")<br>[ses:FromAddress](#list_ses-ses_FromAddress "#list_ses-ses_FromAddress")<br>[ses:FromDisplayName](#list_ses-ses_FromDisplayName "#list_ses-ses_FromDisplayName")<br>[ses:Recipients](#list_ses-ses_Recipients "#list_ses-ses_Recipients") |
-| [SendCustomVerificationEmail](../../../ses/latest/APIReference/API_SendCustomVerificationEmail.md "../../../ses/latest/APIReference/API_SendCustomVerificationEmail.md")                                                          | Grants permission to add an email address to the list of identities and attempts to verify it for your account                                                                                                                                                                                                                                                                                             | [custom-verification-email-template](#list_ses-resource-custom-verification-email-template "#list_ses-resource-custom-verification-email-template") | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")<br>[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress "#list_ses-ses_FeedbackAddress")<br>[ses:FromAddress](#list_ses-ses_FromAddress "#list_ses-ses_FromAddress")<br>[ses:FromDisplayName](#list_ses-ses_FromDisplayName "#list_ses-ses_FromDisplayName")<br>[ses:Recipients](#list_ses-ses_Recipients "#list_ses-ses_Recipients") | Write                         |
-| [identity\*](#list_ses-resource-identity "#list_ses-resource-identity")                                                                                                                                                           | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")<br>[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress "#list_ses-ses_FeedbackAddress")<br>[ses:FromAddress](#list_ses-ses_FromAddress "#list_ses-ses_FromAddress")<br>[ses:FromDisplayName](#list_ses-ses_FromDisplayName "#list_ses-ses_FromDisplayName")<br>[ses:Recipients](#list_ses-ses_Recipients "#list_ses-ses_Recipients") |
-| [SendEmail](../../../ses/latest/APIReference/API_SendEmail.md "../../../ses/latest/APIReference/API_SendEmail.md")                                                                                                                | Grants permission to send an email message                                                                                                                                                                                                                                                                                                                                                                 | [configuration-set](#list_ses-resource-configuration-set "#list_ses-resource-configuration-set")                                                    | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")<br>[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress "#list_ses-ses_FeedbackAddress")<br>[ses:FromAddress](#list_ses-ses_FromAddress "#list_ses-ses_FromAddress")<br>[ses:FromDisplayName](#list_ses-ses_FromDisplayName "#list_ses-ses_FromDisplayName")<br>[ses:Recipients](#list_ses-ses_Recipients "#list_ses-ses_Recipients") | Write                         |
-| [identity\*](#list_ses-resource-identity "#list_ses-resource-identity")                                                                                                                                                           | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")<br>[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress "#list_ses-ses_FeedbackAddress")<br>[ses:FromAddress](#list_ses-ses_FromAddress "#list_ses-ses_FromAddress")<br>[ses:FromDisplayName](#list_ses-ses_FromDisplayName "#list_ses-ses_FromDisplayName")<br>[ses:Recipients](#list_ses-ses_Recipients "#list_ses-ses_Recipients") |
-| [template](#list_ses-resource-template "#list_ses-resource-template")                                                                                                                                                             | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")<br>[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress "#list_ses-ses_FeedbackAddress")<br>[ses:FromAddress](#list_ses-ses_FromAddress "#list_ses-ses_FromAddress")<br>[ses:FromDisplayName](#list_ses-ses_FromDisplayName "#list_ses-ses_FromDisplayName")<br>[ses:Recipients](#list_ses-ses_Recipients "#list_ses-ses_Recipients") |
-| [SendRawEmail](../../../ses/latest/APIReference/API_SendRawEmail.md "../../../ses/latest/APIReference/API_SendRawEmail.md")                                                                                                       | Grants permission to send an email message, with header and content specified by the client                                                                                                                                                                                                                                                                                                                | [configuration-set](#list_ses-resource-configuration-set "#list_ses-resource-configuration-set")                                                    | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")<br>[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress "#list_ses-ses_FeedbackAddress")<br>[ses:FromAddress](#list_ses-ses_FromAddress "#list_ses-ses_FromAddress")<br>[ses:FromDisplayName](#list_ses-ses_FromDisplayName "#list_ses-ses_FromDisplayName")<br>[ses:Recipients](#list_ses-ses_Recipients "#list_ses-ses_Recipients") | Write                         |
-| [identity\*](#list_ses-resource-identity "#list_ses-resource-identity")                                                                                                                                                           | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")<br>[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress "#list_ses-ses_FeedbackAddress")<br>[ses:FromAddress](#list_ses-ses_FromAddress "#list_ses-ses_FromAddress")<br>[ses:FromDisplayName](#list_ses-ses_FromDisplayName "#list_ses-ses_FromDisplayName")<br>[ses:Recipients](#list_ses-ses_Recipients "#list_ses-ses_Recipients") |
-| [SendTemplatedEmail](../../../ses/latest/APIReference/API_SendTemplatedEmail.md "../../../ses/latest/APIReference/API_SendTemplatedEmail.md")                                                                                     | Grants permission to compose an email message using an email template                                                                                                                                                                                                                                                                                                                                      | [configuration-set](#list_ses-resource-configuration-set "#list_ses-resource-configuration-set")                                                    | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")<br>[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress "#list_ses-ses_FeedbackAddress")<br>[ses:FromAddress](#list_ses-ses_FromAddress "#list_ses-ses_FromAddress")<br>[ses:FromDisplayName](#list_ses-ses_FromDisplayName "#list_ses-ses_FromDisplayName")<br>[ses:Recipients](#list_ses-ses_Recipients "#list_ses-ses_Recipients") | Write                         |
-| [identity\*](#list_ses-resource-identity "#list_ses-resource-identity")                                                                                                                                                           | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")<br>[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress "#list_ses-ses_FeedbackAddress")<br>[ses:FromAddress](#list_ses-ses_FromAddress "#list_ses-ses_FromAddress")<br>[ses:FromDisplayName](#list_ses-ses_FromDisplayName "#list_ses-ses_FromDisplayName")<br>[ses:Recipients](#list_ses-ses_Recipients "#list_ses-ses_Recipients") |
-| [template\*](#list_ses-resource-template "#list_ses-resource-template")                                                                                                                                                           | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")<br>[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress "#list_ses-ses_FeedbackAddress")<br>[ses:FromAddress](#list_ses-ses_FromAddress "#list_ses-ses_FromAddress")<br>[ses:FromDisplayName](#list_ses-ses_FromDisplayName "#list_ses-ses_FromDisplayName")<br>[ses:Recipients](#list_ses-ses_Recipients "#list_ses-ses_Recipients") |
-| [SetActiveReceiptRuleSet](../../../ses/latest/APIReference/API_SetActiveReceiptRuleSet.md "../../../ses/latest/APIReference/API_SetActiveReceiptRuleSet.md")                                                                      | Grants permission to set the specified receipt rule set as the active receipt rule set                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [SetIdentityDkimEnabled](../../../ses/latest/APIReference/API_SetIdentityDkimEnabled.md "../../../ses/latest/APIReference/API_SetIdentityDkimEnabled.md")                                                                         | Grants permission to enable or disable Easy DKIM signing of email sent from an identity                                                                                                                                                                                                                                                                                                                    |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [SetIdentityFeedbackForwardingEnabled](../../../ses/latest/APIReference/API_SetIdentityFeedbackForwardingEnabled.md "../../../ses/latest/APIReference/API_SetIdentityFeedbackForwardingEnabled.md")                               | Grants permission to enable or disable whether Amazon SES forwards bounce and complaint notifications for an identity (an email address or a domain)                                                                                                                                                                                                                                                       |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [SetIdentityHeadersInNotificationsEnabled](../../../ses/latest/APIReference/API_SetIdentityHeadersInNotificationsEnabled.md "../../../ses/latest/APIReference/API_SetIdentityHeadersInNotificationsEnabled.md")                   | Grants permission to set whether Amazon SES includes the original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified type for a given identity (an email address or a domain)                                                                                                                                                                               |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [SetIdentityMailFromDomain](../../../ses/latest/APIReference/API_SetIdentityMailFromDomain.md "../../../ses/latest/APIReference/API_SetIdentityMailFromDomain.md")                                                                | Grants permission to enable or disable the custom MAIL FROM domain setup for a verified identity                                                                                                                                                                                                                                                                                                           |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [SetIdentityNotificationTopic](../../../ses/latest/APIReference/API_SetIdentityNotificationTopic.md "../../../ses/latest/APIReference/API_SetIdentityNotificationTopic.md")                                                       | Grants permission to set an Amazon Simple Notification Service (Amazon SNS) topic to use when delivering notifications for a verified identity                                                                                                                                                                                                                                                             |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [SetReceiptRulePosition](../../../ses/latest/APIReference/API_SetReceiptRulePosition.md "../../../ses/latest/APIReference/API_SetReceiptRulePosition.md")                                                                         | Grants permission to set the position of the specified receipt rule in the receipt rule set                                                                                                                                                                                                                                                                                                                |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [TestRenderTemplate](../../../ses/latest/APIReference/API_TestRenderTemplate.md "../../../ses/latest/APIReference/API_TestRenderTemplate.md")                                                                                     | Grants permission to create a preview of the MIME content of an email when provided with a template and a set of replacement data                                                                                                                                                                                                                                                                          |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [UpdateAccountSendingEnabled](../../../ses/latest/APIReference/API_UpdateAccountSendingEnabled.md "../../../ses/latest/APIReference/API_UpdateAccountSendingEnabled.md")                                                          | Grants permission to enable or disable email sending for your account                                                                                                                                                                                                                                                                                                                                      |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [UpdateConfigurationSetEventDestination](../../../ses/latest/APIReference/API_UpdateConfigurationSetEventDestination.md "../../../ses/latest/APIReference/API_UpdateConfigurationSetEventDestination.md")                         | Grants permission to update the event destination of a configuration set                                                                                                                                                                                                                                                                                                                                   | [configuration-set](#list_ses-resource-configuration-set "#list_ses-resource-configuration-set")                                                    | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [UpdateConfigurationSetReputationMetricsEnabled](../../../ses/latest/APIReference/API_UpdateConfigurationSetReputationMetricsEnabled.md "../../../ses/latest/APIReference/API_UpdateConfigurationSetReputationMetricsEnabled.md") | Grants permission to enable or disable the publishing of reputation metrics for emails sent using a specific configuration set                                                                                                                                                                                                                                                                             |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [UpdateConfigurationSetSendingEnabled](../../../ses/latest/APIReference/API_UpdateConfigurationSetSendingEnabled.md "../../../ses/latest/APIReference/API_UpdateConfigurationSetSendingEnabled.md")                               | Grants permission to enable or disable email sending for messages sent using a specific configuration set                                                                                                                                                                                                                                                                                                  |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [UpdateConfigurationSetTrackingOptions](../../../ses/latest/APIReference/API_UpdateConfigurationSetTrackingOptions.md "../../../ses/latest/APIReference/API_UpdateConfigurationSetTrackingOptions.md")                            | Grants permission to modify an association between a configuration set and a custom domain for open and click event tracking                                                                                                                                                                                                                                                                               |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [UpdateCustomVerificationEmailTemplate](../../../ses/latest/APIReference/API_UpdateCustomVerificationEmailTemplate.md "../../../ses/latest/APIReference/API_UpdateCustomVerificationEmailTemplate.md")                            | Grants permission to update an existing custom verification email template                                                                                                                                                                                                                                                                                                                                 | [custom-verification-email-template](#list_ses-resource-custom-verification-email-template "#list_ses-resource-custom-verification-email-template") | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [UpdateReceiptRule](../../../ses/latest/APIReference/API_UpdateReceiptRule.md "../../../ses/latest/APIReference/API_UpdateReceiptRule.md")                                                                                        | Grants permission to update a receipt rule                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [UpdateTemplate](../../../ses/latest/APIReference/API_UpdateTemplate.md "../../../ses/latest/APIReference/API_UpdateTemplate.md")                                                                                                 | Grants permission to update an email template                                                                                                                                                                                                                                                                                                                                                              |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [VerifyDomainDkim](../../../ses/latest/APIReference/API_VerifyDomainDkim.md "../../../ses/latest/APIReference/API_VerifyDomainDkim.md")                                                                                           | Grants permission to return a set of DKIM tokens for a domain                                                                                                                                                                                                                                                                                                                                              |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [VerifyDomainIdentity](../../../ses/latest/APIReference/API_VerifyDomainIdentity.md "../../../ses/latest/APIReference/API_VerifyDomainIdentity.md")                                                                               | Grants permission to verify a domain                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [VerifyEmailAddress](../../../ses/latest/APIReference/API_VerifyEmailAddress.md "../../../ses/latest/APIReference/API_VerifyEmailAddress.md")                                                                                     | Grants permission to verify an email address                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [VerifyEmailIdentity](../../../ses/latest/APIReference/API_VerifyEmailIdentity.md "../../../ses/latest/APIReference/API_VerifyEmailIdentity.md")                                                                                  | Grants permission to verify an email identity                                                                                                                                                                                                                                                                                                                                                              |                                                                                                                                                     | [ses:ApiVersion](#list_ses-ses_ApiVersion "#list_ses-ses_ApiVersion")                                                                                                                                                                                                                                                                                                                                      | Write                         |
+
+
+
+- **   [CloneReceiptRuleSet](https://docs.aws.amazon.com/ses/latest/APIReference/API_CloneReceiptRuleSet.html)  **
+  - **Description:** Grants permission to create a receipt rule set by cloning an existing one
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [CreateConfigurationSet](https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateConfigurationSet.html)  **
+  - **Description:** Grants permission to create a new configuration set
+  - **Resource types (\*required):** [configuration-set](#list_ses-resource-configuration-set)
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [CreateConfigurationSetEventDestination](https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateConfigurationSetEventDestination.html)  **
+  - **Description:** Grants permission to create a configuration set event destination
+  - **Resource types (\*required):** [configuration-set](#list_ses-resource-configuration-set)
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [CreateConfigurationSetTrackingOptions](https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateConfigurationSetTrackingOptions.html)  **
+  - **Description:** Grants permission to creates an association between a configuration set and a custom domain for open and click event tracking
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [CreateCustomVerificationEmailTemplate](https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateCustomVerificationEmailTemplate.html)  **
+  - **Description:** Grants permission to create a new custom verification email template
+  - **Resource types (\*required):** [custom-verification-email-template](#list_ses-resource-custom-verification-email-template)
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [CreateReceiptFilter](https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptFilter.html)  **
+  - **Description:** Grants permission to create a new IP address filter
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [CreateReceiptRule](https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptRule.html)  **
+  - **Description:** Grants permission to create a receipt rule
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [CreateReceiptRuleSet](https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptRuleSet.html)  **
+  - **Description:** Grants permission to create an empty receipt rule set
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [CreateTemplate](https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateTemplate.html)  **
+  - **Description:** Grants permission to creates an email template
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [DeleteConfigurationSet](https://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteConfigurationSet.html)  **
+  - **Description:** Grants permission to delete an existing configuration set
+  - **Resource types (\*required):** [configuration-set](#list_ses-resource-configuration-set)
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [DeleteConfigurationSetEventDestination](https://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteConfigurationSetEventDestination.html)  **
+  - **Description:** Grants permission to delete an event destination
+  - **Resource types (\*required):** [configuration-set](#list_ses-resource-configuration-set)
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [DeleteConfigurationSetTrackingOptions](https://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteConfigurationSetTrackingOptions.html)  **
+  - **Description:** Grants permission to delete an association between a configuration set and a custom domain for open and click event tracking
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [DeleteCustomVerificationEmailTemplate](https://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteCustomVerificationEmailTemplate.html)  **
+  - **Description:** Grants permission to delete an existing custom verification email template
+  - **Resource types (\*required):** [custom-verification-email-template](#list_ses-resource-custom-verification-email-template)
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [DeleteIdentity](https://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentity.html)  **
+  - **Description:** Grants permission to delete the specified identity
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [DeleteIdentityPolicy](https://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentityPolicy.html)  **
+  - **Description:** Grants permission to delete the specified sending authorization policy for the given identity (an email address or a domain)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Permissions management, Write
+
+- **   [DeleteReceiptFilter](https://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteReceiptFilter.html)  **
+  - **Description:** Grants permission to delete the specified IP address filter
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [DeleteReceiptRule](https://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteReceiptRule.html)  **
+  - **Description:** Grants permission to delete the specified receipt rule
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [DeleteReceiptRuleSet](https://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteReceiptRuleSet.html)  **
+  - **Description:** Grants permission to delete the specified receipt rule set and all of the receipt rules it contains
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [DeleteTemplate](https://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteTemplate.html)  **
+  - **Description:** Grants permission to delete an email template
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [DeleteVerifiedEmailAddress](https://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteVerifiedEmailAddress.html)  **
+  - **Description:** Grants permission to delete the specified email address from the list of verified addresses
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [DescribeActiveReceiptRuleSet](https://docs.aws.amazon.com/ses/latest/APIReference/API_DescribeActiveReceiptRuleSet.html)  **
+  - **Description:** Grants permission to return the metadata and receipt rules for the receipt rule set that is currently active
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [DescribeConfigurationSet](https://docs.aws.amazon.com/ses/latest/APIReference/API_DescribeConfigurationSet.html)  **
+  - **Description:** Grants permission to return the details of the specified configuration set
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [DescribeReceiptRule](https://docs.aws.amazon.com/ses/latest/APIReference/API_DescribeReceiptRule.html)  **
+  - **Description:** Grants permission to return the details of the specified receipt rule
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [DescribeReceiptRuleSet](https://docs.aws.amazon.com/ses/latest/APIReference/API_DescribeReceiptRuleSet.html)  **
+  - **Description:** Grants permission to return the details of the specified receipt rule set
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [GetAccountSendingEnabled](https://docs.aws.amazon.com/ses/latest/APIReference/API_GetAccountSendingEnabled.html)  **
+  - **Description:** Grants permission to return the email sending status of your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [GetCustomVerificationEmailTemplate](https://docs.aws.amazon.com/ses/latest/APIReference/API_GetCustomVerificationEmailTemplate.html)  **
+  - **Description:** Grants permission to return the custom email verification template for the template name you specify
+  - **Resource types (\*required):** [custom-verification-email-template](#list_ses-resource-custom-verification-email-template)
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [GetIdentityDkimAttributes](https://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityDkimAttributes.html)  **
+  - **Description:** Grants permission to return the current status of Easy DKIM signing for an entity
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [GetIdentityMailFromDomainAttributes](https://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityMailFromDomainAttributes.html)  **
+  - **Description:** Grants permission to return the custom MAIL FROM attributes for a list of identities (email addresses and/or domains)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [GetIdentityNotificationAttributes](https://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityNotificationAttributes.html)  **
+  - **Description:** Grants permission to return a structure describing identity notification attributes for a list of verified identities (email addresses and/or domains),
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [GetIdentityPolicies](https://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityPolicies.html)  **
+  - **Description:** Grants permission to return the requested sending authorization policies for the given identity (an email address or a domain)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [GetIdentityVerificationAttributes](https://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityVerificationAttributes.html)  **
+  - **Description:** Grants permission to return the verification status and (for domain identities) the verification token for a list of identities
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [GetSendQuota](https://docs.aws.amazon.com/ses/latest/APIReference/API_GetSendQuota.html)  **
+  - **Description:** Grants permission to return the user's current sending limits
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [GetSendStatistics](https://docs.aws.amazon.com/ses/latest/APIReference/API_GetSendStatistics.html)  **
+  - **Description:** Grants permission to returns the user's sending statistics
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [GetTemplate](https://docs.aws.amazon.com/ses/latest/APIReference/API_GetTemplate.html)  **
+  - **Description:** Grants permission to return the template object, which includes the subject line, HTML par, and text part for the template you specify
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [ListConfigurationSets](https://docs.aws.amazon.com/ses/latest/APIReference/API_ListConfigurationSets.html)  **
+  - **Description:** Grants permission to list all of the configuration sets for your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** List
+
+- **   [ListCustomVerificationEmailTemplates](https://docs.aws.amazon.com/ses/latest/APIReference/API_ListCustomVerificationEmailTemplates.html)  **
+  - **Description:** Grants permission to list all of the existing custom verification email templates for your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** List
+
+- **   [ListIdentities](https://docs.aws.amazon.com/ses/latest/APIReference/API_ListIdentities.html)  **
+  - **Description:** Grants permission to list the email identities for your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** List
+
+- **   [ListIdentityPolicies](https://docs.aws.amazon.com/ses/latest/APIReference/API_ListIdentityPolicies.html)  **
+  - **Description:** Grants permission to list all of the email templates for your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** List
+
+- **   [ListReceiptFilters](https://docs.aws.amazon.com/ses/latest/APIReference/API_ListReceiptFilters.html)  **
+  - **Description:** Grants permission to list the IP address filters associated with your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [ListReceiptRuleSets](https://docs.aws.amazon.com/ses/latest/APIReference/API_ListReceiptRuleSets.html)  **
+  - **Description:** Grants permission to list the receipt rule sets that exist under your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [ListTemplates](https://docs.aws.amazon.com/ses/latest/APIReference/API_ListTemplates.html)  **
+  - **Description:** Grants permission to list the email templates present in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** List
+
+- **   [ListVerifiedEmailAddresses](https://docs.aws.amazon.com/ses/latest/APIReference/API_ListVerifiedEmailAddresses.html)  **
+  - **Description:** Grants permission to list all of the email addresses that have been verified in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Read
+
+- **   [PutConfigurationSetDeliveryOptions](https://docs.aws.amazon.com/ses/latest/APIReference/API_PutConfigurationSetDeliveryOptions.html)  **
+  - **Description:** Grants permission to add or update the delivery options for a configuration set
+  - **Resource types (\*required):** [configuration-set](#list_ses-resource-configuration-set)
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [PutIdentityPolicy](https://docs.aws.amazon.com/ses/latest/APIReference/API_PutIdentityPolicy.html)  **
+  - **Description:** Grants permission to add or update a sending authorization policy for the specified identity (an email address or a domain)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Permissions management, Write
+
+- **   [ReorderReceiptRuleSet](https://docs.aws.amazon.com/ses/latest/APIReference/API_ReorderReceiptRuleSet.html)  **
+  - **Description:** Grants permission to reorder the receipt rules within a receipt rule set
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [SendBounce](https://docs.aws.amazon.com/ses/latest/APIReference/API_SendBounce.html)  **
+  - **Description:** Grants permission to generate and send a bounce message to the sender of an email you received through Amazon SES
+  - **Resource types (\*required):** [identity\*](#list_ses-resource-identity)
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)<br />[ses:FromAddress](#list_ses-ses_FromAddress)
+  - **Access level:** Write
+
+- **   [SendBulkTemplatedEmail](https://docs.aws.amazon.com/ses/latest/APIReference/API_SendBulkTemplatedEmail.html)  **
+  - **Description:** Grants permission to compose an email message to multiple destinations
+  - **Resource types (\*required):** [configuration-set](#list_ses-resource-configuration-set) / **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)<br />[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress)<br />[ses:FromAddress](#list_ses-ses_FromAddress)<br />[ses:FromDisplayName](#list_ses-ses_FromDisplayName)<br />[ses:Recipients](#list_ses-ses_Recipients)
+  - **Resource types (\*required):** [identity\*](#list_ses-resource-identity) / **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)<br />[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress)<br />[ses:FromAddress](#list_ses-ses_FromAddress)<br />[ses:FromDisplayName](#list_ses-ses_FromDisplayName)<br />[ses:Recipients](#list_ses-ses_Recipients)
+  - **Resource types (\*required):** [template\*](#list_ses-resource-template) / **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)<br />[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress)<br />[ses:FromAddress](#list_ses-ses_FromAddress)<br />[ses:FromDisplayName](#list_ses-ses_FromDisplayName)<br />[ses:Recipients](#list_ses-ses_Recipients)
+  - **Access level:** Write
+
+- **   [SendCustomVerificationEmail](https://docs.aws.amazon.com/ses/latest/APIReference/API_SendCustomVerificationEmail.html)  **
+  - **Description:** Grants permission to add an email address to the list of identities and attempts to verify it for your account
+  - **Resource types (\*required):** [custom-verification-email-template](#list_ses-resource-custom-verification-email-template) / **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)<br />[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress)<br />[ses:FromAddress](#list_ses-ses_FromAddress)<br />[ses:FromDisplayName](#list_ses-ses_FromDisplayName)<br />[ses:Recipients](#list_ses-ses_Recipients)
+  - **Resource types (\*required):** [identity\*](#list_ses-resource-identity) / **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)<br />[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress)<br />[ses:FromAddress](#list_ses-ses_FromAddress)<br />[ses:FromDisplayName](#list_ses-ses_FromDisplayName)<br />[ses:Recipients](#list_ses-ses_Recipients)
+  - **Access level:** Write
+
+- **   [SendEmail](https://docs.aws.amazon.com/ses/latest/APIReference/API_SendEmail.html)  **
+  - **Description:** Grants permission to send an email message
+  - **Resource types (\*required):** [configuration-set](#list_ses-resource-configuration-set) / **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)<br />[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress)<br />[ses:FromAddress](#list_ses-ses_FromAddress)<br />[ses:FromDisplayName](#list_ses-ses_FromDisplayName)<br />[ses:Recipients](#list_ses-ses_Recipients)
+  - **Resource types (\*required):** [identity\*](#list_ses-resource-identity) / **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)<br />[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress)<br />[ses:FromAddress](#list_ses-ses_FromAddress)<br />[ses:FromDisplayName](#list_ses-ses_FromDisplayName)<br />[ses:Recipients](#list_ses-ses_Recipients)
+  - **Resource types (\*required):** [template](#list_ses-resource-template) / **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)<br />[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress)<br />[ses:FromAddress](#list_ses-ses_FromAddress)<br />[ses:FromDisplayName](#list_ses-ses_FromDisplayName)<br />[ses:Recipients](#list_ses-ses_Recipients)
+  - **Access level:** Write
+
+- **   [SendRawEmail](https://docs.aws.amazon.com/ses/latest/APIReference/API_SendRawEmail.html)  **
+  - **Description:** Grants permission to send an email message, with header and content specified by the client
+  - **Resource types (\*required):** [configuration-set](#list_ses-resource-configuration-set) / **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)<br />[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress)<br />[ses:FromAddress](#list_ses-ses_FromAddress)<br />[ses:FromDisplayName](#list_ses-ses_FromDisplayName)<br />[ses:Recipients](#list_ses-ses_Recipients)
+  - **Resource types (\*required):** [identity\*](#list_ses-resource-identity) / **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)<br />[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress)<br />[ses:FromAddress](#list_ses-ses_FromAddress)<br />[ses:FromDisplayName](#list_ses-ses_FromDisplayName)<br />[ses:Recipients](#list_ses-ses_Recipients)
+  - **Access level:** Write
+
+- **   [SendTemplatedEmail](https://docs.aws.amazon.com/ses/latest/APIReference/API_SendTemplatedEmail.html)  **
+  - **Description:** Grants permission to compose an email message using an email template
+  - **Resource types (\*required):** [configuration-set](#list_ses-resource-configuration-set) / **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)<br />[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress)<br />[ses:FromAddress](#list_ses-ses_FromAddress)<br />[ses:FromDisplayName](#list_ses-ses_FromDisplayName)<br />[ses:Recipients](#list_ses-ses_Recipients)
+  - **Resource types (\*required):** [identity\*](#list_ses-resource-identity) / **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)<br />[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress)<br />[ses:FromAddress](#list_ses-ses_FromAddress)<br />[ses:FromDisplayName](#list_ses-ses_FromDisplayName)<br />[ses:Recipients](#list_ses-ses_Recipients)
+  - **Resource types (\*required):** [template\*](#list_ses-resource-template) / **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)<br />[ses:FeedbackAddress](#list_ses-ses_FeedbackAddress)<br />[ses:FromAddress](#list_ses-ses_FromAddress)<br />[ses:FromDisplayName](#list_ses-ses_FromDisplayName)<br />[ses:Recipients](#list_ses-ses_Recipients)
+  - **Access level:** Write
+
+- **   [SetActiveReceiptRuleSet](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetActiveReceiptRuleSet.html)  **
+  - **Description:** Grants permission to set the specified receipt rule set as the active receipt rule set
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [SetIdentityDkimEnabled](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityDkimEnabled.html)  **
+  - **Description:** Grants permission to enable or disable Easy DKIM signing of email sent from an identity
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [SetIdentityFeedbackForwardingEnabled](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityFeedbackForwardingEnabled.html)  **
+  - **Description:** Grants permission to enable or disable whether Amazon SES forwards bounce and complaint notifications for an identity (an email address or a domain)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [SetIdentityHeadersInNotificationsEnabled](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityHeadersInNotificationsEnabled.html)  **
+  - **Description:** Grants permission to set whether Amazon SES includes the original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified type for a given identity (an email address or a domain)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [SetIdentityMailFromDomain](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html)  **
+  - **Description:** Grants permission to enable or disable the custom MAIL FROM domain setup for a verified identity
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [SetIdentityNotificationTopic](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityNotificationTopic.html)  **
+  - **Description:** Grants permission to set an Amazon Simple Notification Service (Amazon SNS) topic to use when delivering notifications for a verified identity
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [SetReceiptRulePosition](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetReceiptRulePosition.html)  **
+  - **Description:** Grants permission to set the position of the specified receipt rule in the receipt rule set
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [TestRenderTemplate](https://docs.aws.amazon.com/ses/latest/APIReference/API_TestRenderTemplate.html)  **
+  - **Description:** Grants permission to create a preview of the MIME content of an email when provided with a template and a set of replacement data
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [UpdateAccountSendingEnabled](https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateAccountSendingEnabled.html)  **
+  - **Description:** Grants permission to enable or disable email sending for your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [UpdateConfigurationSetEventDestination](https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateConfigurationSetEventDestination.html)  **
+  - **Description:** Grants permission to update the event destination of a configuration set
+  - **Resource types (\*required):** [configuration-set](#list_ses-resource-configuration-set)
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [UpdateConfigurationSetReputationMetricsEnabled](https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateConfigurationSetReputationMetricsEnabled.html)  **
+  - **Description:** Grants permission to enable or disable the publishing of reputation metrics for emails sent using a specific configuration set
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [UpdateConfigurationSetSendingEnabled](https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateConfigurationSetSendingEnabled.html)  **
+  - **Description:** Grants permission to enable or disable email sending for messages sent using a specific configuration set
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [UpdateConfigurationSetTrackingOptions](https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateConfigurationSetTrackingOptions.html)  **
+  - **Description:** Grants permission to modify an association between a configuration set and a custom domain for open and click event tracking
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [UpdateCustomVerificationEmailTemplate](https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateCustomVerificationEmailTemplate.html)  **
+  - **Description:** Grants permission to update an existing custom verification email template
+  - **Resource types (\*required):** [custom-verification-email-template](#list_ses-resource-custom-verification-email-template)
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [UpdateReceiptRule](https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateReceiptRule.html)  **
+  - **Description:** Grants permission to update a receipt rule
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [UpdateTemplate](https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateTemplate.html)  **
+  - **Description:** Grants permission to update an email template
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [VerifyDomainDkim](https://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyDomainDkim.html)  **
+  - **Description:** Grants permission to return a set of DKIM tokens for a domain
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [VerifyDomainIdentity](https://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyDomainIdentity.html)  **
+  - **Description:** Grants permission to verify a domain
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [VerifyEmailAddress](https://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyEmailAddress.html)  **
+  - **Description:** Grants permission to verify an email address
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+- **   [VerifyEmailIdentity](https://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyEmailIdentity.html)  **
+  - **Description:** Grants permission to verify an email identity
+  - **Resource types (\*required):** 
+  - **Condition keys:** [ses:ApiVersion](#list_ses-ses_ApiVersion)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon SES
+<a name="list_ses-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                                          | ARN                                                                                          | Condition keys |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------- |
-| [configuration-set](../../../ses/latest/APIReference/API_ConfigurationSet.md "../../../ses/latest/APIReference/API_ConfigurationSet.md")                                                | arn:${Partition}:ses:${Region}:${Account}:configuration-set/${ConfigurationSetName}          |                |
-| [custom-verification-email-template](../../../ses/latest/APIReference/API_CustomVerificationEmailTemplate.md "../../../ses/latest/APIReference/API_CustomVerificationEmailTemplate.md") | arn:${Partition}:ses:${Region}:${Account}:custom-verification-email-template/${TemplateName} |                |
-| [identity](../../../ses/latest/APIReference-V2/API_IdentityInfo.md "../../../ses/latest/APIReference-V2/API_IdentityInfo.md")                                                           | arn:${Partition}:ses:${Region}:${Account}:identity/${IdentityName}                           |                |
-| [template](../../../ses/latest/APIReference/API_Template.md "../../../ses/latest/APIReference/API_Template.md")                                                                         | arn:${Partition}:ses:${Region}:${Account}:template/${TemplateName}                           |                |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [configuration-set](https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html)  | arn:${Partition}:ses:${Region}:${Account}:configuration-set/${ConfigurationSetName} |   | 
+|  [custom-verification-email-template](https://docs.aws.amazon.com/ses/latest/APIReference/API_CustomVerificationEmailTemplate.html)  | arn:${Partition}:ses:${Region}:${Account}:custom-verification-email-template/${TemplateName} |   | 
+|  [identity](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_IdentityInfo.html)  | arn:${Partition}:ses:${Region}:${Account}:identity/${IdentityName} |   | 
+|  [template](https://docs.aws.amazon.com/ses/latest/APIReference/API_Template.html)  | arn:${Partition}:ses:${Region}:${Account}:template/${TemplateName} |   | 
 
 ## Condition keys for Amazon SES
+<a name="list_ses-policy-keys"></a>
 
-Amazon SES defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon SES defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                       | Description                                                                                                                            | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| [ses:ApiVersion](../../../IAM/latest/UserGuide/list_amazonses.md#amazonses-policy-keys "../../../IAM/latest/UserGuide/list_amazonses.md#amazonses-policy-keys")      | Filters actions based on the SES API version                                                                                           | String        |
-| [ses:FeedbackAddress](../../../IAM/latest/UserGuide/list_amazonses.md#amazonses-policy-keys "../../../IAM/latest/UserGuide/list_amazonses.md#amazonses-policy-keys") | Filters actions based on the "Return-Path" address, which specifies where bounces and complaints are sent by email feedback forwarding | String        |
-| [ses:FromAddress](../../../IAM/latest/UserGuide/list_amazonses.md#amazonses-policy-keys "../../../IAM/latest/UserGuide/list_amazonses.md#amazonses-policy-keys")     | Filters actions based on the "From" address of a message                                                                               | String        |
-| [ses:FromDisplayName](../../../IAM/latest/UserGuide/list_amazonses.md#amazonses-policy-keys "../../../IAM/latest/UserGuide/list_amazonses.md#amazonses-policy-keys") | Filters actions based on the "From" address that is used as the display name of a message                                              | String        |
-| [ses:Recipients](../../../IAM/latest/UserGuide/list_amazonses.md#amazonses-policy-keys "../../../IAM/latest/UserGuide/list_amazonses.md#amazonses-policy-keys")      | Filters actions based on the recipient addresses of a message, which include the "To", "CC", and "BCC" addresses                       | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [ses:ApiVersion](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonses.html#amazonses-policy-keys)  | Filters actions based on the SES API version | String | 
+|   [ses:FeedbackAddress](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonses.html#amazonses-policy-keys)  | Filters actions based on the "Return-Path" address, which specifies where bounces and complaints are sent by email feedback forwarding | String | 
+|   [ses:FromAddress](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonses.html#amazonses-policy-keys)  | Filters actions based on the "From" address of a message | String | 
+|   [ses:FromDisplayName](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonses.html#amazonses-policy-keys)  | Filters actions based on the "From" address that is used as the display name of a message | String | 
+|   [ses:Recipients](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonses.html#amazonses-policy-keys)  | Filters actions based on the recipient addresses of a message, which include the "To", "CC", and "BCC" addresses | ArrayOfString | 

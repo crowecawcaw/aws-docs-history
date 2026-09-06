@@ -1,215 +1,923 @@
-# Actions, resources, and condition keys for Amazon Route 53
 
-Amazon Route 53 (service prefix: `route53`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Route 53
+<a name="list_route53"></a>
+
+Amazon Route 53 (service prefix: `route53`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/Route53/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/auth-and-access-control.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/route53/route53.json) for this service.
 
-- Learn how to [configure this service](../../../Route53/latest/DeveloperGuide.md "../../../Route53/latest/DeveloperGuide.md").
-- View a list of the [API operations available for
-  this service](../../../Route53/latest/APIReference.md "../../../Route53/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../Route53/latest/DeveloperGuide/auth-and-access-control.md "../../../Route53/latest/DeveloperGuide/auth-and-access-control.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/route53/route53.json "https://servicereference.us-east-1.amazonaws.com/v1/route53/route53.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon Route 53](#list_route53-operations "#list_route53-operations")
-- [Actions defined by Amazon Route 53](#list_route53-actions-as-permissions "#list_route53-actions-as-permissions")
-- [Resource types defined by Amazon Route 53](#list_route53-resources-for-iam-policies "#list_route53-resources-for-iam-policies")
-- [Condition keys for Amazon Route 53](#list_route53-policy-keys "#list_route53-policy-keys")
+**Topics**
++ [API operations defined by Amazon Route 53](#list_route53-operations)
++ [Actions defined by Amazon Route 53](#list_route53-actions-as-permissions)
++ [Resource types defined by Amazon Route 53](#list_route53-resources-for-iam-policies)
++ [Condition keys for Amazon Route 53](#list_route53-policy-keys)
 
 ## API operations defined by Amazon Route 53
+<a name="list_route53-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_route53-actions-as-permissions "#list_route53-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_route53-actions-as-permissions).
 
-| Operation                              | IAM action                                                                                                                                                                  | Condition key | Possible value(s) | Access level   |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------- | -------------- |
-| ActivateKeySigningKey                  | [route53:ActivateKeySigningKey](#list_route53-action-ActivateKeySigningKey "#list_route53-action-ActivateKeySigningKey")                                                    |               |                   | Write          |
-| AssociateVPCWithHostedZone             | [route53:AssociateVPCWithHostedZone](#list_route53-action-AssociateVPCWithHostedZone "#list_route53-action-AssociateVPCWithHostedZone")                                     |               |                   | Write          |
-| ChangeCidrCollection                   | [route53:ChangeCidrCollection](#list_route53-action-ChangeCidrCollection "#list_route53-action-ChangeCidrCollection")                                                       |               |                   | Write          |
-| ChangeResourceRecordSets               | [route53:ChangeResourceRecordSets](#list_route53-action-ChangeResourceRecordSets "#list_route53-action-ChangeResourceRecordSets")                                           |               |                   | Write          |
-| ChangeTagsForResource                  | [route53:ChangeTagsForResource](#list_route53-action-ChangeTagsForResource "#list_route53-action-ChangeTagsForResource")                                                    |               |                   | Tagging, Write |
-| CreateCidrCollection                   | [route53:CreateCidrCollection](#list_route53-action-CreateCidrCollection "#list_route53-action-CreateCidrCollection")                                                       |               |                   | Write          |
-| CreateHealthCheck                      | [route53:CreateHealthCheck](#list_route53-action-CreateHealthCheck "#list_route53-action-CreateHealthCheck")                                                                |               |                   | Write          |
-| CreateHostedZone                       | [route53:CreateHostedZone](#list_route53-action-CreateHostedZone "#list_route53-action-CreateHostedZone")                                                                   |               |                   | Write          |
-| CreateKeySigningKey                    | [route53:CreateKeySigningKey](#list_route53-action-CreateKeySigningKey "#list_route53-action-CreateKeySigningKey")                                                          |               |                   | Write          |
-| CreateQueryLoggingConfig               | [route53:CreateQueryLoggingConfig](#list_route53-action-CreateQueryLoggingConfig "#list_route53-action-CreateQueryLoggingConfig")                                           |               |                   | Write          |
-| CreateReusableDelegationSet            | [route53:CreateReusableDelegationSet](#list_route53-action-CreateReusableDelegationSet "#list_route53-action-CreateReusableDelegationSet")                                  |               |                   | Write          |
-| CreateTrafficPolicy                    | [route53:CreateTrafficPolicy](#list_route53-action-CreateTrafficPolicy "#list_route53-action-CreateTrafficPolicy")                                                          |               |                   | Write          |
-| CreateTrafficPolicyInstance            | [route53:CreateTrafficPolicyInstance](#list_route53-action-CreateTrafficPolicyInstance "#list_route53-action-CreateTrafficPolicyInstance")                                  |               |                   | Write          |
-| CreateTrafficPolicyVersion             | [route53:CreateTrafficPolicyVersion](#list_route53-action-CreateTrafficPolicyVersion "#list_route53-action-CreateTrafficPolicyVersion")                                     |               |                   | Write          |
-| CreateVPCAssociationAuthorization      | [route53:CreateVPCAssociationAuthorization](#list_route53-action-CreateVPCAssociationAuthorization "#list_route53-action-CreateVPCAssociationAuthorization")                |               |                   | Write          |
-| DeactivateKeySigningKey                | [route53:DeactivateKeySigningKey](#list_route53-action-DeactivateKeySigningKey "#list_route53-action-DeactivateKeySigningKey")                                              |               |                   | Write          |
-| DeleteCidrCollection                   | [route53:DeleteCidrCollection](#list_route53-action-DeleteCidrCollection "#list_route53-action-DeleteCidrCollection")                                                       |               |                   | Write          |
-| DeleteHealthCheck                      | [route53:DeleteHealthCheck](#list_route53-action-DeleteHealthCheck "#list_route53-action-DeleteHealthCheck")                                                                |               |                   | Write          |
-| DeleteHostedZone                       | [route53:DeleteHostedZone](#list_route53-action-DeleteHostedZone "#list_route53-action-DeleteHostedZone")                                                                   |               |                   | Write          |
-| DeleteKeySigningKey                    | [route53:DeleteKeySigningKey](#list_route53-action-DeleteKeySigningKey "#list_route53-action-DeleteKeySigningKey")                                                          |               |                   | Write          |
-| DeleteQueryLoggingConfig               | [route53:DeleteQueryLoggingConfig](#list_route53-action-DeleteQueryLoggingConfig "#list_route53-action-DeleteQueryLoggingConfig")                                           |               |                   | Write          |
-| DeleteReusableDelegationSet            | [route53:DeleteReusableDelegationSet](#list_route53-action-DeleteReusableDelegationSet "#list_route53-action-DeleteReusableDelegationSet")                                  |               |                   | Write          |
-| DeleteTrafficPolicy                    | [route53:DeleteTrafficPolicy](#list_route53-action-DeleteTrafficPolicy "#list_route53-action-DeleteTrafficPolicy")                                                          |               |                   | Write          |
-| DeleteTrafficPolicyInstance            | [route53:DeleteTrafficPolicyInstance](#list_route53-action-DeleteTrafficPolicyInstance "#list_route53-action-DeleteTrafficPolicyInstance")                                  |               |                   | Write          |
-| DeleteVPCAssociationAuthorization      | [route53:DeleteVPCAssociationAuthorization](#list_route53-action-DeleteVPCAssociationAuthorization "#list_route53-action-DeleteVPCAssociationAuthorization")                |               |                   | Write          |
-| DisableHostedZoneDNSSEC                | [route53:DisableHostedZoneDNSSEC](#list_route53-action-DisableHostedZoneDNSSEC "#list_route53-action-DisableHostedZoneDNSSEC")                                              |               |                   | Write          |
-| DisassociateVPCFromHostedZone          | [route53:DisassociateVPCFromHostedZone](#list_route53-action-DisassociateVPCFromHostedZone "#list_route53-action-DisassociateVPCFromHostedZone")                            |               |                   | Write          |
-| EnableHostedZoneDNSSEC                 | [route53:EnableHostedZoneDNSSEC](#list_route53-action-EnableHostedZoneDNSSEC "#list_route53-action-EnableHostedZoneDNSSEC")                                                 |               |                   | Write          |
-| GetAccountLimit                        | [route53:GetAccountLimit](#list_route53-action-GetAccountLimit "#list_route53-action-GetAccountLimit")                                                                      |               |                   | Read           |
-| GetChange                              | [route53:GetChange](#list_route53-action-GetChange "#list_route53-action-GetChange")                                                                                        |               |                   | List           |
-| GetCheckerIpRanges                     | [route53:GetCheckerIpRanges](#list_route53-action-GetCheckerIpRanges "#list_route53-action-GetCheckerIpRanges")                                                             |               |                   | List           |
-| GetDNSSEC                              | [route53:GetDNSSEC](#list_route53-action-GetDNSSEC "#list_route53-action-GetDNSSEC")                                                                                        |               |                   | Read           |
-| GetGeoLocation                         | [route53:GetGeoLocation](#list_route53-action-GetGeoLocation "#list_route53-action-GetGeoLocation")                                                                         |               |                   | List           |
-| GetHealthCheck                         | [route53:GetHealthCheck](#list_route53-action-GetHealthCheck "#list_route53-action-GetHealthCheck")                                                                         |               |                   | Read           |
-| GetHealthCheckCount                    | [route53:GetHealthCheckCount](#list_route53-action-GetHealthCheckCount "#list_route53-action-GetHealthCheckCount")                                                          |               |                   | List           |
-| GetHealthCheckLastFailureReason        | [route53:GetHealthCheckLastFailureReason](#list_route53-action-GetHealthCheckLastFailureReason "#list_route53-action-GetHealthCheckLastFailureReason")                      |               |                   | List           |
-| GetHealthCheckStatus                   | [route53:GetHealthCheckStatus](#list_route53-action-GetHealthCheckStatus "#list_route53-action-GetHealthCheckStatus")                                                       |               |                   | List           |
-| GetHostedZone                          | [route53:GetHostedZone](#list_route53-action-GetHostedZone "#list_route53-action-GetHostedZone")                                                                            |               |                   | List           |
-| GetHostedZoneCount                     | [route53:GetHostedZoneCount](#list_route53-action-GetHostedZoneCount "#list_route53-action-GetHostedZoneCount")                                                             |               |                   | List           |
-| GetHostedZoneLimit                     | [route53:GetHostedZoneLimit](#list_route53-action-GetHostedZoneLimit "#list_route53-action-GetHostedZoneLimit")                                                             |               |                   | Read           |
-| GetQueryLoggingConfig                  | [route53:GetQueryLoggingConfig](#list_route53-action-GetQueryLoggingConfig "#list_route53-action-GetQueryLoggingConfig")                                                    |               |                   | Read           |
-| GetReusableDelegationSet               | [route53:GetReusableDelegationSet](#list_route53-action-GetReusableDelegationSet "#list_route53-action-GetReusableDelegationSet")                                           |               |                   | List           |
-| GetReusableDelegationSetLimit          | [route53:GetReusableDelegationSetLimit](#list_route53-action-GetReusableDelegationSetLimit "#list_route53-action-GetReusableDelegationSetLimit")                            |               |                   | Read           |
-| GetTrafficPolicy                       | [route53:GetTrafficPolicy](#list_route53-action-GetTrafficPolicy "#list_route53-action-GetTrafficPolicy")                                                                   |               |                   | Read           |
-| GetTrafficPolicyInstance               | [route53:GetTrafficPolicyInstance](#list_route53-action-GetTrafficPolicyInstance "#list_route53-action-GetTrafficPolicyInstance")                                           |               |                   | Read           |
-| GetTrafficPolicyInstanceCount          | [route53:GetTrafficPolicyInstanceCount](#list_route53-action-GetTrafficPolicyInstanceCount "#list_route53-action-GetTrafficPolicyInstanceCount")                            |               |                   | Read           |
-| ListCidrBlocks                         | [route53:ListCidrBlocks](#list_route53-action-ListCidrBlocks "#list_route53-action-ListCidrBlocks")                                                                         |               |                   | List           |
-| ListCidrCollections                    | [route53:ListCidrCollections](#list_route53-action-ListCidrCollections "#list_route53-action-ListCidrCollections")                                                          |               |                   | List           |
-| ListCidrLocations                      | [route53:ListCidrLocations](#list_route53-action-ListCidrLocations "#list_route53-action-ListCidrLocations")                                                                |               |                   | List           |
-| ListGeoLocations                       | [route53:ListGeoLocations](#list_route53-action-ListGeoLocations "#list_route53-action-ListGeoLocations")                                                                   |               |                   | Read           |
-| ListHealthChecks                       | [route53:ListHealthChecks](#list_route53-action-ListHealthChecks "#list_route53-action-ListHealthChecks")                                                                   |               |                   | Read           |
-| ListHostedZones                        | [route53:ListHostedZones](#list_route53-action-ListHostedZones "#list_route53-action-ListHostedZones")                                                                      |               |                   | List           |
-| ListHostedZonesByName                  | [route53:ListHostedZonesByName](#list_route53-action-ListHostedZonesByName "#list_route53-action-ListHostedZonesByName")                                                    |               |                   | List           |
-| ListHostedZonesByVPC                   | [route53:ListHostedZonesByVPC](#list_route53-action-ListHostedZonesByVPC "#list_route53-action-ListHostedZonesByVPC")                                                       |               |                   | List           |
-| ListQueryLoggingConfigs                | [route53:ListQueryLoggingConfigs](#list_route53-action-ListQueryLoggingConfigs "#list_route53-action-ListQueryLoggingConfigs")                                              |               |                   | List           |
-| ListResourceRecordSets                 | [route53:ListResourceRecordSets](#list_route53-action-ListResourceRecordSets "#list_route53-action-ListResourceRecordSets")                                                 |               |                   | List           |
-| ListReusableDelegationSets             | [route53:ListReusableDelegationSets](#list_route53-action-ListReusableDelegationSets "#list_route53-action-ListReusableDelegationSets")                                     |               |                   | Read           |
-| ListTagsForResource                    | [route53:ListTagsForResource](#list_route53-action-ListTagsForResource "#list_route53-action-ListTagsForResource")                                                          |               |                   | Read           |
-| ListTagsForResources                   | [route53:ListTagsForResources](#list_route53-action-ListTagsForResources "#list_route53-action-ListTagsForResources")                                                       |               |                   | Read           |
-| ListTrafficPolicies                    | [route53:ListTrafficPolicies](#list_route53-action-ListTrafficPolicies "#list_route53-action-ListTrafficPolicies")                                                          |               |                   | List           |
-| ListTrafficPolicyInstances             | [route53:ListTrafficPolicyInstances](#list_route53-action-ListTrafficPolicyInstances "#list_route53-action-ListTrafficPolicyInstances")                                     |               |                   | Read           |
-| ListTrafficPolicyInstancesByHostedZone | [route53:ListTrafficPolicyInstancesByHostedZone](#list_route53-action-ListTrafficPolicyInstancesByHostedZone "#list_route53-action-ListTrafficPolicyInstancesByHostedZone") |               |                   | List           |
-| ListTrafficPolicyInstancesByPolicy     | [route53:ListTrafficPolicyInstancesByPolicy](#list_route53-action-ListTrafficPolicyInstancesByPolicy "#list_route53-action-ListTrafficPolicyInstancesByPolicy")             |               |                   | List           |
-| ListTrafficPolicyVersions              | [route53:ListTrafficPolicyVersions](#list_route53-action-ListTrafficPolicyVersions "#list_route53-action-ListTrafficPolicyVersions")                                        |               |                   | List           |
-| ListVPCAssociationAuthorizations       | [route53:ListVPCAssociationAuthorizations](#list_route53-action-ListVPCAssociationAuthorizations "#list_route53-action-ListVPCAssociationAuthorizations")                   |               |                   | List           |
-| TestDNSAnswer                          | [route53:TestDNSAnswer](#list_route53-action-TestDNSAnswer "#list_route53-action-TestDNSAnswer")                                                                            |               |                   | Read           |
-| UpdateHealthCheck                      | [route53:UpdateHealthCheck](#list_route53-action-UpdateHealthCheck "#list_route53-action-UpdateHealthCheck")                                                                |               |                   | Write          |
-| UpdateHostedZoneComment                | [route53:UpdateHostedZoneComment](#list_route53-action-UpdateHostedZoneComment "#list_route53-action-UpdateHostedZoneComment")                                              |               |                   | Write          |
-| UpdateHostedZoneFeatures               | [route53:UpdateHostedZoneFeatures](#list_route53-action-UpdateHostedZoneFeatures "#list_route53-action-UpdateHostedZoneFeatures")                                           |               |                   | Write          |
-| UpdateTrafficPolicyComment             | [route53:UpdateTrafficPolicyComment](#list_route53-action-UpdateTrafficPolicyComment "#list_route53-action-UpdateTrafficPolicyComment")                                     |               |                   | Write          |
-| UpdateTrafficPolicyInstance            | [route53:UpdateTrafficPolicyInstance](#list_route53-action-UpdateTrafficPolicyInstance "#list_route53-action-UpdateTrafficPolicyInstance")                                  |               |                   | Write          |
+
+
+
+- **   ActivateKeySigningKey  **
+  - **IAM action:**  [route53:ActivateKeySigningKey](#list_route53-action-ActivateKeySigningKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateVPCWithHostedZone  **
+  - **IAM action:**  [route53:AssociateVPCWithHostedZone](#list_route53-action-AssociateVPCWithHostedZone) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ChangeCidrCollection  **
+  - **IAM action:**  [route53:ChangeCidrCollection](#list_route53-action-ChangeCidrCollection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ChangeResourceRecordSets  **
+  - **IAM action:**  [route53:ChangeResourceRecordSets](#list_route53-action-ChangeResourceRecordSets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ChangeTagsForResource  **
+  - **IAM action:**  [route53:ChangeTagsForResource](#list_route53-action-ChangeTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   CreateCidrCollection  **
+  - **IAM action:**  [route53:CreateCidrCollection](#list_route53-action-CreateCidrCollection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateHealthCheck  **
+  - **IAM action:**  [route53:CreateHealthCheck](#list_route53-action-CreateHealthCheck) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateHostedZone  **
+  - **IAM action:**  [route53:CreateHostedZone](#list_route53-action-CreateHostedZone) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateKeySigningKey  **
+  - **IAM action:**  [route53:CreateKeySigningKey](#list_route53-action-CreateKeySigningKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateQueryLoggingConfig  **
+  - **IAM action:**  [route53:CreateQueryLoggingConfig](#list_route53-action-CreateQueryLoggingConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateReusableDelegationSet  **
+  - **IAM action:**  [route53:CreateReusableDelegationSet](#list_route53-action-CreateReusableDelegationSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateTrafficPolicy  **
+  - **IAM action:**  [route53:CreateTrafficPolicy](#list_route53-action-CreateTrafficPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateTrafficPolicyInstance  **
+  - **IAM action:**  [route53:CreateTrafficPolicyInstance](#list_route53-action-CreateTrafficPolicyInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateTrafficPolicyVersion  **
+  - **IAM action:**  [route53:CreateTrafficPolicyVersion](#list_route53-action-CreateTrafficPolicyVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateVPCAssociationAuthorization  **
+  - **IAM action:**  [route53:CreateVPCAssociationAuthorization](#list_route53-action-CreateVPCAssociationAuthorization) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeactivateKeySigningKey  **
+  - **IAM action:**  [route53:DeactivateKeySigningKey](#list_route53-action-DeactivateKeySigningKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteCidrCollection  **
+  - **IAM action:**  [route53:DeleteCidrCollection](#list_route53-action-DeleteCidrCollection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteHealthCheck  **
+  - **IAM action:**  [route53:DeleteHealthCheck](#list_route53-action-DeleteHealthCheck) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteHostedZone  **
+  - **IAM action:**  [route53:DeleteHostedZone](#list_route53-action-DeleteHostedZone) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteKeySigningKey  **
+  - **IAM action:**  [route53:DeleteKeySigningKey](#list_route53-action-DeleteKeySigningKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteQueryLoggingConfig  **
+  - **IAM action:**  [route53:DeleteQueryLoggingConfig](#list_route53-action-DeleteQueryLoggingConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteReusableDelegationSet  **
+  - **IAM action:**  [route53:DeleteReusableDelegationSet](#list_route53-action-DeleteReusableDelegationSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteTrafficPolicy  **
+  - **IAM action:**  [route53:DeleteTrafficPolicy](#list_route53-action-DeleteTrafficPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteTrafficPolicyInstance  **
+  - **IAM action:**  [route53:DeleteTrafficPolicyInstance](#list_route53-action-DeleteTrafficPolicyInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVPCAssociationAuthorization  **
+  - **IAM action:**  [route53:DeleteVPCAssociationAuthorization](#list_route53-action-DeleteVPCAssociationAuthorization) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisableHostedZoneDNSSEC  **
+  - **IAM action:**  [route53:DisableHostedZoneDNSSEC](#list_route53-action-DisableHostedZoneDNSSEC) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateVPCFromHostedZone  **
+  - **IAM action:**  [route53:DisassociateVPCFromHostedZone](#list_route53-action-DisassociateVPCFromHostedZone) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   EnableHostedZoneDNSSEC  **
+  - **IAM action:**  [route53:EnableHostedZoneDNSSEC](#list_route53-action-EnableHostedZoneDNSSEC) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAccountLimit  **
+  - **IAM action:**  [route53:GetAccountLimit](#list_route53-action-GetAccountLimit) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetChange  **
+  - **IAM action:**  [route53:GetChange](#list_route53-action-GetChange) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetCheckerIpRanges  **
+  - **IAM action:**  [route53:GetCheckerIpRanges](#list_route53-action-GetCheckerIpRanges) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetDNSSEC  **
+  - **IAM action:**  [route53:GetDNSSEC](#list_route53-action-GetDNSSEC) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetGeoLocation  **
+  - **IAM action:**  [route53:GetGeoLocation](#list_route53-action-GetGeoLocation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetHealthCheck  **
+  - **IAM action:**  [route53:GetHealthCheck](#list_route53-action-GetHealthCheck) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetHealthCheckCount  **
+  - **IAM action:**  [route53:GetHealthCheckCount](#list_route53-action-GetHealthCheckCount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetHealthCheckLastFailureReason  **
+  - **IAM action:**  [route53:GetHealthCheckLastFailureReason](#list_route53-action-GetHealthCheckLastFailureReason) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetHealthCheckStatus  **
+  - **IAM action:**  [route53:GetHealthCheckStatus](#list_route53-action-GetHealthCheckStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetHostedZone  **
+  - **IAM action:**  [route53:GetHostedZone](#list_route53-action-GetHostedZone) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetHostedZoneCount  **
+  - **IAM action:**  [route53:GetHostedZoneCount](#list_route53-action-GetHostedZoneCount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetHostedZoneLimit  **
+  - **IAM action:**  [route53:GetHostedZoneLimit](#list_route53-action-GetHostedZoneLimit) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetQueryLoggingConfig  **
+  - **IAM action:**  [route53:GetQueryLoggingConfig](#list_route53-action-GetQueryLoggingConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReusableDelegationSet  **
+  - **IAM action:**  [route53:GetReusableDelegationSet](#list_route53-action-GetReusableDelegationSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetReusableDelegationSetLimit  **
+  - **IAM action:**  [route53:GetReusableDelegationSetLimit](#list_route53-action-GetReusableDelegationSetLimit) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTrafficPolicy  **
+  - **IAM action:**  [route53:GetTrafficPolicy](#list_route53-action-GetTrafficPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTrafficPolicyInstance  **
+  - **IAM action:**  [route53:GetTrafficPolicyInstance](#list_route53-action-GetTrafficPolicyInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTrafficPolicyInstanceCount  **
+  - **IAM action:**  [route53:GetTrafficPolicyInstanceCount](#list_route53-action-GetTrafficPolicyInstanceCount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListCidrBlocks  **
+  - **IAM action:**  [route53:ListCidrBlocks](#list_route53-action-ListCidrBlocks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCidrCollections  **
+  - **IAM action:**  [route53:ListCidrCollections](#list_route53-action-ListCidrCollections) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCidrLocations  **
+  - **IAM action:**  [route53:ListCidrLocations](#list_route53-action-ListCidrLocations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListGeoLocations  **
+  - **IAM action:**  [route53:ListGeoLocations](#list_route53-action-ListGeoLocations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListHealthChecks  **
+  - **IAM action:**  [route53:ListHealthChecks](#list_route53-action-ListHealthChecks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListHostedZones  **
+  - **IAM action:**  [route53:ListHostedZones](#list_route53-action-ListHostedZones) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListHostedZonesByName  **
+  - **IAM action:**  [route53:ListHostedZonesByName](#list_route53-action-ListHostedZonesByName) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListHostedZonesByVPC  **
+  - **IAM action:**  [route53:ListHostedZonesByVPC](#list_route53-action-ListHostedZonesByVPC) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListQueryLoggingConfigs  **
+  - **IAM action:**  [route53:ListQueryLoggingConfigs](#list_route53-action-ListQueryLoggingConfigs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListResourceRecordSets  **
+  - **IAM action:**  [route53:ListResourceRecordSets](#list_route53-action-ListResourceRecordSets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListReusableDelegationSets  **
+  - **IAM action:**  [route53:ListReusableDelegationSets](#list_route53-action-ListReusableDelegationSets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [route53:ListTagsForResource](#list_route53-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTagsForResources  **
+  - **IAM action:**  [route53:ListTagsForResources](#list_route53-action-ListTagsForResources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTrafficPolicies  **
+  - **IAM action:**  [route53:ListTrafficPolicies](#list_route53-action-ListTrafficPolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTrafficPolicyInstances  **
+  - **IAM action:**  [route53:ListTrafficPolicyInstances](#list_route53-action-ListTrafficPolicyInstances) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTrafficPolicyInstancesByHostedZone  **
+  - **IAM action:**  [route53:ListTrafficPolicyInstancesByHostedZone](#list_route53-action-ListTrafficPolicyInstancesByHostedZone) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTrafficPolicyInstancesByPolicy  **
+  - **IAM action:**  [route53:ListTrafficPolicyInstancesByPolicy](#list_route53-action-ListTrafficPolicyInstancesByPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTrafficPolicyVersions  **
+  - **IAM action:**  [route53:ListTrafficPolicyVersions](#list_route53-action-ListTrafficPolicyVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListVPCAssociationAuthorizations  **
+  - **IAM action:**  [route53:ListVPCAssociationAuthorizations](#list_route53-action-ListVPCAssociationAuthorizations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   TestDNSAnswer  **
+  - **IAM action:**  [route53:TestDNSAnswer](#list_route53-action-TestDNSAnswer) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   UpdateHealthCheck  **
+  - **IAM action:**  [route53:UpdateHealthCheck](#list_route53-action-UpdateHealthCheck) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateHostedZoneComment  **
+  - **IAM action:**  [route53:UpdateHostedZoneComment](#list_route53-action-UpdateHostedZoneComment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateHostedZoneFeatures  **
+  - **IAM action:**  [route53:UpdateHostedZoneFeatures](#list_route53-action-UpdateHostedZoneFeatures) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateTrafficPolicyComment  **
+  - **IAM action:**  [route53:UpdateTrafficPolicyComment](#list_route53-action-UpdateTrafficPolicyComment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateTrafficPolicyInstance  **
+  - **IAM action:**  [route53:UpdateTrafficPolicyInstance](#list_route53-action-UpdateTrafficPolicyInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon Route 53
+<a name="list_route53-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                           | Description                                                                                                                                                                                                                | Resource types (\*required)                                                                                            | Condition keys                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Access level   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [ActivateKeySigningKey](../../../Route53/latest/APIReference/API_ActivateKeySigningKey.md "../../../Route53/latest/APIReference/API_ActivateKeySigningKey.md")                                                    | Grants permission to activate a key-signing key so that it can be used for signing by DNSSEC                                                                                                                               | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [AssociateVPCWithHostedZone](../../../Route53/latest/APIReference/API_AssociateVPCWithHostedZone.md "../../../Route53/latest/APIReference/API_AssociateVPCWithHostedZone.md")                                     | Grants permission to associate an additional Amazon VPC with a private hosted zone                                                                                                                                         | [hostedzone](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                    | [route53:VPCs](#list_route53-route53_VPCs "#list_route53-route53_VPCs")                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Write          |
-| [ChangeCidrCollection](../../../Route53/latest/APIReference/API_ChangeCidrCollection.md "../../../Route53/latest/APIReference/API_ChangeCidrCollection.md")                                                       | Grants permission to create or delete CIDR blocks within a CIDR collection                                                                                                                                                 | [cidrcollection\*](#list_route53-resource-cidrcollection "#list_route53-resource-cidrcollection")                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [ChangeResourceRecordSets](../../../Route53/latest/APIReference/API_ChangeResourceRecordSets.md "../../../Route53/latest/APIReference/API_ChangeResourceRecordSets.md")                                           | Grants permission to create, update, or delete a record, which contains authoritative DNS information for a specified domain or subdomain name                                                                             | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  | [route53:ChangeResourceRecordSetsActions](#list_route53-route53_ChangeResourceRecordSetsActions "#list_route53-route53_ChangeResourceRecordSetsActions")<br>[route53:ChangeResourceRecordSetsNormalizedRecordNames](#list_route53-route53_ChangeResourceRecordSetsNormalizedRecordNames "#list_route53-route53_ChangeResourceRecordSetsNormalizedRecordNames")<br>[route53:ChangeResourceRecordSetsRecordTypes](#list_route53-route53_ChangeResourceRecordSetsRecordTypes "#list_route53-route53_ChangeResourceRecordSetsRecordTypes") | Write          |
-| [ChangeTagsForResource](../../../Route53/latest/APIReference/API_ChangeTagsForResource.md "../../../Route53/latest/APIReference/API_ChangeTagsForResource.md")                                                    | Grants permission to add, edit, or delete tags for a health check or a hosted zone                                                                                                                                         | [healthcheck\*](#list_route53-resource-healthcheck "#list_route53-resource-healthcheck")                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Tagging, Write |
-| [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                                                                                                             |                                                                                                                                                                                                                            |
-| [CreateCidrCollection](../../../Route53/latest/APIReference/API_CreateCidrCollection.md "../../../Route53/latest/APIReference/API_CreateCidrCollection.md")                                                       | Grants permission to create a new CIDR collection                                                                                                                                                                          |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [CreateHealthCheck](../../../Route53/latest/APIReference/API_CreateHealthCheck.md "../../../Route53/latest/APIReference/API_CreateHealthCheck.md")                                                                | Grants permission to create a new health check, which monitors the health and performance of your web applications, web servers, and other resources                                                                       |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [CreateHostedZone](../../../Route53/latest/APIReference/API_CreateHostedZone.md "../../../Route53/latest/APIReference/API_CreateHostedZone.md")                                                                   | Grants permission to create a public hosted zone, which you use to specify how the Domain Name System (DNS) routes traffic on the Internet for a domain, such as example.com, and its subdomains                           |                                                                                                                        | [route53:VPCs](#list_route53-route53_VPCs "#list_route53-route53_VPCs")                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Write          |
-| [CreateKeySigningKey](../../../Route53/latest/APIReference/API_CreateKeySigningKey.md "../../../Route53/latest/APIReference/API_CreateKeySigningKey.md")                                                          | Grants permission to create a new key-signing key associated with a hosted zone                                                                                                                                            | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [CreateQueryLoggingConfig](../../../Route53/latest/APIReference/API_CreateQueryLoggingConfig.md "../../../Route53/latest/APIReference/API_CreateQueryLoggingConfig.md")                                           | Grants permission to create a configuration for DNS query logging                                                                                                                                                          | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [CreateReusableDelegationSet](../../../Route53/latest/APIReference/API_CreateReusableDelegationSet.md "../../../Route53/latest/APIReference/API_CreateReusableDelegationSet.md")                                  | Grants permission to create a delegation set (a group of four name servers) that can be reused by multiple hosted zones                                                                                                    |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [CreateTrafficPolicy](../../../Route53/latest/APIReference/API_CreateTrafficPolicy.md "../../../Route53/latest/APIReference/API_CreateTrafficPolicy.md")                                                          | Grants permission to create a traffic policy, which you use to create multiple DNS records for one domain name (such as example.com) or one subdomain name (such as www.example.com)                                       |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [CreateTrafficPolicyInstance](../../../Route53/latest/APIReference/API_CreateTrafficPolicyInstance.md "../../../Route53/latest/APIReference/API_CreateTrafficPolicyInstance.md")                                  | Grants permission to create records in a specified hosted zone based on the settings in a specified traffic policy version                                                                                                 | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [trafficpolicy\*](#list_route53-resource-trafficpolicy "#list_route53-resource-trafficpolicy")                                                                                                                    |                                                                                                                                                                                                                            |
-| [CreateTrafficPolicyVersion](../../../Route53/latest/APIReference/API_CreateTrafficPolicyVersion.md "../../../Route53/latest/APIReference/API_CreateTrafficPolicyVersion.md")                                     | Grants permission to create a new version of an existing traffic policy                                                                                                                                                    | [trafficpolicy\*](#list_route53-resource-trafficpolicy "#list_route53-resource-trafficpolicy")                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [CreateVPCAssociationAuthorization](../../../Route53/latest/APIReference/API_CreateVPCAssociationAuthorization.md "../../../Route53/latest/APIReference/API_CreateVPCAssociationAuthorization.md")                | Grants permission to authorize the AWS account that created a specified VPC to submit an AssociateVPCWithHostedZone request, which associates the VPC with a specified hosted zone that was created by a different account | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  | [route53:VPCs](#list_route53-route53_VPCs "#list_route53-route53_VPCs")                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Write          |
-| [DeactivateKeySigningKey](../../../Route53/latest/APIReference/API_DeactivateKeySigningKey.md "../../../Route53/latest/APIReference/API_DeactivateKeySigningKey.md")                                              | Grants permission to deactivate a key-signing key so that it will not be used for signing by DNSSEC                                                                                                                        | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [DeleteCidrCollection](../../../Route53/latest/APIReference/API_DeleteCidrCollection.md "../../../Route53/latest/APIReference/API_DeleteCidrCollection.md")                                                       | Grants permission to delete a CIDR collection                                                                                                                                                                              | [cidrcollection\*](#list_route53-resource-cidrcollection "#list_route53-resource-cidrcollection")                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [DeleteHealthCheck](../../../Route53/latest/APIReference/API_DeleteHealthCheck.md "../../../Route53/latest/APIReference/API_DeleteHealthCheck.md")                                                                | Grants permission to delete a health check                                                                                                                                                                                 | [healthcheck\*](#list_route53-resource-healthcheck "#list_route53-resource-healthcheck")                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [DeleteHostedZone](../../../Route53/latest/APIReference/API_DeleteHostedZone.md "../../../Route53/latest/APIReference/API_DeleteHostedZone.md")                                                                   | Grants permission to delete a hosted zone                                                                                                                                                                                  | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [DeleteKeySigningKey](../../../Route53/latest/APIReference/API_DeleteKeySigningKey.md "../../../Route53/latest/APIReference/API_DeleteKeySigningKey.md")                                                          | Grants permission to delete a key-signing key                                                                                                                                                                              | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [DeleteQueryLoggingConfig](../../../Route53/latest/APIReference/API_DeleteQueryLoggingConfig.md "../../../Route53/latest/APIReference/API_DeleteQueryLoggingConfig.md")                                           | Grants permission to delete a configuration for DNS query logging                                                                                                                                                          | [queryloggingconfig\*](#list_route53-resource-queryloggingconfig "#list_route53-resource-queryloggingconfig")          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [DeleteReusableDelegationSet](../../../Route53/latest/APIReference/API_DeleteReusableDelegationSet.md "../../../Route53/latest/APIReference/API_DeleteReusableDelegationSet.md")                                  | Grants permission to delete a reusable delegation set                                                                                                                                                                      | [delegationset\*](#list_route53-resource-delegationset "#list_route53-resource-delegationset")                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [DeleteTrafficPolicy](../../../Route53/latest/APIReference/API_DeleteTrafficPolicy.md "../../../Route53/latest/APIReference/API_DeleteTrafficPolicy.md")                                                          | Grants permission to delete a traffic policy                                                                                                                                                                               | [trafficpolicy\*](#list_route53-resource-trafficpolicy "#list_route53-resource-trafficpolicy")                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [DeleteTrafficPolicyInstance](../../../Route53/latest/APIReference/API_DeleteTrafficPolicyInstance.md "../../../Route53/latest/APIReference/API_DeleteTrafficPolicyInstance.md")                                  | Grants permission to delete a traffic policy instance and all the records that Route 53 created when you created the instance                                                                                              | [trafficpolicyinstance\*](#list_route53-resource-trafficpolicyinstance "#list_route53-resource-trafficpolicyinstance") |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [DeleteVPCAssociationAuthorization](../../../Route53/latest/APIReference/API_DeleteVPCAssociationAuthorization.md "../../../Route53/latest/APIReference/API_DeleteVPCAssociationAuthorization.md")                | Grants permission to remove authorization for associating an Amazon Virtual Private Cloud with a Route 53 private hosted zone                                                                                              | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  | [route53:VPCs](#list_route53-route53_VPCs "#list_route53-route53_VPCs")                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Write          |
-| [DisableHostedZoneDNSSEC](../../../Route53/latest/APIReference/API_DisableHostedZoneDNSSEC.md "../../../Route53/latest/APIReference/API_DisableHostedZoneDNSSEC.md")                                              | Grants permission to disable DNSSEC signing in a specific hosted zone                                                                                                                                                      | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [DisassociateVPCFromHostedZone](../../../Route53/latest/APIReference/API_DisassociateVPCFromHostedZone.md "../../../Route53/latest/APIReference/API_DisassociateVPCFromHostedZone.md")                            | Grants permission to disassociate an Amazon Virtual Private Cloud from a Route 53 private hosted zone                                                                                                                      | [hostedzone](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                    | [route53:VPCs](#list_route53-route53_VPCs "#list_route53-route53_VPCs")                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Write          |
-| [EnableHostedZoneDNSSEC](../../../Route53/latest/APIReference/API_EnableHostedZoneDNSSEC.md "../../../Route53/latest/APIReference/API_EnableHostedZoneDNSSEC.md")                                                 | Grants permission to enable DNSSEC signing in a specific hosted zone                                                                                                                                                       | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [GetAccountLimit](../../../Route53/latest/APIReference/API_GetAccountLimit.md "../../../Route53/latest/APIReference/API_GetAccountLimit.md")                                                                      | Grants permission to get the specified limit for the current account, for example, the maximum number of health checks that you can create using the account                                                               |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [GetChange](../../../Route53/latest/APIReference/API_GetChange.md "../../../Route53/latest/APIReference/API_GetChange.md")                                                                                        | Grants permission to get the current status of a request to create, update, or delete one or more records                                                                                                                  | [change\*](#list_route53-resource-change "#list_route53-resource-change")                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [GetCheckerIpRanges](../../../Route53/latest/APIReference/API_GetCheckerIpRanges.md "../../../Route53/latest/APIReference/API_GetCheckerIpRanges.md")                                                             | Grants permission to get a list of the IP ranges that are used by Route 53 health checkers to check the health of your resources                                                                                           |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [GetDNSSEC](../../../Route53/latest/APIReference/API_GetDNSSEC.md "../../../Route53/latest/APIReference/API_GetDNSSEC.md")                                                                                        | Grants permission to get information about DNSSEC for a specific hosted zone, including the key-signing keys in the hosted zone                                                                                            | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [GetGeoLocation](../../../Route53/latest/APIReference/API_GetGeoLocation.md "../../../Route53/latest/APIReference/API_GetGeoLocation.md")                                                                         | Grants permission to get information about whether a specified geographic location is supported for Route 53 geolocation records                                                                                           |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [GetHealthCheck](../../../Route53/latest/APIReference/API_GetHealthCheck.md "../../../Route53/latest/APIReference/API_GetHealthCheck.md")                                                                         | Grants permission to get information about a specified health check                                                                                                                                                        | [healthcheck\*](#list_route53-resource-healthcheck "#list_route53-resource-healthcheck")                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [GetHealthCheckCount](../../../Route53/latest/APIReference/API_GetHealthCheckCount.md "../../../Route53/latest/APIReference/API_GetHealthCheckCount.md")                                                          | Grants permission to get the number of health checks that are associated with the current AWS account                                                                                                                      |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [GetHealthCheckLastFailureReason](../../../Route53/latest/APIReference/API_GetHealthCheckLastFailureReason.md "../../../Route53/latest/APIReference/API_GetHealthCheckLastFailureReason.md")                      | Grants permission to get the reason that a specified health check failed most recently                                                                                                                                     | [healthcheck\*](#list_route53-resource-healthcheck "#list_route53-resource-healthcheck")                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [GetHealthCheckStatus](../../../Route53/latest/APIReference/API_GetHealthCheckStatus.md "../../../Route53/latest/APIReference/API_GetHealthCheckStatus.md")                                                       | Grants permission to get the status of a specified health check                                                                                                                                                            | [healthcheck\*](#list_route53-resource-healthcheck "#list_route53-resource-healthcheck")                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [GetHostedZone](../../../Route53/latest/APIReference/API_GetHostedZone.md "../../../Route53/latest/APIReference/API_GetHostedZone.md")                                                                            | Grants permission to get information about a specified hosted zone including the four name servers that Route 53 assigned to the hosted zone                                                                               | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [GetHostedZoneCount](../../../Route53/latest/APIReference/API_GetHostedZoneCount.md "../../../Route53/latest/APIReference/API_GetHostedZoneCount.md")                                                             | Grants permission to get the number of hosted zones that are associated with the current AWS account                                                                                                                       |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [GetHostedZoneLimit](../../../Route53/latest/APIReference/API_GetHostedZoneLimit.md "../../../Route53/latest/APIReference/API_GetHostedZoneLimit.md")                                                             | Grants permission to get the specified limit for a specified hosted zone                                                                                                                                                   | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [GetQueryLoggingConfig](../../../Route53/latest/APIReference/API_GetQueryLoggingConfig.md "../../../Route53/latest/APIReference/API_GetQueryLoggingConfig.md")                                                    | Grants permission to get information about a specified configuration for DNS query logging                                                                                                                                 | [queryloggingconfig\*](#list_route53-resource-queryloggingconfig "#list_route53-resource-queryloggingconfig")          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [GetReusableDelegationSet](../../../Route53/latest/APIReference/API_GetReusableDelegationSet.md "../../../Route53/latest/APIReference/API_GetReusableDelegationSet.md")                                           | Grants permission to get information about a specified reusable delegation set, including the four name servers that are assigned to the delegation set                                                                    | [delegationset\*](#list_route53-resource-delegationset "#list_route53-resource-delegationset")                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [GetReusableDelegationSetLimit](../../../Route53/latest/APIReference/API_GetReusableDelegationSetLimit.md "../../../Route53/latest/APIReference/API_GetReusableDelegationSetLimit.md")                            | Grants permission to get the maximum number of hosted zones that you can associate with the specified reusable delegation set                                                                                              | [delegationset\*](#list_route53-resource-delegationset "#list_route53-resource-delegationset")                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [GetTrafficPolicy](../../../Route53/latest/APIReference/API_GetTrafficPolicy.md "../../../Route53/latest/APIReference/API_GetTrafficPolicy.md")                                                                   | Grants permission to get information about a specified traffic policy version                                                                                                                                              | [trafficpolicy\*](#list_route53-resource-trafficpolicy "#list_route53-resource-trafficpolicy")                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [GetTrafficPolicyInstance](../../../Route53/latest/APIReference/API_GetTrafficPolicyInstance.md "../../../Route53/latest/APIReference/API_GetTrafficPolicyInstance.md")                                           | Grants permission to get information about a specified traffic policy instance                                                                                                                                             | [trafficpolicyinstance\*](#list_route53-resource-trafficpolicyinstance "#list_route53-resource-trafficpolicyinstance") |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [GetTrafficPolicyInstanceCount](../../../Route53/latest/APIReference/API_GetTrafficPolicyInstanceCount.md "../../../Route53/latest/APIReference/API_GetTrafficPolicyInstanceCount.md")                            | Grants permission to get the number of traffic policy instances that are associated with the current AWS account                                                                                                           |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [ListCidrBlocks](../../../Route53/latest/APIReference/API_ListCidrBlocks.md "../../../Route53/latest/APIReference/API_ListCidrBlocks.md")                                                                         | Grants permission to get a list of the CIDR blocks within a specified CIDR collection                                                                                                                                      | [cidrcollection\*](#list_route53-resource-cidrcollection "#list_route53-resource-cidrcollection")                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [ListCidrCollections](../../../Route53/latest/APIReference/API_ListCidrCollections.md "../../../Route53/latest/APIReference/API_ListCidrCollections.md")                                                          | Grants permission to get a list of the CIDR collections that are associated with the current AWS account                                                                                                                   |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [ListCidrLocations](../../../Route53/latest/APIReference/API_ListCidrLocations.md "../../../Route53/latest/APIReference/API_ListCidrLocations.md")                                                                | Grants permission to get a list of the CIDR locations that belong to a specified CIDR collection                                                                                                                           | [cidrcollection\*](#list_route53-resource-cidrcollection "#list_route53-resource-cidrcollection")                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [ListGeoLocations](../../../Route53/latest/APIReference/API_ListGeoLocations.md "../../../Route53/latest/APIReference/API_ListGeoLocations.md")                                                                   | Grants permission to get a list of geographic locations that Route 53 supports for geolocation                                                                                                                             |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [ListHealthChecks](../../../Route53/latest/APIReference/API_ListHealthChecks.md "../../../Route53/latest/APIReference/API_ListHealthChecks.md")                                                                   | Grants permission to get a list of the health checks that are associated with the current AWS account                                                                                                                      |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [ListHostedZones](../../../Route53/latest/APIReference/API_ListHostedZones.md "../../../Route53/latest/APIReference/API_ListHostedZones.md")                                                                      | Grants permission to get a list of the public and private hosted zones that are associated with the current AWS account                                                                                                    |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [ListHostedZonesByName](../../../Route53/latest/APIReference/API_ListHostedZonesByName.md "../../../Route53/latest/APIReference/API_ListHostedZonesByName.md")                                                    | Grants permission to get a list of your hosted zones in lexicographic order. Hosted zones are sorted by name with the labels reversed, for example, com.example.www                                                        |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [ListHostedZonesByVPC](../../../Route53/latest/APIReference/API_ListHostedZonesByVPC.md "../../../Route53/latest/APIReference/API_ListHostedZonesByVPC.md")                                                       | Grants permission to get a list of all the private hosted zones that a specified VPC is associated with                                                                                                                    |                                                                                                                        | [route53:VPCs](#list_route53-route53_VPCs "#list_route53-route53_VPCs")                                                                                                                                                                                                                                                                                                                                                                                                                                                                | List           |
-| [ListQueryLoggingConfigs](../../../Route53/latest/APIReference/API_ListQueryLoggingConfigs.md "../../../Route53/latest/APIReference/API_ListQueryLoggingConfigs.md")                                              | Grants permission to list the configurations for DNS query logging that are associated with the current AWS account or the configuration that is associated with a specified hosted zone                                   | [hostedzone](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [ListResourceRecordSets](../../../Route53/latest/APIReference/API_ListResourceRecordSets.md "../../../Route53/latest/APIReference/API_ListResourceRecordSets.md")                                                 | Grants permission to list the records in a specified hosted zone                                                                                                                                                           | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [ListReusableDelegationSets](../../../Route53/latest/APIReference/API_ListReusableDelegationSets.md "../../../Route53/latest/APIReference/API_ListReusableDelegationSets.md")                                     | Grants permission to list the reusable delegation sets that are associated with the current AWS account.                                                                                                                   |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [ListTagsForResource](../../../Route53/latest/APIReference/API_ListTagsForResource.md "../../../Route53/latest/APIReference/API_ListTagsForResource.md")                                                          | Grants permission to list tags for one health check or hosted zone                                                                                                                                                         | [healthcheck](#list_route53-resource-healthcheck "#list_route53-resource-healthcheck")                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [hostedzone](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                                                                                                               |                                                                                                                                                                                                                            |
-| [ListTagsForResources](../../../Route53/latest/APIReference/API_ListTagsForResources.md "../../../Route53/latest/APIReference/API_ListTagsForResources.md")                                                       | Grants permission to list tags for up to 10 health checks or hosted zones                                                                                                                                                  | [healthcheck](#list_route53-resource-healthcheck "#list_route53-resource-healthcheck")                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [hostedzone](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                                                                                                               |                                                                                                                                                                                                                            |
-| [ListTrafficPolicies](../../../Route53/latest/APIReference/API_ListTrafficPolicies.md "../../../Route53/latest/APIReference/API_ListTrafficPolicies.md")                                                          | Grants permission to get information about the latest version for every traffic policy that is associated with the current AWS account. Policies are listed in the order in which they were created                        |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [ListTrafficPolicyInstances](../../../Route53/latest/APIReference/API_ListTrafficPolicyInstances.md "../../../Route53/latest/APIReference/API_ListTrafficPolicyInstances.md")                                     | Grants permission to get information about the traffic policy instances that you created by using the current AWS account                                                                                                  |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [ListTrafficPolicyInstancesByHostedZone](../../../Route53/latest/APIReference/API_ListTrafficPolicyInstancesByHostedZone.md "../../../Route53/latest/APIReference/API_ListTrafficPolicyInstancesByHostedZone.md") | Grants permission to get information about the traffic policy instances that you created in a specified hosted zone                                                                                                        | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [ListTrafficPolicyInstancesByPolicy](../../../Route53/latest/APIReference/API_ListTrafficPolicyInstancesByPolicy.md "../../../Route53/latest/APIReference/API_ListTrafficPolicyInstancesByPolicy.md")             | Grants permission to get information about the traffic policy instances that you created using a specified traffic policy version                                                                                          | [trafficpolicy\*](#list_route53-resource-trafficpolicy "#list_route53-resource-trafficpolicy")                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [ListTrafficPolicyVersions](../../../Route53/latest/APIReference/API_ListTrafficPolicyVersions.md "../../../Route53/latest/APIReference/API_ListTrafficPolicyVersions.md")                                        | Grants permission to get information about all the versions for a specified traffic policy                                                                                                                                 | [trafficpolicy\*](#list_route53-resource-trafficpolicy "#list_route53-resource-trafficpolicy")                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [ListVPCAssociationAuthorizations](../../../Route53/latest/APIReference/API_ListVPCAssociationAuthorizations.md "../../../Route53/latest/APIReference/API_ListVPCAssociationAuthorizations.md")                   | Grants permission to get a list of the VPCs that were created by other accounts and that can be associated with a specified hosted zone                                                                                    | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | List           |
-| [TestDNSAnswer](../../../Route53/latest/APIReference/API_TestDNSAnswer.md "../../../Route53/latest/APIReference/API_TestDNSAnswer.md")                                                                            | Grants permission to get the value that Route 53 returns in response to a DNS query for a specified record name and type                                                                                                   |                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [UpdateHealthCheck](../../../Route53/latest/APIReference/API_UpdateHealthCheck.md "../../../Route53/latest/APIReference/API_UpdateHealthCheck.md")                                                                | Grants permission to update an existing health check                                                                                                                                                                       | [healthcheck\*](#list_route53-resource-healthcheck "#list_route53-resource-healthcheck")                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [UpdateHostedZoneComment](../../../Route53/latest/APIReference/API_UpdateHostedZoneComment.md "../../../Route53/latest/APIReference/API_UpdateHostedZoneComment.md")                                              | Grants permission to update the comment for a specified hosted zone                                                                                                                                                        | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [UpdateHostedZoneFeatures](../../../Route53/latest/APIReference/API_UpdateHostedZoneFeatures.md "../../../Route53/latest/APIReference/API_UpdateHostedZoneFeatures.md")                                           | Grants permission to update features for a specified hosted zone                                                                                                                                                           | [hostedzone\*](#list_route53-resource-hostedzone "#list_route53-resource-hostedzone")                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [UpdateTrafficPolicyComment](../../../Route53/latest/APIReference/API_UpdateTrafficPolicyComment.md "../../../Route53/latest/APIReference/API_UpdateTrafficPolicyComment.md")                                     | Grants permission to update the comment for a specified traffic policy version                                                                                                                                             | [trafficpolicy\*](#list_route53-resource-trafficpolicy "#list_route53-resource-trafficpolicy")                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [UpdateTrafficPolicyInstance](../../../Route53/latest/APIReference/API_UpdateTrafficPolicyInstance.md "../../../Route53/latest/APIReference/API_UpdateTrafficPolicyInstance.md")                                  | Grants permission to update the records in a specified hosted zone that were created based on the settings in a specified traffic policy version                                                                           | [trafficpolicyinstance\*](#list_route53-resource-trafficpolicyinstance "#list_route53-resource-trafficpolicyinstance") |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write          |
+
+
+
+- **   [ActivateKeySigningKey](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ActivateKeySigningKey.html)  **
+  - **Description:** Grants permission to activate a key-signing key so that it can be used for signing by DNSSEC
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [AssociateVPCWithHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html)  **
+  - **Description:** Grants permission to associate an additional Amazon VPC with a private hosted zone
+  - **Resource types (\*required):** [hostedzone](#list_route53-resource-hostedzone)
+  - **Condition keys:** [route53:VPCs](#list_route53-route53_VPCs)
+  - **Access level:** Write
+
+- **   [ChangeCidrCollection](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeCidrCollection.html)  **
+  - **Description:** Grants permission to create or delete CIDR blocks within a CIDR collection
+  - **Resource types (\*required):** [cidrcollection\*](#list_route53-resource-cidrcollection)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html)  **
+  - **Description:** Grants permission to create, update, or delete a record, which contains authoritative DNS information for a specified domain or subdomain name
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:** [route53:ChangeResourceRecordSetsActions](#list_route53-route53_ChangeResourceRecordSetsActions)<br />[route53:ChangeResourceRecordSetsNormalizedRecordNames](#list_route53-route53_ChangeResourceRecordSetsNormalizedRecordNames)<br />[route53:ChangeResourceRecordSetsRecordTypes](#list_route53-route53_ChangeResourceRecordSetsRecordTypes)
+  - **Access level:** Write
+
+- **   [ChangeTagsForResource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeTagsForResource.html)  **
+  - **Description:** Grants permission to add, edit, or delete tags for a health check or a hosted zone
+  - **Resource types (\*required):** [healthcheck\*](#list_route53-resource-healthcheck) / **Condition keys:**  
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone) / **Condition keys:**  
+  - **Access level:** Tagging, Write
+
+- **   [CreateCidrCollection](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateCidrCollection.html)  **
+  - **Description:** Grants permission to create a new CIDR collection
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateHealthCheck](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHealthCheck.html)  **
+  - **Description:** Grants permission to create a new health check, which monitors the health and performance of your web applications, web servers, and other resources
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html)  **
+  - **Description:** Grants permission to create a public hosted zone, which you use to specify how the Domain Name System (DNS) routes traffic on the Internet for a domain, such as example.com, and its subdomains
+  - **Resource types (\*required):** 
+  - **Condition keys:** [route53:VPCs](#list_route53-route53_VPCs)
+  - **Access level:** Write
+
+- **   [CreateKeySigningKey](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html)  **
+  - **Description:** Grants permission to create a new key-signing key associated with a hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html)  **
+  - **Description:** Grants permission to create a configuration for DNS query logging
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateReusableDelegationSet](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html)  **
+  - **Description:** Grants permission to create a delegation set (a group of four name servers) that can be reused by multiple hosted zones
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html)  **
+  - **Description:** Grants permission to create a traffic policy, which you use to create multiple DNS records for one domain name (such as example.com) or one subdomain name (such as www.example.com)
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateTrafficPolicyInstance](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicyInstance.html)  **
+  - **Description:** Grants permission to create records in a specified hosted zone based on the settings in a specified traffic policy version
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone) / **Condition keys:**  
+  - **Resource types (\*required):** [trafficpolicy\*](#list_route53-resource-trafficpolicy) / **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateTrafficPolicyVersion](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicyVersion.html)  **
+  - **Description:** Grants permission to create a new version of an existing traffic policy
+  - **Resource types (\*required):** [trafficpolicy\*](#list_route53-resource-trafficpolicy)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateVPCAssociationAuthorization](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateVPCAssociationAuthorization.html)  **
+  - **Description:** Grants permission to authorize the AWS account that created a specified VPC to submit an AssociateVPCWithHostedZone request, which associates the VPC with a specified hosted zone that was created by a different account
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:** [route53:VPCs](#list_route53-route53_VPCs)
+  - **Access level:** Write
+
+- **   [DeactivateKeySigningKey](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeactivateKeySigningKey.html)  **
+  - **Description:** Grants permission to deactivate a key-signing key so that it will not be used for signing by DNSSEC
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteCidrCollection](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteCidrCollection.html)  **
+  - **Description:** Grants permission to delete a CIDR collection
+  - **Resource types (\*required):** [cidrcollection\*](#list_route53-resource-cidrcollection)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteHealthCheck](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html)  **
+  - **Description:** Grants permission to delete a health check
+  - **Resource types (\*required):** [healthcheck\*](#list_route53-resource-healthcheck)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html)  **
+  - **Description:** Grants permission to delete a hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteKeySigningKey](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteKeySigningKey.html)  **
+  - **Description:** Grants permission to delete a key-signing key
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteQueryLoggingConfig.html)  **
+  - **Description:** Grants permission to delete a configuration for DNS query logging
+  - **Resource types (\*required):** [queryloggingconfig\*](#list_route53-resource-queryloggingconfig)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteReusableDelegationSet](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteReusableDelegationSet.html)  **
+  - **Description:** Grants permission to delete a reusable delegation set
+  - **Resource types (\*required):** [delegationset\*](#list_route53-resource-delegationset)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html)  **
+  - **Description:** Grants permission to delete a traffic policy
+  - **Resource types (\*required):** [trafficpolicy\*](#list_route53-resource-trafficpolicy)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteTrafficPolicyInstance](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicyInstance.html)  **
+  - **Description:** Grants permission to delete a traffic policy instance and all the records that Route 53 created when you created the instance
+  - **Resource types (\*required):** [trafficpolicyinstance\*](#list_route53-resource-trafficpolicyinstance)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteVPCAssociationAuthorization](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteVPCAssociationAuthorization.html)  **
+  - **Description:** Grants permission to remove authorization for associating an Amazon Virtual Private Cloud with a Route 53 private hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:** [route53:VPCs](#list_route53-route53_VPCs)
+  - **Access level:** Write
+
+- **   [DisableHostedZoneDNSSEC](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DisableHostedZoneDNSSEC.html)  **
+  - **Description:** Grants permission to disable DNSSEC signing in a specific hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DisassociateVPCFromHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DisassociateVPCFromHostedZone.html)  **
+  - **Description:** Grants permission to disassociate an Amazon Virtual Private Cloud from a Route 53 private hosted zone
+  - **Resource types (\*required):** [hostedzone](#list_route53-resource-hostedzone)
+  - **Condition keys:** [route53:VPCs](#list_route53-route53_VPCs)
+  - **Access level:** Write
+
+- **   [EnableHostedZoneDNSSEC](https://docs.aws.amazon.com/Route53/latest/APIReference/API_EnableHostedZoneDNSSEC.html)  **
+  - **Description:** Grants permission to enable DNSSEC signing in a specific hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [GetAccountLimit](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html)  **
+  - **Description:** Grants permission to get the specified limit for the current account, for example, the maximum number of health checks that you can create using the account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetChange](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html)  **
+  - **Description:** Grants permission to get the current status of a request to create, update, or delete one or more records
+  - **Resource types (\*required):** [change\*](#list_route53-resource-change)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [GetCheckerIpRanges](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetCheckerIpRanges.html)  **
+  - **Description:** Grants permission to get a list of the IP ranges that are used by Route 53 health checkers to check the health of your resources
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [GetDNSSEC](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetDNSSEC.html)  **
+  - **Description:** Grants permission to get information about DNSSEC for a specific hosted zone, including the key-signing keys in the hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetGeoLocation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html)  **
+  - **Description:** Grants permission to get information about whether a specified geographic location is supported for Route 53 geolocation records
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [GetHealthCheck](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheck.html)  **
+  - **Description:** Grants permission to get information about a specified health check
+  - **Resource types (\*required):** [healthcheck\*](#list_route53-resource-healthcheck)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetHealthCheckCount](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckCount.html)  **
+  - **Description:** Grants permission to get the number of health checks that are associated with the current AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [GetHealthCheckLastFailureReason](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckLastFailureReason.html)  **
+  - **Description:** Grants permission to get the reason that a specified health check failed most recently
+  - **Resource types (\*required):** [healthcheck\*](#list_route53-resource-healthcheck)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [GetHealthCheckStatus](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckStatus.html)  **
+  - **Description:** Grants permission to get the status of a specified health check
+  - **Resource types (\*required):** [healthcheck\*](#list_route53-resource-healthcheck)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [GetHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html)  **
+  - **Description:** Grants permission to get information about a specified hosted zone including the four name servers that Route 53 assigned to the hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [GetHostedZoneCount](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneCount.html)  **
+  - **Description:** Grants permission to get the number of hosted zones that are associated with the current AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [GetHostedZoneLimit](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneLimit.html)  **
+  - **Description:** Grants permission to get the specified limit for a specified hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetQueryLoggingConfig](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetQueryLoggingConfig.html)  **
+  - **Description:** Grants permission to get information about a specified configuration for DNS query logging
+  - **Resource types (\*required):** [queryloggingconfig\*](#list_route53-resource-queryloggingconfig)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetReusableDelegationSet](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html)  **
+  - **Description:** Grants permission to get information about a specified reusable delegation set, including the four name servers that are assigned to the delegation set
+  - **Resource types (\*required):** [delegationset\*](#list_route53-resource-delegationset)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [GetReusableDelegationSetLimit](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSetLimit.html)  **
+  - **Description:** Grants permission to get the maximum number of hosted zones that you can associate with the specified reusable delegation set
+  - **Resource types (\*required):** [delegationset\*](#list_route53-resource-delegationset)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html)  **
+  - **Description:** Grants permission to get information about a specified traffic policy version
+  - **Resource types (\*required):** [trafficpolicy\*](#list_route53-resource-trafficpolicy)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetTrafficPolicyInstance](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicyInstance.html)  **
+  - **Description:** Grants permission to get information about a specified traffic policy instance
+  - **Resource types (\*required):** [trafficpolicyinstance\*](#list_route53-resource-trafficpolicyinstance)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetTrafficPolicyInstanceCount](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicyInstanceCount.html)  **
+  - **Description:** Grants permission to get the number of traffic policy instances that are associated with the current AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListCidrBlocks](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListCidrBlocks.html)  **
+  - **Description:** Grants permission to get a list of the CIDR blocks within a specified CIDR collection
+  - **Resource types (\*required):** [cidrcollection\*](#list_route53-resource-cidrcollection)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListCidrCollections](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListCidrCollections.html)  **
+  - **Description:** Grants permission to get a list of the CIDR collections that are associated with the current AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListCidrLocations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListCidrLocations.html)  **
+  - **Description:** Grants permission to get a list of the CIDR locations that belong to a specified CIDR collection
+  - **Resource types (\*required):** [cidrcollection\*](#list_route53-resource-cidrcollection)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListGeoLocations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html)  **
+  - **Description:** Grants permission to get a list of geographic locations that Route 53 supports for geolocation
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListHealthChecks](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHealthChecks.html)  **
+  - **Description:** Grants permission to get a list of the health checks that are associated with the current AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListHostedZones](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZones.html)  **
+  - **Description:** Grants permission to get a list of the public and private hosted zones that are associated with the current AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListHostedZonesByName](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByName.html)  **
+  - **Description:** Grants permission to get a list of your hosted zones in lexicographic order. Hosted zones are sorted by name with the labels reversed, for example, com.example.www
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListHostedZonesByVPC](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByVPC.html)  **
+  - **Description:** Grants permission to get a list of all the private hosted zones that a specified VPC is associated with
+  - **Resource types (\*required):** 
+  - **Condition keys:** [route53:VPCs](#list_route53-route53_VPCs)
+  - **Access level:** List
+
+- **   [ListQueryLoggingConfigs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html)  **
+  - **Description:** Grants permission to list the configurations for DNS query logging that are associated with the current AWS account or the configuration that is associated with a specified hosted zone
+  - **Resource types (\*required):** [hostedzone](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSets.html)  **
+  - **Description:** Grants permission to list the records in a specified hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListReusableDelegationSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListReusableDelegationSets.html)  **
+  - **Description:** Grants permission to list the reusable delegation sets that are associated with the current AWS account. 
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for one health check or hosted zone
+  - **Resource types (\*required):** [healthcheck](#list_route53-resource-healthcheck) / **Condition keys:**  
+  - **Resource types (\*required):** [hostedzone](#list_route53-resource-hostedzone) / **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListTagsForResources](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTagsForResources.html)  **
+  - **Description:** Grants permission to list tags for up to 10 health checks or hosted zones
+  - **Resource types (\*required):** [healthcheck](#list_route53-resource-healthcheck) / **Condition keys:**  
+  - **Resource types (\*required):** [hostedzone](#list_route53-resource-hostedzone) / **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListTrafficPolicies](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicies.html)  **
+  - **Description:** Grants permission to get information about the latest version for every traffic policy that is associated with the current AWS account. Policies are listed in the order in which they were created
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTrafficPolicyInstances](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicyInstances.html)  **
+  - **Description:** Grants permission to get information about the traffic policy instances that you created by using the current AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListTrafficPolicyInstancesByHostedZone](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicyInstancesByHostedZone.html)  **
+  - **Description:** Grants permission to get information about the traffic policy instances that you created in a specified hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTrafficPolicyInstancesByPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicyInstancesByPolicy.html)  **
+  - **Description:** Grants permission to get information about the traffic policy instances that you created using a specified traffic policy version
+  - **Resource types (\*required):** [trafficpolicy\*](#list_route53-resource-trafficpolicy)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTrafficPolicyVersions](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicyVersions.html)  **
+  - **Description:** Grants permission to get information about all the versions for a specified traffic policy
+  - **Resource types (\*required):** [trafficpolicy\*](#list_route53-resource-trafficpolicy)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListVPCAssociationAuthorizations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListVPCAssociationAuthorizations.html)  **
+  - **Description:** Grants permission to get a list of the VPCs that were created by other accounts and that can be associated with a specified hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [TestDNSAnswer](https://docs.aws.amazon.com/Route53/latest/APIReference/API_TestDNSAnswer.html)  **
+  - **Description:** Grants permission to get the value that Route 53 returns in response to a DNS query for a specified record name and type
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [UpdateHealthCheck](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html)  **
+  - **Description:** Grants permission to update an existing health check
+  - **Resource types (\*required):** [healthcheck\*](#list_route53-resource-healthcheck)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateHostedZoneComment](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHostedZoneComment.html)  **
+  - **Description:** Grants permission to update the comment for a specified hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateHostedZoneFeatures](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHostedZoneFeatures.html)  **
+  - **Description:** Grants permission to update features for a specified hosted zone
+  - **Resource types (\*required):** [hostedzone\*](#list_route53-resource-hostedzone)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateTrafficPolicyComment](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateTrafficPolicyComment.html)  **
+  - **Description:** Grants permission to update the comment for a specified traffic policy version
+  - **Resource types (\*required):** [trafficpolicy\*](#list_route53-resource-trafficpolicy)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateTrafficPolicyInstance](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateTrafficPolicyInstance.html)  **
+  - **Description:** Grants permission to update the records in a specified hosted zone that were created based on the settings in a specified traffic policy version
+  - **Resource types (\*required):** [trafficpolicyinstance\*](#list_route53-resource-trafficpolicyinstance)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon Route 53
+<a name="list_route53-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                                                                                 | ARN                                                    | Condition keys |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------ | -------------- |
-| [change](../../../Route53/latest/APIReference/API_Change.md "../../../Route53/latest/APIReference/API_Change.md")                                                                                                              | arn:${Partition}:route53:::change/${Id}                |                |
-| [cidrcollection](API_CidrCollection.md "API_CidrCollection.md")                                                                                                                                                                | arn:${Partition}:route53:::cidrcollection/${Id}        |                |
-| [delegationset](../../../Route53/latest/DeveloperGuide/route-53-concepts.md#route-53-concepts-reusable-delegation-set "../../../Route53/latest/DeveloperGuide/route-53-concepts.md#route-53-concepts-reusable-delegation-set") | arn:${Partition}:route53:::delegationset/${Id}         |                |
-| [healthcheck](../../../Route53/latest/DeveloperGuide/route-53-concepts.md#route-53-concepts-health-check "../../../Route53/latest/DeveloperGuide/route-53-concepts.md#route-53-concepts-health-check")                         | arn:${Partition}:route53:::healthcheck/${Id}           |                |
-| [hostedzone](../../../Route53/latest/DeveloperGuide/route-53-concepts.md#route-53-concepts-hosted-zone "../../../Route53/latest/DeveloperGuide/route-53-concepts.md#route-53-concepts-hosted-zone")                            | arn:${Partition}:route53:::hostedzone/${Id}            |                |
-| [queryloggingconfig](../../../Route53/latest/DeveloperGuide/query-logs.md "../../../Route53/latest/DeveloperGuide/query-logs.md")                                                                                              | arn:${Partition}:route53:::queryloggingconfig/${Id}    |                |
-| [trafficpolicy](../../../Route53/latest/DeveloperGuide/traffic-policies.md "../../../Route53/latest/DeveloperGuide/traffic-policies.md")                                                                                       | arn:${Partition}:route53:::trafficpolicy/${Id}         |                |
-| [trafficpolicyinstance](../../../Route53/latest/DeveloperGuide/traffic-policy-records.md "../../../Route53/latest/DeveloperGuide/traffic-policy-records.md")                                                                   | arn:${Partition}:route53:::trafficpolicyinstance/${Id} |                |
-| [vpc](../../../vpc/latest/userguide/VPC_Subnets.md "../../../vpc/latest/userguide/VPC_Subnets.md")                                                                                                                             | arn:${Partition}:ec2:${Region}:${Account}:vpc/${VpcId} |                |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [change](https://docs.aws.amazon.com/Route53/latest/APIReference/API_Change.html)  | arn:${Partition}:route53:::change/${Id} |   | 
+|  [cidrcollection](API_CidrCollection.html)  | arn:${Partition}:route53:::cidrcollection/${Id} |   | 
+|  [delegationset](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-concepts.html#route-53-concepts-reusable-delegation-set)  | arn:${Partition}:route53:::delegationset/${Id} |   | 
+|  [healthcheck](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-concepts.html#route-53-concepts-health-check)  | arn:${Partition}:route53:::healthcheck/${Id} |   | 
+|  [hostedzone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-concepts.html#route-53-concepts-hosted-zone)  | arn:${Partition}:route53:::hostedzone/${Id} |   | 
+|  [queryloggingconfig](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html)  | arn:${Partition}:route53:::queryloggingconfig/${Id} |   | 
+|  [trafficpolicy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-policies.html)  | arn:${Partition}:route53:::trafficpolicy/${Id} |   | 
+|  [trafficpolicyinstance](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-policy-records.html)  | arn:${Partition}:route53:::trafficpolicyinstance/${Id} |   | 
+|  [vpc](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html)  | arn:${Partition}:ec2:${Region}:${Account}:vpc/${VpcId} |   | 
 
 ## Condition keys for Amazon Route 53
+<a name="list_route53-policy-keys"></a>
 
-Amazon Route 53 defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Route 53 defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                                                   | Description                                                                                            | Type          |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------- |
-| [route53:ChangeResourceRecordSetsActions](../../../Route53/latest/DeveloperGuide/specifying-conditions-route53.md#route53_rrsetConditionKeys "../../../Route53/latest/DeveloperGuide/specifying-conditions-route53.md#route53_rrsetConditionKeys")               | Filters access by the change actions, CREATE, UPSERT, or DELETE, in a ChangeResourceRecordSets request | ArrayOfString |
-| [route53:ChangeResourceRecordSetsNormalizedRecordNames](../../../Route53/latest/DeveloperGuide/specifying-conditions-route53.md#route53_rrsetConditionKeys "../../../Route53/latest/DeveloperGuide/specifying-conditions-route53.md#route53_rrsetConditionKeys") | Filters access by the normalized DNS record names in a ChangeResourceRecordSets request                | ArrayOfString |
-| [route53:ChangeResourceRecordSetsRecordTypes](../../../Route53/latest/DeveloperGuide/specifying-conditions-route53.md#route53_rrsetConditionKeys "../../../Route53/latest/DeveloperGuide/specifying-conditions-route53.md#route53_rrsetConditionKeys")           | Filters access by the DNS record types in a ChangeResourceRecordSets request                           | ArrayOfString |
-| [route53:VPCs](../../../Route53/latest/DeveloperGuide/specifying-conditions-route53.md#route53_rrsetConditionKeys "../../../Route53/latest/DeveloperGuide/specifying-conditions-route53.md#route53_rrsetConditionKeys")                                          | Filters access by VPCs in request                                                                      | String        |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [route53:ChangeResourceRecordSetsActions](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/specifying-conditions-route53.html#route53_rrsetConditionKeys)  | Filters access by the change actions, CREATE, UPSERT, or DELETE, in a ChangeResourceRecordSets request | ArrayOfString | 
+|   [route53:ChangeResourceRecordSetsNormalizedRecordNames](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/specifying-conditions-route53.html#route53_rrsetConditionKeys)  | Filters access by the normalized DNS record names in a ChangeResourceRecordSets request | ArrayOfString | 
+|   [route53:ChangeResourceRecordSetsRecordTypes](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/specifying-conditions-route53.html#route53_rrsetConditionKeys)  | Filters access by the DNS record types in a ChangeResourceRecordSets request | ArrayOfString | 
+|   [route53:VPCs](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/specifying-conditions-route53.html#route53_rrsetConditionKeys)  | Filters access by VPCs in request | String | 

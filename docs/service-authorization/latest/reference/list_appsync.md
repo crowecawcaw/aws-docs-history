@@ -1,267 +1,1037 @@
-# Actions, resources, and condition keys for AWS AppSync
 
-AWS AppSync (service prefix: `appsync`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS AppSync
+<a name="list_appsync"></a>
+
+AWS AppSync (service prefix: `appsync`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/appsync/latest/devguide/what-is-appsync.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/appsync/latest/APIReference/Welcome.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/appsync/latest/devguide/security.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/appsync/appsync.json) for this service.
 
-- Learn how to [configure this service](../../../appsync/latest/devguide/what-is-appsync.md "../../../appsync/latest/devguide/what-is-appsync.md").
-- View a list of the [API operations available for
-  this service](../../../appsync/latest/APIReference/Welcome.md "../../../appsync/latest/APIReference/Welcome.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../appsync/latest/devguide/security.md "../../../appsync/latest/devguide/security.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/appsync/appsync.json "https://servicereference.us-east-1.amazonaws.com/v1/appsync/appsync.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS AppSync](#list_appsync-operations "#list_appsync-operations")
-- [Actions defined by AWS AppSync](#list_appsync-actions-as-permissions "#list_appsync-actions-as-permissions")
-- [Permission-only actions for AWS AppSync](#list_appsync-permission-only-actions "#list_appsync-permission-only-actions")
-- [Resource types defined by AWS AppSync](#list_appsync-resources-for-iam-policies "#list_appsync-resources-for-iam-policies")
-- [Condition keys for AWS AppSync](#list_appsync-policy-keys "#list_appsync-policy-keys")
+**Topics**
++ [API operations defined by AWS AppSync](#list_appsync-operations)
++ [Actions defined by AWS AppSync](#list_appsync-actions-as-permissions)
++ [Permission-only actions for AWS AppSync](#list_appsync-permission-only-actions)
++ [Resource types defined by AWS AppSync](#list_appsync-resources-for-iam-policies)
++ [Condition keys for AWS AppSync](#list_appsync-policy-keys)
 
 ## API operations defined by AWS AppSync
+<a name="list_appsync-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_appsync-actions-as-permissions "#list_appsync-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_appsync-actions-as-permissions).
 
-| Operation                                                                                                                            | IAM action                                                                                                                                                   | Condition key         | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- | ----------------- | -------------- |
-| AssociateApi                                                                                                                         | [appsync:AssociateApi](#list_appsync-action-AssociateApi "#list_appsync-action-AssociateApi")                                                                |                       |                   | Write          |
-| AssociateMergedGraphqlApi                                                                                                            | [appsync:AssociateMergedGraphqlApi](#list_appsync-action-AssociateMergedGraphqlApi "#list_appsync-action-AssociateMergedGraphqlApi")                         |                       |                   | Write          |
-| [appsync:AssociateSourceGraphqlApi](#list_appsync-action-AssociateSourceGraphqlApi "#list_appsync-action-AssociateSourceGraphqlApi") |                                                                                                                                                              |                       | Write             |
-| AssociateSourceGraphqlApi                                                                                                            | [appsync:AssociateMergedGraphqlApi](#list_appsync-action-AssociateMergedGraphqlApi "#list_appsync-action-AssociateMergedGraphqlApi")                         |                       |                   | Write          |
-| [appsync:AssociateSourceGraphqlApi](#list_appsync-action-AssociateSourceGraphqlApi "#list_appsync-action-AssociateSourceGraphqlApi") |                                                                                                                                                              |                       | Write             |
-| CreateApi                                                                                                                            | [appsync:CreateApi](#list_appsync-action-CreateApi "#list_appsync-action-CreateApi")                                                                         |                       |                   | Write          |
-| [appsync:TagResource](#list_appsync-action-TagResource "#list_appsync-action-TagResource")                                           |                                                                                                                                                              |                       | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")      | iam:PassedToService                                                                                                                                          | appsync.amazonaws.com | Write             |
-| CreateApiCache                                                                                                                       | [appsync:CreateApiCache](#list_appsync-action-CreateApiCache "#list_appsync-action-CreateApiCache")                                                          |                       |                   | Write          |
-| CreateApiKey                                                                                                                         | [appsync:CreateApiKey](#list_appsync-action-CreateApiKey "#list_appsync-action-CreateApiKey")                                                                |                       |                   | Write          |
-| CreateChannelNamespace                                                                                                               | [appsync:CreateChannelNamespace](#list_appsync-action-CreateChannelNamespace "#list_appsync-action-CreateChannelNamespace")                                  |                       |                   | Write          |
-| [appsync:TagResource](#list_appsync-action-TagResource "#list_appsync-action-TagResource")                                           |                                                                                                                                                              |                       | Tagging, Write    |
-| CreateDataSource                                                                                                                     | [appsync:CreateDataSource](#list_appsync-action-CreateDataSource "#list_appsync-action-CreateDataSource")                                                    |                       |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")      | iam:PassedToService                                                                                                                                          | appsync.amazonaws.com | Write             |
-| CreateDomainName                                                                                                                     | [appsync:CreateDomainName](#list_appsync-action-CreateDomainName "#list_appsync-action-CreateDomainName")                                                    |                       |                   | Write          |
-| [appsync:TagResource](#list_appsync-action-TagResource "#list_appsync-action-TagResource")                                           |                                                                                                                                                              |                       | Tagging, Write    |
-| CreateFunction                                                                                                                       | [appsync:CreateFunction](#list_appsync-action-CreateFunction "#list_appsync-action-CreateFunction")                                                          |                       |                   | Write          |
-| CreateGraphqlApi                                                                                                                     | [appsync:CreateGraphqlApi](#list_appsync-action-CreateGraphqlApi "#list_appsync-action-CreateGraphqlApi")                                                    |                       |                   | Write          |
-| [appsync:TagResource](#list_appsync-action-TagResource "#list_appsync-action-TagResource")                                           |                                                                                                                                                              |                       | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")      | iam:PassedToService                                                                                                                                          | appsync.amazonaws.com | Write             |
-| CreateResolver                                                                                                                       | [appsync:CreateResolver](#list_appsync-action-CreateResolver "#list_appsync-action-CreateResolver")                                                          |                       |                   | Write          |
-| CreateType                                                                                                                           | [appsync:CreateType](#list_appsync-action-CreateType "#list_appsync-action-CreateType")                                                                      |                       |                   | Write          |
-| DeleteApi                                                                                                                            | [appsync:DeleteApi](#list_appsync-action-DeleteApi "#list_appsync-action-DeleteApi")                                                                         |                       |                   | Write          |
-| DeleteApiCache                                                                                                                       | [appsync:DeleteApiCache](#list_appsync-action-DeleteApiCache "#list_appsync-action-DeleteApiCache")                                                          |                       |                   | Write          |
-| DeleteApiKey                                                                                                                         | [appsync:DeleteApiKey](#list_appsync-action-DeleteApiKey "#list_appsync-action-DeleteApiKey")                                                                |                       |                   | Write          |
-| DeleteChannelNamespace                                                                                                               | [appsync:DeleteChannelNamespace](#list_appsync-action-DeleteChannelNamespace "#list_appsync-action-DeleteChannelNamespace")                                  |                       |                   | Write          |
-| DeleteDataSource                                                                                                                     | [appsync:DeleteDataSource](#list_appsync-action-DeleteDataSource "#list_appsync-action-DeleteDataSource")                                                    |                       |                   | Write          |
-| DeleteDomainName                                                                                                                     | [appsync:DeleteDomainName](#list_appsync-action-DeleteDomainName "#list_appsync-action-DeleteDomainName")                                                    |                       |                   | Write          |
-| DeleteFunction                                                                                                                       | [appsync:DeleteFunction](#list_appsync-action-DeleteFunction "#list_appsync-action-DeleteFunction")                                                          |                       |                   | Write          |
-| DeleteGraphqlApi                                                                                                                     | [appsync:DeleteGraphqlApi](#list_appsync-action-DeleteGraphqlApi "#list_appsync-action-DeleteGraphqlApi")                                                    |                       |                   | Write          |
-| DeleteResolver                                                                                                                       | [appsync:DeleteResolver](#list_appsync-action-DeleteResolver "#list_appsync-action-DeleteResolver")                                                          |                       |                   | Write          |
-| DeleteType                                                                                                                           | [appsync:DeleteType](#list_appsync-action-DeleteType "#list_appsync-action-DeleteType")                                                                      |                       |                   | Write          |
-| DisassociateApi                                                                                                                      | [appsync:DisassociateApi](#list_appsync-action-DisassociateApi "#list_appsync-action-DisassociateApi")                                                       |                       |                   | Write          |
-| DisassociateMergedGraphqlApi                                                                                                         | [appsync:DisassociateMergedGraphqlApi](#list_appsync-action-DisassociateMergedGraphqlApi "#list_appsync-action-DisassociateMergedGraphqlApi")                |                       |                   | Write          |
-| DisassociateSourceGraphqlApi                                                                                                         | [appsync:DisassociateSourceGraphqlApi](#list_appsync-action-DisassociateSourceGraphqlApi "#list_appsync-action-DisassociateSourceGraphqlApi")                |                       |                   | Write          |
-| EvaluateCode                                                                                                                         | [appsync:EvaluateCode](#list_appsync-action-EvaluateCode "#list_appsync-action-EvaluateCode")                                                                |                       |                   | Read           |
-| EvaluateMappingTemplate                                                                                                              | [appsync:EvaluateMappingTemplate](#list_appsync-action-EvaluateMappingTemplate "#list_appsync-action-EvaluateMappingTemplate")                               |                       |                   | Read           |
-| FlushApiCache                                                                                                                        | [appsync:FlushApiCache](#list_appsync-action-FlushApiCache "#list_appsync-action-FlushApiCache")                                                             |                       |                   | Write          |
-| GetApi                                                                                                                               | [appsync:GetApi](#list_appsync-action-GetApi "#list_appsync-action-GetApi")                                                                                  |                       |                   | Read           |
-| GetApiAssociation                                                                                                                    | [appsync:GetApiAssociation](#list_appsync-action-GetApiAssociation "#list_appsync-action-GetApiAssociation")                                                 |                       |                   | Read           |
-| GetApiCache                                                                                                                          | [appsync:GetApiCache](#list_appsync-action-GetApiCache "#list_appsync-action-GetApiCache")                                                                   |                       |                   | Read           |
-| GetChannelNamespace                                                                                                                  | [appsync:GetChannelNamespace](#list_appsync-action-GetChannelNamespace "#list_appsync-action-GetChannelNamespace")                                           |                       |                   | Read           |
-| GetDataSource                                                                                                                        | [appsync:GetDataSource](#list_appsync-action-GetDataSource "#list_appsync-action-GetDataSource")                                                             |                       |                   | Read           |
-| GetDataSourceIntrospection                                                                                                           | [appsync:GetDataSourceIntrospection](#list_appsync-action-GetDataSourceIntrospection "#list_appsync-action-GetDataSourceIntrospection")                      |                       |                   | Read           |
-| GetDomainName                                                                                                                        | [appsync:GetDomainName](#list_appsync-action-GetDomainName "#list_appsync-action-GetDomainName")                                                             |                       |                   | Read           |
-| GetFunction                                                                                                                          | [appsync:GetFunction](#list_appsync-action-GetFunction "#list_appsync-action-GetFunction")                                                                   |                       |                   | Read           |
-| GetGraphqlApi                                                                                                                        | [appsync:GetGraphqlApi](#list_appsync-action-GetGraphqlApi "#list_appsync-action-GetGraphqlApi")                                                             |                       |                   | Read           |
-| GetGraphqlApiEnvironmentVariables                                                                                                    | [appsync:GetGraphqlApiEnvironmentVariables](#list_appsync-action-GetGraphqlApiEnvironmentVariables "#list_appsync-action-GetGraphqlApiEnvironmentVariables") |                       |                   | Read           |
-| GetIntrospectionSchema                                                                                                               | [appsync:GetIntrospectionSchema](#list_appsync-action-GetIntrospectionSchema "#list_appsync-action-GetIntrospectionSchema")                                  |                       |                   | Read           |
-| GetResolver                                                                                                                          | [appsync:GetResolver](#list_appsync-action-GetResolver "#list_appsync-action-GetResolver")                                                                   |                       |                   | Read           |
-| GetSchemaCreationStatus                                                                                                              | [appsync:GetSchemaCreationStatus](#list_appsync-action-GetSchemaCreationStatus "#list_appsync-action-GetSchemaCreationStatus")                               |                       |                   | Read           |
-| GetSourceApiAssociation                                                                                                              | [appsync:GetSourceApiAssociation](#list_appsync-action-GetSourceApiAssociation "#list_appsync-action-GetSourceApiAssociation")                               |                       |                   | Read           |
-| GetType                                                                                                                              | [appsync:GetType](#list_appsync-action-GetType "#list_appsync-action-GetType")                                                                               |                       |                   | Read           |
-| ListApiKeys                                                                                                                          | [appsync:ListApiKeys](#list_appsync-action-ListApiKeys "#list_appsync-action-ListApiKeys")                                                                   |                       |                   | List           |
-| ListApis                                                                                                                             | [appsync:ListApis](#list_appsync-action-ListApis "#list_appsync-action-ListApis")                                                                            |                       |                   | List           |
-| ListChannelNamespaces                                                                                                                | [appsync:ListChannelNamespaces](#list_appsync-action-ListChannelNamespaces "#list_appsync-action-ListChannelNamespaces")                                     |                       |                   | List           |
-| ListDataSources                                                                                                                      | [appsync:ListDataSources](#list_appsync-action-ListDataSources "#list_appsync-action-ListDataSources")                                                       |                       |                   | List           |
-| ListDomainNames                                                                                                                      | [appsync:ListDomainNames](#list_appsync-action-ListDomainNames "#list_appsync-action-ListDomainNames")                                                       |                       |                   | List           |
-| ListFunctions                                                                                                                        | [appsync:ListFunctions](#list_appsync-action-ListFunctions "#list_appsync-action-ListFunctions")                                                             |                       |                   | List           |
-| ListGraphqlApis                                                                                                                      | [appsync:ListGraphqlApis](#list_appsync-action-ListGraphqlApis "#list_appsync-action-ListGraphqlApis")                                                       |                       |                   | List           |
-| ListResolvers                                                                                                                        | [appsync:ListResolvers](#list_appsync-action-ListResolvers "#list_appsync-action-ListResolvers")                                                             |                       |                   | List           |
-| ListResolversByFunction                                                                                                              | [appsync:ListResolversByFunction](#list_appsync-action-ListResolversByFunction "#list_appsync-action-ListResolversByFunction")                               |                       |                   | List           |
-| ListSourceApiAssociations                                                                                                            | [appsync:ListSourceApiAssociations](#list_appsync-action-ListSourceApiAssociations "#list_appsync-action-ListSourceApiAssociations")                         |                       |                   | List           |
-| ListTagsForResource                                                                                                                  | [appsync:ListTagsForResource](#list_appsync-action-ListTagsForResource "#list_appsync-action-ListTagsForResource")                                           |                       |                   | Read           |
-| ListTypes                                                                                                                            | [appsync:ListTypes](#list_appsync-action-ListTypes "#list_appsync-action-ListTypes")                                                                         |                       |                   | List           |
-| ListTypesByAssociation                                                                                                               | [appsync:ListTypesByAssociation](#list_appsync-action-ListTypesByAssociation "#list_appsync-action-ListTypesByAssociation")                                  |                       |                   | List           |
-| PutGraphqlApiEnvironmentVariables                                                                                                    | [appsync:PutGraphqlApiEnvironmentVariables](#list_appsync-action-PutGraphqlApiEnvironmentVariables "#list_appsync-action-PutGraphqlApiEnvironmentVariables") |                       |                   | Write          |
-| StartDataSourceIntrospection                                                                                                         | [appsync:StartDataSourceIntrospection](#list_appsync-action-StartDataSourceIntrospection "#list_appsync-action-StartDataSourceIntrospection")                |                       |                   | Write          |
-| StartSchemaCreation                                                                                                                  | [appsync:StartSchemaCreation](#list_appsync-action-StartSchemaCreation "#list_appsync-action-StartSchemaCreation")                                           |                       |                   | Write          |
-| StartSchemaMerge                                                                                                                     | [appsync:StartSchemaMerge](#list_appsync-action-StartSchemaMerge "#list_appsync-action-StartSchemaMerge")                                                    |                       |                   | Write          |
-| TagResource                                                                                                                          | [appsync:TagResource](#list_appsync-action-TagResource "#list_appsync-action-TagResource")                                                                   |                       |                   | Tagging, Write |
-| UntagResource                                                                                                                        | [appsync:UntagResource](#list_appsync-action-UntagResource "#list_appsync-action-UntagResource")                                                             |                       |                   | Tagging, Write |
-| UpdateApi                                                                                                                            | [appsync:UpdateApi](#list_appsync-action-UpdateApi "#list_appsync-action-UpdateApi")                                                                         |                       |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")      | iam:PassedToService                                                                                                                                          | appsync.amazonaws.com | Write             |
-| UpdateApiCache                                                                                                                       | [appsync:UpdateApiCache](#list_appsync-action-UpdateApiCache "#list_appsync-action-UpdateApiCache")                                                          |                       |                   | Write          |
-| UpdateApiKey                                                                                                                         | [appsync:UpdateApiKey](#list_appsync-action-UpdateApiKey "#list_appsync-action-UpdateApiKey")                                                                |                       |                   | Write          |
-| UpdateChannelNamespace                                                                                                               | [appsync:UpdateChannelNamespace](#list_appsync-action-UpdateChannelNamespace "#list_appsync-action-UpdateChannelNamespace")                                  |                       |                   | Write          |
-| UpdateDataSource                                                                                                                     | [appsync:UpdateDataSource](#list_appsync-action-UpdateDataSource "#list_appsync-action-UpdateDataSource")                                                    |                       |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")      | iam:PassedToService                                                                                                                                          | appsync.amazonaws.com | Write             |
-| UpdateDomainName                                                                                                                     | [appsync:UpdateDomainName](#list_appsync-action-UpdateDomainName "#list_appsync-action-UpdateDomainName")                                                    |                       |                   | Write          |
-| UpdateFunction                                                                                                                       | [appsync:UpdateFunction](#list_appsync-action-UpdateFunction "#list_appsync-action-UpdateFunction")                                                          |                       |                   | Write          |
-| UpdateGraphqlApi                                                                                                                     | [appsync:UpdateGraphqlApi](#list_appsync-action-UpdateGraphqlApi "#list_appsync-action-UpdateGraphqlApi")                                                    |                       |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")      | iam:PassedToService                                                                                                                                          | appsync.amazonaws.com | Write             |
-| UpdateResolver                                                                                                                       | [appsync:UpdateResolver](#list_appsync-action-UpdateResolver "#list_appsync-action-UpdateResolver")                                                          |                       |                   | Write          |
-| UpdateSourceApiAssociation                                                                                                           | [appsync:UpdateSourceApiAssociation](#list_appsync-action-UpdateSourceApiAssociation "#list_appsync-action-UpdateSourceApiAssociation")                      |                       |                   | Write          |
-| UpdateType                                                                                                                           | [appsync:UpdateType](#list_appsync-action-UpdateType "#list_appsync-action-UpdateType")                                                                      |                       |                   | Write          |
+
+
+
+- **   AssociateApi  **
+  - **IAM action:**  [appsync:AssociateApi](#list_appsync-action-AssociateApi) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateMergedGraphqlApi  **
+  - **IAM action:**  [appsync:AssociateMergedGraphqlApi](#list_appsync-action-AssociateMergedGraphqlApi)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appsync:AssociateSourceGraphqlApi](#list_appsync-action-AssociateSourceGraphqlApi)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   AssociateSourceGraphqlApi  **
+  - **IAM action:**  [appsync:AssociateMergedGraphqlApi](#list_appsync-action-AssociateMergedGraphqlApi)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appsync:AssociateSourceGraphqlApi](#list_appsync-action-AssociateSourceGraphqlApi)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   CreateApi  **
+  - **IAM action:**  [appsync:CreateApi](#list_appsync-action-CreateApi)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appsync:TagResource](#list_appsync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appsync.amazonaws.com / **Access level:** Write
+
+- **   CreateApiCache  **
+  - **IAM action:**  [appsync:CreateApiCache](#list_appsync-action-CreateApiCache) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateApiKey  **
+  - **IAM action:**  [appsync:CreateApiKey](#list_appsync-action-CreateApiKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateChannelNamespace  **
+  - **IAM action:**  [appsync:CreateChannelNamespace](#list_appsync-action-CreateChannelNamespace)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appsync:TagResource](#list_appsync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateDataSource  **
+  - **IAM action:**  [appsync:CreateDataSource](#list_appsync-action-CreateDataSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appsync.amazonaws.com / **Access level:** Write
+
+- **   CreateDomainName  **
+  - **IAM action:**  [appsync:CreateDomainName](#list_appsync-action-CreateDomainName)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appsync:TagResource](#list_appsync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateFunction  **
+  - **IAM action:**  [appsync:CreateFunction](#list_appsync-action-CreateFunction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateGraphqlApi  **
+  - **IAM action:**  [appsync:CreateGraphqlApi](#list_appsync-action-CreateGraphqlApi)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appsync:TagResource](#list_appsync-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appsync.amazonaws.com / **Access level:** Write
+
+- **   CreateResolver  **
+  - **IAM action:**  [appsync:CreateResolver](#list_appsync-action-CreateResolver) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateType  **
+  - **IAM action:**  [appsync:CreateType](#list_appsync-action-CreateType) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteApi  **
+  - **IAM action:**  [appsync:DeleteApi](#list_appsync-action-DeleteApi) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteApiCache  **
+  - **IAM action:**  [appsync:DeleteApiCache](#list_appsync-action-DeleteApiCache) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteApiKey  **
+  - **IAM action:**  [appsync:DeleteApiKey](#list_appsync-action-DeleteApiKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteChannelNamespace  **
+  - **IAM action:**  [appsync:DeleteChannelNamespace](#list_appsync-action-DeleteChannelNamespace) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDataSource  **
+  - **IAM action:**  [appsync:DeleteDataSource](#list_appsync-action-DeleteDataSource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDomainName  **
+  - **IAM action:**  [appsync:DeleteDomainName](#list_appsync-action-DeleteDomainName) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteFunction  **
+  - **IAM action:**  [appsync:DeleteFunction](#list_appsync-action-DeleteFunction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteGraphqlApi  **
+  - **IAM action:**  [appsync:DeleteGraphqlApi](#list_appsync-action-DeleteGraphqlApi) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteResolver  **
+  - **IAM action:**  [appsync:DeleteResolver](#list_appsync-action-DeleteResolver) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteType  **
+  - **IAM action:**  [appsync:DeleteType](#list_appsync-action-DeleteType) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateApi  **
+  - **IAM action:**  [appsync:DisassociateApi](#list_appsync-action-DisassociateApi) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateMergedGraphqlApi  **
+  - **IAM action:**  [appsync:DisassociateMergedGraphqlApi](#list_appsync-action-DisassociateMergedGraphqlApi) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateSourceGraphqlApi  **
+  - **IAM action:**  [appsync:DisassociateSourceGraphqlApi](#list_appsync-action-DisassociateSourceGraphqlApi) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   EvaluateCode  **
+  - **IAM action:**  [appsync:EvaluateCode](#list_appsync-action-EvaluateCode) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   EvaluateMappingTemplate  **
+  - **IAM action:**  [appsync:EvaluateMappingTemplate](#list_appsync-action-EvaluateMappingTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   FlushApiCache  **
+  - **IAM action:**  [appsync:FlushApiCache](#list_appsync-action-FlushApiCache) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetApi  **
+  - **IAM action:**  [appsync:GetApi](#list_appsync-action-GetApi) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetApiAssociation  **
+  - **IAM action:**  [appsync:GetApiAssociation](#list_appsync-action-GetApiAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetApiCache  **
+  - **IAM action:**  [appsync:GetApiCache](#list_appsync-action-GetApiCache) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetChannelNamespace  **
+  - **IAM action:**  [appsync:GetChannelNamespace](#list_appsync-action-GetChannelNamespace) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDataSource  **
+  - **IAM action:**  [appsync:GetDataSource](#list_appsync-action-GetDataSource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDataSourceIntrospection  **
+  - **IAM action:**  [appsync:GetDataSourceIntrospection](#list_appsync-action-GetDataSourceIntrospection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDomainName  **
+  - **IAM action:**  [appsync:GetDomainName](#list_appsync-action-GetDomainName) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetFunction  **
+  - **IAM action:**  [appsync:GetFunction](#list_appsync-action-GetFunction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetGraphqlApi  **
+  - **IAM action:**  [appsync:GetGraphqlApi](#list_appsync-action-GetGraphqlApi) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetGraphqlApiEnvironmentVariables  **
+  - **IAM action:**  [appsync:GetGraphqlApiEnvironmentVariables](#list_appsync-action-GetGraphqlApiEnvironmentVariables) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIntrospectionSchema  **
+  - **IAM action:**  [appsync:GetIntrospectionSchema](#list_appsync-action-GetIntrospectionSchema) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetResolver  **
+  - **IAM action:**  [appsync:GetResolver](#list_appsync-action-GetResolver) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSchemaCreationStatus  **
+  - **IAM action:**  [appsync:GetSchemaCreationStatus](#list_appsync-action-GetSchemaCreationStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSourceApiAssociation  **
+  - **IAM action:**  [appsync:GetSourceApiAssociation](#list_appsync-action-GetSourceApiAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetType  **
+  - **IAM action:**  [appsync:GetType](#list_appsync-action-GetType) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListApiKeys  **
+  - **IAM action:**  [appsync:ListApiKeys](#list_appsync-action-ListApiKeys) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListApis  **
+  - **IAM action:**  [appsync:ListApis](#list_appsync-action-ListApis) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListChannelNamespaces  **
+  - **IAM action:**  [appsync:ListChannelNamespaces](#list_appsync-action-ListChannelNamespaces) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDataSources  **
+  - **IAM action:**  [appsync:ListDataSources](#list_appsync-action-ListDataSources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDomainNames  **
+  - **IAM action:**  [appsync:ListDomainNames](#list_appsync-action-ListDomainNames) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListFunctions  **
+  - **IAM action:**  [appsync:ListFunctions](#list_appsync-action-ListFunctions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListGraphqlApis  **
+  - **IAM action:**  [appsync:ListGraphqlApis](#list_appsync-action-ListGraphqlApis) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListResolvers  **
+  - **IAM action:**  [appsync:ListResolvers](#list_appsync-action-ListResolvers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListResolversByFunction  **
+  - **IAM action:**  [appsync:ListResolversByFunction](#list_appsync-action-ListResolversByFunction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSourceApiAssociations  **
+  - **IAM action:**  [appsync:ListSourceApiAssociations](#list_appsync-action-ListSourceApiAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [appsync:ListTagsForResource](#list_appsync-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTypes  **
+  - **IAM action:**  [appsync:ListTypes](#list_appsync-action-ListTypes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTypesByAssociation  **
+  - **IAM action:**  [appsync:ListTypesByAssociation](#list_appsync-action-ListTypesByAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PutGraphqlApiEnvironmentVariables  **
+  - **IAM action:**  [appsync:PutGraphqlApiEnvironmentVariables](#list_appsync-action-PutGraphqlApiEnvironmentVariables) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartDataSourceIntrospection  **
+  - **IAM action:**  [appsync:StartDataSourceIntrospection](#list_appsync-action-StartDataSourceIntrospection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartSchemaCreation  **
+  - **IAM action:**  [appsync:StartSchemaCreation](#list_appsync-action-StartSchemaCreation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartSchemaMerge  **
+  - **IAM action:**  [appsync:StartSchemaMerge](#list_appsync-action-StartSchemaMerge) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [appsync:TagResource](#list_appsync-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [appsync:UntagResource](#list_appsync-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateApi  **
+  - **IAM action:**  [appsync:UpdateApi](#list_appsync-action-UpdateApi)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appsync.amazonaws.com / **Access level:** Write
+
+- **   UpdateApiCache  **
+  - **IAM action:**  [appsync:UpdateApiCache](#list_appsync-action-UpdateApiCache) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateApiKey  **
+  - **IAM action:**  [appsync:UpdateApiKey](#list_appsync-action-UpdateApiKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateChannelNamespace  **
+  - **IAM action:**  [appsync:UpdateChannelNamespace](#list_appsync-action-UpdateChannelNamespace) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateDataSource  **
+  - **IAM action:**  [appsync:UpdateDataSource](#list_appsync-action-UpdateDataSource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appsync.amazonaws.com / **Access level:** Write
+
+- **   UpdateDomainName  **
+  - **IAM action:**  [appsync:UpdateDomainName](#list_appsync-action-UpdateDomainName) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateFunction  **
+  - **IAM action:**  [appsync:UpdateFunction](#list_appsync-action-UpdateFunction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateGraphqlApi  **
+  - **IAM action:**  [appsync:UpdateGraphqlApi](#list_appsync-action-UpdateGraphqlApi)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appsync.amazonaws.com / **Access level:** Write
+
+- **   UpdateResolver  **
+  - **IAM action:**  [appsync:UpdateResolver](#list_appsync-action-UpdateResolver) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSourceApiAssociation  **
+  - **IAM action:**  [appsync:UpdateSourceApiAssociation](#list_appsync-action-UpdateSourceApiAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateType  **
+  - **IAM action:**  [appsync:UpdateType](#list_appsync-action-UpdateType) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS AppSync
+<a name="list_appsync-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                            | Description                                                                                                                                                                                                                                                                                           | Resource types (\*required)                                                                                         | Condition keys                                                                                                                                                                                                                                                                                        | Access level                  |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| [AssociateApi](../../../appsync/latest/APIReference/API_AssociateApi.md "../../../appsync/latest/APIReference/API_AssociateApi.md")                                                                | Grants permission to attach a GraphQL API to a custom domain name in AppSync                                                                                                                                                                                                                          | [domain\*](#list_appsync-resource-domain "#list_appsync-resource-domain")                                           | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write                         |
-| [AssociateMergedGraphqlApi](../../../appsync/latest/APIReference/API_AssociateMergedGraphqlApi.md "../../../appsync/latest/APIReference/API_AssociateMergedGraphqlApi.md")                         | Grants permission to associate a merged API to a source API                                                                                                                                                                                                                                           | [graphqlapi\*](#list_appsync-resource-graphqlapi "#list_appsync-resource-graphqlapi")                               | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write                         |
-| [AssociateSourceGraphqlApi](../../../appsync/latest/APIReference/API_AssociateSourceGraphqlApi.md "../../../appsync/latest/APIReference/API_AssociateSourceGraphqlApi.md")                         | Grants permission to associate a source API to a merged API                                                                                                                                                                                                                                           | [graphqlapi\*](#list_appsync-resource-graphqlapi "#list_appsync-resource-graphqlapi")                               | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write                         |
-| [CreateApi](../../../appsync/latest/APIReference/API_CreateApi.md "../../../appsync/latest/APIReference/API_CreateApi.md")                                                                         | Grants permission to create an API                                                                                                                                                                                                                                                                    |                                                                                                                     | [aws:RequestTag/${TagKey}](#list_appsync-aws_RequestTag___TagKey_ "#list_appsync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appsync-aws_TagKeys "#list_appsync-aws_TagKeys") | Write                         |
-| [CreateApiCache](../../../appsync/latest/APIReference/API_CreateApiCache.md "../../../appsync/latest/APIReference/API_CreateApiCache.md")                                                          | Grants permission to create an API cache in AppSync                                                                                                                                                                                                                                                   |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [CreateApiKey](../../../appsync/latest/APIReference/API_CreateApiKey.md "../../../appsync/latest/APIReference/API_CreateApiKey.md")                                                                | Grants permission to create a unique key that you can distribute to clients who are executing your API                                                                                                                                                                                                |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [CreateChannelNamespace](../../../appsync/latest/APIReference/API_CreateChannelNamespace.md "../../../appsync/latest/APIReference/API_CreateChannelNamespace.md")                                  | Grants permission to create a channel namespace                                                                                                                                                                                                                                                       | [channelNamespace\*](#list_appsync-resource-channelNamespace "#list_appsync-resource-channelNamespace")             | [aws:RequestTag/${TagKey}](#list_appsync-aws_RequestTag___TagKey_ "#list_appsync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appsync-aws_TagKeys "#list_appsync-aws_TagKeys") | Write                         |
-| [CreateDataSource](../../../appsync/latest/APIReference/API_CreateDataSource.md "../../../appsync/latest/APIReference/API_CreateDataSource.md")                                                    | Grants permission to create a data source                                                                                                                                                                                                                                                             |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [CreateDomainName](../../../appsync/latest/APIReference/API_CreateDomainName.md "../../../appsync/latest/APIReference/API_CreateDomainName.md")                                                    | Grants permission to create a custom domain name in AppSync                                                                                                                                                                                                                                           | [domain\*](#list_appsync-resource-domain "#list_appsync-resource-domain")                                           | [aws:RequestTag/${TagKey}](#list_appsync-aws_RequestTag___TagKey_ "#list_appsync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appsync-aws_TagKeys "#list_appsync-aws_TagKeys") | Write                         |
-| [CreateFunction](../../../appsync/latest/APIReference/API_CreateFunction.md "../../../appsync/latest/APIReference/API_CreateFunction.md")                                                          | Grants permission to create a new function                                                                                                                                                                                                                                                            |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [CreateGraphqlApi](../../../appsync/latest/APIReference/API_CreateGraphqlApi.md "../../../appsync/latest/APIReference/API_CreateGraphqlApi.md")                                                    | Grants permission to create a GraphQL API, which is the top level AppSync resource                                                                                                                                                                                                                    |                                                                                                                     | [appsync:Visibility](#list_appsync-appsync_Visibility "#list_appsync-appsync_Visibility")<br>[aws:RequestTag/${TagKey}](#list_appsync-aws_RequestTag___TagKey_ "#list_appsync-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_appsync-aws_TagKeys "#list_appsync-aws_TagKeys")                      | Write                         |
-| [CreateResolver](../../../appsync/latest/APIReference/API_CreateResolver.md "../../../appsync/latest/APIReference/API_CreateResolver.md")                                                          | Grants permission to create a resolver. A resolver converts incoming requests into a format that a data source can understand, and converts the data source's responses into GraphQL                                                                                                                  |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [CreateType](../../../appsync/latest/APIReference/API_CreateType.md "../../../appsync/latest/APIReference/API_CreateType.md")                                                                      | Grants permission to create a type                                                                                                                                                                                                                                                                    |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [DeleteApi](../../../appsync/latest/APIReference/API_DeleteApi.md "../../../appsync/latest/APIReference/API_DeleteApi.md")                                                                         | Grants permission to delete a API. This will also clean up every AppSync resource below that API                                                                                                                                                                                                      | [api\*](#list_appsync-resource-api "#list_appsync-resource-api")                                                    | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write                         |
-| [DeleteApiCache](../../../appsync/latest/APIReference/API_DeleteApiCache.md "../../../appsync/latest/APIReference/API_DeleteApiCache.md")                                                          | Grants permission to delete an API cache in AppSync                                                                                                                                                                                                                                                   |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [DeleteApiKey](../../../appsync/latest/APIReference/API_DeleteApiKey.md "../../../appsync/latest/APIReference/API_DeleteApiKey.md")                                                                | Grants permission to delete an API key                                                                                                                                                                                                                                                                |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [DeleteChannelNamespace](../../../appsync/latest/APIReference/API_DeleteChannelNamespace.md "../../../appsync/latest/APIReference/API_DeleteChannelNamespace.md")                                  | Grants permission to delete a channel namespace                                                                                                                                                                                                                                                       | [channelNamespace\*](#list_appsync-resource-channelNamespace "#list_appsync-resource-channelNamespace")             | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write                         |
-| [DeleteDataSource](../../../appsync/latest/APIReference/API_DeleteDataSource.md "../../../appsync/latest/APIReference/API_DeleteDataSource.md")                                                    | Grants permission to delete a data source                                                                                                                                                                                                                                                             |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [DeleteDomainName](../../../appsync/latest/APIReference/API_DeleteDomainName.md "../../../appsync/latest/APIReference/API_DeleteDomainName.md")                                                    | Grants permission to delete a custom domain name in AppSync                                                                                                                                                                                                                                           | [domain\*](#list_appsync-resource-domain "#list_appsync-resource-domain")                                           | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write                         |
-| [DeleteFunction](../../../appsync/latest/APIReference/API_DeleteFunction.md "../../../appsync/latest/APIReference/API_DeleteFunction.md")                                                          | Grants permission to delete a function                                                                                                                                                                                                                                                                |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [DeleteGraphqlApi](../../../appsync/latest/APIReference/API_DeleteGraphqlApi.md "../../../appsync/latest/APIReference/API_DeleteGraphqlApi.md")                                                    | Grants permission to delete a GraphQL Api. This will also clean up every AppSync resource below that API                                                                                                                                                                                              | [graphqlapi\*](#list_appsync-resource-graphqlapi "#list_appsync-resource-graphqlapi")                               | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write                         |
-| [DeleteResolver](../../../appsync/latest/APIReference/API_DeleteResolver.md "../../../appsync/latest/APIReference/API_DeleteResolver.md")                                                          | Grants permission to delete a resolver                                                                                                                                                                                                                                                                |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [DeleteType](../../../appsync/latest/APIReference/API_DeleteType.md "../../../appsync/latest/APIReference/API_DeleteType.md")                                                                      | Grants permission to delete a type                                                                                                                                                                                                                                                                    |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [DisassociateApi](../../../appsync/latest/APIReference/API_DisassociateApi.md "../../../appsync/latest/APIReference/API_DisassociateApi.md")                                                       | Grants permission to detach a GraphQL API to a custom domain name in AppSync                                                                                                                                                                                                                          | [domain\*](#list_appsync-resource-domain "#list_appsync-resource-domain")                                           | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write                         |
-| [DisassociateMergedGraphqlApi](../../../appsync/latest/APIReference/API_DisassociateMergedGraphqlApi.md "../../../appsync/latest/APIReference/API_DisassociateMergedGraphqlApi.md")                | Grants permission to remove an associated source API from a merged API identified by the source API                                                                                                                                                                                                   | [mergedApiAssociation\*](#list_appsync-resource-mergedApiAssociation "#list_appsync-resource-mergedApiAssociation") |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [DisassociateSourceGraphqlApi](../../../appsync/latest/APIReference/API_DisassociateSourceGraphqlApi.md "../../../appsync/latest/APIReference/API_DisassociateSourceGraphqlApi.md")                | Grants permission to remove an associated source API from a merged API identified by the merged API                                                                                                                                                                                                   | [sourceApiAssociation\*](#list_appsync-resource-sourceApiAssociation "#list_appsync-resource-sourceApiAssociation") |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [EvaluateCode](../../../appsync/latest/APIReference/API_EvaluateCode.md "../../../appsync/latest/APIReference/API_EvaluateCode.md")                                                                | Grants permission to evaluate code with a runtime and context                                                                                                                                                                                                                                         |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Read                          |
-| [EvaluateMappingTemplate](../../../appsync/latest/APIReference/API_EvaluateMappingTemplate.md "../../../appsync/latest/APIReference/API_EvaluateMappingTemplate.md")                               | Grants permission to evaluate template mapping                                                                                                                                                                                                                                                        |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Read                          |
-| [EventConnect](../../../appsync/latest/devguide/using-your-event-api.md "../../../appsync/latest/devguide/using-your-event-api.md")                                                                | Grants permission to connect to an Event API                                                                                                                                                                                                                                                          | [api\*](#list_appsync-resource-api "#list_appsync-resource-api")                                                    | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write                         |
-| [EventPublish](../../../appsync/latest/devguide/using-your-event-api.md "../../../appsync/latest/devguide/using-your-event-api.md")                                                                | Grants permission to publish events to a channel namespace                                                                                                                                                                                                                                            | [channelNamespace\*](#list_appsync-resource-channelNamespace "#list_appsync-resource-channelNamespace")             | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write                         |
-| [EventSubscribe](../../../appsync/latest/devguide/using-your-event-api.md "../../../appsync/latest/devguide/using-your-event-api.md")                                                              | Grants permission to subscribe to a channel namespace                                                                                                                                                                                                                                                 | [channelNamespace\*](#list_appsync-resource-channelNamespace "#list_appsync-resource-channelNamespace")             | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write                         |
-| [FlushApiCache](../../../appsync/latest/APIReference/API_FlushApiCache.md "../../../appsync/latest/APIReference/API_FlushApiCache.md")                                                             | Grants permission to flush an API cache in AppSync                                                                                                                                                                                                                                                    |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [GetApi](../../../appsync/latest/APIReference/API_GetApi.md "../../../appsync/latest/APIReference/API_GetApi.md")                                                                                  | Grants permission to retrieve an API                                                                                                                                                                                                                                                                  | [api\*](#list_appsync-resource-api "#list_appsync-resource-api")                                                    | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Read                          |
-| [GetApiAssociation](../../../appsync/latest/APIReference/API_GetApiAssociation.md "../../../appsync/latest/APIReference/API_GetApiAssociation.md")                                                 | Grants permission to read custom domain name<br>• GraphQL API association details in AppSync                                                                                                                                                                                                          | [domain\*](#list_appsync-resource-domain "#list_appsync-resource-domain")                                           | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Read                          |
-| [GetApiCache](../../../appsync/latest/APIReference/API_GetApiCache.md "../../../appsync/latest/APIReference/API_GetApiCache.md")                                                                   | Grants permission to read information about an API cache in AppSync                                                                                                                                                                                                                                   |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Read                          |
-| [GetChannelNamespace](../../../appsync/latest/APIReference/API_GetChannelNamespace.md "../../../appsync/latest/APIReference/API_GetChannelNamespace.md")                                           | Grants permission to retrieve a channel namespace                                                                                                                                                                                                                                                     | [channelNamespace\*](#list_appsync-resource-channelNamespace "#list_appsync-resource-channelNamespace")             | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Read                          |
-| [GetDataSource](../../../appsync/latest/APIReference/API_GetDataSource.md "../../../appsync/latest/APIReference/API_GetDataSource.md")                                                             | Grants permission to retrieve a data source                                                                                                                                                                                                                                                           |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Read                          |
-| [GetDataSourceIntrospection](../../../appsync/latest/APIReference/API_GetDataSourceIntrospection.md "../../../appsync/latest/APIReference/API_GetDataSourceIntrospection.md")                      | Grants permission to retrieve a data source introspection                                                                                                                                                                                                                                             |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Read                          |
-| [GetDomainName](../../../appsync/latest/APIReference/API_GetDomainName.md "../../../appsync/latest/APIReference/API_GetDomainName.md")                                                             | Grants permission to read information about a custom domain name in AppSync                                                                                                                                                                                                                           | [domain\*](#list_appsync-resource-domain "#list_appsync-resource-domain")                                           | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Read                          |
-| [GetFunction](../../../appsync/latest/APIReference/API_GetFunction.md "../../../appsync/latest/APIReference/API_GetFunction.md")                                                                   | Grants permission to retrieve a function                                                                                                                                                                                                                                                              |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Read                          |
-| [GetGraphqlApi](../../../appsync/latest/APIReference/API_GetGraphqlApi.md "../../../appsync/latest/APIReference/API_GetGraphqlApi.md")                                                             | Grants permission to retrieve a GraphQL API                                                                                                                                                                                                                                                           | [graphqlapi\*](#list_appsync-resource-graphqlapi "#list_appsync-resource-graphqlapi")                               | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Read                          |
-| [GetGraphqlApiEnvironmentVariables](../../../appsync/latest/APIReference/API_GetGraphqlApiEnvironmentVariables.md "../../../appsync/latest/APIReference/API_GetGraphqlApiEnvironmentVariables.md") | Grants permission to retrieve the environment variables for a GraphQL API                                                                                                                                                                                                                             |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Read                          |
-| [GetIntrospectionSchema](../../../appsync/latest/APIReference/API_GetIntrospectionSchema.md "../../../appsync/latest/APIReference/API_GetIntrospectionSchema.md")                                  | Grants permission to retrieve the introspection schema for a GraphQL API                                                                                                                                                                                                                              |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Read                          |
-| [GetResolver](../../../appsync/latest/APIReference/API_GetResolver.md "../../../appsync/latest/APIReference/API_GetResolver.md")                                                                   | Grants permission to retrieve a resolver                                                                                                                                                                                                                                                              |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Read                          |
-| [GetSchemaCreationStatus](../../../appsync/latest/APIReference/API_GetSchemaCreationStatus.md "../../../appsync/latest/APIReference/API_GetSchemaCreationStatus.md")                               | Grants permission to retrieve the current status of a schema creation operation                                                                                                                                                                                                                       |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Read                          |
-| [GetSourceApiAssociation](../../../appsync/latest/APIReference/API_GetSourceApiAssociation.md "../../../appsync/latest/APIReference/API_GetSourceApiAssociation.md")                               | Grants permission to read information about a merged API associated source API                                                                                                                                                                                                                        | [sourceApiAssociation\*](#list_appsync-resource-sourceApiAssociation "#list_appsync-resource-sourceApiAssociation") |                                                                                                                                                                                                                                                                                                       | Read                          |
-| [GetType](../../../appsync/latest/APIReference/API_GetType.md "../../../appsync/latest/APIReference/API_GetType.md")                                                                               | Grants permission to retrieve a type                                                                                                                                                                                                                                                                  |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Read                          |
-| [ListApiKeys](../../../appsync/latest/APIReference/API_ListApiKeys.md "../../../appsync/latest/APIReference/API_ListApiKeys.md")                                                                   | Grants permission to list the API keys for a given API                                                                                                                                                                                                                                                |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | List                          |
-| [ListApis](../../../appsync/latest/APIReference/API_ListApis.md "../../../appsync/latest/APIReference/API_ListApis.md")                                                                            | Grants permission to list APIs                                                                                                                                                                                                                                                                        |                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | List                          |
-| [ListChannelNamespaces](../../../appsync/latest/APIReference/API_ListChannelNamespaces.md "../../../appsync/latest/APIReference/API_ListChannelNamespaces.md")                                     | Grants permission to list channel namespace                                                                                                                                                                                                                                                           | [api\*](#list_appsync-resource-api "#list_appsync-resource-api")                                                    | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | List                          |
-| [ListDataSources](../../../appsync/latest/APIReference/API_ListDataSources.md "../../../appsync/latest/APIReference/API_ListDataSources.md")                                                       | Grants permission to list the data sources for a given API                                                                                                                                                                                                                                            |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | List                          |
-| [ListDomainNames](../../../appsync/latest/APIReference/API_ListDomainNames.md "../../../appsync/latest/APIReference/API_ListDomainNames.md")                                                       | Grants permission to enumerate custom domain names in AppSync                                                                                                                                                                                                                                         |                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | List                          |
-| [ListFunctions](../../../appsync/latest/APIReference/API_ListFunctions.md "../../../appsync/latest/APIReference/API_ListFunctions.md")                                                             | Grants permission to list the functions for a given API                                                                                                                                                                                                                                               |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | List                          |
-| [ListGraphqlApis](../../../appsync/latest/APIReference/API_ListGraphqlApis.md "../../../appsync/latest/APIReference/API_ListGraphqlApis.md")                                                       | Grants permission to list GraphQL APIs                                                                                                                                                                                                                                                                |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | List                          |
-| [ListResolvers](../../../appsync/latest/APIReference/API_ListResolvers.md "../../../appsync/latest/APIReference/API_ListResolvers.md")                                                             | Grants permission to list the resolvers for a given API and type                                                                                                                                                                                                                                      |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | List                          |
-| [ListResolversByFunction](../../../appsync/latest/APIReference/API_ListResolversByFunction.md "../../../appsync/latest/APIReference/API_ListResolversByFunction.md")                               | Grants permission to list the resolvers that are associated with a specific function                                                                                                                                                                                                                  |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | List                          |
-| [ListSourceApiAssociations](../../../appsync/latest/APIReference/API_ListSourceApiAssociations.md "../../../appsync/latest/APIReference/API_ListSourceApiAssociations.md")                         | Grants permission to list source APIs associated to a given merged API                                                                                                                                                                                                                                |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | List                          |
-| [ListTagsForResource](../../../appsync/latest/APIReference/API_ListTagsForResource.md "../../../appsync/latest/APIReference/API_ListTagsForResource.md")                                           | Grants permission to list the tags for a resource                                                                                                                                                                                                                                                     | [api](#list_appsync-resource-api "#list_appsync-resource-api")                                                      | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Read                          |
-| [channelNamespace](#list_appsync-resource-channelNamespace "#list_appsync-resource-channelNamespace")                                                                                              | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        |
-| [domain](#list_appsync-resource-domain "#list_appsync-resource-domain")                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        |
-| [graphqlapi](#list_appsync-resource-graphqlapi "#list_appsync-resource-graphqlapi")                                                                                                                | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        |
-| [ListTypes](../../../appsync/latest/APIReference/API_ListTypes.md "../../../appsync/latest/APIReference/API_ListTypes.md")                                                                         | Grants permission to list the types for a given API                                                                                                                                                                                                                                                   |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | List                          |
-| [ListTypesByAssociation](../../../appsync/latest/APIReference/API_ListTypesByAssociation.md "../../../appsync/latest/APIReference/API_ListTypesByAssociation.md")                                  | Grants permission to list the types for a given merged API and source API association                                                                                                                                                                                                                 |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | List                          |
-| [PutGraphqlApiEnvironmentVariables](../../../appsync/latest/APIReference/API_PutGraphqlApiEnvironmentVariables.md "../../../appsync/latest/APIReference/API_PutGraphqlApiEnvironmentVariables.md") | Grants permission to update the environment variables for a GraphQL API                                                                                                                                                                                                                               |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [SetWebACL](../../../appsync/latest/devguide/WAF-Integration.md "../../../appsync/latest/devguide/WAF-Integration.md")                                                                             | Grants permission to set a web ACL                                                                                                                                                                                                                                                                    |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Permissions management, Write |
-| [StartDataSourceIntrospection](../../../appsync/latest/APIReference/API_StartDataSourceIntrospection.md "../../../appsync/latest/APIReference/API_StartDataSourceIntrospection.md")                | Grants permission to introspect a data source                                                                                                                                                                                                                                                         |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [StartSchemaCreation](../../../appsync/latest/APIReference/API_StartSchemaCreation.md "../../../appsync/latest/APIReference/API_StartSchemaCreation.md")                                           | Grants permission to add a new schema to your GraphQL API. This operation is asynchronous<br>• GetSchemaCreationStatus can show when it has completed                                                                                                                                                 |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [StartSchemaMerge](../../../appsync/latest/APIReference/API_StartSchemaMerge.md "../../../appsync/latest/APIReference/API_StartSchemaMerge.md")                                                    | Grants permission to initiate a schema merge for a given merged API and associated source API                                                                                                                                                                                                         | [sourceApiAssociation\*](#list_appsync-resource-sourceApiAssociation "#list_appsync-resource-sourceApiAssociation") |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [TagResource](../../../appsync/latest/APIReference/API_TagResource.md "../../../appsync/latest/APIReference/API_TagResource.md")                                                                   | Grants permission to tag a resource                                                                                                                                                                                                                                                                   | [api](#list_appsync-resource-api "#list_appsync-resource-api")                                                      | [aws:RequestTag/${TagKey}](#list_appsync-aws_RequestTag___TagKey_ "#list_appsync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appsync-aws_TagKeys "#list_appsync-aws_TagKeys") | Tagging, Write                |
-| [channelNamespace](#list_appsync-resource-channelNamespace "#list_appsync-resource-channelNamespace")                                                                                              | [aws:RequestTag/${TagKey}](#list_appsync-aws_RequestTag___TagKey_ "#list_appsync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appsync-aws_TagKeys "#list_appsync-aws_TagKeys") |
-| [domain](#list_appsync-resource-domain "#list_appsync-resource-domain")                                                                                                                            | [aws:RequestTag/${TagKey}](#list_appsync-aws_RequestTag___TagKey_ "#list_appsync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appsync-aws_TagKeys "#list_appsync-aws_TagKeys") |
-| [graphqlapi](#list_appsync-resource-graphqlapi "#list_appsync-resource-graphqlapi")                                                                                                                | [aws:RequestTag/${TagKey}](#list_appsync-aws_RequestTag___TagKey_ "#list_appsync-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appsync-aws_TagKeys "#list_appsync-aws_TagKeys") |
-| [UntagResource](../../../appsync/latest/APIReference/API_UntagResource.md "../../../appsync/latest/APIReference/API_UntagResource.md")                                                             | Grants permission to untag a resource                                                                                                                                                                                                                                                                 | [api](#list_appsync-resource-api "#list_appsync-resource-api")                                                      | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appsync-aws_TagKeys "#list_appsync-aws_TagKeys")                                                                                                                | Tagging, Write                |
-| [channelNamespace](#list_appsync-resource-channelNamespace "#list_appsync-resource-channelNamespace")                                                                                              | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appsync-aws_TagKeys "#list_appsync-aws_TagKeys")                                                                                                                |
-| [domain](#list_appsync-resource-domain "#list_appsync-resource-domain")                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appsync-aws_TagKeys "#list_appsync-aws_TagKeys")                                                                                                                |
-| [graphqlapi](#list_appsync-resource-graphqlapi "#list_appsync-resource-graphqlapi")                                                                                                                | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appsync-aws_TagKeys "#list_appsync-aws_TagKeys")                                                                                                                |
-| [UpdateApi](../../../appsync/latest/APIReference/API_UpdateApi.md "../../../appsync/latest/APIReference/API_UpdateApi.md")                                                                         | Grants permission to update an API                                                                                                                                                                                                                                                                    | [api\*](#list_appsync-resource-api "#list_appsync-resource-api")                                                    | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write                         |
-| [UpdateApiCache](../../../appsync/latest/APIReference/API_UpdateApiCache.md "../../../appsync/latest/APIReference/API_UpdateApiCache.md")                                                          | Grants permission to update an API cache in AppSync                                                                                                                                                                                                                                                   |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [UpdateApiKey](../../../appsync/latest/APIReference/API_UpdateApiKey.md "../../../appsync/latest/APIReference/API_UpdateApiKey.md")                                                                | Grants permission to update an API key for a given API                                                                                                                                                                                                                                                |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [UpdateChannelNamespace](../../../appsync/latest/APIReference/API_UpdateChannelNamespace.md "../../../appsync/latest/APIReference/API_UpdateChannelNamespace.md")                                  | Grants permission to update a channel namespace                                                                                                                                                                                                                                                       | [channelNamespace\*](#list_appsync-resource-channelNamespace "#list_appsync-resource-channelNamespace")             | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write                         |
-| [UpdateDataSource](../../../appsync/latest/APIReference/API_UpdateDataSource.md "../../../appsync/latest/APIReference/API_UpdateDataSource.md")                                                    | Grants permission to update a data source                                                                                                                                                                                                                                                             |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [UpdateDomainName](../../../appsync/latest/APIReference/API_UpdateDomainName.md "../../../appsync/latest/APIReference/API_UpdateDomainName.md")                                                    | Grants permission to update a custom domain name in AppSync                                                                                                                                                                                                                                           | [domain\*](#list_appsync-resource-domain "#list_appsync-resource-domain")                                           | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write                         |
-| [UpdateFunction](../../../appsync/latest/APIReference/API_UpdateFunction.md "../../../appsync/latest/APIReference/API_UpdateFunction.md")                                                          | Grants permission to update an existing function                                                                                                                                                                                                                                                      |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [UpdateGraphqlApi](../../../appsync/latest/APIReference/API_UpdateGraphqlApi.md "../../../appsync/latest/APIReference/API_UpdateGraphqlApi.md")                                                    | Grants permission to update a GraphQL API                                                                                                                                                                                                                                                             | [graphqlapi\*](#list_appsync-resource-graphqlapi "#list_appsync-resource-graphqlapi")                               | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write                         |
-| [UpdateResolver](../../../appsync/latest/APIReference/API_UpdateResolver.md "../../../appsync/latest/APIReference/API_UpdateResolver.md")                                                          | Grants permission to update a resolver                                                                                                                                                                                                                                                                |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [UpdateSourceApiAssociation](../../../appsync/latest/APIReference/API_UpdateSourceApiAssociation.md "../../../appsync/latest/APIReference/API_UpdateSourceApiAssociation.md")                      | Grants permission to update a merged API source API association                                                                                                                                                                                                                                       | [sourceApiAssociation\*](#list_appsync-resource-sourceApiAssociation "#list_appsync-resource-sourceApiAssociation") |                                                                                                                                                                                                                                                                                                       | Write                         |
-| [UpdateType](../../../appsync/latest/APIReference/API_UpdateType.md "../../../appsync/latest/APIReference/API_UpdateType.md")                                                                      | Grants permission to update a type                                                                                                                                                                                                                                                                    |                                                                                                                     |                                                                                                                                                                                                                                                                                                       | Write                         |
+
+
+
+- **   [AssociateApi](https://docs.aws.amazon.com/appsync/latest/APIReference/API_AssociateApi.html)  **
+  - **Description:** Grants permission to attach a GraphQL API to a custom domain name in AppSync
+  - **Resource types (\*required):** [domain\*](#list_appsync-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateMergedGraphqlApi](https://docs.aws.amazon.com/appsync/latest/APIReference/API_AssociateMergedGraphqlApi.html)  **
+  - **Description:** Grants permission to associate a merged API to a source API
+  - **Resource types (\*required):** [graphqlapi\*](#list_appsync-resource-graphqlapi)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateSourceGraphqlApi](https://docs.aws.amazon.com/appsync/latest/APIReference/API_AssociateSourceGraphqlApi.html)  **
+  - **Description:** Grants permission to associate a source API to a merged API
+  - **Resource types (\*required):** [graphqlapi\*](#list_appsync-resource-graphqlapi)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateApi](https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateApi.html)  **
+  - **Description:** Grants permission to create an API
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appsync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appsync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateApiCache](https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateApiCache.html)  **
+  - **Description:** Grants permission to create an API cache in AppSync
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateApiKey](https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateApiKey.html)  **
+  - **Description:** Grants permission to create a unique key that you can distribute to clients who are executing your API
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateChannelNamespace](https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateChannelNamespace.html)  **
+  - **Description:** Grants permission to create a channel namespace
+  - **Resource types (\*required):** [channelNamespace\*](#list_appsync-resource-channelNamespace)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appsync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appsync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDataSource](https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateDataSource.html)  **
+  - **Description:** Grants permission to create a data source
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateDomainName](https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateDomainName.html)  **
+  - **Description:** Grants permission to create a custom domain name in AppSync
+  - **Resource types (\*required):** [domain\*](#list_appsync-resource-domain)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appsync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appsync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateFunction](https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateFunction.html)  **
+  - **Description:** Grants permission to create a new function
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateGraphqlApi](https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateGraphqlApi.html)  **
+  - **Description:** Grants permission to create a GraphQL API, which is the top level AppSync resource
+  - **Resource types (\*required):** 
+  - **Condition keys:** [appsync:Visibility](#list_appsync-appsync_Visibility)<br />[aws:RequestTag/${TagKey}](#list_appsync-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_appsync-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateResolver](https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateResolver.html)  **
+  - **Description:** Grants permission to create a resolver. A resolver converts incoming requests into a format that a data source can understand, and converts the data source's responses into GraphQL
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateType](https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateType.html)  **
+  - **Description:** Grants permission to create a type
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteApi](https://docs.aws.amazon.com/appsync/latest/APIReference/API_DeleteApi.html)  **
+  - **Description:** Grants permission to delete a API. This will also clean up every AppSync resource below that API
+  - **Resource types (\*required):** [api\*](#list_appsync-resource-api)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteApiCache](https://docs.aws.amazon.com/appsync/latest/APIReference/API_DeleteApiCache.html)  **
+  - **Description:** Grants permission to delete an API cache in AppSync
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteApiKey](https://docs.aws.amazon.com/appsync/latest/APIReference/API_DeleteApiKey.html)  **
+  - **Description:** Grants permission to delete an API key
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteChannelNamespace](https://docs.aws.amazon.com/appsync/latest/APIReference/API_DeleteChannelNamespace.html)  **
+  - **Description:** Grants permission to delete a channel namespace
+  - **Resource types (\*required):** [channelNamespace\*](#list_appsync-resource-channelNamespace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDataSource](https://docs.aws.amazon.com/appsync/latest/APIReference/API_DeleteDataSource.html)  **
+  - **Description:** Grants permission to delete a data source
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteDomainName](https://docs.aws.amazon.com/appsync/latest/APIReference/API_DeleteDomainName.html)  **
+  - **Description:** Grants permission to delete a custom domain name in AppSync
+  - **Resource types (\*required):** [domain\*](#list_appsync-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteFunction](https://docs.aws.amazon.com/appsync/latest/APIReference/API_DeleteFunction.html)  **
+  - **Description:** Grants permission to delete a function
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteGraphqlApi](https://docs.aws.amazon.com/appsync/latest/APIReference/API_DeleteGraphqlApi.html)  **
+  - **Description:** Grants permission to delete a GraphQL Api. This will also clean up every AppSync resource below that API
+  - **Resource types (\*required):** [graphqlapi\*](#list_appsync-resource-graphqlapi)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteResolver](https://docs.aws.amazon.com/appsync/latest/APIReference/API_DeleteResolver.html)  **
+  - **Description:** Grants permission to delete a resolver
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteType](https://docs.aws.amazon.com/appsync/latest/APIReference/API_DeleteType.html)  **
+  - **Description:** Grants permission to delete a type
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DisassociateApi](https://docs.aws.amazon.com/appsync/latest/APIReference/API_DisassociateApi.html)  **
+  - **Description:** Grants permission to detach a GraphQL API to a custom domain name in AppSync
+  - **Resource types (\*required):** [domain\*](#list_appsync-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateMergedGraphqlApi](https://docs.aws.amazon.com/appsync/latest/APIReference/API_DisassociateMergedGraphqlApi.html)  **
+  - **Description:** Grants permission to remove an associated source API from a merged API identified by the source API
+  - **Resource types (\*required):** [mergedApiAssociation\*](#list_appsync-resource-mergedApiAssociation)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DisassociateSourceGraphqlApi](https://docs.aws.amazon.com/appsync/latest/APIReference/API_DisassociateSourceGraphqlApi.html)  **
+  - **Description:** Grants permission to remove an associated source API from a merged API identified by the merged API
+  - **Resource types (\*required):** [sourceApiAssociation\*](#list_appsync-resource-sourceApiAssociation)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [EvaluateCode](https://docs.aws.amazon.com/appsync/latest/APIReference/API_EvaluateCode.html)  **
+  - **Description:** Grants permission to evaluate code with a runtime and context
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [EvaluateMappingTemplate](https://docs.aws.amazon.com/appsync/latest/APIReference/API_EvaluateMappingTemplate.html)  **
+  - **Description:** Grants permission to evaluate template mapping
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [EventConnect](https://docs.aws.amazon.com/appsync/latest/devguide/using-your-event-api.html)  **
+  - **Description:** Grants permission to connect to an Event API
+  - **Resource types (\*required):** [api\*](#list_appsync-resource-api)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [EventPublish](https://docs.aws.amazon.com/appsync/latest/devguide/using-your-event-api.html)  **
+  - **Description:** Grants permission to publish events to a channel namespace
+  - **Resource types (\*required):** [channelNamespace\*](#list_appsync-resource-channelNamespace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [EventSubscribe](https://docs.aws.amazon.com/appsync/latest/devguide/using-your-event-api.html)  **
+  - **Description:** Grants permission to subscribe to a channel namespace
+  - **Resource types (\*required):** [channelNamespace\*](#list_appsync-resource-channelNamespace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [FlushApiCache](https://docs.aws.amazon.com/appsync/latest/APIReference/API_FlushApiCache.html)  **
+  - **Description:** Grants permission to flush an API cache in AppSync
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [GetApi](https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetApi.html)  **
+  - **Description:** Grants permission to retrieve an API
+  - **Resource types (\*required):** [api\*](#list_appsync-resource-api)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetApiAssociation](https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetApiAssociation.html)  **
+  - **Description:** Grants permission to read custom domain name - GraphQL API association details in AppSync
+  - **Resource types (\*required):** [domain\*](#list_appsync-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetApiCache](https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetApiCache.html)  **
+  - **Description:** Grants permission to read information about an API cache in AppSync
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetChannelNamespace](https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetChannelNamespace.html)  **
+  - **Description:** Grants permission to retrieve a channel namespace
+  - **Resource types (\*required):** [channelNamespace\*](#list_appsync-resource-channelNamespace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDataSource](https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetDataSource.html)  **
+  - **Description:** Grants permission to retrieve a data source
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetDataSourceIntrospection](https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetDataSourceIntrospection.html)  **
+  - **Description:** Grants permission to retrieve a data source introspection
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetDomainName](https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetDomainName.html)  **
+  - **Description:** Grants permission to read information about a custom domain name in AppSync
+  - **Resource types (\*required):** [domain\*](#list_appsync-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetFunction](https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetFunction.html)  **
+  - **Description:** Grants permission to retrieve a function
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetGraphqlApi](https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetGraphqlApi.html)  **
+  - **Description:** Grants permission to retrieve a GraphQL API
+  - **Resource types (\*required):** [graphqlapi\*](#list_appsync-resource-graphqlapi)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetGraphqlApiEnvironmentVariables](https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetGraphqlApiEnvironmentVariables.html)  **
+  - **Description:** Grants permission to retrieve the environment variables for a GraphQL API
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetIntrospectionSchema](https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetIntrospectionSchema.html)  **
+  - **Description:** Grants permission to retrieve the introspection schema for a GraphQL API
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetResolver](https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetResolver.html)  **
+  - **Description:** Grants permission to retrieve a resolver
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetSchemaCreationStatus](https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetSchemaCreationStatus.html)  **
+  - **Description:** Grants permission to retrieve the current status of a schema creation operation
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetSourceApiAssociation](https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetSourceApiAssociation.html)  **
+  - **Description:** Grants permission to read information about a merged API associated source API
+  - **Resource types (\*required):** [sourceApiAssociation\*](#list_appsync-resource-sourceApiAssociation)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetType](https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetType.html)  **
+  - **Description:** Grants permission to retrieve a type
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListApiKeys](https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListApiKeys.html)  **
+  - **Description:** Grants permission to list the API keys for a given API
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListApis](https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListApis.html)  **
+  - **Description:** Grants permission to list APIs
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListChannelNamespaces](https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListChannelNamespaces.html)  **
+  - **Description:** Grants permission to list channel namespace
+  - **Resource types (\*required):** [api\*](#list_appsync-resource-api)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDataSources](https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListDataSources.html)  **
+  - **Description:** Grants permission to list the data sources for a given API
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDomainNames](https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListDomainNames.html)  **
+  - **Description:** Grants permission to enumerate custom domain names in AppSync
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListFunctions](https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListFunctions.html)  **
+  - **Description:** Grants permission to list the functions for a given API
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListGraphqlApis](https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListGraphqlApis.html)  **
+  - **Description:** Grants permission to list GraphQL APIs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListResolvers](https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListResolvers.html)  **
+  - **Description:** Grants permission to list the resolvers for a given API and type
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListResolversByFunction](https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListResolversByFunction.html)  **
+  - **Description:** Grants permission to list the resolvers that are associated with a specific function
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSourceApiAssociations](https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListSourceApiAssociations.html)  **
+  - **Description:** Grants permission to list source APIs associated to a given merged API
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list the tags for a resource
+  - **Resource types (\*required):** [api](#list_appsync-resource-api) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channelNamespace](#list_appsync-resource-channelNamespace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [domain](#list_appsync-resource-domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [graphqlapi](#list_appsync-resource-graphqlapi) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListTypes](https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListTypes.html)  **
+  - **Description:** Grants permission to list the types for a given API
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTypesByAssociation](https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListTypesByAssociation.html)  **
+  - **Description:** Grants permission to list the types for a given merged API and source API association
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [PutGraphqlApiEnvironmentVariables](https://docs.aws.amazon.com/appsync/latest/APIReference/API_PutGraphqlApiEnvironmentVariables.html)  **
+  - **Description:** Grants permission to update the environment variables for a GraphQL API
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SetWebACL](https://docs.aws.amazon.com/appsync/latest/devguide/WAF-Integration.html)  **
+  - **Description:** Grants permission to set a web ACL
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+- **   [StartDataSourceIntrospection](https://docs.aws.amazon.com/appsync/latest/APIReference/API_StartDataSourceIntrospection.html)  **
+  - **Description:** Grants permission to introspect a data source
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartSchemaCreation](https://docs.aws.amazon.com/appsync/latest/APIReference/API_StartSchemaCreation.html)  **
+  - **Description:** Grants permission to add a new schema to your GraphQL API. This operation is asynchronous - GetSchemaCreationStatus can show when it has completed
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartSchemaMerge](https://docs.aws.amazon.com/appsync/latest/APIReference/API_StartSchemaMerge.html)  **
+  - **Description:** Grants permission to initiate a schema merge for a given merged API and associated source API
+  - **Resource types (\*required):** [sourceApiAssociation\*](#list_appsync-resource-sourceApiAssociation)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/appsync/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag a resource
+  - **Resource types (\*required):** [api](#list_appsync-resource-api) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appsync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appsync-aws_TagKeys)
+  - **Resource types (\*required):** [channelNamespace](#list_appsync-resource-channelNamespace) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appsync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appsync-aws_TagKeys)
+  - **Resource types (\*required):** [domain](#list_appsync-resource-domain) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appsync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appsync-aws_TagKeys)
+  - **Resource types (\*required):** [graphqlapi](#list_appsync-resource-graphqlapi) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appsync-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appsync-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/appsync/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag a resource
+  - **Resource types (\*required):** [api](#list_appsync-resource-api) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appsync-aws_TagKeys)
+  - **Resource types (\*required):** [channelNamespace](#list_appsync-resource-channelNamespace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appsync-aws_TagKeys)
+  - **Resource types (\*required):** [domain](#list_appsync-resource-domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appsync-aws_TagKeys)
+  - **Resource types (\*required):** [graphqlapi](#list_appsync-resource-graphqlapi) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appsync-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateApi](https://docs.aws.amazon.com/appsync/latest/APIReference/API_UpdateApi.html)  **
+  - **Description:** Grants permission to update an API
+  - **Resource types (\*required):** [api\*](#list_appsync-resource-api)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateApiCache](https://docs.aws.amazon.com/appsync/latest/APIReference/API_UpdateApiCache.html)  **
+  - **Description:** Grants permission to update an API cache in AppSync
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateApiKey](https://docs.aws.amazon.com/appsync/latest/APIReference/API_UpdateApiKey.html)  **
+  - **Description:** Grants permission to update an API key for a given API
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateChannelNamespace](https://docs.aws.amazon.com/appsync/latest/APIReference/API_UpdateChannelNamespace.html)  **
+  - **Description:** Grants permission to update a channel namespace
+  - **Resource types (\*required):** [channelNamespace\*](#list_appsync-resource-channelNamespace)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDataSource](https://docs.aws.amazon.com/appsync/latest/APIReference/API_UpdateDataSource.html)  **
+  - **Description:** Grants permission to update a data source
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateDomainName](https://docs.aws.amazon.com/appsync/latest/APIReference/API_UpdateDomainName.html)  **
+  - **Description:** Grants permission to update a custom domain name in AppSync
+  - **Resource types (\*required):** [domain\*](#list_appsync-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateFunction](https://docs.aws.amazon.com/appsync/latest/APIReference/API_UpdateFunction.html)  **
+  - **Description:** Grants permission to update an existing function
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateGraphqlApi](https://docs.aws.amazon.com/appsync/latest/APIReference/API_UpdateGraphqlApi.html)  **
+  - **Description:** Grants permission to update a GraphQL API
+  - **Resource types (\*required):** [graphqlapi\*](#list_appsync-resource-graphqlapi)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateResolver](https://docs.aws.amazon.com/appsync/latest/APIReference/API_UpdateResolver.html)  **
+  - **Description:** Grants permission to update a resolver
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateSourceApiAssociation](https://docs.aws.amazon.com/appsync/latest/APIReference/API_UpdateSourceApiAssociation.html)  **
+  - **Description:** Grants permission to update a merged API source API association
+  - **Resource types (\*required):** [sourceApiAssociation\*](#list_appsync-resource-sourceApiAssociation)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateType](https://docs.aws.amazon.com/appsync/latest/APIReference/API_UpdateType.html)  **
+  - **Description:** Grants permission to update a type
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for AWS AppSync
+<a name="list_appsync-permission-only-actions"></a>
 
-The following actions are defined by AWS AppSync but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by AWS AppSync but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                                        | Description                                                                                                    | Resource types (\*required)                                            | Condition keys                                                                                                 | Access level |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ------------ |
-| [AssociateWebACL](../../../appsync/latest/devguide/WAF-Integration.md "../../../appsync/latest/devguide/WAF-Integration.md")                                   | Grants permission to associate a web ACL and a resource                                                        | [api](#list_appsync-resource-api "#list_appsync-resource-api")         | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_") | Write        |
-| [graphqlapi](#list_appsync-resource-graphqlapi "#list_appsync-resource-graphqlapi")                                                                            | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_") |
-| [DeleteResourcePolicy](../../../appsync/latest/devguide/merge-api.md "../../../appsync/latest/devguide/merge-api.md")                                          | Grants permission to remove a resource policy                                                                  |                                                                        |                                                                                                                | Write        |
-| [DisassociateWebACL](../../../appsync/latest/devguide/WAF-Integration.md "../../../appsync/latest/devguide/WAF-Integration.md")                                | Grants permission to disassociate a web ACL and a resource                                                     | [api](#list_appsync-resource-api "#list_appsync-resource-api")         | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_") | Write        |
-| [graphqlapi](#list_appsync-resource-graphqlapi "#list_appsync-resource-graphqlapi")                                                                            | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_") |
-| [GetResourcePolicy](../../../appsync/latest/devguide/merge-api.md "../../../appsync/latest/devguide/merge-api.md")                                             | Grants permission to read a resource policy                                                                    |                                                                        |                                                                                                                | Read         |
-| [GetWebACLForResource](../../../appsync/latest/devguide/WAF-Integration.md "../../../appsync/latest/devguide/WAF-Integration.md")                              | Grants permission to get associated web ACLs for a resource                                                    | [api](#list_appsync-resource-api "#list_appsync-resource-api")         | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_") | Read         |
-| [graphqlapi](#list_appsync-resource-graphqlapi "#list_appsync-resource-graphqlapi")                                                                            | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_") |
-| [GraphQL](../../../appsync/latest/devguide/security-authz.md#aws-iam-authorization "../../../appsync/latest/devguide/security-authz.md#aws-iam-authorization") | Grants permission to send a GraphQL query to a GraphQL API                                                     | [field\*](#list_appsync-resource-field "#list_appsync-resource-field") |                                                                                                                | Write        |
-| [graphqlapi\*](#list_appsync-resource-graphqlapi "#list_appsync-resource-graphqlapi")                                                                          | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_") |
-| [ListResourcesForWebACL](../../../appsync/latest/devguide/WAF-Integration.md "../../../appsync/latest/devguide/WAF-Integration.md")                            | Grants permission to get associated resources for a web ACL                                                    |                                                                        |                                                                                                                | List         |
-| [PutResourcePolicy](../../../appsync/latest/devguide/merge-api.md "../../../appsync/latest/devguide/merge-api.md")                                             | Grants permission to set a resource policy                                                                     |                                                                        |                                                                                                                | Write        |
-| [SourceGraphQL](../../../appsync/latest/devguide/using-your-api.md "../../../appsync/latest/devguide/using-your-api.md")                                       | Grants permission to send a GraphQL query to a source API of a merged API                                      | [field\*](#list_appsync-resource-field "#list_appsync-resource-field") |                                                                                                                | Write        |
-| [graphqlapi\*](#list_appsync-resource-graphqlapi "#list_appsync-resource-graphqlapi")                                                                          | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_") |
+
+
+
+- **   [AssociateWebACL](https://docs.aws.amazon.com/appsync/latest/devguide/WAF-Integration.html)  **
+  - **Description:** Grants permission to associate a web ACL and a resource
+  - **Resource types (\*required):** [api](#list_appsync-resource-api) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [graphqlapi](#list_appsync-resource-graphqlapi) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteResourcePolicy](https://docs.aws.amazon.com/appsync/latest/devguide/merge-api.html)  **
+  - **Description:** Grants permission to remove a resource policy
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DisassociateWebACL](https://docs.aws.amazon.com/appsync/latest/devguide/WAF-Integration.html)  **
+  - **Description:** Grants permission to disassociate a web ACL and a resource
+  - **Resource types (\*required):** [api](#list_appsync-resource-api) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [graphqlapi](#list_appsync-resource-graphqlapi) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetResourcePolicy](https://docs.aws.amazon.com/appsync/latest/devguide/merge-api.html)  **
+  - **Description:** Grants permission to read a resource policy
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetWebACLForResource](https://docs.aws.amazon.com/appsync/latest/devguide/WAF-Integration.html)  **
+  - **Description:** Grants permission to get associated web ACLs for a resource
+  - **Resource types (\*required):** [api](#list_appsync-resource-api) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [graphqlapi](#list_appsync-resource-graphqlapi) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GraphQL](https://docs.aws.amazon.com/appsync/latest/devguide/security-authz.html#aws-iam-authorization)  **
+  - **Description:** Grants permission to send a GraphQL query to a GraphQL API
+  - **Resource types (\*required):** [field\*](#list_appsync-resource-field) / **Condition keys:**  
+  - **Resource types (\*required):** [graphqlapi\*](#list_appsync-resource-graphqlapi) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ListResourcesForWebACL](https://docs.aws.amazon.com/appsync/latest/devguide/WAF-Integration.html)  **
+  - **Description:** Grants permission to get associated resources for a web ACL
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [PutResourcePolicy](https://docs.aws.amazon.com/appsync/latest/devguide/merge-api.html)  **
+  - **Description:** Grants permission to set a resource policy
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SourceGraphQL](https://docs.aws.amazon.com/appsync/latest/devguide/using-your-api.html)  **
+  - **Description:** Grants permission to send a GraphQL query to a source API of a merged API
+  - **Resource types (\*required):** [field\*](#list_appsync-resource-field) / **Condition keys:**  
+  - **Resource types (\*required):** [graphqlapi\*](#list_appsync-resource-graphqlapi) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS AppSync
+<a name="list_appsync-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                                  | ARN                                                                                                             | Condition keys                                                                                                 |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| [api](../../../appsync/latest/eventapi/event-api-welcome.md "../../../appsync/latest/eventapi/event-api-welcome.md")                                                            | arn:${Partition}:appsync:${Region}:${Account}:apis/${ApiId}                                                     | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_") |
-| [channelNamespace](../../../appsync/latest/eventapi/channel-namespaces.md "../../../appsync/latest/eventapi/channel-namespaces.md")                                             | arn:${Partition}:appsync:${Region}:${Account}:apis/${ApiId}/channelNamespace/${ChannelNamespaceName}            | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_") |
-| [datasource](../../../appsync/latest/devguide/attaching-a-data-source.md "../../../appsync/latest/devguide/attaching-a-data-source.md")                                         | arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId}/datasources/${DatasourceName}                |                                                                                                                |
-| [domain](../../../appsync/latest/devguide/custom-domain-name.md "../../../appsync/latest/devguide/custom-domain-name.md")                                                       | arn:${Partition}:appsync:${Region}:${Account}:domainnames/${DomainName}                                         | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_") |
-| [field](../../../appsync/latest/devguide/configuring-resolvers.md "../../../appsync/latest/devguide/configuring-resolvers.md")                                                  | arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId}/types/${TypeName}/fields/${FieldName}        |                                                                                                                |
-| [function](../../../appsync/latest/devguide/pipeline-resolvers.md "../../../appsync/latest/devguide/pipeline-resolvers.md")                                                     | arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId}/functions/${FunctionId}                      |                                                                                                                |
-| [graphqlapi](../../../appsync/latest/devguide/designing-a-graphql-api.md "../../../appsync/latest/devguide/designing-a-graphql-api.md")                                         | arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId}                                              | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_ "#list_appsync-aws_ResourceTag___TagKey_") |
-| [mergedApiAssociation](../../../appsync/latest/devguide/merged-api.md "../../../appsync/latest/devguide/merged-api.md")                                                         | arn:${Partition}:appsync:${Region}:${Account}:apis/${SourceGraphQLAPIId}/mergedApiAssociations/${Associationid} |                                                                                                                |
-| [sourceApiAssociation](../../../appsync/latest/devguide/merged-api.md "../../../appsync/latest/devguide/merged-api.md")                                                         | arn:${Partition}:appsync:${Region}:${Account}:apis/${MergedGraphQLAPIId}/sourceApiAssociations/${Associationid} |                                                                                                                |
-| [type](../../../appsync/latest/devguide/designing-your-schema.md#adding-a-root-query-type "../../../appsync/latest/devguide/designing-your-schema.md#adding-a-root-query-type") | arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId}/types/${TypeName}                            |                                                                                                                |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [api](https://docs.aws.amazon.com/appsync/latest/eventapi/event-api-welcome.html)  | arn:${Partition}:appsync:${Region}:${Account}:apis/${ApiId} | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_) | 
+|  [channelNamespace](https://docs.aws.amazon.com/appsync/latest/eventapi/channel-namespaces.html)  | arn:${Partition}:appsync:${Region}:${Account}:apis/${ApiId}/channelNamespace/${ChannelNamespaceName} | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_) | 
+|  [datasource](https://docs.aws.amazon.com/appsync/latest/devguide/attaching-a-data-source.html)  | arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId}/datasources/${DatasourceName} |   | 
+|  [domain](https://docs.aws.amazon.com/appsync/latest/devguide/custom-domain-name.html)  | arn:${Partition}:appsync:${Region}:${Account}:domainnames/${DomainName} | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_) | 
+|  [field](https://docs.aws.amazon.com/appsync/latest/devguide/configuring-resolvers.html)  | arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId}/types/${TypeName}/fields/${FieldName} |   | 
+|  [function](https://docs.aws.amazon.com/appsync/latest/devguide/pipeline-resolvers.html)  | arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId}/functions/${FunctionId} |   | 
+|  [graphqlapi](https://docs.aws.amazon.com/appsync/latest/devguide/designing-a-graphql-api.html)  | arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId} | [aws:ResourceTag/${TagKey}](#list_appsync-aws_ResourceTag___TagKey_) | 
+|  [mergedApiAssociation](https://docs.aws.amazon.com/appsync/latest/devguide/merged-api.html)  | arn:${Partition}:appsync:${Region}:${Account}:apis/${SourceGraphQLAPIId}/mergedApiAssociations/${Associationid} |   | 
+|  [sourceApiAssociation](https://docs.aws.amazon.com/appsync/latest/devguide/merged-api.html)  | arn:${Partition}:appsync:${Region}:${Account}:apis/${MergedGraphQLAPIId}/sourceApiAssociations/${Associationid} |   | 
+|  [type](https://docs.aws.amazon.com/appsync/latest/devguide/designing-your-schema.html#adding-a-root-query-type)  | arn:${Partition}:appsync:${Region}:${Account}:apis/${GraphQLAPIId}/types/${TypeName} |   | 
 
 ## Condition keys for AWS AppSync
+<a name="list_appsync-policy-keys"></a>
 
-AWS AppSync defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS AppSync defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                        | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------------- |
-| [appsync:Visibility](iam-policy-structure.md#amazon-appsync-keys "iam-policy-structure.md#amazon-appsync-keys")                                                                                                            | Filters access by the visibility of an API                         | String        |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the tag key-value pairs in the request           | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by the tag key-value pairs attached to the resource | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the presence of tag keys in the request          | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [appsync:Visibility](iam-policy-structure.html#amazon-appsync-keys)  | Filters access by the visibility of an API | String | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the presence of tag keys in the request | ArrayOfString | 

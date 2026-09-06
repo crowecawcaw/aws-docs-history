@@ -1,176 +1,456 @@
-# Actions, resources, and condition keys for Amazon Connect Health
 
-Amazon Connect Health (service prefix: `health-agent`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Connect Health
+<a name="list_connecthealth"></a>
+
+Amazon Connect Health (service prefix: `health-agent`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/connecthealth/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/connecthealth/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/connecthealth/latest/userguide/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/health-agent/health-agent.json) for this service.
 
-- Learn how to [configure this service](../../../connecthealth/latest/userguide.md "../../../connecthealth/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../connecthealth/latest/APIReference.md "../../../connecthealth/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../connecthealth/latest/userguide/security-iam.md "../../../connecthealth/latest/userguide/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/health-agent/health-agent.json "https://servicereference.us-east-1.amazonaws.com/v1/health-agent/health-agent.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon Connect Health](#list_connecthealth-operations "#list_connecthealth-operations")
-- [Actions defined by Amazon Connect Health](#list_connecthealth-actions-as-permissions "#list_connecthealth-actions-as-permissions")
-- [Permission-only actions for Amazon Connect Health](#list_connecthealth-permission-only-actions "#list_connecthealth-permission-only-actions")
-- [Resource types defined by Amazon Connect Health](#list_connecthealth-resources-for-iam-policies "#list_connecthealth-resources-for-iam-policies")
-- [Condition keys for Amazon Connect Health](#list_connecthealth-policy-keys "#list_connecthealth-policy-keys")
+**Topics**
++ [API operations defined by Amazon Connect Health](#list_connecthealth-operations)
++ [Actions defined by Amazon Connect Health](#list_connecthealth-actions-as-permissions)
++ [Permission-only actions for Amazon Connect Health](#list_connecthealth-permission-only-actions)
++ [Resource types defined by Amazon Connect Health](#list_connecthealth-resources-for-iam-policies)
++ [Condition keys for Amazon Connect Health](#list_connecthealth-policy-keys)
 
 ## API operations defined by Amazon Connect Health
+<a name="list_connecthealth-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_connecthealth-actions-as-permissions "#list_connecthealth-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_connecthealth-actions-as-permissions).
 
-| Operation                                                                                                                       | IAM action                                                                                                                                                                       | Condition key              | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ----------------- | -------------- |
-| ActivateSubscription                                                                                                            | [health-agent:ActivateSubscription](#list_connecthealth-action-ActivateSubscription "#list_connecthealth-action-ActivateSubscription")                                           |                            |                   | Write          |
-| CreateDomain                                                                                                                    | [health-agent:CreateDomain](#list_connecthealth-action-CreateDomain "#list_connecthealth-action-CreateDomain")                                                                   |                            |                   | Write          |
-| [health-agent:TagResource](#list_connecthealth-action-TagResource "#list_connecthealth-action-TagResource")                     |                                                                                                                                                                                  |                            | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                              | health-agent.amazonaws.com | Write             |
-| CreateSubscription                                                                                                              | [health-agent:CreateSubscription](#list_connecthealth-action-CreateSubscription "#list_connecthealth-action-CreateSubscription")                                                 |                            |                   | Write          |
-| DeactivateSubscription                                                                                                          | [health-agent:DeactivateSubscription](#list_connecthealth-action-DeactivateSubscription "#list_connecthealth-action-DeactivateSubscription")                                     |                            |                   | Write          |
-| DeleteDomain                                                                                                                    | [health-agent:DeleteDomain](#list_connecthealth-action-DeleteDomain "#list_connecthealth-action-DeleteDomain")                                                                   |                            |                   | Write          |
-| GetDomain                                                                                                                       | [health-agent:GetDomain](#list_connecthealth-action-GetDomain "#list_connecthealth-action-GetDomain")                                                                            |                            |                   | Read           |
-| GetMedicalScribeListeningSession                                                                                                | [health-agent:GetMedicalScribeListeningSession](#list_connecthealth-action-GetMedicalScribeListeningSession "#list_connecthealth-action-GetMedicalScribeListeningSession")       |                            |                   | Read           |
-| GetPatientInsightsJob                                                                                                           | [health-agent:GetPatientInsightsJob](#list_connecthealth-action-GetPatientInsightsJob "#list_connecthealth-action-GetPatientInsightsJob")                                        |                            |                   | Read           |
-| GetSubscription                                                                                                                 | [health-agent:GetSubscription](#list_connecthealth-action-GetSubscription "#list_connecthealth-action-GetSubscription")                                                          |                            |                   | Read           |
-| ListDomains                                                                                                                     | [health-agent:ListDomains](#list_connecthealth-action-ListDomains "#list_connecthealth-action-ListDomains")                                                                      |                            |                   | List           |
-| ListSubscriptions                                                                                                               | [health-agent:ListSubscriptions](#list_connecthealth-action-ListSubscriptions "#list_connecthealth-action-ListSubscriptions")                                                    |                            |                   | List           |
-| ListTagsForResource                                                                                                             | [health-agent:ListTagsForResource](#list_connecthealth-action-ListTagsForResource "#list_connecthealth-action-ListTagsForResource")                                              |                            |                   | List           |
-| StartMedicalScribeListeningSession                                                                                              | [health-agent:StartMedicalScribeListeningSession](#list_connecthealth-action-StartMedicalScribeListeningSession "#list_connecthealth-action-StartMedicalScribeListeningSession") |                            |                   | Write          |
-| StartPatientInsightsJob                                                                                                         | [health-agent:StartPatientInsightsJob](#list_connecthealth-action-StartPatientInsightsJob "#list_connecthealth-action-StartPatientInsightsJob")                                  |                            |                   | Write          |
-| TagResource                                                                                                                     | [health-agent:TagResource](#list_connecthealth-action-TagResource "#list_connecthealth-action-TagResource")                                                                      |                            |                   | Tagging, Write |
-| UntagResource                                                                                                                   | [health-agent:UntagResource](#list_connecthealth-action-UntagResource "#list_connecthealth-action-UntagResource")                                                                |                            |                   | Tagging, Write |
+
+
+
+- **   ActivateSubscription  **
+  - **IAM action:**  [health-agent:ActivateSubscription](#list_connecthealth-action-ActivateSubscription) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateDomain  **
+  - **IAM action:**  [health-agent:CreateDomain](#list_connecthealth-action-CreateDomain)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [health-agent:TagResource](#list_connecthealth-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** health-agent.amazonaws.com / **Access level:** Write
+
+- **   CreateSubscription  **
+  - **IAM action:**  [health-agent:CreateSubscription](#list_connecthealth-action-CreateSubscription) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeactivateSubscription  **
+  - **IAM action:**  [health-agent:DeactivateSubscription](#list_connecthealth-action-DeactivateSubscription) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDomain  **
+  - **IAM action:**  [health-agent:DeleteDomain](#list_connecthealth-action-DeleteDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetDomain  **
+  - **IAM action:**  [health-agent:GetDomain](#list_connecthealth-action-GetDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMedicalScribeListeningSession  **
+  - **IAM action:**  [health-agent:GetMedicalScribeListeningSession](#list_connecthealth-action-GetMedicalScribeListeningSession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPatientInsightsJob  **
+  - **IAM action:**  [health-agent:GetPatientInsightsJob](#list_connecthealth-action-GetPatientInsightsJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSubscription  **
+  - **IAM action:**  [health-agent:GetSubscription](#list_connecthealth-action-GetSubscription) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListDomains  **
+  - **IAM action:**  [health-agent:ListDomains](#list_connecthealth-action-ListDomains) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSubscriptions  **
+  - **IAM action:**  [health-agent:ListSubscriptions](#list_connecthealth-action-ListSubscriptions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [health-agent:ListTagsForResource](#list_connecthealth-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   StartMedicalScribeListeningSession  **
+  - **IAM action:**  [health-agent:StartMedicalScribeListeningSession](#list_connecthealth-action-StartMedicalScribeListeningSession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartPatientInsightsJob  **
+  - **IAM action:**  [health-agent:StartPatientInsightsJob](#list_connecthealth-action-StartPatientInsightsJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [health-agent:TagResource](#list_connecthealth-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [health-agent:UntagResource](#list_connecthealth-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+
 
 ## Actions defined by Amazon Connect Health
+<a name="list_connecthealth-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                           | Description                                                                                                                | Resource types (\*required)                                                           | Condition keys                                                                                                                                                                                                                                                                                                                            | Access level   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [ActivateSubscription](../../../connecthealth/latest/APIReference/API_ActivateSubscription.md "../../../connecthealth/latest/APIReference/API_ActivateSubscription.md")                                           | Grants permission to activate a subscription to enable billing for a user                                                  | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [Subscription\*](#list_connecthealth-resource-Subscription "#list_connecthealth-resource-Subscription")                                                                                                           | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [CreateDomain](../../../connecthealth/latest/APIReference/API_CreateDomain.md "../../../connecthealth/latest/APIReference/API_CreateDomain.md")                                                                   | Grants permission to create a new domain for managing HealthAgent resources                                                |                                                                                       | [aws:RequestTag/${TagKey}](#list_connecthealth-aws_RequestTag___TagKey_ "#list_connecthealth-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_connecthealth-aws_TagKeys "#list_connecthealth-aws_TagKeys")                                                                                                                               | Write          |
-| [CreateSubscription](../../../connecthealth/latest/APIReference/API_CreateSubscription.md "../../../connecthealth/latest/APIReference/API_CreateSubscription.md")                                                 | Grants permission to create a new subscription within a domain for billing and user management                             | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [Subscription\*](#list_connecthealth-resource-Subscription "#list_connecthealth-resource-Subscription")                                                                                                           | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [DeactivateSubscription](../../../connecthealth/latest/APIReference/API_DeactivateSubscription.md "../../../connecthealth/latest/APIReference/API_DeactivateSubscription.md")                                     | Grants permission to deactivate a subscription to stop billing for a user                                                  | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [Subscription\*](#list_connecthealth-resource-Subscription "#list_connecthealth-resource-Subscription")                                                                                                           | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [DeleteDomain](../../../connecthealth/latest/APIReference/API_DeleteDomain.md "../../../connecthealth/latest/APIReference/API_DeleteDomain.md")                                                                   | Grants permission to delete a domain and all associated resources                                                          | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [GetDomain](../../../connecthealth/latest/APIReference/API_GetDomain.md "../../../connecthealth/latest/APIReference/API_GetDomain.md")                                                                            | Grants permission to retrieve information about a domain                                                                   | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [GetDomainAnalytics](../../../connecthealth/latest/APIReference/API_GetDomainAnalytics.md "../../../connecthealth/latest/APIReference/API_GetDomainAnalytics.md")                                                 | Grants permission to retrieve aggregated analytics for a domain                                                            | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [GetMedicalScribeListeningSession](../../../connecthealth/latest/APIReference/API_GetMedicalScribeListeningSession.md "../../../connecthealth/latest/APIReference/API_GetMedicalScribeListeningSession.md")       | Grants permission to retrieve details about an existing Medical Scribe listening session                                   | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [Subscription\*](#list_connecthealth-resource-Subscription "#list_connecthealth-resource-Subscription")                                                                                                           | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [GetPatientInsightsJob](../../../connecthealth/latest/APIReference/API_GetPatientInsightsJob.md "../../../connecthealth/latest/APIReference/API_GetPatientInsightsJob.md")                                        | Grants permission to get details of a started patient insights job                                                         | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [PatientInsightsJob\*](#list_connecthealth-resource-PatientInsightsJob "#list_connecthealth-resource-PatientInsightsJob")                                                                                         | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [GetSubscription](../../../connecthealth/latest/APIReference/API_GetSubscription.md "../../../connecthealth/latest/APIReference/API_GetSubscription.md")                                                          | Grants permission to retrieve information about a subscription                                                             | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [Subscription\*](#list_connecthealth-resource-Subscription "#list_connecthealth-resource-Subscription")                                                                                                           | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [ListDomains](../../../connecthealth/latest/APIReference/API_ListDomains.md "../../../connecthealth/latest/APIReference/API_ListDomains.md")                                                                      | Grants permission to list domains for a given account                                                                      |                                                                                       |                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListSessionRecords](../../../connecthealth/latest/APIReference/API_ListSessionRecords.md "../../../connecthealth/latest/APIReference/API_ListSessionRecords.md")                                                 | Grants permission to list session records for a domain                                                                     | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListSubscriptions](../../../connecthealth/latest/APIReference/API_ListSubscriptions.md "../../../connecthealth/latest/APIReference/API_ListSubscriptions.md")                                                    | Grants permission to list all subscriptions within a domain                                                                | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListTagsForResource](../../../connecthealth/latest/APIReference/API_ListTagsForResource.md "../../../connecthealth/latest/APIReference/API_ListTagsForResource.md")                                              | Grants permission to list the tags for the specified resource                                                              | [Domain](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain")   | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [StartMedicalScribeListeningSession](../../../connecthealth/latest/APIReference/API_StartMedicalScribeListeningSession.md "../../../connecthealth/latest/APIReference/API_StartMedicalScribeListeningSession.md") | Grants permission to start a new Medical Scribe listening session for real-time audio transcription                        | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [Subscription\*](#list_connecthealth-resource-Subscription "#list_connecthealth-resource-Subscription")                                                                                                           | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [StartPatientInsightsJob](../../../connecthealth/latest/APIReference/API_StartPatientInsightsJob.md "../../../connecthealth/latest/APIReference/API_StartPatientInsightsJob.md")                                  | Grants permission to start a new patient insights job                                                                      | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [PatientInsightsJob\*](#list_connecthealth-resource-PatientInsightsJob "#list_connecthealth-resource-PatientInsightsJob")                                                                                         | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [TagResource](../../../connecthealth/latest/APIReference/API_TagResource.md "../../../connecthealth/latest/APIReference/API_TagResource.md")                                                                      | Grants permission to add the specified tags to the specified resource                                                      | [Domain](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain")   | [aws:RequestTag/${TagKey}](#list_connecthealth-aws_RequestTag___TagKey_ "#list_connecthealth-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_connecthealth-aws_TagKeys "#list_connecthealth-aws_TagKeys") | Tagging, Write |
-| [UntagResource](../../../connecthealth/latest/APIReference/API_UntagResource.md "../../../connecthealth/latest/APIReference/API_UntagResource.md")                                                                | Grants permission to remove the tags identified by the TagKeys list from a resource                                        | [Domain](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain")   | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_connecthealth-aws_TagKeys "#list_connecthealth-aws_TagKeys")                                                                                                                            | Tagging, Write |
+
+
+
+- **   [ActivateSubscription](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_ActivateSubscription.html)  **
+  - **Description:** Grants permission to activate a subscription to enable billing for a user
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Subscription\*](#list_connecthealth-resource-Subscription) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateDomain](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_CreateDomain.html)  **
+  - **Description:** Grants permission to create a new domain for managing HealthAgent resources
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_connecthealth-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_connecthealth-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateSubscription](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_CreateSubscription.html)  **
+  - **Description:** Grants permission to create a new subscription within a domain for billing and user management
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Subscription\*](#list_connecthealth-resource-Subscription) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeactivateSubscription](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_DeactivateSubscription.html)  **
+  - **Description:** Grants permission to deactivate a subscription to stop billing for a user
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Subscription\*](#list_connecthealth-resource-Subscription) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDomain](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_DeleteDomain.html)  **
+  - **Description:** Grants permission to delete a domain and all associated resources
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetDomain](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_GetDomain.html)  **
+  - **Description:** Grants permission to retrieve information about a domain
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDomainAnalytics](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_GetDomainAnalytics.html)  **
+  - **Description:** Grants permission to retrieve aggregated analytics for a domain
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMedicalScribeListeningSession](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_GetMedicalScribeListeningSession.html)  **
+  - **Description:** Grants permission to retrieve details about an existing Medical Scribe listening session
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Subscription\*](#list_connecthealth-resource-Subscription) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPatientInsightsJob](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_GetPatientInsightsJob.html)  **
+  - **Description:** Grants permission to get details of a started patient insights job
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [PatientInsightsJob\*](#list_connecthealth-resource-PatientInsightsJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSubscription](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_GetSubscription.html)  **
+  - **Description:** Grants permission to retrieve information about a subscription
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Subscription\*](#list_connecthealth-resource-Subscription) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListDomains](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_ListDomains.html)  **
+  - **Description:** Grants permission to list domains for a given account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSessionRecords](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_ListSessionRecords.html)  **
+  - **Description:** Grants permission to list session records for a domain
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSubscriptions](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_ListSubscriptions.html)  **
+  - **Description:** Grants permission to list all subscriptions within a domain
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list the tags for the specified resource
+  - **Resource types (\*required):** [Domain](#list_connecthealth-resource-Domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [StartMedicalScribeListeningSession](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_StartMedicalScribeListeningSession.html)  **
+  - **Description:** Grants permission to start a new Medical Scribe listening session for real-time audio transcription
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Subscription\*](#list_connecthealth-resource-Subscription) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartPatientInsightsJob](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_StartPatientInsightsJob.html)  **
+  - **Description:** Grants permission to start a new patient insights job
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [PatientInsightsJob\*](#list_connecthealth-resource-PatientInsightsJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to add the specified tags to the specified resource
+  - **Resource types (\*required):** [Domain](#list_connecthealth-resource-Domain)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_connecthealth-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_connecthealth-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/connecthealth/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove the tags identified by the TagKeys list from a resource
+  - **Resource types (\*required):** [Domain](#list_connecthealth-resource-Domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_connecthealth-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+
 
 ## Permission-only actions for Amazon Connect Health
+<a name="list_connecthealth-permission-only-actions"></a>
 
-The following actions are defined by Amazon Connect Health but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by Amazon Connect Health but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                                                          | Description                                                                                                                | Resource types (\*required)                                                           | Condition keys                                                                                                             | Access level |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [CancelAppointment](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")             | Grants permission to cancel an appointment                                                                                 | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Write        |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [CreateAgent](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")                   | Grants permission to create a new agent with an initial version in DRAFT state                                             | [Agent\*](#list_connecthealth-resource-Agent "#list_connecthealth-resource-Agent")    | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Write        |
-| [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain")                                                                                            | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [CreateIntegration](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")             | Grants permission to create a new integration for a domain                                                                 | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Write        |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [CreateSession](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")                 | Grants permission to create a new session with specified agent configurations                                              | [Agent\*](#list_connecthealth-resource-Agent "#list_connecthealth-resource-Agent")    | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Write        |
-| [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain")                                                                                            | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [Session\*](#list_connecthealth-resource-Session "#list_connecthealth-resource-Session")                                                                                         | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [DeleteAgent](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")                   | Grants permission to delete an agent configuration and all its versions                                                    | [Agent\*](#list_connecthealth-resource-Agent "#list_connecthealth-resource-Agent")    | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Write        |
-| [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain")                                                                                            | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [DeleteIntegration](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")             | Grants permission to delete an integration                                                                                 | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Write        |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [GetAgent](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")                      | Grants permission to retrieve an agent configuration, defaulting to the most recent version if not specified               | [Agent\*](#list_connecthealth-resource-Agent "#list_connecthealth-resource-Agent")    | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Read         |
-| [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain")                                                                                            | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [GetCareTeamProvider](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")           | Grants permission to retrieve the care team provider of a patient                                                          | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Read         |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [GetIntegration](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")                | Grants permission to get an existing integration                                                                           | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Read         |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [GetPatient](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")                    | Grants permission to retrieve patient information                                                                          | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Read         |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [GetPractitioner](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")               | Grants permission to retrieve practitioner information                                                                     | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Read         |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [GetSessionContext](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")             | Grants permission to retrieve structured session context including attributes and collected data                           | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Read         |
-| [Session\*](#list_connecthealth-resource-Session "#list_connecthealth-resource-Session")                                                                                         | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [InvokeAgent](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")                   | Grants permission to invoke an agent within a session with streaming response support                                      | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Write        |
-| [Session\*](#list_connecthealth-resource-Session "#list_connecthealth-resource-Session")                                                                                         | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [ListAgents](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")                    | Grants permission to list all agents in a domain                                                                           | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | List         |
-| [ListAppointmentSlots](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")          | Grants permission to list available appointment slots                                                                      | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Read         |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [ListIntegrations](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")              | Grants permission to list integrations for a domain                                                                        | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | List         |
-| [ListPatientAppointments](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")       | Grants permission to list patient appointments                                                                             | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Read         |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [ListPatientInsuranceCoverages](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md") | Grants permission to list patient insurance coverages                                                                      | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Read         |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [ListPatientMedications](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")        | Grants permission to list patient medications                                                                              | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Read         |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [ListProviders](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")                 | Grants permission to retrieve active providers available for scheduling appointments with a patient                        | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Read         |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [MatchPatient](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")                  | Grants permission to match a patient                                                                                       | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Read         |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [PublishAgent](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")                  | Grants permission to publish an agent configuration version                                                                | [Agent\*](#list_connecthealth-resource-Agent "#list_connecthealth-resource-Agent")    | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Write        |
-| [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain")                                                                                            | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [RescheduleAppointment](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")         | Grants permission to reschedule an appointment                                                                             | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Write        |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [ResetPassword](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")                 | Grants permission to reset a patient MyChart password via email or SMS                                                     | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Write        |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [ScheduleAppointment](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")           | Grants permission to schedule an appointment for a patient                                                                 | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Write        |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [SubmitMedicationRenewal](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")       | Grants permission to submit a medication renewal for a patient                                                             | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Write        |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [UpdateAgent](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")                   | Grants permission to update a draft agent configuration, creating a new draft version if none exists                       | [Agent\*](#list_connecthealth-resource-Agent "#list_connecthealth-resource-Agent")    | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Write        |
-| [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain")                                                                                            | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [UpdateIntegration](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")             | Grants permission to update an existing integration                                                                        | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Write        |
-| [Integration\*](#list_connecthealth-resource-Integration "#list_connecthealth-resource-Integration")                                                                             | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [UpdateSession](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")                 | Grants permission to update session attributes such as departmentId and appointmentType                                    | [Domain\*](#list_connecthealth-resource-Domain "#list_connecthealth-resource-Domain") | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") | Write        |
-| [Session\*](#list_connecthealth-resource-Session "#list_connecthealth-resource-Session")                                                                                         | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
+
+
+
+- **   [CancelAppointment](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to cancel an appointment
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAgent](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to create a new agent with an initial version in DRAFT state
+  - **Resource types (\*required):** [Agent\*](#list_connecthealth-resource-Agent) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateIntegration](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to create a new integration for a domain
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateSession](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to create a new session with specified agent configurations
+  - **Resource types (\*required):** [Agent\*](#list_connecthealth-resource-Agent) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Session\*](#list_connecthealth-resource-Session) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAgent](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to delete an agent configuration and all its versions
+  - **Resource types (\*required):** [Agent\*](#list_connecthealth-resource-Agent) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteIntegration](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to delete an integration
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetAgent](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to retrieve an agent configuration, defaulting to the most recent version if not specified
+  - **Resource types (\*required):** [Agent\*](#list_connecthealth-resource-Agent) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCareTeamProvider](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to retrieve the care team provider of a patient
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetIntegration](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to get an existing integration
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPatient](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to retrieve patient information
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPractitioner](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to retrieve practitioner information
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSessionContext](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to retrieve structured session context including attributes and collected data
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Session\*](#list_connecthealth-resource-Session) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [InvokeAgent](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to invoke an agent within a session with streaming response support
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Session\*](#list_connecthealth-resource-Session) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ListAgents](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to list all agents in a domain
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAppointmentSlots](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to list available appointment slots
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListIntegrations](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to list integrations for a domain
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListPatientAppointments](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to list patient appointments
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListPatientInsuranceCoverages](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to list patient insurance coverages
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListPatientMedications](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to list patient medications
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListProviders](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to retrieve active providers available for scheduling appointments with a patient
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [MatchPatient](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to match a patient
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [PublishAgent](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to publish an agent configuration version
+  - **Resource types (\*required):** [Agent\*](#list_connecthealth-resource-Agent) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RescheduleAppointment](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to reschedule an appointment
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ResetPassword](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to reset a patient MyChart password via email or SMS
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ScheduleAppointment](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to schedule an appointment for a patient
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SubmitMedicationRenewal](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to submit a medication renewal for a patient
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAgent](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to update a draft agent configuration, creating a new draft version if none exists
+  - **Resource types (\*required):** [Agent\*](#list_connecthealth-resource-Agent) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateIntegration](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to update an existing integration
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Integration\*](#list_connecthealth-resource-Integration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSession](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  **
+  - **Description:** Grants permission to update session attributes such as departmentId and appointmentType
+  - **Resource types (\*required):** [Domain\*](#list_connecthealth-resource-Domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [Session\*](#list_connecthealth-resource-Session) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon Connect Health
+<a name="list_connecthealth-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                                                            | ARN                                                                                                  | Condition keys                                                                                                             |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| [Agent](../../../connecthealth/latest/userguide/agent-customization.md "../../../connecthealth/latest/userguide/agent-customization.md")                                                                  | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/agent/${AgentId}               | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [Domain](../../../connecthealth/latest/userguide/setting-up.md#setting-up-create-domain "../../../connecthealth/latest/userguide/setting-up.md#setting-up-create-domain")                                 | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}                                | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [Integration](../../../connecthealth/latest/userguide/configuring-testing-pe-agents.md "../../../connecthealth/latest/userguide/configuring-testing-pe-agents.md")                                        | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/integration/${IntegrationId}   | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [PatientInsightsJob](../../../connecthealth/latest/userguide/patient-insights.md "../../../connecthealth/latest/userguide/patient-insights.md")                                                           | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/patient-insights-job/${JobId}  | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [Session](../../../connecthealth/latest/userguide/patient-engagement-overview.md "../../../connecthealth/latest/userguide/patient-engagement-overview.md")                                                | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/session/${SessionId}           | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
-| [Subscription](../../../connecthealth/latest/userguide/ambient-documentation.md#al-subscription-management "../../../connecthealth/latest/userguide/ambient-documentation.md#al-subscription-management") | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/subscription/${SubscriptionId} | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_ "#list_connecthealth-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [Agent](https://docs.aws.amazon.com/connecthealth/latest/userguide/agent-customization.html)  | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/agent/${AgentId} | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_) | 
+|  [Domain](https://docs.aws.amazon.com/connecthealth/latest/userguide/setting-up.html#setting-up-create-domain)  | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId} | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_) | 
+|  [Integration](https://docs.aws.amazon.com/connecthealth/latest/userguide/configuring-testing-pe-agents.html)  | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/integration/${IntegrationId} | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_) | 
+|  [PatientInsightsJob](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-insights.html)  | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/patient-insights-job/${JobId} | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_) | 
+|  [Session](https://docs.aws.amazon.com/connecthealth/latest/userguide/patient-engagement-overview.html)  | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/session/${SessionId} | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_) | 
+|  [Subscription](https://docs.aws.amazon.com/connecthealth/latest/userguide/ambient-documentation.html#al-subscription-management)  | arn:${Partition}:health-agent:${Region}:${Account}:domain/${DomainId}/subscription/${SubscriptionId} | [aws:ResourceTag/${TagKey}](#list_connecthealth-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Connect Health
+<a name="list_connecthealth-policy-keys"></a>
 
-Amazon Connect Health defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Connect Health defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                                                                                                             | Description                                                   | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../connecthealth/latest/userguide/security-iam-service-with-iam.htmlsecurity-iam-service-with-iam.md#security-iam-service-with-iam-tags "../../../connecthealth/latest/userguide/security-iam-service-with-iam.htmlsecurity-iam-service-with-iam.md#security-iam-service-with-iam-tags")  | Filters access by the tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](../../../connecthealth/latest/userguide/security-iam-service-with-iam.htmlsecurity-iam-service-with-iam.md#security-iam-service-with-iam-tags "../../../connecthealth/latest/userguide/security-iam-service-with-iam.htmlsecurity-iam-service-with-iam.md#security-iam-service-with-iam-tags") | Filters access by the tags associated with the resource       | String        |
-| [aws:TagKeys](../../../connecthealth/latest/userguide/security-iam-service-with-iam.htmlsecurity-iam-service-with-iam.md#security-iam-service-with-iam-tags "../../../connecthealth/latest/userguide/security-iam-service-with-iam.htmlsecurity-iam-service-with-iam.md#security-iam-service-with-iam-tags")               | Filters access by the tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/connecthealth/latest/userguide/security-iam-service-with-iam.htmlsecurity-iam-service-with-iam.html#security-iam-service-with-iam-tags)  | Filters access by the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/connecthealth/latest/userguide/security-iam-service-with-iam.htmlsecurity-iam-service-with-iam.html#security-iam-service-with-iam-tags)  | Filters access by the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/connecthealth/latest/userguide/security-iam-service-with-iam.htmlsecurity-iam-service-with-iam.html#security-iam-service-with-iam-tags)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 

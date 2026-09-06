@@ -1,89 +1,203 @@
-# Actions, resources, and condition keys for AWS Private CA Connector for SCEP
 
-AWS Private CA Connector for SCEP (service prefix: `pca-connector-scep`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Private CA Connector for SCEP
+<a name="list_pca-connector-scep"></a>
+
+AWS Private CA Connector for SCEP (service prefix: `pca-connector-scep`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/privateca/latest/userguide/connector-for-scep.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/privateca/latest/userguide/connector-for-scep.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/pca-connector-scep/pca-connector-scep.json) for this service.
 
-- Learn how to [configure this service](../../../privateca/latest/userguide/connector-for-scep.md "../../../privateca/latest/userguide/connector-for-scep.md").
-- View a list of the [API operations available for
-  this service](../../../pca-connector-scep/latest/APIReference.md "../../../pca-connector-scep/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../privateca/latest/userguide/connector-for-scep.md "../../../privateca/latest/userguide/connector-for-scep.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/pca-connector-scep/pca-connector-scep.json "https://servicereference.us-east-1.amazonaws.com/v1/pca-connector-scep/pca-connector-scep.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Private CA Connector for SCEP](#list_pca-connector-scep-operations "#list_pca-connector-scep-operations")
-- [Actions defined by AWS Private CA Connector for SCEP](#list_pca-connector-scep-actions-as-permissions "#list_pca-connector-scep-actions-as-permissions")
-- [Resource types defined by AWS Private CA Connector for SCEP](#list_pca-connector-scep-resources-for-iam-policies "#list_pca-connector-scep-resources-for-iam-policies")
-- [Condition keys for AWS Private CA Connector for SCEP](#list_pca-connector-scep-policy-keys "#list_pca-connector-scep-policy-keys")
+**Topics**
++ [API operations defined by AWS Private CA Connector for SCEP](#list_pca-connector-scep-operations)
++ [Actions defined by AWS Private CA Connector for SCEP](#list_pca-connector-scep-actions-as-permissions)
++ [Resource types defined by AWS Private CA Connector for SCEP](#list_pca-connector-scep-resources-for-iam-policies)
++ [Condition keys for AWS Private CA Connector for SCEP](#list_pca-connector-scep-policy-keys)
 
 ## API operations defined by AWS Private CA Connector for SCEP
+<a name="list_pca-connector-scep-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_pca-connector-scep-actions-as-permissions "#list_pca-connector-scep-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_pca-connector-scep-actions-as-permissions).
 
-| Operation                                                                                                                   | IAM action                                                                                                                                                | Condition key | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------- | -------------- |
-| CreateChallenge                                                                                                             | [pca-connector-scep:CreateChallenge](#list_pca-connector-scep-action-CreateChallenge "#list_pca-connector-scep-action-CreateChallenge")                   |               |                   | Write          |
-| [pca-connector-scep:TagResource](#list_pca-connector-scep-action-TagResource "#list_pca-connector-scep-action-TagResource") |                                                                                                                                                           |               | Tagging, Write    |
-| CreateConnector                                                                                                             | [pca-connector-scep:CreateConnector](#list_pca-connector-scep-action-CreateConnector "#list_pca-connector-scep-action-CreateConnector")                   |               |                   | Write          |
-| [pca-connector-scep:TagResource](#list_pca-connector-scep-action-TagResource "#list_pca-connector-scep-action-TagResource") |                                                                                                                                                           |               | Tagging, Write    |
-| DeleteChallenge                                                                                                             | [pca-connector-scep:DeleteChallenge](#list_pca-connector-scep-action-DeleteChallenge "#list_pca-connector-scep-action-DeleteChallenge")                   |               |                   | Write          |
-| DeleteConnector                                                                                                             | [pca-connector-scep:DeleteConnector](#list_pca-connector-scep-action-DeleteConnector "#list_pca-connector-scep-action-DeleteConnector")                   |               |                   | Write          |
-| GetChallengeMetadata                                                                                                        | [pca-connector-scep:GetChallengeMetadata](#list_pca-connector-scep-action-GetChallengeMetadata "#list_pca-connector-scep-action-GetChallengeMetadata")    |               |                   | Read           |
-| GetChallengePassword                                                                                                        | [pca-connector-scep:GetChallengePassword](#list_pca-connector-scep-action-GetChallengePassword "#list_pca-connector-scep-action-GetChallengePassword")    |               |                   | Read           |
-| GetConnector                                                                                                                | [pca-connector-scep:GetConnector](#list_pca-connector-scep-action-GetConnector "#list_pca-connector-scep-action-GetConnector")                            |               |                   | Read           |
-| ListChallengeMetadata                                                                                                       | [pca-connector-scep:ListChallengeMetadata](#list_pca-connector-scep-action-ListChallengeMetadata "#list_pca-connector-scep-action-ListChallengeMetadata") |               |                   | List           |
-| ListConnectors                                                                                                              | [pca-connector-scep:ListConnectors](#list_pca-connector-scep-action-ListConnectors "#list_pca-connector-scep-action-ListConnectors")                      |               |                   | List           |
-| ListTagsForResource                                                                                                         | [pca-connector-scep:ListTagsForResource](#list_pca-connector-scep-action-ListTagsForResource "#list_pca-connector-scep-action-ListTagsForResource")       |               |                   | Read           |
-| TagResource                                                                                                                 | [pca-connector-scep:TagResource](#list_pca-connector-scep-action-TagResource "#list_pca-connector-scep-action-TagResource")                               |               |                   | Tagging, Write |
-| UntagResource                                                                                                               | [pca-connector-scep:UntagResource](#list_pca-connector-scep-action-UntagResource "#list_pca-connector-scep-action-UntagResource")                         |               |                   | Tagging, Write |
+
+
+
+- **   CreateChallenge  **
+  - **IAM action:**  [pca-connector-scep:CreateChallenge](#list_pca-connector-scep-action-CreateChallenge)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [pca-connector-scep:TagResource](#list_pca-connector-scep-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateConnector  **
+  - **IAM action:**  [pca-connector-scep:CreateConnector](#list_pca-connector-scep-action-CreateConnector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [pca-connector-scep:TagResource](#list_pca-connector-scep-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteChallenge  **
+  - **IAM action:**  [pca-connector-scep:DeleteChallenge](#list_pca-connector-scep-action-DeleteChallenge) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConnector  **
+  - **IAM action:**  [pca-connector-scep:DeleteConnector](#list_pca-connector-scep-action-DeleteConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetChallengeMetadata  **
+  - **IAM action:**  [pca-connector-scep:GetChallengeMetadata](#list_pca-connector-scep-action-GetChallengeMetadata) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetChallengePassword  **
+  - **IAM action:**  [pca-connector-scep:GetChallengePassword](#list_pca-connector-scep-action-GetChallengePassword) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetConnector  **
+  - **IAM action:**  [pca-connector-scep:GetConnector](#list_pca-connector-scep-action-GetConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListChallengeMetadata  **
+  - **IAM action:**  [pca-connector-scep:ListChallengeMetadata](#list_pca-connector-scep-action-ListChallengeMetadata) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConnectors  **
+  - **IAM action:**  [pca-connector-scep:ListConnectors](#list_pca-connector-scep-action-ListConnectors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [pca-connector-scep:ListTagsForResource](#list_pca-connector-scep-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   TagResource  **
+  - **IAM action:**  [pca-connector-scep:TagResource](#list_pca-connector-scep-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [pca-connector-scep:UntagResource](#list_pca-connector-scep-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+
 
 ## Actions defined by AWS Private CA Connector for SCEP
+<a name="list_pca-connector-scep-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                              | Description                                                                                                                                                                                                                                                                                                                                                             | Resource types (\*required)                                                                              | Condition keys                                                                                                                                                                                                                                                                                                                                                          | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [CreateChallenge](../../../pca-connector-scep/latest/APIReference/API_CreateChallenge.md "../../../pca-connector-scep/latest/APIReference/API_CreateChallenge.md")                   | Grants permission to create a Challenge for a Connector                                                                                                                                                                                                                                                                                                                 | [Connector\*](#list_pca-connector-scep-resource-Connector "#list_pca-connector-scep-resource-Connector") | [aws:RequestTag/${TagKey}](#list_pca-connector-scep-aws_RequestTag___TagKey_ "#list_pca-connector-scep-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_ "#list_pca-connector-scep-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pca-connector-scep-aws_TagKeys "#list_pca-connector-scep-aws_TagKeys") | Write          |
-| [CreateConnector](../../../pca-connector-scep/latest/APIReference/API_CreateConnector.md "../../../pca-connector-scep/latest/APIReference/API_CreateConnector.md")                   | Grants permission to create a SCEP Connector in your account                                                                                                                                                                                                                                                                                                            |                                                                                                          | [aws:RequestTag/${TagKey}](#list_pca-connector-scep-aws_RequestTag___TagKey_ "#list_pca-connector-scep-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_pca-connector-scep-aws_TagKeys "#list_pca-connector-scep-aws_TagKeys")                                                                                                                                         | Write          |
-| [DeleteChallenge](../../../pca-connector-scep/latest/APIReference/API_DeleteChallenge.md "../../../pca-connector-scep/latest/APIReference/API_DeleteChallenge.md")                   | Grants permission to delete a Challenge for a Connector                                                                                                                                                                                                                                                                                                                 | [Challenge\*](#list_pca-connector-scep-resource-Challenge "#list_pca-connector-scep-resource-Challenge") | [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_ "#list_pca-connector-scep-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                    | Write          |
-| [DeleteConnector](../../../pca-connector-scep/latest/APIReference/API_DeleteConnector.md "../../../pca-connector-scep/latest/APIReference/API_DeleteConnector.md")                   | Grants permission to delete a SCEP Connector in your account                                                                                                                                                                                                                                                                                                            | [Connector\*](#list_pca-connector-scep-resource-Connector "#list_pca-connector-scep-resource-Connector") | [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_ "#list_pca-connector-scep-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                    | Write          |
-| [GetChallengeMetadata](../../../pca-connector-scep/latest/APIReference/API_GetChallengeMetadata.md "../../../pca-connector-scep/latest/APIReference/API_GetChallengeMetadata.md")    | Grants permission to get a Challenge for a Connector                                                                                                                                                                                                                                                                                                                    | [Challenge\*](#list_pca-connector-scep-resource-Challenge "#list_pca-connector-scep-resource-Challenge") | [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_ "#list_pca-connector-scep-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                    | Read           |
-| [GetChallengePassword](../../../pca-connector-scep/latest/APIReference/API_GetChallengePassword.md "../../../pca-connector-scep/latest/APIReference/API_GetChallengePassword.md")    | Grants permission to get a Challenge password for a Connector                                                                                                                                                                                                                                                                                                           | [Challenge\*](#list_pca-connector-scep-resource-Challenge "#list_pca-connector-scep-resource-Challenge") | [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_ "#list_pca-connector-scep-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                    | Read           |
-| [GetConnector](../../../pca-connector-scep/latest/APIReference/API_GetConnector.md "../../../pca-connector-scep/latest/APIReference/API_GetConnector.md")                            | Grants permission to get a SCEP Connector in your account                                                                                                                                                                                                                                                                                                               | [Connector\*](#list_pca-connector-scep-resource-Connector "#list_pca-connector-scep-resource-Connector") | [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_ "#list_pca-connector-scep-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                    | Read           |
-| [ListChallengeMetadata](../../../pca-connector-scep/latest/APIReference/API_ListChallengeMetadata.md "../../../pca-connector-scep/latest/APIReference/API_ListChallengeMetadata.md") | Grants permission to list Challenges for a Connector                                                                                                                                                                                                                                                                                                                    |                                                                                                          |                                                                                                                                                                                                                                                                                                                                                                         | List           |
-| [ListConnectors](../../../pca-connector-scep/latest/APIReference/API_ListConnectors.md "../../../pca-connector-scep/latest/APIReference/API_ListConnectors.md")                      | Grants permission to list the SCEP Connectors in your account                                                                                                                                                                                                                                                                                                           |                                                                                                          |                                                                                                                                                                                                                                                                                                                                                                         | List           |
-| [ListTagsForResource](../../../pca-connector-scep/latest/APIReference/API_ListTagsForResource.md "../../../pca-connector-scep/latest/APIReference/API_ListTagsForResource.md")       | Grants permission to list the tags for a pca-connector-scep resource in your account                                                                                                                                                                                                                                                                                    |                                                                                                          |                                                                                                                                                                                                                                                                                                                                                                         | Read           |
-| [TagResource](../../../pca-connector-scep/latest/APIReference/API_TagResource.md "../../../pca-connector-scep/latest/APIReference/API_TagResource.md")                               | Grants permission to tag a pca-connector-scep resource in your account                                                                                                                                                                                                                                                                                                  | [Challenge](#list_pca-connector-scep-resource-Challenge "#list_pca-connector-scep-resource-Challenge")   | [aws:RequestTag/${TagKey}](#list_pca-connector-scep-aws_RequestTag___TagKey_ "#list_pca-connector-scep-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_ "#list_pca-connector-scep-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pca-connector-scep-aws_TagKeys "#list_pca-connector-scep-aws_TagKeys") | Tagging, Write |
-| [Connector](#list_pca-connector-scep-resource-Connector "#list_pca-connector-scep-resource-Connector")                                                                               | [aws:RequestTag/${TagKey}](#list_pca-connector-scep-aws_RequestTag___TagKey_ "#list_pca-connector-scep-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_ "#list_pca-connector-scep-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pca-connector-scep-aws_TagKeys "#list_pca-connector-scep-aws_TagKeys") |
-| [UntagResource](../../../pca-connector-scep/latest/APIReference/API_UntagResource.md "../../../pca-connector-scep/latest/APIReference/API_UntagResource.md")                         | Grants permission to untag a pca-connector-scep resource in your account                                                                                                                                                                                                                                                                                                | [Challenge](#list_pca-connector-scep-resource-Challenge "#list_pca-connector-scep-resource-Challenge")   | [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_ "#list_pca-connector-scep-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pca-connector-scep-aws_TagKeys "#list_pca-connector-scep-aws_TagKeys")                                                                                                                                      | Tagging, Write |
-| [Connector](#list_pca-connector-scep-resource-Connector "#list_pca-connector-scep-resource-Connector")                                                                               | [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_ "#list_pca-connector-scep-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_pca-connector-scep-aws_TagKeys "#list_pca-connector-scep-aws_TagKeys")                                                                                                                                      |
+
+
+
+- **   [CreateChallenge](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_CreateChallenge.html)  **
+  - **Description:** Grants permission to create a Challenge for a Connector
+  - **Resource types (\*required):** [Connector\*](#list_pca-connector-scep-resource-Connector)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_pca-connector-scep-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pca-connector-scep-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateConnector](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_CreateConnector.html)  **
+  - **Description:** Grants permission to create a SCEP Connector in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_pca-connector-scep-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_pca-connector-scep-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteChallenge](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_DeleteChallenge.html)  **
+  - **Description:** Grants permission to delete a Challenge for a Connector
+  - **Resource types (\*required):** [Challenge\*](#list_pca-connector-scep-resource-Challenge)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConnector](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_DeleteConnector.html)  **
+  - **Description:** Grants permission to delete a SCEP Connector in your account
+  - **Resource types (\*required):** [Connector\*](#list_pca-connector-scep-resource-Connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetChallengeMetadata](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_GetChallengeMetadata.html)  **
+  - **Description:** Grants permission to get a Challenge for a Connector
+  - **Resource types (\*required):** [Challenge\*](#list_pca-connector-scep-resource-Challenge)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetChallengePassword](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_GetChallengePassword.html)  **
+  - **Description:** Grants permission to get a Challenge password for a Connector
+  - **Resource types (\*required):** [Challenge\*](#list_pca-connector-scep-resource-Challenge)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetConnector](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_GetConnector.html)  **
+  - **Description:** Grants permission to get a SCEP Connector in your account
+  - **Resource types (\*required):** [Connector\*](#list_pca-connector-scep-resource-Connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListChallengeMetadata](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_ListChallengeMetadata.html)  **
+  - **Description:** Grants permission to list Challenges for a Connector
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListConnectors](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_ListConnectors.html)  **
+  - **Description:** Grants permission to list the SCEP Connectors in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list the tags for a pca-connector-scep resource in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [TagResource](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag a pca-connector-scep resource in your account
+  - **Resource types (\*required):** [Challenge](#list_pca-connector-scep-resource-Challenge) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_pca-connector-scep-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pca-connector-scep-aws_TagKeys)
+  - **Resource types (\*required):** [Connector](#list_pca-connector-scep-resource-Connector) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_pca-connector-scep-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pca-connector-scep-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag a pca-connector-scep resource in your account
+  - **Resource types (\*required):** [Challenge](#list_pca-connector-scep-resource-Challenge) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pca-connector-scep-aws_TagKeys)
+  - **Resource types (\*required):** [Connector](#list_pca-connector-scep-resource-Connector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_pca-connector-scep-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+
 
 ## Resource types defined by AWS Private CA Connector for SCEP
+<a name="list_pca-connector-scep-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                     | ARN                                                                                                        | Condition keys                                                                                                                       |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| [Challenge](${ActionsDocRoot}API_Challenge.md "${ActionsDocRoot}API_Challenge.md") | arn:${Partition}:pca-connector-scep:${Region}:${Account}:connector/${ConnectorId}/challenge/${ChallengeId} | [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_ "#list_pca-connector-scep-aws_ResourceTag___TagKey_") |
-| [Connector](${ActionsDocRoot}API_Connector.md "${ActionsDocRoot}API_Connector.md") | arn:${Partition}:pca-connector-scep:${Region}:${Account}:connector/${ConnectorId}                          | [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_ "#list_pca-connector-scep-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [Challenge](${ActionsDocRoot}API_Challenge.html)  | arn:${Partition}:pca-connector-scep:${Region}:${Account}:connector/${ConnectorId}/challenge/${ChallengeId} | [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_) | 
+|  [Connector](${ActionsDocRoot}API_Connector.html)  | arn:${Partition}:pca-connector-scep:${Region}:${Account}:connector/${ConnectorId} | [aws:ResourceTag/${TagKey}](#list_pca-connector-scep-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Private CA Connector for SCEP
+<a name="list_pca-connector-scep-policy-keys"></a>
 
-AWS Private CA Connector for SCEP defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Private CA Connector for SCEP defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                                                                               | Description                                                   | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../privateca/latest/userguide/connector-for-scep.htmlreference_policies_iam-condition-keys.md#condition-keys-requesttag "../../../privateca/latest/userguide/connector-for-scep.htmlreference_policies_iam-condition-keys.md#condition-keys-requesttag")    | Filters access by the tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](../../../privateca/latest/userguide/connector-for-scep.htmlreference_policies_iam-condition-keys.md#condition-keys-resourcetag "../../../privateca/latest/userguide/connector-for-scep.htmlreference_policies_iam-condition-keys.md#condition-keys-resourcetag") | Filters access by the tags associated with the resource       | String        |
-| [aws:TagKeys](../../../privateca/latest/userguide/connector-for-scep.htmlreference_policies_iam-condition-keys.md#condition-keys-tagkeys "../../../privateca/latest/userguide/connector-for-scep.htmlreference_policies_iam-condition-keys.md#condition-keys-tagkeys")                       | Filters access by the tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/privateca/latest/userguide/connector-for-scep.htmlreference_policies_iam-condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/privateca/latest/userguide/connector-for-scep.htmlreference_policies_iam-condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/privateca/latest/userguide/connector-for-scep.htmlreference_policies_iam-condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 

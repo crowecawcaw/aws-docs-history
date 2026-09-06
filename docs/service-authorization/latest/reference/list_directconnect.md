@@ -1,230 +1,820 @@
-# Actions, resources, and condition keys for AWS Direct Connect
 
-AWS Direct Connect (service prefix: `directconnect`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Direct Connect
+<a name="list_directconnect"></a>
+
+AWS Direct Connect (service prefix: `directconnect`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/directconnect/latest/UserGuide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/directconnect/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/directconnect/latest/UserGuide/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/directconnect/directconnect.json) for this service.
 
-- Learn how to [configure this service](../../../directconnect/latest/UserGuide.md "../../../directconnect/latest/UserGuide.md").
-- View a list of the [API operations available for
-  this service](../../../directconnect/latest/APIReference.md "../../../directconnect/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../directconnect/latest/UserGuide/security-iam.md "../../../directconnect/latest/UserGuide/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/directconnect/directconnect.json "https://servicereference.us-east-1.amazonaws.com/v1/directconnect/directconnect.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Direct Connect](#list_directconnect-operations "#list_directconnect-operations")
-- [Actions defined by AWS Direct Connect](#list_directconnect-actions-as-permissions "#list_directconnect-actions-as-permissions")
-- [Resource types defined by AWS Direct Connect](#list_directconnect-resources-for-iam-policies "#list_directconnect-resources-for-iam-policies")
-- [Condition keys for AWS Direct Connect](#list_directconnect-policy-keys "#list_directconnect-policy-keys")
+**Topics**
++ [API operations defined by AWS Direct Connect](#list_directconnect-operations)
++ [Actions defined by AWS Direct Connect](#list_directconnect-actions-as-permissions)
++ [Resource types defined by AWS Direct Connect](#list_directconnect-resources-for-iam-policies)
++ [Condition keys for AWS Direct Connect](#list_directconnect-policy-keys)
 
 ## API operations defined by AWS Direct Connect
+<a name="list_directconnect-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_directconnect-actions-as-permissions "#list_directconnect-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_directconnect-actions-as-permissions).
 
-| Operation                                                                                                    | IAM action                                                                                                                                                                                                                  | Condition key | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------- | -------------- |
-| AcceptDirectConnectGatewayAssociationProposal                                                                | [directconnect:AcceptDirectConnectGatewayAssociationProposal](#list_directconnect-action-AcceptDirectConnectGatewayAssociationProposal "#list_directconnect-action-AcceptDirectConnectGatewayAssociationProposal")          |               |                   | Write          |
-| AllocateConnectionOnInterconnect                                                                             | [directconnect:AllocateConnectionOnInterconnect](#list_directconnect-action-AllocateConnectionOnInterconnect "#list_directconnect-action-AllocateConnectionOnInterconnect")                                                 |               |                   | Write          |
-| AllocateHostedConnection                                                                                     | [directconnect:AllocateHostedConnection](#list_directconnect-action-AllocateHostedConnection "#list_directconnect-action-AllocateHostedConnection")                                                                         |               |                   | Write          |
-| [directconnect:TagResource](#list_directconnect-action-TagResource "#list_directconnect-action-TagResource") |                                                                                                                                                                                                                             |               | Tagging, Write    |
-| AllocatePrivateVirtualInterface                                                                              | [directconnect:AllocatePrivateVirtualInterface](#list_directconnect-action-AllocatePrivateVirtualInterface "#list_directconnect-action-AllocatePrivateVirtualInterface")                                                    |               |                   | Write          |
-| [directconnect:TagResource](#list_directconnect-action-TagResource "#list_directconnect-action-TagResource") |                                                                                                                                                                                                                             |               | Tagging, Write    |
-| AllocatePublicVirtualInterface                                                                               | [directconnect:AllocatePublicVirtualInterface](#list_directconnect-action-AllocatePublicVirtualInterface "#list_directconnect-action-AllocatePublicVirtualInterface")                                                       |               |                   | Write          |
-| [directconnect:TagResource](#list_directconnect-action-TagResource "#list_directconnect-action-TagResource") |                                                                                                                                                                                                                             |               | Tagging, Write    |
-| AllocateTransitVirtualInterface                                                                              | [directconnect:AllocateTransitVirtualInterface](#list_directconnect-action-AllocateTransitVirtualInterface "#list_directconnect-action-AllocateTransitVirtualInterface")                                                    |               |                   | Write          |
-| [directconnect:TagResource](#list_directconnect-action-TagResource "#list_directconnect-action-TagResource") |                                                                                                                                                                                                                             |               | Tagging, Write    |
-| AssociateConnectionWithLag                                                                                   | [directconnect:AssociateConnectionWithLag](#list_directconnect-action-AssociateConnectionWithLag "#list_directconnect-action-AssociateConnectionWithLag")                                                                   |               |                   | Write          |
-| AssociateHostedConnection                                                                                    | [directconnect:AssociateHostedConnection](#list_directconnect-action-AssociateHostedConnection "#list_directconnect-action-AssociateHostedConnection")                                                                      |               |                   | Write          |
-| AssociateMacSecKey                                                                                           | [directconnect:AssociateMacSecKey](#list_directconnect-action-AssociateMacSecKey "#list_directconnect-action-AssociateMacSecKey")                                                                                           |               |                   | Write          |
-| AssociateVirtualInterface                                                                                    | [directconnect:AssociateVirtualInterface](#list_directconnect-action-AssociateVirtualInterface "#list_directconnect-action-AssociateVirtualInterface")                                                                      |               |                   | Write          |
-| ConfirmConnection                                                                                            | [directconnect:ConfirmConnection](#list_directconnect-action-ConfirmConnection "#list_directconnect-action-ConfirmConnection")                                                                                              |               |                   | Write          |
-| ConfirmCustomerAgreement                                                                                     | [directconnect:ConfirmCustomerAgreement](#list_directconnect-action-ConfirmCustomerAgreement "#list_directconnect-action-ConfirmCustomerAgreement")                                                                         |               |                   | Write          |
-| ConfirmPrivateVirtualInterface                                                                               | [directconnect:ConfirmPrivateVirtualInterface](#list_directconnect-action-ConfirmPrivateVirtualInterface "#list_directconnect-action-ConfirmPrivateVirtualInterface")                                                       |               |                   | Write          |
-| ConfirmPublicVirtualInterface                                                                                | [directconnect:ConfirmPublicVirtualInterface](#list_directconnect-action-ConfirmPublicVirtualInterface "#list_directconnect-action-ConfirmPublicVirtualInterface")                                                          |               |                   | Write          |
-| ConfirmTransitVirtualInterface                                                                               | [directconnect:ConfirmTransitVirtualInterface](#list_directconnect-action-ConfirmTransitVirtualInterface "#list_directconnect-action-ConfirmTransitVirtualInterface")                                                       |               |                   | Write          |
-| CreateBGPPeer                                                                                                | [directconnect:CreateBGPPeer](#list_directconnect-action-CreateBGPPeer "#list_directconnect-action-CreateBGPPeer")                                                                                                          |               |                   | Write          |
-| CreateConnection                                                                                             | [directconnect:CreateConnection](#list_directconnect-action-CreateConnection "#list_directconnect-action-CreateConnection")                                                                                                 |               |                   | Write          |
-| [directconnect:TagResource](#list_directconnect-action-TagResource "#list_directconnect-action-TagResource") |                                                                                                                                                                                                                             |               | Tagging, Write    |
-| CreateDirectConnectGateway                                                                                   | [directconnect:CreateDirectConnectGateway](#list_directconnect-action-CreateDirectConnectGateway "#list_directconnect-action-CreateDirectConnectGateway")                                                                   |               |                   | Write          |
-| [directconnect:TagResource](#list_directconnect-action-TagResource "#list_directconnect-action-TagResource") |                                                                                                                                                                                                                             |               | Tagging, Write    |
-| CreateDirectConnectGatewayAssociation                                                                        | [directconnect:CreateDirectConnectGatewayAssociation](#list_directconnect-action-CreateDirectConnectGatewayAssociation "#list_directconnect-action-CreateDirectConnectGatewayAssociation")                                  |               |                   | Write          |
-| CreateDirectConnectGatewayAssociationProposal                                                                | [directconnect:CreateDirectConnectGatewayAssociationProposal](#list_directconnect-action-CreateDirectConnectGatewayAssociationProposal "#list_directconnect-action-CreateDirectConnectGatewayAssociationProposal")          |               |                   | Write          |
-| CreateInterconnect                                                                                           | [directconnect:CreateInterconnect](#list_directconnect-action-CreateInterconnect "#list_directconnect-action-CreateInterconnect")                                                                                           |               |                   | Write          |
-| [directconnect:TagResource](#list_directconnect-action-TagResource "#list_directconnect-action-TagResource") |                                                                                                                                                                                                                             |               | Tagging, Write    |
-| CreateLag                                                                                                    | [directconnect:CreateLag](#list_directconnect-action-CreateLag "#list_directconnect-action-CreateLag")                                                                                                                      |               |                   | Write          |
-| [directconnect:TagResource](#list_directconnect-action-TagResource "#list_directconnect-action-TagResource") |                                                                                                                                                                                                                             |               | Tagging, Write    |
-| CreatePrivateVirtualInterface                                                                                | [directconnect:CreatePrivateVirtualInterface](#list_directconnect-action-CreatePrivateVirtualInterface "#list_directconnect-action-CreatePrivateVirtualInterface")                                                          |               |                   | Write          |
-| [directconnect:TagResource](#list_directconnect-action-TagResource "#list_directconnect-action-TagResource") |                                                                                                                                                                                                                             |               | Tagging, Write    |
-| CreatePublicVirtualInterface                                                                                 | [directconnect:CreatePublicVirtualInterface](#list_directconnect-action-CreatePublicVirtualInterface "#list_directconnect-action-CreatePublicVirtualInterface")                                                             |               |                   | Write          |
-| [directconnect:TagResource](#list_directconnect-action-TagResource "#list_directconnect-action-TagResource") |                                                                                                                                                                                                                             |               | Tagging, Write    |
-| CreateTransitVirtualInterface                                                                                | [directconnect:CreateTransitVirtualInterface](#list_directconnect-action-CreateTransitVirtualInterface "#list_directconnect-action-CreateTransitVirtualInterface")                                                          |               |                   | Write          |
-| [directconnect:TagResource](#list_directconnect-action-TagResource "#list_directconnect-action-TagResource") |                                                                                                                                                                                                                             |               | Tagging, Write    |
-| DeleteBGPPeer                                                                                                | [directconnect:DeleteBGPPeer](#list_directconnect-action-DeleteBGPPeer "#list_directconnect-action-DeleteBGPPeer")                                                                                                          |               |                   | Write          |
-| DeleteConnection                                                                                             | [directconnect:DeleteConnection](#list_directconnect-action-DeleteConnection "#list_directconnect-action-DeleteConnection")                                                                                                 |               |                   | Write          |
-| DeleteDirectConnectGateway                                                                                   | [directconnect:DeleteDirectConnectGateway](#list_directconnect-action-DeleteDirectConnectGateway "#list_directconnect-action-DeleteDirectConnectGateway")                                                                   |               |                   | Write          |
-| DeleteDirectConnectGatewayAssociation                                                                        | [directconnect:DeleteDirectConnectGatewayAssociation](#list_directconnect-action-DeleteDirectConnectGatewayAssociation "#list_directconnect-action-DeleteDirectConnectGatewayAssociation")                                  |               |                   | Write          |
-| DeleteDirectConnectGatewayAssociationProposal                                                                | [directconnect:DeleteDirectConnectGatewayAssociationProposal](#list_directconnect-action-DeleteDirectConnectGatewayAssociationProposal "#list_directconnect-action-DeleteDirectConnectGatewayAssociationProposal")          |               |                   | Write          |
-| DeleteInterconnect                                                                                           | [directconnect:DeleteInterconnect](#list_directconnect-action-DeleteInterconnect "#list_directconnect-action-DeleteInterconnect")                                                                                           |               |                   | Write          |
-| DeleteLag                                                                                                    | [directconnect:DeleteLag](#list_directconnect-action-DeleteLag "#list_directconnect-action-DeleteLag")                                                                                                                      |               |                   | Write          |
-| DeleteVirtualInterface                                                                                       | [directconnect:DeleteVirtualInterface](#list_directconnect-action-DeleteVirtualInterface "#list_directconnect-action-DeleteVirtualInterface")                                                                               |               |                   | Write          |
-| DescribeConnectionLoa                                                                                        | [directconnect:DescribeConnectionLoa](#list_directconnect-action-DescribeConnectionLoa "#list_directconnect-action-DescribeConnectionLoa")                                                                                  |               |                   | Read           |
-| DescribeConnections                                                                                          | [directconnect:DescribeConnections](#list_directconnect-action-DescribeConnections "#list_directconnect-action-DescribeConnections")                                                                                        |               |                   | Read           |
-| DescribeConnectionsOnInterconnect                                                                            | [directconnect:DescribeConnectionsOnInterconnect](#list_directconnect-action-DescribeConnectionsOnInterconnect "#list_directconnect-action-DescribeConnectionsOnInterconnect")                                              |               |                   | Read           |
-| DescribeCustomerMetadata                                                                                     | [directconnect:DescribeCustomerMetadata](#list_directconnect-action-DescribeCustomerMetadata "#list_directconnect-action-DescribeCustomerMetadata")                                                                         |               |                   | Read           |
-| DescribeDirectConnectGatewayAssociationProposals                                                             | [directconnect:DescribeDirectConnectGatewayAssociationProposals](#list_directconnect-action-DescribeDirectConnectGatewayAssociationProposals "#list_directconnect-action-DescribeDirectConnectGatewayAssociationProposals") |               |                   | Read           |
-| DescribeDirectConnectGatewayAssociations                                                                     | [directconnect:DescribeDirectConnectGatewayAssociations](#list_directconnect-action-DescribeDirectConnectGatewayAssociations "#list_directconnect-action-DescribeDirectConnectGatewayAssociations")                         |               |                   | Read           |
-| DescribeDirectConnectGatewayAttachments                                                                      | [directconnect:DescribeDirectConnectGatewayAttachments](#list_directconnect-action-DescribeDirectConnectGatewayAttachments "#list_directconnect-action-DescribeDirectConnectGatewayAttachments")                            |               |                   | Read           |
-| DescribeDirectConnectGateways                                                                                | [directconnect:DescribeDirectConnectGateways](#list_directconnect-action-DescribeDirectConnectGateways "#list_directconnect-action-DescribeDirectConnectGateways")                                                          |               |                   | Read           |
-| DescribeHostedConnections                                                                                    | [directconnect:DescribeHostedConnections](#list_directconnect-action-DescribeHostedConnections "#list_directconnect-action-DescribeHostedConnections")                                                                      |               |                   | Read           |
-| DescribeInterconnectLoa                                                                                      | [directconnect:DescribeInterconnectLoa](#list_directconnect-action-DescribeInterconnectLoa "#list_directconnect-action-DescribeInterconnectLoa")                                                                            |               |                   | Read           |
-| DescribeInterconnects                                                                                        | [directconnect:DescribeInterconnects](#list_directconnect-action-DescribeInterconnects "#list_directconnect-action-DescribeInterconnects")                                                                                  |               |                   | Read           |
-| DescribeLags                                                                                                 | [directconnect:DescribeLags](#list_directconnect-action-DescribeLags "#list_directconnect-action-DescribeLags")                                                                                                             |               |                   | Read           |
-| DescribeLoa                                                                                                  | [directconnect:DescribeLoa](#list_directconnect-action-DescribeLoa "#list_directconnect-action-DescribeLoa")                                                                                                                |               |                   | Read           |
-| DescribeLocations                                                                                            | [directconnect:DescribeLocations](#list_directconnect-action-DescribeLocations "#list_directconnect-action-DescribeLocations")                                                                                              |               |                   | Read           |
-| DescribeRouterConfiguration                                                                                  | [directconnect:DescribeRouterConfiguration](#list_directconnect-action-DescribeRouterConfiguration "#list_directconnect-action-DescribeRouterConfiguration")                                                                |               |                   | Read           |
-| DescribeTags                                                                                                 | [directconnect:DescribeTags](#list_directconnect-action-DescribeTags "#list_directconnect-action-DescribeTags")                                                                                                             |               |                   | Read           |
-| DescribeVirtualGateways                                                                                      | [directconnect:DescribeVirtualGateways](#list_directconnect-action-DescribeVirtualGateways "#list_directconnect-action-DescribeVirtualGateways")                                                                            |               |                   | Read           |
-| DescribeVirtualInterfaces                                                                                    | [directconnect:DescribeVirtualInterfaces](#list_directconnect-action-DescribeVirtualInterfaces "#list_directconnect-action-DescribeVirtualInterfaces")                                                                      |               |                   | Read           |
-| DisassociateConnectionFromLag                                                                                | [directconnect:DisassociateConnectionFromLag](#list_directconnect-action-DisassociateConnectionFromLag "#list_directconnect-action-DisassociateConnectionFromLag")                                                          |               |                   | Write          |
-| DisassociateMacSecKey                                                                                        | [directconnect:DisassociateMacSecKey](#list_directconnect-action-DisassociateMacSecKey "#list_directconnect-action-DisassociateMacSecKey")                                                                                  |               |                   | Write          |
-| ListVirtualInterfaceRoutes                                                                                   | [directconnect:ListVirtualInterfaceRoutes](#list_directconnect-action-ListVirtualInterfaceRoutes "#list_directconnect-action-ListVirtualInterfaceRoutes")                                                                   |               |                   | List           |
-| ListVirtualInterfaceTestHistory                                                                              | [directconnect:ListVirtualInterfaceTestHistory](#list_directconnect-action-ListVirtualInterfaceTestHistory "#list_directconnect-action-ListVirtualInterfaceTestHistory")                                                    |               |                   | List           |
-| StartBgpFailoverTest                                                                                         | [directconnect:StartBgpFailoverTest](#list_directconnect-action-StartBgpFailoverTest "#list_directconnect-action-StartBgpFailoverTest")                                                                                     |               |                   | Write          |
-| StopBgpFailoverTest                                                                                          | [directconnect:StopBgpFailoverTest](#list_directconnect-action-StopBgpFailoverTest "#list_directconnect-action-StopBgpFailoverTest")                                                                                        |               |                   | Write          |
-| TagResource                                                                                                  | [directconnect:TagResource](#list_directconnect-action-TagResource "#list_directconnect-action-TagResource")                                                                                                                |               |                   | Tagging, Write |
-| UntagResource                                                                                                | [directconnect:UntagResource](#list_directconnect-action-UntagResource "#list_directconnect-action-UntagResource")                                                                                                          |               |                   | Tagging, Write |
-| UpdateConnection                                                                                             | [directconnect:UpdateConnection](#list_directconnect-action-UpdateConnection "#list_directconnect-action-UpdateConnection")                                                                                                 |               |                   | Write          |
-| UpdateDirectConnectGateway                                                                                   | [directconnect:UpdateDirectConnectGateway](#list_directconnect-action-UpdateDirectConnectGateway "#list_directconnect-action-UpdateDirectConnectGateway")                                                                   |               |                   | Write          |
-| UpdateDirectConnectGatewayAssociation                                                                        | [directconnect:UpdateDirectConnectGatewayAssociation](#list_directconnect-action-UpdateDirectConnectGatewayAssociation "#list_directconnect-action-UpdateDirectConnectGatewayAssociation")                                  |               |                   | Write          |
-| UpdateLag                                                                                                    | [directconnect:UpdateLag](#list_directconnect-action-UpdateLag "#list_directconnect-action-UpdateLag")                                                                                                                      |               |                   | Write          |
-| UpdateVirtualInterfaceAttributes                                                                             | [directconnect:UpdateVirtualInterfaceAttributes](#list_directconnect-action-UpdateVirtualInterfaceAttributes "#list_directconnect-action-UpdateVirtualInterfaceAttributes")                                                 |               |                   | Write          |
+
+
+
+- **   AcceptDirectConnectGatewayAssociationProposal  **
+  - **IAM action:**  [directconnect:AcceptDirectConnectGatewayAssociationProposal](#list_directconnect-action-AcceptDirectConnectGatewayAssociationProposal) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AllocateConnectionOnInterconnect  **
+  - **IAM action:**  [directconnect:AllocateConnectionOnInterconnect](#list_directconnect-action-AllocateConnectionOnInterconnect) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AllocateHostedConnection  **
+  - **IAM action:**  [directconnect:AllocateHostedConnection](#list_directconnect-action-AllocateHostedConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [directconnect:TagResource](#list_directconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   AllocatePrivateVirtualInterface  **
+  - **IAM action:**  [directconnect:AllocatePrivateVirtualInterface](#list_directconnect-action-AllocatePrivateVirtualInterface)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [directconnect:TagResource](#list_directconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   AllocatePublicVirtualInterface  **
+  - **IAM action:**  [directconnect:AllocatePublicVirtualInterface](#list_directconnect-action-AllocatePublicVirtualInterface)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [directconnect:TagResource](#list_directconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   AllocateTransitVirtualInterface  **
+  - **IAM action:**  [directconnect:AllocateTransitVirtualInterface](#list_directconnect-action-AllocateTransitVirtualInterface)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [directconnect:TagResource](#list_directconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   AssociateConnectionWithLag  **
+  - **IAM action:**  [directconnect:AssociateConnectionWithLag](#list_directconnect-action-AssociateConnectionWithLag) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateHostedConnection  **
+  - **IAM action:**  [directconnect:AssociateHostedConnection](#list_directconnect-action-AssociateHostedConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateMacSecKey  **
+  - **IAM action:**  [directconnect:AssociateMacSecKey](#list_directconnect-action-AssociateMacSecKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateVirtualInterface  **
+  - **IAM action:**  [directconnect:AssociateVirtualInterface](#list_directconnect-action-AssociateVirtualInterface) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ConfirmConnection  **
+  - **IAM action:**  [directconnect:ConfirmConnection](#list_directconnect-action-ConfirmConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ConfirmCustomerAgreement  **
+  - **IAM action:**  [directconnect:ConfirmCustomerAgreement](#list_directconnect-action-ConfirmCustomerAgreement) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ConfirmPrivateVirtualInterface  **
+  - **IAM action:**  [directconnect:ConfirmPrivateVirtualInterface](#list_directconnect-action-ConfirmPrivateVirtualInterface) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ConfirmPublicVirtualInterface  **
+  - **IAM action:**  [directconnect:ConfirmPublicVirtualInterface](#list_directconnect-action-ConfirmPublicVirtualInterface) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ConfirmTransitVirtualInterface  **
+  - **IAM action:**  [directconnect:ConfirmTransitVirtualInterface](#list_directconnect-action-ConfirmTransitVirtualInterface) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateBGPPeer  **
+  - **IAM action:**  [directconnect:CreateBGPPeer](#list_directconnect-action-CreateBGPPeer) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateConnection  **
+  - **IAM action:**  [directconnect:CreateConnection](#list_directconnect-action-CreateConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [directconnect:TagResource](#list_directconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateDirectConnectGateway  **
+  - **IAM action:**  [directconnect:CreateDirectConnectGateway](#list_directconnect-action-CreateDirectConnectGateway)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [directconnect:TagResource](#list_directconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateDirectConnectGatewayAssociation  **
+  - **IAM action:**  [directconnect:CreateDirectConnectGatewayAssociation](#list_directconnect-action-CreateDirectConnectGatewayAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateDirectConnectGatewayAssociationProposal  **
+  - **IAM action:**  [directconnect:CreateDirectConnectGatewayAssociationProposal](#list_directconnect-action-CreateDirectConnectGatewayAssociationProposal) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateInterconnect  **
+  - **IAM action:**  [directconnect:CreateInterconnect](#list_directconnect-action-CreateInterconnect)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [directconnect:TagResource](#list_directconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateLag  **
+  - **IAM action:**  [directconnect:CreateLag](#list_directconnect-action-CreateLag)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [directconnect:TagResource](#list_directconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreatePrivateVirtualInterface  **
+  - **IAM action:**  [directconnect:CreatePrivateVirtualInterface](#list_directconnect-action-CreatePrivateVirtualInterface)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [directconnect:TagResource](#list_directconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreatePublicVirtualInterface  **
+  - **IAM action:**  [directconnect:CreatePublicVirtualInterface](#list_directconnect-action-CreatePublicVirtualInterface)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [directconnect:TagResource](#list_directconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateTransitVirtualInterface  **
+  - **IAM action:**  [directconnect:CreateTransitVirtualInterface](#list_directconnect-action-CreateTransitVirtualInterface)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [directconnect:TagResource](#list_directconnect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteBGPPeer  **
+  - **IAM action:**  [directconnect:DeleteBGPPeer](#list_directconnect-action-DeleteBGPPeer) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConnection  **
+  - **IAM action:**  [directconnect:DeleteConnection](#list_directconnect-action-DeleteConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDirectConnectGateway  **
+  - **IAM action:**  [directconnect:DeleteDirectConnectGateway](#list_directconnect-action-DeleteDirectConnectGateway) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDirectConnectGatewayAssociation  **
+  - **IAM action:**  [directconnect:DeleteDirectConnectGatewayAssociation](#list_directconnect-action-DeleteDirectConnectGatewayAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDirectConnectGatewayAssociationProposal  **
+  - **IAM action:**  [directconnect:DeleteDirectConnectGatewayAssociationProposal](#list_directconnect-action-DeleteDirectConnectGatewayAssociationProposal) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteInterconnect  **
+  - **IAM action:**  [directconnect:DeleteInterconnect](#list_directconnect-action-DeleteInterconnect) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteLag  **
+  - **IAM action:**  [directconnect:DeleteLag](#list_directconnect-action-DeleteLag) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVirtualInterface  **
+  - **IAM action:**  [directconnect:DeleteVirtualInterface](#list_directconnect-action-DeleteVirtualInterface) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeConnectionLoa  **
+  - **IAM action:**  [directconnect:DescribeConnectionLoa](#list_directconnect-action-DescribeConnectionLoa) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeConnections  **
+  - **IAM action:**  [directconnect:DescribeConnections](#list_directconnect-action-DescribeConnections) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeConnectionsOnInterconnect  **
+  - **IAM action:**  [directconnect:DescribeConnectionsOnInterconnect](#list_directconnect-action-DescribeConnectionsOnInterconnect) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeCustomerMetadata  **
+  - **IAM action:**  [directconnect:DescribeCustomerMetadata](#list_directconnect-action-DescribeCustomerMetadata) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeDirectConnectGatewayAssociationProposals  **
+  - **IAM action:**  [directconnect:DescribeDirectConnectGatewayAssociationProposals](#list_directconnect-action-DescribeDirectConnectGatewayAssociationProposals) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeDirectConnectGatewayAssociations  **
+  - **IAM action:**  [directconnect:DescribeDirectConnectGatewayAssociations](#list_directconnect-action-DescribeDirectConnectGatewayAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeDirectConnectGatewayAttachments  **
+  - **IAM action:**  [directconnect:DescribeDirectConnectGatewayAttachments](#list_directconnect-action-DescribeDirectConnectGatewayAttachments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeDirectConnectGateways  **
+  - **IAM action:**  [directconnect:DescribeDirectConnectGateways](#list_directconnect-action-DescribeDirectConnectGateways) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeHostedConnections  **
+  - **IAM action:**  [directconnect:DescribeHostedConnections](#list_directconnect-action-DescribeHostedConnections) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeInterconnectLoa  **
+  - **IAM action:**  [directconnect:DescribeInterconnectLoa](#list_directconnect-action-DescribeInterconnectLoa) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeInterconnects  **
+  - **IAM action:**  [directconnect:DescribeInterconnects](#list_directconnect-action-DescribeInterconnects) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeLags  **
+  - **IAM action:**  [directconnect:DescribeLags](#list_directconnect-action-DescribeLags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeLoa  **
+  - **IAM action:**  [directconnect:DescribeLoa](#list_directconnect-action-DescribeLoa) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeLocations  **
+  - **IAM action:**  [directconnect:DescribeLocations](#list_directconnect-action-DescribeLocations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeRouterConfiguration  **
+  - **IAM action:**  [directconnect:DescribeRouterConfiguration](#list_directconnect-action-DescribeRouterConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeTags  **
+  - **IAM action:**  [directconnect:DescribeTags](#list_directconnect-action-DescribeTags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeVirtualGateways  **
+  - **IAM action:**  [directconnect:DescribeVirtualGateways](#list_directconnect-action-DescribeVirtualGateways) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeVirtualInterfaces  **
+  - **IAM action:**  [directconnect:DescribeVirtualInterfaces](#list_directconnect-action-DescribeVirtualInterfaces) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DisassociateConnectionFromLag  **
+  - **IAM action:**  [directconnect:DisassociateConnectionFromLag](#list_directconnect-action-DisassociateConnectionFromLag) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateMacSecKey  **
+  - **IAM action:**  [directconnect:DisassociateMacSecKey](#list_directconnect-action-DisassociateMacSecKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ListVirtualInterfaceRoutes  **
+  - **IAM action:**  [directconnect:ListVirtualInterfaceRoutes](#list_directconnect-action-ListVirtualInterfaceRoutes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListVirtualInterfaceTestHistory  **
+  - **IAM action:**  [directconnect:ListVirtualInterfaceTestHistory](#list_directconnect-action-ListVirtualInterfaceTestHistory) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   StartBgpFailoverTest  **
+  - **IAM action:**  [directconnect:StartBgpFailoverTest](#list_directconnect-action-StartBgpFailoverTest) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopBgpFailoverTest  **
+  - **IAM action:**  [directconnect:StopBgpFailoverTest](#list_directconnect-action-StopBgpFailoverTest) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [directconnect:TagResource](#list_directconnect-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [directconnect:UntagResource](#list_directconnect-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateConnection  **
+  - **IAM action:**  [directconnect:UpdateConnection](#list_directconnect-action-UpdateConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateDirectConnectGateway  **
+  - **IAM action:**  [directconnect:UpdateDirectConnectGateway](#list_directconnect-action-UpdateDirectConnectGateway) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateDirectConnectGatewayAssociation  **
+  - **IAM action:**  [directconnect:UpdateDirectConnectGatewayAssociation](#list_directconnect-action-UpdateDirectConnectGatewayAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateLag  **
+  - **IAM action:**  [directconnect:UpdateLag](#list_directconnect-action-UpdateLag) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateVirtualInterfaceAttributes  **
+  - **IAM action:**  [directconnect:UpdateVirtualInterfaceAttributes](#list_directconnect-action-UpdateVirtualInterfaceAttributes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS Direct Connect
+<a name="list_directconnect-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                                                               | Resource types (\*required)                                                                       | Condition keys                                                                                                                                                                                                                                                                                                                            | Access level   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AcceptDirectConnectGatewayAssociationProposal](../../../directconnect/latest/APIReference/API_AcceptDirectConnectGatewayAssociationProposal.md "../../../directconnect/latest/APIReference/API_AcceptDirectConnectGatewayAssociationProposal.md")          | Grants permission to accept a proposal request to attach a virtual private gateway to a Direct Connect gateway                                                                                                                                                                                                                            | [dx-gateway\*](#list_directconnect-resource-dx-gateway "#list_directconnect-resource-dx-gateway") | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [AllocateConnectionOnInterconnect](../../../directconnect/latest/APIReference/API_AllocateConnectionOnInterconnect.md "../../../directconnect/latest/APIReference/API_AllocateConnectionOnInterconnect.md")                                                 | Grants permission to create a hosted connection on an interconnect                                                                                                                                                                                                                                                                        | [dxcon\*](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [AllocateHostedConnection](../../../directconnect/latest/APIReference/API_AllocateHostedConnection.md "../../../directconnect/latest/APIReference/API_AllocateHostedConnection.md")                                                                         | Grants permission to create a new hosted connection between a AWS Direct Connect partner's network and a specific AWS Direct Connect location                                                                                                                                                                                             | [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                  | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") | Write          |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") |
-| [AllocatePrivateVirtualInterface](../../../directconnect/latest/APIReference/API_AllocatePrivateVirtualInterface.md "../../../directconnect/latest/APIReference/API_AllocatePrivateVirtualInterface.md")                                                    | Grants permission to provision a private virtual interface to be owned by a different customer                                                                                                                                                                                                                                            | [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                  | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") | Write          |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") |
-| [AllocatePublicVirtualInterface](../../../directconnect/latest/APIReference/API_AllocatePublicVirtualInterface.md "../../../directconnect/latest/APIReference/API_AllocatePublicVirtualInterface.md")                                                       | Grants permission to provision a public virtual interface to be owned by a different customer                                                                                                                                                                                                                                             | [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                  | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") | Write          |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") |
-| [AllocateTransitVirtualInterface](../../../directconnect/latest/APIReference/API_AllocateTransitVirtualInterface.md "../../../directconnect/latest/APIReference/API_AllocateTransitVirtualInterface.md")                                                    | Grants permission to provision a transit virtual interface to be owned by a different customer                                                                                                                                                                                                                                            | [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                  | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") | Write          |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") |
-| [AssociateConnectionWithLag](../../../directconnect/latest/APIReference/API_AssociateConnectionWithLag.md "../../../directconnect/latest/APIReference/API_AssociateConnectionWithLag.md")                                                                   | Grants permission to associate a connection with a LAG                                                                                                                                                                                                                                                                                    | [dxcon\*](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [dxlag\*](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                          | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [AssociateHostedConnection](../../../directconnect/latest/APIReference/API_AssociateHostedConnection.md "../../../directconnect/latest/APIReference/API_AssociateHostedConnection.md")                                                                      | Grants permission to associate a hosted connection and its virtual interfaces with a link aggregation group (LAG) or interconnect                                                                                                                                                                                                         | [dxcon\*](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [dxcon\*](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                                                                                                                                                                          | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [AssociateMacSecKey](../../../directconnect/latest/APIReference/API_AssociateMacSecKey.md "../../../directconnect/latest/APIReference/API_AssociateMacSecKey.md")                                                                                           | Grants permission to associate a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity Association Key (CAK) pair with an AWS Direct Connect dedicated connection                                                                                                                                                                 | [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                  | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [AssociateVirtualInterface](../../../directconnect/latest/APIReference/API_AssociateVirtualInterface.md "../../../directconnect/latest/APIReference/API_AssociateVirtualInterface.md")                                                                      | Grants permission to associate a virtual interface with a specified link aggregation group (LAG) or connection                                                                                                                                                                                                                            | [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                  | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [dxvif\*](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                                                                                                                                                                          | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [ConfirmConnection](../../../directconnect/latest/APIReference/API_ConfirmConnection.md "../../../directconnect/latest/APIReference/API_ConfirmConnection.md")                                                                                              | Grants permission to confirm the creation of a hosted connection on an interconnect                                                                                                                                                                                                                                                       | [dxcon\*](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [ConfirmCustomerAgreement](../../../directconnect/latest/APIReference/API_ConfirmCustomerAgreement.md "../../../directconnect/latest/APIReference/API_ConfirmCustomerAgreement.md")                                                                         | Grants permission to confirm the the terms of agreement when creating the connection or link aggregation group (LAG)                                                                                                                                                                                                                      |                                                                                                   |                                                                                                                                                                                                                                                                                                                                           | Write          |
-| [ConfirmPrivateVirtualInterface](../../../directconnect/latest/APIReference/API_ConfirmPrivateVirtualInterface.md "../../../directconnect/latest/APIReference/API_ConfirmPrivateVirtualInterface.md")                                                       | Grants permission to accept ownership of a private virtual interface created by another customer                                                                                                                                                                                                                                          | [dxvif\*](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [ConfirmPublicVirtualInterface](../../../directconnect/latest/APIReference/API_ConfirmPublicVirtualInterface.md "../../../directconnect/latest/APIReference/API_ConfirmPublicVirtualInterface.md")                                                          | Grants permission to accept ownership of a public virtual interface created by another customer                                                                                                                                                                                                                                           | [dxvif\*](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [ConfirmTransitVirtualInterface](../../../directconnect/latest/APIReference/API_ConfirmTransitVirtualInterface.md "../../../directconnect/latest/APIReference/API_ConfirmTransitVirtualInterface.md")                                                       | Grants permission to accept ownership of a transit virtual interface created by another customer                                                                                                                                                                                                                                          | [dxvif\*](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [CreateBGPPeer](../../../directconnect/latest/APIReference/API_CreateBGPPeer.md "../../../directconnect/latest/APIReference/API_CreateBGPPeer.md")                                                                                                          | Grants permission to create a BGP peer on the specified virtual interface                                                                                                                                                                                                                                                                 | [dxvif\*](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [CreateConnection](../../../directconnect/latest/APIReference/API_CreateConnection.md "../../../directconnect/latest/APIReference/API_CreateConnection.md")                                                                                                 | Grants permission to create a new connection between the customer network and a specific AWS Direct Connect location                                                                                                                                                                                                                      | [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                  | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") | Write          |
-| [CreateDirectConnectGateway](../../../directconnect/latest/APIReference/API_CreateDirectConnectGateway.md "../../../directconnect/latest/APIReference/API_CreateDirectConnectGateway.md")                                                                   | Grants permission to create a Direct Connect gateway, which is an intermediate object that enables you to connect a set of virtual interfaces and virtual private gateways                                                                                                                                                                |                                                                                                   | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys")                                                                                                                               | Write          |
-| [CreateDirectConnectGatewayAssociation](../../../directconnect/latest/APIReference/API_CreateDirectConnectGatewayAssociation.md "../../../directconnect/latest/APIReference/API_CreateDirectConnectGatewayAssociation.md")                                  | Grants permission to create an association between a Direct Connect gateway and a virtual private gateway                                                                                                                                                                                                                                 | [dx-gateway\*](#list_directconnect-resource-dx-gateway "#list_directconnect-resource-dx-gateway") | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [CreateDirectConnectGatewayAssociationProposal](../../../directconnect/latest/APIReference/API_CreateDirectConnectGatewayAssociationProposal.md "../../../directconnect/latest/APIReference/API_CreateDirectConnectGatewayAssociationProposal.md")          | Grants permission to create a proposal to associate the specified virtual private gateway with the specified Direct Connect gateway                                                                                                                                                                                                       | [dx-gateway\*](#list_directconnect-resource-dx-gateway "#list_directconnect-resource-dx-gateway") | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [CreateInterconnect](../../../directconnect/latest/APIReference/API_CreateInterconnect.md "../../../directconnect/latest/APIReference/API_CreateInterconnect.md")                                                                                           | Grants permission to create a new interconnect between a AWS Direct Connect partner's network and a specific AWS Direct Connect location                                                                                                                                                                                                  | [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                  | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") | Write          |
-| [CreateLag](../../../directconnect/latest/APIReference/API_CreateLag.md "../../../directconnect/latest/APIReference/API_CreateLag.md")                                                                                                                      | Grants permission to create a link aggregation group (LAG) with the specified number of bundled physical connections between the customer network and a specific AWS Direct Connect location                                                                                                                                              | [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                  | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") | Write          |
-| [CreatePrivateVirtualInterface](../../../directconnect/latest/APIReference/API_CreatePrivateVirtualInterface.md "../../../directconnect/latest/APIReference/API_CreatePrivateVirtualInterface.md")                                                          | Grants permission to create a new private virtual interface                                                                                                                                                                                                                                                                               | [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                  | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") | Write          |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") |
-| [CreatePublicVirtualInterface](../../../directconnect/latest/APIReference/API_CreatePublicVirtualInterface.md "../../../directconnect/latest/APIReference/API_CreatePublicVirtualInterface.md")                                                             | Grants permission to create a new public virtual interface                                                                                                                                                                                                                                                                                | [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                  | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") | Write          |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") |
-| [CreateTransitVirtualInterface](../../../directconnect/latest/APIReference/API_CreateTransitVirtualInterface.md "../../../directconnect/latest/APIReference/API_CreateTransitVirtualInterface.md")                                                          | Grants permission to create a new transit virtual interface                                                                                                                                                                                                                                                                               | [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                  | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") | Write          |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") |
-| [DeleteBGPPeer](../../../directconnect/latest/APIReference/API_DeleteBGPPeer.md "../../../directconnect/latest/APIReference/API_DeleteBGPPeer.md")                                                                                                          | Grants permission to delete the specified BGP peer on the specified virtual interface with the specified customer address and ASN                                                                                                                                                                                                         | [dxvif\*](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DeleteConnection](../../../directconnect/latest/APIReference/API_DeleteConnection.md "../../../directconnect/latest/APIReference/API_DeleteConnection.md")                                                                                                 | Grants permission to delete the connection                                                                                                                                                                                                                                                                                                | [dxcon\*](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DeleteDirectConnectGateway](../../../directconnect/latest/APIReference/API_DeleteDirectConnectGateway.md "../../../directconnect/latest/APIReference/API_DeleteDirectConnectGateway.md")                                                                   | Grants permission to delete the specified Direct Connect gateway                                                                                                                                                                                                                                                                          | [dx-gateway\*](#list_directconnect-resource-dx-gateway "#list_directconnect-resource-dx-gateway") | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DeleteDirectConnectGatewayAssociation](../../../directconnect/latest/APIReference/API_DeleteDirectConnectGatewayAssociation.md "../../../directconnect/latest/APIReference/API_DeleteDirectConnectGatewayAssociation.md")                                  | Grants permission to delete the association between the specified Direct Connect gateway and virtual private gateway                                                                                                                                                                                                                      | [dx-gateway\*](#list_directconnect-resource-dx-gateway "#list_directconnect-resource-dx-gateway") | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DeleteDirectConnectGatewayAssociationProposal](../../../directconnect/latest/APIReference/API_DeleteDirectConnectGatewayAssociationProposal.md "../../../directconnect/latest/APIReference/API_DeleteDirectConnectGatewayAssociationProposal.md")          | Grants permission to delete the association proposal request between the specified Direct Connect gateway and virtual private gateway                                                                                                                                                                                                     |                                                                                                   |                                                                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteInterconnect](../../../directconnect/latest/APIReference/API_DeleteInterconnect.md "../../../directconnect/latest/APIReference/API_DeleteInterconnect.md")                                                                                           | Grants permission to delete the specified interconnect                                                                                                                                                                                                                                                                                    | [dxcon\*](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DeleteLag](../../../directconnect/latest/APIReference/API_DeleteLag.md "../../../directconnect/latest/APIReference/API_DeleteLag.md")                                                                                                                      | Grants permission to delete the specified link aggregation group (LAG)                                                                                                                                                                                                                                                                    | [dxlag\*](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DeleteVirtualInterface](../../../directconnect/latest/APIReference/API_DeleteVirtualInterface.md "../../../directconnect/latest/APIReference/API_DeleteVirtualInterface.md")                                                                               | Grants permission to delete a virtual interface                                                                                                                                                                                                                                                                                           | [dxvif\*](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [DescribeConnectionLoa](../../../directconnect/latest/APIReference/API_DescribeConnectionLoa.md "../../../directconnect/latest/APIReference/API_DescribeConnectionLoa.md")                                                                                  | Grants permission to describe the LOA-CFA for a Connection                                                                                                                                                                                                                                                                                | [dxcon\*](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [DescribeConnections](../../../directconnect/latest/APIReference/API_DescribeConnections.md "../../../directconnect/latest/APIReference/API_DescribeConnections.md")                                                                                        | Grants permission to describe all connections in this region                                                                                                                                                                                                                                                                              | [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                  | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [DescribeConnectionsOnInterconnect](../../../directconnect/latest/APIReference/API_DescribeConnectionsOnInterconnect.md "../../../directconnect/latest/APIReference/API_DescribeConnectionsOnInterconnect.md")                                              | Grants permission to describe a list of connections that have been provisioned on the given interconnect                                                                                                                                                                                                                                  | [dxcon\*](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [DescribeCustomerMetadata](../../../directconnect/latest/APIReference/API_DescribeCustomerMetadata.md "../../../directconnect/latest/APIReference/API_DescribeCustomerMetadata.md")                                                                         | Grants permission to view a list of customer agreements, along with their signed status and whether the customer is an NNIPartner, NNIPartnerV2, or a nonPartner                                                                                                                                                                          |                                                                                                   |                                                                                                                                                                                                                                                                                                                                           | Read           |
-| [DescribeDirectConnectGatewayAssociationProposals](../../../directconnect/latest/APIReference/API_DescribeDirectConnectGatewayAssociationProposals.md "../../../directconnect/latest/APIReference/API_DescribeDirectConnectGatewayAssociationProposals.md") | Grants permission to describe one or more association proposals for connection between a virtual private gateway and a Direct Connect gateway                                                                                                                                                                                             | [dx-gateway](#list_directconnect-resource-dx-gateway "#list_directconnect-resource-dx-gateway")   | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [DescribeDirectConnectGatewayAssociations](../../../directconnect/latest/APIReference/API_DescribeDirectConnectGatewayAssociations.md "../../../directconnect/latest/APIReference/API_DescribeDirectConnectGatewayAssociations.md")                         | Grants permission to describe the associations between your Direct Connect gateways and virtual private gateways                                                                                                                                                                                                                          | [dx-gateway](#list_directconnect-resource-dx-gateway "#list_directconnect-resource-dx-gateway")   | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [DescribeDirectConnectGatewayAttachments](../../../directconnect/latest/APIReference/API_DescribeDirectConnectGatewayAttachments.md "../../../directconnect/latest/APIReference/API_DescribeDirectConnectGatewayAttachments.md")                            | Grants permission to describe the attachments between your Direct Connect gateways and virtual interfaces                                                                                                                                                                                                                                 | [dx-gateway](#list_directconnect-resource-dx-gateway "#list_directconnect-resource-dx-gateway")   | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [DescribeDirectConnectGateways](../../../directconnect/latest/APIReference/API_DescribeDirectConnectGateways.md "../../../directconnect/latest/APIReference/API_DescribeDirectConnectGateways.md")                                                          | Grants permission to describe all your Direct Connect gateways or only the specified Direct Connect gateway                                                                                                                                                                                                                               | [dx-gateway](#list_directconnect-resource-dx-gateway "#list_directconnect-resource-dx-gateway")   | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [DescribeHostedConnections](../../../directconnect/latest/APIReference/API_DescribeHostedConnections.md "../../../directconnect/latest/APIReference/API_DescribeHostedConnections.md")                                                                      | Grants permission to describe the hosted connections that have been provisioned on the specified interconnect or link aggregation group (LAG)                                                                                                                                                                                             | [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                  | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [DescribeInterconnectLoa](../../../directconnect/latest/APIReference/API_DescribeInterconnectLoa.md "../../../directconnect/latest/APIReference/API_DescribeInterconnectLoa.md")                                                                            | Grants permission to describe the LOA-CFA for an Interconnect                                                                                                                                                                                                                                                                             | [dxcon\*](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [DescribeInterconnects](../../../directconnect/latest/APIReference/API_DescribeInterconnects.md "../../../directconnect/latest/APIReference/API_DescribeInterconnects.md")                                                                                  | Grants permission to describe a list of interconnects owned by the AWS account                                                                                                                                                                                                                                                            | [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                  | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [DescribeLags](../../../directconnect/latest/APIReference/API_DescribeLags.md "../../../directconnect/latest/APIReference/API_DescribeLags.md")                                                                                                             | Grants permission to describe all your link aggregation groups (LAG) or the specified LAG                                                                                                                                                                                                                                                 | [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                  | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [DescribeLoa](../../../directconnect/latest/APIReference/API_DescribeLoa.md "../../../directconnect/latest/APIReference/API_DescribeLoa.md")                                                                                                                | Grants permission to describe the LOA-CFA for a connection, interconnect, or link aggregation group (LAG)                                                                                                                                                                                                                                 | [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                  | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [DescribeLocations](../../../directconnect/latest/APIReference/API_DescribeLocations.md "../../../directconnect/latest/APIReference/API_DescribeLocations.md")                                                                                              | Grants permission to describe the list of AWS Direct Connect locations in the current AWS region                                                                                                                                                                                                                                          |                                                                                                   |                                                                                                                                                                                                                                                                                                                                           | Read           |
-| [DescribeRouterConfiguration](../../../directconnect/latest/APIReference/API_DescribeRouterConfiguration.md "../../../directconnect/latest/APIReference/API_DescribeRouterConfiguration.md")                                                                | Grants permission to describe Details about the router for a virtual interface                                                                                                                                                                                                                                                            | [dxvif\*](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [DescribeTags](../../../directconnect/latest/APIReference/API_DescribeTags.md "../../../directconnect/latest/APIReference/API_DescribeTags.md")                                                                                                             | Grants permission to describe the tags associated with the specified AWS Direct Connect resources                                                                                                                                                                                                                                         | [dx-gateway](#list_directconnect-resource-dx-gateway "#list_directconnect-resource-dx-gateway")   | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [dxvif](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [DescribeVirtualGateways](../../../directconnect/latest/APIReference/API_DescribeVirtualGateways.md "../../../directconnect/latest/APIReference/API_DescribeVirtualGateways.md")                                                                            | Grants permission to describe a list of virtual private gateways owned by the AWS account                                                                                                                                                                                                                                                 |                                                                                                   |                                                                                                                                                                                                                                                                                                                                           | Read           |
-| [DescribeVirtualInterfaces](../../../directconnect/latest/APIReference/API_DescribeVirtualInterfaces.md "../../../directconnect/latest/APIReference/API_DescribeVirtualInterfaces.md")                                                                      | Grants permission to describe all virtual interfaces for an AWS account                                                                                                                                                                                                                                                                   | [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                  | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Read           |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [dxvif](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [DisassociateConnectionFromLag](../../../directconnect/latest/APIReference/API_DisassociateConnectionFromLag.md "../../../directconnect/latest/APIReference/API_DisassociateConnectionFromLag.md")                                                          | Grants permission to disassociate a connection from a link aggregation group (LAG)                                                                                                                                                                                                                                                        | [dxcon\*](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [dxlag\*](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                          | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [DisassociateMacSecKey](../../../directconnect/latest/APIReference/API_DisassociateMacSecKey.md "../../../directconnect/latest/APIReference/API_DisassociateMacSecKey.md")                                                                                  | Grants permission to remove the association between a MAC Security (MACsec) security key and an AWS Direct Connect dedicated connection                                                                                                                                                                                                   | [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                  | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                |
-| [ListVirtualInterfaceRoutes](../../../directconnect/latest/APIReference/API_ListVirtualInterfaceRoutes.md "../../../directconnect/latest/APIReference/API_ListVirtualInterfaceRoutes.md")                                                                   | Grants permission to list the routes accepted and advertised over a virtual interface                                                                                                                                                                                                                                                     | [dxvif\*](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [ListVirtualInterfaceTestHistory](../../../directconnect/latest/APIReference/API_ListVirtualInterfaceTestHistory.md "../../../directconnect/latest/APIReference/API_ListVirtualInterfaceTestHistory.md")                                                    | Grants permission to list the virtual interface failover test history                                                                                                                                                                                                                                                                     | [dxvif\*](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | List           |
-| [StartBgpFailoverTest](../../../directconnect/latest/APIReference/API_StartBgpFailoverTest.md "../../../directconnect/latest/APIReference/API_StartBgpFailoverTest.md")                                                                                     | Grants permission to start the virtual interface failover test that verifies your configuration meets your resiliency requirements by placing the BGP peering session in the DOWN state. You can then send traffic to verify that there are no outages                                                                                    | [dxvif\*](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [StopBgpFailoverTest](../../../directconnect/latest/APIReference/API_StopBgpFailoverTest.md "../../../directconnect/latest/APIReference/API_StopBgpFailoverTest.md")                                                                                        | Grants permission to stop the virtual interface failover test                                                                                                                                                                                                                                                                             | [dxvif\*](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [TagResource](../../../directconnect/latest/APIReference/API_TagResource.md "../../../directconnect/latest/APIReference/API_TagResource.md")                                                                                                                | Grants permission to add the specified tags to the specified AWS Direct Connect resource. Each resource can have a maximum of 50 tags                                                                                                                                                                                                     | [dx-gateway](#list_directconnect-resource-dx-gateway "#list_directconnect-resource-dx-gateway")   | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") | Tagging, Write |
-| [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                                                                                                                                                                            | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") |
-| [dxvif](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                                                                                                                                                                            | [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_ "#list_directconnect-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys") |
-| [UntagResource](../../../directconnect/latest/APIReference/API_UntagResource.md "../../../directconnect/latest/APIReference/API_UntagResource.md")                                                                                                          | Grants permission to remove one or more tags from the specified AWS Direct Connect resource                                                                                                                                                                                                                                               | [dx-gateway](#list_directconnect-resource-dx-gateway "#list_directconnect-resource-dx-gateway")   | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys")                                                                                                                            | Tagging, Write |
-| [dxcon](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys")                                                                                                                            |
-| [dxlag](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys")                                                                                                                            |
-| [dxvif](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_directconnect-aws_TagKeys "#list_directconnect-aws_TagKeys")                                                                                                                            |
-| [UpdateConnection](../../../directconnect/latest/APIReference/API_UpdateConnection.md "../../../directconnect/latest/APIReference/API_UpdateConnection.md")                                                                                                 | Grants permission to update the AWS Direct Connect dedicated connection configuration. You can update the following parameters for a connection: The connection name or The connection's MAC Security (MACsec) encryption mode                                                                                                            | [dxcon\*](#list_directconnect-resource-dxcon "#list_directconnect-resource-dxcon")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [UpdateDirectConnectGateway](../../../directconnect/latest/APIReference/API_UpdateDirectConnectGateway.md "../../../directconnect/latest/APIReference/API_UpdateDirectConnectGateway.md")                                                                   | Grants permission to update the name of a Direct Connect gateway                                                                                                                                                                                                                                                                          | [dx-gateway\*](#list_directconnect-resource-dx-gateway "#list_directconnect-resource-dx-gateway") | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [UpdateDirectConnectGatewayAssociation](../../../directconnect/latest/APIReference/API_UpdateDirectConnectGatewayAssociation.md "../../../directconnect/latest/APIReference/API_UpdateDirectConnectGatewayAssociation.md")                                  | Grants permission to update the specified attributes of the Direct Connect gateway association                                                                                                                                                                                                                                            |                                                                                                   |                                                                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateLag](../../../directconnect/latest/APIReference/API_UpdateLag.md "../../../directconnect/latest/APIReference/API_UpdateLag.md")                                                                                                                      | Grants permission to update the attributes of the specified link aggregation group (LAG)                                                                                                                                                                                                                                                  | [dxlag\*](#list_directconnect-resource-dxlag "#list_directconnect-resource-dxlag")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
-| [UpdateVirtualInterfaceAttributes](../../../directconnect/latest/APIReference/API_UpdateVirtualInterfaceAttributes.md "../../../directconnect/latest/APIReference/API_UpdateVirtualInterfaceAttributes.md")                                                 | Grants permission to update the specified attributes of the specified virtual private interface                                                                                                                                                                                                                                           | [dxvif\*](#list_directconnect-resource-dxvif "#list_directconnect-resource-dxvif")                | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                | Write          |
+
+
+
+- **   [AcceptDirectConnectGatewayAssociationProposal](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AcceptDirectConnectGatewayAssociationProposal.html)  **
+  - **Description:** Grants permission to accept a proposal request to attach a virtual private gateway to a Direct Connect gateway
+  - **Resource types (\*required):** [dx-gateway\*](#list_directconnect-resource-dx-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AllocateConnectionOnInterconnect](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateConnectionOnInterconnect.html)  **
+  - **Description:** Grants permission to create a hosted connection on an interconnect
+  - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html)  **
+  - **Description:** Grants permission to create a new hosted connection between a AWS Direct Connect partner's network and a specific AWS Direct Connect location
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [AllocatePrivateVirtualInterface](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocatePrivateVirtualInterface.html)  **
+  - **Description:** Grants permission to provision a private virtual interface to be owned by a different customer
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [AllocatePublicVirtualInterface](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocatePublicVirtualInterface.html)  **
+  - **Description:** Grants permission to provision a public virtual interface to be owned by a different customer
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [AllocateTransitVirtualInterface](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateTransitVirtualInterface.html)  **
+  - **Description:** Grants permission to provision a transit virtual interface to be owned by a different customer
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [AssociateConnectionWithLag](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AssociateConnectionWithLag.html)  **
+  - **Description:** Grants permission to associate a connection with a LAG
+  - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxlag\*](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AssociateHostedConnection.html)  **
+  - **Description:** Grants permission to associate a hosted connection and its virtual interfaces with a link aggregation group (LAG) or interconnect
+  - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateMacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AssociateMacSecKey.html)  **
+  - **Description:** Grants permission to associate a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity Association Key (CAK) pair with an AWS Direct Connect dedicated connection
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociateVirtualInterface](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AssociateVirtualInterface.html)  **
+  - **Description:** Grants permission to associate a virtual interface with a specified link aggregation group (LAG) or connection
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxvif\*](#list_directconnect-resource-dxvif) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ConfirmConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmConnection.html)  **
+  - **Description:** Grants permission to confirm the creation of a hosted connection on an interconnect
+  - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ConfirmCustomerAgreement](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmCustomerAgreement.html)  **
+  - **Description:** Grants permission to confirm the the terms of agreement when creating the connection or link aggregation group (LAG)
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ConfirmPrivateVirtualInterface](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPrivateVirtualInterface.html)  **
+  - **Description:** Grants permission to accept ownership of a private virtual interface created by another customer
+  - **Resource types (\*required):** [dxvif\*](#list_directconnect-resource-dxvif)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ConfirmPublicVirtualInterface](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPublicVirtualInterface.html)  **
+  - **Description:** Grants permission to accept ownership of a public virtual interface created by another customer
+  - **Resource types (\*required):** [dxvif\*](#list_directconnect-resource-dxvif)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ConfirmTransitVirtualInterface](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmTransitVirtualInterface.html)  **
+  - **Description:** Grants permission to accept ownership of a transit virtual interface created by another customer
+  - **Resource types (\*required):** [dxvif\*](#list_directconnect-resource-dxvif)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateBGPPeer](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateBGPPeer.html)  **
+  - **Description:** Grants permission to create a BGP peer on the specified virtual interface
+  - **Resource types (\*required):** [dxvif\*](#list_directconnect-resource-dxvif)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html)  **
+  - **Description:** Grants permission to create a new connection between the customer network and a specific AWS Direct Connect location
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDirectConnectGateway](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateDirectConnectGateway.html)  **
+  - **Description:** Grants permission to create a Direct Connect gateway, which is an intermediate object that enables you to connect a set of virtual interfaces and virtual private gateways
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDirectConnectGatewayAssociation](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateDirectConnectGatewayAssociation.html)  **
+  - **Description:** Grants permission to create an association between a Direct Connect gateway and a virtual private gateway
+  - **Resource types (\*required):** [dx-gateway\*](#list_directconnect-resource-dx-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateDirectConnectGatewayAssociationProposal](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateDirectConnectGatewayAssociationProposal.html)  **
+  - **Description:** Grants permission to create a proposal to associate the specified virtual private gateway with the specified Direct Connect gateway
+  - **Resource types (\*required):** [dx-gateway\*](#list_directconnect-resource-dx-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateInterconnect](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateInterconnect.html)  **
+  - **Description:** Grants permission to create a new interconnect between a AWS Direct Connect partner's network and a specific AWS Direct Connect location
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateLag](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateLag.html)  **
+  - **Description:** Grants permission to create a link aggregation group (LAG) with the specified number of bundled physical connections between the customer network and a specific AWS Direct Connect location
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreatePrivateVirtualInterface](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePrivateVirtualInterface.html)  **
+  - **Description:** Grants permission to create a new private virtual interface
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreatePublicVirtualInterface](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePublicVirtualInterface.html)  **
+  - **Description:** Grants permission to create a new public virtual interface
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateTransitVirtualInterface](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateTransitVirtualInterface.html)  **
+  - **Description:** Grants permission to create a new transit virtual interface
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteBGPPeer](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteBGPPeer.html)  **
+  - **Description:** Grants permission to delete the specified BGP peer on the specified virtual interface with the specified customer address and ASN
+  - **Resource types (\*required):** [dxvif\*](#list_directconnect-resource-dxvif)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteConnection.html)  **
+  - **Description:** Grants permission to delete the connection
+  - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDirectConnectGateway](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteDirectConnectGateway.html)  **
+  - **Description:** Grants permission to delete the specified Direct Connect gateway
+  - **Resource types (\*required):** [dx-gateway\*](#list_directconnect-resource-dx-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDirectConnectGatewayAssociation](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteDirectConnectGatewayAssociation.html)  **
+  - **Description:** Grants permission to delete the association between the specified Direct Connect gateway and virtual private gateway
+  - **Resource types (\*required):** [dx-gateway\*](#list_directconnect-resource-dx-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDirectConnectGatewayAssociationProposal](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteDirectConnectGatewayAssociationProposal.html)  **
+  - **Description:** Grants permission to delete the association proposal request between the specified Direct Connect gateway and virtual private gateway
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteInterconnect](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteInterconnect.html)  **
+  - **Description:** Grants permission to delete the specified interconnect
+  - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteLag](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteLag.html)  **
+  - **Description:** Grants permission to delete the specified link aggregation group (LAG)
+  - **Resource types (\*required):** [dxlag\*](#list_directconnect-resource-dxlag)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteVirtualInterface](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteVirtualInterface.html)  **
+  - **Description:** Grants permission to delete a virtual interface
+  - **Resource types (\*required):** [dxvif\*](#list_directconnect-resource-dxvif)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeConnectionLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnectionLoa.html)  **
+  - **Description:** Grants permission to describe the LOA-CFA for a Connection
+  - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeConnections](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnections.html)  **
+  - **Description:** Grants permission to describe all connections in this region
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeConnectionsOnInterconnect](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnectionsOnInterconnect.html)  **
+  - **Description:** Grants permission to describe a list of connections that have been provisioned on the given interconnect
+  - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeCustomerMetadata](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeCustomerMetadata.html)  **
+  - **Description:** Grants permission to view a list of customer agreements, along with their signed status and whether the customer is an NNIPartner, NNIPartnerV2, or a nonPartner
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeDirectConnectGatewayAssociationProposals](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeDirectConnectGatewayAssociationProposals.html)  **
+  - **Description:** Grants permission to describe one or more association proposals for connection between a virtual private gateway and a Direct Connect gateway
+  - **Resource types (\*required):** [dx-gateway](#list_directconnect-resource-dx-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeDirectConnectGatewayAssociations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeDirectConnectGatewayAssociations.html)  **
+  - **Description:** Grants permission to describe the associations between your Direct Connect gateways and virtual private gateways
+  - **Resource types (\*required):** [dx-gateway](#list_directconnect-resource-dx-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeDirectConnectGatewayAttachments](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeDirectConnectGatewayAttachments.html)  **
+  - **Description:** Grants permission to describe the attachments between your Direct Connect gateways and virtual interfaces
+  - **Resource types (\*required):** [dx-gateway](#list_directconnect-resource-dx-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeDirectConnectGateways](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeDirectConnectGateways.html)  **
+  - **Description:** Grants permission to describe all your Direct Connect gateways or only the specified Direct Connect gateway
+  - **Resource types (\*required):** [dx-gateway](#list_directconnect-resource-dx-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeHostedConnections](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeHostedConnections.html)  **
+  - **Description:** Grants permission to describe the hosted connections that have been provisioned on the specified interconnect or link aggregation group (LAG)
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeInterconnectLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeInterconnectLoa.html)  **
+  - **Description:** Grants permission to describe the LOA-CFA for an Interconnect
+  - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeInterconnects](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeInterconnects.html)  **
+  - **Description:** Grants permission to describe a list of interconnects owned by the AWS account
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeLags](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLags.html)  **
+  - **Description:** Grants permission to describe all your link aggregation groups (LAG) or the specified LAG
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html)  **
+  - **Description:** Grants permission to describe the LOA-CFA for a connection, interconnect, or link aggregation group (LAG)
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html)  **
+  - **Description:** Grants permission to describe the list of AWS Direct Connect locations in the current AWS region
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeRouterConfiguration](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeRouterConfiguration.html)  **
+  - **Description:** Grants permission to describe Details about the router for a virtual interface
+  - **Resource types (\*required):** [dxvif\*](#list_directconnect-resource-dxvif)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeTags](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeTags.html)  **
+  - **Description:** Grants permission to describe the tags associated with the specified AWS Direct Connect resources
+  - **Resource types (\*required):** [dx-gateway](#list_directconnect-resource-dx-gateway) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxvif](#list_directconnect-resource-dxvif) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeVirtualGateways](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualGateways.html)  **
+  - **Description:** Grants permission to describe a list of virtual private gateways owned by the AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeVirtualInterfaces](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualInterfaces.html)  **
+  - **Description:** Grants permission to describe all virtual interfaces for an AWS account
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxvif](#list_directconnect-resource-dxvif) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DisassociateConnectionFromLag](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DisassociateConnectionFromLag.html)  **
+  - **Description:** Grants permission to disassociate a connection from a link aggregation group (LAG)
+  - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxlag\*](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateMacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DisassociateMacSecKey.html)  **
+  - **Description:** Grants permission to remove the association between a MAC Security (MACsec) security key and an AWS Direct Connect dedicated connection
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ListVirtualInterfaceRoutes](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ListVirtualInterfaceRoutes.html)  **
+  - **Description:** Grants permission to list the routes accepted and advertised over a virtual interface
+  - **Resource types (\*required):** [dxvif\*](#list_directconnect-resource-dxvif)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListVirtualInterfaceTestHistory](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ListVirtualInterfaceTestHistory.html)  **
+  - **Description:** Grants permission to list the virtual interface failover test history
+  - **Resource types (\*required):** [dxvif\*](#list_directconnect-resource-dxvif)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [StartBgpFailoverTest](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_StartBgpFailoverTest.html)  **
+  - **Description:** Grants permission to start the virtual interface failover test that verifies your configuration meets your resiliency requirements by placing the BGP peering session in the DOWN state. You can then send traffic to verify that there are no outages
+  - **Resource types (\*required):** [dxvif\*](#list_directconnect-resource-dxvif)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopBgpFailoverTest](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_StopBgpFailoverTest.html)  **
+  - **Description:** Grants permission to stop the virtual interface failover test
+  - **Resource types (\*required):** [dxvif\*](#list_directconnect-resource-dxvif)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to add the specified tags to the specified AWS Direct Connect resource. Each resource can have a maximum of 50 tags
+  - **Resource types (\*required):** [dx-gateway](#list_directconnect-resource-dx-gateway) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Resource types (\*required):** [dxvif](#list_directconnect-resource-dxvif) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_directconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove one or more tags from the specified AWS Direct Connect resource
+  - **Resource types (\*required):** [dx-gateway](#list_directconnect-resource-dx-gateway) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Resource types (\*required):** [dxcon](#list_directconnect-resource-dxcon) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Resource types (\*required):** [dxlag](#list_directconnect-resource-dxlag) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Resource types (\*required):** [dxvif](#list_directconnect-resource-dxvif) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_directconnect-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UpdateConnection.html)  **
+  - **Description:** Grants permission to update the AWS Direct Connect dedicated connection configuration. You can update the following parameters for a connection: The connection name or The connection's MAC Security (MACsec) encryption mode
+  - **Resource types (\*required):** [dxcon\*](#list_directconnect-resource-dxcon)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDirectConnectGateway](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UpdateDirectConnectGateway.html)  **
+  - **Description:** Grants permission to update the name of a Direct Connect gateway
+  - **Resource types (\*required):** [dx-gateway\*](#list_directconnect-resource-dx-gateway)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDirectConnectGatewayAssociation](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UpdateDirectConnectGatewayAssociation.html)  **
+  - **Description:** Grants permission to update the specified attributes of the Direct Connect gateway association
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateLag](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UpdateLag.html)  **
+  - **Description:** Grants permission to update the attributes of the specified link aggregation group (LAG)
+  - **Resource types (\*required):** [dxlag\*](#list_directconnect-resource-dxlag)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateVirtualInterfaceAttributes](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UpdateVirtualInterfaceAttributes.html)  **
+  - **Description:** Grants permission to update the specified attributes of the specified virtual private interface
+  - **Resource types (\*required):** [dxvif\*](#list_directconnect-resource-dxvif)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS Direct Connect
+<a name="list_directconnect-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                | ARN                                                                             | Condition keys                                                                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| [dx-gateway](../../../directconnect/latest/APIReference/API_DirectConnectGateway.md "../../../directconnect/latest/APIReference/API_DirectConnectGateway.md") | arn:${Partition}:directconnect::${Account}:dx-gateway/${DirectConnectGatewayId} | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_") |
-| [dxcon](../../../directconnect/latest/APIReference/API_Connection.md "../../../directconnect/latest/APIReference/API_Connection.md")                          | arn:${Partition}:directconnect:${Region}:${Account}:dxcon/${ConnectionId}       | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_") |
-| [dxlag](../../../directconnect/latest/APIReference/API_Lag.md "../../../directconnect/latest/APIReference/API_Lag.md")                                        | arn:${Partition}:directconnect:${Region}:${Account}:dxlag/${LagId}              | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_") |
-| [dxvif](../../../directconnect/latest/APIReference/API_VirtualInterface.md "../../../directconnect/latest/APIReference/API_VirtualInterface.md")              | arn:${Partition}:directconnect:${Region}:${Account}:dxvif/${VirtualInterfaceId} | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_ "#list_directconnect-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [dx-gateway](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DirectConnectGateway.html)  | arn:${Partition}:directconnect::${Account}:dx-gateway/${DirectConnectGatewayId} | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_) | 
+|  [dxcon](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_Connection.html)  | arn:${Partition}:directconnect:${Region}:${Account}:dxcon/${ConnectionId} | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_) | 
+|  [dxlag](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_Lag.html)  | arn:${Partition}:directconnect:${Region}:${Account}:dxlag/${LagId} | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_) | 
+|  [dxvif](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_VirtualInterface.html)  | arn:${Partition}:directconnect:${Region}:${Account}:dxvif/${VirtualInterfaceId} | [aws:ResourceTag/${TagKey}](#list_directconnect-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Direct Connect
+<a name="list_directconnect-policy-keys"></a>
 
-AWS Direct Connect defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Direct Connect defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                                           | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by actions based on the presence of tag key-value pairs in the request | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by actions based on tag key-value pairs attached to the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by actions based on the presence of tag keys in the request            | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by actions based on the presence of tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by actions based on tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by actions based on the presence of tag keys in the request | ArrayOfString | 

@@ -1,150 +1,514 @@
-# Actions, resources, and condition keys for Amazon Timestream
 
-Amazon Timestream (service prefix: `timestream`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Timestream
+<a name="list_timestream"></a>
+
+Amazon Timestream (service prefix: `timestream`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/timestream/latest/developerguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/timestream/latest/developerguide/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/timestream/latest/developerguide/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/timestream/timestream.json) for this service.
 
-- Learn how to [configure this service](../../../timestream/latest/developerguide.md "../../../timestream/latest/developerguide.md").
-- View a list of the [API operations available for
-  this service](../../../timestream/latest/developerguide.md "../../../timestream/latest/developerguide.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../timestream/latest/developerguide/security-iam.md "../../../timestream/latest/developerguide/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/timestream/timestream.json "https://servicereference.us-east-1.amazonaws.com/v1/timestream/timestream.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon Timestream](#list_timestream-operations "#list_timestream-operations")
-- [Actions defined by Amazon Timestream](#list_timestream-actions-as-permissions "#list_timestream-actions-as-permissions")
-- [Resource types defined by Amazon Timestream](#list_timestream-resources-for-iam-policies "#list_timestream-resources-for-iam-policies")
-- [Condition keys for Amazon Timestream](#list_timestream-policy-keys "#list_timestream-policy-keys")
+**Topics**
++ [API operations defined by Amazon Timestream](#list_timestream-operations)
++ [Actions defined by Amazon Timestream](#list_timestream-actions-as-permissions)
++ [Resource types defined by Amazon Timestream](#list_timestream-resources-for-iam-policies)
++ [Condition keys for Amazon Timestream](#list_timestream-policy-keys)
 
 ## API operations defined by Amazon Timestream
+<a name="list_timestream-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_timestream-actions-as-permissions "#list_timestream-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_timestream-actions-as-permissions).
 
-| Operation                                                                                                                       | SDK client       | IAM action                                                                                                                              | Condition key  | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------- | -------------- |
-| CancelQuery                                                                                                                     | timestream-query | [timestream:CancelQuery](#list_timestream-action-CancelQuery "#list_timestream-action-CancelQuery")                                     |                |                   | Write          |
-| CreateScheduledQuery                                                                                                            | timestream-query | [timestream:CreateScheduledQuery](#list_timestream-action-CreateScheduledQuery "#list_timestream-action-CreateScheduledQuery")          |                |                   | Write          |
-| [timestream:TagResource](#list_timestream-action-TagResource "#list_timestream-action-TagResource")                             |                  |                                                                                                                                         | Tagging, Write |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") |                  |                                                                                                                                         | Write          |
-| DeleteScheduledQuery                                                                                                            | timestream-query | [timestream:DeleteScheduledQuery](#list_timestream-action-DeleteScheduledQuery "#list_timestream-action-DeleteScheduledQuery")          |                |                   | Write          |
-| DescribeAccountSettings                                                                                                         | timestream-query | [timestream:DescribeAccountSettings](#list_timestream-action-DescribeAccountSettings "#list_timestream-action-DescribeAccountSettings") |                |                   | Read           |
-| DescribeEndpoints                                                                                                               | timestream-query | [timestream:DescribeEndpoints](#list_timestream-action-DescribeEndpoints "#list_timestream-action-DescribeEndpoints")                   |                |                   | List           |
-| DescribeScheduledQuery                                                                                                          | timestream-query | [timestream:DescribeScheduledQuery](#list_timestream-action-DescribeScheduledQuery "#list_timestream-action-DescribeScheduledQuery")    |                |                   | Read           |
-| ExecuteScheduledQuery                                                                                                           | timestream-query | [timestream:ExecuteScheduledQuery](#list_timestream-action-ExecuteScheduledQuery "#list_timestream-action-ExecuteScheduledQuery")       |                |                   | Write          |
-| ListScheduledQueries                                                                                                            | timestream-query | [timestream:ListScheduledQueries](#list_timestream-action-ListScheduledQueries "#list_timestream-action-ListScheduledQueries")          |                |                   | List           |
-| ListTagsForResource                                                                                                             | timestream-query | [timestream:ListTagsForResource](#list_timestream-action-ListTagsForResource "#list_timestream-action-ListTagsForResource")             |                |                   | Read           |
-| PrepareQuery                                                                                                                    | timestream-query | [timestream:Select](#list_timestream-action-Select "#list_timestream-action-Select")                                                    |                |                   | Read           |
-| Query                                                                                                                           | timestream-query | [timestream:DescribeTable](#list_timestream-action-DescribeTable "#list_timestream-action-DescribeTable")                               |                |                   | Read           |
-| [timestream:ListDatabases](#list_timestream-action-ListDatabases "#list_timestream-action-ListDatabases")                       |                  |                                                                                                                                         | List           |
-| [timestream:ListMeasures](#list_timestream-action-ListMeasures "#list_timestream-action-ListMeasures")                          |                  |                                                                                                                                         | List           |
-| [timestream:ListTables](#list_timestream-action-ListTables "#list_timestream-action-ListTables")                                |                  |                                                                                                                                         | List           |
-| [timestream:Select](#list_timestream-action-Select "#list_timestream-action-Select")                                            |                  |                                                                                                                                         | Read           |
-| [timestream:SelectValues](#list_timestream-action-SelectValues "#list_timestream-action-SelectValues")                          |                  |                                                                                                                                         | Read           |
-| [timestream:Unload](#list_timestream-action-Unload "#list_timestream-action-Unload")                                            |                  |                                                                                                                                         | Write          |
-| TagResource                                                                                                                     | timestream-query | [timestream:TagResource](#list_timestream-action-TagResource "#list_timestream-action-TagResource")                                     |                |                   | Tagging, Write |
-| UntagResource                                                                                                                   | timestream-query | [timestream:UntagResource](#list_timestream-action-UntagResource "#list_timestream-action-UntagResource")                               |                |                   | Tagging, Write |
-| UpdateAccountSettings                                                                                                           | timestream-query | [timestream:UpdateAccountSettings](#list_timestream-action-UpdateAccountSettings "#list_timestream-action-UpdateAccountSettings")       |                |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") |                  |                                                                                                                                         | Write          |
-| UpdateScheduledQuery                                                                                                            | timestream-query | [timestream:UpdateScheduledQuery](#list_timestream-action-UpdateScheduledQuery "#list_timestream-action-UpdateScheduledQuery")          |                |                   | Write          |
-| CreateBatchLoadTask                                                                                                             | timestream-write | [timestream:CreateBatchLoadTask](#list_timestream-action-CreateBatchLoadTask "#list_timestream-action-CreateBatchLoadTask")             |                |                   | Write          |
-| [timestream:WriteRecords](#list_timestream-action-WriteRecords "#list_timestream-action-WriteRecords")                          |                  |                                                                                                                                         | Write          |
-| CreateDatabase                                                                                                                  | timestream-write | [timestream:CreateDatabase](#list_timestream-action-CreateDatabase "#list_timestream-action-CreateDatabase")                            |                |                   | Write          |
-| [timestream:TagResource](#list_timestream-action-TagResource "#list_timestream-action-TagResource")                             |                  |                                                                                                                                         | Tagging, Write |
-| CreateTable                                                                                                                     | timestream-write | [timestream:CreateTable](#list_timestream-action-CreateTable "#list_timestream-action-CreateTable")                                     |                |                   | Write          |
-| [timestream:TagResource](#list_timestream-action-TagResource "#list_timestream-action-TagResource")                             |                  |                                                                                                                                         | Tagging, Write |
-| DeleteDatabase                                                                                                                  | timestream-write | [timestream:DeleteDatabase](#list_timestream-action-DeleteDatabase "#list_timestream-action-DeleteDatabase")                            |                |                   | Write          |
-| DeleteTable                                                                                                                     | timestream-write | [timestream:DeleteTable](#list_timestream-action-DeleteTable "#list_timestream-action-DeleteTable")                                     |                |                   | Write          |
-| DescribeBatchLoadTask                                                                                                           | timestream-write | [timestream:DescribeBatchLoadTask](#list_timestream-action-DescribeBatchLoadTask "#list_timestream-action-DescribeBatchLoadTask")       |                |                   | Read           |
-| DescribeDatabase                                                                                                                | timestream-write | [timestream:DescribeDatabase](#list_timestream-action-DescribeDatabase "#list_timestream-action-DescribeDatabase")                      |                |                   | Read           |
-| DescribeEndpoints                                                                                                               | timestream-write | [timestream:DescribeEndpoints](#list_timestream-action-DescribeEndpoints "#list_timestream-action-DescribeEndpoints")                   |                |                   | List           |
-| DescribeTable                                                                                                                   | timestream-write | [timestream:DescribeTable](#list_timestream-action-DescribeTable "#list_timestream-action-DescribeTable")                               |                |                   | Read           |
-| ListBatchLoadTasks                                                                                                              | timestream-write | [timestream:ListBatchLoadTasks](#list_timestream-action-ListBatchLoadTasks "#list_timestream-action-ListBatchLoadTasks")                |                |                   | List           |
-| ListDatabases                                                                                                                   | timestream-write | [timestream:ListDatabases](#list_timestream-action-ListDatabases "#list_timestream-action-ListDatabases")                               |                |                   | List           |
-| ListTables                                                                                                                      | timestream-write | [timestream:ListTables](#list_timestream-action-ListTables "#list_timestream-action-ListTables")                                        |                |                   | List           |
-| ListTagsForResource                                                                                                             | timestream-write | [timestream:ListTagsForResource](#list_timestream-action-ListTagsForResource "#list_timestream-action-ListTagsForResource")             |                |                   | Read           |
-| TagResource                                                                                                                     | timestream-write | [timestream:TagResource](#list_timestream-action-TagResource "#list_timestream-action-TagResource")                                     |                |                   | Tagging, Write |
-| UntagResource                                                                                                                   | timestream-write | [timestream:UntagResource](#list_timestream-action-UntagResource "#list_timestream-action-UntagResource")                               |                |                   | Tagging, Write |
-| UpdateDatabase                                                                                                                  | timestream-write | [timestream:UpdateDatabase](#list_timestream-action-UpdateDatabase "#list_timestream-action-UpdateDatabase")                            |                |                   | Write          |
-| UpdateTable                                                                                                                     | timestream-write | [timestream:UpdateTable](#list_timestream-action-UpdateTable "#list_timestream-action-UpdateTable")                                     |                |                   | Write          |
-| WriteRecords                                                                                                                    | timestream-write | [timestream:WriteRecords](#list_timestream-action-WriteRecords "#list_timestream-action-WriteRecords")                                  |                |                   | Write          |
+
+
+
+- **   CancelQuery  **
+  - **SDK client:** timestream-query
+  - **IAM action:**  [timestream:CancelQuery](#list_timestream-action-CancelQuery) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateScheduledQuery  **
+  - **SDK client:** timestream-query
+  - **IAM action:**  [timestream:CreateScheduledQuery](#list_timestream-action-CreateScheduledQuery)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [timestream:TagResource](#list_timestream-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   DeleteScheduledQuery  **
+  - **SDK client:** timestream-query
+  - **IAM action:**  [timestream:DeleteScheduledQuery](#list_timestream-action-DeleteScheduledQuery) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeAccountSettings  **
+  - **SDK client:** timestream-query
+  - **IAM action:**  [timestream:DescribeAccountSettings](#list_timestream-action-DescribeAccountSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeEndpoints  **
+  - **SDK client:** timestream-query
+  - **IAM action:**  [timestream:DescribeEndpoints](#list_timestream-action-DescribeEndpoints) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeScheduledQuery  **
+  - **SDK client:** timestream-query
+  - **IAM action:**  [timestream:DescribeScheduledQuery](#list_timestream-action-DescribeScheduledQuery) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ExecuteScheduledQuery  **
+  - **SDK client:** timestream-query
+  - **IAM action:**  [timestream:ExecuteScheduledQuery](#list_timestream-action-ExecuteScheduledQuery) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ListScheduledQueries  **
+  - **SDK client:** timestream-query
+  - **IAM action:**  [timestream:ListScheduledQueries](#list_timestream-action-ListScheduledQueries) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **SDK client:** timestream-query
+  - **IAM action:**  [timestream:ListTagsForResource](#list_timestream-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   PrepareQuery  **
+  - **SDK client:** timestream-query
+  - **IAM action:**  [timestream:Select](#list_timestream-action-Select) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   Query  **
+  - **SDK client:** timestream-query
+  - **IAM action:**  [timestream:DescribeTable](#list_timestream-action-DescribeTable)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [timestream:ListDatabases](#list_timestream-action-ListDatabases)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [timestream:ListMeasures](#list_timestream-action-ListMeasures)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [timestream:ListTables](#list_timestream-action-ListTables)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [timestream:Select](#list_timestream-action-Select)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [timestream:SelectValues](#list_timestream-action-SelectValues)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [timestream:Unload](#list_timestream-action-Unload)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   TagResource  **
+  - **SDK client:** timestream-query
+  - **IAM action:**  [timestream:TagResource](#list_timestream-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **SDK client:** timestream-query
+  - **IAM action:**  [timestream:UntagResource](#list_timestream-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAccountSettings  **
+  - **SDK client:** timestream-query
+  - **IAM action:**  [timestream:UpdateAccountSettings](#list_timestream-action-UpdateAccountSettings)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   UpdateScheduledQuery  **
+  - **SDK client:** timestream-query
+  - **IAM action:**  [timestream:UpdateScheduledQuery](#list_timestream-action-UpdateScheduledQuery) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateBatchLoadTask  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:CreateBatchLoadTask](#list_timestream-action-CreateBatchLoadTask)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [timestream:WriteRecords](#list_timestream-action-WriteRecords)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   CreateDatabase  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:CreateDatabase](#list_timestream-action-CreateDatabase)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [timestream:TagResource](#list_timestream-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateTable  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:CreateTable](#list_timestream-action-CreateTable)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [timestream:TagResource](#list_timestream-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteDatabase  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:DeleteDatabase](#list_timestream-action-DeleteDatabase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteTable  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:DeleteTable](#list_timestream-action-DeleteTable) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeBatchLoadTask  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:DescribeBatchLoadTask](#list_timestream-action-DescribeBatchLoadTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeDatabase  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:DescribeDatabase](#list_timestream-action-DescribeDatabase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeEndpoints  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:DescribeEndpoints](#list_timestream-action-DescribeEndpoints) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeTable  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:DescribeTable](#list_timestream-action-DescribeTable) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListBatchLoadTasks  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:ListBatchLoadTasks](#list_timestream-action-ListBatchLoadTasks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDatabases  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:ListDatabases](#list_timestream-action-ListDatabases) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTables  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:ListTables](#list_timestream-action-ListTables) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:ListTagsForResource](#list_timestream-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   TagResource  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:TagResource](#list_timestream-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:UntagResource](#list_timestream-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateDatabase  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:UpdateDatabase](#list_timestream-action-UpdateDatabase) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateTable  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:UpdateTable](#list_timestream-action-UpdateTable) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   WriteRecords  **
+  - **SDK client:** timestream-write
+  - **IAM action:**  [timestream:WriteRecords](#list_timestream-action-WriteRecords) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon Timestream
+<a name="list_timestream-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                    | Description                                                                                                                                                                                                                                                                                                             | Resource types (\*required)                                                                                | Condition keys                                                                                                                                                                                                                                                                                                          | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [CancelQuery](../../../timestream/latest/developerguide/API_query_CancelQuery.md "../../../timestream/latest/developerguide/API_query_CancelQuery.md")                                     | Grants permission to cancel queries in your account                                                                                                                                                                                                                                                                     |                                                                                                            |                                                                                                                                                                                                                                                                                                                         | Write          |
-| [CreateBatchLoadTask](../../../timestream/latest/developerguide/API_CreateBatchLoadTask.md "../../../timestream/latest/developerguide/API_CreateBatchLoadTask.md")                         | Grants permission to create a batch load task in your account                                                                                                                                                                                                                                                           | [table\*](#list_timestream-resource-table "#list_timestream-resource-table")                               | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
-| [CreateDatabase](../../../timestream/latest/developerguide/API_CreateDatabase.md "../../../timestream/latest/developerguide/API_CreateDatabase.md")                                        | Grants permission to create a database in your account                                                                                                                                                                                                                                                                  | [database\*](#list_timestream-resource-database "#list_timestream-resource-database")                      | [aws:RequestTag/${TagKey}](#list_timestream-aws_RequestTag___TagKey_ "#list_timestream-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_timestream-aws_TagKeys "#list_timestream-aws_TagKeys") | Write          |
-| [CreateScheduledQuery](../../../timestream/latest/developerguide/API_CreateScheduledQuery.md "../../../timestream/latest/developerguide/API_CreateScheduledQuery.md")                      | Grants permission to create a scheduled query in your account                                                                                                                                                                                                                                                           |                                                                                                            | [aws:RequestTag/${TagKey}](#list_timestream-aws_RequestTag___TagKey_ "#list_timestream-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_timestream-aws_TagKeys "#list_timestream-aws_TagKeys")                                                                                                                         | Write          |
-| [CreateTable](../../../timestream/latest/developerguide/API_CreateTable.md "../../../timestream/latest/developerguide/API_CreateTable.md")                                                 | Grants permission to create a table in your account                                                                                                                                                                                                                                                                     | [table\*](#list_timestream-resource-table "#list_timestream-resource-table")                               | [aws:RequestTag/${TagKey}](#list_timestream-aws_RequestTag___TagKey_ "#list_timestream-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_timestream-aws_TagKeys "#list_timestream-aws_TagKeys") | Write          |
-| [DeleteDatabase](../../../timestream/latest/developerguide/API_DeleteDatabase.md "../../../timestream/latest/developerguide/API_DeleteDatabase.md")                                        | Grants permission to delete a database in your account                                                                                                                                                                                                                                                                  | [database\*](#list_timestream-resource-database "#list_timestream-resource-database")                      | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
-| [DeleteScheduledQuery](../../../timestream/latest/developerguide/API_DeleteScheduledQuery.md "../../../timestream/latest/developerguide/API_DeleteScheduledQuery.md")                      | Grants permission to delete a scheduled query in your account                                                                                                                                                                                                                                                           | [scheduled-query\*](#list_timestream-resource-scheduled-query "#list_timestream-resource-scheduled-query") | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
-| [DeleteTable](../../../timestream/latest/developerguide/API_DeleteTable.md "../../../timestream/latest/developerguide/API_DeleteTable.md")                                                 | Grants permission to delete a table in your account                                                                                                                                                                                                                                                                     | [table\*](#list_timestream-resource-table "#list_timestream-resource-table")                               | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
-| [DescribeAccountSettings](../../../timestream/latest/developerguide/API_query_DescribeAccountSettings.md "../../../timestream/latest/developerguide/API_query_DescribeAccountSettings.md") | Grants permission to describe your account settings                                                                                                                                                                                                                                                                     |                                                                                                            |                                                                                                                                                                                                                                                                                                                         | Read           |
-| [DescribeBatchLoadTask](../../../timestream/latest/developerguide/API_DescribeBatchLoadTask.md "../../../timestream/latest/developerguide/API_DescribeBatchLoadTask.md")                   | Grants permission to describe a batch load task in your account                                                                                                                                                                                                                                                         |                                                                                                            |                                                                                                                                                                                                                                                                                                                         | Read           |
-| [DescribeDatabase](../../../timestream/latest/developerguide/API_DescribeDatabase.md "../../../timestream/latest/developerguide/API_DescribeDatabase.md")                                  | Grants permission to describe a database in your account                                                                                                                                                                                                                                                                | [database\*](#list_timestream-resource-database "#list_timestream-resource-database")                      | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Read           |
-| [DescribeEndpoints](../../../timestream/latest/developerguide/API_DescribeEndpoints.md "../../../timestream/latest/developerguide/API_DescribeEndpoints.md")                               | Grants permission to describe timestream endpoints                                                                                                                                                                                                                                                                      |                                                                                                            |                                                                                                                                                                                                                                                                                                                         | List           |
-| [DescribeScheduledQuery](../../../timestream/latest/developerguide/API_DescribeScheduledQuery.md "../../../timestream/latest/developerguide/API_DescribeScheduledQuery.md")                | Grants permission to describe a scheduled query in your account                                                                                                                                                                                                                                                         | [scheduled-query\*](#list_timestream-resource-scheduled-query "#list_timestream-resource-scheduled-query") | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Read           |
-| [DescribeTable](../../../timestream/latest/developerguide/API_DescribeTable.md "../../../timestream/latest/developerguide/API_DescribeTable.md")                                           | Grants permission to describe a table in your account                                                                                                                                                                                                                                                                   | [table\*](#list_timestream-resource-table "#list_timestream-resource-table")                               | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Read           |
-| [ExecuteScheduledQuery](../../../timestream/latest/developerguide/API_ExecuteScheduledQuery.md "../../../timestream/latest/developerguide/API_ExecuteScheduledQuery.md")                   | Grants permission to execute a scheduled query in your account                                                                                                                                                                                                                                                          | [scheduled-query\*](#list_timestream-resource-scheduled-query "#list_timestream-resource-scheduled-query") | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
-| [GetAwsBackupStatus](../../../timestream/latest/developerguide/backups.md "../../../timestream/latest/developerguide/backups.md")                                                          | Grants permission to get Status of a Timestream Table Backup                                                                                                                                                                                                                                                            |                                                                                                            |                                                                                                                                                                                                                                                                                                                         | Read           |
-| [GetAwsRestoreStatus](../../../timestream/latest/developerguide/backups.md "../../../timestream/latest/developerguide/backups.md")                                                         | Grants permission to get Status of a Timestream Table Restore                                                                                                                                                                                                                                                           |                                                                                                            |                                                                                                                                                                                                                                                                                                                         | Read           |
-| [ListBatchLoadTasks](../../../timestream/latest/developerguide/API_ListBatchLoadTasks.md "../../../timestream/latest/developerguide/API_ListBatchLoadTasks.md")                            | Grants permission to list batch load tasks in your account                                                                                                                                                                                                                                                              |                                                                                                            |                                                                                                                                                                                                                                                                                                                         | List           |
-| [ListDatabases](../../../timestream/latest/developerguide/API_ListDatabases.md "../../../timestream/latest/developerguide/API_ListDatabases.md")                                           | Grants permission to list databases in your account                                                                                                                                                                                                                                                                     |                                                                                                            |                                                                                                                                                                                                                                                                                                                         | List           |
-| [ListMeasures](../../../timestream/latest/developerguide/API_query_Query.md "../../../timestream/latest/developerguide/API_query_Query.md")                                                | Grants permission to list measures of a table in your account                                                                                                                                                                                                                                                           | [table\*](#list_timestream-resource-table "#list_timestream-resource-table")                               | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | List           |
-| [ListScheduledQueries](../../../timestream/latest/developerguide/API_ListScheduledQueries.md "../../../timestream/latest/developerguide/API_ListScheduledQueries.md")                      | Grants permission to list scheduled queries in your account                                                                                                                                                                                                                                                             |                                                                                                            |                                                                                                                                                                                                                                                                                                                         | List           |
-| [ListTables](../../../timestream/latest/developerguide/API_ListTables.md "../../../timestream/latest/developerguide/API_ListTables.md")                                                    | Grants permission to list tables in your account                                                                                                                                                                                                                                                                        | [database\*](#list_timestream-resource-database "#list_timestream-resource-database")                      | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | List           |
-| [ListTagsForResource](../../../timestream/latest/developerguide/API_ListTagsForResource.md "../../../timestream/latest/developerguide/API_ListTagsForResource.md")                         | Grants permission to list tags of a resource in your account                                                                                                                                                                                                                                                            | [database\*](#list_timestream-resource-database "#list_timestream-resource-database")                      | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Read           |
-| [scheduled-query\*](#list_timestream-resource-scheduled-query "#list_timestream-resource-scheduled-query")                                                                                 | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    |
-| [table\*](#list_timestream-resource-table "#list_timestream-resource-table")                                                                                                               | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    |
-| [PrepareQuery](../../../timestream/latest/developerguide/API_query_PrepareQuery.md "../../../timestream/latest/developerguide/API_query_PrepareQuery.md")                                  | Grants permission to issue prepare queries                                                                                                                                                                                                                                                                              | [table\*](#list_timestream-resource-table "#list_timestream-resource-table")                               | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Read           |
-| [ResumeBatchLoadTask](../../../timestream/latest/developerguide/API_ResumeBatchLoadTask.md "../../../timestream/latest/developerguide/API_ResumeBatchLoadTask.md")                         | Grants permission to resume a batch load task in your account                                                                                                                                                                                                                                                           |                                                                                                            |                                                                                                                                                                                                                                                                                                                         | Write          |
-| [Select](../../../timestream/latest/developerguide/API_query_Query.md "../../../timestream/latest/developerguide/API_query_Query.md")                                                      | Grants permission to issue 'select from table' queries                                                                                                                                                                                                                                                                  | [table\*](#list_timestream-resource-table "#list_timestream-resource-table")                               | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Read           |
-| [SelectValues](../../../timestream/latest/developerguide/API_query_Query.md "../../../timestream/latest/developerguide/API_query_Query.md")                                                | Grants permission to issue 'select 1' queries                                                                                                                                                                                                                                                                           |                                                                                                            |                                                                                                                                                                                                                                                                                                                         | Read           |
-| [StartAwsBackupJob](../../../timestream/latest/developerguide/backups.md "../../../timestream/latest/developerguide/backups.md")                                                           | Grants permission to start a Backup Job for a Timestream Table                                                                                                                                                                                                                                                          | [table\*](#list_timestream-resource-table "#list_timestream-resource-table")                               | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
-| [StartAwsRestoreJob](../../../timestream/latest/developerguide/backups.md "../../../timestream/latest/developerguide/backups.md")                                                          | Grants permission to start Restore Job for a Backup of Timestream Table                                                                                                                                                                                                                                                 | [table\*](#list_timestream-resource-table "#list_timestream-resource-table")                               | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
-| [TagResource](../../../timestream/latest/developerguide/API_TagResource.md "../../../timestream/latest/developerguide/API_TagResource.md")                                                 | Grants permission to add tags to a resource                                                                                                                                                                                                                                                                             | [database\*](#list_timestream-resource-database "#list_timestream-resource-database")                      | [aws:RequestTag/${TagKey}](#list_timestream-aws_RequestTag___TagKey_ "#list_timestream-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_timestream-aws_TagKeys "#list_timestream-aws_TagKeys") | Tagging, Write |
-| [scheduled-query\*](#list_timestream-resource-scheduled-query "#list_timestream-resource-scheduled-query")                                                                                 | [aws:RequestTag/${TagKey}](#list_timestream-aws_RequestTag___TagKey_ "#list_timestream-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_timestream-aws_TagKeys "#list_timestream-aws_TagKeys") |
-| [table\*](#list_timestream-resource-table "#list_timestream-resource-table")                                                                                                               | [aws:RequestTag/${TagKey}](#list_timestream-aws_RequestTag___TagKey_ "#list_timestream-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_timestream-aws_TagKeys "#list_timestream-aws_TagKeys") |
-| [Unload](../../../timestream/latest/developerguide/API_query_Query.md "../../../timestream/latest/developerguide/API_query_Query.md")                                                      | Grants permission to issue Unload queries                                                                                                                                                                                                                                                                               | [table\*](#list_timestream-resource-table "#list_timestream-resource-table")                               | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
-| [UntagResource](../../../timestream/latest/developerguide/API_UntagResource.md "../../../timestream/latest/developerguide/API_UntagResource.md")                                           | Grants permission to remove a tag from a resource                                                                                                                                                                                                                                                                       | [database\*](#list_timestream-resource-database "#list_timestream-resource-database")                      | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_timestream-aws_TagKeys "#list_timestream-aws_TagKeys")                                                                                                                      | Tagging, Write |
-| [scheduled-query\*](#list_timestream-resource-scheduled-query "#list_timestream-resource-scheduled-query")                                                                                 | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_timestream-aws_TagKeys "#list_timestream-aws_TagKeys")                                                                                                                      |
-| [table\*](#list_timestream-resource-table "#list_timestream-resource-table")                                                                                                               | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_timestream-aws_TagKeys "#list_timestream-aws_TagKeys")                                                                                                                      |
-| [UpdateAccountSettings](../../../timestream/latest/developerguide/API_query_UpdateAccountSettings.md "../../../timestream/latest/developerguide/API_query_UpdateAccountSettings.md")       | Grants permission to update your account settings                                                                                                                                                                                                                                                                       |                                                                                                            |                                                                                                                                                                                                                                                                                                                         | Write          |
-| [UpdateDatabase](../../../timestream/latest/developerguide/API_UpdateDatabase.md "../../../timestream/latest/developerguide/API_UpdateDatabase.md")                                        | Grants permission to update a database in your account                                                                                                                                                                                                                                                                  | [database\*](#list_timestream-resource-database "#list_timestream-resource-database")                      | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
-| [UpdateScheduledQuery](../../../timestream/latest/developerguide/API_UpdateScheduledQuery.md "../../../timestream/latest/developerguide/API_UpdateScheduledQuery.md")                      | Grants permission to update a scheduled query in your account                                                                                                                                                                                                                                                           | [scheduled-query\*](#list_timestream-resource-scheduled-query "#list_timestream-resource-scheduled-query") | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
-| [UpdateTable](../../../timestream/latest/developerguide/API_UpdateTable.md "../../../timestream/latest/developerguide/API_UpdateTable.md")                                                 | Grants permission to update a table in your account                                                                                                                                                                                                                                                                     | [table\*](#list_timestream-resource-table "#list_timestream-resource-table")                               | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
-| [WriteRecords](../../../timestream/latest/developerguide/API_WriteRecords.md "../../../timestream/latest/developerguide/API_WriteRecords.md")                                              | Grants permission to ingest data to a table in your account                                                                                                                                                                                                                                                             | [table\*](#list_timestream-resource-table "#list_timestream-resource-table")                               | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
+
+
+
+- **   [CancelQuery](https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_CancelQuery.html)  **
+  - **Description:** Grants permission to cancel queries in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateBatchLoadTask](https://docs.aws.amazon.com/timestream/latest/developerguide/API_CreateBatchLoadTask.html)  **
+  - **Description:** Grants permission to create a batch load task in your account
+  - **Resource types (\*required):** [table\*](#list_timestream-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateDatabase](https://docs.aws.amazon.com/timestream/latest/developerguide/API_CreateDatabase.html)  **
+  - **Description:** Grants permission to create a database in your account
+  - **Resource types (\*required):** [database\*](#list_timestream-resource-database)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_timestream-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_timestream-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateScheduledQuery](https://docs.aws.amazon.com/timestream/latest/developerguide/API_CreateScheduledQuery.html)  **
+  - **Description:** Grants permission to create a scheduled query in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_timestream-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_timestream-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateTable](https://docs.aws.amazon.com/timestream/latest/developerguide/API_CreateTable.html)  **
+  - **Description:** Grants permission to create a table in your account
+  - **Resource types (\*required):** [table\*](#list_timestream-resource-table)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_timestream-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_timestream-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteDatabase](https://docs.aws.amazon.com/timestream/latest/developerguide/API_DeleteDatabase.html)  **
+  - **Description:** Grants permission to delete a database in your account
+  - **Resource types (\*required):** [database\*](#list_timestream-resource-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteScheduledQuery](https://docs.aws.amazon.com/timestream/latest/developerguide/API_DeleteScheduledQuery.html)  **
+  - **Description:** Grants permission to delete a scheduled query in your account
+  - **Resource types (\*required):** [scheduled-query\*](#list_timestream-resource-scheduled-query)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteTable](https://docs.aws.amazon.com/timestream/latest/developerguide/API_DeleteTable.html)  **
+  - **Description:** Grants permission to delete a table in your account
+  - **Resource types (\*required):** [table\*](#list_timestream-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeAccountSettings](https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_DescribeAccountSettings.html)  **
+  - **Description:** Grants permission to describe your account settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeBatchLoadTask](https://docs.aws.amazon.com/timestream/latest/developerguide/API_DescribeBatchLoadTask.html)  **
+  - **Description:** Grants permission to describe a batch load task in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeDatabase](https://docs.aws.amazon.com/timestream/latest/developerguide/API_DescribeDatabase.html)  **
+  - **Description:** Grants permission to describe a database in your account
+  - **Resource types (\*required):** [database\*](#list_timestream-resource-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeEndpoints](https://docs.aws.amazon.com/timestream/latest/developerguide/API_DescribeEndpoints.html)  **
+  - **Description:** Grants permission to describe timestream endpoints
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeScheduledQuery](https://docs.aws.amazon.com/timestream/latest/developerguide/API_DescribeScheduledQuery.html)  **
+  - **Description:** Grants permission to describe a scheduled query in your account
+  - **Resource types (\*required):** [scheduled-query\*](#list_timestream-resource-scheduled-query)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeTable](https://docs.aws.amazon.com/timestream/latest/developerguide/API_DescribeTable.html)  **
+  - **Description:** Grants permission to describe a table in your account
+  - **Resource types (\*required):** [table\*](#list_timestream-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ExecuteScheduledQuery](https://docs.aws.amazon.com/timestream/latest/developerguide/API_ExecuteScheduledQuery.html)  **
+  - **Description:** Grants permission to execute a scheduled query in your account
+  - **Resource types (\*required):** [scheduled-query\*](#list_timestream-resource-scheduled-query)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetAwsBackupStatus](https://docs.aws.amazon.com/timestream/latest/developerguide/backups.html)  **
+  - **Description:** Grants permission to get Status of a Timestream Table Backup
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAwsRestoreStatus](https://docs.aws.amazon.com/timestream/latest/developerguide/backups.html)  **
+  - **Description:** Grants permission to get Status of a Timestream Table Restore
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListBatchLoadTasks](https://docs.aws.amazon.com/timestream/latest/developerguide/API_ListBatchLoadTasks.html)  **
+  - **Description:** Grants permission to list batch load tasks in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDatabases](https://docs.aws.amazon.com/timestream/latest/developerguide/API_ListDatabases.html)  **
+  - **Description:** Grants permission to list databases in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMeasures](https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_Query.html)  **
+  - **Description:** Grants permission to list measures of a table in your account
+  - **Resource types (\*required):** [table\*](#list_timestream-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListScheduledQueries](https://docs.aws.amazon.com/timestream/latest/developerguide/API_ListScheduledQueries.html)  **
+  - **Description:** Grants permission to list scheduled queries in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTables](https://docs.aws.amazon.com/timestream/latest/developerguide/API_ListTables.html)  **
+  - **Description:** Grants permission to list tables in your account
+  - **Resource types (\*required):** [database\*](#list_timestream-resource-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/timestream/latest/developerguide/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags of a resource in your account
+  - **Resource types (\*required):** [database\*](#list_timestream-resource-database) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [scheduled-query\*](#list_timestream-resource-scheduled-query) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [table\*](#list_timestream-resource-table) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [PrepareQuery](https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_PrepareQuery.html)  **
+  - **Description:** Grants permission to issue prepare queries
+  - **Resource types (\*required):** [table\*](#list_timestream-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ResumeBatchLoadTask](https://docs.aws.amazon.com/timestream/latest/developerguide/API_ResumeBatchLoadTask.html)  **
+  - **Description:** Grants permission to resume a batch load task in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [Select](https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_Query.html)  **
+  - **Description:** Grants permission to issue 'select from table' queries
+  - **Resource types (\*required):** [table\*](#list_timestream-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [SelectValues](https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_Query.html)  **
+  - **Description:** Grants permission to issue 'select 1' queries
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [StartAwsBackupJob](https://docs.aws.amazon.com/timestream/latest/developerguide/backups.html)  **
+  - **Description:** Grants permission to start a Backup Job for a Timestream Table
+  - **Resource types (\*required):** [table\*](#list_timestream-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartAwsRestoreJob](https://docs.aws.amazon.com/timestream/latest/developerguide/backups.html)  **
+  - **Description:** Grants permission to start Restore Job for a Backup of Timestream Table
+  - **Resource types (\*required):** [table\*](#list_timestream-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/timestream/latest/developerguide/API_TagResource.html)  **
+  - **Description:** Grants permission to add tags to a resource
+  - **Resource types (\*required):** [database\*](#list_timestream-resource-database) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_timestream-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_timestream-aws_TagKeys)
+  - **Resource types (\*required):** [scheduled-query\*](#list_timestream-resource-scheduled-query) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_timestream-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_timestream-aws_TagKeys)
+  - **Resource types (\*required):** [table\*](#list_timestream-resource-table) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_timestream-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_timestream-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [Unload](https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_Query.html)  **
+  - **Description:** Grants permission to issue Unload queries
+  - **Resource types (\*required):** [table\*](#list_timestream-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/timestream/latest/developerguide/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove a tag from a resource
+  - **Resource types (\*required):** [database\*](#list_timestream-resource-database) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_timestream-aws_TagKeys)
+  - **Resource types (\*required):** [scheduled-query\*](#list_timestream-resource-scheduled-query) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_timestream-aws_TagKeys)
+  - **Resource types (\*required):** [table\*](#list_timestream-resource-table) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_timestream-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAccountSettings](https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_UpdateAccountSettings.html)  **
+  - **Description:** Grants permission to update your account settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateDatabase](https://docs.aws.amazon.com/timestream/latest/developerguide/API_UpdateDatabase.html)  **
+  - **Description:** Grants permission to update a database in your account
+  - **Resource types (\*required):** [database\*](#list_timestream-resource-database)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateScheduledQuery](https://docs.aws.amazon.com/timestream/latest/developerguide/API_UpdateScheduledQuery.html)  **
+  - **Description:** Grants permission to update a scheduled query in your account
+  - **Resource types (\*required):** [scheduled-query\*](#list_timestream-resource-scheduled-query)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateTable](https://docs.aws.amazon.com/timestream/latest/developerguide/API_UpdateTable.html)  **
+  - **Description:** Grants permission to update a table in your account
+  - **Resource types (\*required):** [table\*](#list_timestream-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [WriteRecords](https://docs.aws.amazon.com/timestream/latest/developerguide/API_WriteRecords.html)  **
+  - **Description:** Grants permission to ingest data to a table in your account
+  - **Resource types (\*required):** [table\*](#list_timestream-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon Timestream
+<a name="list_timestream-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                       | ARN                                                                                          | Condition keys                                                                                                       |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| [database](../../../timestream/latest/developerguide/API_Database.md "../../../timestream/latest/developerguide/API_Database.md")                    | arn:${Partition}:timestream:${Region}:${Account}:database/${DatabaseName}                    | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_") |
-| [scheduled-query](../../../timestream/latest/developerguide/API_ScheduledQuery.md "../../../timestream/latest/developerguide/API_ScheduledQuery.md") | arn:${Partition}:timestream:${Region}:${Account}:scheduled-query/${ScheduledQueryName}       | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_") |
-| [table](../../../timestream/latest/developerguide/API_Table.md "../../../timestream/latest/developerguide/API_Table.md")                             | arn:${Partition}:timestream:${Region}:${Account}:database/${DatabaseName}/table/${TableName} | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_ "#list_timestream-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [database](https://docs.aws.amazon.com/timestream/latest/developerguide/API_Database.html)  | arn:${Partition}:timestream:${Region}:${Account}:database/${DatabaseName} | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_) | 
+|  [scheduled-query](https://docs.aws.amazon.com/timestream/latest/developerguide/API_ScheduledQuery.html)  | arn:${Partition}:timestream:${Region}:${Account}:scheduled-query/${ScheduledQueryName} | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_) | 
+|  [table](https://docs.aws.amazon.com/timestream/latest/developerguide/API_Table.html)  | arn:${Partition}:timestream:${Region}:${Account}:database/${DatabaseName}/table/${TableName} | [aws:ResourceTag/${TagKey}](#list_timestream-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Timestream
+<a name="list_timestream-policy-keys"></a>
 
-Amazon Timestream defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Timestream defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                                             | Description                                                          | Type          |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../timestream/latest/developerguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags "../../../timestream/latest/developerguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags")  | Filters access by the presence of tag key-value pairs in the request | String        |
-| [aws:ResourceTag/${TagKey}](../../../timestream/latest/developerguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags "../../../timestream/latest/developerguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags") | Filters access by tag key-value pairs attached to the resource       | String        |
-| [aws:TagKeys](../../../timestream/latest/developerguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags "../../../timestream/latest/developerguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags")               | Filters access by the presence of tag keys in the request            | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/timestream/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags)  | Filters access by the presence of tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/timestream/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags)  | Filters access by tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/timestream/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags)  | Filters access by the presence of tag keys in the request | ArrayOfString | 

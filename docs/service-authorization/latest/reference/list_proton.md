@@ -1,342 +1,1277 @@
-# Actions, resources, and condition keys for AWS Proton
 
-AWS Proton (service prefix: `proton`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Proton
+<a name="list_proton"></a>
+
+AWS Proton (service prefix: `proton`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/proton/latest/adminguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/proton/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/proton/latest/adminguide/ag-controlling-access.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/proton/proton.json) for this service.
 
-- Learn how to [configure this service](../../../proton/latest/adminguide.md "../../../proton/latest/adminguide.md").
-- View a list of the [API operations available for
-  this service](../../../proton/latest/APIReference.md "../../../proton/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../proton/latest/adminguide/ag-controlling-access.md "../../../proton/latest/adminguide/ag-controlling-access.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/proton/proton.json "https://servicereference.us-east-1.amazonaws.com/v1/proton/proton.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Proton](#list_proton-operations "#list_proton-operations")
-- [Actions defined by AWS Proton](#list_proton-actions-as-permissions "#list_proton-actions-as-permissions")
-- [Resource types defined by AWS Proton](#list_proton-resources-for-iam-policies "#list_proton-resources-for-iam-policies")
-- [Condition keys for AWS Proton](#list_proton-policy-keys "#list_proton-policy-keys")
+**Topics**
++ [API operations defined by AWS Proton](#list_proton-operations)
++ [Actions defined by AWS Proton](#list_proton-actions-as-permissions)
++ [Resource types defined by AWS Proton](#list_proton-resources-for-iam-policies)
++ [Condition keys for AWS Proton](#list_proton-policy-keys)
 
 ## API operations defined by AWS Proton
+<a name="list_proton-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_proton-actions-as-permissions "#list_proton-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_proton-actions-as-permissions).
 
-| Operation                                                                                                                                                                                                                                          | IAM action                                                                                                                                                                  | Condition key        | Possible value(s) | Access level   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ----------------- | -------------- |
-| AcceptEnvironmentAccountConnection                                                                                                                                                                                                                 | [proton:AcceptEnvironmentAccountConnection](#list_proton-action-AcceptEnvironmentAccountConnection "#list_proton-action-AcceptEnvironmentAccountConnection")                |                      |                   | Write          |
-| CancelComponentDeployment                                                                                                                                                                                                                          | [proton:CancelComponentDeployment](#list_proton-action-CancelComponentDeployment "#list_proton-action-CancelComponentDeployment")                                           |                      |                   | Write          |
-| CancelEnvironmentDeployment                                                                                                                                                                                                                        | [proton:CancelEnvironmentDeployment](#list_proton-action-CancelEnvironmentDeployment "#list_proton-action-CancelEnvironmentDeployment")                                     |                      |                   | Write          |
-| CancelServiceInstanceDeployment                                                                                                                                                                                                                    | [proton:CancelServiceInstanceDeployment](#list_proton-action-CancelServiceInstanceDeployment "#list_proton-action-CancelServiceInstanceDeployment")                         |                      |                   | Write          |
-| CancelServicePipelineDeployment                                                                                                                                                                                                                    | [proton:CancelServicePipelineDeployment](#list_proton-action-CancelServicePipelineDeployment "#list_proton-action-CancelServicePipelineDeployment")                         |                      |                   | Write          |
-| CreateComponent                                                                                                                                                                                                                                    | [proton:CreateComponent](#list_proton-action-CreateComponent "#list_proton-action-CreateComponent")                                                                         |                      |                   | Write          |
-| [proton:TagResource](#list_proton-action-TagResource "#list_proton-action-TagResource")                                                                                                                                                            |                                                                                                                                                                             |                      | Tagging, Write    |
-| CreateEnvironment                                                                                                                                                                                                                                  | [proton:CreateEnvironment](#list_proton-action-CreateEnvironment "#list_proton-action-CreateEnvironment")                                                                   |                      |                   | Write          |
-| [proton:TagResource](#list_proton-action-TagResource "#list_proton-action-TagResource")                                                                                                                                                            |                                                                                                                                                                             |                      | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                                                    | iam:PassedToService                                                                                                                                                         | proton.amazonaws.com | Write             |
-| CreateEnvironmentAccountConnection                                                                                                                                                                                                                 | [proton:CreateEnvironmentAccountConnection](#list_proton-action-CreateEnvironmentAccountConnection "#list_proton-action-CreateEnvironmentAccountConnection")                |                      |                   | Write          |
-| [proton:TagResource](#list_proton-action-TagResource "#list_proton-action-TagResource")                                                                                                                                                            |                                                                                                                                                                             |                      | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                                                    | iam:PassedToService                                                                                                                                                         | proton.amazonaws.com | Write             |
-| CreateEnvironmentTemplate                                                                                                                                                                                                                          | [proton:CreateEnvironmentTemplate](#list_proton-action-CreateEnvironmentTemplate "#list_proton-action-CreateEnvironmentTemplate")                                           |                      |                   | Write          |
-| [proton:TagResource](#list_proton-action-TagResource "#list_proton-action-TagResource")                                                                                                                                                            |                                                                                                                                                                             |                      | Tagging, Write    |
-| CreateEnvironmentTemplateVersion                                                                                                                                                                                                                   | [proton:CreateEnvironmentTemplateVersion](#list_proton-action-CreateEnvironmentTemplateVersion "#list_proton-action-CreateEnvironmentTemplateVersion")                      |                      |                   | Write          |
-| [proton:TagResource](#list_proton-action-TagResource "#list_proton-action-TagResource")                                                                                                                                                            |                                                                                                                                                                             |                      | Tagging, Write    |
-| CreateRepository                                                                                                                                                                                                                                   | [proton:CreateRepository](#list_proton-action-CreateRepository "#list_proton-action-CreateRepository")                                                                      |                      |                   | Write          |
-| [proton:TagResource](#list_proton-action-TagResource "#list_proton-action-TagResource")                                                                                                                                                            |                                                                                                                                                                             |                      | Tagging, Write    |
-| [codestar-connections:PassConnection](../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections-passconnection "../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections-passconnection") |                                                                                                                                                                             |                      | Read              |
-| CreateService                                                                                                                                                                                                                                      | [proton:CreateService](#list_proton-action-CreateService "#list_proton-action-CreateService")                                                                               |                      |                   | Write          |
-| [proton:TagResource](#list_proton-action-TagResource "#list_proton-action-TagResource")                                                                                                                                                            |                                                                                                                                                                             |                      | Tagging, Write    |
-| [codestar-connections:PassConnection](../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections-passconnection "../../../dtconsole/latest/userguide/security-iam.md#permissions-reference-connections-passconnection") |                                                                                                                                                                             |                      | Read              |
-| CreateServiceInstance                                                                                                                                                                                                                              | [proton:CreateServiceInstance](#list_proton-action-CreateServiceInstance "#list_proton-action-CreateServiceInstance")                                                       |                      |                   | Write          |
-| [proton:TagResource](#list_proton-action-TagResource "#list_proton-action-TagResource")                                                                                                                                                            |                                                                                                                                                                             |                      | Tagging, Write    |
-| CreateServiceSyncConfig                                                                                                                                                                                                                            | [proton:CreateServiceSyncConfig](#list_proton-action-CreateServiceSyncConfig "#list_proton-action-CreateServiceSyncConfig")                                                 |                      |                   | Write          |
-| CreateServiceTemplate                                                                                                                                                                                                                              | [proton:CreateServiceTemplate](#list_proton-action-CreateServiceTemplate "#list_proton-action-CreateServiceTemplate")                                                       |                      |                   | Write          |
-| [proton:TagResource](#list_proton-action-TagResource "#list_proton-action-TagResource")                                                                                                                                                            |                                                                                                                                                                             |                      | Tagging, Write    |
-| CreateServiceTemplateVersion                                                                                                                                                                                                                       | [proton:CreateServiceTemplateVersion](#list_proton-action-CreateServiceTemplateVersion "#list_proton-action-CreateServiceTemplateVersion")                                  |                      |                   | Write          |
-| [proton:TagResource](#list_proton-action-TagResource "#list_proton-action-TagResource")                                                                                                                                                            |                                                                                                                                                                             |                      | Tagging, Write    |
-| CreateTemplateSyncConfig                                                                                                                                                                                                                           | [proton:CreateTemplateSyncConfig](#list_proton-action-CreateTemplateSyncConfig "#list_proton-action-CreateTemplateSyncConfig")                                              |                      |                   | Write          |
-| DeleteComponent                                                                                                                                                                                                                                    | [proton:DeleteComponent](#list_proton-action-DeleteComponent "#list_proton-action-DeleteComponent")                                                                         |                      |                   | Write          |
-| DeleteDeployment                                                                                                                                                                                                                                   | [proton:DeleteDeployment](#list_proton-action-DeleteDeployment "#list_proton-action-DeleteDeployment")                                                                      |                      |                   | Write          |
-| DeleteEnvironment                                                                                                                                                                                                                                  | [proton:DeleteEnvironment](#list_proton-action-DeleteEnvironment "#list_proton-action-DeleteEnvironment")                                                                   |                      |                   | Write          |
-| DeleteEnvironmentAccountConnection                                                                                                                                                                                                                 | [proton:DeleteEnvironmentAccountConnection](#list_proton-action-DeleteEnvironmentAccountConnection "#list_proton-action-DeleteEnvironmentAccountConnection")                |                      |                   | Write          |
-| DeleteEnvironmentTemplate                                                                                                                                                                                                                          | [proton:DeleteEnvironmentTemplate](#list_proton-action-DeleteEnvironmentTemplate "#list_proton-action-DeleteEnvironmentTemplate")                                           |                      |                   | Write          |
-| DeleteEnvironmentTemplateVersion                                                                                                                                                                                                                   | [proton:DeleteEnvironmentTemplateVersion](#list_proton-action-DeleteEnvironmentTemplateVersion "#list_proton-action-DeleteEnvironmentTemplateVersion")                      |                      |                   | Write          |
-| DeleteRepository                                                                                                                                                                                                                                   | [proton:DeleteRepository](#list_proton-action-DeleteRepository "#list_proton-action-DeleteRepository")                                                                      |                      |                   | Write          |
-| DeleteService                                                                                                                                                                                                                                      | [proton:DeleteService](#list_proton-action-DeleteService "#list_proton-action-DeleteService")                                                                               |                      |                   | Write          |
-| DeleteServiceSyncConfig                                                                                                                                                                                                                            | [proton:DeleteServiceSyncConfig](#list_proton-action-DeleteServiceSyncConfig "#list_proton-action-DeleteServiceSyncConfig")                                                 |                      |                   | Write          |
-| DeleteServiceTemplate                                                                                                                                                                                                                              | [proton:DeleteServiceTemplate](#list_proton-action-DeleteServiceTemplate "#list_proton-action-DeleteServiceTemplate")                                                       |                      |                   | Write          |
-| DeleteServiceTemplateVersion                                                                                                                                                                                                                       | [proton:DeleteServiceTemplateVersion](#list_proton-action-DeleteServiceTemplateVersion "#list_proton-action-DeleteServiceTemplateVersion")                                  |                      |                   | Write          |
-| DeleteTemplateSyncConfig                                                                                                                                                                                                                           | [proton:DeleteTemplateSyncConfig](#list_proton-action-DeleteTemplateSyncConfig "#list_proton-action-DeleteTemplateSyncConfig")                                              |                      |                   | Write          |
-| GetAccountSettings                                                                                                                                                                                                                                 | [proton:GetAccountSettings](#list_proton-action-GetAccountSettings "#list_proton-action-GetAccountSettings")                                                                |                      |                   | Read           |
-| GetComponent                                                                                                                                                                                                                                       | [proton:GetComponent](#list_proton-action-GetComponent "#list_proton-action-GetComponent")                                                                                  |                      |                   | Read           |
-| GetDeployment                                                                                                                                                                                                                                      | [proton:GetComponent](#list_proton-action-GetComponent "#list_proton-action-GetComponent")                                                                                  |                      |                   | Read           |
-| [proton:GetDeployment](#list_proton-action-GetDeployment "#list_proton-action-GetDeployment")                                                                                                                                                      |                                                                                                                                                                             |                      | Read              |
-| [proton:GetEnvironment](#list_proton-action-GetEnvironment "#list_proton-action-GetEnvironment")                                                                                                                                                   |                                                                                                                                                                             |                      | Read              |
-| [proton:GetService](#list_proton-action-GetService "#list_proton-action-GetService")                                                                                                                                                               |                                                                                                                                                                             |                      | Read              |
-| [proton:GetServiceInstance](#list_proton-action-GetServiceInstance "#list_proton-action-GetServiceInstance")                                                                                                                                       |                                                                                                                                                                             |                      | Read              |
-| GetEnvironment                                                                                                                                                                                                                                     | [proton:GetEnvironment](#list_proton-action-GetEnvironment "#list_proton-action-GetEnvironment")                                                                            |                      |                   | Read           |
-| GetEnvironmentAccountConnection                                                                                                                                                                                                                    | [proton:GetEnvironmentAccountConnection](#list_proton-action-GetEnvironmentAccountConnection "#list_proton-action-GetEnvironmentAccountConnection")                         |                      |                   | Read           |
-| GetEnvironmentTemplate                                                                                                                                                                                                                             | [proton:GetEnvironmentTemplate](#list_proton-action-GetEnvironmentTemplate "#list_proton-action-GetEnvironmentTemplate")                                                    |                      |                   | Read           |
-| GetEnvironmentTemplateVersion                                                                                                                                                                                                                      | [proton:GetEnvironmentTemplateVersion](#list_proton-action-GetEnvironmentTemplateVersion "#list_proton-action-GetEnvironmentTemplateVersion")                               |                      |                   | Read           |
-| GetRepository                                                                                                                                                                                                                                      | [proton:GetRepository](#list_proton-action-GetRepository "#list_proton-action-GetRepository")                                                                               |                      |                   | Read           |
-| GetRepositorySyncStatus                                                                                                                                                                                                                            | [proton:GetRepositorySyncStatus](#list_proton-action-GetRepositorySyncStatus "#list_proton-action-GetRepositorySyncStatus")                                                 |                      |                   | Read           |
-| GetResourcesSummary                                                                                                                                                                                                                                | [proton:GetResourcesSummary](#list_proton-action-GetResourcesSummary "#list_proton-action-GetResourcesSummary")                                                             |                      |                   | Read           |
-| GetService                                                                                                                                                                                                                                         | [proton:GetService](#list_proton-action-GetService "#list_proton-action-GetService")                                                                                        |                      |                   | Read           |
-| GetServiceInstance                                                                                                                                                                                                                                 | [proton:GetServiceInstance](#list_proton-action-GetServiceInstance "#list_proton-action-GetServiceInstance")                                                                |                      |                   | Read           |
-| GetServiceInstanceSyncStatus                                                                                                                                                                                                                       | [proton:GetServiceInstanceSyncStatus](#list_proton-action-GetServiceInstanceSyncStatus "#list_proton-action-GetServiceInstanceSyncStatus")                                  |                      |                   | Read           |
-| GetServiceSyncBlockerSummary                                                                                                                                                                                                                       | [proton:GetServiceSyncBlockerSummary](#list_proton-action-GetServiceSyncBlockerSummary "#list_proton-action-GetServiceSyncBlockerSummary")                                  |                      |                   | Read           |
-| GetServiceSyncConfig                                                                                                                                                                                                                               | [proton:GetServiceSyncConfig](#list_proton-action-GetServiceSyncConfig "#list_proton-action-GetServiceSyncConfig")                                                          |                      |                   | Read           |
-| GetServiceTemplate                                                                                                                                                                                                                                 | [proton:GetServiceTemplate](#list_proton-action-GetServiceTemplate "#list_proton-action-GetServiceTemplate")                                                                |                      |                   | Read           |
-| GetServiceTemplateVersion                                                                                                                                                                                                                          | [proton:GetServiceTemplateVersion](#list_proton-action-GetServiceTemplateVersion "#list_proton-action-GetServiceTemplateVersion")                                           |                      |                   | Read           |
-| GetTemplateSyncConfig                                                                                                                                                                                                                              | [proton:GetTemplateSyncConfig](#list_proton-action-GetTemplateSyncConfig "#list_proton-action-GetTemplateSyncConfig")                                                       |                      |                   | Read           |
-| GetTemplateSyncStatus                                                                                                                                                                                                                              | [proton:GetTemplateSyncStatus](#list_proton-action-GetTemplateSyncStatus "#list_proton-action-GetTemplateSyncStatus")                                                       |                      |                   | Read           |
-| ListComponentOutputs                                                                                                                                                                                                                               | [proton:ListComponentOutputs](#list_proton-action-ListComponentOutputs "#list_proton-action-ListComponentOutputs")                                                          |                      |                   | List           |
-| ListComponentProvisionedResources                                                                                                                                                                                                                  | [proton:ListComponentProvisionedResources](#list_proton-action-ListComponentProvisionedResources "#list_proton-action-ListComponentProvisionedResources")                   |                      |                   | List           |
-| ListComponents                                                                                                                                                                                                                                     | [proton:ListComponents](#list_proton-action-ListComponents "#list_proton-action-ListComponents")                                                                            |                      |                   | List           |
-| ListDeployments                                                                                                                                                                                                                                    | [proton:ListDeployments](#list_proton-action-ListDeployments "#list_proton-action-ListDeployments")                                                                         |                      |                   | List           |
-| ListEnvironmentAccountConnections                                                                                                                                                                                                                  | [proton:ListEnvironmentAccountConnections](#list_proton-action-ListEnvironmentAccountConnections "#list_proton-action-ListEnvironmentAccountConnections")                   |                      |                   | List           |
-| ListEnvironmentOutputs                                                                                                                                                                                                                             | [proton:ListEnvironmentOutputs](#list_proton-action-ListEnvironmentOutputs "#list_proton-action-ListEnvironmentOutputs")                                                    |                      |                   | List           |
-| ListEnvironmentProvisionedResources                                                                                                                                                                                                                | [proton:ListEnvironmentProvisionedResources](#list_proton-action-ListEnvironmentProvisionedResources "#list_proton-action-ListEnvironmentProvisionedResources")             |                      |                   | List           |
-| ListEnvironmentTemplateVersions                                                                                                                                                                                                                    | [proton:ListEnvironmentTemplateVersions](#list_proton-action-ListEnvironmentTemplateVersions "#list_proton-action-ListEnvironmentTemplateVersions")                         |                      |                   | List           |
-| ListEnvironmentTemplates                                                                                                                                                                                                                           | [proton:ListEnvironmentTemplates](#list_proton-action-ListEnvironmentTemplates "#list_proton-action-ListEnvironmentTemplates")                                              |                      |                   | List           |
-| ListEnvironments                                                                                                                                                                                                                                   | [proton:ListEnvironments](#list_proton-action-ListEnvironments "#list_proton-action-ListEnvironments")                                                                      |                      |                   | List           |
-| ListRepositories                                                                                                                                                                                                                                   | [proton:ListRepositories](#list_proton-action-ListRepositories "#list_proton-action-ListRepositories")                                                                      |                      |                   | List           |
-| ListRepositorySyncDefinitions                                                                                                                                                                                                                      | [proton:ListRepositorySyncDefinitions](#list_proton-action-ListRepositorySyncDefinitions "#list_proton-action-ListRepositorySyncDefinitions")                               |                      |                   | List           |
-| ListServiceInstanceOutputs                                                                                                                                                                                                                         | [proton:ListServiceInstanceOutputs](#list_proton-action-ListServiceInstanceOutputs "#list_proton-action-ListServiceInstanceOutputs")                                        |                      |                   | List           |
-| ListServiceInstanceProvisionedResources                                                                                                                                                                                                            | [proton:ListServiceInstanceProvisionedResources](#list_proton-action-ListServiceInstanceProvisionedResources "#list_proton-action-ListServiceInstanceProvisionedResources") |                      |                   | List           |
-| ListServiceInstances                                                                                                                                                                                                                               | [proton:ListServiceInstances](#list_proton-action-ListServiceInstances "#list_proton-action-ListServiceInstances")                                                          |                      |                   | List           |
-| ListServicePipelineOutputs                                                                                                                                                                                                                         | [proton:ListServicePipelineOutputs](#list_proton-action-ListServicePipelineOutputs "#list_proton-action-ListServicePipelineOutputs")                                        |                      |                   | List           |
-| ListServicePipelineProvisionedResources                                                                                                                                                                                                            | [proton:ListServicePipelineProvisionedResources](#list_proton-action-ListServicePipelineProvisionedResources "#list_proton-action-ListServicePipelineProvisionedResources") |                      |                   | List           |
-| ListServiceTemplateVersions                                                                                                                                                                                                                        | [proton:ListServiceTemplateVersions](#list_proton-action-ListServiceTemplateVersions "#list_proton-action-ListServiceTemplateVersions")                                     |                      |                   | List           |
-| ListServiceTemplates                                                                                                                                                                                                                               | [proton:ListServiceTemplates](#list_proton-action-ListServiceTemplates "#list_proton-action-ListServiceTemplates")                                                          |                      |                   | List           |
-| ListServices                                                                                                                                                                                                                                       | [proton:ListServices](#list_proton-action-ListServices "#list_proton-action-ListServices")                                                                                  |                      |                   | List           |
-| ListTagsForResource                                                                                                                                                                                                                                | [proton:ListTagsForResource](#list_proton-action-ListTagsForResource "#list_proton-action-ListTagsForResource")                                                             |                      |                   | Read           |
-| NotifyResourceDeploymentStatusChange                                                                                                                                                                                                               | [proton:NotifyResourceDeploymentStatusChange](#list_proton-action-NotifyResourceDeploymentStatusChange "#list_proton-action-NotifyResourceDeploymentStatusChange")          |                      |                   | Write          |
-| RejectEnvironmentAccountConnection                                                                                                                                                                                                                 | [proton:RejectEnvironmentAccountConnection](#list_proton-action-RejectEnvironmentAccountConnection "#list_proton-action-RejectEnvironmentAccountConnection")                |                      |                   | Write          |
-| TagResource                                                                                                                                                                                                                                        | [proton:TagResource](#list_proton-action-TagResource "#list_proton-action-TagResource")                                                                                     |                      |                   | Tagging, Write |
-| UntagResource                                                                                                                                                                                                                                      | [proton:UntagResource](#list_proton-action-UntagResource "#list_proton-action-UntagResource")                                                                               |                      |                   | Tagging, Write |
-| UpdateAccountSettings                                                                                                                                                                                                                              | [proton:UpdateAccountSettings](#list_proton-action-UpdateAccountSettings "#list_proton-action-UpdateAccountSettings")                                                       |                      |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                                                    | iam:PassedToService                                                                                                                                                         | proton.amazonaws.com | Write             |
-| UpdateComponent                                                                                                                                                                                                                                    | [proton:UpdateComponent](#list_proton-action-UpdateComponent "#list_proton-action-UpdateComponent")                                                                         |                      |                   | Write          |
-| UpdateEnvironment                                                                                                                                                                                                                                  | [proton:UpdateEnvironment](#list_proton-action-UpdateEnvironment "#list_proton-action-UpdateEnvironment")                                                                   |                      |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                                                    | iam:PassedToService                                                                                                                                                         | proton.amazonaws.com | Write             |
-| UpdateEnvironmentAccountConnection                                                                                                                                                                                                                 | [proton:UpdateEnvironmentAccountConnection](#list_proton-action-UpdateEnvironmentAccountConnection "#list_proton-action-UpdateEnvironmentAccountConnection")                |                      |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                                                    | iam:PassedToService                                                                                                                                                         | proton.amazonaws.com | Write             |
-| UpdateEnvironmentTemplate                                                                                                                                                                                                                          | [proton:UpdateEnvironmentTemplate](#list_proton-action-UpdateEnvironmentTemplate "#list_proton-action-UpdateEnvironmentTemplate")                                           |                      |                   | Write          |
-| UpdateEnvironmentTemplateVersion                                                                                                                                                                                                                   | [proton:UpdateEnvironmentTemplateVersion](#list_proton-action-UpdateEnvironmentTemplateVersion "#list_proton-action-UpdateEnvironmentTemplateVersion")                      |                      |                   | Write          |
-| UpdateService                                                                                                                                                                                                                                      | [proton:UpdateService](#list_proton-action-UpdateService "#list_proton-action-UpdateService")                                                                               |                      |                   | Write          |
-| UpdateServiceInstance                                                                                                                                                                                                                              | [proton:UpdateServiceInstance](#list_proton-action-UpdateServiceInstance "#list_proton-action-UpdateServiceInstance")                                                       |                      |                   | Write          |
-| UpdateServicePipeline                                                                                                                                                                                                                              | [proton:UpdateServicePipeline](#list_proton-action-UpdateServicePipeline "#list_proton-action-UpdateServicePipeline")                                                       |                      |                   | Write          |
-| UpdateServiceSyncBlocker                                                                                                                                                                                                                           | [proton:UpdateServiceSyncBlocker](#list_proton-action-UpdateServiceSyncBlocker "#list_proton-action-UpdateServiceSyncBlocker")                                              |                      |                   | Write          |
-| UpdateServiceTemplate                                                                                                                                                                                                                              | [proton:UpdateServiceTemplate](#list_proton-action-UpdateServiceTemplate "#list_proton-action-UpdateServiceTemplate")                                                       |                      |                   | Write          |
-| UpdateServiceTemplateVersion                                                                                                                                                                                                                       | [proton:UpdateServiceTemplateVersion](#list_proton-action-UpdateServiceTemplateVersion "#list_proton-action-UpdateServiceTemplateVersion")                                  |                      |                   | Write          |
-| UpdateTemplateSyncConfig                                                                                                                                                                                                                           | [proton:UpdateTemplateSyncConfig](#list_proton-action-UpdateTemplateSyncConfig "#list_proton-action-UpdateTemplateSyncConfig")                                              |                      |                   | Write          |
+
+
+
+- **   AcceptEnvironmentAccountConnection  **
+  - **IAM action:**  [proton:AcceptEnvironmentAccountConnection](#list_proton-action-AcceptEnvironmentAccountConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CancelComponentDeployment  **
+  - **IAM action:**  [proton:CancelComponentDeployment](#list_proton-action-CancelComponentDeployment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CancelEnvironmentDeployment  **
+  - **IAM action:**  [proton:CancelEnvironmentDeployment](#list_proton-action-CancelEnvironmentDeployment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CancelServiceInstanceDeployment  **
+  - **IAM action:**  [proton:CancelServiceInstanceDeployment](#list_proton-action-CancelServiceInstanceDeployment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CancelServicePipelineDeployment  **
+  - **IAM action:**  [proton:CancelServicePipelineDeployment](#list_proton-action-CancelServicePipelineDeployment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateComponent  **
+  - **IAM action:**  [proton:CreateComponent](#list_proton-action-CreateComponent)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [proton:TagResource](#list_proton-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateEnvironment  **
+  - **IAM action:**  [proton:CreateEnvironment](#list_proton-action-CreateEnvironment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [proton:TagResource](#list_proton-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** proton.amazonaws.com / **Access level:** Write
+
+- **   CreateEnvironmentAccountConnection  **
+  - **IAM action:**  [proton:CreateEnvironmentAccountConnection](#list_proton-action-CreateEnvironmentAccountConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [proton:TagResource](#list_proton-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** proton.amazonaws.com / **Access level:** Write
+
+- **   CreateEnvironmentTemplate  **
+  - **IAM action:**  [proton:CreateEnvironmentTemplate](#list_proton-action-CreateEnvironmentTemplate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [proton:TagResource](#list_proton-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateEnvironmentTemplateVersion  **
+  - **IAM action:**  [proton:CreateEnvironmentTemplateVersion](#list_proton-action-CreateEnvironmentTemplateVersion)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [proton:TagResource](#list_proton-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateRepository  **
+  - **IAM action:**  [proton:CreateRepository](#list_proton-action-CreateRepository)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [proton:TagResource](#list_proton-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [codestar-connections:PassConnection](https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#permissions-reference-connections-passconnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   CreateService  **
+  - **IAM action:**  [proton:CreateService](#list_proton-action-CreateService)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [proton:TagResource](#list_proton-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [codestar-connections:PassConnection](https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#permissions-reference-connections-passconnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   CreateServiceInstance  **
+  - **IAM action:**  [proton:CreateServiceInstance](#list_proton-action-CreateServiceInstance)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [proton:TagResource](#list_proton-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateServiceSyncConfig  **
+  - **IAM action:**  [proton:CreateServiceSyncConfig](#list_proton-action-CreateServiceSyncConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateServiceTemplate  **
+  - **IAM action:**  [proton:CreateServiceTemplate](#list_proton-action-CreateServiceTemplate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [proton:TagResource](#list_proton-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateServiceTemplateVersion  **
+  - **IAM action:**  [proton:CreateServiceTemplateVersion](#list_proton-action-CreateServiceTemplateVersion)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [proton:TagResource](#list_proton-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateTemplateSyncConfig  **
+  - **IAM action:**  [proton:CreateTemplateSyncConfig](#list_proton-action-CreateTemplateSyncConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteComponent  **
+  - **IAM action:**  [proton:DeleteComponent](#list_proton-action-DeleteComponent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDeployment  **
+  - **IAM action:**  [proton:DeleteDeployment](#list_proton-action-DeleteDeployment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteEnvironment  **
+  - **IAM action:**  [proton:DeleteEnvironment](#list_proton-action-DeleteEnvironment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteEnvironmentAccountConnection  **
+  - **IAM action:**  [proton:DeleteEnvironmentAccountConnection](#list_proton-action-DeleteEnvironmentAccountConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteEnvironmentTemplate  **
+  - **IAM action:**  [proton:DeleteEnvironmentTemplate](#list_proton-action-DeleteEnvironmentTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteEnvironmentTemplateVersion  **
+  - **IAM action:**  [proton:DeleteEnvironmentTemplateVersion](#list_proton-action-DeleteEnvironmentTemplateVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRepository  **
+  - **IAM action:**  [proton:DeleteRepository](#list_proton-action-DeleteRepository) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteService  **
+  - **IAM action:**  [proton:DeleteService](#list_proton-action-DeleteService) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteServiceSyncConfig  **
+  - **IAM action:**  [proton:DeleteServiceSyncConfig](#list_proton-action-DeleteServiceSyncConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteServiceTemplate  **
+  - **IAM action:**  [proton:DeleteServiceTemplate](#list_proton-action-DeleteServiceTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteServiceTemplateVersion  **
+  - **IAM action:**  [proton:DeleteServiceTemplateVersion](#list_proton-action-DeleteServiceTemplateVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteTemplateSyncConfig  **
+  - **IAM action:**  [proton:DeleteTemplateSyncConfig](#list_proton-action-DeleteTemplateSyncConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAccountSettings  **
+  - **IAM action:**  [proton:GetAccountSettings](#list_proton-action-GetAccountSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetComponent  **
+  - **IAM action:**  [proton:GetComponent](#list_proton-action-GetComponent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDeployment  **
+  - **IAM action:**  [proton:GetComponent](#list_proton-action-GetComponent)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [proton:GetDeployment](#list_proton-action-GetDeployment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [proton:GetEnvironment](#list_proton-action-GetEnvironment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [proton:GetService](#list_proton-action-GetService)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [proton:GetServiceInstance](#list_proton-action-GetServiceInstance)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   GetEnvironment  **
+  - **IAM action:**  [proton:GetEnvironment](#list_proton-action-GetEnvironment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEnvironmentAccountConnection  **
+  - **IAM action:**  [proton:GetEnvironmentAccountConnection](#list_proton-action-GetEnvironmentAccountConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEnvironmentTemplate  **
+  - **IAM action:**  [proton:GetEnvironmentTemplate](#list_proton-action-GetEnvironmentTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEnvironmentTemplateVersion  **
+  - **IAM action:**  [proton:GetEnvironmentTemplateVersion](#list_proton-action-GetEnvironmentTemplateVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRepository  **
+  - **IAM action:**  [proton:GetRepository](#list_proton-action-GetRepository) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRepositorySyncStatus  **
+  - **IAM action:**  [proton:GetRepositorySyncStatus](#list_proton-action-GetRepositorySyncStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetResourcesSummary  **
+  - **IAM action:**  [proton:GetResourcesSummary](#list_proton-action-GetResourcesSummary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetService  **
+  - **IAM action:**  [proton:GetService](#list_proton-action-GetService) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetServiceInstance  **
+  - **IAM action:**  [proton:GetServiceInstance](#list_proton-action-GetServiceInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetServiceInstanceSyncStatus  **
+  - **IAM action:**  [proton:GetServiceInstanceSyncStatus](#list_proton-action-GetServiceInstanceSyncStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetServiceSyncBlockerSummary  **
+  - **IAM action:**  [proton:GetServiceSyncBlockerSummary](#list_proton-action-GetServiceSyncBlockerSummary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetServiceSyncConfig  **
+  - **IAM action:**  [proton:GetServiceSyncConfig](#list_proton-action-GetServiceSyncConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetServiceTemplate  **
+  - **IAM action:**  [proton:GetServiceTemplate](#list_proton-action-GetServiceTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetServiceTemplateVersion  **
+  - **IAM action:**  [proton:GetServiceTemplateVersion](#list_proton-action-GetServiceTemplateVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTemplateSyncConfig  **
+  - **IAM action:**  [proton:GetTemplateSyncConfig](#list_proton-action-GetTemplateSyncConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTemplateSyncStatus  **
+  - **IAM action:**  [proton:GetTemplateSyncStatus](#list_proton-action-GetTemplateSyncStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListComponentOutputs  **
+  - **IAM action:**  [proton:ListComponentOutputs](#list_proton-action-ListComponentOutputs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListComponentProvisionedResources  **
+  - **IAM action:**  [proton:ListComponentProvisionedResources](#list_proton-action-ListComponentProvisionedResources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListComponents  **
+  - **IAM action:**  [proton:ListComponents](#list_proton-action-ListComponents) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDeployments  **
+  - **IAM action:**  [proton:ListDeployments](#list_proton-action-ListDeployments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEnvironmentAccountConnections  **
+  - **IAM action:**  [proton:ListEnvironmentAccountConnections](#list_proton-action-ListEnvironmentAccountConnections) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEnvironmentOutputs  **
+  - **IAM action:**  [proton:ListEnvironmentOutputs](#list_proton-action-ListEnvironmentOutputs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEnvironmentProvisionedResources  **
+  - **IAM action:**  [proton:ListEnvironmentProvisionedResources](#list_proton-action-ListEnvironmentProvisionedResources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEnvironmentTemplateVersions  **
+  - **IAM action:**  [proton:ListEnvironmentTemplateVersions](#list_proton-action-ListEnvironmentTemplateVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEnvironmentTemplates  **
+  - **IAM action:**  [proton:ListEnvironmentTemplates](#list_proton-action-ListEnvironmentTemplates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEnvironments  **
+  - **IAM action:**  [proton:ListEnvironments](#list_proton-action-ListEnvironments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRepositories  **
+  - **IAM action:**  [proton:ListRepositories](#list_proton-action-ListRepositories) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRepositorySyncDefinitions  **
+  - **IAM action:**  [proton:ListRepositorySyncDefinitions](#list_proton-action-ListRepositorySyncDefinitions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListServiceInstanceOutputs  **
+  - **IAM action:**  [proton:ListServiceInstanceOutputs](#list_proton-action-ListServiceInstanceOutputs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListServiceInstanceProvisionedResources  **
+  - **IAM action:**  [proton:ListServiceInstanceProvisionedResources](#list_proton-action-ListServiceInstanceProvisionedResources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListServiceInstances  **
+  - **IAM action:**  [proton:ListServiceInstances](#list_proton-action-ListServiceInstances) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListServicePipelineOutputs  **
+  - **IAM action:**  [proton:ListServicePipelineOutputs](#list_proton-action-ListServicePipelineOutputs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListServicePipelineProvisionedResources  **
+  - **IAM action:**  [proton:ListServicePipelineProvisionedResources](#list_proton-action-ListServicePipelineProvisionedResources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListServiceTemplateVersions  **
+  - **IAM action:**  [proton:ListServiceTemplateVersions](#list_proton-action-ListServiceTemplateVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListServiceTemplates  **
+  - **IAM action:**  [proton:ListServiceTemplates](#list_proton-action-ListServiceTemplates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListServices  **
+  - **IAM action:**  [proton:ListServices](#list_proton-action-ListServices) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [proton:ListTagsForResource](#list_proton-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   NotifyResourceDeploymentStatusChange  **
+  - **IAM action:**  [proton:NotifyResourceDeploymentStatusChange](#list_proton-action-NotifyResourceDeploymentStatusChange) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RejectEnvironmentAccountConnection  **
+  - **IAM action:**  [proton:RejectEnvironmentAccountConnection](#list_proton-action-RejectEnvironmentAccountConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [proton:TagResource](#list_proton-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [proton:UntagResource](#list_proton-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAccountSettings  **
+  - **IAM action:**  [proton:UpdateAccountSettings](#list_proton-action-UpdateAccountSettings)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** proton.amazonaws.com / **Access level:** Write
+
+- **   UpdateComponent  **
+  - **IAM action:**  [proton:UpdateComponent](#list_proton-action-UpdateComponent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateEnvironment  **
+  - **IAM action:**  [proton:UpdateEnvironment](#list_proton-action-UpdateEnvironment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** proton.amazonaws.com / **Access level:** Write
+
+- **   UpdateEnvironmentAccountConnection  **
+  - **IAM action:**  [proton:UpdateEnvironmentAccountConnection](#list_proton-action-UpdateEnvironmentAccountConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** proton.amazonaws.com / **Access level:** Write
+
+- **   UpdateEnvironmentTemplate  **
+  - **IAM action:**  [proton:UpdateEnvironmentTemplate](#list_proton-action-UpdateEnvironmentTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateEnvironmentTemplateVersion  **
+  - **IAM action:**  [proton:UpdateEnvironmentTemplateVersion](#list_proton-action-UpdateEnvironmentTemplateVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateService  **
+  - **IAM action:**  [proton:UpdateService](#list_proton-action-UpdateService) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateServiceInstance  **
+  - **IAM action:**  [proton:UpdateServiceInstance](#list_proton-action-UpdateServiceInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateServicePipeline  **
+  - **IAM action:**  [proton:UpdateServicePipeline](#list_proton-action-UpdateServicePipeline) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateServiceSyncBlocker  **
+  - **IAM action:**  [proton:UpdateServiceSyncBlocker](#list_proton-action-UpdateServiceSyncBlocker) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateServiceTemplate  **
+  - **IAM action:**  [proton:UpdateServiceTemplate](#list_proton-action-UpdateServiceTemplate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateServiceTemplateVersion  **
+  - **IAM action:**  [proton:UpdateServiceTemplateVersion](#list_proton-action-UpdateServiceTemplateVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateTemplateSyncConfig  **
+  - **IAM action:**  [proton:UpdateTemplateSyncConfig](#list_proton-action-UpdateTemplateSyncConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS Proton
+<a name="list_proton-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                            | Description                                                                                                                                                                                                                                                                                     | Resource types (\*required)                                                                                                                     | Condition keys                                                                                                                                                                                                                                                                                                                                                                                                     | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- |
-| [AcceptEnvironmentAccountConnection](../../../proton/latest/APIReference/API_AcceptEnvironmentAccountConnection.md "../../../proton/latest/APIReference/API_AcceptEnvironmentAccountConnection.md")                | Grants permission to reject an environment account connection request from another environment account                                                                                                                                                                                          | [environment-account-connection\*](#list_proton-resource-environment-account-connection "#list_proton-resource-environment-account-connection") | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [CancelComponentDeployment](../../../proton/latest/APIReference/API_CancelComponentDeployment.md "../../../proton/latest/APIReference/API_CancelComponentDeployment.md")                                           | Grants permission to cancel component deployment                                                                                                                                                                                                                                                | [component\*](#list_proton-resource-component "#list_proton-resource-component")                                                                | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [CancelEnvironmentDeployment](../../../proton/latest/APIReference/API_CancelEnvironmentDeployment.md "../../../proton/latest/APIReference/API_CancelEnvironmentDeployment.md")                                     | Grants permission to cancel an environment deployment                                                                                                                                                                                                                                           | [environment\*](#list_proton-resource-environment "#list_proton-resource-environment")                                                          | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[proton:EnvironmentTemplate](#list_proton-proton_EnvironmentTemplate "#list_proton-proton_EnvironmentTemplate")                                                                                                                                                                                    | Write          |
-| [CancelServiceInstanceDeployment](../../../proton/latest/APIReference/API_CancelServiceInstanceDeployment.md "../../../proton/latest/APIReference/API_CancelServiceInstanceDeployment.md")                         | Grants permission to cancel a service instance deployment                                                                                                                                                                                                                                       | [service-instance\*](#list_proton-resource-service-instance "#list_proton-resource-service-instance")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[proton:ServiceTemplate](#list_proton-proton_ServiceTemplate "#list_proton-proton_ServiceTemplate")                                                                                                                                                                                                | Write          |
-| [CancelServicePipelineDeployment](../../../proton/latest/APIReference/API_CancelServicePipelineDeployment.md "../../../proton/latest/APIReference/API_CancelServicePipelineDeployment.md")                         | Grants permission to cancel a service pipeline deployment                                                                                                                                                                                                                                       | [service\*](#list_proton-resource-service "#list_proton-resource-service")                                                                      | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[proton:ServiceTemplate](#list_proton-proton_ServiceTemplate "#list_proton-proton_ServiceTemplate")                                                                                                                                                                                                | Write          |
-| [CreateComponent](../../../proton/latest/APIReference/API_CreateComponent.md "../../../proton/latest/APIReference/API_CreateComponent.md")                                                                         | Grants permission to create component                                                                                                                                                                                                                                                           | [component\*](#list_proton-resource-component "#list_proton-resource-component")                                                                | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                                    | Write          |
-| [CreateEnvironment](../../../proton/latest/APIReference/API_CreateEnvironment.md "../../../proton/latest/APIReference/API_CreateEnvironment.md")                                                                   | Grants permission to create an environment                                                                                                                                                                                                                                                      | [environment\*](#list_proton-resource-environment "#list_proton-resource-environment")                                                          | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")<br>[proton:EnvironmentTemplate](#list_proton-proton_EnvironmentTemplate "#list_proton-proton_EnvironmentTemplate") | Write          |
-| [CreateEnvironmentAccountConnection](../../../proton/latest/APIReference/API_CreateEnvironmentAccountConnection.md "../../../proton/latest/APIReference/API_CreateEnvironmentAccountConnection.md")                | Grants permission to create an environment account connection                                                                                                                                                                                                                                   |                                                                                                                                                 | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                                                                                                                                                    | Write          |
-| [CreateEnvironmentTemplate](../../../proton/latest/APIReference/API_CreateEnvironmentTemplate.md "../../../proton/latest/APIReference/API_CreateEnvironmentTemplate.md")                                           | Grants permission to create an environment template                                                                                                                                                                                                                                             | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                                    | Write          |
-| [CreateEnvironmentTemplateMajorVersion](../../../proton/latest/APIReference/API_CreateEnvironmentTemplateMajorVersion.md "../../../proton/latest/APIReference/API_CreateEnvironmentTemplateMajorVersion.md")       | Grants permission to create an environment template major version. DEPRECATED<br>• use CreateEnvironmentTemplateVersion instead                                                                                                                                                                 | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                                    | Write          |
-| [CreateEnvironmentTemplateMinorVersion](../../../proton/latest/APIReference/API_CreateEnvironmentTemplateMinorVersion.md "../../../proton/latest/APIReference/API_CreateEnvironmentTemplateMinorVersion.md")       | Grants permission to create an environment template minor version. DEPRECATED<br>• use CreateEnvironmentTemplateVersion instead                                                                                                                                                                 | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                                    | Write          |
-| [CreateEnvironmentTemplateVersion](../../../proton/latest/APIReference/API_CreateEnvironmentTemplateVersion.md "../../../proton/latest/APIReference/API_CreateEnvironmentTemplateVersion.md")                      | Grants permission to create an environment template version                                                                                                                                                                                                                                     | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                                    | Write          |
-| [CreateRepository](../../../proton/latest/APIReference/API_CreateRepository.md "../../../proton/latest/APIReference/API_CreateRepository.md")                                                                      | Grants permission to create a repository                                                                                                                                                                                                                                                        | [repository\*](#list_proton-resource-repository "#list_proton-resource-repository")                                                             | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                                    | Write          |
-| [CreateService](../../../proton/latest/APIReference/API_CreateService.md "../../../proton/latest/APIReference/API_CreateService.md")                                                                               | Grants permission to create a service                                                                                                                                                                                                                                                           | [service\*](#list_proton-resource-service "#list_proton-resource-service")                                                                      | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")<br>[proton:ServiceTemplate](#list_proton-proton_ServiceTemplate "#list_proton-proton_ServiceTemplate")             | Write          |
-| [CreateServiceInstance](../../../proton/latest/APIReference/API_CreateServiceInstance.md "../../../proton/latest/APIReference/API_CreateServiceInstance.md")                                                       | Grants permission to create a service instance                                                                                                                                                                                                                                                  | [service-instance\*](#list_proton-resource-service-instance "#list_proton-resource-service-instance")                                           | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")<br>[proton:ServiceTemplate](#list_proton-proton_ServiceTemplate "#list_proton-proton_ServiceTemplate")             | Write          |
-| [CreateServiceSyncConfig](../../../proton/latest/APIReference/API_CreateServiceSyncConfig.md "../../../proton/latest/APIReference/API_CreateServiceSyncConfig.md")                                                 | Grants permission to create a service sync config                                                                                                                                                                                                                                               |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Write          |
-| [CreateServiceTemplate](../../../proton/latest/APIReference/API_CreateServiceTemplate.md "../../../proton/latest/APIReference/API_CreateServiceTemplate.md")                                                       | Grants permission to create a service template                                                                                                                                                                                                                                                  | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                                    | Write          |
-| [CreateServiceTemplateMajorVersion](../../../proton/latest/APIReference/API_CreateServiceTemplateMajorVersion.md "../../../proton/latest/APIReference/API_CreateServiceTemplateMajorVersion.md")                   | Grants permission to create a service template major version. DEPRECATED<br>• use CreateServiceTemplateVersion instead                                                                                                                                                                          | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                                    | Write          |
-| [CreateServiceTemplateMinorVersion](../../../proton/latest/APIReference/API_CreateServiceTemplateMinorVersion.md "../../../proton/latest/APIReference/API_CreateServiceTemplateMinorVersion.md")                   | Grants permission to create a service template minor version. DEPRECATED<br>• use CreateServiceTemplateVersion instead                                                                                                                                                                          | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                                    | Write          |
-| [CreateServiceTemplateVersion](../../../proton/latest/APIReference/API_CreateServiceTemplateVersion.md "../../../proton/latest/APIReference/API_CreateServiceTemplateVersion.md")                                  | Grants permission to create a service template version                                                                                                                                                                                                                                          | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                                    | Write          |
-| [CreateTemplateSyncConfig](../../../proton/latest/APIReference/API_CreateTemplateSyncConfig.md "../../../proton/latest/APIReference/API_CreateTemplateSyncConfig.md")                                              | Grants permission to create a template sync config                                                                                                                                                                                                                                              |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Write          |
-| [DeleteAccountRoles](../../../proton/latest/APIReference/API_DeleteAccountRoles.md "../../../proton/latest/APIReference/API_DeleteAccountRoles.md")                                                                | Grants permission to delete account roles. DEPRECATED<br>• use UpdateAccountSettings instead                                                                                                                                                                                                    |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Write          |
-| [DeleteComponent](../../../proton/latest/APIReference/API_DeleteComponent.md "../../../proton/latest/APIReference/API_DeleteComponent.md")                                                                         | Grants permission to delete component                                                                                                                                                                                                                                                           | [component\*](#list_proton-resource-component "#list_proton-resource-component")                                                                | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteDeployment](../../../proton/latest/APIReference/API_DeleteDeployment.md "../../../proton/latest/APIReference/API_DeleteDeployment.md")                                                                      | Grants permission to delete a deployment                                                                                                                                                                                                                                                        | [deployment\*](#list_proton-resource-deployment "#list_proton-resource-deployment")                                                             | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteEnvironment](../../../proton/latest/APIReference/API_DeleteEnvironment.md "../../../proton/latest/APIReference/API_DeleteEnvironment.md")                                                                   | Grants permission to delete an environment                                                                                                                                                                                                                                                      | [environment\*](#list_proton-resource-environment "#list_proton-resource-environment")                                                          | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[proton:EnvironmentTemplate](#list_proton-proton_EnvironmentTemplate "#list_proton-proton_EnvironmentTemplate")                                                                                                                                                                                    | Write          |
-| [DeleteEnvironmentAccountConnection](../../../proton/latest/APIReference/API_DeleteEnvironmentAccountConnection.md "../../../proton/latest/APIReference/API_DeleteEnvironmentAccountConnection.md")                | Grants permission to delete an environment account connection                                                                                                                                                                                                                                   | [environment-account-connection\*](#list_proton-resource-environment-account-connection "#list_proton-resource-environment-account-connection") | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteEnvironmentTemplate](../../../proton/latest/APIReference/API_DeleteEnvironmentTemplate.md "../../../proton/latest/APIReference/API_DeleteEnvironmentTemplate.md")                                           | Grants permission to delete an environment template                                                                                                                                                                                                                                             | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteEnvironmentTemplateMajorVersion](../../../proton/latest/APIReference/API_DeleteEnvironmentTemplateMajorVersion.md "../../../proton/latest/APIReference/API_DeleteEnvironmentTemplateMajorVersion.md")       | Grants permission to delete an environment template major version. DEPRECATED<br>• use DeleteEnvironmentTemplateVersion instead                                                                                                                                                                 | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteEnvironmentTemplateMinorVersion](../../../proton/latest/APIReference/API_DeleteEnvironmentTemplateMinorVersion.md "../../../proton/latest/APIReference/API_DeleteEnvironmentTemplateMinorVersion.md")       | Grants permission to delete an environment template minor version. DEPRECATED<br>• use DeleteEnvironmentTemplateVersion instead                                                                                                                                                                 | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteEnvironmentTemplateVersion](../../../proton/latest/APIReference/API_DeleteEnvironmentTemplateVersion.md "../../../proton/latest/APIReference/API_DeleteEnvironmentTemplateVersion.md")                      | Grants permission to delete an environment template version                                                                                                                                                                                                                                     | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteRepository](../../../proton/latest/APIReference/API_DeleteRepository.md "../../../proton/latest/APIReference/API_DeleteRepository.md")                                                                      | Grants permission to delete a repository                                                                                                                                                                                                                                                        | [repository\*](#list_proton-resource-repository "#list_proton-resource-repository")                                                             | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteService](../../../proton/latest/APIReference/API_DeleteService.md "../../../proton/latest/APIReference/API_DeleteService.md")                                                                               | Grants permission to delete a service                                                                                                                                                                                                                                                           | [service\*](#list_proton-resource-service "#list_proton-resource-service")                                                                      | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[proton:ServiceTemplate](#list_proton-proton_ServiceTemplate "#list_proton-proton_ServiceTemplate")                                                                                                                                                                                                | Write          |
-| [DeleteServiceSyncConfig](../../../proton/latest/APIReference/API_DeleteServiceSyncConfig.md "../../../proton/latest/APIReference/API_DeleteServiceSyncConfig.md")                                                 | Grants permission to delete a service sync config                                                                                                                                                                                                                                               |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Write          |
-| [DeleteServiceTemplate](../../../proton/latest/APIReference/API_DeleteServiceTemplate.md "../../../proton/latest/APIReference/API_DeleteServiceTemplate.md")                                                       | Grants permission to delete a service template                                                                                                                                                                                                                                                  | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteServiceTemplateMajorVersion](../../../proton/latest/APIReference/API_DeleteServiceTemplateMajorVersion.md "../../../proton/latest/APIReference/API_DeleteServiceTemplateMajorVersion.md")                   | Grants permission to delete a service template major version. DEPRECATED<br>• use DeleteServiceTemplateVersion instead                                                                                                                                                                          | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteServiceTemplateMinorVersion](../../../proton/latest/APIReference/API_DeleteServiceTemplateMinorVersion.md "../../../proton/latest/APIReference/API_DeleteServiceTemplateMinorVersion.md")                   | Grants permission to delete a service template minor version. DEPRECATED<br>• use DeleteServiceTemplateVersion instead                                                                                                                                                                          | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteServiceTemplateVersion](../../../proton/latest/APIReference/API_DeleteServiceTemplateVersion.md "../../../proton/latest/APIReference/API_DeleteServiceTemplateVersion.md")                                  | Grants permission to delete a service template version                                                                                                                                                                                                                                          | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteTemplateSyncConfig](../../../proton/latest/APIReference/API_DeleteTemplateSyncConfig.md "../../../proton/latest/APIReference/API_DeleteTemplateSyncConfig.md")                                              | Grants permission to delete a TemplateSyncConfig                                                                                                                                                                                                                                                |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Write          |
-| [GetAccountRoles](../../../proton/latest/APIReference/API_GetAccountRoles.md "../../../proton/latest/APIReference/API_GetAccountRoles.md")                                                                         | Grants permission to get account roles. DEPRECATED<br>• use GetAccountSettings instead                                                                                                                                                                                                          |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [GetAccountSettings](../../../proton/latest/APIReference/API_GetAccountSettings.md "../../../proton/latest/APIReference/API_GetAccountSettings.md")                                                                | Grants permission to describe the account settings                                                                                                                                                                                                                                              |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [GetComponent](../../../proton/latest/APIReference/API_GetComponent.md "../../../proton/latest/APIReference/API_GetComponent.md")                                                                                  | Grants permission to describe a component                                                                                                                                                                                                                                                       | [component\*](#list_proton-resource-component "#list_proton-resource-component")                                                                | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetDeployment](../../../proton/latest/APIReference/API_GetDeployment.md "../../../proton/latest/APIReference/API_GetDeployment.md")                                                                               | Grants permission to describe a deployment                                                                                                                                                                                                                                                      | [deployment\*](#list_proton-resource-deployment "#list_proton-resource-deployment")                                                             | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetEnvironment](../../../proton/latest/APIReference/API_GetEnvironment.md "../../../proton/latest/APIReference/API_GetEnvironment.md")                                                                            | Grants permission to describe an environment                                                                                                                                                                                                                                                    | [environment\*](#list_proton-resource-environment "#list_proton-resource-environment")                                                          | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetEnvironmentAccountConnection](../../../proton/latest/APIReference/API_GetEnvironmentAccountConnection.md "../../../proton/latest/APIReference/API_GetEnvironmentAccountConnection.md")                         | Grants permission to describe an environment account connection                                                                                                                                                                                                                                 | [environment-account-connection\*](#list_proton-resource-environment-account-connection "#list_proton-resource-environment-account-connection") | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetEnvironmentTemplate](../../../proton/latest/APIReference/API_GetEnvironmentTemplate.md "../../../proton/latest/APIReference/API_GetEnvironmentTemplate.md")                                                    | Grants permission to describe an environment template                                                                                                                                                                                                                                           | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetEnvironmentTemplateMajorVersion](../../../proton/latest/APIReference/API_GetEnvironmentTemplateMajorVersion.md "../../../proton/latest/APIReference/API_GetEnvironmentTemplateMajorVersion.md")                | Grants permission to get an environment template major version. DEPRECATED<br>• use GetEnvironmentTemplateVersion instead                                                                                                                                                                       | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetEnvironmentTemplateMinorVersion](../../../proton/latest/APIReference/API_GetEnvironmentTemplateMinorVersion.md "../../../proton/latest/APIReference/API_GetEnvironmentTemplateMinorVersion.md")                | Grants permission to get an environment template minor version. DEPRECATED<br>• use GetEnvironmentTemplateVersion instead                                                                                                                                                                       | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetEnvironmentTemplateVersion](../../../proton/latest/APIReference/API_GetEnvironmentTemplateVersion.md "../../../proton/latest/APIReference/API_GetEnvironmentTemplateVersion.md")                               | Grants permission to describe an environment template version                                                                                                                                                                                                                                   | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetRepository](../../../proton/latest/APIReference/API_GetRepository.md "../../../proton/latest/APIReference/API_GetRepository.md")                                                                               | Grants permission to describe a repository                                                                                                                                                                                                                                                      | [repository\*](#list_proton-resource-repository "#list_proton-resource-repository")                                                             | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetRepositorySyncStatus](../../../proton/latest/APIReference/API_GetRepositorySyncStatus.md "../../../proton/latest/APIReference/API_GetRepositorySyncStatus.md")                                                 | Grants permission to get the latest sync status for a repository                                                                                                                                                                                                                                |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [GetResourceTemplateVersionStatusCounts](../../../proton/latest/APIReference/API_GetResourceTemplateVersionStatusCounts.md "../../../proton/latest/APIReference/API_GetResourceTemplateVersionStatusCounts.md")    | Grants permission to list resource template version status counts                                                                                                                                                                                                                               |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [GetResourcesSummary](../../../proton/latest/APIReference/API_GetResourcesSummary.md "../../../proton/latest/APIReference/API_GetResourcesSummary.md")                                                             | Grants permission to get resources summary                                                                                                                                                                                                                                                      |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [GetService](../../../proton/latest/APIReference/API_GetService.md "../../../proton/latest/APIReference/API_GetService.md")                                                                                        | Grants permission to describe a service                                                                                                                                                                                                                                                         | [service\*](#list_proton-resource-service "#list_proton-resource-service")                                                                      | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetServiceInstance](../../../proton/latest/APIReference/API_GetServiceInstance.md "../../../proton/latest/APIReference/API_GetServiceInstance.md")                                                                | Grants permission to describe a service instance                                                                                                                                                                                                                                                | [service-instance\*](#list_proton-resource-service-instance "#list_proton-resource-service-instance")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetServiceInstanceSyncStatus](../../../proton/latest/APIReference/API_GetServiceInstanceSyncStatus.md "../../../proton/latest/APIReference/API_GetServiceInstanceSyncStatus.md")                                  | Grants permission to describe the sync status of a service instance                                                                                                                                                                                                                             |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [GetServiceSyncBlockerSummary](../../../proton/latest/APIReference/API_GetServiceSyncBlockerSummary.md "../../../proton/latest/APIReference/API_GetServiceSyncBlockerSummary.md")                                  | Grants permission to describe service sync blockers on a service or service instance                                                                                                                                                                                                            |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [GetServiceSyncConfig](../../../proton/latest/APIReference/API_GetServiceSyncConfig.md "../../../proton/latest/APIReference/API_GetServiceSyncConfig.md")                                                          | Grants permission to describe a service sync config                                                                                                                                                                                                                                             |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [GetServiceTemplate](../../../proton/latest/APIReference/API_GetServiceTemplate.md "../../../proton/latest/APIReference/API_GetServiceTemplate.md")                                                                | Grants permission to describe a service template                                                                                                                                                                                                                                                | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetServiceTemplateMajorVersion](../../../proton/latest/APIReference/API_GetServiceTemplateMajorVersion.md "../../../proton/latest/APIReference/API_GetServiceTemplateMajorVersion.md")                            | Grants permission to get a service template major version. DEPRECATED<br>• use GetServiceTemplateVersion instead                                                                                                                                                                                | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetServiceTemplateMinorVersion](../../../proton/latest/APIReference/API_GetServiceTemplateMinorVersion.md "../../../proton/latest/APIReference/API_GetServiceTemplateMinorVersion.md")                            | Grants permission to get a service template minor version. DEPRECATED<br>• use GetServiceTemplateVersion instead                                                                                                                                                                                | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetServiceTemplateVersion](../../../proton/latest/APIReference/API_GetServiceTemplateVersion.md "../../../proton/latest/APIReference/API_GetServiceTemplateVersion.md")                                           | Grants permission to describe a service template version                                                                                                                                                                                                                                        | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetTemplateSyncConfig](../../../proton/latest/APIReference/API_GetTemplateSyncConfig.md "../../../proton/latest/APIReference/API_GetTemplateSyncConfig.md")                                                       | Grants permission to describe a TemplateSyncConfig                                                                                                                                                                                                                                              |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [GetTemplateSyncStatus](../../../proton/latest/APIReference/API_GetTemplateSyncStatus.md "../../../proton/latest/APIReference/API_GetTemplateSyncStatus.md")                                                       | Grants permission to describe the sync status of a template                                                                                                                                                                                                                                     |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Read           |
-| [ListComponentOutputs](../../../proton/latest/APIReference/API_ListComponentOutputs.md "../../../proton/latest/APIReference/API_ListComponentOutputs.md")                                                          | Grants permission to list component outputs                                                                                                                                                                                                                                                     | [component\*](#list_proton-resource-component "#list_proton-resource-component")                                                                | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | List           |
-| [deployment](#list_proton-resource-deployment "#list_proton-resource-deployment")                                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [ListComponentProvisionedResources](../../../proton/latest/APIReference/API_ListComponentProvisionedResources.md "../../../proton/latest/APIReference/API_ListComponentProvisionedResources.md")                   | Grants permission to list component provisioned resources                                                                                                                                                                                                                                       | [component\*](#list_proton-resource-component "#list_proton-resource-component")                                                                | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | List           |
-| [ListComponents](../../../proton/latest/APIReference/API_ListComponents.md "../../../proton/latest/APIReference/API_ListComponents.md")                                                                            | Grants permission to list components                                                                                                                                                                                                                                                            | [environment](#list_proton-resource-environment "#list_proton-resource-environment")                                                            | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | List           |
-| [service](#list_proton-resource-service "#list_proton-resource-service")                                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [service-instance](#list_proton-resource-service-instance "#list_proton-resource-service-instance")                                                                                                                | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [ListDeployments](../../../proton/latest/APIReference/API_ListDeployments.md "../../../proton/latest/APIReference/API_ListDeployments.md")                                                                         | Grants permission to list deployments                                                                                                                                                                                                                                                           |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | List           |
-| [ListEnvironmentAccountConnections](../../../proton/latest/APIReference/API_ListEnvironmentAccountConnections.md "../../../proton/latest/APIReference/API_ListEnvironmentAccountConnections.md")                   | Grants permission to list environment account connections                                                                                                                                                                                                                                       |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | List           |
-| [ListEnvironmentOutputs](../../../proton/latest/APIReference/API_ListEnvironmentOutputs.md "../../../proton/latest/APIReference/API_ListEnvironmentOutputs.md")                                                    | Grants permission to list environment outputs                                                                                                                                                                                                                                                   | [deployment](#list_proton-resource-deployment "#list_proton-resource-deployment")                                                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | List           |
-| [environment\*](#list_proton-resource-environment "#list_proton-resource-environment")                                                                                                                             | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [ListEnvironmentProvisionedResources](../../../proton/latest/APIReference/API_ListEnvironmentProvisionedResources.md "../../../proton/latest/APIReference/API_ListEnvironmentProvisionedResources.md")             | Grants permission to list environment provisioned resources                                                                                                                                                                                                                                     | [environment\*](#list_proton-resource-environment "#list_proton-resource-environment")                                                          | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | List           |
-| [ListEnvironmentTemplateMajorVersions](../../../proton/latest/APIReference/API_ListEnvironmentTemplateMajorVersions.md "../../../proton/latest/APIReference/API_ListEnvironmentTemplateMajorVersions.md")          | Grants permission to list environment template major versions. DEPRECATED<br>• use ListEnvironmentTemplateVersions instead                                                                                                                                                                      | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | List           |
-| [ListEnvironmentTemplateMinorVersions](../../../proton/latest/APIReference/API_ListEnvironmentTemplateMinorVersions.md "../../../proton/latest/APIReference/API_ListEnvironmentTemplateMinorVersions.md")          | Grants permission to list an environment template minor versions. DEPRECATED<br>• use ListEnvironmentTemplateVersions instead                                                                                                                                                                   | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | List           |
-| [ListEnvironmentTemplateVersions](../../../proton/latest/APIReference/API_ListEnvironmentTemplateVersions.md "../../../proton/latest/APIReference/API_ListEnvironmentTemplateVersions.md")                         | Grants permission to list environment template versions                                                                                                                                                                                                                                         | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | List           |
-| [ListEnvironmentTemplates](../../../proton/latest/APIReference/API_ListEnvironmentTemplates.md "../../../proton/latest/APIReference/API_ListEnvironmentTemplates.md")                                              | Grants permission to list environment templates                                                                                                                                                                                                                                                 |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | List           |
-| [ListEnvironments](../../../proton/latest/APIReference/API_ListEnvironments.md "../../../proton/latest/APIReference/API_ListEnvironments.md")                                                                      | Grants permission to list environments                                                                                                                                                                                                                                                          |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | List           |
-| [ListRepositories](../../../proton/latest/APIReference/API_ListRepositories.md "../../../proton/latest/APIReference/API_ListRepositories.md")                                                                      | Grants permission to list repositories                                                                                                                                                                                                                                                          |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | List           |
-| [ListRepositorySyncDefinitions](../../../proton/latest/APIReference/API_ListRepositorySyncDefinitions.md "../../../proton/latest/APIReference/API_ListRepositorySyncDefinitions.md")                               | Grants permission to list repository sync definitions                                                                                                                                                                                                                                           |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | List           |
-| [ListServiceInstanceOutputs](../../../proton/latest/APIReference/API_ListServiceInstanceOutputs.md "../../../proton/latest/APIReference/API_ListServiceInstanceOutputs.md")                                        | Grants permission to list service instance outputs                                                                                                                                                                                                                                              | [deployment](#list_proton-resource-deployment "#list_proton-resource-deployment")                                                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | List           |
-| [service\*](#list_proton-resource-service "#list_proton-resource-service")                                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [service-instance\*](#list_proton-resource-service-instance "#list_proton-resource-service-instance")                                                                                                              | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [ListServiceInstanceProvisionedResources](../../../proton/latest/APIReference/API_ListServiceInstanceProvisionedResources.md "../../../proton/latest/APIReference/API_ListServiceInstanceProvisionedResources.md") | Grants permission to list service instance provisioned resources                                                                                                                                                                                                                                | [service\*](#list_proton-resource-service "#list_proton-resource-service")                                                                      | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | List           |
-| [service-instance\*](#list_proton-resource-service-instance "#list_proton-resource-service-instance")                                                                                                              | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [ListServiceInstances](../../../proton/latest/APIReference/API_ListServiceInstances.md "../../../proton/latest/APIReference/API_ListServiceInstances.md")                                                          | Grants permission to list service instances                                                                                                                                                                                                                                                     |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | List           |
-| [ListServicePipelineOutputs](../../../proton/latest/APIReference/API_ListServicePipelineOutputs.md "../../../proton/latest/APIReference/API_ListServicePipelineOutputs.md")                                        | Grants permission to list service pipeline outputs                                                                                                                                                                                                                                              | [deployment](#list_proton-resource-deployment "#list_proton-resource-deployment")                                                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | List           |
-| [service\*](#list_proton-resource-service "#list_proton-resource-service")                                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [ListServicePipelineProvisionedResources](../../../proton/latest/APIReference/API_ListServicePipelineProvisionedResources.md "../../../proton/latest/APIReference/API_ListServicePipelineProvisionedResources.md") | Grants permission to list service pipeline provisioned resources                                                                                                                                                                                                                                | [service\*](#list_proton-resource-service "#list_proton-resource-service")                                                                      | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | List           |
-| [ListServiceTemplateMajorVersions](../../../proton/latest/APIReference/API_ListServiceTemplateMajorVersions.md "../../../proton/latest/APIReference/API_ListServiceTemplateMajorVersions.md")                      | Grants permission to list service template major versions. DEPRECATED<br>• use ListServiceTemplateVersions instead                                                                                                                                                                              | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | List           |
-| [ListServiceTemplateMinorVersions](../../../proton/latest/APIReference/API_ListServiceTemplateMinorVersions.md "../../../proton/latest/APIReference/API_ListServiceTemplateMinorVersions.md")                      | Grants permission to list service template minor versions. DEPRECATED<br>• use ListServiceTemplateVersions instead                                                                                                                                                                              | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | List           |
-| [ListServiceTemplateVersions](../../../proton/latest/APIReference/API_ListServiceTemplateVersions.md "../../../proton/latest/APIReference/API_ListServiceTemplateVersions.md")                                     | Grants permission to list service template versions                                                                                                                                                                                                                                             | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | List           |
-| [ListServiceTemplates](../../../proton/latest/APIReference/API_ListServiceTemplates.md "../../../proton/latest/APIReference/API_ListServiceTemplates.md")                                                          | Grants permission to list service templates                                                                                                                                                                                                                                                     |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | List           |
-| [ListServices](../../../proton/latest/APIReference/API_ListServices.md "../../../proton/latest/APIReference/API_ListServices.md")                                                                                  | Grants permission to list services                                                                                                                                                                                                                                                              |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | List           |
-| [ListTagsForResource](../../../proton/latest/APIReference/API_ListTagsForResource.md "../../../proton/latest/APIReference/API_ListTagsForResource.md")                                                             | Grants permission to list tags of a resource                                                                                                                                                                                                                                                    | [component](#list_proton-resource-component "#list_proton-resource-component")                                                                  | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Read           |
-| [environment](#list_proton-resource-environment "#list_proton-resource-environment")                                                                                                                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [environment-account-connection](#list_proton-resource-environment-account-connection "#list_proton-resource-environment-account-connection")                                                                      | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [environment-template](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [environment-template-major-version](#list_proton-resource-environment-template-major-version "#list_proton-resource-environment-template-major-version")                                                          | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [environment-template-minor-version](#list_proton-resource-environment-template-minor-version "#list_proton-resource-environment-template-minor-version")                                                          | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [environment-template-version](#list_proton-resource-environment-template-version "#list_proton-resource-environment-template-version")                                                                            | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [repository](#list_proton-resource-repository "#list_proton-resource-repository")                                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [service](#list_proton-resource-service "#list_proton-resource-service")                                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [service-instance](#list_proton-resource-service-instance "#list_proton-resource-service-instance")                                                                                                                | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [service-template](#list_proton-resource-service-template "#list_proton-resource-service-template")                                                                                                                | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [service-template-major-version](#list_proton-resource-service-template-major-version "#list_proton-resource-service-template-major-version")                                                                      | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [service-template-minor-version](#list_proton-resource-service-template-minor-version "#list_proton-resource-service-template-minor-version")                                                                      | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [service-template-version](#list_proton-resource-service-template-version "#list_proton-resource-service-template-version")                                                                                        | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [NotifyResourceDeploymentStatusChange](../../../proton/latest/APIReference/API_NotifyResourceDeploymentStatusChange.md "../../../proton/latest/APIReference/API_NotifyResourceDeploymentStatusChange.md")          | Grants permission to notify Proton of resource deployment status changes                                                                                                                                                                                                                        | [environment](#list_proton-resource-environment "#list_proton-resource-environment")                                                            | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [service-instance](#list_proton-resource-service-instance "#list_proton-resource-service-instance")                                                                                                                | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                    |
-| [RejectEnvironmentAccountConnection](../../../proton/latest/APIReference/API_RejectEnvironmentAccountConnection.md "../../../proton/latest/APIReference/API_RejectEnvironmentAccountConnection.md")                | Grants permission to reject an environment account connection request from another environment account                                                                                                                                                                                          | [environment-account-connection\*](#list_proton-resource-environment-account-connection "#list_proton-resource-environment-account-connection") | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [TagResource](../../../proton/latest/APIReference/API_TagResource.md "../../../proton/latest/APIReference/API_TagResource.md")                                                                                     | Grants permission to add tags to a resource                                                                                                                                                                                                                                                     | [component](#list_proton-resource-component "#list_proton-resource-component")                                                                  | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                                    | Tagging, Write |
-| [environment](#list_proton-resource-environment "#list_proton-resource-environment")                                                                                                                               | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys") |
-| [environment-account-connection](#list_proton-resource-environment-account-connection "#list_proton-resource-environment-account-connection")                                                                      | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys") |
-| [environment-template](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                                                                                                    | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys") |
-| [environment-template-major-version](#list_proton-resource-environment-template-major-version "#list_proton-resource-environment-template-major-version")                                                          | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys") |
-| [environment-template-minor-version](#list_proton-resource-environment-template-minor-version "#list_proton-resource-environment-template-minor-version")                                                          | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys") |
-| [environment-template-version](#list_proton-resource-environment-template-version "#list_proton-resource-environment-template-version")                                                                            | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys") |
-| [repository](#list_proton-resource-repository "#list_proton-resource-repository")                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys") |
-| [service](#list_proton-resource-service "#list_proton-resource-service")                                                                                                                                           | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys") |
-| [service-instance](#list_proton-resource-service-instance "#list_proton-resource-service-instance")                                                                                                                | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys") |
-| [service-template](#list_proton-resource-service-template "#list_proton-resource-service-template")                                                                                                                | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys") |
-| [service-template-major-version](#list_proton-resource-service-template-major-version "#list_proton-resource-service-template-major-version")                                                                      | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys") |
-| [service-template-minor-version](#list_proton-resource-service-template-minor-version "#list_proton-resource-service-template-minor-version")                                                                      | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys") |
-| [service-template-version](#list_proton-resource-service-template-version "#list_proton-resource-service-template-version")                                                                                        | [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_ "#list_proton-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys") |
-| [UntagResource](../../../proton/latest/APIReference/API_UntagResource.md "../../../proton/latest/APIReference/API_UntagResource.md")                                                                               | Grants permission to remove tags from a resource                                                                                                                                                                                                                                                | [component](#list_proton-resource-component "#list_proton-resource-component")                                                                  | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                                                                                                                                                 | Tagging, Write |
-| [environment](#list_proton-resource-environment "#list_proton-resource-environment")                                                                                                                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                              |
-| [environment-account-connection](#list_proton-resource-environment-account-connection "#list_proton-resource-environment-account-connection")                                                                      | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                              |
-| [environment-template](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                              |
-| [environment-template-major-version](#list_proton-resource-environment-template-major-version "#list_proton-resource-environment-template-major-version")                                                          | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                              |
-| [environment-template-minor-version](#list_proton-resource-environment-template-minor-version "#list_proton-resource-environment-template-minor-version")                                                          | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                              |
-| [environment-template-version](#list_proton-resource-environment-template-version "#list_proton-resource-environment-template-version")                                                                            | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                              |
-| [repository](#list_proton-resource-repository "#list_proton-resource-repository")                                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                              |
-| [service](#list_proton-resource-service "#list_proton-resource-service")                                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                              |
-| [service-instance](#list_proton-resource-service-instance "#list_proton-resource-service-instance")                                                                                                                | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                              |
-| [service-template](#list_proton-resource-service-template "#list_proton-resource-service-template")                                                                                                                | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                              |
-| [service-template-major-version](#list_proton-resource-service-template-major-version "#list_proton-resource-service-template-major-version")                                                                      | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                              |
-| [service-template-minor-version](#list_proton-resource-service-template-minor-version "#list_proton-resource-service-template-minor-version")                                                                      | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                              |
-| [service-template-version](#list_proton-resource-service-template-version "#list_proton-resource-service-template-version")                                                                                        | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_proton-aws_TagKeys "#list_proton-aws_TagKeys")                                                                                                              |
-| [UpdateAccountRoles](../../../proton/latest/APIReference/API_UpdateAccountRoles.md "../../../proton/latest/APIReference/API_UpdateAccountRoles.md")                                                                | Grants permission to update account roles. DEPRECATED<br>• use UpdateAccountSettings instead                                                                                                                                                                                                    |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Write          |
-| [UpdateAccountSettings](../../../proton/latest/APIReference/API_UpdateAccountSettings.md "../../../proton/latest/APIReference/API_UpdateAccountSettings.md")                                                       | Grants permission to update the account settings                                                                                                                                                                                                                                                |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Write          |
-| [UpdateComponent](../../../proton/latest/APIReference/API_UpdateComponent.md "../../../proton/latest/APIReference/API_UpdateComponent.md")                                                                         | Grants permission to update component                                                                                                                                                                                                                                                           | [component\*](#list_proton-resource-component "#list_proton-resource-component")                                                                | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateEnvironment](../../../proton/latest/APIReference/API_UpdateEnvironment.md "../../../proton/latest/APIReference/API_UpdateEnvironment.md")                                                                   | Grants permission to update an environment                                                                                                                                                                                                                                                      | [environment\*](#list_proton-resource-environment "#list_proton-resource-environment")                                                          | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[proton:EnvironmentTemplate](#list_proton-proton_EnvironmentTemplate "#list_proton-proton_EnvironmentTemplate")                                                                                                                                                                                    | Write          |
-| [UpdateEnvironmentAccountConnection](../../../proton/latest/APIReference/API_UpdateEnvironmentAccountConnection.md "../../../proton/latest/APIReference/API_UpdateEnvironmentAccountConnection.md")                | Grants permission to update an environment account connection                                                                                                                                                                                                                                   | [environment-account-connection\*](#list_proton-resource-environment-account-connection "#list_proton-resource-environment-account-connection") | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateEnvironmentTemplate](../../../proton/latest/APIReference/API_UpdateEnvironmentTemplate.md "../../../proton/latest/APIReference/API_UpdateEnvironmentTemplate.md")                                           | Grants permission to update an environment template                                                                                                                                                                                                                                             | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateEnvironmentTemplateMajorVersion](../../../proton/latest/APIReference/API_UpdateEnvironmentTemplateMajorVersion.md "../../../proton/latest/APIReference/API_UpdateEnvironmentTemplateMajorVersion.md")       | Grants permission to update an environment template major version. DEPRECATED<br>• use UpdateEnvironmentTemplateVersion instead                                                                                                                                                                 | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateEnvironmentTemplateMinorVersion](../../../proton/latest/APIReference/API_UpdateEnvironmentTemplateMinorVersion.md "../../../proton/latest/APIReference/API_UpdateEnvironmentTemplateMinorVersion.md")       | Grants permission to update an environment template minor version. DEPRECATED<br>• use UpdateEnvironmentTemplateVersion instead                                                                                                                                                                 | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateEnvironmentTemplateVersion](../../../proton/latest/APIReference/API_UpdateEnvironmentTemplateVersion.md "../../../proton/latest/APIReference/API_UpdateEnvironmentTemplateVersion.md")                      | Grants permission to update an environment template version                                                                                                                                                                                                                                     | [environment-template\*](#list_proton-resource-environment-template "#list_proton-resource-environment-template")                               | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateService](../../../proton/latest/APIReference/API_UpdateService.md "../../../proton/latest/APIReference/API_UpdateService.md")                                                                               | Grants permission to update a service                                                                                                                                                                                                                                                           | [service\*](#list_proton-resource-service "#list_proton-resource-service")                                                                      | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[proton:ServiceTemplate](#list_proton-proton_ServiceTemplate "#list_proton-proton_ServiceTemplate")                                                                                                                                                                                                | Write          |
-| [UpdateServiceInstance](../../../proton/latest/APIReference/API_UpdateServiceInstance.md "../../../proton/latest/APIReference/API_UpdateServiceInstance.md")                                                       | Grants permission to update a service instance                                                                                                                                                                                                                                                  | [service-instance\*](#list_proton-resource-service-instance "#list_proton-resource-service-instance")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[proton:ServiceTemplate](#list_proton-proton_ServiceTemplate "#list_proton-proton_ServiceTemplate")                                                                                                                                                                                                | Write          |
-| [UpdateServicePipeline](../../../proton/latest/APIReference/API_UpdateServicePipeline.md "../../../proton/latest/APIReference/API_UpdateServicePipeline.md")                                                       | Grants permission to update a service pipeline                                                                                                                                                                                                                                                  | [service\*](#list_proton-resource-service "#list_proton-resource-service")                                                                      | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")<br>[proton:ServiceTemplate](#list_proton-proton_ServiceTemplate "#list_proton-proton_ServiceTemplate")                                                                                                                                                                                                | Write          |
-| [UpdateServiceSyncBlocker](../../../proton/latest/APIReference/API_UpdateServiceSyncBlocker.md "../../../proton/latest/APIReference/API_UpdateServiceSyncBlocker.md")                                              | Grants permission to update a service sync blocker                                                                                                                                                                                                                                              |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Write          |
-| [UpdateServiceSyncConfig](../../../proton/latest/APIReference/API_UpdateServiceSyncConfig.md "../../../proton/latest/APIReference/API_UpdateServiceSyncConfig.md")                                                 | Grants permission to update a service sync config                                                                                                                                                                                                                                               |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Write          |
-| [UpdateServiceTemplate](../../../proton/latest/APIReference/API_UpdateServiceTemplate.md "../../../proton/latest/APIReference/API_UpdateServiceTemplate.md")                                                       | Grants permission to update a service template                                                                                                                                                                                                                                                  | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateServiceTemplateMajorVersion](../../../proton/latest/APIReference/API_UpdateServiceTemplateMajorVersion.md "../../../proton/latest/APIReference/API_UpdateServiceTemplateMajorVersion.md")                   | Grants permission to update a service template major version. DEPRECATED<br>• use UpdateServiceTemplateVersion instead                                                                                                                                                                          | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateServiceTemplateMinorVersion](../../../proton/latest/APIReference/API_UpdateServiceTemplateMinorVersion.md "../../../proton/latest/APIReference/API_UpdateServiceTemplateMinorVersion.md")                   | Grants permission to create a service template minor version. DEPRECATED<br>• use UpdateServiceTemplateVersion instead                                                                                                                                                                          | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateServiceTemplateVersion](../../../proton/latest/APIReference/API_UpdateServiceTemplateVersion.md "../../../proton/latest/APIReference/API_UpdateServiceTemplateVersion.md")                                  | Grants permission to update a service template version                                                                                                                                                                                                                                          | [service-template\*](#list_proton-resource-service-template "#list_proton-resource-service-template")                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateTemplateSyncConfig](../../../proton/latest/APIReference/API_UpdateTemplateSyncConfig.md "../../../proton/latest/APIReference/API_UpdateTemplateSyncConfig.md")                                              | Grants permission to update a TemplateSyncConfig                                                                                                                                                                                                                                                |                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                    | Write          |
+
+
+
+- **   [AcceptEnvironmentAccountConnection](https://docs.aws.amazon.com/proton/latest/APIReference/API_AcceptEnvironmentAccountConnection.html)  **
+  - **Description:** Grants permission to reject an environment account connection request from another environment account
+  - **Resource types (\*required):** [environment-account-connection\*](#list_proton-resource-environment-account-connection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelComponentDeployment](https://docs.aws.amazon.com/proton/latest/APIReference/API_CancelComponentDeployment.html)  **
+  - **Description:** Grants permission to cancel component deployment
+  - **Resource types (\*required):** [component\*](#list_proton-resource-component)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelEnvironmentDeployment](https://docs.aws.amazon.com/proton/latest/APIReference/API_CancelEnvironmentDeployment.html)  **
+  - **Description:** Grants permission to cancel an environment deployment
+  - **Resource types (\*required):** [environment\*](#list_proton-resource-environment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[proton:EnvironmentTemplate](#list_proton-proton_EnvironmentTemplate)
+  - **Access level:** Write
+
+- **   [CancelServiceInstanceDeployment](https://docs.aws.amazon.com/proton/latest/APIReference/API_CancelServiceInstanceDeployment.html)  **
+  - **Description:** Grants permission to cancel a service instance deployment
+  - **Resource types (\*required):** [service-instance\*](#list_proton-resource-service-instance)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[proton:ServiceTemplate](#list_proton-proton_ServiceTemplate)
+  - **Access level:** Write
+
+- **   [CancelServicePipelineDeployment](https://docs.aws.amazon.com/proton/latest/APIReference/API_CancelServicePipelineDeployment.html)  **
+  - **Description:** Grants permission to cancel a service pipeline deployment
+  - **Resource types (\*required):** [service\*](#list_proton-resource-service)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[proton:ServiceTemplate](#list_proton-proton_ServiceTemplate)
+  - **Access level:** Write
+
+- **   [CreateComponent](https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateComponent.html)  **
+  - **Description:** Grants permission to create component
+  - **Resource types (\*required):** [component\*](#list_proton-resource-component)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateEnvironment](https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateEnvironment.html)  **
+  - **Description:** Grants permission to create an environment
+  - **Resource types (\*required):** [environment\*](#list_proton-resource-environment)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)<br />[proton:EnvironmentTemplate](#list_proton-proton_EnvironmentTemplate)
+  - **Access level:** Write
+
+- **   [CreateEnvironmentAccountConnection](https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateEnvironmentAccountConnection.html)  **
+  - **Description:** Grants permission to create an environment account connection
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateEnvironmentTemplate](https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateEnvironmentTemplate.html)  **
+  - **Description:** Grants permission to create an environment template
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateEnvironmentTemplateMajorVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateEnvironmentTemplateMajorVersion.html)  **
+  - **Description:** Grants permission to create an environment template major version. DEPRECATED - use CreateEnvironmentTemplateVersion instead
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateEnvironmentTemplateMinorVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateEnvironmentTemplateMinorVersion.html)  **
+  - **Description:** Grants permission to create an environment template minor version. DEPRECATED - use CreateEnvironmentTemplateVersion instead
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateEnvironmentTemplateVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateEnvironmentTemplateVersion.html)  **
+  - **Description:** Grants permission to create an environment template version
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRepository](https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateRepository.html)  **
+  - **Description:** Grants permission to create a repository
+  - **Resource types (\*required):** [repository\*](#list_proton-resource-repository)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateService](https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateService.html)  **
+  - **Description:** Grants permission to create a service
+  - **Resource types (\*required):** [service\*](#list_proton-resource-service)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)<br />[proton:ServiceTemplate](#list_proton-proton_ServiceTemplate)
+  - **Access level:** Write
+
+- **   [CreateServiceInstance](https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateServiceInstance.html)  **
+  - **Description:** Grants permission to create a service instance
+  - **Resource types (\*required):** [service-instance\*](#list_proton-resource-service-instance)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)<br />[proton:ServiceTemplate](#list_proton-proton_ServiceTemplate)
+  - **Access level:** Write
+
+- **   [CreateServiceSyncConfig](https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateServiceSyncConfig.html)  **
+  - **Description:** Grants permission to create a service sync config
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateServiceTemplate](https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateServiceTemplate.html)  **
+  - **Description:** Grants permission to create a service template
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateServiceTemplateMajorVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateServiceTemplateMajorVersion.html)  **
+  - **Description:** Grants permission to create a service template major version. DEPRECATED - use CreateServiceTemplateVersion instead
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateServiceTemplateMinorVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateServiceTemplateMinorVersion.html)  **
+  - **Description:** Grants permission to create a service template minor version. DEPRECATED - use CreateServiceTemplateVersion instead
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateServiceTemplateVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateServiceTemplateVersion.html)  **
+  - **Description:** Grants permission to create a service template version
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateTemplateSyncConfig](https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateTemplateSyncConfig.html)  **
+  - **Description:** Grants permission to create a template sync config
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteAccountRoles](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteAccountRoles.html)  **
+  - **Description:** Grants permission to delete account roles. DEPRECATED - use UpdateAccountSettings instead
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteComponent](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteComponent.html)  **
+  - **Description:** Grants permission to delete component
+  - **Resource types (\*required):** [component\*](#list_proton-resource-component)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDeployment](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteDeployment.html)  **
+  - **Description:** Grants permission to delete a deployment
+  - **Resource types (\*required):** [deployment\*](#list_proton-resource-deployment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteEnvironment](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteEnvironment.html)  **
+  - **Description:** Grants permission to delete an environment
+  - **Resource types (\*required):** [environment\*](#list_proton-resource-environment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[proton:EnvironmentTemplate](#list_proton-proton_EnvironmentTemplate)
+  - **Access level:** Write
+
+- **   [DeleteEnvironmentAccountConnection](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteEnvironmentAccountConnection.html)  **
+  - **Description:** Grants permission to delete an environment account connection
+  - **Resource types (\*required):** [environment-account-connection\*](#list_proton-resource-environment-account-connection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteEnvironmentTemplate](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteEnvironmentTemplate.html)  **
+  - **Description:** Grants permission to delete an environment template
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteEnvironmentTemplateMajorVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteEnvironmentTemplateMajorVersion.html)  **
+  - **Description:** Grants permission to delete an environment template major version. DEPRECATED - use DeleteEnvironmentTemplateVersion instead
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteEnvironmentTemplateMinorVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteEnvironmentTemplateMinorVersion.html)  **
+  - **Description:** Grants permission to delete an environment template minor version. DEPRECATED - use DeleteEnvironmentTemplateVersion instead
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteEnvironmentTemplateVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteEnvironmentTemplateVersion.html)  **
+  - **Description:** Grants permission to delete an environment template version
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRepository](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteRepository.html)  **
+  - **Description:** Grants permission to delete a repository
+  - **Resource types (\*required):** [repository\*](#list_proton-resource-repository)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteService](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteService.html)  **
+  - **Description:** Grants permission to delete a service
+  - **Resource types (\*required):** [service\*](#list_proton-resource-service)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[proton:ServiceTemplate](#list_proton-proton_ServiceTemplate)
+  - **Access level:** Write
+
+- **   [DeleteServiceSyncConfig](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteServiceSyncConfig.html)  **
+  - **Description:** Grants permission to delete a service sync config
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteServiceTemplate](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteServiceTemplate.html)  **
+  - **Description:** Grants permission to delete a service template
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteServiceTemplateMajorVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteServiceTemplateMajorVersion.html)  **
+  - **Description:** Grants permission to delete a service template major version. DEPRECATED - use DeleteServiceTemplateVersion instead
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteServiceTemplateMinorVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteServiceTemplateMinorVersion.html)  **
+  - **Description:** Grants permission to delete a service template minor version. DEPRECATED - use DeleteServiceTemplateVersion instead
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteServiceTemplateVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteServiceTemplateVersion.html)  **
+  - **Description:** Grants permission to delete a service template version
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteTemplateSyncConfig](https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteTemplateSyncConfig.html)  **
+  - **Description:** Grants permission to delete a TemplateSyncConfig
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [GetAccountRoles](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetAccountRoles.html)  **
+  - **Description:** Grants permission to get account roles. DEPRECATED - use GetAccountSettings instead
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAccountSettings](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetAccountSettings.html)  **
+  - **Description:** Grants permission to describe the account settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetComponent](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetComponent.html)  **
+  - **Description:** Grants permission to describe a component
+  - **Resource types (\*required):** [component\*](#list_proton-resource-component)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDeployment](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetDeployment.html)  **
+  - **Description:** Grants permission to describe a deployment
+  - **Resource types (\*required):** [deployment\*](#list_proton-resource-deployment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetEnvironment](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetEnvironment.html)  **
+  - **Description:** Grants permission to describe an environment
+  - **Resource types (\*required):** [environment\*](#list_proton-resource-environment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetEnvironmentAccountConnection](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetEnvironmentAccountConnection.html)  **
+  - **Description:** Grants permission to describe an environment account connection
+  - **Resource types (\*required):** [environment-account-connection\*](#list_proton-resource-environment-account-connection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetEnvironmentTemplate](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetEnvironmentTemplate.html)  **
+  - **Description:** Grants permission to describe an environment template
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetEnvironmentTemplateMajorVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetEnvironmentTemplateMajorVersion.html)  **
+  - **Description:** Grants permission to get an environment template major version. DEPRECATED - use GetEnvironmentTemplateVersion instead
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetEnvironmentTemplateMinorVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetEnvironmentTemplateMinorVersion.html)  **
+  - **Description:** Grants permission to get an environment template minor version. DEPRECATED - use GetEnvironmentTemplateVersion instead
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetEnvironmentTemplateVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetEnvironmentTemplateVersion.html)  **
+  - **Description:** Grants permission to describe an environment template version
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRepository](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetRepository.html)  **
+  - **Description:** Grants permission to describe a repository
+  - **Resource types (\*required):** [repository\*](#list_proton-resource-repository)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRepositorySyncStatus](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetRepositorySyncStatus.html)  **
+  - **Description:** Grants permission to get the latest sync status for a repository
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetResourceTemplateVersionStatusCounts](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetResourceTemplateVersionStatusCounts.html)  **
+  - **Description:** Grants permission to list resource template version status counts
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetResourcesSummary](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetResourcesSummary.html)  **
+  - **Description:** Grants permission to get resources summary
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetService](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetService.html)  **
+  - **Description:** Grants permission to describe a service
+  - **Resource types (\*required):** [service\*](#list_proton-resource-service)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetServiceInstance](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetServiceInstance.html)  **
+  - **Description:** Grants permission to describe a service instance
+  - **Resource types (\*required):** [service-instance\*](#list_proton-resource-service-instance)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetServiceInstanceSyncStatus](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetServiceInstanceSyncStatus.html)  **
+  - **Description:** Grants permission to describe the sync status of a service instance
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetServiceSyncBlockerSummary](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetServiceSyncBlockerSummary.html)  **
+  - **Description:** Grants permission to describe service sync blockers on a service or service instance
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetServiceSyncConfig](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetServiceSyncConfig.html)  **
+  - **Description:** Grants permission to describe a service sync config
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetServiceTemplate](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetServiceTemplate.html)  **
+  - **Description:** Grants permission to describe a service template
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetServiceTemplateMajorVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetServiceTemplateMajorVersion.html)  **
+  - **Description:** Grants permission to get a service template major version. DEPRECATED - use GetServiceTemplateVersion instead
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetServiceTemplateMinorVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetServiceTemplateMinorVersion.html)  **
+  - **Description:** Grants permission to get a service template minor version. DEPRECATED - use GetServiceTemplateVersion instead
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetServiceTemplateVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetServiceTemplateVersion.html)  **
+  - **Description:** Grants permission to describe a service template version
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetTemplateSyncConfig](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetTemplateSyncConfig.html)  **
+  - **Description:** Grants permission to describe a TemplateSyncConfig
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetTemplateSyncStatus](https://docs.aws.amazon.com/proton/latest/APIReference/API_GetTemplateSyncStatus.html)  **
+  - **Description:** Grants permission to describe the sync status of a template
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListComponentOutputs](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListComponentOutputs.html)  **
+  - **Description:** Grants permission to list component outputs
+  - **Resource types (\*required):** [component\*](#list_proton-resource-component) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [deployment](#list_proton-resource-deployment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListComponentProvisionedResources](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListComponentProvisionedResources.html)  **
+  - **Description:** Grants permission to list component provisioned resources
+  - **Resource types (\*required):** [component\*](#list_proton-resource-component)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListComponents](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListComponents.html)  **
+  - **Description:** Grants permission to list components
+  - **Resource types (\*required):** [environment](#list_proton-resource-environment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [service](#list_proton-resource-service) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [service-instance](#list_proton-resource-service-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDeployments](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListDeployments.html)  **
+  - **Description:** Grants permission to list deployments
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListEnvironmentAccountConnections](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironmentAccountConnections.html)  **
+  - **Description:** Grants permission to list environment account connections
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListEnvironmentOutputs](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironmentOutputs.html)  **
+  - **Description:** Grants permission to list environment outputs
+  - **Resource types (\*required):** [deployment](#list_proton-resource-deployment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [environment\*](#list_proton-resource-environment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListEnvironmentProvisionedResources](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironmentProvisionedResources.html)  **
+  - **Description:** Grants permission to list environment provisioned resources
+  - **Resource types (\*required):** [environment\*](#list_proton-resource-environment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListEnvironmentTemplateMajorVersions](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironmentTemplateMajorVersions.html)  **
+  - **Description:** Grants permission to list environment template major versions. DEPRECATED - use ListEnvironmentTemplateVersions instead
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListEnvironmentTemplateMinorVersions](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironmentTemplateMinorVersions.html)  **
+  - **Description:** Grants permission to list an environment template minor versions. DEPRECATED - use ListEnvironmentTemplateVersions instead
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListEnvironmentTemplateVersions](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironmentTemplateVersions.html)  **
+  - **Description:** Grants permission to list environment template versions
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListEnvironmentTemplates](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironmentTemplates.html)  **
+  - **Description:** Grants permission to list environment templates
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListEnvironments](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironments.html)  **
+  - **Description:** Grants permission to list environments
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRepositories](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListRepositories.html)  **
+  - **Description:** Grants permission to list repositories
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRepositorySyncDefinitions](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListRepositorySyncDefinitions.html)  **
+  - **Description:** Grants permission to list repository sync definitions
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListServiceInstanceOutputs](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServiceInstanceOutputs.html)  **
+  - **Description:** Grants permission to list service instance outputs
+  - **Resource types (\*required):** [deployment](#list_proton-resource-deployment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [service\*](#list_proton-resource-service) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [service-instance\*](#list_proton-resource-service-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListServiceInstanceProvisionedResources](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServiceInstanceProvisionedResources.html)  **
+  - **Description:** Grants permission to list service instance provisioned resources
+  - **Resource types (\*required):** [service\*](#list_proton-resource-service) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [service-instance\*](#list_proton-resource-service-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListServiceInstances](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServiceInstances.html)  **
+  - **Description:** Grants permission to list service instances
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListServicePipelineOutputs](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServicePipelineOutputs.html)  **
+  - **Description:** Grants permission to list service pipeline outputs
+  - **Resource types (\*required):** [deployment](#list_proton-resource-deployment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [service\*](#list_proton-resource-service) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListServicePipelineProvisionedResources](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServicePipelineProvisionedResources.html)  **
+  - **Description:** Grants permission to list service pipeline provisioned resources
+  - **Resource types (\*required):** [service\*](#list_proton-resource-service)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListServiceTemplateMajorVersions](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServiceTemplateMajorVersions.html)  **
+  - **Description:** Grants permission to list service template major versions. DEPRECATED - use ListServiceTemplateVersions instead
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListServiceTemplateMinorVersions](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServiceTemplateMinorVersions.html)  **
+  - **Description:** Grants permission to list service template minor versions. DEPRECATED - use ListServiceTemplateVersions instead
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListServiceTemplateVersions](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServiceTemplateVersions.html)  **
+  - **Description:** Grants permission to list service template versions
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListServiceTemplates](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServiceTemplates.html)  **
+  - **Description:** Grants permission to list service templates
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListServices](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServices.html)  **
+  - **Description:** Grants permission to list services
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/proton/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags of a resource
+  - **Resource types (\*required):** [component](#list_proton-resource-component) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [environment](#list_proton-resource-environment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [environment-account-connection](#list_proton-resource-environment-account-connection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [environment-template](#list_proton-resource-environment-template) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [environment-template-major-version](#list_proton-resource-environment-template-major-version) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [environment-template-minor-version](#list_proton-resource-environment-template-minor-version) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [environment-template-version](#list_proton-resource-environment-template-version) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [repository](#list_proton-resource-repository) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [service](#list_proton-resource-service) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [service-instance](#list_proton-resource-service-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [service-template](#list_proton-resource-service-template) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [service-template-major-version](#list_proton-resource-service-template-major-version) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [service-template-minor-version](#list_proton-resource-service-template-minor-version) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [service-template-version](#list_proton-resource-service-template-version) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [NotifyResourceDeploymentStatusChange](https://docs.aws.amazon.com/proton/latest/APIReference/API_NotifyResourceDeploymentStatusChange.html)  **
+  - **Description:** Grants permission to notify Proton of resource deployment status changes
+  - **Resource types (\*required):** [environment](#list_proton-resource-environment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [service-instance](#list_proton-resource-service-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RejectEnvironmentAccountConnection](https://docs.aws.amazon.com/proton/latest/APIReference/API_RejectEnvironmentAccountConnection.html)  **
+  - **Description:** Grants permission to reject an environment account connection request from another environment account
+  - **Resource types (\*required):** [environment-account-connection\*](#list_proton-resource-environment-account-connection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/proton/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to add tags to a resource
+  - **Resource types (\*required):** [component](#list_proton-resource-component) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [environment](#list_proton-resource-environment) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [environment-account-connection](#list_proton-resource-environment-account-connection) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [environment-template](#list_proton-resource-environment-template) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [environment-template-major-version](#list_proton-resource-environment-template-major-version) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [environment-template-minor-version](#list_proton-resource-environment-template-minor-version) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [environment-template-version](#list_proton-resource-environment-template-version) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [repository](#list_proton-resource-repository) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [service](#list_proton-resource-service) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [service-instance](#list_proton-resource-service-instance) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [service-template](#list_proton-resource-service-template) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [service-template-major-version](#list_proton-resource-service-template-major-version) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [service-template-minor-version](#list_proton-resource-service-template-minor-version) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [service-template-version](#list_proton-resource-service-template-version) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_proton-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/proton/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove tags from a resource
+  - **Resource types (\*required):** [component](#list_proton-resource-component) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [environment](#list_proton-resource-environment) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [environment-account-connection](#list_proton-resource-environment-account-connection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [environment-template](#list_proton-resource-environment-template) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [environment-template-major-version](#list_proton-resource-environment-template-major-version) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [environment-template-minor-version](#list_proton-resource-environment-template-minor-version) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [environment-template-version](#list_proton-resource-environment-template-version) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [repository](#list_proton-resource-repository) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [service](#list_proton-resource-service) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [service-instance](#list_proton-resource-service-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [service-template](#list_proton-resource-service-template) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [service-template-major-version](#list_proton-resource-service-template-major-version) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [service-template-minor-version](#list_proton-resource-service-template-minor-version) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Resource types (\*required):** [service-template-version](#list_proton-resource-service-template-version) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_proton-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAccountRoles](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateAccountRoles.html)  **
+  - **Description:** Grants permission to update account roles. DEPRECATED - use UpdateAccountSettings instead
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateAccountSettings](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateAccountSettings.html)  **
+  - **Description:** Grants permission to update the account settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateComponent](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateComponent.html)  **
+  - **Description:** Grants permission to update component
+  - **Resource types (\*required):** [component\*](#list_proton-resource-component)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateEnvironment](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateEnvironment.html)  **
+  - **Description:** Grants permission to update an environment
+  - **Resource types (\*required):** [environment\*](#list_proton-resource-environment)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[proton:EnvironmentTemplate](#list_proton-proton_EnvironmentTemplate)
+  - **Access level:** Write
+
+- **   [UpdateEnvironmentAccountConnection](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateEnvironmentAccountConnection.html)  **
+  - **Description:** Grants permission to update an environment account connection
+  - **Resource types (\*required):** [environment-account-connection\*](#list_proton-resource-environment-account-connection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateEnvironmentTemplate](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateEnvironmentTemplate.html)  **
+  - **Description:** Grants permission to update an environment template
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateEnvironmentTemplateMajorVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateEnvironmentTemplateMajorVersion.html)  **
+  - **Description:** Grants permission to update an environment template major version. DEPRECATED - use UpdateEnvironmentTemplateVersion instead
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateEnvironmentTemplateMinorVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateEnvironmentTemplateMinorVersion.html)  **
+  - **Description:** Grants permission to update an environment template minor version. DEPRECATED - use UpdateEnvironmentTemplateVersion instead
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateEnvironmentTemplateVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateEnvironmentTemplateVersion.html)  **
+  - **Description:** Grants permission to update an environment template version
+  - **Resource types (\*required):** [environment-template\*](#list_proton-resource-environment-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateService](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateService.html)  **
+  - **Description:** Grants permission to update a service
+  - **Resource types (\*required):** [service\*](#list_proton-resource-service)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[proton:ServiceTemplate](#list_proton-proton_ServiceTemplate)
+  - **Access level:** Write
+
+- **   [UpdateServiceInstance](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateServiceInstance.html)  **
+  - **Description:** Grants permission to update a service instance
+  - **Resource types (\*required):** [service-instance\*](#list_proton-resource-service-instance)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[proton:ServiceTemplate](#list_proton-proton_ServiceTemplate)
+  - **Access level:** Write
+
+- **   [UpdateServicePipeline](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateServicePipeline.html)  **
+  - **Description:** Grants permission to update a service pipeline
+  - **Resource types (\*required):** [service\*](#list_proton-resource-service)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)<br />[proton:ServiceTemplate](#list_proton-proton_ServiceTemplate)
+  - **Access level:** Write
+
+- **   [UpdateServiceSyncBlocker](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateServiceSyncBlocker.html)  **
+  - **Description:** Grants permission to update a service sync blocker
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateServiceSyncConfig](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateServiceSyncConfig.html)  **
+  - **Description:** Grants permission to update a service sync config
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateServiceTemplate](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateServiceTemplate.html)  **
+  - **Description:** Grants permission to update a service template
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateServiceTemplateMajorVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateServiceTemplateMajorVersion.html)  **
+  - **Description:** Grants permission to update a service template major version. DEPRECATED - use UpdateServiceTemplateVersion instead
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateServiceTemplateMinorVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateServiceTemplateMinorVersion.html)  **
+  - **Description:** Grants permission to create a service template minor version. DEPRECATED - use UpdateServiceTemplateVersion instead
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateServiceTemplateVersion](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateServiceTemplateVersion.html)  **
+  - **Description:** Grants permission to update a service template version
+  - **Resource types (\*required):** [service-template\*](#list_proton-resource-service-template)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateTemplateSyncConfig](https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateTemplateSyncConfig.html)  **
+  - **Description:** Grants permission to update a TemplateSyncConfig
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS Proton
+<a name="list_proton-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                      | ARN                                                                                                                   | Condition keys                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| [component](../../../proton/latest/adminguide/ag-components.md "../../../proton/latest/adminguide/ag-components.md")                                                | arn:${Partition}:proton:${Region}:${Account}:component/${Id}                                                          | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_") |
-| [deployment](../../../proton/latest/adminguide/ag-deployments.md "../../../proton/latest/adminguide/ag-deployments.md")                                             | arn:${Partition}:proton:${Region}:${Account}:deployment/${Id}                                                         | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_") |
-| [environment](../../../proton/latest/adminguide/ag-environments.md "../../../proton/latest/adminguide/ag-environments.md")                                          | arn:${Partition}:proton:${Region}:${Account}:environment/${Name}                                                      | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_") |
-| [environment-account-connection](../../../proton/latest/adminguide/ag-env-account-connections.md "../../../proton/latest/adminguide/ag-env-account-connections.md") | arn:${Partition}:proton:${Region}:${Account}:environment-account-connection/${Id}                                     | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_") |
-| [environment-template](../../../proton/latest/adminguide/ag-env-templates.md "../../../proton/latest/adminguide/ag-env-templates.md")                               | arn:${Partition}:proton:${Region}:${Account}:environment-template/${Name}                                             | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_") |
-| [environment-template-major-version](../../../proton/latest/adminguide/ag-env-templates.md "../../../proton/latest/adminguide/ag-env-templates.md")                 | arn:${Partition}:proton:${Region}:${Account}:environment-template/${TemplateName}:${MajorVersionId}                   | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_") |
-| [environment-template-minor-version](../../../proton/latest/adminguide/ag-env-templates.md "../../../proton/latest/adminguide/ag-env-templates.md")                 | arn:${Partition}:proton:${Region}:${Account}:environment-template/${TemplateName}:${MajorVersionId}.${MinorVersionId} | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_") |
-| [environment-template-version](../../../proton/latest/adminguide/ag-env-templates.md "../../../proton/latest/adminguide/ag-env-templates.md")                       | arn:${Partition}:proton:${Region}:${Account}:environment-template/${TemplateName}:${MajorVersion}.${MinorVersion}     | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_") |
-| [repository](../../../proton/latest/adminguide/ag-repositories.md "../../../proton/latest/adminguide/ag-repositories.md")                                           | arn:${Partition}:proton:${Region}:${Account}:repository/${Provider}:${Name}                                           | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_") |
-| [service](../../../proton/latest/adminguide/ag-services.md "../../../proton/latest/adminguide/ag-services.md")                                                      | arn:${Partition}:proton:${Region}:${Account}:service/${Name}                                                          | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_") |
-| [service-instance](../../../proton/latest/adminguide/ag-services.md "../../../proton/latest/adminguide/ag-services.md")                                             | arn:${Partition}:proton:${Region}:${Account}:service/${ServiceName}/service-instance/${Name}                          | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_") |
-| [service-template](../../../proton/latest/adminguide/managing-svc-templates.md "../../../proton/latest/adminguide/managing-svc-templates.md")                       | arn:${Partition}:proton:${Region}:${Account}:service-template/${Name}                                                 | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_") |
-| [service-template-major-version](../../../proton/latest/adminguide/managing-svc-templates.md "../../../proton/latest/adminguide/managing-svc-templates.md")         | arn:${Partition}:proton:${Region}:${Account}:service-template/${TemplateName}:${MajorVersionId}                       | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_") |
-| [service-template-minor-version](../../../proton/latest/adminguide/managing-svc-templates.md "../../../proton/latest/adminguide/managing-svc-templates.md")         | arn:${Partition}:proton:${Region}:${Account}:service-template/${TemplateName}:${MajorVersionId}.${MinorVersionId}     | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_") |
-| [service-template-version](../../../proton/latest/adminguide/managing-svc-templates.md "../../../proton/latest/adminguide/managing-svc-templates.md")               | arn:${Partition}:proton:${Region}:${Account}:service-template/${TemplateName}:${MajorVersion}.${MinorVersion}         | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_ "#list_proton-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [component](https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html)  | arn:${Partition}:proton:${Region}:${Account}:component/${Id} | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_) | 
+|  [deployment](https://docs.aws.amazon.com/proton/latest/adminguide/ag-deployments.html)  | arn:${Partition}:proton:${Region}:${Account}:deployment/${Id} | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_) | 
+|  [environment](https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html)  | arn:${Partition}:proton:${Region}:${Account}:environment/${Name} | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_) | 
+|  [environment-account-connection](https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html)  | arn:${Partition}:proton:${Region}:${Account}:environment-account-connection/${Id} | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_) | 
+|  [environment-template](https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-templates.html)  | arn:${Partition}:proton:${Region}:${Account}:environment-template/${Name} | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_) | 
+|  [environment-template-major-version](https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-templates.html)  | arn:${Partition}:proton:${Region}:${Account}:environment-template/${TemplateName}:${MajorVersionId} | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_) | 
+|  [environment-template-minor-version](https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-templates.html)  | arn:${Partition}:proton:${Region}:${Account}:environment-template/${TemplateName}:${MajorVersionId}.${MinorVersionId} | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_) | 
+|  [environment-template-version](https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-templates.html)  | arn:${Partition}:proton:${Region}:${Account}:environment-template/${TemplateName}:${MajorVersion}.${MinorVersion} | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_) | 
+|  [repository](https://docs.aws.amazon.com/proton/latest/adminguide/ag-repositories.html)  | arn:${Partition}:proton:${Region}:${Account}:repository/${Provider}:${Name} | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_) | 
+|  [service](https://docs.aws.amazon.com/proton/latest/adminguide/ag-services.html)  | arn:${Partition}:proton:${Region}:${Account}:service/${Name} | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_) | 
+|  [service-instance](https://docs.aws.amazon.com/proton/latest/adminguide/ag-services.html)  | arn:${Partition}:proton:${Region}:${Account}:service/${ServiceName}/service-instance/${Name} | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_) | 
+|  [service-template](https://docs.aws.amazon.com/proton/latest/adminguide/managing-svc-templates.html)  | arn:${Partition}:proton:${Region}:${Account}:service-template/${Name} | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_) | 
+|  [service-template-major-version](https://docs.aws.amazon.com/proton/latest/adminguide/managing-svc-templates.html)  | arn:${Partition}:proton:${Region}:${Account}:service-template/${TemplateName}:${MajorVersionId} | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_) | 
+|  [service-template-minor-version](https://docs.aws.amazon.com/proton/latest/adminguide/managing-svc-templates.html)  | arn:${Partition}:proton:${Region}:${Account}:service-template/${TemplateName}:${MajorVersionId}.${MinorVersionId} | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_) | 
+|  [service-template-version](https://docs.aws.amazon.com/proton/latest/adminguide/managing-svc-templates.html)  | arn:${Partition}:proton:${Region}:${Account}:service-template/${TemplateName}:${MajorVersion}.${MinorVersion} | [aws:ResourceTag/${TagKey}](#list_proton-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Proton
+<a name="list_proton-policy-keys"></a>
 
-AWS Proton defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Proton defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                          | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by tag key-value pairs in the request                 | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by tag key-value pairs attached to the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by tag keys in the request                            | ArrayOfString |
-| [proton:EnvironmentTemplate](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md")                                                      | Filters access by specified environment template related to resource | String        |
-| [proton:ServiceTemplate](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md")                                                          | Filters access by specified service template related to resource     | String        |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by tag keys in the request | ArrayOfString | 
+|   [proton:EnvironmentTemplate](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by specified environment template related to resource | String | 
+|   [proton:ServiceTemplate](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html)  | Filters access by specified service template related to resource | String | 

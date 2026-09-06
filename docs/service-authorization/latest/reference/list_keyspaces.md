@@ -1,151 +1,344 @@
-# Actions, resources, and condition keys for Amazon Keyspaces (for Apache Cassandra)
 
-Amazon Keyspaces (for Apache Cassandra) (service prefix: `cassandra`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Keyspaces (for Apache Cassandra)
+<a name="list_keyspaces"></a>
+
+Amazon Keyspaces (for Apache Cassandra) (service prefix: `cassandra`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/keyspaces/latest/devguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/keyspaces/latest/APIReference/Welcome.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/keyspaces/latest/devguide/security_iam_service-with-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/cassandra/cassandra.json) for this service.
 
-- Learn how to [configure this service](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md").
-- View a list of the [API operations available for
-  this service](../../../keyspaces/latest/APIReference/Welcome.md "../../../keyspaces/latest/APIReference/Welcome.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../keyspaces/latest/devguide/security_iam_service-with-iam.md "../../../keyspaces/latest/devguide/security_iam_service-with-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/cassandra/cassandra.json "https://servicereference.us-east-1.amazonaws.com/v1/cassandra/cassandra.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon Keyspaces (for Apache Cassandra)](#list_keyspaces-operations "#list_keyspaces-operations")
-- [Actions defined by Amazon Keyspaces (for Apache Cassandra)](#list_keyspaces-actions-as-permissions "#list_keyspaces-actions-as-permissions")
-- [Resource types defined by Amazon Keyspaces (for Apache Cassandra)](#list_keyspaces-resources-for-iam-policies "#list_keyspaces-resources-for-iam-policies")
-- [Condition keys for Amazon Keyspaces (for Apache Cassandra)](#list_keyspaces-policy-keys "#list_keyspaces-policy-keys")
+**Topics**
++ [API operations defined by Amazon Keyspaces (for Apache Cassandra)](#list_keyspaces-operations)
++ [Actions defined by Amazon Keyspaces (for Apache Cassandra)](#list_keyspaces-actions-as-permissions)
++ [Resource types defined by Amazon Keyspaces (for Apache Cassandra)](#list_keyspaces-resources-for-iam-policies)
++ [Condition keys for Amazon Keyspaces (for Apache Cassandra)](#list_keyspaces-policy-keys)
 
 ## API operations defined by Amazon Keyspaces (for Apache Cassandra)
+<a name="list_keyspaces-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_keyspaces-actions-as-permissions "#list_keyspaces-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_keyspaces-actions-as-permissions).
 
-| Operation                                                                                                                                                                                                      | SDK client       | IAM action                                                                                                      | Condition key  | Possible value(s) | Access level |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------- | -------------- | ----------------- | ------------ |
-| CreateKeyspace                                                                                                                                                                                                 | keyspaces        | [cassandra:Create](#list_keyspaces-action-Create "#list_keyspaces-action-Create")                               |                |                   | Write        |
-| [cassandra:CreateMultiRegionResource](#list_keyspaces-action-CreateMultiRegionResource "#list_keyspaces-action-CreateMultiRegionResource")                                                                     |                  |                                                                                                                 | Write          |
-| [cassandra:TagResource](#list_keyspaces-action-TagResource "#list_keyspaces-action-TagResource")                                                                                                               |                  |                                                                                                                 | Tagging, Write |
-| CreateTable                                                                                                                                                                                                    | keyspaces        | [cassandra:Create](#list_keyspaces-action-Create "#list_keyspaces-action-Create")                               |                |                   | Write        |
-| [cassandra:CreateMultiRegionResource](#list_keyspaces-action-CreateMultiRegionResource "#list_keyspaces-action-CreateMultiRegionResource")                                                                     |                  |                                                                                                                 | Write          |
-| [cassandra:TagResource](#list_keyspaces-action-TagResource "#list_keyspaces-action-TagResource")                                                                                                               |                  |                                                                                                                 | Tagging, Write |
-| CreateType                                                                                                                                                                                                     | keyspaces        | [cassandra:Create](#list_keyspaces-action-Create "#list_keyspaces-action-Create")                               |                |                   | Write        |
-| [cassandra:CreateMultiRegionResource](#list_keyspaces-action-CreateMultiRegionResource "#list_keyspaces-action-CreateMultiRegionResource")                                                                     |                  |                                                                                                                 | Write          |
-| DeleteKeyspace                                                                                                                                                                                                 | keyspaces        | [cassandra:Drop](#list_keyspaces-action-Drop "#list_keyspaces-action-Drop")                                     |                |                   | Write        |
-| [cassandra:DropMultiRegionResource](#list_keyspaces-action-DropMultiRegionResource "#list_keyspaces-action-DropMultiRegionResource")                                                                           |                  |                                                                                                                 | Write          |
-| DeleteTable                                                                                                                                                                                                    | keyspaces        | [cassandra:Drop](#list_keyspaces-action-Drop "#list_keyspaces-action-Drop")                                     |                |                   | Write        |
-| [cassandra:DropMultiRegionResource](#list_keyspaces-action-DropMultiRegionResource "#list_keyspaces-action-DropMultiRegionResource")                                                                           |                  |                                                                                                                 | Write          |
-| DeleteType                                                                                                                                                                                                     | keyspaces        | [cassandra:Drop](#list_keyspaces-action-Drop "#list_keyspaces-action-Drop")                                     |                |                   | Write        |
-| [cassandra:DropMultiRegionResource](#list_keyspaces-action-DropMultiRegionResource "#list_keyspaces-action-DropMultiRegionResource")                                                                           |                  |                                                                                                                 | Write          |
-| GetKeyspace                                                                                                                                                                                                    | keyspaces        | [cassandra:Select](#list_keyspaces-action-Select "#list_keyspaces-action-Select")                               |                |                   | Read         |
-| GetTable                                                                                                                                                                                                       | keyspaces        | [cassandra:Select](#list_keyspaces-action-Select "#list_keyspaces-action-Select")                               |                |                   | Read         |
-| GetTableAutoScalingSettings                                                                                                                                                                                    | keyspaces        | [cassandra:Select](#list_keyspaces-action-Select "#list_keyspaces-action-Select")                               |                |                   | Read         |
-| [cassandra:SelectMultiRegionResource](#list_keyspaces-action-SelectMultiRegionResource "#list_keyspaces-action-SelectMultiRegionResource")                                                                     |                  |                                                                                                                 | Read           |
-| [application-autoscaling:DescribeScalableTargets](../../../autoscaling/application/APIReference/API_DescribeScalableTargets.md "../../../autoscaling/application/APIReference/API_DescribeScalableTargets.md") |                  |                                                                                                                 | Read           |
-| [application-autoscaling:DescribeScalingPolicies](../../../autoscaling/application/APIReference/API_DescribeScalingPolicies.md "../../../autoscaling/application/APIReference/API_DescribeScalingPolicies.md") |                  |                                                                                                                 | Read           |
-| GetType                                                                                                                                                                                                        | keyspaces        | [cassandra:Select](#list_keyspaces-action-Select "#list_keyspaces-action-Select")                               |                |                   | Read         |
-| ListKeyspaces                                                                                                                                                                                                  | keyspaces        | [cassandra:Select](#list_keyspaces-action-Select "#list_keyspaces-action-Select")                               |                |                   | Read         |
-| ListTables                                                                                                                                                                                                     | keyspaces        | [cassandra:Select](#list_keyspaces-action-Select "#list_keyspaces-action-Select")                               |                |                   | Read         |
-| ListTypes                                                                                                                                                                                                      | keyspaces        | [cassandra:Select](#list_keyspaces-action-Select "#list_keyspaces-action-Select")                               |                |                   | Read         |
-| RestoreTable                                                                                                                                                                                                   | keyspaces        | [cassandra:Restore](#list_keyspaces-action-Restore "#list_keyspaces-action-Restore")                            |                |                   | Write        |
-| [cassandra:RestoreMultiRegionTable](#list_keyspaces-action-RestoreMultiRegionTable "#list_keyspaces-action-RestoreMultiRegionTable")                                                                           |                  |                                                                                                                 | Write          |
-| [cassandra:Select](#list_keyspaces-action-Select "#list_keyspaces-action-Select")                                                                                                                              |                  |                                                                                                                 | Read           |
-| TagResource                                                                                                                                                                                                    | keyspaces        | [cassandra:Alter](#list_keyspaces-action-Alter "#list_keyspaces-action-Alter")                                  |                |                   | Write        |
-| [cassandra:AlterMultiRegionResource](#list_keyspaces-action-AlterMultiRegionResource "#list_keyspaces-action-AlterMultiRegionResource")                                                                        |                  |                                                                                                                 | Write          |
-| [cassandra:TagMultiRegionResource](#list_keyspaces-action-TagMultiRegionResource "#list_keyspaces-action-TagMultiRegionResource")                                                                              |                  |                                                                                                                 | Tagging, Write |
-| [cassandra:TagResource](#list_keyspaces-action-TagResource "#list_keyspaces-action-TagResource")                                                                                                               |                  |                                                                                                                 | Tagging, Write |
-| UntagResource                                                                                                                                                                                                  | keyspaces        | [cassandra:Alter](#list_keyspaces-action-Alter "#list_keyspaces-action-Alter")                                  |                |                   | Write        |
-| [cassandra:AlterMultiRegionResource](#list_keyspaces-action-AlterMultiRegionResource "#list_keyspaces-action-AlterMultiRegionResource")                                                                        |                  |                                                                                                                 | Write          |
-| [cassandra:UnTagMultiRegionResource](#list_keyspaces-action-UnTagMultiRegionResource "#list_keyspaces-action-UnTagMultiRegionResource")                                                                        |                  |                                                                                                                 | Tagging, Write |
-| [cassandra:UntagResource](#list_keyspaces-action-UntagResource "#list_keyspaces-action-UntagResource")                                                                                                         |                  |                                                                                                                 | Tagging, Write |
-| UpdateKeyspace                                                                                                                                                                                                 | keyspaces        | [cassandra:Alter](#list_keyspaces-action-Alter "#list_keyspaces-action-Alter")                                  |                |                   | Write        |
-| [cassandra:AlterMultiRegionResource](#list_keyspaces-action-AlterMultiRegionResource "#list_keyspaces-action-AlterMultiRegionResource")                                                                        |                  |                                                                                                                 | Write          |
-| [cassandra:Create](#list_keyspaces-action-Create "#list_keyspaces-action-Create")                                                                                                                              |                  |                                                                                                                 | Write          |
-| [cassandra:CreateMultiRegionResource](#list_keyspaces-action-CreateMultiRegionResource "#list_keyspaces-action-CreateMultiRegionResource")                                                                     |                  |                                                                                                                 | Write          |
-| [cassandra:Modify](#list_keyspaces-action-Modify "#list_keyspaces-action-Modify")                                                                                                                              |                  |                                                                                                                 | Write          |
-| [cassandra:ModifyMultiRegionResource](#list_keyspaces-action-ModifyMultiRegionResource "#list_keyspaces-action-ModifyMultiRegionResource")                                                                     |                  |                                                                                                                 | Write          |
-| [cassandra:Select](#list_keyspaces-action-Select "#list_keyspaces-action-Select")                                                                                                                              |                  |                                                                                                                 | Read           |
-| [cassandra:SelectMultiRegionResource](#list_keyspaces-action-SelectMultiRegionResource "#list_keyspaces-action-SelectMultiRegionResource")                                                                     |                  |                                                                                                                 | Read           |
-| [cassandra:TagMultiRegionResource](#list_keyspaces-action-TagMultiRegionResource "#list_keyspaces-action-TagMultiRegionResource")                                                                              |                  |                                                                                                                 | Tagging, Write |
-| [cassandra:TagResource](#list_keyspaces-action-TagResource "#list_keyspaces-action-TagResource")                                                                                                               |                  |                                                                                                                 | Tagging, Write |
-| [application-autoscaling:DescribeScalableTargets](../../../autoscaling/application/APIReference/API_DescribeScalableTargets.md "../../../autoscaling/application/APIReference/API_DescribeScalableTargets.md") |                  |                                                                                                                 | Read           |
-| [application-autoscaling:DescribeScalableTargets](../../../autoscaling/application/APIReference/API_DescribeScalableTargets.md "../../../autoscaling/application/APIReference/API_DescribeScalableTargets.md") |                  |                                                                                                                 | Read           |
-| [application-autoscaling:DescribeScalingPolicies](../../../autoscaling/application/APIReference/API_DescribeScalingPolicies.md "../../../autoscaling/application/APIReference/API_DescribeScalingPolicies.md") |                  |                                                                                                                 | Read           |
-| [application-autoscaling:PutScalingPolicy](../../../autoscaling/application/APIReference/API_PutScalingPolicy.md "../../../autoscaling/application/APIReference/API_PutScalingPolicy.md")                      |                  |                                                                                                                 | Write          |
-| [application-autoscaling:RegisterScalableTarget](../../../autoscaling/application/APIReference/API_RegisterScalableTarget.md "../../../autoscaling/application/APIReference/API_RegisterScalableTarget.md")    |                  |                                                                                                                 | Write          |
-| UpdateTable                                                                                                                                                                                                    | keyspaces        | [cassandra:Alter](#list_keyspaces-action-Alter "#list_keyspaces-action-Alter")                                  |                |                   | Write        |
-| [cassandra:AlterMultiRegionResource](#list_keyspaces-action-AlterMultiRegionResource "#list_keyspaces-action-AlterMultiRegionResource")                                                                        |                  |                                                                                                                 | Write          |
-| GetRecords                                                                                                                                                                                                     | keyspacesstreams | [cassandra:GetRecords](#list_keyspaces-action-GetRecords "#list_keyspaces-action-GetRecords")                   |                |                   | Read         |
-| GetShardIterator                                                                                                                                                                                               | keyspacesstreams | [cassandra:GetShardIterator](#list_keyspaces-action-GetShardIterator "#list_keyspaces-action-GetShardIterator") |                |                   | Read         |
-| GetStream                                                                                                                                                                                                      | keyspacesstreams | [cassandra:GetStream](#list_keyspaces-action-GetStream "#list_keyspaces-action-GetStream")                      |                |                   | Read         |
-| ListStreams                                                                                                                                                                                                    | keyspacesstreams | [cassandra:ListStreams](#list_keyspaces-action-ListStreams "#list_keyspaces-action-ListStreams")                |                |                   | List         |
+
+
+
+- **   CreateKeyspace  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Create](#list_keyspaces-action-Create)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:CreateMultiRegionResource](#list_keyspaces-action-CreateMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:TagResource](#list_keyspaces-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateTable  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Create](#list_keyspaces-action-Create)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:CreateMultiRegionResource](#list_keyspaces-action-CreateMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:TagResource](#list_keyspaces-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateType  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Create](#list_keyspaces-action-Create)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:CreateMultiRegionResource](#list_keyspaces-action-CreateMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   DeleteKeyspace  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Drop](#list_keyspaces-action-Drop)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:DropMultiRegionResource](#list_keyspaces-action-DropMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   DeleteTable  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Drop](#list_keyspaces-action-Drop)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:DropMultiRegionResource](#list_keyspaces-action-DropMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   DeleteType  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Drop](#list_keyspaces-action-Drop)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:DropMultiRegionResource](#list_keyspaces-action-DropMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   GetKeyspace  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Select](#list_keyspaces-action-Select) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTable  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Select](#list_keyspaces-action-Select) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTableAutoScalingSettings  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Select](#list_keyspaces-action-Select)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [cassandra:SelectMultiRegionResource](#list_keyspaces-action-SelectMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [application-autoscaling:DescribeScalableTargets](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [application-autoscaling:DescribeScalingPolicies](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalingPolicies.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   GetType  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Select](#list_keyspaces-action-Select) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListKeyspaces  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Select](#list_keyspaces-action-Select) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTables  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Select](#list_keyspaces-action-Select) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTypes  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Select](#list_keyspaces-action-Select) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   RestoreTable  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Restore](#list_keyspaces-action-Restore)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:RestoreMultiRegionTable](#list_keyspaces-action-RestoreMultiRegionTable)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:Select](#list_keyspaces-action-Select)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   TagResource  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Alter](#list_keyspaces-action-Alter)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:AlterMultiRegionResource](#list_keyspaces-action-AlterMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:TagMultiRegionResource](#list_keyspaces-action-TagMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [cassandra:TagResource](#list_keyspaces-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Alter](#list_keyspaces-action-Alter)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:AlterMultiRegionResource](#list_keyspaces-action-AlterMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:UnTagMultiRegionResource](#list_keyspaces-action-UnTagMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [cassandra:UntagResource](#list_keyspaces-action-UntagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   UpdateKeyspace  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Alter](#list_keyspaces-action-Alter)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:AlterMultiRegionResource](#list_keyspaces-action-AlterMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:Create](#list_keyspaces-action-Create)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:CreateMultiRegionResource](#list_keyspaces-action-CreateMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:Modify](#list_keyspaces-action-Modify)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:ModifyMultiRegionResource](#list_keyspaces-action-ModifyMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:Select](#list_keyspaces-action-Select)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [cassandra:SelectMultiRegionResource](#list_keyspaces-action-SelectMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [cassandra:TagMultiRegionResource](#list_keyspaces-action-TagMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [cassandra:TagResource](#list_keyspaces-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [application-autoscaling:DescribeScalableTargets](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [application-autoscaling:DescribeScalableTargets](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [application-autoscaling:DescribeScalingPolicies](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalingPolicies.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [application-autoscaling:PutScalingPolicy](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScalingPolicy.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [application-autoscaling:RegisterScalableTarget](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   UpdateTable  **
+  - **SDK client:** keyspaces
+  - **IAM action:**  [cassandra:Alter](#list_keyspaces-action-Alter)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cassandra:AlterMultiRegionResource](#list_keyspaces-action-AlterMultiRegionResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   GetRecords  **
+  - **SDK client:** keyspacesstreams
+  - **IAM action:**  [cassandra:GetRecords](#list_keyspaces-action-GetRecords) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetShardIterator  **
+  - **SDK client:** keyspacesstreams
+  - **IAM action:**  [cassandra:GetShardIterator](#list_keyspaces-action-GetShardIterator) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetStream  **
+  - **SDK client:** keyspacesstreams
+  - **IAM action:**  [cassandra:GetStream](#list_keyspaces-action-GetStream) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListStreams  **
+  - **SDK client:** keyspacesstreams
+  - **IAM action:**  [cassandra:ListStreams](#list_keyspaces-action-ListStreams) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+
 
 ## Actions defined by Amazon Keyspaces (for Apache Cassandra)
+<a name="list_keyspaces-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                    | Description                                                                                                                                                                                                                                                                                                       | Resource types (\*required)                                                       | Condition keys                                                                                                                                                                                                                                                                                                    | Access level   |
-| ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [Alter](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")                     | Grants permission to alter a keyspace or table                                                                                                                                                                                                                                                                    | [keyspace](#list_keyspaces-resource-keyspace "#list_keyspaces-resource-keyspace") | [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_ "#list_keyspaces-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys") | Write          |
-| [table](#list_keyspaces-resource-table "#list_keyspaces-resource-table")                                   | [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_ "#list_keyspaces-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys") |
-| [AlterMultiRegionResource](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")  | Grants permission to alter a multiregion keyspace or table                                                                                                                                                                                                                                                        | [keyspace](#list_keyspaces-resource-keyspace "#list_keyspaces-resource-keyspace") | [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_ "#list_keyspaces-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys") | Write          |
-| [table](#list_keyspaces-resource-table "#list_keyspaces-resource-table")                                   | [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_ "#list_keyspaces-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys") |
-| [Create](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")                    | Grants permission to create a keyspace or table                                                                                                                                                                                                                                                                   | [keyspace](#list_keyspaces-resource-keyspace "#list_keyspaces-resource-keyspace") | [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_ "#list_keyspaces-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys") | Write          |
-| [table](#list_keyspaces-resource-table "#list_keyspaces-resource-table")                                   | [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_ "#list_keyspaces-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys") |
-| [CreateMultiRegionResource](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md") | Grants permission to create a multiregion keyspace or table                                                                                                                                                                                                                                                       | [keyspace](#list_keyspaces-resource-keyspace "#list_keyspaces-resource-keyspace") | [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_ "#list_keyspaces-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys") | Write          |
-| [table](#list_keyspaces-resource-table "#list_keyspaces-resource-table")                                   | [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_ "#list_keyspaces-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys") |
-| [Drop](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")                      | Grants permission to drop a keyspace or table                                                                                                                                                                                                                                                                     | [keyspace](#list_keyspaces-resource-keyspace "#list_keyspaces-resource-keyspace") | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [table](#list_keyspaces-resource-table "#list_keyspaces-resource-table")                                   | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DropMultiRegionResource](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")   | Grants permission to drop a multiregion keyspace or table                                                                                                                                                                                                                                                         | [keyspace](#list_keyspaces-resource-keyspace "#list_keyspaces-resource-keyspace") | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [table](#list_keyspaces-resource-table "#list_keyspaces-resource-table")                                   | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetRecords](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")                | Grants permission to retrieve the CDC stream records from a given shard                                                                                                                                                                                                                                           | [stream\*](#list_keyspaces-resource-stream "#list_keyspaces-resource-stream")     | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetShardIterator](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")          | Grants permission to return a shard iterator                                                                                                                                                                                                                                                                      | [stream\*](#list_keyspaces-resource-stream "#list_keyspaces-resource-stream")     | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetStream](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")                 | Grants permission to return information about a CDC stream, including the composition of its shards                                                                                                                                                                                                               | [stream\*](#list_keyspaces-resource-stream "#list_keyspaces-resource-stream")     | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [ListStreams](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")               | Grants permission to return an array of CDC stream ARNs associated with the current account and endpoint                                                                                                                                                                                                          |                                                                                   |                                                                                                                                                                                                                                                                                                                   | List           |
-| [Modify](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")                    | Grants permission to INSERT, UPDATE or DELETE data in a table                                                                                                                                                                                                                                                     | [table\*](#list_keyspaces-resource-table "#list_keyspaces-resource-table")        | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [ModifyMultiRegionResource](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md") | Grants permission to INSERT, UPDATE or DELETE data in a multiregion table                                                                                                                                                                                                                                         | [table\*](#list_keyspaces-resource-table "#list_keyspaces-resource-table")        | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [Restore](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")                   | Grants permission to restore table from a backup                                                                                                                                                                                                                                                                  | [table\*](#list_keyspaces-resource-table "#list_keyspaces-resource-table")        | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [RestoreMultiRegionTable](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")   | Grants permission to restore multiregion table from a backup                                                                                                                                                                                                                                                      | [table\*](#list_keyspaces-resource-table "#list_keyspaces-resource-table")        | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [Select](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")                    | Grants permission to SELECT data from a table                                                                                                                                                                                                                                                                     | [table\*](#list_keyspaces-resource-table "#list_keyspaces-resource-table")        | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [SelectMultiRegionResource](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md") | Grants permission to SELECT data from a multiregion table                                                                                                                                                                                                                                                         | [table\*](#list_keyspaces-resource-table "#list_keyspaces-resource-table")        | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [TagMultiRegionResource](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")    | Grants permission to tag a multiregion keyspace or table                                                                                                                                                                                                                                                          | [keyspace](#list_keyspaces-resource-keyspace "#list_keyspaces-resource-keyspace") | [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_ "#list_keyspaces-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys") | Tagging, Write |
-| [table](#list_keyspaces-resource-table "#list_keyspaces-resource-table")                                   | [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_ "#list_keyspaces-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys") |
-| [TagResource](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")               | Grants permission to tag a keyspace, table, or stream                                                                                                                                                                                                                                                             | [keyspace](#list_keyspaces-resource-keyspace "#list_keyspaces-resource-keyspace") | [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_ "#list_keyspaces-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys") | Tagging, Write |
-| [stream](#list_keyspaces-resource-stream "#list_keyspaces-resource-stream")                                | [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_ "#list_keyspaces-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys") |
-| [table](#list_keyspaces-resource-table "#list_keyspaces-resource-table")                                   | [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_ "#list_keyspaces-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys") |
-| [UnTagMultiRegionResource](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")  | Grants permission to untag a multiregion keyspace or table                                                                                                                                                                                                                                                        | [keyspace](#list_keyspaces-resource-keyspace "#list_keyspaces-resource-keyspace") | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys")                                                                                                                    | Tagging, Write |
-| [table](#list_keyspaces-resource-table "#list_keyspaces-resource-table")                                   | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys")                                                                                                                    |
-| [UntagResource](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")             | Grants permission to untag a keyspace, table or stream                                                                                                                                                                                                                                                            | [keyspace](#list_keyspaces-resource-keyspace "#list_keyspaces-resource-keyspace") | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys")                                                                                                                    | Tagging, Write |
-| [stream](#list_keyspaces-resource-stream "#list_keyspaces-resource-stream")                                | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys")                                                                                                                    |
-| [table](#list_keyspaces-resource-table "#list_keyspaces-resource-table")                                   | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_keyspaces-aws_TagKeys "#list_keyspaces-aws_TagKeys")                                                                                                                    |
-| [UpdatePartitioner](../../../keyspaces/latest/devguide.md "../../../keyspaces/latest/devguide.md")         | Grants permission to UPDATE the partitioner in a system table                                                                                                                                                                                                                                                     | [table\*](#list_keyspaces-resource-table "#list_keyspaces-resource-table")        | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
+
+
+
+- **   [Alter](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to alter a keyspace or table
+  - **Resource types (\*required):** [keyspace](#list_keyspaces-resource-keyspace) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Resource types (\*required):** [table](#list_keyspaces-resource-table) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [AlterMultiRegionResource](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to alter a multiregion keyspace or table
+  - **Resource types (\*required):** [keyspace](#list_keyspaces-resource-keyspace) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Resource types (\*required):** [table](#list_keyspaces-resource-table) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [Create](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to create a keyspace or table
+  - **Resource types (\*required):** [keyspace](#list_keyspaces-resource-keyspace) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Resource types (\*required):** [table](#list_keyspaces-resource-table) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMultiRegionResource](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to create a multiregion keyspace or table
+  - **Resource types (\*required):** [keyspace](#list_keyspaces-resource-keyspace) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Resource types (\*required):** [table](#list_keyspaces-resource-table) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [Drop](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to drop a keyspace or table
+  - **Resource types (\*required):** [keyspace](#list_keyspaces-resource-keyspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [table](#list_keyspaces-resource-table) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DropMultiRegionResource](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to drop a multiregion keyspace or table
+  - **Resource types (\*required):** [keyspace](#list_keyspaces-resource-keyspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [table](#list_keyspaces-resource-table) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetRecords](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to retrieve the CDC stream records from a given shard
+  - **Resource types (\*required):** [stream\*](#list_keyspaces-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetShardIterator](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to return a shard iterator
+  - **Resource types (\*required):** [stream\*](#list_keyspaces-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetStream](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to return information about a CDC stream, including the composition of its shards
+  - **Resource types (\*required):** [stream\*](#list_keyspaces-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListStreams](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to return an array of CDC stream ARNs associated with the current account and endpoint
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [Modify](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to INSERT, UPDATE or DELETE data in a table
+  - **Resource types (\*required):** [table\*](#list_keyspaces-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ModifyMultiRegionResource](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to INSERT, UPDATE or DELETE data in a multiregion table
+  - **Resource types (\*required):** [table\*](#list_keyspaces-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [Restore](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to restore table from a backup
+  - **Resource types (\*required):** [table\*](#list_keyspaces-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RestoreMultiRegionTable](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to restore multiregion table from a backup
+  - **Resource types (\*required):** [table\*](#list_keyspaces-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [Select](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to SELECT data from a table
+  - **Resource types (\*required):** [table\*](#list_keyspaces-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [SelectMultiRegionResource](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to SELECT data from a multiregion table
+  - **Resource types (\*required):** [table\*](#list_keyspaces-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [TagMultiRegionResource](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to tag a multiregion keyspace or table
+  - **Resource types (\*required):** [keyspace](#list_keyspaces-resource-keyspace) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Resource types (\*required):** [table](#list_keyspaces-resource-table) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [TagResource](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to tag a keyspace, table, or stream
+  - **Resource types (\*required):** [keyspace](#list_keyspaces-resource-keyspace) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Resource types (\*required):** [stream](#list_keyspaces-resource-stream) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Resource types (\*required):** [table](#list_keyspaces-resource-table) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_keyspaces-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UnTagMultiRegionResource](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to untag a multiregion keyspace or table
+  - **Resource types (\*required):** [keyspace](#list_keyspaces-resource-keyspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Resource types (\*required):** [table](#list_keyspaces-resource-table) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to untag a keyspace, table or stream
+  - **Resource types (\*required):** [keyspace](#list_keyspaces-resource-keyspace) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Resource types (\*required):** [stream](#list_keyspaces-resource-stream) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Resource types (\*required):** [table](#list_keyspaces-resource-table) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_keyspaces-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdatePartitioner](https://docs.aws.amazon.com/keyspaces/latest/devguide/)  **
+  - **Description:** Grants permission to UPDATE the partitioner in a system table
+  - **Resource types (\*required):** [table\*](#list_keyspaces-resource-table)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon Keyspaces (for Apache Cassandra)
+<a name="list_keyspaces-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                            | ARN                                                                                                                | Condition keys                                                                                                     |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| [keyspace](../../../keyspaces/latest/devguide/what-is.md "../../../keyspaces/latest/devguide/what-is.md") | arn:${Partition}:cassandra:${Region}:${Account}:/keyspace/${KeyspaceName}/                                         | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_") |
-| [stream](../../../keyspaces/latest/devguide/what-is.md "../../../keyspaces/latest/devguide/what-is.md")   | arn:${Partition}:cassandra:${Region}:${Account}:/keyspace/${KeyspaceName}/table/${TableName}/stream/${StreamLabel} | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_") |
-| [table](../../../keyspaces/latest/devguide/what-is.md "../../../keyspaces/latest/devguide/what-is.md")    | arn:${Partition}:cassandra:${Region}:${Account}:/keyspace/${KeyspaceName}/table/${TableName}                       | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_ "#list_keyspaces-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [keyspace](https://docs.aws.amazon.com/keyspaces/latest/devguide/what-is.html)  | arn:${Partition}:cassandra:${Region}:${Account}:/keyspace/${KeyspaceName}/ | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_) | 
+|  [stream](https://docs.aws.amazon.com/keyspaces/latest/devguide/what-is.html)  | arn:${Partition}:cassandra:${Region}:${Account}:/keyspace/${KeyspaceName}/table/${TableName}/stream/${StreamLabel} | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_) | 
+|  [table](https://docs.aws.amazon.com/keyspaces/latest/devguide/what-is.html)  | arn:${Partition}:cassandra:${Region}:${Account}:/keyspace/${KeyspaceName}/table/${TableName} | [aws:ResourceTag/${TagKey}](#list_keyspaces-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Keyspaces (for Apache Cassandra)
+<a name="list_keyspaces-policy-keys"></a>
 
-Amazon Keyspaces (for Apache Cassandra) defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Keyspaces (for Apache Cassandra) defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                       | Description                                                                 | Type          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../keyspaces/latest/devguide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../keyspaces/latest/devguide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters actions based on the presence of tag key-value pairs in the request | String        |
-| [aws:ResourceTag/${TagKey}](../../../keyspaces/latest/devguide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../keyspaces/latest/devguide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters actions based on tag key-value pairs attached to the resource       | String        |
-| [aws:TagKeys](../../../keyspaces/latest/devguide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../keyspaces/latest/devguide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters actions based on the presence of tag keys in the request            | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/keyspaces/latest/devguide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters actions based on the presence of tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/keyspaces/latest/devguide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters actions based on tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/keyspaces/latest/devguide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters actions based on the presence of tag keys in the request | ArrayOfString | 

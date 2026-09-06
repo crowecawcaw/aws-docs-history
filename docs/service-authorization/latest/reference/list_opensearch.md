@@ -1,205 +1,657 @@
-# Actions, resources, and condition keys for Amazon OpenSearch
 
-Amazon OpenSearch (service prefix: `opensearch`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon OpenSearch
+<a name="list_opensearch"></a>
+
+Amazon OpenSearch (service prefix: `opensearch`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/opensearch/opensearch.json) for this service.
 
-- Learn how to [configure this service](../../../opensearch-service/latest/developerguide/what-is.md "../../../opensearch-service/latest/developerguide/what-is.md").
-- View a list of the [API operations available for
-  this service](../../../opensearch-service/latest/APIReference.md "../../../opensearch-service/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../opensearch-service/latest/developerguide/ac.md "../../../opensearch-service/latest/developerguide/ac.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/opensearch/opensearch.json "https://servicereference.us-east-1.amazonaws.com/v1/opensearch/opensearch.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon OpenSearch](#list_opensearch-operations "#list_opensearch-operations")
-- [Actions defined by Amazon OpenSearch](#list_opensearch-actions-as-permissions "#list_opensearch-actions-as-permissions")
-- [Permission-only actions for Amazon OpenSearch](#list_opensearch-permission-only-actions "#list_opensearch-permission-only-actions")
-- [Resource types defined by Amazon OpenSearch](#list_opensearch-resources-for-iam-policies "#list_opensearch-resources-for-iam-policies")
-- [Condition keys for Amazon OpenSearch](#list_opensearch-policy-keys "#list_opensearch-policy-keys")
+**Topics**
++ [API operations defined by Amazon OpenSearch](#list_opensearch-operations)
++ [Actions defined by Amazon OpenSearch](#list_opensearch-actions-as-permissions)
++ [Permission-only actions for Amazon OpenSearch](#list_opensearch-permission-only-actions)
++ [Resource types defined by Amazon OpenSearch](#list_opensearch-resources-for-iam-policies)
++ [Condition keys for Amazon OpenSearch](#list_opensearch-policy-keys)
 
 ## API operations defined by Amazon OpenSearch
+<a name="list_opensearch-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_opensearch-actions-as-permissions "#list_opensearch-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_opensearch-actions-as-permissions).
 
-| Operation                                                                                                                                                                                                                   | IAM action                                                                                                                                                                                                                               | Condition key                               | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ----------------- | -------------- |
-| AcceptInboundConnection                                                                                                                                                                                                     | [es:AcceptInboundConnection](../../../opensearch-service/latest/APIReference/API_AcceptInboundConnection.md "../../../opensearch-service/latest/APIReference/API_AcceptInboundConnection.md")                                            |                                             |                   | Write          |
-| [es:AcceptInboundCrossClusterSearchConnection](../../../opensearch-service/latest/APIReference/API_AcceptInboundConnection.md "../../../opensearch-service/latest/APIReference/API_AcceptInboundConnection.md")             |                                                                                                                                                                                                                                          |                                             | Write             |
-| AddDataSource                                                                                                                                                                                                               | [es:AddDataSource](../../../opensearch-service/latest/APIReference/API_AddDataSource.md "../../../opensearch-service/latest/APIReference/API_AddDataSource.md")                                                                          |                                             |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                             | iam:PassedToService                                                                                                                                                                                                                      | directquery.opensearchservice.amazonaws.com | Write             |
-| AddDirectQueryDataSource                                                                                                                                                                                                    | [es:AddDirectQueryDataSource](../../../opensearch-service/latest/APIReference/API_AddDirectQueryDataSource.md "../../../opensearch-service/latest/APIReference/API_AddDirectQueryDataSource.md")                                         |                                             |                   | Write          |
-| [es:AddTags](../../../opensearch-service/latest/APIReference/API_AddTags.md "../../../opensearch-service/latest/APIReference/API_AddTags.md")                                                                               |                                                                                                                                                                                                                                          |                                             | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                             | iam:PassedToService                                                                                                                                                                                                                      | directquery.opensearchservice.amazonaws.com | Write             |
-| AddTags                                                                                                                                                                                                                     | [es:AddTags](../../../opensearch-service/latest/APIReference/API_AddTags.md "../../../opensearch-service/latest/APIReference/API_AddTags.md")                                                                                            |                                             |                   | Tagging, Write |
-| AssociatePackage                                                                                                                                                                                                            | [es:AssociatePackage](../../../opensearch-service/latest/APIReference/API_AssociatePackage.md "../../../opensearch-service/latest/APIReference/API_AssociatePackage.md")                                                                 |                                             |                   | Write          |
-| AssociatePackages                                                                                                                                                                                                           | [es:AssociatePackages](../../../opensearch-service/latest/APIReference/API_AssociatePackages.md "../../../opensearch-service/latest/APIReference/API_AssociatePackages.md")                                                              |                                             |                   | Write          |
-| AttachDataSource                                                                                                                                                                                                            | [es:AttachDataSource](../../../opensearch-service/latest/APIReference/API_AttachDataSource.md "../../../opensearch-service/latest/APIReference/API_AttachDataSource.md")                                                                 |                                             |                   | Write          |
-| AuthorizeVpcEndpointAccess                                                                                                                                                                                                  | [es:AuthorizeVpcEndpointAccess](../../../opensearch-service/latest/APIReference/API_AuthorizeVpcEndpointAccess.md "../../../opensearch-service/latest/APIReference/API_AuthorizeVpcEndpointAccess.md")                                   |                                             |                   | Write          |
-| CancelDomainConfigChange                                                                                                                                                                                                    | [es:CancelDomainConfigChange](../../../opensearch-service/latest/APIReference/API_CancelDomainConfigChange.md "../../../opensearch-service/latest/APIReference/API_CancelDomainConfigChange.md")                                         |                                             |                   | Write          |
-| CancelServiceSoftwareUpdate                                                                                                                                                                                                 | [es:CancelElasticsearchServiceSoftwareUpdate](../../../opensearch-service/latest/APIReference/API_CancelServiceSoftwareUpdate.md "../../../opensearch-service/latest/APIReference/API_CancelServiceSoftwareUpdate.md")                   |                                             |                   | Write          |
-| [es:CancelServiceSoftwareUpdate](../../../opensearch-service/latest/APIReference/API_CancelServiceSoftwareUpdate.md "../../../opensearch-service/latest/APIReference/API_CancelServiceSoftwareUpdate.md")                   |                                                                                                                                                                                                                                          |                                             | Write             |
-| CreateApplication                                                                                                                                                                                                           | [es:AddTags](../../../opensearch-service/latest/APIReference/API_AddTags.md "../../../opensearch-service/latest/APIReference/API_AddTags.md")                                                                                            |                                             |                   | Tagging, Write |
-| [es:CreateApplication](../../../opensearch-service/latest/APIReference/API_CreateApplication.md "../../../opensearch-service/latest/APIReference/API_CreateApplication.md")                                                 |                                                                                                                                                                                                                                          |                                             | Write             |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                             |                                                                                                                                                                                                                                          |                                             | Write             |
-| CreateDomain                                                                                                                                                                                                                | [es:AddTags](../../../opensearch-service/latest/APIReference/API_AddTags.md "../../../opensearch-service/latest/APIReference/API_AddTags.md")                                                                                            |                                             |                   | Tagging, Write |
-| [es:CreateDomain](../../../opensearch-service/latest/APIReference/API_CreateDomain.md "../../../opensearch-service/latest/APIReference/API_CreateDomain.md")                                                                |                                                                                                                                                                                                                                          |                                             | Write             |
-| [es:CreateElasticsearchDomain](../../../opensearch-service/latest/APIReference/API_CreateDomain.md "../../../opensearch-service/latest/APIReference/API_CreateDomain.md")                                                   |                                                                                                                                                                                                                                          |                                             | Write             |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                             | iam:PassedToService                                                                                                                                                                                                                      | es.amazonaws.com                            | Write             |
-| CreateIndex                                                                                                                                                                                                                 | [es:CreateIndex](../../../opensearch-service/latest/APIReference/API_CreateIndex.md "../../../opensearch-service/latest/APIReference/API_CreateIndex.md")                                                                                |                                             |                   | Write          |
-| CreateOutboundConnection                                                                                                                                                                                                    | [es:CreateOutboundConnection](../../../opensearch-service/latest/APIReference/API_CreateOutboundConnection.md "../../../opensearch-service/latest/APIReference/API_CreateOutboundConnection.md")                                         |                                             |                   | Write          |
-| [es:CreateOutboundCrossClusterSearchConnection](../../../opensearch-service/latest/APIReference/API_CreateOutboundConnection.md "../../../opensearch-service/latest/APIReference/API_CreateOutboundConnection.md")          |                                                                                                                                                                                                                                          |                                             | Write             |
-| CreatePackage                                                                                                                                                                                                               | [es:CreatePackage](../../../opensearch-service/latest/APIReference/API_CreatePackage.md "../../../opensearch-service/latest/APIReference/API_CreatePackage.md")                                                                          |                                             |                   | Write          |
-| CreateVpcEndpoint                                                                                                                                                                                                           | [es:CreateVpcEndpoint](../../../opensearch-service/latest/APIReference/API_CreateVpcEndpoint.md "../../../opensearch-service/latest/APIReference/API_CreateVpcEndpoint.md")                                                              |                                             |                   | Write          |
-| DeleteApplication                                                                                                                                                                                                           | [es:DeleteApplication](../../../opensearch-service/latest/APIReference/API_DeleteApplication.md "../../../opensearch-service/latest/APIReference/API_DeleteApplication.md")                                                              |                                             |                   | Write          |
-| DeleteDataSource                                                                                                                                                                                                            | [es:DeleteDataSource](../../../opensearch-service/latest/APIReference/API_DeleteDataSource.md "../../../opensearch-service/latest/APIReference/API_DeleteDataSource.md")                                                                 |                                             |                   | Write          |
-| DeleteDirectQueryDataSource                                                                                                                                                                                                 | [es:DeleteDirectQueryDataSource](../../../opensearch-service/latest/APIReference/API_DeleteDirectQueryDataSource.md "../../../opensearch-service/latest/APIReference/API_DeleteDirectQueryDataSource.md")                                |                                             |                   | Write          |
-| DeleteDomain                                                                                                                                                                                                                | [es:DeleteDomain](../../../opensearch-service/latest/APIReference/API_DeleteDomain.md "../../../opensearch-service/latest/APIReference/API_DeleteDomain.md")                                                                             |                                             |                   | Write          |
-| [es:DeleteElasticsearchDomain](../../../opensearch-service/latest/APIReference/API_DeleteDomain.md "../../../opensearch-service/latest/APIReference/API_DeleteDomain.md")                                                   |                                                                                                                                                                                                                                          |                                             | Write             |
-| DeleteInboundConnection                                                                                                                                                                                                     | [es:DeleteInboundConnection](../../../opensearch-service/latest/APIReference/API_DeleteInboundConnection.md "../../../opensearch-service/latest/APIReference/API_DeleteInboundConnection.md")                                            |                                             |                   | Write          |
-| DeleteIndex                                                                                                                                                                                                                 | [es:DeleteIndex](../../../opensearch-service/latest/APIReference/API_DeleteIndex.md "../../../opensearch-service/latest/APIReference/API_DeleteIndex.md")                                                                                |                                             |                   | Write          |
-| DeleteOutboundConnection                                                                                                                                                                                                    | [es:DeleteOutboundConnection](../../../opensearch-service/latest/APIReference/API_DeleteOutboundConnection.md "../../../opensearch-service/latest/APIReference/API_DeleteOutboundConnection.md")                                         |                                             |                   | Write          |
-| [es:DeleteOutboundCrossClusterSearchConnection](../../../opensearch-service/latest/APIReference/API_DeleteOutboundConnection.md "../../../opensearch-service/latest/APIReference/API_DeleteOutboundConnection.md")          |                                                                                                                                                                                                                                          |                                             | Write             |
-| DeletePackage                                                                                                                                                                                                               | [es:DeletePackage](../../../opensearch-service/latest/APIReference/API_DeletePackage.md "../../../opensearch-service/latest/APIReference/API_DeletePackage.md")                                                                          |                                             |                   | Write          |
-| DeleteVpcEndpoint                                                                                                                                                                                                           | [es:DeleteVpcEndpoint](../../../opensearch-service/latest/APIReference/API_DeleteVpcEndpoint.md "../../../opensearch-service/latest/APIReference/API_DeleteVpcEndpoint.md")                                                              |                                             |                   | Write          |
-| DeregisterCapability                                                                                                                                                                                                        | [es:DeregisterCapability](../../../opensearch-service/latest/APIReference/API_DeregisterCapability.md "../../../opensearch-service/latest/APIReference/API_DeregisterCapability.md")                                                     |                                             |                   | Write          |
-| DescribeDataSourceAttachment                                                                                                                                                                                                | [es:DescribeDataSourceAttachment](../../../opensearch-service/latest/APIReference/API_DescribeDataSourceAttachment.md "../../../opensearch-service/latest/APIReference/API_DescribeDataSourceAttachment.md")                             |                                             |                   | Read           |
-| DescribeDomain                                                                                                                                                                                                              | [es:DescribeDomain](../../../opensearch-service/latest/APIReference/API_DescribeDomain.md "../../../opensearch-service/latest/APIReference/API_DescribeDomain.md")                                                                       |                                             |                   | Read           |
-| [es:DescribeElasticsearchDomain](../../../opensearch-service/latest/APIReference/API_DescribeDomain.md "../../../opensearch-service/latest/APIReference/API_DescribeDomain.md")                                             |                                                                                                                                                                                                                                          |                                             | Read              |
-| DescribeDomainAutoTunes                                                                                                                                                                                                     | [es:DescribeDomainAutoTunes](../../../opensearch-service/latest/APIReference/API_DescribeDomainAutoTunes.md "../../../opensearch-service/latest/APIReference/API_DescribeDomainAutoTunes.md")                                            |                                             |                   | Read           |
-| DescribeDomainChangeProgress                                                                                                                                                                                                | [es:DescribeDomainChangeProgress](../../../opensearch-service/latest/APIReference/API_DescribeDomainChangeProgress.md "../../../opensearch-service/latest/APIReference/API_DescribeDomainChangeProgress.md")                             |                                             |                   | Read           |
-| DescribeDomainConfig                                                                                                                                                                                                        | [es:DescribeDomainConfig](../../../opensearch-service/latest/APIReference/API_DescribeDomainConfig.md "../../../opensearch-service/latest/APIReference/API_DescribeDomainConfig.md")                                                     |                                             |                   | Read           |
-| [es:DescribeElasticsearchDomainConfig](../../../opensearch-service/latest/APIReference/API_DescribeDomainConfig.md "../../../opensearch-service/latest/APIReference/API_DescribeDomainConfig.md")                           |                                                                                                                                                                                                                                          |                                             | Read              |
-| DescribeDomainHealth                                                                                                                                                                                                        | [es:DescribeDomainHealth](../../../opensearch-service/latest/APIReference/API_DescribeDomainHealth.md "../../../opensearch-service/latest/APIReference/API_DescribeDomainHealth.md")                                                     |                                             |                   | Read           |
-| DescribeDomainNodes                                                                                                                                                                                                         | [es:DescribeDomainNodes](../../../opensearch-service/latest/APIReference/API_DescribeDomainNodes.md "../../../opensearch-service/latest/APIReference/API_DescribeDomainNodes.md")                                                        |                                             |                   | Read           |
-| DescribeDomains                                                                                                                                                                                                             | [es:DescribeDomains](../../../opensearch-service/latest/APIReference/API_DescribeDomains.md "../../../opensearch-service/latest/APIReference/API_DescribeDomains.md")                                                                    |                                             |                   | List           |
-| [es:DescribeElasticsearchDomains](../../../opensearch-service/latest/APIReference/API_DescribeDomains.md "../../../opensearch-service/latest/APIReference/API_DescribeDomains.md")                                          |                                                                                                                                                                                                                                          |                                             | List              |
-| DescribeDryRunProgress                                                                                                                                                                                                      | [es:DescribeDryRunProgress](../../../opensearch-service/latest/APIReference/API_DescribeDryRunProgress.md "../../../opensearch-service/latest/APIReference/API_DescribeDryRunProgress.md")                                               |                                             |                   | Read           |
-| DescribeInboundConnections                                                                                                                                                                                                  | [es:DescribeInboundConnections](../../../opensearch-service/latest/APIReference/API_DescribeInboundConnections.md "../../../opensearch-service/latest/APIReference/API_DescribeInboundConnections.md")                                   |                                             |                   | List           |
-| [es:DescribeInboundCrossClusterSearchConnections](../../../opensearch-service/latest/APIReference/API_DescribeInboundConnections.md "../../../opensearch-service/latest/APIReference/API_DescribeInboundConnections.md")    |                                                                                                                                                                                                                                          |                                             | List              |
-| DescribeInsightDetails                                                                                                                                                                                                      | [es:DescribeInsightDetails](../../../opensearch-service/latest/APIReference/API_DescribeInsightDetails.md "../../../opensearch-service/latest/APIReference/API_DescribeInsightDetails.md")                                               |                                             |                   | Read           |
-| DescribeInstanceTypeLimits                                                                                                                                                                                                  | [es:DescribeElasticsearchInstanceTypeLimits](../../../opensearch-service/latest/APIReference/API_DescribeInstanceTypeLimits.md "../../../opensearch-service/latest/APIReference/API_DescribeInstanceTypeLimits.md")                      |                                             |                   | List           |
-| [es:DescribeInstanceTypeLimits](../../../opensearch-service/latest/APIReference/API_DescribeInstanceTypeLimits.md "../../../opensearch-service/latest/APIReference/API_DescribeInstanceTypeLimits.md")                      |                                                                                                                                                                                                                                          |                                             | List              |
-| DescribeOutboundConnections                                                                                                                                                                                                 | [es:DescribeOutboundConnections](../../../opensearch-service/latest/APIReference/API_DescribeOutboundConnections.md "../../../opensearch-service/latest/APIReference/API_DescribeOutboundConnections.md")                                |                                             |                   | List           |
-| [es:DescribeOutboundCrossClusterSearchConnections](../../../opensearch-service/latest/APIReference/API_DescribeOutboundConnections.md "../../../opensearch-service/latest/APIReference/API_DescribeOutboundConnections.md") |                                                                                                                                                                                                                                          |                                             | List              |
-| DescribePackages                                                                                                                                                                                                            | [es:DescribePackages](../../../opensearch-service/latest/APIReference/API_DescribePackages.md "../../../opensearch-service/latest/APIReference/API_DescribePackages.md")                                                                 |                                             |                   | Read           |
-| DescribeReservedInstanceOfferings                                                                                                                                                                                           | [es:DescribeReservedElasticsearchInstanceOfferings](../../../opensearch-service/latest/APIReference/API_DescribeReservedInstanceOfferings.md "../../../opensearch-service/latest/APIReference/API_DescribeReservedInstanceOfferings.md") |                                             |                   | List           |
-| [es:DescribeReservedInstanceOfferings](../../../opensearch-service/latest/APIReference/API_DescribeReservedInstanceOfferings.md "../../../opensearch-service/latest/APIReference/API_DescribeReservedInstanceOfferings.md") |                                                                                                                                                                                                                                          |                                             | List              |
-| DescribeReservedInstances                                                                                                                                                                                                   | [es:DescribeReservedElasticsearchInstances](../../../opensearch-service/latest/APIReference/API_DescribeReservedInstances.md "../../../opensearch-service/latest/APIReference/API_DescribeReservedInstances.md")                         |                                             |                   | List           |
-| [es:DescribeReservedInstances](../../../opensearch-service/latest/APIReference/API_DescribeReservedInstances.md "../../../opensearch-service/latest/APIReference/API_DescribeReservedInstances.md")                         |                                                                                                                                                                                                                                          |                                             | List              |
-| DescribeVpcEndpoints                                                                                                                                                                                                        | [es:DescribeVpcEndpoints](../../../opensearch-service/latest/APIReference/API_DescribeVpcEndpoints.md "../../../opensearch-service/latest/APIReference/API_DescribeVpcEndpoints.md")                                                     |                                             |                   | List           |
-| DetachDataSource                                                                                                                                                                                                            | [es:DetachDataSource](../../../opensearch-service/latest/APIReference/API_DetachDataSource.md "../../../opensearch-service/latest/APIReference/API_DetachDataSource.md")                                                                 |                                             |                   | Write          |
-| DissociatePackage                                                                                                                                                                                                           | [es:DissociatePackage](../../../opensearch-service/latest/APIReference/API_DissociatePackage.md "../../../opensearch-service/latest/APIReference/API_DissociatePackage.md")                                                              |                                             |                   | Write          |
-| DissociatePackages                                                                                                                                                                                                          | [es:DissociatePackages](../../../opensearch-service/latest/APIReference/API_DissociatePackages.md "../../../opensearch-service/latest/APIReference/API_DissociatePackages.md")                                                           |                                             |                   | Write          |
-| GetApplication                                                                                                                                                                                                              | [es:GetApplication](../../../opensearch-service/latest/APIReference/API_GetApplication.md "../../../opensearch-service/latest/APIReference/API_GetApplication.md")                                                                       |                                             |                   | Read           |
-| GetCapability                                                                                                                                                                                                               | [es:GetCapability](../../../opensearch-service/latest/APIReference/API_GetCapability.md "../../../opensearch-service/latest/APIReference/API_GetCapability.md")                                                                          |                                             |                   | Read           |
-| GetCompatibleVersions                                                                                                                                                                                                       | [es:GetCompatibleElasticsearchVersions](../../../opensearch-service/latest/APIReference/API_GetCompatibleVersions.md "../../../opensearch-service/latest/APIReference/API_GetCompatibleVersions.md")                                     |                                             |                   | List           |
-| [es:GetCompatibleVersions](../../../opensearch-service/latest/APIReference/API_GetCompatibleVersions.md "../../../opensearch-service/latest/APIReference/API_GetCompatibleVersions.md")                                     |                                                                                                                                                                                                                                          |                                             | List              |
-| GetDataSource                                                                                                                                                                                                               | [es:GetDataSource](../../../opensearch-service/latest/APIReference/API_GetDataSource.md "../../../opensearch-service/latest/APIReference/API_GetDataSource.md")                                                                          |                                             |                   | Read           |
-| GetDefaultApplicationSetting                                                                                                                                                                                                | [es:GetDefaultApplicationSetting](../../../opensearch-service/latest/APIReference/API_GetDefaultApplicationSetting.md "../../../opensearch-service/latest/APIReference/API_GetDefaultApplicationSetting.md")                             |                                             |                   | Read           |
-| GetDirectQueryDataSource                                                                                                                                                                                                    | [es:GetDirectQueryDataSource](../../../opensearch-service/latest/APIReference/API_GetDirectQueryDataSource.md "../../../opensearch-service/latest/APIReference/API_GetDirectQueryDataSource.md")                                         |                                             |                   | Read           |
-| GetDomainMaintenanceStatus                                                                                                                                                                                                  | [es:GetDomainMaintenanceStatus](../../../opensearch-service/latest/APIReference/API_GetDomainMaintenanceStatus.md "../../../opensearch-service/latest/APIReference/API_GetDomainMaintenanceStatus.md")                                   |                                             |                   | Read           |
-| GetIndex                                                                                                                                                                                                                    | [es:GetIndex](../../../opensearch-service/latest/APIReference/API_GetIndex.md "../../../opensearch-service/latest/APIReference/API_GetIndex.md")                                                                                         |                                             |                   | Read           |
-| GetMigration                                                                                                                                                                                                                | [es:GetMigration](../../../opensearch-service/latest/APIReference/API_GetMigration.md "../../../opensearch-service/latest/APIReference/API_GetMigration.md")                                                                             |                                             |                   | Read           |
-| GetPackageVersionHistory                                                                                                                                                                                                    | [es:GetPackageVersionHistory](../../../opensearch-service/latest/APIReference/API_GetPackageVersionHistory.md "../../../opensearch-service/latest/APIReference/API_GetPackageVersionHistory.md")                                         |                                             |                   | Read           |
-| GetUpgradeHistory                                                                                                                                                                                                           | [es:GetUpgradeHistory](../../../opensearch-service/latest/APIReference/API_GetUpgradeHistory.md "../../../opensearch-service/latest/APIReference/API_GetUpgradeHistory.md")                                                              |                                             |                   | Read           |
-| GetUpgradeStatus                                                                                                                                                                                                            | [es:GetUpgradeStatus](../../../opensearch-service/latest/APIReference/API_GetUpgradeStatus.md "../../../opensearch-service/latest/APIReference/API_GetUpgradeStatus.md")                                                                 |                                             |                   | Read           |
-| InsightFeedback                                                                                                                                                                                                             | [es:InsightFeedback](../../../opensearch-service/latest/APIReference/API_InsightFeedback.md "../../../opensearch-service/latest/APIReference/API_InsightFeedback.md")                                                                    |                                             |                   | Write          |
-| ListApplications                                                                                                                                                                                                            | [es:ListApplications](../../../opensearch-service/latest/APIReference/API_ListApplications.md "../../../opensearch-service/latest/APIReference/API_ListApplications.md")                                                                 |                                             |                   | List           |
-| ListDataSourceAttachments                                                                                                                                                                                                   | [es:ListDataSourceAttachments](../../../opensearch-service/latest/APIReference/API_ListDataSourceAttachments.md "../../../opensearch-service/latest/APIReference/API_ListDataSourceAttachments.md")                                      |                                             |                   | List           |
-| ListDataSources                                                                                                                                                                                                             | [es:ListDataSources](../../../opensearch-service/latest/APIReference/API_ListDataSources.md "../../../opensearch-service/latest/APIReference/API_ListDataSources.md")                                                                    |                                             |                   | List           |
-| ListDirectQueryDataSources                                                                                                                                                                                                  | [es:ListDirectQueryDataSources](../../../opensearch-service/latest/APIReference/API_ListDirectQueryDataSources.md "../../../opensearch-service/latest/APIReference/API_ListDirectQueryDataSources.md")                                   |                                             |                   | List           |
-| ListDomainMaintenances                                                                                                                                                                                                      | [es:ListDomainMaintenances](../../../opensearch-service/latest/APIReference/API_ListDomainMaintenances.md "../../../opensearch-service/latest/APIReference/API_ListDomainMaintenances.md")                                               |                                             |                   | List           |
-| ListDomainNames                                                                                                                                                                                                             | [es:ListDomainNames](../../../opensearch-service/latest/APIReference/API_ListDomainNames.md "../../../opensearch-service/latest/APIReference/API_ListDomainNames.md")                                                                    |                                             |                   | List           |
-| ListDomainsForPackage                                                                                                                                                                                                       | [es:ListDomainsForPackage](../../../opensearch-service/latest/APIReference/API_ListDomainsForPackage.md "../../../opensearch-service/latest/APIReference/API_ListDomainsForPackage.md")                                                  |                                             |                   | List           |
-| ListInsights                                                                                                                                                                                                                | [es:ListInsights](../../../opensearch-service/latest/APIReference/API_ListInsights.md "../../../opensearch-service/latest/APIReference/API_ListInsights.md")                                                                             |                                             |                   | List           |
-| ListInstanceTypeDetails                                                                                                                                                                                                     | [es:ListElasticsearchInstanceTypeDetails](../../../opensearch-service/latest/APIReference/API_ListInstanceTypeDetails.md "../../../opensearch-service/latest/APIReference/API_ListInstanceTypeDetails.md")                               |                                             |                   | List           |
-| [es:ListInstanceTypeDetails](../../../opensearch-service/latest/APIReference/API_ListInstanceTypeDetails.md "../../../opensearch-service/latest/APIReference/API_ListInstanceTypeDetails.md")                               |                                                                                                                                                                                                                                          |                                             | List              |
-| ListMigrations                                                                                                                                                                                                              | [es:ListMigrations](../../../opensearch-service/latest/APIReference/API_ListMigrations.md "../../../opensearch-service/latest/APIReference/API_ListMigrations.md")                                                                       |                                             |                   | List           |
-| ListPackagesForDomain                                                                                                                                                                                                       | [es:ListPackagesForDomain](../../../opensearch-service/latest/APIReference/API_ListPackagesForDomain.md "../../../opensearch-service/latest/APIReference/API_ListPackagesForDomain.md")                                                  |                                             |                   | List           |
-| ListScheduledActions                                                                                                                                                                                                        | [es:ListScheduledActions](../../../opensearch-service/latest/APIReference/API_ListScheduledActions.md "../../../opensearch-service/latest/APIReference/API_ListScheduledActions.md")                                                     |                                             |                   | List           |
-| ListTags                                                                                                                                                                                                                    | [es:ListTags](../../../opensearch-service/latest/APIReference/API_ListTags.md "../../../opensearch-service/latest/APIReference/API_ListTags.md")                                                                                         |                                             |                   | Read           |
-| ListVersions                                                                                                                                                                                                                | [es:ListElasticsearchVersions](../../../opensearch-service/latest/APIReference/API_ListVersions.md "../../../opensearch-service/latest/APIReference/API_ListVersions.md")                                                                |                                             |                   | List           |
-| [es:ListVersions](../../../opensearch-service/latest/APIReference/API_ListVersions.md "../../../opensearch-service/latest/APIReference/API_ListVersions.md")                                                                |                                                                                                                                                                                                                                          |                                             | List              |
-| ListVpcEndpointAccess                                                                                                                                                                                                       | [es:ListVpcEndpointAccess](../../../opensearch-service/latest/APIReference/API_ListVpcEndpointAccess.md "../../../opensearch-service/latest/APIReference/API_ListVpcEndpointAccess.md")                                                  |                                             |                   | List           |
-| ListVpcEndpoints                                                                                                                                                                                                            | [es:ListVpcEndpoints](../../../opensearch-service/latest/APIReference/API_ListVpcEndpoints.md "../../../opensearch-service/latest/APIReference/API_ListVpcEndpoints.md")                                                                 |                                             |                   | List           |
-| ListVpcEndpointsForDomain                                                                                                                                                                                                   | [es:ListVpcEndpointsForDomain](../../../opensearch-service/latest/APIReference/API_ListVpcEndpointsForDomain.md "../../../opensearch-service/latest/APIReference/API_ListVpcEndpointsForDomain.md")                                      |                                             |                   | List           |
-| PurchaseReservedInstanceOffering                                                                                                                                                                                            | [es:PurchaseReservedElasticsearchInstanceOffering](../../../opensearch-service/latest/APIReference/API_PurchaseReservedInstanceOffering.md "../../../opensearch-service/latest/APIReference/API_PurchaseReservedInstanceOffering.md")    |                                             |                   | Write          |
-| [es:PurchaseReservedInstanceOffering](../../../opensearch-service/latest/APIReference/API_PurchaseReservedInstanceOffering.md "../../../opensearch-service/latest/APIReference/API_PurchaseReservedInstanceOffering.md")    |                                                                                                                                                                                                                                          |                                             | Write             |
-| PutDefaultApplicationSetting                                                                                                                                                                                                | [es:PutDefaultApplicationSetting](../../../opensearch-service/latest/APIReference/API_PutDefaultApplicationSetting.md "../../../opensearch-service/latest/APIReference/API_PutDefaultApplicationSetting.md")                             |                                             |                   | Write          |
-| RegisterCapability                                                                                                                                                                                                          | [es:RegisterCapability](../../../opensearch-service/latest/APIReference/API_RegisterCapability.md "../../../opensearch-service/latest/APIReference/API_RegisterCapability.md")                                                           |                                             |                   | Write          |
-| RejectInboundConnection                                                                                                                                                                                                     | [es:RejectInboundConnection](../../../opensearch-service/latest/APIReference/API_RejectInboundConnection.md "../../../opensearch-service/latest/APIReference/API_RejectInboundConnection.md")                                            |                                             |                   | Write          |
-| [es:RejectInboundCrossClusterSearchConnection](../../../opensearch-service/latest/APIReference/API_RejectInboundConnection.md "../../../opensearch-service/latest/APIReference/API_RejectInboundConnection.md")             |                                                                                                                                                                                                                                          |                                             | Write             |
-| RemoveTags                                                                                                                                                                                                                  | [es:RemoveTags](../../../opensearch-service/latest/APIReference/API_RemoveTags.md "../../../opensearch-service/latest/APIReference/API_RemoveTags.md")                                                                                   |                                             |                   | Tagging, Write |
-| RevokeVpcEndpointAccess                                                                                                                                                                                                     | [es:RevokeVpcEndpointAccess](../../../opensearch-service/latest/APIReference/API_RevokeVpcEndpointAccess.md "../../../opensearch-service/latest/APIReference/API_RevokeVpcEndpointAccess.md")                                            |                                             |                   | Write          |
-| RollbackServiceSoftwareUpdate                                                                                                                                                                                               | [es:RollbackElasticsearchServiceSoftwareUpdate](../../../opensearch-service/latest/APIReference/API_RollbackServiceSoftwareUpdate.md "../../../opensearch-service/latest/APIReference/API_RollbackServiceSoftwareUpdate.md")             |                                             |                   | Write          |
-| [es:RollbackServiceSoftwareUpdate](../../../opensearch-service/latest/APIReference/API_RollbackServiceSoftwareUpdate.md "../../../opensearch-service/latest/APIReference/API_RollbackServiceSoftwareUpdate.md")             |                                                                                                                                                                                                                                          |                                             | Write             |
-| StartDomainMaintenance                                                                                                                                                                                                      | [es:StartDomainMaintenance](../../../opensearch-service/latest/APIReference/API_StartDomainMaintenance.md "../../../opensearch-service/latest/APIReference/API_StartDomainMaintenance.md")                                               |                                             |                   | Write          |
-| StartMigration                                                                                                                                                                                                              | [es:StartMigration](../../../opensearch-service/latest/APIReference/API_StartMigration.md "../../../opensearch-service/latest/APIReference/API_StartMigration.md")                                                                       |                                             |                   | Write          |
-| StartServiceSoftwareUpdate                                                                                                                                                                                                  | [es:StartElasticsearchServiceSoftwareUpdate](../../../opensearch-service/latest/APIReference/API_StartServiceSoftwareUpdate.md "../../../opensearch-service/latest/APIReference/API_StartServiceSoftwareUpdate.md")                      |                                             |                   | Write          |
-| [es:StartServiceSoftwareUpdate](../../../opensearch-service/latest/APIReference/API_StartServiceSoftwareUpdate.md "../../../opensearch-service/latest/APIReference/API_StartServiceSoftwareUpdate.md")                      |                                                                                                                                                                                                                                          |                                             | Write             |
-| UpdateApplication                                                                                                                                                                                                           | [es:UpdateApplication](../../../opensearch-service/latest/APIReference/API_UpdateApplication.md "../../../opensearch-service/latest/APIReference/API_UpdateApplication.md")                                                              |                                             |                   | Write          |
-| UpdateDataSource                                                                                                                                                                                                            | [es:UpdateDataSource](../../../opensearch-service/latest/APIReference/API_UpdateDataSource.md "../../../opensearch-service/latest/APIReference/API_UpdateDataSource.md")                                                                 |                                             |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                             | iam:PassedToService                                                                                                                                                                                                                      | directquery.opensearchservice.amazonaws.com | Write             |
-| UpdateDirectQueryDataSource                                                                                                                                                                                                 | [es:UpdateDirectQueryDataSource](../../../opensearch-service/latest/APIReference/API_UpdateDirectQueryDataSource.md "../../../opensearch-service/latest/APIReference/API_UpdateDirectQueryDataSource.md")                                |                                             |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                             | iam:PassedToService                                                                                                                                                                                                                      | directquery.opensearchservice.amazonaws.com | Write             |
-| UpdateDomainConfig                                                                                                                                                                                                          | [es:UpdateDomainConfig](../../../opensearch-service/latest/APIReference/API_UpdateDomainConfig.md "../../../opensearch-service/latest/APIReference/API_UpdateDomainConfig.md")                                                           |                                             |                   | Write          |
-| [es:UpdateElasticsearchDomainConfig](../../../opensearch-service/latest/APIReference/API_UpdateDomainConfig.md "../../../opensearch-service/latest/APIReference/API_UpdateDomainConfig.md")                                 |                                                                                                                                                                                                                                          |                                             | Write             |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                                             | iam:PassedToService                                                                                                                                                                                                                      | es.amazonaws.com                            | Write             |
-| UpdateIndex                                                                                                                                                                                                                 | [es:UpdateIndex](../../../opensearch-service/latest/APIReference/API_UpdateIndex.md "../../../opensearch-service/latest/APIReference/API_UpdateIndex.md")                                                                                |                                             |                   | Write          |
-| UpdatePackage                                                                                                                                                                                                               | [es:UpdatePackage](../../../opensearch-service/latest/APIReference/API_UpdatePackage.md "../../../opensearch-service/latest/APIReference/API_UpdatePackage.md")                                                                          |                                             |                   | Write          |
-| UpdatePackageScope                                                                                                                                                                                                          | [es:UpdatePackageScope](../../../opensearch-service/latest/APIReference/API_UpdatePackageScope.md "../../../opensearch-service/latest/APIReference/API_UpdatePackageScope.md")                                                           |                                             |                   | Write          |
-| UpdateScheduledAction                                                                                                                                                                                                       | [es:UpdateScheduledAction](../../../opensearch-service/latest/APIReference/API_UpdateScheduledAction.md "../../../opensearch-service/latest/APIReference/API_UpdateScheduledAction.md")                                                  |                                             |                   | Write          |
-| UpdateVpcEndpoint                                                                                                                                                                                                           | [es:UpdateVpcEndpoint](../../../opensearch-service/latest/APIReference/API_UpdateVpcEndpoint.md "../../../opensearch-service/latest/APIReference/API_UpdateVpcEndpoint.md")                                                              |                                             |                   | Write          |
-| UpgradeDomain                                                                                                                                                                                                               | [es:UpgradeDomain](../../../opensearch-service/latest/APIReference/API_UpgradeDomain.md "../../../opensearch-service/latest/APIReference/API_UpgradeDomain.md")                                                                          |                                             |                   | Write          |
-| [es:UpgradeElasticsearchDomain](../../../opensearch-service/latest/APIReference/API_UpgradeDomain.md "../../../opensearch-service/latest/APIReference/API_UpgradeDomain.md")                                                |                                                                                                                                                                                                                                          |                                             | Write             |
+
+
+
+- **   AcceptInboundConnection  **
+  - **IAM action:**  [es:AcceptInboundConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:AcceptInboundCrossClusterSearchConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   AddDataSource  **
+  - **IAM action:**  [es:AddDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AddDataSource.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** directquery.opensearchservice.amazonaws.com / **Access level:** Write
+
+- **   AddDirectQueryDataSource  **
+  - **IAM action:**  [es:AddDirectQueryDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AddDirectQueryDataSource.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:AddTags](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AddTags.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** directquery.opensearchservice.amazonaws.com / **Access level:** Write
+
+- **   AddTags  **
+  - **IAM action:**  [es:AddTags](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AddTags.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   AssociatePackage  **
+  - **IAM action:**  [es:AssociatePackage](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AssociatePackage.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociatePackages  **
+  - **IAM action:**  [es:AssociatePackages](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AssociatePackages.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AttachDataSource  **
+  - **IAM action:**  [es:AttachDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AttachDataSource.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AuthorizeVpcEndpointAccess  **
+  - **IAM action:**  [es:AuthorizeVpcEndpointAccess](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AuthorizeVpcEndpointAccess.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CancelDomainConfigChange  **
+  - **IAM action:**  [es:CancelDomainConfigChange](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CancelDomainConfigChange.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CancelServiceSoftwareUpdate  **
+  - **IAM action:**  [es:CancelElasticsearchServiceSoftwareUpdate](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CancelServiceSoftwareUpdate.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:CancelServiceSoftwareUpdate](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CancelServiceSoftwareUpdate.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   CreateApplication  **
+  - **IAM action:**  [es:AddTags](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AddTags.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [es:CreateApplication](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateApplication.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   CreateDomain  **
+  - **IAM action:**  [es:AddTags](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AddTags.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [es:CreateDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:CreateElasticsearchDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** es.amazonaws.com / **Access level:** Write
+
+- **   CreateIndex  **
+  - **IAM action:**  [es:CreateIndex](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateIndex.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateOutboundConnection  **
+  - **IAM action:**  [es:CreateOutboundConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateOutboundConnection.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:CreateOutboundCrossClusterSearchConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateOutboundConnection.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   CreatePackage  **
+  - **IAM action:**  [es:CreatePackage](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreatePackage.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateVpcEndpoint  **
+  - **IAM action:**  [es:CreateVpcEndpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateVpcEndpoint.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteApplication  **
+  - **IAM action:**  [es:DeleteApplication](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteApplication.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDataSource  **
+  - **IAM action:**  [es:DeleteDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteDataSource.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDirectQueryDataSource  **
+  - **IAM action:**  [es:DeleteDirectQueryDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteDirectQueryDataSource.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDomain  **
+  - **IAM action:**  [es:DeleteDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteDomain.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:DeleteElasticsearchDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteDomain.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   DeleteInboundConnection  **
+  - **IAM action:**  [es:DeleteInboundConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteInboundConnection.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteIndex  **
+  - **IAM action:**  [es:DeleteIndex](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteIndex.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteOutboundConnection  **
+  - **IAM action:**  [es:DeleteOutboundConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteOutboundConnection.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:DeleteOutboundCrossClusterSearchConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteOutboundConnection.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   DeletePackage  **
+  - **IAM action:**  [es:DeletePackage](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeletePackage.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVpcEndpoint  **
+  - **IAM action:**  [es:DeleteVpcEndpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteVpcEndpoint.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeregisterCapability  **
+  - **IAM action:**  [es:DeregisterCapability](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeregisterCapability.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeDataSourceAttachment  **
+  - **IAM action:**  [es:DescribeDataSourceAttachment](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDataSourceAttachment.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeDomain  **
+  - **IAM action:**  [es:DescribeDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomain.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [es:DescribeElasticsearchDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomain.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   DescribeDomainAutoTunes  **
+  - **IAM action:**  [es:DescribeDomainAutoTunes](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomainAutoTunes.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeDomainChangeProgress  **
+  - **IAM action:**  [es:DescribeDomainChangeProgress](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomainChangeProgress.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeDomainConfig  **
+  - **IAM action:**  [es:DescribeDomainConfig](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomainConfig.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [es:DescribeElasticsearchDomainConfig](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomainConfig.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   DescribeDomainHealth  **
+  - **IAM action:**  [es:DescribeDomainHealth](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomainHealth.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeDomainNodes  **
+  - **IAM action:**  [es:DescribeDomainNodes](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomainNodes.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeDomains  **
+  - **IAM action:**  [es:DescribeDomains](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomains.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:DescribeElasticsearchDomains](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomains.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   DescribeDryRunProgress  **
+  - **IAM action:**  [es:DescribeDryRunProgress](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDryRunProgress.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeInboundConnections  **
+  - **IAM action:**  [es:DescribeInboundConnections](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeInboundConnections.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:DescribeInboundCrossClusterSearchConnections](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeInboundConnections.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   DescribeInsightDetails  **
+  - **IAM action:**  [es:DescribeInsightDetails](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeInsightDetails.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeInstanceTypeLimits  **
+  - **IAM action:**  [es:DescribeElasticsearchInstanceTypeLimits](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeInstanceTypeLimits.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:DescribeInstanceTypeLimits](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeInstanceTypeLimits.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   DescribeOutboundConnections  **
+  - **IAM action:**  [es:DescribeOutboundConnections](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeOutboundConnections.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:DescribeOutboundCrossClusterSearchConnections](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeOutboundConnections.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   DescribePackages  **
+  - **IAM action:**  [es:DescribePackages](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribePackages.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeReservedInstanceOfferings  **
+  - **IAM action:**  [es:DescribeReservedElasticsearchInstanceOfferings](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeReservedInstanceOfferings.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:DescribeReservedInstanceOfferings](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeReservedInstanceOfferings.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   DescribeReservedInstances  **
+  - **IAM action:**  [es:DescribeReservedElasticsearchInstances](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeReservedInstances.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:DescribeReservedInstances](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeReservedInstances.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   DescribeVpcEndpoints  **
+  - **IAM action:**  [es:DescribeVpcEndpoints](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeVpcEndpoints.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DetachDataSource  **
+  - **IAM action:**  [es:DetachDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DetachDataSource.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DissociatePackage  **
+  - **IAM action:**  [es:DissociatePackage](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DissociatePackage.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DissociatePackages  **
+  - **IAM action:**  [es:DissociatePackages](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DissociatePackages.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetApplication  **
+  - **IAM action:**  [es:GetApplication](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetApplication.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCapability  **
+  - **IAM action:**  [es:GetCapability](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetCapability.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCompatibleVersions  **
+  - **IAM action:**  [es:GetCompatibleElasticsearchVersions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetCompatibleVersions.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:GetCompatibleVersions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetCompatibleVersions.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   GetDataSource  **
+  - **IAM action:**  [es:GetDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetDataSource.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDefaultApplicationSetting  **
+  - **IAM action:**  [es:GetDefaultApplicationSetting](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetDefaultApplicationSetting.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDirectQueryDataSource  **
+  - **IAM action:**  [es:GetDirectQueryDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetDirectQueryDataSource.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDomainMaintenanceStatus  **
+  - **IAM action:**  [es:GetDomainMaintenanceStatus](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetDomainMaintenanceStatus.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIndex  **
+  - **IAM action:**  [es:GetIndex](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetIndex.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMigration  **
+  - **IAM action:**  [es:GetMigration](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetMigration.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPackageVersionHistory  **
+  - **IAM action:**  [es:GetPackageVersionHistory](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetPackageVersionHistory.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetUpgradeHistory  **
+  - **IAM action:**  [es:GetUpgradeHistory](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetUpgradeHistory.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetUpgradeStatus  **
+  - **IAM action:**  [es:GetUpgradeStatus](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetUpgradeStatus.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   InsightFeedback  **
+  - **IAM action:**  [es:InsightFeedback](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_InsightFeedback.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ListApplications  **
+  - **IAM action:**  [es:ListApplications](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListApplications.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDataSourceAttachments  **
+  - **IAM action:**  [es:ListDataSourceAttachments](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListDataSourceAttachments.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDataSources  **
+  - **IAM action:**  [es:ListDataSources](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListDataSources.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDirectQueryDataSources  **
+  - **IAM action:**  [es:ListDirectQueryDataSources](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListDirectQueryDataSources.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDomainMaintenances  **
+  - **IAM action:**  [es:ListDomainMaintenances](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListDomainMaintenances.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDomainNames  **
+  - **IAM action:**  [es:ListDomainNames](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListDomainNames.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDomainsForPackage  **
+  - **IAM action:**  [es:ListDomainsForPackage](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListDomainsForPackage.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListInsights  **
+  - **IAM action:**  [es:ListInsights](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListInsights.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListInstanceTypeDetails  **
+  - **IAM action:**  [es:ListElasticsearchInstanceTypeDetails](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListInstanceTypeDetails.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:ListInstanceTypeDetails](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListInstanceTypeDetails.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   ListMigrations  **
+  - **IAM action:**  [es:ListMigrations](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListMigrations.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPackagesForDomain  **
+  - **IAM action:**  [es:ListPackagesForDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListPackagesForDomain.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListScheduledActions  **
+  - **IAM action:**  [es:ListScheduledActions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTags  **
+  - **IAM action:**  [es:ListTags](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListTags.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListVersions  **
+  - **IAM action:**  [es:ListElasticsearchVersions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListVersions.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:ListVersions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListVersions.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   ListVpcEndpointAccess  **
+  - **IAM action:**  [es:ListVpcEndpointAccess](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListVpcEndpointAccess.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListVpcEndpoints  **
+  - **IAM action:**  [es:ListVpcEndpoints](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListVpcEndpoints.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListVpcEndpointsForDomain  **
+  - **IAM action:**  [es:ListVpcEndpointsForDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListVpcEndpointsForDomain.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PurchaseReservedInstanceOffering  **
+  - **IAM action:**  [es:PurchaseReservedElasticsearchInstanceOffering](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_PurchaseReservedInstanceOffering.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:PurchaseReservedInstanceOffering](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_PurchaseReservedInstanceOffering.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   PutDefaultApplicationSetting  **
+  - **IAM action:**  [es:PutDefaultApplicationSetting](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_PutDefaultApplicationSetting.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RegisterCapability  **
+  - **IAM action:**  [es:RegisterCapability](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RegisterCapability.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RejectInboundConnection  **
+  - **IAM action:**  [es:RejectInboundConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RejectInboundConnection.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:RejectInboundCrossClusterSearchConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RejectInboundConnection.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   RemoveTags  **
+  - **IAM action:**  [es:RemoveTags](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RemoveTags.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   RevokeVpcEndpointAccess  **
+  - **IAM action:**  [es:RevokeVpcEndpointAccess](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RevokeVpcEndpointAccess.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RollbackServiceSoftwareUpdate  **
+  - **IAM action:**  [es:RollbackElasticsearchServiceSoftwareUpdate](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RollbackServiceSoftwareUpdate.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:RollbackServiceSoftwareUpdate](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RollbackServiceSoftwareUpdate.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   StartDomainMaintenance  **
+  - **IAM action:**  [es:StartDomainMaintenance](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_StartDomainMaintenance.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartMigration  **
+  - **IAM action:**  [es:StartMigration](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_StartMigration.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartServiceSoftwareUpdate  **
+  - **IAM action:**  [es:StartElasticsearchServiceSoftwareUpdate](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_StartServiceSoftwareUpdate.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:StartServiceSoftwareUpdate](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_StartServiceSoftwareUpdate.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   UpdateApplication  **
+  - **IAM action:**  [es:UpdateApplication](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateApplication.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateDataSource  **
+  - **IAM action:**  [es:UpdateDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateDataSource.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** directquery.opensearchservice.amazonaws.com / **Access level:** Write
+
+- **   UpdateDirectQueryDataSource  **
+  - **IAM action:**  [es:UpdateDirectQueryDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateDirectQueryDataSource.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** directquery.opensearchservice.amazonaws.com / **Access level:** Write
+
+- **   UpdateDomainConfig  **
+  - **IAM action:**  [es:UpdateDomainConfig](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateDomainConfig.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:UpdateElasticsearchDomainConfig](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateDomainConfig.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** es.amazonaws.com / **Access level:** Write
+
+- **   UpdateIndex  **
+  - **IAM action:**  [es:UpdateIndex](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateIndex.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdatePackage  **
+  - **IAM action:**  [es:UpdatePackage](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdatePackage.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdatePackageScope  **
+  - **IAM action:**  [es:UpdatePackageScope](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdatePackageScope.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateScheduledAction  **
+  - **IAM action:**  [es:UpdateScheduledAction](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateScheduledAction.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateVpcEndpoint  **
+  - **IAM action:**  [es:UpdateVpcEndpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateVpcEndpoint.html) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpgradeDomain  **
+  - **IAM action:**  [es:UpgradeDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpgradeDomain.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:UpgradeElasticsearchDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpgradeDomain.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+
 
 ## Actions defined by Amazon OpenSearch
+<a name="list_opensearch-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                | Description                                                                                             | Resource types (\*required)                                                                 | Condition keys | Access level |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | -------------- | ------------ |
-| [CancelAutoOptimizeJob](../../../opensearch-service/latest/developerguide/serverless-auto-optimize.md "../../../opensearch-service/latest/developerguide/serverless-auto-optimize.md") | Grants permission to cancel submitted Auto Optimize Job                                                 |                                                                                             |                | Write        |
-| [CancelDirectQuery](../../../opensearch-service/latest/APIReference/API_CancelDirectQuery.md "../../../opensearch-service/latest/APIReference/API_CancelDirectQuery.md")               | Grants permission to cancel the query that is submitted on the OpenSearch DataSource resource           | [datasource\*](#list_opensearch-resource-datasource "#list_opensearch-resource-datasource") |                | Write        |
-| [DeleteAutoOptimizeJob](../../../opensearch-service/latest/developerguide/serverless-auto-optimize.md "../../../opensearch-service/latest/developerguide/serverless-auto-optimize.md") | Grants permission to delete Auto Optimize Job                                                           |                                                                                             |                | Write        |
-| [GetAutoOptimizeJob](../../../opensearch-service/latest/developerguide/serverless-auto-optimize.md "../../../opensearch-service/latest/developerguide/serverless-auto-optimize.md")    | Grants permission to get the Auto Optimize Job details                                                  |                                                                                             |                | Read         |
-| [GetDirectQuery](../../../opensearch-service/latest/APIReference/API_GetDirectQuery.md "../../../opensearch-service/latest/APIReference/API_GetDirectQuery.md")                        | Grants permission to get the query status that are performed on the OpenSearch DataSource resource      | [datasource\*](#list_opensearch-resource-datasource "#list_opensearch-resource-datasource") |                | Read         |
-| [GetDirectQueryResult](../../../opensearch-service/latest/APIReference/API_GetDirectQueryResult.md "../../../opensearch-service/latest/APIReference/API_GetDirectQueryResult.md")      | Grants permission to get the results of a query that is performed on the OpenSearch DataSource resource | [datasource\*](#list_opensearch-resource-datasource "#list_opensearch-resource-datasource") |                | Read         |
-| [ListAutoOptimizeJobs](../../../opensearch-service/latest/developerguide/serverless-auto-optimize.md "../../../opensearch-service/latest/developerguide/serverless-auto-optimize.md")  | Grants permission to retrieve a list of Auto Optimize Jobs                                              |                                                                                             |                | List         |
-| [StartDirectQuery](../../../opensearch-service/latest/APIReference/API_StartDirectQuery.md "../../../opensearch-service/latest/APIReference/API_StartDirectQuery.md")                  | Grants permission to start a direct query on the provided OpenSearch DataSource arns                    | [datasource\*](#list_opensearch-resource-datasource "#list_opensearch-resource-datasource") |                | Write        |
-| [SubmitAutoOptimizeJob](../../../opensearch-service/latest/developerguide/serverless-auto-optimize.md "../../../opensearch-service/latest/developerguide/serverless-auto-optimize.md") | Grants permission to create new Auto Optimize Job                                                       |                                                                                             |                | Write        |
+
+
+
+- **   [CancelAutoOptimizeJob](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-auto-optimize.html)  **
+  - **Description:** Grants permission to cancel submitted Auto Optimize Job
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CancelDirectQuery](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CancelDirectQuery.html)  **
+  - **Description:** Grants permission to cancel the query that is submitted on the OpenSearch DataSource resource
+  - **Resource types (\*required):** [datasource\*](#list_opensearch-resource-datasource)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteAutoOptimizeJob](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-auto-optimize.html)  **
+  - **Description:** Grants permission to delete Auto Optimize Job
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [GetAutoOptimizeJob](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-auto-optimize.html)  **
+  - **Description:** Grants permission to get the Auto Optimize Job details
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetDirectQuery](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetDirectQuery.html)  **
+  - **Description:** Grants permission to get the query status that are performed on the OpenSearch DataSource resource
+  - **Resource types (\*required):** [datasource\*](#list_opensearch-resource-datasource)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetDirectQueryResult](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetDirectQueryResult.html)  **
+  - **Description:** Grants permission to get the results of a query that is performed on the OpenSearch DataSource resource
+  - **Resource types (\*required):** [datasource\*](#list_opensearch-resource-datasource)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListAutoOptimizeJobs](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-auto-optimize.html)  **
+  - **Description:** Grants permission to retrieve a list of Auto Optimize Jobs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [StartDirectQuery](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_StartDirectQuery.html)  **
+  - **Description:** Grants permission to start a direct query on the provided OpenSearch DataSource arns
+  - **Resource types (\*required):** [datasource\*](#list_opensearch-resource-datasource)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SubmitAutoOptimizeJob](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-auto-optimize.html)  **
+  - **Description:** Grants permission to create new Auto Optimize Job
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for Amazon OpenSearch
+<a name="list_opensearch-permission-only-actions"></a>
 
-The following actions are defined by Amazon OpenSearch but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by Amazon OpenSearch but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                             | Description                                                           | Resource types (\*required)                                                                    | Condition keys | Access level                  |
-| ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | -------------- | ----------------------------- |
-| [ApplicationAccessAll](../../../opensearch-service/latest/developerguide.md "../../../opensearch-service/latest/developerguide.md") | Grants permission to access OpenSearch Application                    | [application\*](#list_opensearch-resource-application "#list_opensearch-resource-application") |                | Permissions management, Write |
-| [ViewLoginPage](../../../opensearch-service/latest/developerguide.md "../../../opensearch-service/latest/developerguide.md")        | Grants permission to view the login page of an OpenSearch Application | [application\*](#list_opensearch-resource-application "#list_opensearch-resource-application") |                | Permissions management, Write |
+
+
+
+- **   [ApplicationAccessAll](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/)  **
+  - **Description:** Grants permission to access OpenSearch Application
+  - **Resource types (\*required):** [application\*](#list_opensearch-resource-application)
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+- **   [ViewLoginPage](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/)  **
+  - **Description:** Grants permission to view the login page of an OpenSearch Application
+  - **Resource types (\*required):** [application\*](#list_opensearch-resource-application)
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+
 
 ## Resource types defined by Amazon OpenSearch
+<a name="list_opensearch-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                  | ARN                                                                           | Condition keys |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | -------------- |
-| [application](../../../opensearch-service/latest/developerguide/ac.md "../../../opensearch-service/latest/developerguide/ac.md")                | arn:${Partition}:opensearch:${Region}:${Account}:application/${AppId}         |                |
-| [datasource](../../../opensearch-service/latest/developerguide/datasource.md "../../../opensearch-service/latest/developerguide/datasource.md") | arn:${Partition}:opensearch:${Region}:${Account}:datasource/${DataSourceName} |                |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html)  | arn:${Partition}:opensearch:${Region}:${Account}:application/${AppId} |   | 
+|  [datasource](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/datasource.html)  | arn:${Partition}:opensearch:${Region}:${Account}:datasource/${DataSourceName} |   | 
 
 ## Condition keys for Amazon OpenSearch
+<a name="list_opensearch-policy-keys"></a>
 
-Amazon OpenSearch has no service-specific condition keys that can be used in the
-`Condition` element of policy statements.
+Amazon OpenSearch has no service-specific condition keys that can be used in the `Condition` element of policy statements.

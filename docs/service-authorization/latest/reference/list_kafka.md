@@ -1,225 +1,823 @@
-# Actions, resources, and condition keys for Amazon Managed Streaming for Apache Kafka
 
-Amazon Managed Streaming for Apache Kafka (service prefix: `kafka`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Managed Streaming for Apache Kafka
+<a name="list_kafka"></a>
+
+Amazon Managed Streaming for Apache Kafka (service prefix: `kafka`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/msk/latest/developerguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/msk/1.0/apireference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/msk/latest/developerguide/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/kafka/kafka.json) for this service.
 
-- Learn how to [configure this service](../../../msk/latest/developerguide.md "../../../msk/latest/developerguide.md").
-- View a list of the [API operations available for
-  this service](../../../msk/1.0/apireference.md "../../../msk/1.0/apireference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../msk/latest/developerguide/security-iam.md "../../../msk/latest/developerguide/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/kafka/kafka.json "https://servicereference.us-east-1.amazonaws.com/v1/kafka/kafka.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon Managed Streaming for Apache Kafka](#list_kafka-operations "#list_kafka-operations")
-- [Actions defined by Amazon Managed Streaming for Apache Kafka](#list_kafka-actions-as-permissions "#list_kafka-actions-as-permissions")
-- [Resource types defined by Amazon Managed Streaming for Apache Kafka](#list_kafka-resources-for-iam-policies "#list_kafka-resources-for-iam-policies")
-- [Condition keys for Amazon Managed Streaming for Apache Kafka](#list_kafka-policy-keys "#list_kafka-policy-keys")
+**Topics**
++ [API operations defined by Amazon Managed Streaming for Apache Kafka](#list_kafka-operations)
++ [Actions defined by Amazon Managed Streaming for Apache Kafka](#list_kafka-actions-as-permissions)
++ [Resource types defined by Amazon Managed Streaming for Apache Kafka](#list_kafka-resources-for-iam-policies)
++ [Condition keys for Amazon Managed Streaming for Apache Kafka](#list_kafka-policy-keys)
 
 ## API operations defined by Amazon Managed Streaming for Apache Kafka
+<a name="list_kafka-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_kafka-actions-as-permissions "#list_kafka-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_kafka-actions-as-permissions).
 
-| Operation                                                                                                                                                                              | IAM action                                                                                                                                                      | Condition key       | Possible value(s) | Access level   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----------------- | -------------- |
-| BatchAssociateScramSecret                                                                                                                                                              | [kafka:BatchAssociateScramSecret](#list_kafka-action-BatchAssociateScramSecret "#list_kafka-action-BatchAssociateScramSecret")                                  |                     |                   | Write          |
-| BatchDisassociateScramSecret                                                                                                                                                           | [kafka:BatchDisassociateScramSecret](#list_kafka-action-BatchDisassociateScramSecret "#list_kafka-action-BatchDisassociateScramSecret")                         |                     |                   | Write          |
-| CreateChannel                                                                                                                                                                          | [kafka:CreateChannel](#list_kafka-action-CreateChannel "#list_kafka-action-CreateChannel")                                                                      |                     |                   | Write          |
-| [kafka:TagResource](#list_kafka-action-TagResource "#list_kafka-action-TagResource")                                                                                                   |                                                                                                                                                                 |                     | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                        | iam:PassedToService                                                                                                                                             | kafka.amazonaws.com | Write             |
-| CreateCluster                                                                                                                                                                          | [kafka:CreateCluster](#list_kafka-action-CreateCluster "#list_kafka-action-CreateCluster")                                                                      |                     |                   | Write          |
-| [kafka:TagResource](#list_kafka-action-TagResource "#list_kafka-action-TagResource")                                                                                                   |                                                                                                                                                                 |                     | Tagging, Write    |
-| CreateClusterV2                                                                                                                                                                        | [kafka:CreateClusterV2](#list_kafka-action-CreateClusterV2 "#list_kafka-action-CreateClusterV2")                                                                |                     |                   | Write          |
-| [kafka:TagResource](#list_kafka-action-TagResource "#list_kafka-action-TagResource")                                                                                                   |                                                                                                                                                                 |                     | Tagging, Write    |
-| CreateConfiguration                                                                                                                                                                    | [kafka:CreateConfiguration](#list_kafka-action-CreateConfiguration "#list_kafka-action-CreateConfiguration")                                                    |                     |                   | Write          |
-| CreateReplicator                                                                                                                                                                       | [kafka:CreateReplicator](#list_kafka-action-CreateReplicator "#list_kafka-action-CreateReplicator")                                                             |                     |                   | Write          |
-| [kafka:DescribeClusterV2](#list_kafka-action-DescribeClusterV2 "#list_kafka-action-DescribeClusterV2")                                                                                 |                                                                                                                                                                 |                     | Read              |
-| [kafka:GetBootstrapBrokers](#list_kafka-action-GetBootstrapBrokers "#list_kafka-action-GetBootstrapBrokers")                                                                           |                                                                                                                                                                 |                     | Read              |
-| [kafka:TagResource](#list_kafka-action-TagResource "#list_kafka-action-TagResource")                                                                                                   |                                                                                                                                                                 |                     | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                        | iam:PassedToService                                                                                                                                             | kafka.amazonaws.com | Write             |
-| CreateTopic                                                                                                                                                                            | [kafka-cluster:Connect](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions")    |                     |                   | Write          |
-| [kafka-cluster:CreateTopic](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions")                       |                                                                                                                                                                 |                     | Write             |
-| CreateVpcConnection                                                                                                                                                                    | [kafka:CreateVpcConnection](#list_kafka-action-CreateVpcConnection "#list_kafka-action-CreateVpcConnection")                                                    |                     |                   | Write          |
-| [kafka:TagResource](#list_kafka-action-TagResource "#list_kafka-action-TagResource")                                                                                                   |                                                                                                                                                                 |                     | Tagging, Write    |
-| DeleteChannel                                                                                                                                                                          | [kafka:DeleteChannel](#list_kafka-action-DeleteChannel "#list_kafka-action-DeleteChannel")                                                                      |                     |                   | Write          |
-| DeleteCluster                                                                                                                                                                          | [kafka:DeleteCluster](#list_kafka-action-DeleteCluster "#list_kafka-action-DeleteCluster")                                                                      |                     |                   | Write          |
-| DeleteClusterPolicy                                                                                                                                                                    | [kafka:DeleteClusterPolicy](#list_kafka-action-DeleteClusterPolicy "#list_kafka-action-DeleteClusterPolicy")                                                    |                     |                   | Write          |
-| DeleteConfiguration                                                                                                                                                                    | [kafka:DeleteConfiguration](#list_kafka-action-DeleteConfiguration "#list_kafka-action-DeleteConfiguration")                                                    |                     |                   | Write          |
-| DeleteReplicator                                                                                                                                                                       | [kafka:DeleteReplicator](#list_kafka-action-DeleteReplicator "#list_kafka-action-DeleteReplicator")                                                             |                     |                   | Write          |
-| DeleteTopic                                                                                                                                                                            | [kafka-cluster:Connect](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions")    |                     |                   | Write          |
-| [kafka-cluster:DeleteTopic](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions")                       |                                                                                                                                                                 |                     | Write             |
-| [kafka-cluster:DescribeTopic](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions")                     |                                                                                                                                                                 |                     | List              |
-| DeleteVpcConnection                                                                                                                                                                    | [kafka:DeleteVpcConnection](#list_kafka-action-DeleteVpcConnection "#list_kafka-action-DeleteVpcConnection")                                                    |                     |                   | Write          |
-| DescribeChannel                                                                                                                                                                        | [kafka:DescribeChannel](#list_kafka-action-DescribeChannel "#list_kafka-action-DescribeChannel")                                                                |                     |                   | Read           |
-| DescribeCluster                                                                                                                                                                        | [kafka:DescribeCluster](#list_kafka-action-DescribeCluster "#list_kafka-action-DescribeCluster")                                                                |                     |                   | Read           |
-| DescribeClusterOperation                                                                                                                                                               | [kafka:DescribeClusterOperation](#list_kafka-action-DescribeClusterOperation "#list_kafka-action-DescribeClusterOperation")                                     |                     |                   | Read           |
-| DescribeClusterOperationV2                                                                                                                                                             | [kafka:DescribeClusterOperationV2](#list_kafka-action-DescribeClusterOperationV2 "#list_kafka-action-DescribeClusterOperationV2")                               |                     |                   | Read           |
-| DescribeClusterV2                                                                                                                                                                      | [kafka:DescribeClusterV2](#list_kafka-action-DescribeClusterV2 "#list_kafka-action-DescribeClusterV2")                                                          |                     |                   | Read           |
-| DescribeConfiguration                                                                                                                                                                  | [kafka:DescribeConfiguration](#list_kafka-action-DescribeConfiguration "#list_kafka-action-DescribeConfiguration")                                              |                     |                   | Read           |
-| DescribeConfigurationRevision                                                                                                                                                          | [kafka:DescribeConfigurationRevision](#list_kafka-action-DescribeConfigurationRevision "#list_kafka-action-DescribeConfigurationRevision")                      |                     |                   | Read           |
-| DescribeReplicator                                                                                                                                                                     | [kafka:DescribeReplicator](#list_kafka-action-DescribeReplicator "#list_kafka-action-DescribeReplicator")                                                       |                     |                   | Read           |
-| [kafka:ListTagsForResource](#list_kafka-action-ListTagsForResource "#list_kafka-action-ListTagsForResource")                                                                           |                                                                                                                                                                 |                     | Read              |
-| DescribeTopic                                                                                                                                                                          | [kafka-cluster:Connect](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions")    |                     |                   | Write          |
-| [kafka-cluster:DescribeTopic](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions")                     |                                                                                                                                                                 |                     | List              |
-| [kafka-cluster:DescribeTopicDynamicConfiguration](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions") |                                                                                                                                                                 |                     | List              |
-| DescribeTopicPartitions                                                                                                                                                                | [kafka-cluster:Connect](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions")    |                     |                   | Write          |
-| [kafka-cluster:DescribeTopic](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions")                     |                                                                                                                                                                 |                     | List              |
-| [kafka-cluster:DescribeTopicDynamicConfiguration](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions") |                                                                                                                                                                 |                     | List              |
-| DescribeVpcConnection                                                                                                                                                                  | [kafka:DescribeVpcConnection](#list_kafka-action-DescribeVpcConnection "#list_kafka-action-DescribeVpcConnection")                                              |                     |                   | Read           |
-| GetBootstrapBrokers                                                                                                                                                                    | [kafka:GetBootstrapBrokers](#list_kafka-action-GetBootstrapBrokers "#list_kafka-action-GetBootstrapBrokers")                                                    |                     |                   | Read           |
-| GetClusterPolicy                                                                                                                                                                       | [kafka:GetClusterPolicy](#list_kafka-action-GetClusterPolicy "#list_kafka-action-GetClusterPolicy")                                                             |                     |                   | Read           |
-| GetCompatibleKafkaVersions                                                                                                                                                             | [kafka:GetCompatibleKafkaVersions](#list_kafka-action-GetCompatibleKafkaVersions "#list_kafka-action-GetCompatibleKafkaVersions")                               |                     |                   | List           |
-| ListChannels                                                                                                                                                                           | [kafka:ListChannels](#list_kafka-action-ListChannels "#list_kafka-action-ListChannels")                                                                         |                     |                   | List           |
-| ListClientVpcConnections                                                                                                                                                               | [kafka:ListClientVpcConnections](#list_kafka-action-ListClientVpcConnections "#list_kafka-action-ListClientVpcConnections")                                     |                     |                   | List           |
-| ListClusterOperations                                                                                                                                                                  | [kafka:ListClusterOperations](#list_kafka-action-ListClusterOperations "#list_kafka-action-ListClusterOperations")                                              |                     |                   | List           |
-| ListClusterOperationsV2                                                                                                                                                                | [kafka:ListClusterOperationsV2](#list_kafka-action-ListClusterOperationsV2 "#list_kafka-action-ListClusterOperationsV2")                                        |                     |                   | List           |
-| ListClusters                                                                                                                                                                           | [kafka:ListClusters](#list_kafka-action-ListClusters "#list_kafka-action-ListClusters")                                                                         |                     |                   | List           |
-| ListClustersV2                                                                                                                                                                         | [kafka:ListClustersV2](#list_kafka-action-ListClustersV2 "#list_kafka-action-ListClustersV2")                                                                   |                     |                   | List           |
-| ListConfigurationRevisions                                                                                                                                                             | [kafka:ListConfigurationRevisions](#list_kafka-action-ListConfigurationRevisions "#list_kafka-action-ListConfigurationRevisions")                               |                     |                   | List           |
-| ListConfigurations                                                                                                                                                                     | [kafka:ListConfigurations](#list_kafka-action-ListConfigurations "#list_kafka-action-ListConfigurations")                                                       |                     |                   | List           |
-| ListKafkaVersions                                                                                                                                                                      | [kafka:ListKafkaVersions](#list_kafka-action-ListKafkaVersions "#list_kafka-action-ListKafkaVersions")                                                          |                     |                   | List           |
-| ListNodes                                                                                                                                                                              | [kafka:ListNodes](#list_kafka-action-ListNodes "#list_kafka-action-ListNodes")                                                                                  |                     |                   | List           |
-| ListReplicators                                                                                                                                                                        | [kafka:ListReplicators](#list_kafka-action-ListReplicators "#list_kafka-action-ListReplicators")                                                                |                     |                   | List           |
-| ListScramSecrets                                                                                                                                                                       | [kafka:ListScramSecrets](#list_kafka-action-ListScramSecrets "#list_kafka-action-ListScramSecrets")                                                             |                     |                   | List           |
-| ListTagsForResource                                                                                                                                                                    | [kafka:ListTagsForResource](#list_kafka-action-ListTagsForResource "#list_kafka-action-ListTagsForResource")                                                    |                     |                   | Read           |
-| ListTopics                                                                                                                                                                             | [kafka-cluster:Connect](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions")    |                     |                   | Write          |
-| [kafka-cluster:DescribeTopic](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions")                     |                                                                                                                                                                 |                     | List              |
-| ListVpcConnections                                                                                                                                                                     | [kafka:ListVpcConnections](#list_kafka-action-ListVpcConnections "#list_kafka-action-ListVpcConnections")                                                       |                     |                   | List           |
-| PutClusterPolicy                                                                                                                                                                       | [kafka:PutClusterPolicy](#list_kafka-action-PutClusterPolicy "#list_kafka-action-PutClusterPolicy")                                                             |                     |                   | Write          |
-| RebootBroker                                                                                                                                                                           | [kafka:RebootBroker](#list_kafka-action-RebootBroker "#list_kafka-action-RebootBroker")                                                                         |                     |                   | Write          |
-| RejectClientVpcConnection                                                                                                                                                              | [kafka:RejectClientVpcConnection](#list_kafka-action-RejectClientVpcConnection "#list_kafka-action-RejectClientVpcConnection")                                  |                     |                   | Write          |
-| TagResource                                                                                                                                                                            | [kafka:TagResource](#list_kafka-action-TagResource "#list_kafka-action-TagResource")                                                                            |                     |                   | Tagging, Write |
-| UntagResource                                                                                                                                                                          | [kafka:UntagResource](#list_kafka-action-UntagResource "#list_kafka-action-UntagResource")                                                                      |                     |                   | Tagging, Write |
-| UpdateBrokerCount                                                                                                                                                                      | [kafka:UpdateBrokerCount](#list_kafka-action-UpdateBrokerCount "#list_kafka-action-UpdateBrokerCount")                                                          |                     |                   | Write          |
-| UpdateBrokerStorage                                                                                                                                                                    | [kafka:UpdateBrokerStorage](#list_kafka-action-UpdateBrokerStorage "#list_kafka-action-UpdateBrokerStorage")                                                    |                     |                   | Write          |
-| UpdateBrokerType                                                                                                                                                                       | [kafka:UpdateBrokerType](#list_kafka-action-UpdateBrokerType "#list_kafka-action-UpdateBrokerType")                                                             |                     |                   | Write          |
-| UpdateChannel                                                                                                                                                                          | [kafka:UpdateChannel](#list_kafka-action-UpdateChannel "#list_kafka-action-UpdateChannel")                                                                      |                     |                   | Write          |
-| UpdateClusterConfiguration                                                                                                                                                             | [kafka:UpdateClusterConfiguration](#list_kafka-action-UpdateClusterConfiguration "#list_kafka-action-UpdateClusterConfiguration")                               |                     |                   | Write          |
-| UpdateClusterKafkaVersion                                                                                                                                                              | [kafka:UpdateClusterKafkaVersion](#list_kafka-action-UpdateClusterKafkaVersion "#list_kafka-action-UpdateClusterKafkaVersion")                                  |                     |                   | Write          |
-| UpdateConfiguration                                                                                                                                                                    | [kafka:UpdateConfiguration](#list_kafka-action-UpdateConfiguration "#list_kafka-action-UpdateConfiguration")                                                    |                     |                   | Write          |
-| UpdateConnectivity                                                                                                                                                                     | [kafka:UpdateConnectivity](#list_kafka-action-UpdateConnectivity "#list_kafka-action-UpdateConnectivity")                                                       |                     |                   | Write          |
-| UpdateMonitoring                                                                                                                                                                       | [kafka:UpdateMonitoring](#list_kafka-action-UpdateMonitoring "#list_kafka-action-UpdateMonitoring")                                                             |                     |                   | Write          |
-| UpdateRebalancing                                                                                                                                                                      | [kafka:UpdateRebalancing](#list_kafka-action-UpdateRebalancing "#list_kafka-action-UpdateRebalancing")                                                          |                     |                   | Write          |
-| UpdateReplicationInfo                                                                                                                                                                  | [kafka:UpdateReplicationInfo](#list_kafka-action-UpdateReplicationInfo "#list_kafka-action-UpdateReplicationInfo")                                              |                     |                   | Write          |
-| UpdateSecurity                                                                                                                                                                         | [kafka:UpdateSecurity](#list_kafka-action-UpdateSecurity "#list_kafka-action-UpdateSecurity")                                                                   |                     |                   | Write          |
-| UpdateStorage                                                                                                                                                                          | [kafka:UpdateStorage](#list_kafka-action-UpdateStorage "#list_kafka-action-UpdateStorage")                                                                      |                     |                   | Write          |
-| UpdateTopic                                                                                                                                                                            | [kafka-cluster:AlterTopic](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions") |                     |                   | Write          |
-| [kafka-cluster:AlterTopicDynamicConfiguration](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions")    |                                                                                                                                                                 |                     | Write             |
-| [kafka-cluster:Connect](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions")                           |                                                                                                                                                                 |                     | Write             |
-| [kafka-cluster:DescribeTopic](../../../msk/latest/developerguide/iam-access-control.md#actions "../../../msk/latest/developerguide/iam-access-control.md#actions")                     |                                                                                                                                                                 |                     | List              |
+
+
+
+- **   BatchAssociateScramSecret  **
+  - **IAM action:**  [kafka:BatchAssociateScramSecret](#list_kafka-action-BatchAssociateScramSecret) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchDisassociateScramSecret  **
+  - **IAM action:**  [kafka:BatchDisassociateScramSecret](#list_kafka-action-BatchDisassociateScramSecret) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateChannel  **
+  - **IAM action:**  [kafka:CreateChannel](#list_kafka-action-CreateChannel)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kafka:TagResource](#list_kafka-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** kafka.amazonaws.com / **Access level:** Write
+
+- **   CreateCluster  **
+  - **IAM action:**  [kafka:CreateCluster](#list_kafka-action-CreateCluster)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kafka:TagResource](#list_kafka-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateClusterV2  **
+  - **IAM action:**  [kafka:CreateClusterV2](#list_kafka-action-CreateClusterV2)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kafka:TagResource](#list_kafka-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateConfiguration  **
+  - **IAM action:**  [kafka:CreateConfiguration](#list_kafka-action-CreateConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateReplicator  **
+  - **IAM action:**  [kafka:CreateReplicator](#list_kafka-action-CreateReplicator)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kafka:DescribeClusterV2](#list_kafka-action-DescribeClusterV2)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [kafka:GetBootstrapBrokers](#list_kafka-action-GetBootstrapBrokers)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [kafka:TagResource](#list_kafka-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** kafka.amazonaws.com / **Access level:** Write
+
+- **   CreateTopic  **
+  - **IAM action:**  [kafka-cluster:Connect](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kafka-cluster:CreateTopic](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   CreateVpcConnection  **
+  - **IAM action:**  [kafka:CreateVpcConnection](#list_kafka-action-CreateVpcConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kafka:TagResource](#list_kafka-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteChannel  **
+  - **IAM action:**  [kafka:DeleteChannel](#list_kafka-action-DeleteChannel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteCluster  **
+  - **IAM action:**  [kafka:DeleteCluster](#list_kafka-action-DeleteCluster) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteClusterPolicy  **
+  - **IAM action:**  [kafka:DeleteClusterPolicy](#list_kafka-action-DeleteClusterPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConfiguration  **
+  - **IAM action:**  [kafka:DeleteConfiguration](#list_kafka-action-DeleteConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteReplicator  **
+  - **IAM action:**  [kafka:DeleteReplicator](#list_kafka-action-DeleteReplicator) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteTopic  **
+  - **IAM action:**  [kafka-cluster:Connect](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kafka-cluster:DeleteTopic](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kafka-cluster:DescribeTopic](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   DeleteVpcConnection  **
+  - **IAM action:**  [kafka:DeleteVpcConnection](#list_kafka-action-DeleteVpcConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeChannel  **
+  - **IAM action:**  [kafka:DescribeChannel](#list_kafka-action-DescribeChannel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeCluster  **
+  - **IAM action:**  [kafka:DescribeCluster](#list_kafka-action-DescribeCluster) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeClusterOperation  **
+  - **IAM action:**  [kafka:DescribeClusterOperation](#list_kafka-action-DescribeClusterOperation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeClusterOperationV2  **
+  - **IAM action:**  [kafka:DescribeClusterOperationV2](#list_kafka-action-DescribeClusterOperationV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeClusterV2  **
+  - **IAM action:**  [kafka:DescribeClusterV2](#list_kafka-action-DescribeClusterV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeConfiguration  **
+  - **IAM action:**  [kafka:DescribeConfiguration](#list_kafka-action-DescribeConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeConfigurationRevision  **
+  - **IAM action:**  [kafka:DescribeConfigurationRevision](#list_kafka-action-DescribeConfigurationRevision) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeReplicator  **
+  - **IAM action:**  [kafka:DescribeReplicator](#list_kafka-action-DescribeReplicator)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [kafka:ListTagsForResource](#list_kafka-action-ListTagsForResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   DescribeTopic  **
+  - **IAM action:**  [kafka-cluster:Connect](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kafka-cluster:DescribeTopic](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [kafka-cluster:DescribeTopicDynamicConfiguration](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   DescribeTopicPartitions  **
+  - **IAM action:**  [kafka-cluster:Connect](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kafka-cluster:DescribeTopic](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [kafka-cluster:DescribeTopicDynamicConfiguration](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   DescribeVpcConnection  **
+  - **IAM action:**  [kafka:DescribeVpcConnection](#list_kafka-action-DescribeVpcConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetBootstrapBrokers  **
+  - **IAM action:**  [kafka:GetBootstrapBrokers](#list_kafka-action-GetBootstrapBrokers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetClusterPolicy  **
+  - **IAM action:**  [kafka:GetClusterPolicy](#list_kafka-action-GetClusterPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCompatibleKafkaVersions  **
+  - **IAM action:**  [kafka:GetCompatibleKafkaVersions](#list_kafka-action-GetCompatibleKafkaVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListChannels  **
+  - **IAM action:**  [kafka:ListChannels](#list_kafka-action-ListChannels) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListClientVpcConnections  **
+  - **IAM action:**  [kafka:ListClientVpcConnections](#list_kafka-action-ListClientVpcConnections) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListClusterOperations  **
+  - **IAM action:**  [kafka:ListClusterOperations](#list_kafka-action-ListClusterOperations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListClusterOperationsV2  **
+  - **IAM action:**  [kafka:ListClusterOperationsV2](#list_kafka-action-ListClusterOperationsV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListClusters  **
+  - **IAM action:**  [kafka:ListClusters](#list_kafka-action-ListClusters) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListClustersV2  **
+  - **IAM action:**  [kafka:ListClustersV2](#list_kafka-action-ListClustersV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConfigurationRevisions  **
+  - **IAM action:**  [kafka:ListConfigurationRevisions](#list_kafka-action-ListConfigurationRevisions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConfigurations  **
+  - **IAM action:**  [kafka:ListConfigurations](#list_kafka-action-ListConfigurations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListKafkaVersions  **
+  - **IAM action:**  [kafka:ListKafkaVersions](#list_kafka-action-ListKafkaVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListNodes  **
+  - **IAM action:**  [kafka:ListNodes](#list_kafka-action-ListNodes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListReplicators  **
+  - **IAM action:**  [kafka:ListReplicators](#list_kafka-action-ListReplicators) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListScramSecrets  **
+  - **IAM action:**  [kafka:ListScramSecrets](#list_kafka-action-ListScramSecrets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [kafka:ListTagsForResource](#list_kafka-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTopics  **
+  - **IAM action:**  [kafka-cluster:Connect](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kafka-cluster:DescribeTopic](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   ListVpcConnections  **
+  - **IAM action:**  [kafka:ListVpcConnections](#list_kafka-action-ListVpcConnections) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PutClusterPolicy  **
+  - **IAM action:**  [kafka:PutClusterPolicy](#list_kafka-action-PutClusterPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RebootBroker  **
+  - **IAM action:**  [kafka:RebootBroker](#list_kafka-action-RebootBroker) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RejectClientVpcConnection  **
+  - **IAM action:**  [kafka:RejectClientVpcConnection](#list_kafka-action-RejectClientVpcConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [kafka:TagResource](#list_kafka-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [kafka:UntagResource](#list_kafka-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateBrokerCount  **
+  - **IAM action:**  [kafka:UpdateBrokerCount](#list_kafka-action-UpdateBrokerCount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateBrokerStorage  **
+  - **IAM action:**  [kafka:UpdateBrokerStorage](#list_kafka-action-UpdateBrokerStorage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateBrokerType  **
+  - **IAM action:**  [kafka:UpdateBrokerType](#list_kafka-action-UpdateBrokerType) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateChannel  **
+  - **IAM action:**  [kafka:UpdateChannel](#list_kafka-action-UpdateChannel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateClusterConfiguration  **
+  - **IAM action:**  [kafka:UpdateClusterConfiguration](#list_kafka-action-UpdateClusterConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateClusterKafkaVersion  **
+  - **IAM action:**  [kafka:UpdateClusterKafkaVersion](#list_kafka-action-UpdateClusterKafkaVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateConfiguration  **
+  - **IAM action:**  [kafka:UpdateConfiguration](#list_kafka-action-UpdateConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateConnectivity  **
+  - **IAM action:**  [kafka:UpdateConnectivity](#list_kafka-action-UpdateConnectivity) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateMonitoring  **
+  - **IAM action:**  [kafka:UpdateMonitoring](#list_kafka-action-UpdateMonitoring) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRebalancing  **
+  - **IAM action:**  [kafka:UpdateRebalancing](#list_kafka-action-UpdateRebalancing) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateReplicationInfo  **
+  - **IAM action:**  [kafka:UpdateReplicationInfo](#list_kafka-action-UpdateReplicationInfo) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSecurity  **
+  - **IAM action:**  [kafka:UpdateSecurity](#list_kafka-action-UpdateSecurity) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateStorage  **
+  - **IAM action:**  [kafka:UpdateStorage](#list_kafka-action-UpdateStorage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateTopic  **
+  - **IAM action:**  [kafka-cluster:AlterTopic](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kafka-cluster:AlterTopicDynamicConfiguration](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kafka-cluster:Connect](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kafka-cluster:DescribeTopic](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#actions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+
 
 ## Actions defined by Amazon Managed Streaming for Apache Kafka
+<a name="list_kafka-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                                      | Description                                                                                                                                                                                                                                                                               | Resource types (\*required)                                                                   | Condition keys                                                                                                                                                                                                                                                                            | Access level   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [BatchAssociateScramSecret](../../../msk/1.0/apireference/clusters-clusterarn-scram-secrets.md#BatchAssociateScramSecret "../../../msk/1.0/apireference/clusters-clusterarn-scram-secrets.md#BatchAssociateScramSecret")                     | Grants permission to associate one or more Scram Secrets with an Amazon MSK cluster                                                                                                                                                                                                       | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [BatchDisassociateScramSecret](../../../msk/1.0/apireference/clusters-clusterarn-scram-secrets.md#BatchDisassociateScramSecret "../../../msk/1.0/apireference/clusters-clusterarn-scram-secrets.md#BatchDisassociateScramSecret")            | Grants permission to disassociate one or more Scram Secrets from an Amazon MSK cluster                                                                                                                                                                                                    | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [CreateChannel](../../../msk/1.0/apireference/clusters-clusterarn-channels.md#CreateChannel "../../../msk/1.0/apireference/clusters-clusterarn-channels.md#CreateChannel")                                                                   | Grants permission to create an MSK Data Channel for an MSK cluster                                                                                                                                                                                                                        | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_ "#list_kafka-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kafka-aws_TagKeys "#list_kafka-aws_TagKeys") | Write          |
-| [CreateCluster](../../../msk/1.0/apireference/clusters.md#CreateCluster "../../../msk/1.0/apireference/clusters.md#CreateCluster")                                                                                                           | Grants permission to create an MSK cluster                                                                                                                                                                                                                                                | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_ "#list_kafka-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kafka-aws_TagKeys "#list_kafka-aws_TagKeys") | Write          |
-| [CreateClusterV2](../../../MSK/2.0/APIReference/v2-clusters.md#CreateClusterV2 "../../../MSK/2.0/APIReference/v2-clusters.md#CreateClusterV2")                                                                                               | Grants permission to create an MSK cluster                                                                                                                                                                                                                                                | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_ "#list_kafka-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kafka-aws_TagKeys "#list_kafka-aws_TagKeys") | Write          |
-| [CreateConfiguration](../../../msk/1.0/apireference/configurations.md#CreateConfiguration "../../../msk/1.0/apireference/configurations.md#CreateConfiguration")                                                                             | Grants permission to create an MSK configuration                                                                                                                                                                                                                                          | [configuration\*](#list_kafka-resource-configuration "#list_kafka-resource-configuration")    |                                                                                                                                                                                                                                                                                           | Write          |
-| [CreateReplicator](../../../msk/latest/developerguide/v1-replicators.md#CreateReplicator "../../../msk/latest/developerguide/v1-replicators.md#CreateReplicator")                                                                            | Grants permission to create a MSK replicator                                                                                                                                                                                                                                              | [replicator\*](#list_kafka-resource-replicator "#list_kafka-resource-replicator")             | [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_ "#list_kafka-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kafka-aws_TagKeys "#list_kafka-aws_TagKeys") | Write          |
-| [CreateTopic](../../../msk/1.0/apireference/clusters-clusterarn-topics.md "../../../msk/1.0/apireference/clusters-clusterarn-topics.md")                                                                                                     | Grants permission to create a Kafka topic in an MSK cluster                                                                                                                                                                                                                               | [topic\*](#list_kafka-resource-topic "#list_kafka-resource-topic")                            |                                                                                                                                                                                                                                                                                           | Write          |
-| [CreateVpcConnection](../../../msk/1.0/apireference/vpc-connection.md#CreateVpcConnection "../../../msk/1.0/apireference/vpc-connection.md#CreateVpcConnection")                                                                             | Grants permission to create a MSK VPC connection                                                                                                                                                                                                                                          | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_ "#list_kafka-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kafka-aws_TagKeys "#list_kafka-aws_TagKeys") | Write          |
-| [vpc-connection\*](#list_kafka-resource-vpc-connection "#list_kafka-resource-vpc-connection")                                                                                                                                                | [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_ "#list_kafka-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kafka-aws_TagKeys "#list_kafka-aws_TagKeys") |
-| [DeleteChannel](../../../msk/1.0/apireference/clusters-clusterarn-channels-channelarn.md#DeleteChannel "../../../msk/1.0/apireference/clusters-clusterarn-channels-channelarn.md#DeleteChannel")                                             | Grants permission to delete an MSK Data Channel                                                                                                                                                                                                                                           | [channel\*](#list_kafka-resource-channel "#list_kafka-resource-channel")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                                                                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DeleteCluster](../../../msk/1.0/apireference/clusters-clusterarn.md#DeleteCluster "../../../msk/1.0/apireference/clusters-clusterarn.md#DeleteCluster")                                                                                     | Grants permission to delete an MSK cluster                                                                                                                                                                                                                                                | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteClusterPolicy](../../../msk/1.0/apireference/clusters-clusterarn-policy.md#DeleteClusterPolicy "../../../msk/1.0/apireference/clusters-clusterarn-policy.md#DeleteClusterPolicy")                                                     | Grants permission to delete a cluster resource-based policy                                                                                                                                                                                                                               | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteConfiguration](../../../msk/1.0/apireference/configurations-arn.md#DeleteConfiguration "../../../msk/1.0/apireference/configurations-arn.md#DeleteConfiguration")                                                                     | Grants permission to delete the specified MSK configuration                                                                                                                                                                                                                               | [configuration\*](#list_kafka-resource-configuration "#list_kafka-resource-configuration")    |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteReplicator](../../../msk/latest/developerguide/v1-replicators.md#DeleteReplicator "../../../msk/latest/developerguide/v1-replicators.md#DeleteReplicator")                                                                            | Grants permission to delete a MSK replicator                                                                                                                                                                                                                                              | [replicator\*](#list_kafka-resource-replicator "#list_kafka-resource-replicator")             | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteTopic](../../../msk/1.0/apireference/clusters-clusterarn-topics-topicname.md "../../../msk/1.0/apireference/clusters-clusterarn-topics-topicname.md")                                                                                 | Grants permission to delete a Kafka topic from an MSK cluster                                                                                                                                                                                                                             | [topic\*](#list_kafka-resource-topic "#list_kafka-resource-topic")                            |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteVpcConnection](../../../msk/1.0/apireference/vpc-connection-arn.md#DeleteVpcConnection "../../../msk/1.0/apireference/vpc-connection-arn.md#DeleteVpcConnection")                                                                     | Grants permission to delete a MSK VPC connection                                                                                                                                                                                                                                          | [vpc-connection\*](#list_kafka-resource-vpc-connection "#list_kafka-resource-vpc-connection") | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DescribeChannel](../../../msk/1.0/apireference/clusters-clusterarn-channels-channelarn.md#DescribeChannel "../../../msk/1.0/apireference/clusters-clusterarn-channels-channelarn.md#DescribeChannel")                                       | Grants permission to describe an MSK Data Channel                                                                                                                                                                                                                                         | [channel\*](#list_kafka-resource-channel "#list_kafka-resource-channel")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                                                                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DescribeCluster](../../../msk/1.0/apireference/clusters-clusterarn.md#DescribeCluster "../../../msk/1.0/apireference/clusters-clusterarn.md#DescribeCluster")                                                                               | Grants permission to describe an MSK cluster                                                                                                                                                                                                                                              | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [DescribeClusterOperation](../../../msk/1.0/apireference/operations-clusteroperationarn.md#DescribeClusterOperation "../../../msk/1.0/apireference/operations-clusteroperationarn.md#DescribeClusterOperation")                              | Grants permission to describe the cluster operation that is specified by the given ARN                                                                                                                                                                                                    |                                                                                               |                                                                                                                                                                                                                                                                                           | Read           |
-| [DescribeClusterOperationV2](../../../MSK/2.0/APIReference/v2-operations-clusteroperationarn.md#DescribeClusterOperationV2 "../../../MSK/2.0/APIReference/v2-operations-clusteroperationarn.md#DescribeClusterOperationV2")                  | Grants permission to describe the cluster operation that is specified by the given ARN                                                                                                                                                                                                    |                                                                                               |                                                                                                                                                                                                                                                                                           | Read           |
-| [DescribeClusterV2](../../../MSK/2.0/APIReference/v2-clusters-clusterarn.md#DescribeClusterV2 "../../../MSK/2.0/APIReference/v2-clusters-clusterarn.md#DescribeClusterV2")                                                                   | Grants permission to describe an MSK cluster                                                                                                                                                                                                                                              | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [DescribeConfiguration](../../../msk/1.0/apireference/configurations-arn.md#DescribeConfiguration "../../../msk/1.0/apireference/configurations-arn.md#DescribeConfiguration")                                                               | Grants permission to describe an MSK configuration                                                                                                                                                                                                                                        | [configuration\*](#list_kafka-resource-configuration "#list_kafka-resource-configuration")    |                                                                                                                                                                                                                                                                                           | Read           |
-| [DescribeConfigurationRevision](../../../msk/1.0/apireference/configurations-arn-revisions-revision.md#DescribeConfigurationRevision "../../../msk/1.0/apireference/configurations-arn-revisions-revision.md#DescribeConfigurationRevision") | Grants permission to describe an MSK configuration revision                                                                                                                                                                                                                               | [configuration\*](#list_kafka-resource-configuration "#list_kafka-resource-configuration")    |                                                                                                                                                                                                                                                                                           | Read           |
-| [DescribeReplicator](../../../msk/latest/developerguide/v1-replicators.md#DescribeReplicator "../../../msk/latest/developerguide/v1-replicators.md#DescribeReplicator")                                                                      | Grants permission to describe a MSK replicator                                                                                                                                                                                                                                            | [replicator\*](#list_kafka-resource-replicator "#list_kafka-resource-replicator")             | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [DescribeTopic](../../../msk/1.0/apireference/clusters-clusterarn-topics-topicname.md "../../../msk/1.0/apireference/clusters-clusterarn-topics-topicname.md")                                                                               | Grants permission to return metadata details about a specific Kafka topic                                                                                                                                                                                                                 | [topic\*](#list_kafka-resource-topic "#list_kafka-resource-topic")                            |                                                                                                                                                                                                                                                                                           | Read           |
-| [DescribeTopicPartitions](../../../msk/1.0/apireference/clusters-clusterarn-topics-topicname-partitions.md "../../../msk/1.0/apireference/clusters-clusterarn-topics-topicname-partitions.md")                                               | Grants permission to list all partitions of a specific topic                                                                                                                                                                                                                              | [topic\*](#list_kafka-resource-topic "#list_kafka-resource-topic")                            |                                                                                                                                                                                                                                                                                           | Read           |
-| [DescribeVpcConnection](../../../msk/1.0/apireference/vpc-connection-arn.md#DescribeVpcConnection "../../../msk/1.0/apireference/vpc-connection-arn.md#DescribeVpcConnection")                                                               | Grants permission to describe a MSK VPC connection                                                                                                                                                                                                                                        | [vpc-connection\*](#list_kafka-resource-vpc-connection "#list_kafka-resource-vpc-connection") | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetBootstrapBrokers](../../../msk/1.0/apireference/clusters-clusterarn-bootstrap-brokers.md#GetBootstrapBrokers "../../../msk/1.0/apireference/clusters-clusterarn-bootstrap-brokers.md#GetBootstrapBrokers")                               | Grants permission to get connection details for the brokers in an MSK cluster                                                                                                                                                                                                             |                                                                                               |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetClusterPolicy](../../../msk/1.0/apireference/clusters-clusterarn-policy.md#GetClusterPolicy "../../../msk/1.0/apireference/clusters-clusterarn-policy.md#GetClusterPolicy")                                                              | Grants permission to describe a cluster resource-based policy                                                                                                                                                                                                                             | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetCompatibleKafkaVersions](../../../msk/1.0/apireference/compatible-kafka-versions.md#GetCompatibleKafkaVersions "../../../msk/1.0/apireference/compatible-kafka-versions.md#GetCompatibleKafkaVersions")                                  | Grants permission to get a list of the Apache Kafka versions to which you can update an MSK cluster                                                                                                                                                                                       |                                                                                               |                                                                                                                                                                                                                                                                                           | List           |
-| [ListChannels](../../../msk/1.0/apireference/clusters-clusterarn-channels.md#ListChannels "../../../msk/1.0/apireference/clusters-clusterarn-channels.md#ListChannels")                                                                      | Grants permission to list all MSK Data Channels for a specified MSK cluster                                                                                                                                                                                                               | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListClientVpcConnections](../../../msk/1.0/apireference/clusters-clusterarn-client-vpc-connections.md#ListClientVpcConnections "../../../msk/1.0/apireference/clusters-clusterarn-client-vpc-connections.md#ListClientVpcConnections")      | Grants permission to list all MSK VPC connections created for a cluster                                                                                                                                                                                                                   | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListClusterOperations](../../../msk/1.0/apireference/clusters-clusterarn-operations.md#ListClusterOperations "../../../msk/1.0/apireference/clusters-clusterarn-operations.md#ListClusterOperations")                                       | Grants permission to return a list of all the operations that have been performed on the specified MSK cluster                                                                                                                                                                            | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListClusterOperationsV2](../../../MSK/2.0/APIReference/v2-clusters-clusterarn-operations.md#ListClusterOperationsV2 "../../../MSK/2.0/APIReference/v2-clusters-clusterarn-operations.md#ListClusterOperationsV2")                           | Grants permission to return a list of all the operations that have been performed on the specified MSK cluster                                                                                                                                                                            | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListClusters](../../../msk/1.0/apireference/clusters.md#ListClusters "../../../msk/1.0/apireference/clusters.md#ListClusters")                                                                                                              | Grants permission to list all MSK clusters in this account                                                                                                                                                                                                                                |                                                                                               |                                                                                                                                                                                                                                                                                           | List           |
-| [ListClustersV2](../../../MSK/2.0/APIReference/v2-clusters.md#ListClustersV2 "../../../MSK/2.0/APIReference/v2-clusters.md#ListClustersV2")                                                                                                  | Grants permission to list all MSK clusters in this account                                                                                                                                                                                                                                |                                                                                               |                                                                                                                                                                                                                                                                                           | List           |
-| [ListConfigurationRevisions](../../../msk/1.0/apireference/configurations-arn-revisions.md#ListConfigurationRevisions "../../../msk/1.0/apireference/configurations-arn-revisions.md#ListConfigurationRevisions")                            | Grants permission to list all revisions for an MSK configuration in this account                                                                                                                                                                                                          | [configuration\*](#list_kafka-resource-configuration "#list_kafka-resource-configuration")    |                                                                                                                                                                                                                                                                                           | List           |
-| [ListConfigurations](../../../msk/1.0/apireference/configurations.md#ListConfigurations "../../../msk/1.0/apireference/configurations.md#ListConfigurations")                                                                                | Grants permission to list all MSK configurations in this account                                                                                                                                                                                                                          |                                                                                               |                                                                                                                                                                                                                                                                                           | List           |
-| [ListKafkaVersions](../../../msk/1.0/apireference/kafka-versions.md#ListKafkaVersions "../../../msk/1.0/apireference/kafka-versions.md#ListKafkaVersions")                                                                                   | Grants permission to list all Apache Kafka versions supported by Amazon MSK                                                                                                                                                                                                               |                                                                                               |                                                                                                                                                                                                                                                                                           | List           |
-| [ListNodes](../../../msk/1.0/apireference/clusters-clusterarn-nodes.md#ListNodes "../../../msk/1.0/apireference/clusters-clusterarn-nodes.md#ListNodes")                                                                                     | Grants permission to list brokers in an MSK cluster                                                                                                                                                                                                                                       | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListReplicators](../../../msk/latest/developerguide/v1-replicators.md#ListReplicators "../../../msk/latest/developerguide/v1-replicators.md#ListReplicators")                                                                               | Grants permission to list all MSK replicators in this account                                                                                                                                                                                                                             |                                                                                               |                                                                                                                                                                                                                                                                                           | List           |
-| [ListScramSecrets](../../../msk/1.0/apireference/clusters-clusterarn-scram-secrets.md#ListScramSecrets "../../../msk/1.0/apireference/clusters-clusterarn-scram-secrets.md#ListScramSecrets")                                                | Grants permission to list the Scram Secrets associated with an Amazon MSK cluster                                                                                                                                                                                                         | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListTagsForResource](../../../msk/1.0/apireference/tags-resourcearn.md#ListTagsForResource "../../../msk/1.0/apireference/tags-resourcearn.md#ListTagsForResource")                                                                         | Grants permission to list tags of an MSK resource                                                                                                                                                                                                                                         | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [ListTopics](../../../msk/1.0/apireference/clusters-clusterarn-topics.md "../../../msk/1.0/apireference/clusters-clusterarn-topics.md")                                                                                                      | Grants permission to list all Kafka topics for a specified MSK cluster                                                                                                                                                                                                                    | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListVpcConnections](../../../msk/1.0/apireference/vpc-connections.md#ListVpcConnections "../../../msk/1.0/apireference/vpc-connections.md#ListVpcConnections")                                                                              | Grants permission to list all MSK VPC connections that this account uses                                                                                                                                                                                                                  |                                                                                               |                                                                                                                                                                                                                                                                                           | List           |
-| [PutClusterPolicy](../../../msk/1.0/apireference/clusters-clusterarn-policy.md#PutClusterPolicy "../../../msk/1.0/apireference/clusters-clusterarn-policy.md#PutClusterPolicy")                                                              | Grants permission to create or update the resource-based policy for a cluster                                                                                                                                                                                                             | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [RebootBroker](../../../msk/1.0/apireference/clusters-clusterarn-reboot-broker.md#RebootBroker "../../../msk/1.0/apireference/clusters-clusterarn-reboot-broker.md#RebootBroker")                                                            | Grants permission to reboot broker                                                                                                                                                                                                                                                        | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [RejectClientVpcConnection](../../../msk/1.0/apireference/clusters-clusterarn-client-vpc-connection.md#RejectClientVpcConnection "../../../msk/1.0/apireference/clusters-clusterarn-client-vpc-connection.md#RejectClientVpcConnection")     | Grants permission to reject a MSK VPC connection                                                                                                                                                                                                                                          | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [vpc-connection\*](#list_kafka-resource-vpc-connection "#list_kafka-resource-vpc-connection")                                                                                                                                                | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [TagResource](../../../msk/1.0/apireference/tags-resourcearn.md#TagResource "../../../msk/1.0/apireference/tags-resourcearn.md#TagResource")                                                                                                 | Grants permission to tag an MSK resource                                                                                                                                                                                                                                                  | [cluster](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                        | [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_ "#list_kafka-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kafka-aws_TagKeys "#list_kafka-aws_TagKeys") | Tagging, Write |
-| [vpc-connection](#list_kafka-resource-vpc-connection "#list_kafka-resource-vpc-connection")                                                                                                                                                  | [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_ "#list_kafka-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kafka-aws_TagKeys "#list_kafka-aws_TagKeys") |
-| [UntagResource](../../../msk/1.0/apireference/tags-resourcearn.md#UntagResource "../../../msk/1.0/apireference/tags-resourcearn.md#UntagResource")                                                                                           | Grants permission to remove tags from an MSK resource                                                                                                                                                                                                                                     | [cluster](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                        | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kafka-aws_TagKeys "#list_kafka-aws_TagKeys")                                                                                                            | Tagging, Write |
-| [vpc-connection](#list_kafka-resource-vpc-connection "#list_kafka-resource-vpc-connection")                                                                                                                                                  | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kafka-aws_TagKeys "#list_kafka-aws_TagKeys")                                                                                                            |
-| [UpdateBrokerCount](../../../msk/1.0/apireference/clusters-clusterarn-nodes-count.md#UpdateBrokerCount "../../../msk/1.0/apireference/clusters-clusterarn-nodes-count.md#UpdateBrokerCount")                                                 | Grants permission to update the number of brokers of the MSK cluster                                                                                                                                                                                                                      | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateBrokerStorage](../../../msk/1.0/apireference/clusters-clusterarn-nodes-storage.md#UpdateBrokerStorage "../../../msk/1.0/apireference/clusters-clusterarn-nodes-storage.md#UpdateBrokerStorage")                                       | Grants permission to update the storage size of the brokers of the MSK cluster                                                                                                                                                                                                            | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateBrokerType](../../../msk/1.0/apireference/clusters-clusterarn-nodes-type.md#UpdateBrokerType "../../../msk/1.0/apireference/clusters-clusterarn-nodes-type.md#UpdateBrokerType")                                                      | Grants permission to update the broker type of an Amazon MSK cluster                                                                                                                                                                                                                      | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateChannel](../../../msk/1.0/apireference/clusters-clusterarn-channels-channelarn.md#UpdateChannel "../../../msk/1.0/apireference/clusters-clusterarn-channels-channelarn.md#UpdateChannel")                                             | Grants permission to update the configuration of an MSK Data Channel                                                                                                                                                                                                                      | [channel\*](#list_kafka-resource-channel "#list_kafka-resource-channel")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                                                                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [UpdateClusterConfiguration](../../../msk/1.0/apireference/clusters-clusterarn-configuration.md#UpdateClusterConfiguration "../../../msk/1.0/apireference/clusters-clusterarn-configuration.md#UpdateClusterConfiguration")                  | Grants permission to update the configuration of the MSK cluster                                                                                                                                                                                                                          | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [configuration\*](#list_kafka-resource-configuration "#list_kafka-resource-configuration")                                                                                                                                                   |                                                                                                                                                                                                                                                                                           |
-| [UpdateClusterKafkaVersion](../../../msk/1.0/apireference/clusters-clusterarn-version.md#UpdateClusterKafkaVersion "../../../msk/1.0/apireference/clusters-clusterarn-version.md#UpdateClusterKafkaVersion")                                 | Grants permission to update the MSK cluster to the specified Apache Kafka version                                                                                                                                                                                                         | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateConfiguration](../../../msk/1.0/apireference/configurations-arn.md#UpdateConfiguration "../../../msk/1.0/apireference/configurations-arn.md#UpdateConfiguration")                                                                     | Grants permission to create a new revision of the MSK configuration                                                                                                                                                                                                                       | [configuration\*](#list_kafka-resource-configuration "#list_kafka-resource-configuration")    |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateConnectivity](../../../msk/1.0/apireference/clusters-clusterarn-connectivity.md#UpdateConnectivity "../../../msk/1.0/apireference/clusters-clusterarn-connectivity.md#UpdateConnectivity")                                            | Grants permission to update the connectivity settings for the MSK cluster                                                                                                                                                                                                                 | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")<br>[kafka:publicAccessEnabled](#list_kafka-kafka_publicAccessEnabled "#list_kafka-kafka_publicAccessEnabled")                                                                  | Write          |
-| [UpdateMonitoring](../../../msk/1.0/apireference/clusters-clusterarn-monitoring.md#UpdateMonitoring "../../../msk/1.0/apireference/clusters-clusterarn-monitoring.md#UpdateMonitoring")                                                      | Grants permission to update the monitoring settings for the MSK cluster                                                                                                                                                                                                                   | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateRebalancing](../../../msk/1.0/apireference/clusters-clusterarn-rebalancing.md "../../../msk/1.0/apireference/clusters-clusterarn-rebalancing.md")                                                                                     | Grants permission to update the intelligent rebalancing status of the MSK cluster                                                                                                                                                                                                         | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateReplicationInfo](../../../msk/latest/developerguide/v1-replicators.md#UpdateReplicationInfo "../../../msk/latest/developerguide/v1-replicators.md#UpdateReplicationInfo")                                                             | Grants permission to update the replication info of the MSK replicator                                                                                                                                                                                                                    | [replicator\*](#list_kafka-resource-replicator "#list_kafka-resource-replicator")             | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateSecurity](../../../msk/1.0/apireference/clusters-clusterarn-security.md#UpdateSecurity "../../../msk/1.0/apireference/clusters-clusterarn-security.md#UpdateSecurity")                                                                | Grants permission to update the security settings for the MSK cluster                                                                                                                                                                                                                     | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateStorage](../../../msk/1.0/apireference/clusters-clusterarn-storage.md#UpdateStorage "../../../msk/1.0/apireference/clusters-clusterarn-storage.md#UpdateStorage")                                                                     | Grants permission to update the EBS storage (size or provisioned throughput) associated with MSK brokers or set cluster storage mode to TIERED                                                                                                                                            | [cluster\*](#list_kafka-resource-cluster "#list_kafka-resource-cluster")                      | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateTopic](../../../msk/1.0/apireference/clusters-clusterarn-topics-topicname.md "../../../msk/1.0/apireference/clusters-clusterarn-topics-topicname.md")                                                                                 | Grants permission to update the configuration of a Kafka topic in an MSK cluster                                                                                                                                                                                                          | [topic\*](#list_kafka-resource-topic "#list_kafka-resource-topic")                            |                                                                                                                                                                                                                                                                                           | Write          |
+
+
+
+- **   [BatchAssociateScramSecret](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-scram-secrets.html#BatchAssociateScramSecret)  **
+  - **Description:** Grants permission to associate one or more Scram Secrets with an Amazon MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDisassociateScramSecret](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-scram-secrets.html#BatchDisassociateScramSecret)  **
+  - **Description:** Grants permission to disassociate one or more Scram Secrets from an Amazon MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateChannel](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-channels.html#CreateChannel)  **
+  - **Description:** Grants permission to create an MSK Data Channel for an MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateCluster](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#CreateCluster)  **
+  - **Description:** Grants permission to create an MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateClusterV2](https://docs.aws.amazon.com/MSK/2.0/APIReference/v2-clusters.html#CreateClusterV2)  **
+  - **Description:** Grants permission to create an MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateConfiguration](https://docs.aws.amazon.com/msk/1.0/apireference/configurations.html#CreateConfiguration)  **
+  - **Description:** Grants permission to create an MSK configuration
+  - **Resource types (\*required):** [configuration\*](#list_kafka-resource-configuration)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateReplicator](https://docs.aws.amazon.com/msk/latest/developerguide/v1-replicators.html#CreateReplicator)  **
+  - **Description:** Grants permission to create a MSK replicator
+  - **Resource types (\*required):** [replicator\*](#list_kafka-resource-replicator)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateTopic](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-topics.html)  **
+  - **Description:** Grants permission to create a Kafka topic in an MSK cluster
+  - **Resource types (\*required):** [topic\*](#list_kafka-resource-topic)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateVpcConnection](https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connection.html#CreateVpcConnection)  **
+  - **Description:** Grants permission to create a MSK VPC connection
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Resource types (\*required):** [vpc-connection\*](#list_kafka-resource-vpc-connection) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteChannel](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-channels-channelarn.html#DeleteChannel)  **
+  - **Description:** Grants permission to delete an MSK Data Channel
+  - **Resource types (\*required):** [channel\*](#list_kafka-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteCluster](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn.html#DeleteCluster)  **
+  - **Description:** Grants permission to delete an MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteClusterPolicy](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-policy.html#DeleteClusterPolicy)  **
+  - **Description:** Grants permission to delete a cluster resource-based policy
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConfiguration](https://docs.aws.amazon.com/msk/1.0/apireference/configurations-arn.html#DeleteConfiguration)  **
+  - **Description:** Grants permission to delete the specified MSK configuration
+  - **Resource types (\*required):** [configuration\*](#list_kafka-resource-configuration)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteReplicator](https://docs.aws.amazon.com/msk/latest/developerguide/v1-replicators.html#DeleteReplicator)  **
+  - **Description:** Grants permission to delete a MSK replicator
+  - **Resource types (\*required):** [replicator\*](#list_kafka-resource-replicator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteTopic](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-topics-topicname.html)  **
+  - **Description:** Grants permission to delete a Kafka topic from an MSK cluster
+  - **Resource types (\*required):** [topic\*](#list_kafka-resource-topic)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteVpcConnection](https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connection-arn.html#DeleteVpcConnection)  **
+  - **Description:** Grants permission to delete a MSK VPC connection
+  - **Resource types (\*required):** [vpc-connection\*](#list_kafka-resource-vpc-connection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeChannel](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-channels-channelarn.html#DescribeChannel)  **
+  - **Description:** Grants permission to describe an MSK Data Channel
+  - **Resource types (\*required):** [channel\*](#list_kafka-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeCluster](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn.html#DescribeCluster)  **
+  - **Description:** Grants permission to describe an MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeClusterOperation](https://docs.aws.amazon.com/msk/1.0/apireference/operations-clusteroperationarn.html#DescribeClusterOperation)  **
+  - **Description:** Grants permission to describe the cluster operation that is specified by the given ARN
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeClusterOperationV2](https://docs.aws.amazon.com/MSK/2.0/APIReference/v2-operations-clusteroperationarn.html#DescribeClusterOperationV2)  **
+  - **Description:** Grants permission to describe the cluster operation that is specified by the given ARN
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeClusterV2](https://docs.aws.amazon.com/MSK/2.0/APIReference/v2-clusters-clusterarn.html#DescribeClusterV2)  **
+  - **Description:** Grants permission to describe an MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeConfiguration](https://docs.aws.amazon.com/msk/1.0/apireference/configurations-arn.html#DescribeConfiguration)  **
+  - **Description:** Grants permission to describe an MSK configuration
+  - **Resource types (\*required):** [configuration\*](#list_kafka-resource-configuration)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeConfigurationRevision](https://docs.aws.amazon.com/msk/1.0/apireference/configurations-arn-revisions-revision.html#DescribeConfigurationRevision)  **
+  - **Description:** Grants permission to describe an MSK configuration revision
+  - **Resource types (\*required):** [configuration\*](#list_kafka-resource-configuration)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeReplicator](https://docs.aws.amazon.com/msk/latest/developerguide/v1-replicators.html#DescribeReplicator)  **
+  - **Description:** Grants permission to describe a MSK replicator
+  - **Resource types (\*required):** [replicator\*](#list_kafka-resource-replicator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeTopic](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-topics-topicname.html)  **
+  - **Description:** Grants permission to return metadata details about a specific Kafka topic
+  - **Resource types (\*required):** [topic\*](#list_kafka-resource-topic)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeTopicPartitions](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-topics-topicname-partitions.html)  **
+  - **Description:** Grants permission to list all partitions of a specific topic
+  - **Resource types (\*required):** [topic\*](#list_kafka-resource-topic)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeVpcConnection](https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connection-arn.html#DescribeVpcConnection)  **
+  - **Description:** Grants permission to describe a MSK VPC connection
+  - **Resource types (\*required):** [vpc-connection\*](#list_kafka-resource-vpc-connection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetBootstrapBrokers](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-bootstrap-brokers.html#GetBootstrapBrokers)  **
+  - **Description:** Grants permission to get connection details for the brokers in an MSK cluster
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetClusterPolicy](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-policy.html#GetClusterPolicy)  **
+  - **Description:** Grants permission to describe a cluster resource-based policy
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCompatibleKafkaVersions](https://docs.aws.amazon.com/msk/1.0/apireference/compatible-kafka-versions.html#GetCompatibleKafkaVersions)  **
+  - **Description:** Grants permission to get a list of the Apache Kafka versions to which you can update an MSK cluster
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListChannels](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-channels.html#ListChannels)  **
+  - **Description:** Grants permission to list all MSK Data Channels for a specified MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListClientVpcConnections](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-client-vpc-connections.html#ListClientVpcConnections)  **
+  - **Description:** Grants permission to list all MSK VPC connections created for a cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListClusterOperations](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-operations.html#ListClusterOperations)  **
+  - **Description:** Grants permission to return a list of all the operations that have been performed on the specified MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListClusterOperationsV2](https://docs.aws.amazon.com/MSK/2.0/APIReference/v2-clusters-clusterarn-operations.html#ListClusterOperationsV2)  **
+  - **Description:** Grants permission to return a list of all the operations that have been performed on the specified MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListClusters](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#ListClusters)  **
+  - **Description:** Grants permission to list all MSK clusters in this account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListClustersV2](https://docs.aws.amazon.com/MSK/2.0/APIReference/v2-clusters.html#ListClustersV2)  **
+  - **Description:** Grants permission to list all MSK clusters in this account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListConfigurationRevisions](https://docs.aws.amazon.com/msk/1.0/apireference/configurations-arn-revisions.html#ListConfigurationRevisions)  **
+  - **Description:** Grants permission to list all revisions for an MSK configuration in this account
+  - **Resource types (\*required):** [configuration\*](#list_kafka-resource-configuration)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListConfigurations](https://docs.aws.amazon.com/msk/1.0/apireference/configurations.html#ListConfigurations)  **
+  - **Description:** Grants permission to list all MSK configurations in this account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListKafkaVersions](https://docs.aws.amazon.com/msk/1.0/apireference/kafka-versions.html#ListKafkaVersions)  **
+  - **Description:** Grants permission to list all Apache Kafka versions supported by Amazon MSK
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListNodes](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-nodes.html#ListNodes)  **
+  - **Description:** Grants permission to list brokers in an MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListReplicators](https://docs.aws.amazon.com/msk/latest/developerguide/v1-replicators.html#ListReplicators)  **
+  - **Description:** Grants permission to list all MSK replicators in this account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListScramSecrets](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-scram-secrets.html#ListScramSecrets)  **
+  - **Description:** Grants permission to list the Scram Secrets associated with an Amazon MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/msk/1.0/apireference/tags-resourcearn.html#ListTagsForResource)  **
+  - **Description:** Grants permission to list tags of an MSK resource
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListTopics](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-topics.html)  **
+  - **Description:** Grants permission to list all Kafka topics for a specified MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListVpcConnections](https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connections.html#ListVpcConnections)  **
+  - **Description:** Grants permission to list all MSK VPC connections that this account uses
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [PutClusterPolicy](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-policy.html#PutClusterPolicy)  **
+  - **Description:** Grants permission to create or update the resource-based policy for a cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RebootBroker](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-reboot-broker.html#RebootBroker)  **
+  - **Description:** Grants permission to reboot broker
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RejectClientVpcConnection](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-client-vpc-connection.html#RejectClientVpcConnection)  **
+  - **Description:** Grants permission to reject a MSK VPC connection
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [vpc-connection\*](#list_kafka-resource-vpc-connection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/msk/1.0/apireference/tags-resourcearn.html#TagResource)  **
+  - **Description:** Grants permission to tag an MSK resource
+  - **Resource types (\*required):** [cluster](#list_kafka-resource-cluster) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Resource types (\*required):** [vpc-connection](#list_kafka-resource-vpc-connection) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kafka-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/msk/1.0/apireference/tags-resourcearn.html#UntagResource)  **
+  - **Description:** Grants permission to remove tags from an MSK resource
+  - **Resource types (\*required):** [cluster](#list_kafka-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Resource types (\*required):** [vpc-connection](#list_kafka-resource-vpc-connection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kafka-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateBrokerCount](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-nodes-count.html#UpdateBrokerCount)  **
+  - **Description:** Grants permission to update the number of brokers of the MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateBrokerStorage](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-nodes-storage.html#UpdateBrokerStorage)  **
+  - **Description:** Grants permission to update the storage size of the brokers of the MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateBrokerType](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-nodes-type.html#UpdateBrokerType)  **
+  - **Description:** Grants permission to update the broker type of an Amazon MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateChannel](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-channels-channelarn.html#UpdateChannel)  **
+  - **Description:** Grants permission to update the configuration of an MSK Data Channel
+  - **Resource types (\*required):** [channel\*](#list_kafka-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateClusterConfiguration](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-configuration.html#UpdateClusterConfiguration)  **
+  - **Description:** Grants permission to update the configuration of the MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [configuration\*](#list_kafka-resource-configuration) / **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateClusterKafkaVersion](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-version.html#UpdateClusterKafkaVersion)  **
+  - **Description:** Grants permission to update the MSK cluster to the specified Apache Kafka version
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateConfiguration](https://docs.aws.amazon.com/msk/1.0/apireference/configurations-arn.html#UpdateConfiguration)  **
+  - **Description:** Grants permission to create a new revision of the MSK configuration
+  - **Resource types (\*required):** [configuration\*](#list_kafka-resource-configuration)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateConnectivity](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-connectivity.html#UpdateConnectivity)  **
+  - **Description:** Grants permission to update the connectivity settings for the MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)<br />[kafka:publicAccessEnabled](#list_kafka-kafka_publicAccessEnabled)
+  - **Access level:** Write
+
+- **   [UpdateMonitoring](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-monitoring.html#UpdateMonitoring)  **
+  - **Description:** Grants permission to update the monitoring settings for the MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRebalancing](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-rebalancing.html)  **
+  - **Description:** Grants permission to update the intelligent rebalancing status of the MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateReplicationInfo](https://docs.aws.amazon.com/msk/latest/developerguide/v1-replicators.html#UpdateReplicationInfo)  **
+  - **Description:** Grants permission to update the replication info of the MSK replicator
+  - **Resource types (\*required):** [replicator\*](#list_kafka-resource-replicator)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSecurity](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-security.html#UpdateSecurity)  **
+  - **Description:** Grants permission to update the security settings for the MSK cluster
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateStorage](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-storage.html#UpdateStorage)  **
+  - **Description:** Grants permission to update the EBS storage (size or provisioned throughput) associated with MSK brokers or set cluster storage mode to TIERED
+  - **Resource types (\*required):** [cluster\*](#list_kafka-resource-cluster)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateTopic](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-topics-topicname.html)  **
+  - **Description:** Grants permission to update the configuration of a Kafka topic in an MSK cluster
+  - **Resource types (\*required):** [topic\*](#list_kafka-resource-topic)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon Managed Streaming for Apache Kafka
+<a name="list_kafka-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                              | ARN                                                                                                              | Condition keys                                                                                             |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| [channel](../../../msk/latest/developerguide/msk-data-channel.md "../../../msk/latest/developerguide/msk-data-channel.md")                                                  | arn:${Partition}:kafka:${Region}:${Account}:channel/${ClusterName}/${ClusterUuid}/${ChannelName}/${Uuid}         | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_") |
-| [cluster](../../../msk/1.0/apireference/clusters-clusterarn.md "../../../msk/1.0/apireference/clusters-clusterarn.md")                                                      | arn:${Partition}:kafka:${Region}:${Account}:cluster/${ClusterName}/${Uuid}                                       | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_") |
-| [configuration](../../../msk/1.0/apireference/configurations-arn.md "../../../msk/1.0/apireference/configurations-arn.md")                                                  | arn:${Partition}:kafka:${Region}:${Account}:configuration/${ConfigurationName}/${Uuid}                           |                                                                                                            |
-| [group](../../../msk/latest/developerguide/iam-access-control.md#msk-iam-resources "../../../msk/latest/developerguide/iam-access-control.md#msk-iam-resources")            | arn:${Partition}:kafka:${Region}:${Account}:group/${ClusterName}/${ClusterUuid}/${GroupName}                     |                                                                                                            |
-| [replicator](../../../msk/latest/developerguide/v1-replicators.md "../../../msk/latest/developerguide/v1-replicators.md")                                                   | arn:${Partition}:kafka:${Region}:${Account}:replicator/${ReplicatorName}/${Uuid}                                 | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_") |
-| [topic](../../../msk/latest/developerguide/iam-access-control.md#msk-iam-resources "../../../msk/latest/developerguide/iam-access-control.md#msk-iam-resources")            | arn:${Partition}:kafka:${Region}:${Account}:topic/${ClusterName}/${ClusterUuid}/${TopicName}                     |                                                                                                            |
-| [transactional-id](../../../msk/latest/developerguide/iam-access-control.md#msk-iam-resources "../../../msk/latest/developerguide/iam-access-control.md#msk-iam-resources") | arn:${Partition}:kafka:${Region}:${Account}:transactional-id/${ClusterName}/${ClusterUuid}/${TransactionalId}    |                                                                                                            |
-| [vpc-connection](../../../msk/1.0/apireference/vpc-connections-arn.md "../../../msk/1.0/apireference/vpc-connections-arn.md")                                               | arn:${Partition}:kafka:${Region}:${VpcOwnerAccount}:vpc-connection/${ClusterOwnerAccount}/${ClusterName}/${Uuid} | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_ "#list_kafka-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [channel](https://docs.aws.amazon.com/msk/latest/developerguide/msk-data-channel.html)  | arn:${Partition}:kafka:${Region}:${Account}:channel/${ClusterName}/${ClusterUuid}/${ChannelName}/${Uuid} | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_) | 
+|  [cluster](https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn.html)  | arn:${Partition}:kafka:${Region}:${Account}:cluster/${ClusterName}/${Uuid} | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_) | 
+|  [configuration](https://docs.aws.amazon.com/msk/1.0/apireference/configurations-arn.html)  | arn:${Partition}:kafka:${Region}:${Account}:configuration/${ConfigurationName}/${Uuid} |   | 
+|  [group](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#msk-iam-resources)  | arn:${Partition}:kafka:${Region}:${Account}:group/${ClusterName}/${ClusterUuid}/${GroupName} |   | 
+|  [replicator](https://docs.aws.amazon.com/msk/latest/developerguide/v1-replicators.html)  | arn:${Partition}:kafka:${Region}:${Account}:replicator/${ReplicatorName}/${Uuid} | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_) | 
+|  [topic](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#msk-iam-resources)  | arn:${Partition}:kafka:${Region}:${Account}:topic/${ClusterName}/${ClusterUuid}/${TopicName} |   | 
+|  [transactional-id](https://docs.aws.amazon.com/msk/latest/developerguide/iam-access-control.html#msk-iam-resources)  | arn:${Partition}:kafka:${Region}:${Account}:transactional-id/${ClusterName}/${ClusterUuid}/${TransactionalId} |   | 
+|  [vpc-connection](https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connections-arn.html)  | arn:${Partition}:kafka:${Region}:${VpcOwnerAccount}:vpc-connection/${ClusterOwnerAccount}/${ClusterName}/${Uuid} | [aws:ResourceTag/${TagKey}](#list_kafka-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Managed Streaming for Apache Kafka
+<a name="list_kafka-policy-keys"></a>
 
-Amazon Managed Streaming for Apache Kafka defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Managed Streaming for Apache Kafka defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                            | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the presence of tag key-value pairs in the request   | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by tag key-value pairs attached to the resource         | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the presence of tag keys in the request              | ArrayOfString |
-| [kafka:publicAccessEnabled](list_apachekafkaapisforamazonmskclusters.md#apachekafkaapisforamazonmskclusters-policy-keys "list_apachekafkaapisforamazonmskclusters.md#apachekafkaapisforamazonmskclusters-policy-keys")     | Filters access by the presence of public access enabled in the request | Bool          |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the presence of tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the presence of tag keys in the request | ArrayOfString | 
+|   [kafka:publicAccessEnabled](https://docs.aws.amazon.com/service-authorization/latest/reference/list_apachekafkaapisforamazonmskclusters.html#apachekafkaapisforamazonmskclusters-policy-keys)  | Filters access by the presence of public access enabled in the request | Bool | 

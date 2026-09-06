@@ -1,107 +1,336 @@
-# Actions, resources, and condition keys for Amazon CodeGuru Profiler
 
-Amazon CodeGuru Profiler (service prefix: `codeguru-profiler`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon CodeGuru Profiler
+<a name="list_codeguruprofiler"></a>
+
+Amazon CodeGuru Profiler (service prefix: `codeguru-profiler`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/codeguru/latest/profiler-api/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/auth-and-access-control.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/codeguru-profiler/codeguru-profiler.json) for this service.
 
-- Learn how to [configure this service](../../../codeguru/latest/profiler-ug.md "../../../codeguru/latest/profiler-ug.md").
-- View a list of the [API operations available for
-  this service](../../../codeguru/latest/profiler-api.md "../../../codeguru/latest/profiler-api.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../codeguru/latest/profiler-ug/auth-and-access-control.md "../../../codeguru/latest/profiler-ug/auth-and-access-control.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/codeguru-profiler/codeguru-profiler.json "https://servicereference.us-east-1.amazonaws.com/v1/codeguru-profiler/codeguru-profiler.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon CodeGuru Profiler](#list_codeguruprofiler-operations "#list_codeguruprofiler-operations")
-- [Actions defined by Amazon CodeGuru Profiler](#list_codeguruprofiler-actions-as-permissions "#list_codeguruprofiler-actions-as-permissions")
-- [Resource types defined by Amazon CodeGuru Profiler](#list_codeguruprofiler-resources-for-iam-policies "#list_codeguruprofiler-resources-for-iam-policies")
-- [Condition keys for Amazon CodeGuru Profiler](#list_codeguruprofiler-policy-keys "#list_codeguruprofiler-policy-keys")
+**Topics**
++ [API operations defined by Amazon CodeGuru Profiler](#list_codeguruprofiler-operations)
++ [Actions defined by Amazon CodeGuru Profiler](#list_codeguruprofiler-actions-as-permissions)
++ [Resource types defined by Amazon CodeGuru Profiler](#list_codeguruprofiler-resources-for-iam-policies)
++ [Condition keys for Amazon CodeGuru Profiler](#list_codeguruprofiler-policy-keys)
 
 ## API operations defined by Amazon CodeGuru Profiler
+<a name="list_codeguruprofiler-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_codeguruprofiler-actions-as-permissions "#list_codeguruprofiler-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_codeguruprofiler-actions-as-permissions).
 
-| Operation                                                                                                              | IAM action                                                                                                                                                                         | Condition key | Possible value(s) | Access level                  |
-| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------- | ----------------------------- |
-| AddNotificationChannels                                                                                                | [codeguru-profiler:AddNotificationChannels](#list_codeguruprofiler-action-AddNotificationChannels "#list_codeguruprofiler-action-AddNotificationChannels")                         |               |                   | Write                         |
-| BatchGetFrameMetricData                                                                                                | [codeguru-profiler:BatchGetFrameMetricData](#list_codeguruprofiler-action-BatchGetFrameMetricData "#list_codeguruprofiler-action-BatchGetFrameMetricData")                         |               |                   | List                          |
-| ConfigureAgent                                                                                                         | [codeguru-profiler:ConfigureAgent](#list_codeguruprofiler-action-ConfigureAgent "#list_codeguruprofiler-action-ConfigureAgent")                                                    |               |                   | Write                         |
-| CreateProfilingGroup                                                                                                   | [codeguru-profiler:CreateProfilingGroup](#list_codeguruprofiler-action-CreateProfilingGroup "#list_codeguruprofiler-action-CreateProfilingGroup")                                  |               |                   | Write                         |
-| [codeguru-profiler:TagResource](#list_codeguruprofiler-action-TagResource "#list_codeguruprofiler-action-TagResource") |                                                                                                                                                                                    |               | Tagging, Write    |
-| DeleteProfilingGroup                                                                                                   | [codeguru-profiler:DeleteProfilingGroup](#list_codeguruprofiler-action-DeleteProfilingGroup "#list_codeguruprofiler-action-DeleteProfilingGroup")                                  |               |                   | Write                         |
-| DescribeProfilingGroup                                                                                                 | [codeguru-profiler:DescribeProfilingGroup](#list_codeguruprofiler-action-DescribeProfilingGroup "#list_codeguruprofiler-action-DescribeProfilingGroup")                            |               |                   | Read                          |
-| GetFindingsReportAccountSummary                                                                                        | [codeguru-profiler:GetFindingsReportAccountSummary](#list_codeguruprofiler-action-GetFindingsReportAccountSummary "#list_codeguruprofiler-action-GetFindingsReportAccountSummary") |               |                   | Read                          |
-| GetNotificationConfiguration                                                                                           | [codeguru-profiler:GetNotificationConfiguration](#list_codeguruprofiler-action-GetNotificationConfiguration "#list_codeguruprofiler-action-GetNotificationConfiguration")          |               |                   | Read                          |
-| GetPolicy                                                                                                              | [codeguru-profiler:GetPolicy](#list_codeguruprofiler-action-GetPolicy "#list_codeguruprofiler-action-GetPolicy")                                                                   |               |                   | Read                          |
-| GetProfile                                                                                                             | [codeguru-profiler:GetProfile](#list_codeguruprofiler-action-GetProfile "#list_codeguruprofiler-action-GetProfile")                                                                |               |                   | Read                          |
-| GetRecommendations                                                                                                     | [codeguru-profiler:GetRecommendations](#list_codeguruprofiler-action-GetRecommendations "#list_codeguruprofiler-action-GetRecommendations")                                        |               |                   | Read                          |
-| ListFindingsReports                                                                                                    | [codeguru-profiler:ListFindingsReports](#list_codeguruprofiler-action-ListFindingsReports "#list_codeguruprofiler-action-ListFindingsReports")                                     |               |                   | List                          |
-| ListProfileTimes                                                                                                       | [codeguru-profiler:ListProfileTimes](#list_codeguruprofiler-action-ListProfileTimes "#list_codeguruprofiler-action-ListProfileTimes")                                              |               |                   | List                          |
-| ListProfilingGroups                                                                                                    | [codeguru-profiler:ListProfilingGroups](#list_codeguruprofiler-action-ListProfilingGroups "#list_codeguruprofiler-action-ListProfilingGroups")                                     |               |                   | List                          |
-| ListTagsForResource                                                                                                    | [codeguru-profiler:ListTagsForResource](#list_codeguruprofiler-action-ListTagsForResource "#list_codeguruprofiler-action-ListTagsForResource")                                     |               |                   | List                          |
-| PostAgentProfile                                                                                                       | [codeguru-profiler:PostAgentProfile](#list_codeguruprofiler-action-PostAgentProfile "#list_codeguruprofiler-action-PostAgentProfile")                                              |               |                   | Write                         |
-| PutPermission                                                                                                          | [codeguru-profiler:PutPermission](#list_codeguruprofiler-action-PutPermission "#list_codeguruprofiler-action-PutPermission")                                                       |               |                   | Permissions management, Write |
-| RemoveNotificationChannel                                                                                              | [codeguru-profiler:RemoveNotificationChannel](#list_codeguruprofiler-action-RemoveNotificationChannel "#list_codeguruprofiler-action-RemoveNotificationChannel")                   |               |                   | Write                         |
-| RemovePermission                                                                                                       | [codeguru-profiler:RemovePermission](#list_codeguruprofiler-action-RemovePermission "#list_codeguruprofiler-action-RemovePermission")                                              |               |                   | Permissions management, Write |
-| SubmitFeedback                                                                                                         | [codeguru-profiler:SubmitFeedback](#list_codeguruprofiler-action-SubmitFeedback "#list_codeguruprofiler-action-SubmitFeedback")                                                    |               |                   | Write                         |
-| TagResource                                                                                                            | [codeguru-profiler:TagResource](#list_codeguruprofiler-action-TagResource "#list_codeguruprofiler-action-TagResource")                                                             |               |                   | Tagging, Write                |
-| UntagResource                                                                                                          | [codeguru-profiler:UntagResource](#list_codeguruprofiler-action-UntagResource "#list_codeguruprofiler-action-UntagResource")                                                       |               |                   | Tagging, Write                |
-| UpdateProfilingGroup                                                                                                   | [codeguru-profiler:UpdateProfilingGroup](#list_codeguruprofiler-action-UpdateProfilingGroup "#list_codeguruprofiler-action-UpdateProfilingGroup")                                  |               |                   | Write                         |
+
+
+
+- **   AddNotificationChannels  **
+  - **IAM action:**  [codeguru-profiler:AddNotificationChannels](#list_codeguruprofiler-action-AddNotificationChannels) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchGetFrameMetricData  **
+  - **IAM action:**  [codeguru-profiler:BatchGetFrameMetricData](#list_codeguruprofiler-action-BatchGetFrameMetricData) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ConfigureAgent  **
+  - **IAM action:**  [codeguru-profiler:ConfigureAgent](#list_codeguruprofiler-action-ConfigureAgent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateProfilingGroup  **
+  - **IAM action:**  [codeguru-profiler:CreateProfilingGroup](#list_codeguruprofiler-action-CreateProfilingGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [codeguru-profiler:TagResource](#list_codeguruprofiler-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteProfilingGroup  **
+  - **IAM action:**  [codeguru-profiler:DeleteProfilingGroup](#list_codeguruprofiler-action-DeleteProfilingGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeProfilingGroup  **
+  - **IAM action:**  [codeguru-profiler:DescribeProfilingGroup](#list_codeguruprofiler-action-DescribeProfilingGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetFindingsReportAccountSummary  **
+  - **IAM action:**  [codeguru-profiler:GetFindingsReportAccountSummary](#list_codeguruprofiler-action-GetFindingsReportAccountSummary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetNotificationConfiguration  **
+  - **IAM action:**  [codeguru-profiler:GetNotificationConfiguration](#list_codeguruprofiler-action-GetNotificationConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPolicy  **
+  - **IAM action:**  [codeguru-profiler:GetPolicy](#list_codeguruprofiler-action-GetPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetProfile  **
+  - **IAM action:**  [codeguru-profiler:GetProfile](#list_codeguruprofiler-action-GetProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRecommendations  **
+  - **IAM action:**  [codeguru-profiler:GetRecommendations](#list_codeguruprofiler-action-GetRecommendations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListFindingsReports  **
+  - **IAM action:**  [codeguru-profiler:ListFindingsReports](#list_codeguruprofiler-action-ListFindingsReports) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListProfileTimes  **
+  - **IAM action:**  [codeguru-profiler:ListProfileTimes](#list_codeguruprofiler-action-ListProfileTimes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListProfilingGroups  **
+  - **IAM action:**  [codeguru-profiler:ListProfilingGroups](#list_codeguruprofiler-action-ListProfilingGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [codeguru-profiler:ListTagsForResource](#list_codeguruprofiler-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PostAgentProfile  **
+  - **IAM action:**  [codeguru-profiler:PostAgentProfile](#list_codeguruprofiler-action-PostAgentProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutPermission  **
+  - **IAM action:**  [codeguru-profiler:PutPermission](#list_codeguruprofiler-action-PutPermission) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   RemoveNotificationChannel  **
+  - **IAM action:**  [codeguru-profiler:RemoveNotificationChannel](#list_codeguruprofiler-action-RemoveNotificationChannel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RemovePermission  **
+  - **IAM action:**  [codeguru-profiler:RemovePermission](#list_codeguruprofiler-action-RemovePermission) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   SubmitFeedback  **
+  - **IAM action:**  [codeguru-profiler:SubmitFeedback](#list_codeguruprofiler-action-SubmitFeedback) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [codeguru-profiler:TagResource](#list_codeguruprofiler-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [codeguru-profiler:UntagResource](#list_codeguruprofiler-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateProfilingGroup  **
+  - **IAM action:**  [codeguru-profiler:UpdateProfilingGroup](#list_codeguruprofiler-action-UpdateProfilingGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon CodeGuru Profiler
+<a name="list_codeguruprofiler-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                        | Description                                                                                                                                         | Resource types (\*required)                                                                                         | Condition keys                                                                                                                                                                                                                                                                                                                                              | Access level                  |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| [AddNotificationChannels](../../../codeguru/latest/profiler-api/API_AddNotificationChannels.md "../../../codeguru/latest/profiler-api/API_AddNotificationChannels.md")                         | Grants permission to add up to 2 topic ARNs of existing AWS SNS topics to publish notifications                                                     | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [BatchGetFrameMetricData](../../../codeguru/latest/profiler-api/API_BatchGetFrameMetricData.md "../../../codeguru/latest/profiler-api/API_BatchGetFrameMetricData.md")                         | Grants permission to get the frame metric data for a Profiling Group                                                                                | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | List                          |
-| [ConfigureAgent](../../../codeguru/latest/profiler-api/API_ConfigureAgent.md "../../../codeguru/latest/profiler-api/API_ConfigureAgent.md")                                                    | Grants permission to register with the orchestration service and retrieve profiling configuration information, used by agents                       | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [CreateProfilingGroup](../../../codeguru/latest/profiler-api/API_CreateProfilingGroup.md "../../../codeguru/latest/profiler-api/API_CreateProfilingGroup.md")                                  | Grants permission to create a profiling group                                                                                                       |                                                                                                                     | [aws:RequestTag/${TagKey}](#list_codeguruprofiler-aws_RequestTag___TagKey_ "#list_codeguruprofiler-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_codeguruprofiler-aws_TagKeys "#list_codeguruprofiler-aws_TagKeys")                                                                                                                                     | Write                         |
-| [DeleteProfilingGroup](../../../codeguru/latest/profiler-api/API_DeleteProfilingGroup.md "../../../codeguru/latest/profiler-api/API_DeleteProfilingGroup.md")                                  | Grants permission to delete a profiling group                                                                                                       | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [DescribeProfilingGroup](../../../codeguru/latest/profiler-api/API_DescribeProfilingGroup.md "../../../codeguru/latest/profiler-api/API_DescribeProfilingGroup.md")                            | Grants permission to describe a profiling group                                                                                                     | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read                          |
-| [GetFindingsReportAccountSummary](../../../codeguru/latest/profiler-api/API_GetFindingsReportAccountSummary.md "../../../codeguru/latest/profiler-api/API_GetFindingsReportAccountSummary.md") | Grants permission to get a summary of recent recommendations for each profiling group in the account                                                |                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                             | Read                          |
-| [GetNotificationConfiguration](../../../codeguru/latest/profiler-api/API_GetNotificationConfiguration.md "../../../codeguru/latest/profiler-api/API_GetNotificationConfiguration.md")          | Grants permission to get the notification configuration                                                                                             | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read                          |
-| [GetPolicy](../../../codeguru/latest/profiler-api/API_GetPolicy.md "../../../codeguru/latest/profiler-api/API_GetPolicy.md")                                                                   | Grants permission to get the resource policy associated with the specified Profiling Group                                                          | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read                          |
-| [GetProfile](../../../codeguru/latest/profiler-api/API_GetProfile.md "../../../codeguru/latest/profiler-api/API_GetProfile.md")                                                                | Grants permission to get aggregated profiles for a specific profiling group                                                                         | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read                          |
-| [GetRecommendations](../../../codeguru/latest/profiler-api/API_GetRecommendations.md "../../../codeguru/latest/profiler-api/API_GetRecommendations.md")                                        | Grants permission to get recommendations                                                                                                            | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Read                          |
-| [ListFindingsReports](../../../codeguru/latest/profiler-api/API_ListFindingsReports.md "../../../codeguru/latest/profiler-api/API_ListFindingsReports.md")                                     | Grants permission to list the available recommendations reports for a specific profiling group                                                      | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | List                          |
-| [ListProfileTimes](../../../codeguru/latest/profiler-api/API_ListProfileTimes.md "../../../codeguru/latest/profiler-api/API_ListProfileTimes.md")                                              | Grants permission to list the start times of the available aggregated profiles for a specific profiling group                                       | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | List                          |
-| [ListProfilingGroups](../../../codeguru/latest/profiler-api/API_ListProfilingGroups.md "../../../codeguru/latest/profiler-api/API_ListProfilingGroups.md")                                     | Grants permission to list profiling groups in the account                                                                                           |                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                             | List                          |
-| [ListTagsForResource](../../../codeguru/latest/profiler-api/API_ListTagsForResource.md "../../../codeguru/latest/profiler-api/API_ListTagsForResource.md")                                     | Grants permission to list tags for a Profiling Group                                                                                                | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | List                          |
-| [PostAgentProfile](../../../codeguru/latest/profiler-api/API_PostAgentProfile.md "../../../codeguru/latest/profiler-api/API_PostAgentProfile.md")                                              | Grants permission to submit a profile collected by an agent belonging to a specific profiling group for aggregation                                 | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [PutPermission](../../../codeguru/latest/profiler-api/API_PutPermission.md "../../../codeguru/latest/profiler-api/API_PutPermission.md")                                                       | Grants permission to update the list of principals allowed for an action group in the resource policy associated with the specified Profiling Group | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Permissions management, Write |
-| [RemoveNotificationChannel](../../../codeguru/latest/profiler-api/API_RemoveNotificationChannel.md "../../../codeguru/latest/profiler-api/API_RemoveNotificationChannel.md")                   | Grants permission to delete an already configured SNStopic arn from the notification configuration                                                  | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [RemovePermission](../../../codeguru/latest/profiler-api/API_RemovePermission.md "../../../codeguru/latest/profiler-api/API_RemovePermission.md")                                              | Grants permission to remove the permission of specified Action Group from the resource policy associated with the specified Profiling Group         | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Permissions management, Write |
-| [SubmitFeedback](../../../codeguru/latest/profiler-api/API_SubmitFeedback.md "../../../codeguru/latest/profiler-api/API_SubmitFeedback.md")                                                    | Grants permission to submit user feedback for useful or non useful anomaly                                                                          | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
-| [TagResource](../../../codeguru/latest/profiler-api/API_TagResource.md "../../../codeguru/latest/profiler-api/API_TagResource.md")                                                             | Grants permission to add or overwrite tags to a Profiling Group                                                                                     | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:RequestTag/${TagKey}](#list_codeguruprofiler-aws_RequestTag___TagKey_ "#list_codeguruprofiler-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_codeguruprofiler-aws_TagKeys "#list_codeguruprofiler-aws_TagKeys") | Tagging, Write                |
-| [UntagResource](../../../codeguru/latest/profiler-api/API_UntagResource.md "../../../codeguru/latest/profiler-api/API_UntagResource.md")                                                       | Grants permission to remove tags from a Profiling Group                                                                                             | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_codeguruprofiler-aws_TagKeys "#list_codeguruprofiler-aws_TagKeys")                                                                                                                                  | Tagging, Write                |
-| [UpdateProfilingGroup](../../../codeguru/latest/profiler-api/API_UpdateProfilingGroup.md "../../../codeguru/latest/profiler-api/API_UpdateProfilingGroup.md")                                  | Grants permission to update a specific profiling group                                                                                              | [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup "#list_codeguruprofiler-resource-ProfilingGroup") | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                            | Write                         |
+
+
+
+- **   [AddNotificationChannels](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_AddNotificationChannels.html)  **
+  - **Description:** Grants permission to add up to 2 topic ARNs of existing AWS SNS topics to publish notifications
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchGetFrameMetricData](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_BatchGetFrameMetricData.html)  **
+  - **Description:** Grants permission to get the frame metric data for a Profiling Group
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ConfigureAgent](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html)  **
+  - **Description:** Grants permission to register with the orchestration service and retrieve profiling configuration information, used by agents
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateProfilingGroup](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_CreateProfilingGroup.html)  **
+  - **Description:** Grants permission to create a profiling group
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_codeguruprofiler-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_codeguruprofiler-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteProfilingGroup](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_DeleteProfilingGroup.html)  **
+  - **Description:** Grants permission to delete a profiling group
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeProfilingGroup](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_DescribeProfilingGroup.html)  **
+  - **Description:** Grants permission to describe a profiling group
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetFindingsReportAccountSummary](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_GetFindingsReportAccountSummary.html)  **
+  - **Description:** Grants permission to get a summary of recent recommendations for each profiling group in the account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetNotificationConfiguration](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_GetNotificationConfiguration.html)  **
+  - **Description:** Grants permission to get the notification configuration
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPolicy](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_GetPolicy.html)  **
+  - **Description:** Grants permission to get the resource policy associated with the specified Profiling Group
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetProfile](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_GetProfile.html)  **
+  - **Description:** Grants permission to get aggregated profiles for a specific profiling group
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRecommendations](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_GetRecommendations.html)  **
+  - **Description:** Grants permission to get recommendations
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListFindingsReports](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ListFindingsReports.html)  **
+  - **Description:** Grants permission to list the available recommendations reports for a specific profiling group
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListProfileTimes](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ListProfileTimes.html)  **
+  - **Description:** Grants permission to list the start times of the available aggregated profiles for a specific profiling group
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListProfilingGroups](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ListProfilingGroups.html)  **
+  - **Description:** Grants permission to list profiling groups in the account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for a Profiling Group
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [PostAgentProfile](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PostAgentProfile.html)  **
+  - **Description:** Grants permission to submit a profile collected by an agent belonging to a specific profiling group for aggregation
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutPermission](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PutPermission.html)  **
+  - **Description:** Grants permission to update the list of principals allowed for an action group in the resource policy associated with the specified Profiling Group
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [RemoveNotificationChannel](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_RemoveNotificationChannel.html)  **
+  - **Description:** Grants permission to delete an already configured SNStopic arn from the notification configuration
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RemovePermission](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_RemovePermission.html)  **
+  - **Description:** Grants permission to remove the permission of specified Action Group from the resource policy associated with the specified Profiling Group
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [SubmitFeedback](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_SubmitFeedback.html)  **
+  - **Description:** Grants permission to submit user feedback for useful or non useful anomaly
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_TagResource.html)  **
+  - **Description:** Grants permission to add or overwrite tags to a Profiling Group
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_codeguruprofiler-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_codeguruprofiler-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove tags from a Profiling Group
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_codeguruprofiler-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateProfilingGroup](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_UpdateProfilingGroup.html)  **
+  - **Description:** Grants permission to update a specific profiling group
+  - **Resource types (\*required):** [ProfilingGroup\*](#list_codeguruprofiler-resource-ProfilingGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon CodeGuru Profiler
+<a name="list_codeguruprofiler-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                  | ARN                                                                                          | Condition keys                                                                                                                   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| [ProfilingGroup](../../../codeguru/latest/profiler-ug/working-with-profiling-groups.md "../../../codeguru/latest/profiler-ug/working-with-profiling-groups.md") | arn:${Partition}:codeguru-profiler:${Region}:${Account}:profilingGroup/${ProfilingGroupName} | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_ "#list_codeguruprofiler-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [ProfilingGroup](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/working-with-profiling-groups.html)  | arn:${Partition}:codeguru-profiler:${Region}:${Account}:profilingGroup/${ProfilingGroupName} | [aws:ResourceTag/${TagKey}](#list_codeguruprofiler-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon CodeGuru Profiler
+<a name="list_codeguruprofiler-policy-keys"></a>
 
-Amazon CodeGuru Profiler defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon CodeGuru Profiler defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                          | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the presence of tag key-value pairs in the request | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by tag key-value pairs attached to the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the presence of tag keys in the request            | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the presence of tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the presence of tag keys in the request | ArrayOfString | 

@@ -1,138 +1,407 @@
-# Actions, resources, and condition keys for Amazon AppFlow
 
-Amazon AppFlow (service prefix: `appflow`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon AppFlow
+<a name="list_appflow"></a>
+
+Amazon AppFlow (service prefix: `appflow`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/appflow/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/appflow/latest/userguide/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/appflow/appflow.json) for this service.
 
-- Learn how to [configure this service](../../../appflow/latest/userguide.md "../../../appflow/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../appflow/1.0/APIReference/Welcome.md "../../../appflow/1.0/APIReference/Welcome.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../appflow/latest/userguide/security-iam.md "../../../appflow/latest/userguide/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/appflow/appflow.json "https://servicereference.us-east-1.amazonaws.com/v1/appflow/appflow.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon AppFlow](#list_appflow-operations "#list_appflow-operations")
-- [Actions defined by Amazon AppFlow](#list_appflow-actions-as-permissions "#list_appflow-actions-as-permissions")
-- [Permission-only actions for Amazon AppFlow](#list_appflow-permission-only-actions "#list_appflow-permission-only-actions")
-- [Resource types defined by Amazon AppFlow](#list_appflow-resources-for-iam-policies "#list_appflow-resources-for-iam-policies")
-- [Condition keys for Amazon AppFlow](#list_appflow-policy-keys "#list_appflow-policy-keys")
+**Topics**
++ [API operations defined by Amazon AppFlow](#list_appflow-operations)
++ [Actions defined by Amazon AppFlow](#list_appflow-actions-as-permissions)
++ [Permission-only actions for Amazon AppFlow](#list_appflow-permission-only-actions)
++ [Resource types defined by Amazon AppFlow](#list_appflow-resources-for-iam-policies)
++ [Condition keys for Amazon AppFlow](#list_appflow-policy-keys)
 
 ## API operations defined by Amazon AppFlow
+<a name="list_appflow-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_appflow-actions-as-permissions "#list_appflow-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_appflow-actions-as-permissions).
 
-| Operation                                                                                                                       | IAM action                                                                                                                                    | Condition key                                 | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------------- | -------------- |
-| CancelFlowExecutions                                                                                                            | [appflow:CancelFlowExecutions](#list_appflow-action-CancelFlowExecutions "#list_appflow-action-CancelFlowExecutions")                         |                                               |                   | Write          |
-| CreateConnectorProfile                                                                                                          | [appflow:CreateConnectorProfile](#list_appflow-action-CreateConnectorProfile "#list_appflow-action-CreateConnectorProfile")                   |                                               |                   | Write          |
-| [appflow:DescribeConnector](#list_appflow-action-DescribeConnector "#list_appflow-action-DescribeConnector")                    |                                                                                                                                               |                                               | Read              |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                           | appflow.amazonaws.com, redshift.amazonaws.com | Write             |
-| CreateFlow                                                                                                                      | [appflow:CreateFlow](#list_appflow-action-CreateFlow "#list_appflow-action-CreateFlow")                                                       |                                               |                   | Write          |
-| [appflow:TagResource](#list_appflow-action-TagResource "#list_appflow-action-TagResource")                                      |                                                                                                                                               |                                               | Tagging, Write    |
-| [appflow:UseConnectorProfile](#list_appflow-action-UseConnectorProfile "#list_appflow-action-UseConnectorProfile")              |                                                                                                                                               |                                               | Write             |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                           | appflow.amazonaws.com                         | Write             |
-| DeleteConnectorProfile                                                                                                          | [appflow:DeleteConnectorProfile](#list_appflow-action-DeleteConnectorProfile "#list_appflow-action-DeleteConnectorProfile")                   |                                               |                   | Write          |
-| DeleteFlow                                                                                                                      | [appflow:DeleteFlow](#list_appflow-action-DeleteFlow "#list_appflow-action-DeleteFlow")                                                       |                                               |                   | Write          |
-| DescribeConnector                                                                                                               | [appflow:DescribeConnector](#list_appflow-action-DescribeConnector "#list_appflow-action-DescribeConnector")                                  |                                               |                   | Read           |
-| DescribeConnectorEntity                                                                                                         | [appflow:DescribeConnectorEntity](#list_appflow-action-DescribeConnectorEntity "#list_appflow-action-DescribeConnectorEntity")                |                                               |                   | Read           |
-| DescribeConnectorProfiles                                                                                                       | [appflow:DescribeConnectorProfiles](#list_appflow-action-DescribeConnectorProfiles "#list_appflow-action-DescribeConnectorProfiles")          |                                               |                   | Read           |
-| DescribeConnectors                                                                                                              | [appflow:DescribeConnectors](#list_appflow-action-DescribeConnectors "#list_appflow-action-DescribeConnectors")                               |                                               |                   | Read           |
-| DescribeFlow                                                                                                                    | [appflow:DescribeFlow](#list_appflow-action-DescribeFlow "#list_appflow-action-DescribeFlow")                                                 |                                               |                   | Read           |
-| DescribeFlowExecutionRecords                                                                                                    | [appflow:DescribeFlowExecutionRecords](#list_appflow-action-DescribeFlowExecutionRecords "#list_appflow-action-DescribeFlowExecutionRecords") |                                               |                   | Read           |
-| ListConnectorEntities                                                                                                           | [appflow:ListConnectorEntities](#list_appflow-action-ListConnectorEntities "#list_appflow-action-ListConnectorEntities")                      |                                               |                   | List           |
-| ListConnectors                                                                                                                  | [appflow:ListConnectors](#list_appflow-action-ListConnectors "#list_appflow-action-ListConnectors")                                           |                                               |                   | List           |
-| ListFlows                                                                                                                       | [appflow:ListFlows](#list_appflow-action-ListFlows "#list_appflow-action-ListFlows")                                                          |                                               |                   | List           |
-| ListTagsForResource                                                                                                             | [appflow:ListTagsForResource](#list_appflow-action-ListTagsForResource "#list_appflow-action-ListTagsForResource")                            |                                               |                   | Read           |
-| RegisterConnector                                                                                                               | [appflow:RegisterConnector](#list_appflow-action-RegisterConnector "#list_appflow-action-RegisterConnector")                                  |                                               |                   | Write          |
-| ResetConnectorMetadataCache                                                                                                     | [appflow:ResetConnectorMetadataCache](#list_appflow-action-ResetConnectorMetadataCache "#list_appflow-action-ResetConnectorMetadataCache")    |                                               |                   | Write          |
-| StartFlow                                                                                                                       | [appflow:StartFlow](#list_appflow-action-StartFlow "#list_appflow-action-StartFlow")                                                          |                                               |                   | Write          |
-| StopFlow                                                                                                                        | [appflow:StopFlow](#list_appflow-action-StopFlow "#list_appflow-action-StopFlow")                                                             |                                               |                   | Write          |
-| TagResource                                                                                                                     | [appflow:TagResource](#list_appflow-action-TagResource "#list_appflow-action-TagResource")                                                    |                                               |                   | Tagging, Write |
-| UnregisterConnector                                                                                                             | [appflow:UnRegisterConnector](#list_appflow-action-UnRegisterConnector "#list_appflow-action-UnRegisterConnector")                            |                                               |                   | Write          |
-| UntagResource                                                                                                                   | [appflow:UntagResource](#list_appflow-action-UntagResource "#list_appflow-action-UntagResource")                                              |                                               |                   | Tagging, Write |
-| UpdateConnectorProfile                                                                                                          | [appflow:UpdateConnectorProfile](#list_appflow-action-UpdateConnectorProfile "#list_appflow-action-UpdateConnectorProfile")                   |                                               |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                           | appflow.amazonaws.com, redshift.amazonaws.com | Write             |
-| UpdateConnectorRegistration                                                                                                     | [appflow:UpdateConnectorRegistration](#list_appflow-action-UpdateConnectorRegistration "#list_appflow-action-UpdateConnectorRegistration")    |                                               |                   | Write          |
-| UpdateFlow                                                                                                                      | [appflow:UpdateFlow](#list_appflow-action-UpdateFlow "#list_appflow-action-UpdateFlow")                                                       |                                               |                   | Write          |
-| [appflow:UseConnectorProfile](#list_appflow-action-UseConnectorProfile "#list_appflow-action-UseConnectorProfile")              |                                                                                                                                               |                                               | Write             |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                           | appflow.amazonaws.com                         | Write             |
+
+
+
+- **   CancelFlowExecutions  **
+  - **IAM action:**  [appflow:CancelFlowExecutions](#list_appflow-action-CancelFlowExecutions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateConnectorProfile  **
+  - **IAM action:**  [appflow:CreateConnectorProfile](#list_appflow-action-CreateConnectorProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appflow:DescribeConnector](#list_appflow-action-DescribeConnector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appflow.amazonaws.com, redshift.amazonaws.com / **Access level:** Write
+
+- **   CreateFlow  **
+  - **IAM action:**  [appflow:CreateFlow](#list_appflow-action-CreateFlow)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appflow:TagResource](#list_appflow-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [appflow:UseConnectorProfile](#list_appflow-action-UseConnectorProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appflow.amazonaws.com / **Access level:** Write
+
+- **   DeleteConnectorProfile  **
+  - **IAM action:**  [appflow:DeleteConnectorProfile](#list_appflow-action-DeleteConnectorProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteFlow  **
+  - **IAM action:**  [appflow:DeleteFlow](#list_appflow-action-DeleteFlow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeConnector  **
+  - **IAM action:**  [appflow:DescribeConnector](#list_appflow-action-DescribeConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeConnectorEntity  **
+  - **IAM action:**  [appflow:DescribeConnectorEntity](#list_appflow-action-DescribeConnectorEntity) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeConnectorProfiles  **
+  - **IAM action:**  [appflow:DescribeConnectorProfiles](#list_appflow-action-DescribeConnectorProfiles) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeConnectors  **
+  - **IAM action:**  [appflow:DescribeConnectors](#list_appflow-action-DescribeConnectors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeFlow  **
+  - **IAM action:**  [appflow:DescribeFlow](#list_appflow-action-DescribeFlow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeFlowExecutionRecords  **
+  - **IAM action:**  [appflow:DescribeFlowExecutionRecords](#list_appflow-action-DescribeFlowExecutionRecords) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListConnectorEntities  **
+  - **IAM action:**  [appflow:ListConnectorEntities](#list_appflow-action-ListConnectorEntities) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConnectors  **
+  - **IAM action:**  [appflow:ListConnectors](#list_appflow-action-ListConnectors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListFlows  **
+  - **IAM action:**  [appflow:ListFlows](#list_appflow-action-ListFlows) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [appflow:ListTagsForResource](#list_appflow-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   RegisterConnector  **
+  - **IAM action:**  [appflow:RegisterConnector](#list_appflow-action-RegisterConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ResetConnectorMetadataCache  **
+  - **IAM action:**  [appflow:ResetConnectorMetadataCache](#list_appflow-action-ResetConnectorMetadataCache) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartFlow  **
+  - **IAM action:**  [appflow:StartFlow](#list_appflow-action-StartFlow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopFlow  **
+  - **IAM action:**  [appflow:StopFlow](#list_appflow-action-StopFlow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [appflow:TagResource](#list_appflow-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UnregisterConnector  **
+  - **IAM action:**  [appflow:UnRegisterConnector](#list_appflow-action-UnRegisterConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UntagResource  **
+  - **IAM action:**  [appflow:UntagResource](#list_appflow-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateConnectorProfile  **
+  - **IAM action:**  [appflow:UpdateConnectorProfile](#list_appflow-action-UpdateConnectorProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appflow.amazonaws.com, redshift.amazonaws.com / **Access level:** Write
+
+- **   UpdateConnectorRegistration  **
+  - **IAM action:**  [appflow:UpdateConnectorRegistration](#list_appflow-action-UpdateConnectorRegistration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateFlow  **
+  - **IAM action:**  [appflow:UpdateFlow](#list_appflow-action-UpdateFlow)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appflow:UseConnectorProfile](#list_appflow-action-UseConnectorProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** appflow.amazonaws.com / **Access level:** Write
+
+
 
 ## Actions defined by Amazon AppFlow
+<a name="list_appflow-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                       | Description                                                                                                                                                                                                                                                                                           | Resource types (\*required)                                                                             | Condition keys                                                                                                                                                                                                                                                                                        | Access level   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [CancelFlowExecutions](../../../appflow/1.0/APIReference/API_CancelFlowExecutions.md "../../../appflow/1.0/APIReference/API_CancelFlowExecutions.md")                         | Grants permission to cancel in-progress executions of an Amazon AppFlow flow                                                                                                                                                                                                                          | [flow\*](#list_appflow-resource-flow "#list_appflow-resource-flow")                                     | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write          |
-| [CreateConnectorProfile](../../../appflow/1.0/APIReference/API_CreateConnectorProfile.md "../../../appflow/1.0/APIReference/API_CreateConnectorProfile.md")                   | Grants permission to create a login profile to be used with Amazon AppFlow flows                                                                                                                                                                                                                      |                                                                                                         |                                                                                                                                                                                                                                                                                                       | Write          |
-| [CreateFlow](../../../appflow/1.0/APIReference/API_CreateFlow.md "../../../appflow/1.0/APIReference/API_CreateFlow.md")                                                       | Grants permission to create an Amazon AppFlow flow                                                                                                                                                                                                                                                    |                                                                                                         | [aws:RequestTag/${TagKey}](#list_appflow-aws_RequestTag___TagKey_ "#list_appflow-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_appflow-aws_TagKeys "#list_appflow-aws_TagKeys")                                                                                                                   | Write          |
-| [DeleteConnectorProfile](../../../appflow/1.0/APIReference/API_DescribeConnectorProfiles.md "../../../appflow/1.0/APIReference/API_DescribeConnectorProfiles.md")             | Grants permission to delete a login profile configured in Amazon AppFlow                                                                                                                                                                                                                              | [connectorprofile\*](#list_appflow-resource-connectorprofile "#list_appflow-resource-connectorprofile") |                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteFlow](../../../appflow/1.0/APIReference/API_DeleteFlow.md "../../../appflow/1.0/APIReference/API_DeleteFlow.md")                                                       | Grants permission to delete an Amazon AppFlow flow                                                                                                                                                                                                                                                    | [flow\*](#list_appflow-resource-flow "#list_appflow-resource-flow")                                     | [aws:RequestTag/${TagKey}](#list_appflow-aws_RequestTag___TagKey_ "#list_appflow-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appflow-aws_TagKeys "#list_appflow-aws_TagKeys") | Write          |
-| [DescribeConnector](../../../appflow/1.0/APIReference/API_DescribeConnector.md "../../../appflow/1.0/APIReference/API_DescribeConnector.md")                                  | Grants permission to describe a connector registered in Amazon AppFlow                                                                                                                                                                                                                                | [connector\*](#list_appflow-resource-connector "#list_appflow-resource-connector")                      | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Read           |
-| [DescribeConnectorEntity](../../../appflow/1.0/APIReference/API_DescribeConnectorEntity.md "../../../appflow/1.0/APIReference/API_DescribeConnectorEntity.md")                | Grants permission to describe all fields for an object in a login profile configured in Amazon AppFlow                                                                                                                                                                                                | [connectorprofile\*](#list_appflow-resource-connectorprofile "#list_appflow-resource-connectorprofile") |                                                                                                                                                                                                                                                                                                       | Read           |
-| [DescribeConnectorProfiles](../../../appflow/1.0/APIReference/API_DescribeConnectorProfiles.md "../../../appflow/1.0/APIReference/API_DescribeConnectorProfiles.md")          | Grants permission to describe all login profiles configured in Amazon AppFlow                                                                                                                                                                                                                         |                                                                                                         |                                                                                                                                                                                                                                                                                                       | Read           |
-| [DescribeConnectors](../../../appflow/1.0/APIReference/API_DescribeConnectors.md "../../../appflow/1.0/APIReference/API_DescribeConnectors.md")                               | Grants permission to describe all connectors supported by Amazon AppFlow                                                                                                                                                                                                                              |                                                                                                         |                                                                                                                                                                                                                                                                                                       | Read           |
-| [DescribeFlow](../../../appflow/1.0/APIReference/API_DescribeFlow.md "../../../appflow/1.0/APIReference/API_DescribeFlow.md")                                                 | Grants permission to describe a specific flow configured in Amazon AppFlow                                                                                                                                                                                                                            | [flow\*](#list_appflow-resource-flow "#list_appflow-resource-flow")                                     | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Read           |
-| [DescribeFlowExecutionRecords](../../../appflow/1.0/APIReference/API_DescribeFlowExecutionRecords.md "../../../appflow/1.0/APIReference/API_DescribeFlowExecutionRecords.md") | Grants permission to describe all flow executions for a flow configured in Amazon AppFlow                                                                                                                                                                                                             | [flow\*](#list_appflow-resource-flow "#list_appflow-resource-flow")                                     | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Read           |
-| [ListConnectorEntities](../../../appflow/1.0/APIReference/API_ListConnectorEntities.md "../../../appflow/1.0/APIReference/API_ListConnectorEntities.md")                      | Grants permission to list all objects for a login profile configured in Amazon AppFlow                                                                                                                                                                                                                | [connectorprofile\*](#list_appflow-resource-connectorprofile "#list_appflow-resource-connectorprofile") |                                                                                                                                                                                                                                                                                                       | List           |
-| [ListConnectors](../../../appflow/1.0/APIReference/API_ListConnectors.md "../../../appflow/1.0/APIReference/API_ListConnectors.md")                                           | Grants permission to list all connectors supported in Amazon AppFlow                                                                                                                                                                                                                                  | [connector\*](#list_appflow-resource-connector "#list_appflow-resource-connector")                      | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | List           |
-| [ListFlows](../../../appflow/1.0/APIReference/API_ListFlows.md "../../../appflow/1.0/APIReference/API_ListFlows.md")                                                          | Grants permission to list all flows configured in Amazon AppFlow                                                                                                                                                                                                                                      | [flow\*](#list_appflow-resource-flow "#list_appflow-resource-flow")                                     | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | List           |
-| [ListTagsForResource](../../../appflow/1.0/APIReference/API_ListTagsForResource.md "../../../appflow/1.0/APIReference/API_ListTagsForResource.md")                            | Grants permission to list tags for a flow                                                                                                                                                                                                                                                             | [flow\*](#list_appflow-resource-flow "#list_appflow-resource-flow")                                     | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Read           |
-| [RegisterConnector](../../../appflow/1.0/APIReference/API_RegisterConnector.md "../../../appflow/1.0/APIReference/API_RegisterConnector.md")                                  | Grants permission to register an Amazon AppFlow connector                                                                                                                                                                                                                                             |                                                                                                         | [aws:RequestTag/${TagKey}](#list_appflow-aws_RequestTag___TagKey_ "#list_appflow-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_appflow-aws_TagKeys "#list_appflow-aws_TagKeys")                                                                                                                   | Write          |
-| [ResetConnectorMetadataCache](../../../appflow/1.0/APIReference/API_ResetConnectorMetadataCache.md "../../../appflow/1.0/APIReference/API_ResetConnectorMetadataCache.md")    | Grants permission to resets metadata of connector entities that Amazon AppFlow stored in its cache                                                                                                                                                                                                    | [connectorprofile\*](#list_appflow-resource-connectorprofile "#list_appflow-resource-connectorprofile") |                                                                                                                                                                                                                                                                                                       | Write          |
-| [StartFlow](../../../appflow/1.0/APIReference/API_StartFlow.md "../../../appflow/1.0/APIReference/API_StartFlow.md")                                                          | Grants permission to activate (for scheduled and event-triggered flows) or run (for on-demand flows) a flow configured in Amazon AppFlow                                                                                                                                                              | [flow\*](#list_appflow-resource-flow "#list_appflow-resource-flow")                                     | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write          |
-| [StopFlow](../../../appflow/1.0/APIReference/API_StopFlow.md "../../../appflow/1.0/APIReference/API_StopFlow.md")                                                             | Grants permission to deactivate a scheduled or event-triggered flow configured in Amazon AppFlow                                                                                                                                                                                                      | [flow\*](#list_appflow-resource-flow "#list_appflow-resource-flow")                                     | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write          |
-| [TagResource](../../../appflow/1.0/APIReference/API_TagResource.md "../../../appflow/1.0/APIReference/API_TagResource.md")                                                    | Grants permission to tag a flow or a connector                                                                                                                                                                                                                                                        | [connector](#list_appflow-resource-connector "#list_appflow-resource-connector")                        | [aws:RequestTag/${TagKey}](#list_appflow-aws_RequestTag___TagKey_ "#list_appflow-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appflow-aws_TagKeys "#list_appflow-aws_TagKeys") | Tagging, Write |
-| [flow](#list_appflow-resource-flow "#list_appflow-resource-flow")                                                                                                             | [aws:RequestTag/${TagKey}](#list_appflow-aws_RequestTag___TagKey_ "#list_appflow-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appflow-aws_TagKeys "#list_appflow-aws_TagKeys") |
-| [UnRegisterConnector](../../../appflow/1.0/APIReference/API_UnregisterConnector.md "../../../appflow/1.0/APIReference/API_UnregisterConnector.md")                            | Grants permission to un-register a connector in Amazon AppFlow                                                                                                                                                                                                                                        | [connector\*](#list_appflow-resource-connector "#list_appflow-resource-connector")                      | [aws:RequestTag/${TagKey}](#list_appflow-aws_RequestTag___TagKey_ "#list_appflow-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appflow-aws_TagKeys "#list_appflow-aws_TagKeys") | Write          |
-| [UntagResource](../../../appflow/1.0/APIReference/API_UntagResource.md "../../../appflow/1.0/APIReference/API_UntagResource.md")                                              | Grants permission to untag a flow or a connector                                                                                                                                                                                                                                                      | [connector](#list_appflow-resource-connector "#list_appflow-resource-connector")                        | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appflow-aws_TagKeys "#list_appflow-aws_TagKeys")                                                                                                                | Tagging, Write |
-| [flow](#list_appflow-resource-flow "#list_appflow-resource-flow")                                                                                                             | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appflow-aws_TagKeys "#list_appflow-aws_TagKeys")                                                                                                                |
-| [UpdateConnectorProfile](../../../appflow/1.0/APIReference/API_UpdateConnectorProfile.md "../../../appflow/1.0/APIReference/API_UpdateConnectorProfile.md")                   | Grants permission to update a login profile configured in Amazon AppFlow                                                                                                                                                                                                                              | [connectorprofile\*](#list_appflow-resource-connectorprofile "#list_appflow-resource-connectorprofile") |                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateConnectorRegistration](../../../appflow/1.0/APIReference/API_UpdateConnectorRegistration.md "../../../appflow/1.0/APIReference/API_UpdateConnectorRegistration.md")    | Grants permission to update a registered connector configured in Amazon AppFlow                                                                                                                                                                                                                       | [connector\*](#list_appflow-resource-connector "#list_appflow-resource-connector")                      | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write          |
-| [UpdateFlow](../../../appflow/1.0/APIReference/API_UpdateFlow.md "../../../appflow/1.0/APIReference/API_UpdateFlow.md")                                                       | Grants permission to update a flow configured in Amazon AppFlow                                                                                                                                                                                                                                       | [flow\*](#list_appflow-resource-flow "#list_appflow-resource-flow")                                     | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_")                                                                                                                                                                                        | Write          |
+
+
+
+- **   [CancelFlowExecutions](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CancelFlowExecutions.html)  **
+  - **Description:** Grants permission to cancel in-progress executions of an Amazon AppFlow flow
+  - **Resource types (\*required):** [flow\*](#list_appflow-resource-flow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateConnectorProfile](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html)  **
+  - **Description:** Grants permission to create a login profile to be used with Amazon AppFlow flows
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateFlow](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateFlow.html)  **
+  - **Description:** Grants permission to create an Amazon AppFlow flow
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appflow-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_appflow-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteConnectorProfile](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_DescribeConnectorProfiles.html)  **
+  - **Description:** Grants permission to delete a login profile configured in Amazon AppFlow
+  - **Resource types (\*required):** [connectorprofile\*](#list_appflow-resource-connectorprofile)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteFlow](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_DeleteFlow.html)  **
+  - **Description:** Grants permission to delete an Amazon AppFlow flow
+  - **Resource types (\*required):** [flow\*](#list_appflow-resource-flow)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appflow-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appflow-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DescribeConnector](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_DescribeConnector.html)  **
+  - **Description:** Grants permission to describe a connector registered in Amazon AppFlow
+  - **Resource types (\*required):** [connector\*](#list_appflow-resource-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeConnectorEntity](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_DescribeConnectorEntity.html)  **
+  - **Description:** Grants permission to describe all fields for an object in a login profile configured in Amazon AppFlow
+  - **Resource types (\*required):** [connectorprofile\*](#list_appflow-resource-connectorprofile)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeConnectorProfiles](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_DescribeConnectorProfiles.html)  **
+  - **Description:** Grants permission to describe all login profiles configured in Amazon AppFlow
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeConnectors](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_DescribeConnectors.html )  **
+  - **Description:** Grants permission to describe all connectors supported by Amazon AppFlow
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeFlow](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_DescribeFlow.html)  **
+  - **Description:** Grants permission to describe a specific flow configured in Amazon AppFlow
+  - **Resource types (\*required):** [flow\*](#list_appflow-resource-flow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeFlowExecutionRecords](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_DescribeFlowExecutionRecords.html)  **
+  - **Description:** Grants permission to describe all flow executions for a flow configured in Amazon AppFlow
+  - **Resource types (\*required):** [flow\*](#list_appflow-resource-flow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListConnectorEntities](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_ListConnectorEntities.html)  **
+  - **Description:** Grants permission to list all objects for a login profile configured in Amazon AppFlow
+  - **Resource types (\*required):** [connectorprofile\*](#list_appflow-resource-connectorprofile)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListConnectors](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_ListConnectors.html)  **
+  - **Description:** Grants permission to list all connectors supported in Amazon AppFlow
+  - **Resource types (\*required):** [connector\*](#list_appflow-resource-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListFlows](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_ListFlows.html)  **
+  - **Description:** Grants permission to list all flows configured in Amazon AppFlow
+  - **Resource types (\*required):** [flow\*](#list_appflow-resource-flow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for a flow
+  - **Resource types (\*required):** [flow\*](#list_appflow-resource-flow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [RegisterConnector](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_RegisterConnector.html)  **
+  - **Description:** Grants permission to register an Amazon AppFlow connector
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appflow-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_appflow-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [ResetConnectorMetadataCache](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_ResetConnectorMetadataCache.html)  **
+  - **Description:** Grants permission to resets metadata of connector entities that Amazon AppFlow stored in its cache
+  - **Resource types (\*required):** [connectorprofile\*](#list_appflow-resource-connectorprofile)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartFlow](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_StartFlow.html)  **
+  - **Description:** Grants permission to activate (for scheduled and event-triggered flows) or run (for on-demand flows) a flow configured in Amazon AppFlow
+  - **Resource types (\*required):** [flow\*](#list_appflow-resource-flow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopFlow](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_StopFlow.html)  **
+  - **Description:** Grants permission to deactivate a scheduled or event-triggered flow configured in Amazon AppFlow
+  - **Resource types (\*required):** [flow\*](#list_appflow-resource-flow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag a flow or a connector
+  - **Resource types (\*required):** [connector](#list_appflow-resource-connector) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appflow-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appflow-aws_TagKeys)
+  - **Resource types (\*required):** [flow](#list_appflow-resource-flow) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appflow-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appflow-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UnRegisterConnector](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_UnregisterConnector.html)  **
+  - **Description:** Grants permission to un-register a connector in Amazon AppFlow
+  - **Resource types (\*required):** [connector\*](#list_appflow-resource-connector)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appflow-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appflow-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag a flow or a connector
+  - **Resource types (\*required):** [connector](#list_appflow-resource-connector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appflow-aws_TagKeys)
+  - **Resource types (\*required):** [flow](#list_appflow-resource-flow) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appflow-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateConnectorProfile](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_UpdateConnectorProfile.html)  **
+  - **Description:** Grants permission to update a login profile configured in Amazon AppFlow
+  - **Resource types (\*required):** [connectorprofile\*](#list_appflow-resource-connectorprofile)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateConnectorRegistration](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_UpdateConnectorRegistration.html)  **
+  - **Description:** Grants permission to update a registered connector configured in Amazon AppFlow
+  - **Resource types (\*required):** [connector\*](#list_appflow-resource-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateFlow](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_UpdateFlow.html)  **
+  - **Description:** Grants permission to update a flow configured in Amazon AppFlow
+  - **Resource types (\*required):** [flow\*](#list_appflow-resource-flow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for Amazon AppFlow
+<a name="list_appflow-permission-only-actions"></a>
 
-The following actions are defined by Amazon AppFlow but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by Amazon AppFlow but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                                                                              | Description                                                                                                           | Resource types (\*required)                                                                             | Condition keys                                                                                                 | Access level |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ------------ |
-| [DescribeConnectorFields](../../../appflow/latest/userguide/identity-access-management.md#appflow-api-actions "../../../appflow/latest/userguide/identity-access-management.md#appflow-api-actions") | Grants permission to describe all fields for an object in a login profile configured in Amazon AppFlow (Console Only) | [connectorprofile\*](#list_appflow-resource-connectorprofile "#list_appflow-resource-connectorprofile") |                                                                                                                | Read         |
-| [DescribeFlowExecution](../../../appflow/latest/userguide/identity-access-management.md#appflow-api-actions "../../../appflow/latest/userguide/identity-access-management.md#appflow-api-actions")   | Grants permission to describe all flow executions for a flow configured in Amazon AppFlow (Console Only)              | [flow\*](#list_appflow-resource-flow "#list_appflow-resource-flow")                                     | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_") | Read         |
-| [DescribeFlows](../../../appflow/latest/userguide/identity-access-management.md#appflow-api-actions "../../../appflow/latest/userguide/identity-access-management.md#appflow-api-actions")           | Grants permission to describe all flows configured in Amazon AppFlow (Console Only)                                   |                                                                                                         |                                                                                                                | Read         |
-| [ListConnectorFields](../../../appflow/latest/userguide/identity-access-management.md#appflow-api-actions "../../../appflow/latest/userguide/identity-access-management.md#appflow-api-actions")     | Grants permission to list all objects for a login profile configured in Amazon AppFlow (Console Only)                 | [connectorprofile\*](#list_appflow-resource-connectorprofile "#list_appflow-resource-connectorprofile") |                                                                                                                | Read         |
-| [RunFlow](../../../appflow/latest/userguide/identity-access-management.md#appflow-api-actions "../../../appflow/latest/userguide/identity-access-management.md#appflow-api-actions")                 | Grants permission to run a flow configured in Amazon AppFlow (Console Only)                                           | [flow\*](#list_appflow-resource-flow "#list_appflow-resource-flow")                                     | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_") | Write        |
-| [UseConnectorProfile](API_CreateFlow.md "API_CreateFlow.md")                                                                                                                                         | Grants permission to use a connector profile while creating a flow in Amazon AppFlow                                  | [connectorprofile\*](#list_appflow-resource-connectorprofile "#list_appflow-resource-connectorprofile") |                                                                                                                | Write        |
+
+
+
+- **   [DescribeConnectorFields](https://docs.aws.amazon.com/appflow/latest/userguide/identity-access-management.html#appflow-api-actions)  **
+  - **Description:** Grants permission to describe all fields for an object in a login profile configured in Amazon AppFlow (Console Only)
+  - **Resource types (\*required):** [connectorprofile\*](#list_appflow-resource-connectorprofile)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeFlowExecution](https://docs.aws.amazon.com/appflow/latest/userguide/identity-access-management.html#appflow-api-actions)  **
+  - **Description:** Grants permission to describe all flow executions for a flow configured in Amazon AppFlow (Console Only)
+  - **Resource types (\*required):** [flow\*](#list_appflow-resource-flow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeFlows](https://docs.aws.amazon.com/appflow/latest/userguide/identity-access-management.html#appflow-api-actions)  **
+  - **Description:** Grants permission to describe all flows configured in Amazon AppFlow (Console Only)
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListConnectorFields](https://docs.aws.amazon.com/appflow/latest/userguide/identity-access-management.html#appflow-api-actions)  **
+  - **Description:** Grants permission to list all objects for a login profile configured in Amazon AppFlow (Console Only)
+  - **Resource types (\*required):** [connectorprofile\*](#list_appflow-resource-connectorprofile)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [RunFlow](https://docs.aws.amazon.com/appflow/latest/userguide/identity-access-management.html#appflow-api-actions)  **
+  - **Description:** Grants permission to run a flow configured in Amazon AppFlow (Console Only)
+  - **Resource types (\*required):** [flow\*](#list_appflow-resource-flow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UseConnectorProfile](API_CreateFlow.html)  **
+  - **Description:** Grants permission to use a connector profile while creating a flow in Amazon AppFlow
+  - **Resource types (\*required):** [connectorprofile\*](#list_appflow-resource-connectorprofile)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon AppFlow
+<a name="list_appflow-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                            | ARN                                                                           | Condition keys                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| [connector](../../../appflow/1.0/APIReference/API_ConnectorDetail.md "../../../appflow/1.0/APIReference/API_ConnectorDetail.md")          | arn:${Partition}:appflow:${Region}:${Account}:connector/${ConnectorLabel}     | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_") |
-| [connectorprofile](../../../appflow/1.0/APIReference/API_ConnectorProfile.md "../../../appflow/1.0/APIReference/API_ConnectorProfile.md") | arn:${Partition}:appflow:${Region}:${Account}:connectorprofile/${ProfileName} |                                                                                                                |
-| [flow](../../../appflow/1.0/APIReference/API_FlowDefinition.md "../../../appflow/1.0/APIReference/API_FlowDefinition.md")                 | arn:${Partition}:appflow:${Region}:${Account}:flow/${FlowName}                | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_ "#list_appflow-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [connector](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_ConnectorDetail.html)  | arn:${Partition}:appflow:${Region}:${Account}:connector/${ConnectorLabel} | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_) | 
+|  [connectorprofile](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_ConnectorProfile.html)  | arn:${Partition}:appflow:${Region}:${Account}:connectorprofile/${ProfileName} |   | 
+|  [flow](https://docs.aws.amazon.com/appflow/1.0/APIReference/API_FlowDefinition.html)  | arn:${Partition}:appflow:${Region}:${Account}:flow/${FlowName} | [aws:ResourceTag/${TagKey}](#list_appflow-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon AppFlow
+<a name="list_appflow-policy-keys"></a>
 
-Amazon AppFlow defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon AppFlow defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                  | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by allowed set of values for each of the tags | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by tag-value associated with the resource     | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by presence of mandatory tags in the request  | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by allowed set of values for each of the tags | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag-value associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by presence of mandatory tags in the request | ArrayOfString | 

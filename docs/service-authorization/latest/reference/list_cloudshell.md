@@ -1,67 +1,123 @@
-# Actions, resources, and condition keys for AWS CloudShell
 
-AWS CloudShell (service prefix: `cloudshell`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS CloudShell
+<a name="list_cloudshell"></a>
+
+AWS CloudShell (service prefix: `cloudshell`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/cloudshell/latest/userguide/sec-auth-with-identities.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/cloudshell/latest/userguide/sec-auth-with-identities.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/cloudshell/cloudshell.json) for this service.
 
-- Learn how to [configure this service](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md").
-- View a list of the [API operations available for
-  this service](../../../cloudshell/latest/userguide/sec-auth-with-identities.md "../../../cloudshell/latest/userguide/sec-auth-with-identities.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../cloudshell/latest/userguide/sec-auth-with-identities.md "../../../cloudshell/latest/userguide/sec-auth-with-identities.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/cloudshell/cloudshell.json "https://servicereference.us-east-1.amazonaws.com/v1/cloudshell/cloudshell.json") for this service.
-
-###### Topics
-
-- [Actions defined by AWS CloudShell](#list_cloudshell-actions-as-permissions "#list_cloudshell-actions-as-permissions")
-- [Permission-only actions for AWS CloudShell](#list_cloudshell-permission-only-actions "#list_cloudshell-permission-only-actions")
-- [Resource types defined by AWS CloudShell](#list_cloudshell-resources-for-iam-policies "#list_cloudshell-resources-for-iam-policies")
-- [Condition keys for AWS CloudShell](#list_cloudshell-policy-keys "#list_cloudshell-policy-keys")
+**Topics**
++ [Actions defined by AWS CloudShell](#list_cloudshell-actions-as-permissions)
++ [Permission-only actions for AWS CloudShell](#list_cloudshell-permission-only-actions)
++ [Resource types defined by AWS CloudShell](#list_cloudshell-resources-for-iam-policies)
++ [Condition keys for AWS CloudShell](#list_cloudshell-policy-keys)
 
 ## Actions defined by AWS CloudShell
+<a name="list_cloudshell-actions-as-permissions"></a>
 
-AWS CloudShell has no API operations that can be used in the
-`Actions` element of an IAM policy statement.
+AWS CloudShell has no API operations that can be used in the `Actions` element of an IAM policy statement.
 
 ## Permission-only actions for AWS CloudShell
+<a name="list_cloudshell-permission-only-actions"></a>
 
-The following actions are defined by AWS CloudShell but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by AWS CloudShell but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                                                                               | Description                                                                               | Resource types (\*required)                                                                    | Condition keys                                                                                                                                                                                                                                                                                                                      | Access level |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [ApproveCommand](../../../cloudshell/latest/userguide/sec-auth-with-identities.md#ApproveCommand "../../../cloudshell/latest/userguide/sec-auth-with-identities.md#ApproveCommand")                   | Grants permission to approve a command sent by another AWS service                        | [Environment\*](#list_cloudshell-resource-Environment "#list_cloudshell-resource-Environment") |                                                                                                                                                                                                                                                                                                                                     | Read         |
-| [CreateEnvironment](../../../cloudshell/latest/userguide/sec-auth-with-identities.md#CreateEnvironment "../../../cloudshell/latest/userguide/sec-auth-with-identities.md#CreateEnvironment")          | Grants permissions to create a CloudShell environment                                     |                                                                                                | [cloudshell:SecurityGroupIds](#list_cloudshell-cloudshell_SecurityGroupIds "#list_cloudshell-cloudshell_SecurityGroupIds")<br>[cloudshell:SubnetIds](#list_cloudshell-cloudshell_SubnetIds "#list_cloudshell-cloudshell_SubnetIds")<br>[cloudshell:VpcIds](#list_cloudshell-cloudshell_VpcIds "#list_cloudshell-cloudshell_VpcIds") | Write        |
-| [CreateSession](../../../cloudshell/latest/userguide/sec-auth-with-identities.md#CreateSession "../../../cloudshell/latest/userguide/sec-auth-with-identities.md#CreateSession")                      | Grants permissions to connect to a CloudShell environment from the AWS Management Console | [Environment\*](#list_cloudshell-resource-Environment "#list_cloudshell-resource-Environment") |                                                                                                                                                                                                                                                                                                                                     | Write        |
-| [DeleteEnvironment](../../../cloudshell/latest/userguide/sec-auth-with-identities.md#DeleteEnvironment "../../../cloudshell/latest/userguide/sec-auth-with-identities.md#DeleteEnvironment")          | Grants permission to delete a CloudShell environment                                      | [Environment\*](#list_cloudshell-resource-Environment "#list_cloudshell-resource-Environment") |                                                                                                                                                                                                                                                                                                                                     | Write        |
-| [DescribeEnvironments](../../../cloudshell/latest/userguide/sec-auth-with-identities.md#DescribeEnvironments "../../../cloudshell/latest/userguide/sec-auth-with-identities.md#DescribeEnvironments") | Grants permission to return descriptions of existing user's environments                  |                                                                                                |                                                                                                                                                                                                                                                                                                                                     | List         |
-| [GetEnvironmentStatus](../../../cloudshell/latest/userguide/sec-auth-with-identities.md#GetEnvironmentStatus "../../../cloudshell/latest/userguide/sec-auth-with-identities.md#GetEnvironmentStatus") | Grants permission to read a CloudShell environment status                                 | [Environment\*](#list_cloudshell-resource-Environment "#list_cloudshell-resource-Environment") |                                                                                                                                                                                                                                                                                                                                     | Read         |
-| [GetFileDownloadUrls](../../../cloudshell/latest/userguide/sec-auth-with-identities.md#GetFileDownloadUrls "../../../cloudshell/latest/userguide/sec-auth-with-identities.md#GetFileDownloadUrls")    | Grants permissions to download files from a CloudShell environment                        | [Environment\*](#list_cloudshell-resource-Environment "#list_cloudshell-resource-Environment") |                                                                                                                                                                                                                                                                                                                                     | Write        |
-| [GetFileUploadUrls](../../../cloudshell/latest/userguide/sec-auth-with-identities.md#GetFileUploadUrls "../../../cloudshell/latest/userguide/sec-auth-with-identities.md#GetFileUploadUrls")          | Grants permissions to upload files to a CloudShell environment                            | [Environment\*](#list_cloudshell-resource-Environment "#list_cloudshell-resource-Environment") |                                                                                                                                                                                                                                                                                                                                     | Write        |
-| [PutCredentials](../../../cloudshell/latest/userguide/sec-auth-with-identities.md#PutCredentials "../../../cloudshell/latest/userguide/sec-auth-with-identities.md#PutCredentials")                   | Grants permissions to forward console credentials to the environment                      | [Environment\*](#list_cloudshell-resource-Environment "#list_cloudshell-resource-Environment") |                                                                                                                                                                                                                                                                                                                                     | Write        |
-| [StartEnvironment](../../../cloudshell/latest/userguide/sec-auth-with-identities.md#StartEnvironment "../../../cloudshell/latest/userguide/sec-auth-with-identities.md#StartEnvironment")             | Grants permission to start a stopped CloudShell environment                               | [Environment\*](#list_cloudshell-resource-Environment "#list_cloudshell-resource-Environment") |                                                                                                                                                                                                                                                                                                                                     | Write        |
-| [StopEnvironment](../../../cloudshell/latest/userguide/sec-auth-with-identities.md#StopEnvironment "../../../cloudshell/latest/userguide/sec-auth-with-identities.md#StopEnvironment")                | Grants permission to stop a running CloudShell environment                                | [Environment\*](#list_cloudshell-resource-Environment "#list_cloudshell-resource-Environment") |                                                                                                                                                                                                                                                                                                                                     | Write        |
+
+
+
+- **   [ApproveCommand](https://docs.aws.amazon.com/cloudshell/latest/userguide/sec-auth-with-identities.html#ApproveCommand)  **
+  - **Description:** Grants permission to approve a command sent by another AWS service
+  - **Resource types (\*required):** [Environment\*](#list_cloudshell-resource-Environment)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [CreateEnvironment](https://docs.aws.amazon.com/cloudshell/latest/userguide/sec-auth-with-identities.html#CreateEnvironment)  **
+  - **Description:** Grants permissions to create a CloudShell environment
+  - **Resource types (\*required):** 
+  - **Condition keys:** [cloudshell:SecurityGroupIds](#list_cloudshell-cloudshell_SecurityGroupIds)<br />[cloudshell:SubnetIds](#list_cloudshell-cloudshell_SubnetIds)<br />[cloudshell:VpcIds](#list_cloudshell-cloudshell_VpcIds)
+  - **Access level:** Write
+
+- **   [CreateSession](https://docs.aws.amazon.com/cloudshell/latest/userguide/sec-auth-with-identities.html#CreateSession)  **
+  - **Description:** Grants permissions to connect to a CloudShell environment from the AWS Management Console
+  - **Resource types (\*required):** [Environment\*](#list_cloudshell-resource-Environment)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteEnvironment](https://docs.aws.amazon.com/cloudshell/latest/userguide/sec-auth-with-identities.html#DeleteEnvironment)  **
+  - **Description:** Grants permission to delete a CloudShell environment
+  - **Resource types (\*required):** [Environment\*](#list_cloudshell-resource-Environment)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DescribeEnvironments](https://docs.aws.amazon.com/cloudshell/latest/userguide/sec-auth-with-identities.html#DescribeEnvironments)  **
+  - **Description:** Grants permission to return descriptions of existing user's environments
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [GetEnvironmentStatus](https://docs.aws.amazon.com/cloudshell/latest/userguide/sec-auth-with-identities.html#GetEnvironmentStatus)  **
+  - **Description:** Grants permission to read a CloudShell environment status
+  - **Resource types (\*required):** [Environment\*](#list_cloudshell-resource-Environment)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetFileDownloadUrls](https://docs.aws.amazon.com/cloudshell/latest/userguide/sec-auth-with-identities.html#GetFileDownloadUrls)  **
+  - **Description:** Grants permissions to download files from a CloudShell environment
+  - **Resource types (\*required):** [Environment\*](#list_cloudshell-resource-Environment)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [GetFileUploadUrls](https://docs.aws.amazon.com/cloudshell/latest/userguide/sec-auth-with-identities.html#GetFileUploadUrls)  **
+  - **Description:** Grants permissions to upload files to a CloudShell environment
+  - **Resource types (\*required):** [Environment\*](#list_cloudshell-resource-Environment)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [PutCredentials](https://docs.aws.amazon.com/cloudshell/latest/userguide/sec-auth-with-identities.html#PutCredentials)  **
+  - **Description:** Grants permissions to forward console credentials to the environment
+  - **Resource types (\*required):** [Environment\*](#list_cloudshell-resource-Environment)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartEnvironment](https://docs.aws.amazon.com/cloudshell/latest/userguide/sec-auth-with-identities.html#StartEnvironment)  **
+  - **Description:** Grants permission to start a stopped CloudShell environment
+  - **Resource types (\*required):** [Environment\*](#list_cloudshell-resource-Environment)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StopEnvironment](https://docs.aws.amazon.com/cloudshell/latest/userguide/sec-auth-with-identities.html#StopEnvironment)  **
+  - **Description:** Grants permission to stop a running CloudShell environment
+  - **Resource types (\*required):** [Environment\*](#list_cloudshell-resource-Environment)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS CloudShell
+<a name="list_cloudshell-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                             | ARN                                                                           | Condition keys |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | -------------- |
-| [Environment](../../../cloudshell/latest/userguide/sec-auth-with-identities.md#Environment "../../../cloudshell/latest/userguide/sec-auth-with-identities.md#Environment") | arn:${Partition}:cloudshell:${Region}:${Account}:environment/${EnvironmentId} |                |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [Environment](https://docs.aws.amazon.com/cloudshell/latest/userguide/sec-auth-with-identities.html#Environment)  | arn:${Partition}:cloudshell:${Region}:${Account}:environment/${EnvironmentId} |   | 
 
 ## Condition keys for AWS CloudShell
+<a name="list_cloudshell-policy-keys"></a>
 
-AWS CloudShell defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS CloudShell defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                                 | Description                                                                        | Type          |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------- |
-| [cloudshell:SecurityGroupIds](../../../cloudshell/latest/userguide/aws-cloudshell-vpc-permissions-1.md#vpc-condition-keys-examples-1 "../../../cloudshell/latest/userguide/aws-cloudshell-vpc-permissions-1.md#vpc-condition-keys-examples-1") | Filters access by security group ids. Available during CreateEnvironment operation | ArrayOfString |
-| [cloudshell:SubnetIds](../../../cloudshell/latest/userguide/aws-cloudshell-vpc-permissions-1.md#vpc-condition-keys-examples-1 "../../../cloudshell/latest/userguide/aws-cloudshell-vpc-permissions-1.md#vpc-condition-keys-examples-1")        | Filters access by subnet ids. Available during CreateEnvironment operation         | ArrayOfString |
-| [cloudshell:VpcIds](../../../cloudshell/latest/userguide/aws-cloudshell-vpc-permissions-1.md#vpc-condition-keys-examples-1 "../../../cloudshell/latest/userguide/aws-cloudshell-vpc-permissions-1.md#vpc-condition-keys-examples-1")           | Filters access by vpc ids. Available during CreateEnvironment operation            | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [cloudshell:SecurityGroupIds](https://docs.aws.amazon.com/cloudshell/latest/userguide/aws-cloudshell-vpc-permissions-1.html#vpc-condition-keys-examples-1)  | Filters access by security group ids. Available during CreateEnvironment operation | ArrayOfString | 
+|   [cloudshell:SubnetIds](https://docs.aws.amazon.com/cloudshell/latest/userguide/aws-cloudshell-vpc-permissions-1.html#vpc-condition-keys-examples-1)  | Filters access by subnet ids. Available during CreateEnvironment operation | ArrayOfString | 
+|   [cloudshell:VpcIds](https://docs.aws.amazon.com/cloudshell/latest/userguide/aws-cloudshell-vpc-permissions-1.html#vpc-condition-keys-examples-1)  | Filters access by vpc ids. Available during CreateEnvironment operation | ArrayOfString | 

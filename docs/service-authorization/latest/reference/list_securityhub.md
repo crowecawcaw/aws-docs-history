@@ -1,360 +1,1542 @@
-# Actions, resources, and condition keys for AWS Security Hub
 
-AWS Security Hub (service prefix: `securityhub`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Security Hub
+<a name="list_securityhub"></a>
+
+AWS Security Hub (service prefix: `securityhub`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/securityhub/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/securityhub/1.0/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-access.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/securityhub/securityhub.json) for this service.
 
-- Learn how to [configure this service](../../../securityhub/latest/userguide.md "../../../securityhub/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../securityhub/1.0/APIReference.md "../../../securityhub/1.0/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../securityhub/latest/userguide/securityhub-access.md "../../../securityhub/latest/userguide/securityhub-access.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/securityhub/securityhub.json "https://servicereference.us-east-1.amazonaws.com/v1/securityhub/securityhub.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Security Hub](#list_securityhub-operations "#list_securityhub-operations")
-- [Actions defined by AWS Security Hub](#list_securityhub-actions-as-permissions "#list_securityhub-actions-as-permissions")
-- [Permission-only actions for AWS Security Hub](#list_securityhub-permission-only-actions "#list_securityhub-permission-only-actions")
-- [Resource types defined by AWS Security Hub](#list_securityhub-resources-for-iam-policies "#list_securityhub-resources-for-iam-policies")
-- [Condition keys for AWS Security Hub](#list_securityhub-policy-keys "#list_securityhub-policy-keys")
+**Topics**
++ [API operations defined by AWS Security Hub](#list_securityhub-operations)
++ [Actions defined by AWS Security Hub](#list_securityhub-actions-as-permissions)
++ [Permission-only actions for AWS Security Hub](#list_securityhub-permission-only-actions)
++ [Resource types defined by AWS Security Hub](#list_securityhub-resources-for-iam-policies)
++ [Condition keys for AWS Security Hub](#list_securityhub-policy-keys)
 
 ## API operations defined by AWS Security Hub
+<a name="list_securityhub-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_securityhub-actions-as-permissions "#list_securityhub-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_securityhub-actions-as-permissions).
 
-| Operation                                                                                                                                                             | IAM action                                                                                                                                                                                 | Condition key | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | ----------------- | -------------- |
-| AcceptAdministratorInvitation                                                                                                                                         | [securityhub:AcceptAdministratorInvitation](#list_securityhub-action-AcceptAdministratorInvitation "#list_securityhub-action-AcceptAdministratorInvitation")                               |               |                   | Write          |
-| AcceptInvitation                                                                                                                                                      | [securityhub:AcceptInvitation](#list_securityhub-action-AcceptInvitation "#list_securityhub-action-AcceptInvitation")                                                                      |               |                   | Write          |
-| BatchDeleteAutomationRules                                                                                                                                            | [securityhub:BatchDeleteAutomationRules](#list_securityhub-action-BatchDeleteAutomationRules "#list_securityhub-action-BatchDeleteAutomationRules")                                        |               |                   | Write          |
-| BatchDisableStandards                                                                                                                                                 | [securityhub:BatchDisableStandards](#list_securityhub-action-BatchDisableStandards "#list_securityhub-action-BatchDisableStandards")                                                       |               |                   | Write          |
-| BatchEnableStandards                                                                                                                                                  | [securityhub:BatchEnableStandards](#list_securityhub-action-BatchEnableStandards "#list_securityhub-action-BatchEnableStandards")                                                          |               |                   | Write          |
-| BatchGetAutomationRules                                                                                                                                               | [securityhub:BatchGetAutomationRules](#list_securityhub-action-BatchGetAutomationRules "#list_securityhub-action-BatchGetAutomationRules")                                                 |               |                   | Read           |
-| BatchGetConfigurationPolicyAssociations                                                                                                                               | [securityhub:BatchGetConfigurationPolicyAssociations](#list_securityhub-action-BatchGetConfigurationPolicyAssociations "#list_securityhub-action-BatchGetConfigurationPolicyAssociations") |               |                   | Read           |
-| BatchGetSecurityControls                                                                                                                                              | [securityhub:BatchGetSecurityControls](#list_securityhub-action-BatchGetSecurityControls "#list_securityhub-action-BatchGetSecurityControls")                                              |               |                   | Read           |
-| [securityhub:DescribeStandardsControls](#list_securityhub-action-DescribeStandardsControls "#list_securityhub-action-DescribeStandardsControls")                      |                                                                                                                                                                                            |               | Read              |
-| BatchGetStandardsControlAssociations                                                                                                                                  | [securityhub:BatchGetStandardsControlAssociations](#list_securityhub-action-BatchGetStandardsControlAssociations "#list_securityhub-action-BatchGetStandardsControlAssociations")          |               |                   | Read           |
-| [securityhub:DescribeStandardsControls](#list_securityhub-action-DescribeStandardsControls "#list_securityhub-action-DescribeStandardsControls")                      |                                                                                                                                                                                            |               | Read              |
-| BatchImportFindings                                                                                                                                                   | [securityhub:BatchImportFindings](#list_securityhub-action-BatchImportFindings "#list_securityhub-action-BatchImportFindings")                                                             |               |                   | Write          |
-| BatchUpdateAutomationRules                                                                                                                                            | [securityhub:BatchUpdateAutomationRules](#list_securityhub-action-BatchUpdateAutomationRules "#list_securityhub-action-BatchUpdateAutomationRules")                                        |               |                   | Write          |
-| BatchUpdateFindings                                                                                                                                                   | [securityhub:BatchUpdateFindings](#list_securityhub-action-BatchUpdateFindings "#list_securityhub-action-BatchUpdateFindings")                                                             |               |                   | Write          |
-| BatchUpdateFindingsV2                                                                                                                                                 | [securityhub:BatchUpdateFindings](#list_securityhub-action-BatchUpdateFindings "#list_securityhub-action-BatchUpdateFindings")                                                             |               |                   | Write          |
-| BatchUpdateStandardsControlAssociations                                                                                                                               | [securityhub:BatchUpdateStandardsControlAssociations](#list_securityhub-action-BatchUpdateStandardsControlAssociations "#list_securityhub-action-BatchUpdateStandardsControlAssociations") |               |                   | Write          |
-| [securityhub:UpdateStandardsControl](#list_securityhub-action-UpdateStandardsControl "#list_securityhub-action-UpdateStandardsControl")                               |                                                                                                                                                                                            |               | Write             |
-| CreateActionTarget                                                                                                                                                    | [securityhub:CreateActionTarget](#list_securityhub-action-CreateActionTarget "#list_securityhub-action-CreateActionTarget")                                                                |               |                   | Write          |
-| CreateAggregatorV2                                                                                                                                                    | [securityhub:CreateAggregatorV2](#list_securityhub-action-CreateAggregatorV2 "#list_securityhub-action-CreateAggregatorV2")                                                                |               |                   | Write          |
-| [securityhub:TagResource](#list_securityhub-action-TagResource "#list_securityhub-action-TagResource")                                                                |                                                                                                                                                                                            |               | Tagging, Write    |
-| CreateAutomationRule                                                                                                                                                  | [securityhub:CreateAutomationRule](#list_securityhub-action-CreateAutomationRule "#list_securityhub-action-CreateAutomationRule")                                                          |               |                   | Write          |
-| [securityhub:TagResource](#list_securityhub-action-TagResource "#list_securityhub-action-TagResource")                                                                |                                                                                                                                                                                            |               | Tagging, Write    |
-| CreateAutomationRuleV2                                                                                                                                                | [securityhub:CreateAutomationRuleV2](#list_securityhub-action-CreateAutomationRuleV2 "#list_securityhub-action-CreateAutomationRuleV2")                                                    |               |                   | Write          |
-| [securityhub:TagResource](#list_securityhub-action-TagResource "#list_securityhub-action-TagResource")                                                                |                                                                                                                                                                                            |               | Tagging, Write    |
-| CreateConfigurationPolicy                                                                                                                                             | [securityhub:CreateConfigurationPolicy](#list_securityhub-action-CreateConfigurationPolicy "#list_securityhub-action-CreateConfigurationPolicy")                                           |               |                   | Write          |
-| [securityhub:TagResource](#list_securityhub-action-TagResource "#list_securityhub-action-TagResource")                                                                |                                                                                                                                                                                            |               | Tagging, Write    |
-| CreateConnector                                                                                                                                                       | [securityhub:CreateConnector](#list_securityhub-action-CreateConnector "#list_securityhub-action-CreateConnector")                                                                         |               |                   | Write          |
-| [securityhub:TagResource](#list_securityhub-action-TagResource "#list_securityhub-action-TagResource")                                                                |                                                                                                                                                                                            |               | Tagging, Write    |
-| CreateConnectorV2                                                                                                                                                     | [securityhub:CreateConnectorV2](#list_securityhub-action-CreateConnectorV2 "#list_securityhub-action-CreateConnectorV2")                                                                   |               |                   | Write          |
-| [securityhub:TagResource](#list_securityhub-action-TagResource "#list_securityhub-action-TagResource")                                                                |                                                                                                                                                                                            |               | Tagging, Write    |
-| CreateFindingAggregator                                                                                                                                               | [securityhub:CreateFindingAggregator](#list_securityhub-action-CreateFindingAggregator "#list_securityhub-action-CreateFindingAggregator")                                                 |               |                   | Write          |
-| CreateInsight                                                                                                                                                         | [securityhub:CreateInsight](#list_securityhub-action-CreateInsight "#list_securityhub-action-CreateInsight")                                                                               |               |                   | Write          |
-| CreateMembers                                                                                                                                                         | [securityhub:CreateMembers](#list_securityhub-action-CreateMembers "#list_securityhub-action-CreateMembers")                                                                               |               |                   | Write          |
-| CreateTicketV2                                                                                                                                                        | [securityhub:CreateTicketV2](#list_securityhub-action-CreateTicketV2 "#list_securityhub-action-CreateTicketV2")                                                                            |               |                   | Write          |
-| DeclineInvitations                                                                                                                                                    | [securityhub:DeclineInvitations](#list_securityhub-action-DeclineInvitations "#list_securityhub-action-DeclineInvitations")                                                                |               |                   | Write          |
-| DeleteActionTarget                                                                                                                                                    | [securityhub:DeleteActionTarget](#list_securityhub-action-DeleteActionTarget "#list_securityhub-action-DeleteActionTarget")                                                                |               |                   | Write          |
-| DeleteAggregatorV2                                                                                                                                                    | [securityhub:DeleteAggregatorV2](#list_securityhub-action-DeleteAggregatorV2 "#list_securityhub-action-DeleteAggregatorV2")                                                                |               |                   | Write          |
-| DeleteAutomationRuleV2                                                                                                                                                | [securityhub:DeleteAutomationRuleV2](#list_securityhub-action-DeleteAutomationRuleV2 "#list_securityhub-action-DeleteAutomationRuleV2")                                                    |               |                   | Write          |
-| DeleteConfigurationPolicy                                                                                                                                             | [securityhub:DeleteConfigurationPolicy](#list_securityhub-action-DeleteConfigurationPolicy "#list_securityhub-action-DeleteConfigurationPolicy")                                           |               |                   | Write          |
-| DeleteConnector                                                                                                                                                       | [securityhub:DeleteConnector](#list_securityhub-action-DeleteConnector "#list_securityhub-action-DeleteConnector")                                                                         |               |                   | Write          |
-| DeleteConnectorV2                                                                                                                                                     | [securityhub:DeleteConnectorV2](#list_securityhub-action-DeleteConnectorV2 "#list_securityhub-action-DeleteConnectorV2")                                                                   |               |                   | Write          |
-| DeleteFindingAggregator                                                                                                                                               | [securityhub:DeleteFindingAggregator](#list_securityhub-action-DeleteFindingAggregator "#list_securityhub-action-DeleteFindingAggregator")                                                 |               |                   | Write          |
-| DeleteInsight                                                                                                                                                         | [securityhub:DeleteInsight](#list_securityhub-action-DeleteInsight "#list_securityhub-action-DeleteInsight")                                                                               |               |                   | Write          |
-| DeleteInvitations                                                                                                                                                     | [securityhub:DeleteInvitations](#list_securityhub-action-DeleteInvitations "#list_securityhub-action-DeleteInvitations")                                                                   |               |                   | Write          |
-| DeleteMembers                                                                                                                                                         | [securityhub:DeleteMembers](#list_securityhub-action-DeleteMembers "#list_securityhub-action-DeleteMembers")                                                                               |               |                   | Write          |
-| DescribeActionTargets                                                                                                                                                 | [securityhub:DescribeActionTargets](#list_securityhub-action-DescribeActionTargets "#list_securityhub-action-DescribeActionTargets")                                                       |               |                   | Read           |
-| DescribeHub                                                                                                                                                           | [securityhub:DescribeHub](#list_securityhub-action-DescribeHub "#list_securityhub-action-DescribeHub")                                                                                     |               |                   | Read           |
-| DescribeOrganizationConfiguration                                                                                                                                     | [securityhub:DescribeOrganizationConfiguration](#list_securityhub-action-DescribeOrganizationConfiguration "#list_securityhub-action-DescribeOrganizationConfiguration")                   |               |                   | Read           |
-| DescribeProducts                                                                                                                                                      | [securityhub:DescribeProducts](#list_securityhub-action-DescribeProducts "#list_securityhub-action-DescribeProducts")                                                                      |               |                   | Read           |
-| DescribeProductsV2                                                                                                                                                    | [securityhub:DescribeProductsV2](#list_securityhub-action-DescribeProductsV2 "#list_securityhub-action-DescribeProductsV2")                                                                |               |                   | Read           |
-| DescribeSecurityHubV2                                                                                                                                                 | [securityhub:DescribeSecurityHubV2](#list_securityhub-action-DescribeSecurityHubV2 "#list_securityhub-action-DescribeSecurityHubV2")                                                       |               |                   | Read           |
-| DescribeStandards                                                                                                                                                     | [securityhub:DescribeStandards](#list_securityhub-action-DescribeStandards "#list_securityhub-action-DescribeStandards")                                                                   |               |                   | Read           |
-| DescribeStandardsControls                                                                                                                                             | [securityhub:DescribeStandardsControls](#list_securityhub-action-DescribeStandardsControls "#list_securityhub-action-DescribeStandardsControls")                                           |               |                   | Read           |
-| DisableImportFindingsForProduct                                                                                                                                       | [securityhub:DisableImportFindingsForProduct](#list_securityhub-action-DisableImportFindingsForProduct "#list_securityhub-action-DisableImportFindingsForProduct")                         |               |                   | Write          |
-| DisableOrganizationAdminAccount                                                                                                                                       | [securityhub:DisableOrganizationAdminAccount](#list_securityhub-action-DisableOrganizationAdminAccount "#list_securityhub-action-DisableOrganizationAdminAccount")                         |               |                   | Write          |
-| DisableSecurityHub                                                                                                                                                    | [securityhub:DisableSecurityHub](#list_securityhub-action-DisableSecurityHub "#list_securityhub-action-DisableSecurityHub")                                                                |               |                   | Write          |
-| DisableSecurityHubFeatureV2                                                                                                                                           | [securityhub:DisableSecurityHubFeatureV2](#list_securityhub-action-DisableSecurityHubFeatureV2 "#list_securityhub-action-DisableSecurityHubFeatureV2")                                     |               |                   | Write          |
-| DisableSecurityHubV2                                                                                                                                                  | [securityhub:DisableSecurityHubV2](#list_securityhub-action-DisableSecurityHubV2 "#list_securityhub-action-DisableSecurityHubV2")                                                          |               |                   | Write          |
-| DisassociateFromAdministratorAccount                                                                                                                                  | [securityhub:DisassociateFromAdministratorAccount](#list_securityhub-action-DisassociateFromAdministratorAccount "#list_securityhub-action-DisassociateFromAdministratorAccount")          |               |                   | Write          |
-| DisassociateFromMasterAccount                                                                                                                                         | [securityhub:DisassociateFromMasterAccount](#list_securityhub-action-DisassociateFromMasterAccount "#list_securityhub-action-DisassociateFromMasterAccount")                               |               |                   | Write          |
-| DisassociateMembers                                                                                                                                                   | [securityhub:DisassociateMembers](#list_securityhub-action-DisassociateMembers "#list_securityhub-action-DisassociateMembers")                                                             |               |                   | Write          |
-| EnableImportFindingsForProduct                                                                                                                                        | [securityhub:EnableImportFindingsForProduct](#list_securityhub-action-EnableImportFindingsForProduct "#list_securityhub-action-EnableImportFindingsForProduct")                            |               |                   | Write          |
-| EnableOrganizationAdminAccount                                                                                                                                        | [securityhub:EnableOrganizationAdminAccount](#list_securityhub-action-EnableOrganizationAdminAccount "#list_securityhub-action-EnableOrganizationAdminAccount")                            |               |                   | Write          |
-| EnableSecurityHub                                                                                                                                                     | [securityhub:EnableSecurityHub](#list_securityhub-action-EnableSecurityHub "#list_securityhub-action-EnableSecurityHub")                                                                   |               |                   | Write          |
-| [securityhub:TagResource](#list_securityhub-action-TagResource "#list_securityhub-action-TagResource")                                                                |                                                                                                                                                                                            |               | Tagging, Write    |
-| EnableSecurityHubFeatureV2                                                                                                                                            | [securityhub:EnableSecurityHubFeatureV2](#list_securityhub-action-EnableSecurityHubFeatureV2 "#list_securityhub-action-EnableSecurityHubFeatureV2")                                        |               |                   | Write          |
-| EnableSecurityHubV2                                                                                                                                                   | [securityhub:EnableSecurityHubV2](#list_securityhub-action-EnableSecurityHubV2 "#list_securityhub-action-EnableSecurityHubV2")                                                             |               |                   | Write          |
-| [securityhub:TagResource](#list_securityhub-action-TagResource "#list_securityhub-action-TagResource")                                                                |                                                                                                                                                                                            |               | Tagging, Write    |
-| GenerateRecommendedPolicyV2                                                                                                                                           | [securityhub:GenerateRecommendedPolicyV2](#list_securityhub-action-GenerateRecommendedPolicyV2 "#list_securityhub-action-GenerateRecommendedPolicyV2")                                     |               |                   | Write          |
-| GetAdministratorAccount                                                                                                                                               | [securityhub:GetAdministratorAccount](#list_securityhub-action-GetAdministratorAccount "#list_securityhub-action-GetAdministratorAccount")                                                 |               |                   | Read           |
-| GetAggregatorV2                                                                                                                                                       | [securityhub:GetAggregatorV2](#list_securityhub-action-GetAggregatorV2 "#list_securityhub-action-GetAggregatorV2")                                                                         |               |                   | Read           |
-| GetAutomationRuleV2                                                                                                                                                   | [securityhub:GetAutomationRuleV2](#list_securityhub-action-GetAutomationRuleV2 "#list_securityhub-action-GetAutomationRuleV2")                                                             |               |                   | Read           |
-| GetConfigurationPolicy                                                                                                                                                | [securityhub:GetConfigurationPolicy](#list_securityhub-action-GetConfigurationPolicy "#list_securityhub-action-GetConfigurationPolicy")                                                    |               |                   | Read           |
-| GetConfigurationPolicyAssociation                                                                                                                                     | [securityhub:GetConfigurationPolicyAssociation](#list_securityhub-action-GetConfigurationPolicyAssociation "#list_securityhub-action-GetConfigurationPolicyAssociation")                   |               |                   | Read           |
-| GetConnector                                                                                                                                                          | [securityhub:GetConnector](#list_securityhub-action-GetConnector "#list_securityhub-action-GetConnector")                                                                                  |               |                   | Read           |
-| GetConnectorV2                                                                                                                                                        | [securityhub:GetConnectorV2](#list_securityhub-action-GetConnectorV2 "#list_securityhub-action-GetConnectorV2")                                                                            |               |                   | Read           |
-| GetEnabledStandards                                                                                                                                                   | [securityhub:GetEnabledStandards](#list_securityhub-action-GetEnabledStandards "#list_securityhub-action-GetEnabledStandards")                                                             |               |                   | List           |
-| GetFindingAggregator                                                                                                                                                  | [securityhub:GetFindingAggregator](#list_securityhub-action-GetFindingAggregator "#list_securityhub-action-GetFindingAggregator")                                                          |               |                   | Read           |
-| GetFindingHistory                                                                                                                                                     | [securityhub:GetFindingHistory](#list_securityhub-action-GetFindingHistory "#list_securityhub-action-GetFindingHistory")                                                                   |               |                   | Read           |
-| GetFindingStatisticsV2                                                                                                                                                | [securityhub:GetAdhocInsightResults](#list_securityhub-action-GetAdhocInsightResults "#list_securityhub-action-GetAdhocInsightResults")                                                    |               |                   | Read           |
-| GetFindings                                                                                                                                                           | [securityhub:GetFindings](#list_securityhub-action-GetFindings "#list_securityhub-action-GetFindings")                                                                                     |               |                   | Read           |
-| GetFindingsTrendsV2                                                                                                                                                   | [securityhub:GetFindingsTrendsV2](#list_securityhub-action-GetFindingsTrendsV2 "#list_securityhub-action-GetFindingsTrendsV2")                                                             |               |                   | Read           |
-| GetFindingsV2                                                                                                                                                         | [securityhub:GetFindings](#list_securityhub-action-GetFindings "#list_securityhub-action-GetFindings")                                                                                     |               |                   | Read           |
-| GetInsightResults                                                                                                                                                     | [securityhub:GetInsightResults](#list_securityhub-action-GetInsightResults "#list_securityhub-action-GetInsightResults")                                                                   |               |                   | Read           |
-| GetInsights                                                                                                                                                           | [securityhub:GetInsights](#list_securityhub-action-GetInsights "#list_securityhub-action-GetInsights")                                                                                     |               |                   | List           |
-| GetInvitationsCount                                                                                                                                                   | [securityhub:GetInvitationsCount](#list_securityhub-action-GetInvitationsCount "#list_securityhub-action-GetInvitationsCount")                                                             |               |                   | Read           |
-| GetMasterAccount                                                                                                                                                      | [securityhub:GetMasterAccount](#list_securityhub-action-GetMasterAccount "#list_securityhub-action-GetMasterAccount")                                                                      |               |                   | Read           |
-| GetMembers                                                                                                                                                            | [securityhub:GetMembers](#list_securityhub-action-GetMembers "#list_securityhub-action-GetMembers")                                                                                        |               |                   | Read           |
-| GetRecommendedPolicyV2                                                                                                                                                | [securityhub:GetRecommendedPolicyV2](#list_securityhub-action-GetRecommendedPolicyV2 "#list_securityhub-action-GetRecommendedPolicyV2")                                                    |               |                   | Read           |
-| GetResourcesStatisticsV2                                                                                                                                              | [securityhub:GetResourcesStatisticsV2](#list_securityhub-action-GetResourcesStatisticsV2 "#list_securityhub-action-GetResourcesStatisticsV2")                                              |               |                   | Read           |
-| GetResourcesTrendsV2                                                                                                                                                  | [securityhub:GetResourcesTrendsV2](#list_securityhub-action-GetResourcesTrendsV2 "#list_securityhub-action-GetResourcesTrendsV2")                                                          |               |                   | Read           |
-| GetResourcesV2                                                                                                                                                        | [securityhub:GetResourcesV2](#list_securityhub-action-GetResourcesV2 "#list_securityhub-action-GetResourcesV2")                                                                            |               |                   | Read           |
-| GetSecurityControlDefinition                                                                                                                                          | [securityhub:GetSecurityControlDefinition](#list_securityhub-action-GetSecurityControlDefinition "#list_securityhub-action-GetSecurityControlDefinition")                                  |               |                   | Read           |
-| InviteMembers                                                                                                                                                         | [securityhub:InviteMembers](#list_securityhub-action-InviteMembers "#list_securityhub-action-InviteMembers")                                                                               |               |                   | Write          |
-| ListAggregatorsV2                                                                                                                                                     | [securityhub:ListAggregatorsV2](#list_securityhub-action-ListAggregatorsV2 "#list_securityhub-action-ListAggregatorsV2")                                                                   |               |                   | List           |
-| ListAutomationRules                                                                                                                                                   | [securityhub:ListAutomationRules](#list_securityhub-action-ListAutomationRules "#list_securityhub-action-ListAutomationRules")                                                             |               |                   | List           |
-| ListAutomationRulesV2                                                                                                                                                 | [securityhub:ListAutomationRulesV2](#list_securityhub-action-ListAutomationRulesV2 "#list_securityhub-action-ListAutomationRulesV2")                                                       |               |                   | List           |
-| ListConfigurationPolicies                                                                                                                                             | [securityhub:ListConfigurationPolicies](#list_securityhub-action-ListConfigurationPolicies "#list_securityhub-action-ListConfigurationPolicies")                                           |               |                   | List           |
-| ListConfigurationPolicyAssociations                                                                                                                                   | [securityhub:ListConfigurationPolicyAssociations](#list_securityhub-action-ListConfigurationPolicyAssociations "#list_securityhub-action-ListConfigurationPolicyAssociations")             |               |                   | List           |
-| ListConnectors                                                                                                                                                        | [securityhub:ListConnectors](#list_securityhub-action-ListConnectors "#list_securityhub-action-ListConnectors")                                                                            |               |                   | List           |
-| ListConnectorsV2                                                                                                                                                      | [securityhub:ListConnectorsV2](#list_securityhub-action-ListConnectorsV2 "#list_securityhub-action-ListConnectorsV2")                                                                      |               |                   | List           |
-| ListEnabledProductsForImport                                                                                                                                          | [securityhub:ListEnabledProductsForImport](#list_securityhub-action-ListEnabledProductsForImport "#list_securityhub-action-ListEnabledProductsForImport")                                  |               |                   | List           |
-| ListFindingAggregators                                                                                                                                                | [securityhub:ListFindingAggregators](#list_securityhub-action-ListFindingAggregators "#list_securityhub-action-ListFindingAggregators")                                                    |               |                   | List           |
-| ListFreeTrialStatusesV2                                                                                                                                               | [securityhub:ListFreeTrialStatusesV2](#list_securityhub-action-ListFreeTrialStatusesV2 "#list_securityhub-action-ListFreeTrialStatusesV2")                                                 |               |                   | List           |
-| ListInvitations                                                                                                                                                       | [securityhub:ListInvitations](#list_securityhub-action-ListInvitations "#list_securityhub-action-ListInvitations")                                                                         |               |                   | List           |
-| ListMembers                                                                                                                                                           | [securityhub:ListMembers](#list_securityhub-action-ListMembers "#list_securityhub-action-ListMembers")                                                                                     |               |                   | List           |
-| ListOrganizationAdminAccounts                                                                                                                                         | [securityhub:ListOrganizationAdminAccounts](#list_securityhub-action-ListOrganizationAdminAccounts "#list_securityhub-action-ListOrganizationAdminAccounts")                               |               |                   | List           |
-| ListSecurityControlDefinitions                                                                                                                                        | [securityhub:ListSecurityControlDefinitions](#list_securityhub-action-ListSecurityControlDefinitions "#list_securityhub-action-ListSecurityControlDefinitions")                            |               |                   | List           |
-| ListStandardsControlAssociations                                                                                                                                      | [securityhub:DescribeStandardsControls](#list_securityhub-action-DescribeStandardsControls "#list_securityhub-action-DescribeStandardsControls")                                           |               |                   | Read           |
-| [securityhub:ListStandardsControlAssociations](#list_securityhub-action-ListStandardsControlAssociations "#list_securityhub-action-ListStandardsControlAssociations") |                                                                                                                                                                                            |               | List              |
-| ListTagsForResource                                                                                                                                                   | [securityhub:ListTagsForResource](#list_securityhub-action-ListTagsForResource "#list_securityhub-action-ListTagsForResource")                                                             |               |                   | Read           |
-| StartConfigurationPolicyAssociation                                                                                                                                   | [securityhub:StartConfigurationPolicyAssociation](#list_securityhub-action-StartConfigurationPolicyAssociation "#list_securityhub-action-StartConfigurationPolicyAssociation")             |               |                   | Write          |
-| StartConfigurationPolicyDisassociation                                                                                                                                | [securityhub:StartConfigurationPolicyDisassociation](#list_securityhub-action-StartConfigurationPolicyDisassociation "#list_securityhub-action-StartConfigurationPolicyDisassociation")    |               |                   | Write          |
-| TagResource                                                                                                                                                           | [securityhub:TagResource](#list_securityhub-action-TagResource "#list_securityhub-action-TagResource")                                                                                     |               |                   | Tagging, Write |
-| UntagResource                                                                                                                                                         | [securityhub:UntagResource](#list_securityhub-action-UntagResource "#list_securityhub-action-UntagResource")                                                                               |               |                   | Tagging, Write |
-| UpdateActionTarget                                                                                                                                                    | [securityhub:UpdateActionTarget](#list_securityhub-action-UpdateActionTarget "#list_securityhub-action-UpdateActionTarget")                                                                |               |                   | Write          |
-| UpdateAggregatorV2                                                                                                                                                    | [securityhub:UpdateAggregatorV2](#list_securityhub-action-UpdateAggregatorV2 "#list_securityhub-action-UpdateAggregatorV2")                                                                |               |                   | Write          |
-| UpdateAutomationRuleV2                                                                                                                                                | [securityhub:UpdateAutomationRuleV2](#list_securityhub-action-UpdateAutomationRuleV2 "#list_securityhub-action-UpdateAutomationRuleV2")                                                    |               |                   | Write          |
-| UpdateConfigurationPolicy                                                                                                                                             | [securityhub:UpdateConfigurationPolicy](#list_securityhub-action-UpdateConfigurationPolicy "#list_securityhub-action-UpdateConfigurationPolicy")                                           |               |                   | Write          |
-| UpdateConnector                                                                                                                                                       | [securityhub:UpdateConnector](#list_securityhub-action-UpdateConnector "#list_securityhub-action-UpdateConnector")                                                                         |               |                   | Write          |
-| UpdateConnectorV2                                                                                                                                                     | [securityhub:UpdateConnectorV2](#list_securityhub-action-UpdateConnectorV2 "#list_securityhub-action-UpdateConnectorV2")                                                                   |               |                   | Write          |
-| UpdateFindingAggregator                                                                                                                                               | [securityhub:UpdateFindingAggregator](#list_securityhub-action-UpdateFindingAggregator "#list_securityhub-action-UpdateFindingAggregator")                                                 |               |                   | Write          |
-| UpdateFindings                                                                                                                                                        | [securityhub:UpdateFindings](#list_securityhub-action-UpdateFindings "#list_securityhub-action-UpdateFindings")                                                                            |               |                   | Write          |
-| UpdateInsight                                                                                                                                                         | [securityhub:UpdateInsight](#list_securityhub-action-UpdateInsight "#list_securityhub-action-UpdateInsight")                                                                               |               |                   | Write          |
-| UpdateOrganizationConfiguration                                                                                                                                       | [securityhub:UpdateOrganizationConfiguration](#list_securityhub-action-UpdateOrganizationConfiguration "#list_securityhub-action-UpdateOrganizationConfiguration")                         |               |                   | Write          |
-| UpdateSecurityControl                                                                                                                                                 | [securityhub:UpdateSecurityControl](#list_securityhub-action-UpdateSecurityControl "#list_securityhub-action-UpdateSecurityControl")                                                       |               |                   | Write          |
-| [securityhub:UpdateStandardsControl](#list_securityhub-action-UpdateStandardsControl "#list_securityhub-action-UpdateStandardsControl")                               |                                                                                                                                                                                            |               | Write             |
-| UpdateSecurityHubConfiguration                                                                                                                                        | [securityhub:UpdateSecurityHubConfiguration](#list_securityhub-action-UpdateSecurityHubConfiguration "#list_securityhub-action-UpdateSecurityHubConfiguration")                            |               |                   | Write          |
-| UpdateStandardsControl                                                                                                                                                | [securityhub:UpdateStandardsControl](#list_securityhub-action-UpdateStandardsControl "#list_securityhub-action-UpdateStandardsControl")                                                    |               |                   | Write          |
+
+
+
+- **   AcceptAdministratorInvitation  **
+  - **IAM action:**  [securityhub:AcceptAdministratorInvitation](#list_securityhub-action-AcceptAdministratorInvitation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AcceptInvitation  **
+  - **IAM action:**  [securityhub:AcceptInvitation](#list_securityhub-action-AcceptInvitation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchDeleteAutomationRules  **
+  - **IAM action:**  [securityhub:BatchDeleteAutomationRules](#list_securityhub-action-BatchDeleteAutomationRules) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchDisableStandards  **
+  - **IAM action:**  [securityhub:BatchDisableStandards](#list_securityhub-action-BatchDisableStandards) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchEnableStandards  **
+  - **IAM action:**  [securityhub:BatchEnableStandards](#list_securityhub-action-BatchEnableStandards) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchGetAutomationRules  **
+  - **IAM action:**  [securityhub:BatchGetAutomationRules](#list_securityhub-action-BatchGetAutomationRules) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetConfigurationPolicyAssociations  **
+  - **IAM action:**  [securityhub:BatchGetConfigurationPolicyAssociations](#list_securityhub-action-BatchGetConfigurationPolicyAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetSecurityControls  **
+  - **IAM action:**  [securityhub:BatchGetSecurityControls](#list_securityhub-action-BatchGetSecurityControls)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [securityhub:DescribeStandardsControls](#list_securityhub-action-DescribeStandardsControls)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   BatchGetStandardsControlAssociations  **
+  - **IAM action:**  [securityhub:BatchGetStandardsControlAssociations](#list_securityhub-action-BatchGetStandardsControlAssociations)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [securityhub:DescribeStandardsControls](#list_securityhub-action-DescribeStandardsControls)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   BatchImportFindings  **
+  - **IAM action:**  [securityhub:BatchImportFindings](#list_securityhub-action-BatchImportFindings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchUpdateAutomationRules  **
+  - **IAM action:**  [securityhub:BatchUpdateAutomationRules](#list_securityhub-action-BatchUpdateAutomationRules) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchUpdateFindings  **
+  - **IAM action:**  [securityhub:BatchUpdateFindings](#list_securityhub-action-BatchUpdateFindings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchUpdateFindingsV2  **
+  - **IAM action:**  [securityhub:BatchUpdateFindings](#list_securityhub-action-BatchUpdateFindings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchUpdateStandardsControlAssociations  **
+  - **IAM action:**  [securityhub:BatchUpdateStandardsControlAssociations](#list_securityhub-action-BatchUpdateStandardsControlAssociations)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [securityhub:UpdateStandardsControl](#list_securityhub-action-UpdateStandardsControl)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   CreateActionTarget  **
+  - **IAM action:**  [securityhub:CreateActionTarget](#list_securityhub-action-CreateActionTarget) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAggregatorV2  **
+  - **IAM action:**  [securityhub:CreateAggregatorV2](#list_securityhub-action-CreateAggregatorV2)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [securityhub:TagResource](#list_securityhub-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateAutomationRule  **
+  - **IAM action:**  [securityhub:CreateAutomationRule](#list_securityhub-action-CreateAutomationRule)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [securityhub:TagResource](#list_securityhub-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateAutomationRuleV2  **
+  - **IAM action:**  [securityhub:CreateAutomationRuleV2](#list_securityhub-action-CreateAutomationRuleV2)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [securityhub:TagResource](#list_securityhub-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateConfigurationPolicy  **
+  - **IAM action:**  [securityhub:CreateConfigurationPolicy](#list_securityhub-action-CreateConfigurationPolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [securityhub:TagResource](#list_securityhub-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateConnector  **
+  - **IAM action:**  [securityhub:CreateConnector](#list_securityhub-action-CreateConnector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [securityhub:TagResource](#list_securityhub-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateConnectorV2  **
+  - **IAM action:**  [securityhub:CreateConnectorV2](#list_securityhub-action-CreateConnectorV2)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [securityhub:TagResource](#list_securityhub-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateFindingAggregator  **
+  - **IAM action:**  [securityhub:CreateFindingAggregator](#list_securityhub-action-CreateFindingAggregator) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateInsight  **
+  - **IAM action:**  [securityhub:CreateInsight](#list_securityhub-action-CreateInsight) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateMembers  **
+  - **IAM action:**  [securityhub:CreateMembers](#list_securityhub-action-CreateMembers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateTicketV2  **
+  - **IAM action:**  [securityhub:CreateTicketV2](#list_securityhub-action-CreateTicketV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeclineInvitations  **
+  - **IAM action:**  [securityhub:DeclineInvitations](#list_securityhub-action-DeclineInvitations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteActionTarget  **
+  - **IAM action:**  [securityhub:DeleteActionTarget](#list_securityhub-action-DeleteActionTarget) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAggregatorV2  **
+  - **IAM action:**  [securityhub:DeleteAggregatorV2](#list_securityhub-action-DeleteAggregatorV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAutomationRuleV2  **
+  - **IAM action:**  [securityhub:DeleteAutomationRuleV2](#list_securityhub-action-DeleteAutomationRuleV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConfigurationPolicy  **
+  - **IAM action:**  [securityhub:DeleteConfigurationPolicy](#list_securityhub-action-DeleteConfigurationPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConnector  **
+  - **IAM action:**  [securityhub:DeleteConnector](#list_securityhub-action-DeleteConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConnectorV2  **
+  - **IAM action:**  [securityhub:DeleteConnectorV2](#list_securityhub-action-DeleteConnectorV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteFindingAggregator  **
+  - **IAM action:**  [securityhub:DeleteFindingAggregator](#list_securityhub-action-DeleteFindingAggregator) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteInsight  **
+  - **IAM action:**  [securityhub:DeleteInsight](#list_securityhub-action-DeleteInsight) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteInvitations  **
+  - **IAM action:**  [securityhub:DeleteInvitations](#list_securityhub-action-DeleteInvitations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteMembers  **
+  - **IAM action:**  [securityhub:DeleteMembers](#list_securityhub-action-DeleteMembers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeActionTargets  **
+  - **IAM action:**  [securityhub:DescribeActionTargets](#list_securityhub-action-DescribeActionTargets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeHub  **
+  - **IAM action:**  [securityhub:DescribeHub](#list_securityhub-action-DescribeHub) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeOrganizationConfiguration  **
+  - **IAM action:**  [securityhub:DescribeOrganizationConfiguration](#list_securityhub-action-DescribeOrganizationConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeProducts  **
+  - **IAM action:**  [securityhub:DescribeProducts](#list_securityhub-action-DescribeProducts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeProductsV2  **
+  - **IAM action:**  [securityhub:DescribeProductsV2](#list_securityhub-action-DescribeProductsV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeSecurityHubV2  **
+  - **IAM action:**  [securityhub:DescribeSecurityHubV2](#list_securityhub-action-DescribeSecurityHubV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeStandards  **
+  - **IAM action:**  [securityhub:DescribeStandards](#list_securityhub-action-DescribeStandards) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeStandardsControls  **
+  - **IAM action:**  [securityhub:DescribeStandardsControls](#list_securityhub-action-DescribeStandardsControls) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DisableImportFindingsForProduct  **
+  - **IAM action:**  [securityhub:DisableImportFindingsForProduct](#list_securityhub-action-DisableImportFindingsForProduct) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisableOrganizationAdminAccount  **
+  - **IAM action:**  [securityhub:DisableOrganizationAdminAccount](#list_securityhub-action-DisableOrganizationAdminAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisableSecurityHub  **
+  - **IAM action:**  [securityhub:DisableSecurityHub](#list_securityhub-action-DisableSecurityHub) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisableSecurityHubFeatureV2  **
+  - **IAM action:**  [securityhub:DisableSecurityHubFeatureV2](#list_securityhub-action-DisableSecurityHubFeatureV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisableSecurityHubV2  **
+  - **IAM action:**  [securityhub:DisableSecurityHubV2](#list_securityhub-action-DisableSecurityHubV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateFromAdministratorAccount  **
+  - **IAM action:**  [securityhub:DisassociateFromAdministratorAccount](#list_securityhub-action-DisassociateFromAdministratorAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateFromMasterAccount  **
+  - **IAM action:**  [securityhub:DisassociateFromMasterAccount](#list_securityhub-action-DisassociateFromMasterAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateMembers  **
+  - **IAM action:**  [securityhub:DisassociateMembers](#list_securityhub-action-DisassociateMembers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   EnableImportFindingsForProduct  **
+  - **IAM action:**  [securityhub:EnableImportFindingsForProduct](#list_securityhub-action-EnableImportFindingsForProduct) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   EnableOrganizationAdminAccount  **
+  - **IAM action:**  [securityhub:EnableOrganizationAdminAccount](#list_securityhub-action-EnableOrganizationAdminAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   EnableSecurityHub  **
+  - **IAM action:**  [securityhub:EnableSecurityHub](#list_securityhub-action-EnableSecurityHub)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [securityhub:TagResource](#list_securityhub-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   EnableSecurityHubFeatureV2  **
+  - **IAM action:**  [securityhub:EnableSecurityHubFeatureV2](#list_securityhub-action-EnableSecurityHubFeatureV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   EnableSecurityHubV2  **
+  - **IAM action:**  [securityhub:EnableSecurityHubV2](#list_securityhub-action-EnableSecurityHubV2)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [securityhub:TagResource](#list_securityhub-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   GenerateRecommendedPolicyV2  **
+  - **IAM action:**  [securityhub:GenerateRecommendedPolicyV2](#list_securityhub-action-GenerateRecommendedPolicyV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAdministratorAccount  **
+  - **IAM action:**  [securityhub:GetAdministratorAccount](#list_securityhub-action-GetAdministratorAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAggregatorV2  **
+  - **IAM action:**  [securityhub:GetAggregatorV2](#list_securityhub-action-GetAggregatorV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAutomationRuleV2  **
+  - **IAM action:**  [securityhub:GetAutomationRuleV2](#list_securityhub-action-GetAutomationRuleV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetConfigurationPolicy  **
+  - **IAM action:**  [securityhub:GetConfigurationPolicy](#list_securityhub-action-GetConfigurationPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetConfigurationPolicyAssociation  **
+  - **IAM action:**  [securityhub:GetConfigurationPolicyAssociation](#list_securityhub-action-GetConfigurationPolicyAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetConnector  **
+  - **IAM action:**  [securityhub:GetConnector](#list_securityhub-action-GetConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetConnectorV2  **
+  - **IAM action:**  [securityhub:GetConnectorV2](#list_securityhub-action-GetConnectorV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEnabledStandards  **
+  - **IAM action:**  [securityhub:GetEnabledStandards](#list_securityhub-action-GetEnabledStandards) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetFindingAggregator  **
+  - **IAM action:**  [securityhub:GetFindingAggregator](#list_securityhub-action-GetFindingAggregator) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetFindingHistory  **
+  - **IAM action:**  [securityhub:GetFindingHistory](#list_securityhub-action-GetFindingHistory) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetFindingStatisticsV2  **
+  - **IAM action:**  [securityhub:GetAdhocInsightResults](#list_securityhub-action-GetAdhocInsightResults) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetFindings  **
+  - **IAM action:**  [securityhub:GetFindings](#list_securityhub-action-GetFindings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetFindingsTrendsV2  **
+  - **IAM action:**  [securityhub:GetFindingsTrendsV2](#list_securityhub-action-GetFindingsTrendsV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetFindingsV2  **
+  - **IAM action:**  [securityhub:GetFindings](#list_securityhub-action-GetFindings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetInsightResults  **
+  - **IAM action:**  [securityhub:GetInsightResults](#list_securityhub-action-GetInsightResults) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetInsights  **
+  - **IAM action:**  [securityhub:GetInsights](#list_securityhub-action-GetInsights) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetInvitationsCount  **
+  - **IAM action:**  [securityhub:GetInvitationsCount](#list_securityhub-action-GetInvitationsCount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMasterAccount  **
+  - **IAM action:**  [securityhub:GetMasterAccount](#list_securityhub-action-GetMasterAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMembers  **
+  - **IAM action:**  [securityhub:GetMembers](#list_securityhub-action-GetMembers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRecommendedPolicyV2  **
+  - **IAM action:**  [securityhub:GetRecommendedPolicyV2](#list_securityhub-action-GetRecommendedPolicyV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetResourcesStatisticsV2  **
+  - **IAM action:**  [securityhub:GetResourcesStatisticsV2](#list_securityhub-action-GetResourcesStatisticsV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetResourcesTrendsV2  **
+  - **IAM action:**  [securityhub:GetResourcesTrendsV2](#list_securityhub-action-GetResourcesTrendsV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetResourcesV2  **
+  - **IAM action:**  [securityhub:GetResourcesV2](#list_securityhub-action-GetResourcesV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSecurityControlDefinition  **
+  - **IAM action:**  [securityhub:GetSecurityControlDefinition](#list_securityhub-action-GetSecurityControlDefinition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   InviteMembers  **
+  - **IAM action:**  [securityhub:InviteMembers](#list_securityhub-action-InviteMembers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ListAggregatorsV2  **
+  - **IAM action:**  [securityhub:ListAggregatorsV2](#list_securityhub-action-ListAggregatorsV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAutomationRules  **
+  - **IAM action:**  [securityhub:ListAutomationRules](#list_securityhub-action-ListAutomationRules) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAutomationRulesV2  **
+  - **IAM action:**  [securityhub:ListAutomationRulesV2](#list_securityhub-action-ListAutomationRulesV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConfigurationPolicies  **
+  - **IAM action:**  [securityhub:ListConfigurationPolicies](#list_securityhub-action-ListConfigurationPolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConfigurationPolicyAssociations  **
+  - **IAM action:**  [securityhub:ListConfigurationPolicyAssociations](#list_securityhub-action-ListConfigurationPolicyAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConnectors  **
+  - **IAM action:**  [securityhub:ListConnectors](#list_securityhub-action-ListConnectors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConnectorsV2  **
+  - **IAM action:**  [securityhub:ListConnectorsV2](#list_securityhub-action-ListConnectorsV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEnabledProductsForImport  **
+  - **IAM action:**  [securityhub:ListEnabledProductsForImport](#list_securityhub-action-ListEnabledProductsForImport) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListFindingAggregators  **
+  - **IAM action:**  [securityhub:ListFindingAggregators](#list_securityhub-action-ListFindingAggregators) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListFreeTrialStatusesV2  **
+  - **IAM action:**  [securityhub:ListFreeTrialStatusesV2](#list_securityhub-action-ListFreeTrialStatusesV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListInvitations  **
+  - **IAM action:**  [securityhub:ListInvitations](#list_securityhub-action-ListInvitations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMembers  **
+  - **IAM action:**  [securityhub:ListMembers](#list_securityhub-action-ListMembers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListOrganizationAdminAccounts  **
+  - **IAM action:**  [securityhub:ListOrganizationAdminAccounts](#list_securityhub-action-ListOrganizationAdminAccounts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSecurityControlDefinitions  **
+  - **IAM action:**  [securityhub:ListSecurityControlDefinitions](#list_securityhub-action-ListSecurityControlDefinitions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListStandardsControlAssociations  **
+  - **IAM action:**  [securityhub:DescribeStandardsControls](#list_securityhub-action-DescribeStandardsControls)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [securityhub:ListStandardsControlAssociations](#list_securityhub-action-ListStandardsControlAssociations)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [securityhub:ListTagsForResource](#list_securityhub-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartConfigurationPolicyAssociation  **
+  - **IAM action:**  [securityhub:StartConfigurationPolicyAssociation](#list_securityhub-action-StartConfigurationPolicyAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartConfigurationPolicyDisassociation  **
+  - **IAM action:**  [securityhub:StartConfigurationPolicyDisassociation](#list_securityhub-action-StartConfigurationPolicyDisassociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [securityhub:TagResource](#list_securityhub-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [securityhub:UntagResource](#list_securityhub-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateActionTarget  **
+  - **IAM action:**  [securityhub:UpdateActionTarget](#list_securityhub-action-UpdateActionTarget) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAggregatorV2  **
+  - **IAM action:**  [securityhub:UpdateAggregatorV2](#list_securityhub-action-UpdateAggregatorV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAutomationRuleV2  **
+  - **IAM action:**  [securityhub:UpdateAutomationRuleV2](#list_securityhub-action-UpdateAutomationRuleV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateConfigurationPolicy  **
+  - **IAM action:**  [securityhub:UpdateConfigurationPolicy](#list_securityhub-action-UpdateConfigurationPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateConnector  **
+  - **IAM action:**  [securityhub:UpdateConnector](#list_securityhub-action-UpdateConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateConnectorV2  **
+  - **IAM action:**  [securityhub:UpdateConnectorV2](#list_securityhub-action-UpdateConnectorV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateFindingAggregator  **
+  - **IAM action:**  [securityhub:UpdateFindingAggregator](#list_securityhub-action-UpdateFindingAggregator) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateFindings  **
+  - **IAM action:**  [securityhub:UpdateFindings](#list_securityhub-action-UpdateFindings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateInsight  **
+  - **IAM action:**  [securityhub:UpdateInsight](#list_securityhub-action-UpdateInsight) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateOrganizationConfiguration  **
+  - **IAM action:**  [securityhub:UpdateOrganizationConfiguration](#list_securityhub-action-UpdateOrganizationConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSecurityControl  **
+  - **IAM action:**  [securityhub:UpdateSecurityControl](#list_securityhub-action-UpdateSecurityControl)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [securityhub:UpdateStandardsControl](#list_securityhub-action-UpdateStandardsControl)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   UpdateSecurityHubConfiguration  **
+  - **IAM action:**  [securityhub:UpdateSecurityHubConfiguration](#list_securityhub-action-UpdateSecurityHubConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateStandardsControl  **
+  - **IAM action:**  [securityhub:UpdateStandardsControl](#list_securityhub-action-UpdateStandardsControl) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS Security Hub
+<a name="list_securityhub-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Resource types (\*required)                                                                                                 | Condition keys                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Access level   |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AcceptAdministratorInvitation](../../../securityhub/1.0/APIReference/API_AcceptAdministratorInvitation.md "../../../securityhub/1.0/APIReference/API_AcceptAdministratorInvitation.md")                               | Grants permission to accept Security Hub invitations to become a member account                                                                                                                                                                                                                                                                                                                                                                                                              | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [AcceptInvitation](../../../securityhub/1.0/APIReference/API_AcceptInvitation.md "../../../securityhub/1.0/APIReference/API_AcceptInvitation.md")                                                                      | Grants permission to accept Security Hub invitations to become a member account                                                                                                                                                                                                                                                                                                                                                                                                              | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [BatchDeleteAutomationRules](../../../securityhub/latest/userguide/automation-rules.md "../../../securityhub/latest/userguide/automation-rules.md")                                                                    | Grants permission to delete one or more automation rules in Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                     | [automation-rule\*](#list_securityhub-resource-automation-rule "#list_securityhub-resource-automation-rule")                | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [BatchDisableStandards](../../../securityhub/1.0/APIReference/API_BatchDisableStandards.md "../../../securityhub/1.0/APIReference/API_BatchDisableStandards.md")                                                       | Grants permission to disable standards in Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                                       | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [BatchEnableStandards](../../../securityhub/1.0/APIReference/API_BatchEnableStandards.md "../../../securityhub/1.0/APIReference/API_BatchEnableStandards.md")                                                          | Grants permission to enable standards in Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                                        | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [BatchGetAutomationRules](../../../securityhub/latest/userguide/automation-rules.md "../../../securityhub/latest/userguide/automation-rules.md")                                                                       | Grants permission to retrieve a list of details for automation rules from Security Hub based on rule Amazon Resource Names (ARNs)                                                                                                                                                                                                                                                                                                                                                            | [automation-rule\*](#list_securityhub-resource-automation-rule "#list_securityhub-resource-automation-rule")                | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [BatchGetConfigurationPolicyAssociations](../../../securityhub/1.0/APIReference/API_BatchGetConfigurationPolicyAssociations.md "../../../securityhub/1.0/APIReference/API_BatchGetConfigurationPolicyAssociations.md") | Grants permission to retrieve information about configuration policies associated with a specific list of member accounts and organizational units of the calling account's organization                                                                                                                                                                                                                                                                                                     |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Read           |
-| [BatchGetSecurityControls](../../../securityhub/1.0/APIReference/API_BatchGetSecurityControls.md "../../../securityhub/1.0/APIReference/API_BatchGetSecurityControls.md")                                              | Grants permission to get details about specific security controls identified by ID or ARN                                                                                                                                                                                                                                                                                                                                                                                                    |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Read           |
-| [BatchGetStandardsControlAssociations](../../../securityhub/1.0/APIReference/API_BatchGetStandardsControlAssociations.md "../../../securityhub/1.0/APIReference/API_BatchGetStandardsControlAssociations.md")          | Grants permission to get the enablement status of a batch of security controls in standards                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Read           |
-| [BatchImportFindings](../../../securityhub/1.0/APIReference/API_BatchImportFindings.md "../../../securityhub/1.0/APIReference/API_BatchImportFindings.md")                                                             | Grants permission to import findings into Security Hub from an integrated product                                                                                                                                                                                                                                                                                                                                                                                                            | [product\*](#list_securityhub-resource-product "#list_securityhub-resource-product")                                        | [securityhub:TargetAccount](#list_securityhub-securityhub_TargetAccount "#list_securityhub-securityhub_TargetAccount")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [BatchUpdateAutomationRules](../../../securityhub/latest/userguide/automation-rules.md "../../../securityhub/latest/userguide/automation-rules.md")                                                                    | Grants permission to update one or more automation rules from Security Hub based on rule Amazon Resource Names (ARNs) and input parameters                                                                                                                                                                                                                                                                                                                                                   | [automation-rule\*](#list_securityhub-resource-automation-rule "#list_securityhub-resource-automation-rule")                | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [BatchUpdateFindings](../../../securityhub/1.0/APIReference/API_BatchUpdateFindingsV2.md "../../../securityhub/1.0/APIReference/API_BatchUpdateFindingsV2.md")                                                         | Grants permission to update customer-controlled fields for a selected set of Security Hub findings                                                                                                                                                                                                                                                                                                                                                                                           | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")<br>[securityhub:ASFFSyntaxPath/${ASFFSyntaxPath}](#list_securityhub-securityhub_ASFFSyntaxPath___ASFFSyntaxPath_ "#list_securityhub-securityhub_ASFFSyntaxPath___ASFFSyntaxPath_")<br>[securityhub:OCSFSyntaxPath/${OCSFSyntaxPath}](#list_securityhub-securityhub_OCSFSyntaxPath___OCSFSyntaxPath_ "#list_securityhub-securityhub_OCSFSyntaxPath___OCSFSyntaxPath_") | Write          |
-| [hubv2](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2")                                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")<br>[securityhub:ASFFSyntaxPath/${ASFFSyntaxPath}](#list_securityhub-securityhub_ASFFSyntaxPath___ASFFSyntaxPath_ "#list_securityhub-securityhub_ASFFSyntaxPath___ASFFSyntaxPath_")<br>[securityhub:OCSFSyntaxPath/${OCSFSyntaxPath}](#list_securityhub-securityhub_OCSFSyntaxPath___OCSFSyntaxPath_ "#list_securityhub-securityhub_OCSFSyntaxPath___OCSFSyntaxPath_") |
-| [BatchUpdateStandardsControlAssociations](../../../securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.md "../../../securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.md") | Grants permission to update the enablement status of a batch of security controls in standards                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Write          |
-| [ConnectorRegistrationsV2](../../../securityhub/1.0/APIReference/API_ConnectorRegistrationsV2.md "../../../securityhub/1.0/APIReference/API_ConnectorRegistrationsV2.md")                                              | Grants permission to complete the OAuth 2.0 authorization code flow based on input parameters                                                                                                                                                                                                                                                                                                                                                                                                |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Write          |
-| [CreateActionTarget](../../../securityhub/1.0/APIReference/API_CreateActionTarget.md "../../../securityhub/1.0/APIReference/API_CreateActionTarget.md")                                                                | Grants permission to create custom actions in Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                                   | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [CreateAggregatorV2](../../../securityhub/1.0/APIReference/API_CreateAggregatorV2.md "../../../securityhub/1.0/APIReference/API_CreateAggregatorV2.md")                                                                | Grants permission to create an aggregatorV2, which configures data aggregation across Regions                                                                                                                                                                                                                                                                                                                                                                                                |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Write          |
-| [CreateAutomationRule](../../../securityhub/latest/userguide/automation-rules.md "../../../securityhub/latest/userguide/automation-rules.md")                                                                          | Grants permission to create an automation rule based on input parameters                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                             | [aws:RequestTag/${TagKey}](#list_securityhub-aws_RequestTag___TagKey_ "#list_securityhub-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_securityhub-aws_TagKeys "#list_securityhub-aws_TagKeys")                                                                                                                                                                                                                                                                                          | Write          |
-| [CreateAutomationRuleV2](../../../securityhub/latest/userguide/automation-rules.md "../../../securityhub/latest/userguide/automation-rules.md")                                                                        | Grants permission to create an automation rule V2 based on input parameters                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                                             | [aws:RequestTag/${TagKey}](#list_securityhub-aws_RequestTag___TagKey_ "#list_securityhub-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_securityhub-aws_TagKeys "#list_securityhub-aws_TagKeys")                                                                                                                                                                                                                                                                                          | Write          |
-| [CreateConfigurationPolicy](../../../securityhub/1.0/APIReference/API_CreateConfigurationPolicy.md "../../../securityhub/1.0/APIReference/API_CreateConfigurationPolicy.md")                                           | Grants permission to create a configuration policy to manage organization member settings in Security Hub                                                                                                                                                                                                                                                                                                                                                                                    |                                                                                                                             | [aws:RequestTag/${TagKey}](#list_securityhub-aws_RequestTag___TagKey_ "#list_securityhub-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_securityhub-aws_TagKeys "#list_securityhub-aws_TagKeys")                                                                                                                                                                                                                                                                                          | Write          |
-| [CreateConnector](../../../securityhub/1.0/APIReference/API_CreateConnector.md "../../../securityhub/1.0/APIReference/API_CreateConnector.md")                                                                         | Grants permission to create a connector based on input parameters                                                                                                                                                                                                                                                                                                                                                                                                                            |                                                                                                                             | [aws:RequestTag/${TagKey}](#list_securityhub-aws_RequestTag___TagKey_ "#list_securityhub-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_securityhub-aws_TagKeys "#list_securityhub-aws_TagKeys")                                                                                                                                                                                                                                                                                          | Write          |
-| [CreateConnectorV2](../../../securityhub/1.0/APIReference/API_CreateConnectorV2.md "../../../securityhub/1.0/APIReference/API_CreateConnectorV2.md")                                                                   | Grants permission to create a connector V2 based on input parameters                                                                                                                                                                                                                                                                                                                                                                                                                         |                                                                                                                             | [aws:RequestTag/${TagKey}](#list_securityhub-aws_RequestTag___TagKey_ "#list_securityhub-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_securityhub-aws_TagKeys "#list_securityhub-aws_TagKeys")                                                                                                                                                                                                                                                                                          | Write          |
-| [CreateFindingAggregator](../../../securityhub/1.0/APIReference/API_CreateFindingAggregator.md "../../../securityhub/1.0/APIReference/API_CreateFindingAggregator.md")                                                 | Grants permission to create a finding aggregator, which contains the cross-Region finding aggregation configuration                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Write          |
-| [CreateInsight](../../../securityhub/1.0/APIReference/API_CreateInsight.md "../../../securityhub/1.0/APIReference/API_CreateInsight.md")                                                                               | Grants permission to create insights in Security Hub. Insights are collections of related findings                                                                                                                                                                                                                                                                                                                                                                                           | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [CreateMembers](../../../securityhub/1.0/APIReference/API_CreateMembers.md "../../../securityhub/1.0/APIReference/API_CreateMembers.md")                                                                               | Grants permission to create member accounts in Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                                  | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [CreateTicketV2](../../../securityhub/1.0/APIReference/API_CreateTicketV2.md "../../../securityhub/1.0/APIReference/API_CreateTicketV2.md")                                                                            | Grants permission to create ticket for a selected OCSF finding                                                                                                                                                                                                                                                                                                                                                                                                                               | [connectorv2](#list_securityhub-resource-connectorv2 "#list_securityhub-resource-connectorv2")                              | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeclineInvitations](../../../securityhub/1.0/APIReference/API_DeclineInvitations.md "../../../securityhub/1.0/APIReference/API_DeclineInvitations.md")                                                                | Grants permission to decline Security Hub invitations to become a member account                                                                                                                                                                                                                                                                                                                                                                                                             | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteActionTarget](../../../securityhub/1.0/APIReference/API_DeleteActionTarget.md "../../../securityhub/1.0/APIReference/API_DeleteActionTarget.md")                                                                | Grants permission to delete custom actions in Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                                   | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteAggregatorV2](../../../securityhub/1.0/APIReference/API_DeleteAggregatorV2.md "../../../securityhub/1.0/APIReference/API_DeleteAggregatorV2.md")                                                                | Grants permission to delete an aggregatorV2, which configures data aggregation across Regions                                                                                                                                                                                                                                                                                                                                                                                                | [aggregatorv2\*](#list_securityhub-resource-aggregatorv2 "#list_securityhub-resource-aggregatorv2")                         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteAutomationRuleV2](../../../securityhub/latest/userguide/automation-rules.md "../../../securityhub/latest/userguide/automation-rules.md")                                                                        | Grants permission to delete an automation rule V2 in Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                            | [automation-rulev2\*](#list_securityhub-resource-automation-rulev2 "#list_securityhub-resource-automation-rulev2")          | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteConfigurationPolicy](../../../securityhub/1.0/APIReference/API_DeleteConfigurationPolicy.md "../../../securityhub/1.0/APIReference/API_DeleteConfigurationPolicy.md")                                           | Grants permission to delete an existing configuration policy                                                                                                                                                                                                                                                                                                                                                                                                                                 | [configuration-policy\*](#list_securityhub-resource-configuration-policy "#list_securityhub-resource-configuration-policy") | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteConnector](../../../securityhub/1.0/APIReference/API_DeleteConnector.md "../../../securityhub/1.0/APIReference/API_DeleteConnector.md")                                                                         | Grants permission to delete a connector in Security Hub CSPM                                                                                                                                                                                                                                                                                                                                                                                                                                 | [connector\*](#list_securityhub-resource-connector "#list_securityhub-resource-connector")                                  | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteConnectorV2](../../../securityhub/1.0/APIReference/API_DeleteConnectorV2.md "../../../securityhub/1.0/APIReference/API_DeleteConnectorV2.md")                                                                   | Grants permission to delete a connector V2 in Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                                   | [connectorv2\*](#list_securityhub-resource-connectorv2 "#list_securityhub-resource-connectorv2")                            | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteFindingAggregator](../../../securityhub/1.0/APIReference/API_DeleteFindingAggregator.md "../../../securityhub/1.0/APIReference/API_DeleteFindingAggregator.md")                                                 | Grants permission to delete a finding aggregator, which disables finding aggregation across Regions                                                                                                                                                                                                                                                                                                                                                                                          | [finding-aggregator\*](#list_securityhub-resource-finding-aggregator "#list_securityhub-resource-finding-aggregator")       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Write          |
-| [DeleteInsight](../../../securityhub/1.0/APIReference/API_DeleteInsight.md "../../../securityhub/1.0/APIReference/API_DeleteInsight.md")                                                                               | Grants permission to delete insights from Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                                       | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteInvitations](../../../securityhub/1.0/APIReference/API_DeleteInvitations.md "../../../securityhub/1.0/APIReference/API_DeleteInvitations.md")                                                                   | Grants permission to delete Security Hub invitations to become a member account                                                                                                                                                                                                                                                                                                                                                                                                              | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DeleteMembers](../../../securityhub/1.0/APIReference/API_DeleteMembers.md "../../../securityhub/1.0/APIReference/API_DeleteMembers.md")                                                                               | Grants permission to delete Security Hub member accounts                                                                                                                                                                                                                                                                                                                                                                                                                                     | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DescribeActionTargets](../../../securityhub/1.0/APIReference/API_DescribeActionTargets.md "../../../securityhub/1.0/APIReference/API_DescribeActionTargets.md")                                                       | Grants permission to retrieve a list of custom actions using the API                                                                                                                                                                                                                                                                                                                                                                                                                         | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [DescribeHub](../../../securityhub/1.0/APIReference/API_DescribeHub.md "../../../securityhub/1.0/APIReference/API_DescribeHub.md")                                                                                     | Grants permission to retrieve information about the hub resource in your account                                                                                                                                                                                                                                                                                                                                                                                                             | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [DescribeOrganizationConfiguration](../../../securityhub/1.0/APIReference/API_DescribeOrganizationConfiguration.md "../../../securityhub/1.0/APIReference/API_DescribeOrganizationConfiguration.md")                   | Grants permission to describe the organization configuration for Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [DescribeProducts](../../../securityhub/1.0/APIReference/API_DescribeProducts.md "../../../securityhub/1.0/APIReference/API_DescribeProducts.md")                                                                      | Grants permission to retrieve information about the available Security Hub product integrations                                                                                                                                                                                                                                                                                                                                                                                              | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [DescribeProductsV2](../../../securityhub/1.0/APIReference/API_DescribeProductsV2.md "../../../securityhub/1.0/APIReference/API_DescribeProductsV2.md")                                                                | Grants permission to retrieve information about the available Security Hub V2 product integrations                                                                                                                                                                                                                                                                                                                                                                                           | [hubv2](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2")                                                | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [DescribeSecurityHubV2](../../../securityhub/1.0/APIReference/API_DescribeSecurityHubV2.md "../../../securityhub/1.0/APIReference/API_DescribeSecurityHubV2.md")                                                       | Grants permission to retrieve information about the hub V2 resource in your account                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Read           |
-| [DescribeStandards](../../../securityhub/1.0/APIReference/API_DescribeStandards.md "../../../securityhub/1.0/APIReference/API_DescribeStandards.md")                                                                   | Grants permission to retrieve information about Security Hub standards                                                                                                                                                                                                                                                                                                                                                                                                                       | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [DescribeStandardsControls](../../../securityhub/1.0/APIReference/API_DescribeStandardsControls.md "../../../securityhub/1.0/APIReference/API_DescribeStandardsControls.md")                                           | Grants permission to retrieve information about Security Hub standards controls                                                                                                                                                                                                                                                                                                                                                                                                              | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [DisableImportFindingsForProduct](../../../securityhub/1.0/APIReference/API_DisableImportFindingsForProduct.md "../../../securityhub/1.0/APIReference/API_DisableImportFindingsForProduct.md")                         | Grants permission to disable the findings importing for a Security Hub integrated product                                                                                                                                                                                                                                                                                                                                                                                                    | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DisableOrganizationAdminAccount](../../../securityhub/1.0/APIReference/API_DisableOrganizationAdminAccount.md "../../../securityhub/1.0/APIReference/API_DisableOrganizationAdminAccount.md")                         | Grants permission to remove the Security Hub administrator account for your organization                                                                                                                                                                                                                                                                                                                                                                                                     | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DisableSecurityHub](../../../securityhub/1.0/APIReference/API_DisableSecurityHub.md "../../../securityhub/1.0/APIReference/API_DisableSecurityHub.md")                                                                | Grants permission to disable Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                                                    | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DisableSecurityHubFeatureV2](../../../securityhub/1.0/APIReference/API_DisableSecurityHubFeatureV2.md "../../../securityhub/1.0/APIReference/API_DisableSecurityHubFeatureV2.md")                                     | Grants permission to disable a Security Hub V2 feature                                                                                                                                                                                                                                                                                                                                                                                                                                       | [hubv2\*](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2")                                              | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DisableSecurityHubV2](../../../securityhub/1.0/APIReference/API_DisableSecurityHubV2.md "../../../securityhub/1.0/APIReference/API_DisableSecurityHubV2.md")                                                          | Grants permission to disable Security Hub V2                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Write          |
-| [DisassociateFromAdministratorAccount](../../../securityhub/1.0/APIReference/API_DisassociateFromAdministratorAccount.md "../../../securityhub/1.0/APIReference/API_DisassociateFromAdministratorAccount.md")          | Grants permission to a Security Hub member account to disassociate from the associated administrator account                                                                                                                                                                                                                                                                                                                                                                                 | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DisassociateFromMasterAccount](../../../securityhub/1.0/APIReference/API_DisassociateFromMasterAccount.md "../../../securityhub/1.0/APIReference/API_DisassociateFromMasterAccount.md")                               | Grants permission to a Security Hub member account to disassociate from the associated master account                                                                                                                                                                                                                                                                                                                                                                                        | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [DisassociateMembers](../../../securityhub/1.0/APIReference/API_DisassociateMembers.md "../../../securityhub/1.0/APIReference/API_DisassociateMembers.md")                                                             | Grants permission to disassociate Security Hub member accounts from the associated administrator account                                                                                                                                                                                                                                                                                                                                                                                     | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [EnableImportFindingsForProduct](../../../securityhub/1.0/APIReference/API_EnableImportFindingsForProduct.md "../../../securityhub/1.0/APIReference/API_EnableImportFindingsForProduct.md")                            | Grants permission to enable the findings importing for a Security Hub integrated product                                                                                                                                                                                                                                                                                                                                                                                                     | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [EnableOrganizationAdminAccount](../../../securityhub/1.0/APIReference/API_EnableOrganizationAdminAccount.md "../../../securityhub/1.0/APIReference/API_EnableOrganizationAdminAccount.md")                            | Grants permission to designate a Security Hub administrator account for your organization                                                                                                                                                                                                                                                                                                                                                                                                    | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [EnableSecurityHub](../../../securityhub/1.0/APIReference/API_EnableSecurityHub.md "../../../securityhub/1.0/APIReference/API_EnableSecurityHub.md")                                                                   | Grants permission to enable Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                                                     | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:RequestTag/${TagKey}](#list_securityhub-aws_RequestTag___TagKey_ "#list_securityhub-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_securityhub-aws_TagKeys "#list_securityhub-aws_TagKeys")                                                                                                                                                                | Write          |
-| [EnableSecurityHubFeatureV2](../../../securityhub/1.0/APIReference/API_EnableSecurityHubFeatureV2.md "../../../securityhub/1.0/APIReference/API_EnableSecurityHubFeatureV2.md")                                        | Grants permission to enable a Security Hub V2 feature                                                                                                                                                                                                                                                                                                                                                                                                                                        | [hubv2\*](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2")                                              | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [EnableSecurityHubV2](../../../securityhub/1.0/APIReference/API_EnableSecurityHubV2.md "../../../securityhub/1.0/APIReference/API_EnableSecurityHubV2.md")                                                             | Grants permission to enable Security Hub V2                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                                             | [aws:RequestTag/${TagKey}](#list_securityhub-aws_RequestTag___TagKey_ "#list_securityhub-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_securityhub-aws_TagKeys "#list_securityhub-aws_TagKeys")                                                                                                                                                                                                                                                                                          | Write          |
-| [GenerateRecommendedPolicyV2](../../../securityhub/1.0/APIReference/API_GenerateRecommendedPolicyV2.md "../../../securityhub/1.0/APIReference/API_GenerateRecommendedPolicyV2.md")                                     | Grants permission to generate policy recommendations for an OCSF finding                                                                                                                                                                                                                                                                                                                                                                                                                     | [hubv2\*](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2")                                              | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [GetAdministratorAccount](../../../securityhub/1.0/APIReference/API_GetAdministratorAccount.md "../../../securityhub/1.0/APIReference/API_GetAdministratorAccount.md")                                                 | Grants permission to retrieve details about the Security Hub administrator account                                                                                                                                                                                                                                                                                                                                                                                                           | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetAggregatorV2](../../../securityhub/1.0/APIReference/API_GetAggregatorV2.md "../../../securityhub/1.0/APIReference/API_GetAggregatorV2.md")                                                                         | Grants permission to retrieve details for an aggregatorV2, which configures data aggregation across Regions                                                                                                                                                                                                                                                                                                                                                                                  | [aggregatorv2\*](#list_securityhub-resource-aggregatorv2 "#list_securityhub-resource-aggregatorv2")                         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetAutomationRuleV2](../../../securityhub/latest/userguide/automation-rules.md "../../../securityhub/latest/userguide/automation-rules.md")                                                                           | Grants permission to retrieve details for an automation rule V2 from Security Hub based on rule Amazon Resource Name (ARN)                                                                                                                                                                                                                                                                                                                                                                   | [automation-rulev2\*](#list_securityhub-resource-automation-rulev2 "#list_securityhub-resource-automation-rulev2")          | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetConfigurationPolicy](../../../securityhub/1.0/APIReference/API_GetConfigurationPolicy.md "../../../securityhub/1.0/APIReference/API_GetConfigurationPolicy.md")                                                    | Grants permission to get a complete overview of one configuration policy created by the calling account                                                                                                                                                                                                                                                                                                                                                                                      | [configuration-policy\*](#list_securityhub-resource-configuration-policy "#list_securityhub-resource-configuration-policy") | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetConfigurationPolicyAssociation](../../../securityhub/1.0/APIReference/API_GetConfigurationPolicyAssociation.md "../../../securityhub/1.0/APIReference/API_GetConfigurationPolicyAssociation.md")                   | Grants permission to retrieve information about a configuration policy associated with a member account or organizational unit of the calling account's organization                                                                                                                                                                                                                                                                                                                         |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Read           |
-| [GetConnector](../../../securityhub/1.0/APIReference/API_GetConnector.md "../../../securityhub/1.0/APIReference/API_GetConnector.md")                                                                                  | Grants permission to retrieve details for a connector from Security Hub CSPM based on connector id                                                                                                                                                                                                                                                                                                                                                                                           | [connector\*](#list_securityhub-resource-connector "#list_securityhub-resource-connector")                                  | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetConnectorV2](../../../securityhub/1.0/APIReference/API_GetConnectorV2.md "../../../securityhub/1.0/APIReference/API_GetConnectorV2.md")                                                                            | Grants permission to retrieve details for a connector V2 from Security Hub based on connector id                                                                                                                                                                                                                                                                                                                                                                                             | [connectorv2\*](#list_securityhub-resource-connectorv2 "#list_securityhub-resource-connectorv2")                            | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetEnabledStandards](../../../securityhub/1.0/APIReference/API_GetEnabledStandards.md "../../../securityhub/1.0/APIReference/API_GetEnabledStandards.md")                                                             | Grants permission to retrieve a list of the standards that are enabled in Security Hub                                                                                                                                                                                                                                                                                                                                                                                                       | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | List           |
-| [GetFindingAggregator](../../../securityhub/1.0/APIReference/API_GetFindingAggregator.md "../../../securityhub/1.0/APIReference/API_GetFindingAggregator.md")                                                          | Grants permission to retrieve details for a finding aggregator, which configures finding aggregation across Regions                                                                                                                                                                                                                                                                                                                                                                          | [finding-aggregator\*](#list_securityhub-resource-finding-aggregator "#list_securityhub-resource-finding-aggregator")       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Read           |
-| [GetFindingHistory](../../../securityhub/1.0/APIReference/API_GetFindingHistory.md "../../../securityhub/1.0/APIReference/API_GetFindingHistory.md")                                                                   | Grants permission to retrieve a list of finding history from Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                    | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetFindings](../../../securityhub/1.0/APIReference/API_GetFindingsV2.md "../../../securityhub/1.0/APIReference/API_GetFindingsV2.md")                                                                                 | Grants permission to retrieve a list of findings from Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                           | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [hubv2](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2")                                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [GetFindingsTrendsV2](../../../securityhub/1.0/APIReference/API_GetFindingsTrendsV2.md "../../../securityhub/1.0/APIReference/API_GetFindingsTrendsV2.md")                                                             | Grants permission to retrieve findings trends                                                                                                                                                                                                                                                                                                                                                                                                                                                | [hubv2](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2")                                                | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetInsightResults](../../../securityhub/1.0/APIReference/API_GetInsightResults.md "../../../securityhub/1.0/APIReference/API_GetInsightResults.md")                                                                   | Grants permission to retrieve insight results from Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                              | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetInsights](../../../securityhub/1.0/APIReference/API_GetInsights.md "../../../securityhub/1.0/APIReference/API_GetInsights.md")                                                                                     | Grants permission to retrieve Security Hub insights                                                                                                                                                                                                                                                                                                                                                                                                                                          | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | List           |
-| [GetInvitationsCount](../../../securityhub/1.0/APIReference/API_GetInvitationsCount.md "../../../securityhub/1.0/APIReference/API_GetInvitationsCount.md")                                                             | Grants permission to retrieve the count of Security Hub membership invitations sent to the account                                                                                                                                                                                                                                                                                                                                                                                           | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetMasterAccount](../../../securityhub/1.0/APIReference/API_GetMasterAccount.md "../../../securityhub/1.0/APIReference/API_GetMasterAccount.md")                                                                      | Grants permission to retrieve details about the Security Hub master account                                                                                                                                                                                                                                                                                                                                                                                                                  | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetMembers](../../../securityhub/1.0/APIReference/API_GetMembers.md "../../../securityhub/1.0/APIReference/API_GetMembers.md")                                                                                        | Grants permission to retrieve the details of Security Hub member accounts                                                                                                                                                                                                                                                                                                                                                                                                                    | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetRecommendedPolicyV2](../../../securityhub/1.0/APIReference/API_GetRecommendedPolicyV2.md "../../../securityhub/1.0/APIReference/API_GetRecommendedPolicyV2.md")                                                    | Grants permission to retrieve policy recommendations for an OCSF finding                                                                                                                                                                                                                                                                                                                                                                                                                     | [hubv2\*](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2")                                              | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetResourcesStatisticsV2](../../../securityhub/1.0/APIReference/API_GetResourcesStatisticsV2.md "../../../securityhub/1.0/APIReference/API_GetResourcesStatisticsV2.md")                                              | Grants permission to retrieve aggregate statistics about resources                                                                                                                                                                                                                                                                                                                                                                                                                           | [hubv2](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2")                                                | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetResourcesTrendsV2](../../../securityhub/1.0/APIReference/API_GetResourcesTrendsV2.md "../../../securityhub/1.0/APIReference/API_GetResourcesTrendsV2.md")                                                          | Grants permission to retrieve resources trends                                                                                                                                                                                                                                                                                                                                                                                                                                               | [hubv2](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2")                                                | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetResourcesV2](../../../securityhub/1.0/APIReference/API_GetResourcesV2.md "../../../securityhub/1.0/APIReference/API_GetResourcesV2.md")                                                                            | Grants permission to retrieve a list of resources                                                                                                                                                                                                                                                                                                                                                                                                                                            | [hubv2](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2")                                                | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [GetSecurityControlDefinition](../../../securityhub/1.0/APIReference/API_GetSecurityControlDefinition.md "../../../securityhub/1.0/APIReference/API_GetSecurityControlDefinition.md")                                  | Grants permission to get the definition details of a specific security control identified by ID                                                                                                                                                                                                                                                                                                                                                                                              |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Read           |
-| [InviteMembers](../../../securityhub/1.0/APIReference/API_InviteMembers.md "../../../securityhub/1.0/APIReference/API_InviteMembers.md")                                                                               | Grants permission to invite other AWS accounts to become Security Hub member accounts                                                                                                                                                                                                                                                                                                                                                                                                        | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [ListAggregatorsV2](../../../securityhub/1.0/APIReference/API_ListAggregatorsV2.md "../../../securityhub/1.0/APIReference/API_ListAggregatorsV2.md")                                                                   | Grants permission to retrieve a list of aggregatorsV2, which configures data aggregation across Regions                                                                                                                                                                                                                                                                                                                                                                                      |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [ListAutomationRules](../../../securityhub/latest/userguide/automation-rules.md "../../../securityhub/latest/userguide/automation-rules.md")                                                                           | Grants permission to retrieve a list of automation rules and their metadata for the calling account from Security Hub                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [ListAutomationRulesV2](../../../securityhub/latest/userguide/automation-rules.md "../../../securityhub/latest/userguide/automation-rules.md")                                                                         | Grants permission to retrieve a list of automation rules V2 and their metadata for the calling account from Security Hub                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [ListConfigurationPolicies](../../../securityhub/1.0/APIReference/API_ListConfigurationPolicies.md "../../../securityhub/1.0/APIReference/API_ListConfigurationPolicies.md")                                           | Grants permission to list the summaries of all configuration policies created by the calling account                                                                                                                                                                                                                                                                                                                                                                                         |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [ListConfigurationPolicyAssociations](../../../securityhub/1.0/APIReference/API_ListConfigurationPolicyAssociations.md "../../../securityhub/1.0/APIReference/API_ListConfigurationPolicyAssociations.md")             | Grants permission to retrieve information about all configuration policies associationed with all member accounts and organizational units of the calling account's organization                                                                                                                                                                                                                                                                                                             |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [ListConnectors](../../../securityhub/1.0/APIReference/API_ListConnectors.md "../../../securityhub/1.0/APIReference/API_ListConnectors.md")                                                                            | Grants permission to retrieve a list of connectors and their metadata for the calling account from Security Hub CSPM                                                                                                                                                                                                                                                                                                                                                                         |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [ListConnectorsV2](../../../securityhub/1.0/APIReference/API_ListConnectorsV2.md "../../../securityhub/1.0/APIReference/API_ListConnectorsV2.md")                                                                      | Grants permission to retrieve a list of connectors V2 and their metadata for the calling account from Security Hub                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [ListEnabledProductsForImport](../../../securityhub/1.0/APIReference/API_ListEnabledProductsForImport.md "../../../securityhub/1.0/APIReference/API_ListEnabledProductsForImport.md")                                  | Grants permission to retrieve the Security Hub integrated products that are currently enabled                                                                                                                                                                                                                                                                                                                                                                                                | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | List           |
-| [ListFindingAggregators](../../../securityhub/1.0/APIReference/API_ListFindingAggregators.md "../../../securityhub/1.0/APIReference/API_ListFindingAggregators.md")                                                    | Grants permission to retrieve a list of finding aggregators, which contain the cross-Region finding aggregation configuration                                                                                                                                                                                                                                                                                                                                                                |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [ListFreeTrialStatusesV2](../../../securityhub/1.0/APIReference/API_ListFreeTrialStatusesV2.md "../../../securityhub/1.0/APIReference/API_ListFreeTrialStatusesV2.md")                                                 | Grants permission to retrieve a list of Security Hub free trial statuses for an account or accounts in an organization                                                                                                                                                                                                                                                                                                                                                                       | [hubv2\*](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2")                                              | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | List           |
-| [ListInvitations](../../../securityhub/1.0/APIReference/API_ListInvitations.md "../../../securityhub/1.0/APIReference/API_ListInvitations.md")                                                                         | Grants permission to retrieve the Security Hub invitations sent to the account                                                                                                                                                                                                                                                                                                                                                                                                               | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | List           |
-| [ListMembers](../../../securityhub/1.0/APIReference/API_ListMembers.md "../../../securityhub/1.0/APIReference/API_ListMembers.md")                                                                                     | Grants permission to retrieve details about Security Hub member accounts associated with the administrator account                                                                                                                                                                                                                                                                                                                                                                           | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | List           |
-| [ListOrganizationAdminAccounts](../../../securityhub/1.0/APIReference/API_ListOrganizationAdminAccounts.md "../../../securityhub/1.0/APIReference/API_ListOrganizationAdminAccounts.md")                               | Grants permission to list the Security Hub administrator accounts for your organization                                                                                                                                                                                                                                                                                                                                                                                                      | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | List           |
-| [ListSecurityControlDefinitions](../../../securityhub/1.0/APIReference/API_ListSecurityControlDefinitions.md "../../../securityhub/1.0/APIReference/API_ListSecurityControlDefinitions.md")                            | Grants permission to retrieve a list of security control definitions, which contain details for security controls in the current region                                                                                                                                                                                                                                                                                                                                                      |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [ListStandardsControlAssociations](../../../securityhub/1.0/APIReference/API_ListStandardsControlAssociations.md "../../../securityhub/1.0/APIReference/API_ListStandardsControlAssociations.md")                      | Grants permission to list the enablement status of a security control in standards                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | List           |
-| [ListTagsForResource](../../../securityhub/1.0/APIReference/API_ListTagsForResource.md "../../../securityhub/1.0/APIReference/API_ListTagsForResource.md")                                                             | Grants permission to list of tags associated with a resource                                                                                                                                                                                                                                                                                                                                                                                                                                 | [automation-rule](#list_securityhub-resource-automation-rule "#list_securityhub-resource-automation-rule")                  | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Read           |
-| [configuration-policy](#list_securityhub-resource-configuration-policy "#list_securityhub-resource-configuration-policy")                                                                                              | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [StartConfigurationPolicyAssociation](../../../securityhub/1.0/APIReference/API_StartConfigurationPolicyAssociation.md "../../../securityhub/1.0/APIReference/API_StartConfigurationPolicyAssociation.md")             | Grants permission to associate a configuration policy with a member account or organizational unit in the calling account's organization                                                                                                                                                                                                                                                                                                                                                     | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [StartConfigurationPolicyDisassociation](../../../securityhub/1.0/APIReference/API_StartConfigurationPolicyDisassociation.md "../../../securityhub/1.0/APIReference/API_StartConfigurationPolicyDisassociation.md")    | Grants permission to remove a configuration policy association from a member account or organizational unit in the calling account's organization                                                                                                                                                                                                                                                                                                                                            | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [TagResource](../../../securityhub/1.0/APIReference/API_TagResource.md "../../../securityhub/1.0/APIReference/API_TagResource.md")                                                                                     | Grants permission to add tags to a Security Hub resource                                                                                                                                                                                                                                                                                                                                                                                                                                     | [aggregatorv2](#list_securityhub-resource-aggregatorv2 "#list_securityhub-resource-aggregatorv2")                           | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Tagging, Write |
-| [automation-rule](#list_securityhub-resource-automation-rule "#list_securityhub-resource-automation-rule")                                                                                                             | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [automation-rulev2](#list_securityhub-resource-automation-rulev2 "#list_securityhub-resource-automation-rulev2")                                                                                                       | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [configuration-policy](#list_securityhub-resource-configuration-policy "#list_securityhub-resource-configuration-policy")                                                                                              | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [connector](#list_securityhub-resource-connector "#list_securityhub-resource-connector")                                                                                                                               | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [connectorv2](#list_securityhub-resource-connectorv2 "#list_securityhub-resource-connectorv2")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [hubv2](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2")                                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [UntagResource](../../../securityhub/1.0/APIReference/API_UntagResource.md "../../../securityhub/1.0/APIReference/API_UntagResource.md")                                                                               | Grants permission to remove tags from a Security Hub resource                                                                                                                                                                                                                                                                                                                                                                                                                                | [aggregatorv2](#list_securityhub-resource-aggregatorv2 "#list_securityhub-resource-aggregatorv2")                           | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Tagging, Write |
-| [automation-rule](#list_securityhub-resource-automation-rule "#list_securityhub-resource-automation-rule")                                                                                                             | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [automation-rulev2](#list_securityhub-resource-automation-rulev2 "#list_securityhub-resource-automation-rulev2")                                                                                                       | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [configuration-policy](#list_securityhub-resource-configuration-policy "#list_securityhub-resource-configuration-policy")                                                                                              | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [connector](#list_securityhub-resource-connector "#list_securityhub-resource-connector")                                                                                                                               | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [connectorv2](#list_securityhub-resource-connectorv2 "#list_securityhub-resource-connectorv2")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [hubv2](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2")                                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       |
-| [UpdateActionTarget](../../../securityhub/1.0/APIReference/API_UpdateActionTarget.md "../../../securityhub/1.0/APIReference/API_UpdateActionTarget.md")                                                                | Grants permission to update custom actions in Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                                   | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateAggregatorV2](../../../securityhub/1.0/APIReference/API_UpdateAggregatorV2.md "../../../securityhub/1.0/APIReference/API_UpdateAggregatorV2.md")                                                                | Grants permission to update an aggregatorV2, which configures data aggregation across Regions                                                                                                                                                                                                                                                                                                                                                                                                | [aggregatorv2\*](#list_securityhub-resource-aggregatorv2 "#list_securityhub-resource-aggregatorv2")                         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateAutomationRuleV2](../../../securityhub/latest/userguide/automation-rules.md "../../../securityhub/latest/userguide/automation-rules.md")                                                                        | Grants permission to update an automation rule V2 in Security Hub based on rule Amazon Resource Name (ARN) and input parameters                                                                                                                                                                                                                                                                                                                                                              | [automation-rulev2\*](#list_securityhub-resource-automation-rulev2 "#list_securityhub-resource-automation-rulev2")          | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateConfigurationPolicy](../../../securityhub/1.0/APIReference/API_UpdateConfigurationPolicy.md "../../../securityhub/1.0/APIReference/API_UpdateConfigurationPolicy.md")                                           | Grants permission to update an existing configuration policy                                                                                                                                                                                                                                                                                                                                                                                                                                 | [configuration-policy\*](#list_securityhub-resource-configuration-policy "#list_securityhub-resource-configuration-policy") | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateConnector](../../../securityhub/1.0/APIReference/API_UpdateConnector.md "../../../securityhub/1.0/APIReference/API_UpdateConnector.md")                                                                         | Grants permission to update a connector in Security Hub CSPM based on connector id and input parameters                                                                                                                                                                                                                                                                                                                                                                                      | [connector\*](#list_securityhub-resource-connector "#list_securityhub-resource-connector")                                  | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateConnectorV2](../../../securityhub/1.0/APIReference/API_UpdateConnectorV2.md "../../../securityhub/1.0/APIReference/API_UpdateConnectorV2.md")                                                                   | Grants permission to update a connector V2 in Security Hub based on connector id and input parameters                                                                                                                                                                                                                                                                                                                                                                                        | [connectorv2\*](#list_securityhub-resource-connectorv2 "#list_securityhub-resource-connectorv2")                            | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateFindingAggregator](../../../securityhub/1.0/APIReference/API_UpdateFindingAggregator.md "../../../securityhub/1.0/APIReference/API_UpdateFindingAggregator.md")                                                 | Grants permission to update a finding aggregator, which contains the cross-Region finding aggregation configuration                                                                                                                                                                                                                                                                                                                                                                          | [finding-aggregator\*](#list_securityhub-resource-finding-aggregator "#list_securityhub-resource-finding-aggregator")       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Write          |
-| [UpdateFindings](../../../securityhub/1.0/APIReference/API_UpdateFindings.md "../../../securityhub/1.0/APIReference/API_UpdateFindings.md")                                                                            | Grants permission to update Security Hub findings                                                                                                                                                                                                                                                                                                                                                                                                                                            | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateInsight](../../../securityhub/1.0/APIReference/API_UpdateInsight.md "../../../securityhub/1.0/APIReference/API_UpdateInsight.md")                                                                               | Grants permission to update insights in Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                                         | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateOrganizationConfiguration](../../../securityhub/1.0/APIReference/API_UpdateOrganizationConfiguration.md "../../../securityhub/1.0/APIReference/API_UpdateOrganizationConfiguration.md")                         | Grants permission to update the organization configuration for Security Hub                                                                                                                                                                                                                                                                                                                                                                                                                  | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateSecurityControl](../../../securityhub/1.0/APIReference/API_UpdateSecurityControl.md "../../../securityhub/1.0/APIReference/API_UpdateSecurityControl.md")                                                       | Grants permission to update properties of a specific security control identified by ID or ARN                                                                                                                                                                                                                                                                                                                                                                                                |                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Write          |
-| [UpdateSecurityHubConfiguration](../../../securityhub/1.0/APIReference/API_UpdateSecurityHubConfiguration.md "../../../securityhub/1.0/APIReference/API_UpdateSecurityHubConfiguration.md")                            | Grants permission to update Security Hub configuration                                                                                                                                                                                                                                                                                                                                                                                                                                       | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
-| [UpdateStandardsControl](../../../securityhub/1.0/APIReference/API_UpdateStandardsControl.md "../../../securityhub/1.0/APIReference/API_UpdateStandardsControl.md")                                                    | Grants permission to update Security Hub standards controls                                                                                                                                                                                                                                                                                                                                                                                                                                  | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")                                                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                       | Write          |
+
+
+
+- **   [AcceptAdministratorInvitation](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AcceptAdministratorInvitation.html)  **
+  - **Description:** Grants permission to accept Security Hub invitations to become a member account
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AcceptInvitation](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AcceptInvitation.html)  **
+  - **Description:** Grants permission to accept Security Hub invitations to become a member account
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDeleteAutomationRules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules)  **
+  - **Description:** Grants permission to delete one or more automation rules in Security Hub
+  - **Resource types (\*required):** [automation-rule\*](#list_securityhub-resource-automation-rule)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchDisableStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchDisableStandards.html)  **
+  - **Description:** Grants permission to disable standards in Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchEnableStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchEnableStandards.html)  **
+  - **Description:** Grants permission to enable standards in Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchGetAutomationRules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules)  **
+  - **Description:** Grants permission to retrieve a list of details for automation rules from Security Hub based on rule Amazon Resource Names (ARNs)
+  - **Resource types (\*required):** [automation-rule\*](#list_securityhub-resource-automation-rule)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetConfigurationPolicyAssociations](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchGetConfigurationPolicyAssociations.html)  **
+  - **Description:** Grants permission to retrieve information about configuration policies associated with a specific list of member accounts and organizational units of the calling account's organization
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [BatchGetSecurityControls](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchGetSecurityControls.html)  **
+  - **Description:** Grants permission to get details about specific security controls identified by ID or ARN
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [BatchGetStandardsControlAssociations](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchGetStandardsControlAssociations.html)  **
+  - **Description:** Grants permission to get the enablement status of a batch of security controls in standards
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [BatchImportFindings](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html)  **
+  - **Description:** Grants permission to import findings into Security Hub from an integrated product
+  - **Resource types (\*required):** [product\*](#list_securityhub-resource-product)
+  - **Condition keys:** [securityhub:TargetAccount](#list_securityhub-securityhub_TargetAccount)
+  - **Access level:** Write
+
+- **   [BatchUpdateAutomationRules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules)  **
+  - **Description:** Grants permission to update one or more automation rules from Security Hub based on rule Amazon Resource Names (ARNs) and input parameters
+  - **Resource types (\*required):** [automation-rule\*](#list_securityhub-resource-automation-rule)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchUpdateFindings](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindingsV2.html)  **
+  - **Description:** Grants permission to update customer-controlled fields for a selected set of Security Hub findings
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)<br />[securityhub:ASFFSyntaxPath/${ASFFSyntaxPath}](#list_securityhub-securityhub_ASFFSyntaxPath___ASFFSyntaxPath_)<br />[securityhub:OCSFSyntaxPath/${OCSFSyntaxPath}](#list_securityhub-securityhub_OCSFSyntaxPath___OCSFSyntaxPath_)
+  - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)<br />[securityhub:ASFFSyntaxPath/${ASFFSyntaxPath}](#list_securityhub-securityhub_ASFFSyntaxPath___ASFFSyntaxPath_)<br />[securityhub:OCSFSyntaxPath/${OCSFSyntaxPath}](#list_securityhub-securityhub_OCSFSyntaxPath___OCSFSyntaxPath_)
+  - **Access level:** Write
+
+- **   [BatchUpdateStandardsControlAssociations](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html)  **
+  - **Description:** Grants permission to update the enablement status of a batch of security controls in standards
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ConnectorRegistrationsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ConnectorRegistrationsV2.html)  **
+  - **Description:** Grants permission to complete the OAuth 2.0 authorization code flow based on input parameters
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateActionTarget](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateActionTarget.html)  **
+  - **Description:** Grants permission to create custom actions in Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAggregatorV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateAggregatorV2.html)  **
+  - **Description:** Grants permission to create an aggregatorV2, which configures data aggregation across Regions
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateAutomationRule](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules)  **
+  - **Description:** Grants permission to create an automation rule based on input parameters
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityhub-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_securityhub-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAutomationRuleV2](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules)  **
+  - **Description:** Grants permission to create an automation rule V2 based on input parameters
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityhub-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_securityhub-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateConfigurationPolicy](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateConfigurationPolicy.html)  **
+  - **Description:** Grants permission to create a configuration policy to manage organization member settings in Security Hub
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityhub-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_securityhub-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateConnector](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateConnector.html)  **
+  - **Description:** Grants permission to create a connector based on input parameters
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityhub-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_securityhub-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateConnectorV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateConnectorV2.html)  **
+  - **Description:** Grants permission to create a connector V2 based on input parameters
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityhub-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_securityhub-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateFindingAggregator](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateFindingAggregator.html)  **
+  - **Description:** Grants permission to create a finding aggregator, which contains the cross-Region finding aggregation configuration
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateInsight](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateInsight.html)  **
+  - **Description:** Grants permission to create insights in Security Hub. Insights are collections of related findings
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateMembers](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateMembers.html)  **
+  - **Description:** Grants permission to create member accounts in Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateTicketV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateTicketV2.html)  **
+  - **Description:** Grants permission to create ticket for a selected OCSF finding
+  - **Resource types (\*required):** [connectorv2](#list_securityhub-resource-connectorv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeclineInvitations](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DeclineInvitations.html)  **
+  - **Description:** Grants permission to decline Security Hub invitations to become a member account
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteActionTarget](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DeleteActionTarget.html)  **
+  - **Description:** Grants permission to delete custom actions in Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAggregatorV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DeleteAggregatorV2.html)  **
+  - **Description:** Grants permission to delete an aggregatorV2, which configures data aggregation across Regions
+  - **Resource types (\*required):** [aggregatorv2\*](#list_securityhub-resource-aggregatorv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAutomationRuleV2](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules)  **
+  - **Description:** Grants permission to delete an automation rule V2 in Security Hub
+  - **Resource types (\*required):** [automation-rulev2\*](#list_securityhub-resource-automation-rulev2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConfigurationPolicy](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DeleteConfigurationPolicy.html)  **
+  - **Description:** Grants permission to delete an existing configuration policy
+  - **Resource types (\*required):** [configuration-policy\*](#list_securityhub-resource-configuration-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConnector](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DeleteConnector.html)  **
+  - **Description:** Grants permission to delete a connector in Security Hub CSPM
+  - **Resource types (\*required):** [connector\*](#list_securityhub-resource-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConnectorV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DeleteConnectorV2.html)  **
+  - **Description:** Grants permission to delete a connector V2 in Security Hub
+  - **Resource types (\*required):** [connectorv2\*](#list_securityhub-resource-connectorv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteFindingAggregator](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DeleteFindingAggregator.html)  **
+  - **Description:** Grants permission to delete a finding aggregator, which disables finding aggregation across Regions
+  - **Resource types (\*required):** [finding-aggregator\*](#list_securityhub-resource-finding-aggregator)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteInsight](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DeleteInsight.html)  **
+  - **Description:** Grants permission to delete insights from Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteInvitations](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DeleteInvitations.html)  **
+  - **Description:** Grants permission to delete Security Hub invitations to become a member account
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteMembers](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DeleteMembers.html)  **
+  - **Description:** Grants permission to delete Security Hub member accounts
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeActionTargets](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeActionTargets.html)  **
+  - **Description:** Grants permission to retrieve a list of custom actions using the API
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeHub](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeHub.html)  **
+  - **Description:** Grants permission to retrieve information about the hub resource in your account
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeOrganizationConfiguration](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeOrganizationConfiguration.html)  **
+  - **Description:** Grants permission to describe the organization configuration for Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeProducts](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeProducts.html)  **
+  - **Description:** Grants permission to retrieve information about the available Security Hub product integrations
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeProductsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeProductsV2.html)  **
+  - **Description:** Grants permission to retrieve information about the available Security Hub V2 product integrations
+  - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeSecurityHubV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeSecurityHubV2.html)  **
+  - **Description:** Grants permission to retrieve information about the hub V2 resource in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html)  **
+  - **Description:** Grants permission to retrieve information about Security Hub standards
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeStandardsControls](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandardsControls.html)  **
+  - **Description:** Grants permission to retrieve information about Security Hub standards controls
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DisableImportFindingsForProduct](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DisableImportFindingsForProduct.html)  **
+  - **Description:** Grants permission to disable the findings importing for a Security Hub integrated product
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisableOrganizationAdminAccount](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DisableOrganizationAdminAccount.html)  **
+  - **Description:** Grants permission to remove the Security Hub administrator account for your organization
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisableSecurityHub](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DisableSecurityHub.html)  **
+  - **Description:** Grants permission to disable Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisableSecurityHubFeatureV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DisableSecurityHubFeatureV2.html)  **
+  - **Description:** Grants permission to disable a Security Hub V2 feature
+  - **Resource types (\*required):** [hubv2\*](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisableSecurityHubV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DisableSecurityHubV2.html)  **
+  - **Description:** Grants permission to disable Security Hub V2
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DisassociateFromAdministratorAccount](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DisassociateFromAdministratorAccount.html)  **
+  - **Description:** Grants permission to a Security Hub member account to disassociate from the associated administrator account
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateFromMasterAccount](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DisassociateFromMasterAccount.html)  **
+  - **Description:** Grants permission to a Security Hub member account to disassociate from the associated master account
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociateMembers](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DisassociateMembers.html)  **
+  - **Description:** Grants permission to disassociate Security Hub member accounts from the associated administrator account
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [EnableImportFindingsForProduct](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_EnableImportFindingsForProduct.html)  **
+  - **Description:** Grants permission to enable the findings importing for a Security Hub integrated product
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [EnableOrganizationAdminAccount](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_EnableOrganizationAdminAccount.html)  **
+  - **Description:** Grants permission to designate a Security Hub administrator account for your organization
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [EnableSecurityHub](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_EnableSecurityHub.html)  **
+  - **Description:** Grants permission to enable Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityhub-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_securityhub-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [EnableSecurityHubFeatureV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_EnableSecurityHubFeatureV2.html)  **
+  - **Description:** Grants permission to enable a Security Hub V2 feature
+  - **Resource types (\*required):** [hubv2\*](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [EnableSecurityHubV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_EnableSecurityHubV2.html)  **
+  - **Description:** Grants permission to enable Security Hub V2
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_securityhub-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_securityhub-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [GenerateRecommendedPolicyV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GenerateRecommendedPolicyV2.html)  **
+  - **Description:** Grants permission to generate policy recommendations for an OCSF finding
+  - **Resource types (\*required):** [hubv2\*](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetAdministratorAccount](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetAdministratorAccount.html)  **
+  - **Description:** Grants permission to retrieve details about the Security Hub administrator account
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAggregatorV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetAggregatorV2.html)  **
+  - **Description:** Grants permission to retrieve details for an aggregatorV2, which configures data aggregation across Regions
+  - **Resource types (\*required):** [aggregatorv2\*](#list_securityhub-resource-aggregatorv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAutomationRuleV2](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules)  **
+  - **Description:** Grants permission to retrieve details for an automation rule V2 from Security Hub based on rule Amazon Resource Name (ARN)
+  - **Resource types (\*required):** [automation-rulev2\*](#list_securityhub-resource-automation-rulev2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetConfigurationPolicy](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetConfigurationPolicy.html)  **
+  - **Description:** Grants permission to get a complete overview of one configuration policy created by the calling account
+  - **Resource types (\*required):** [configuration-policy\*](#list_securityhub-resource-configuration-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetConfigurationPolicyAssociation](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetConfigurationPolicyAssociation.html)  **
+  - **Description:** Grants permission to retrieve information about a configuration policy associated with a member account or organizational unit of the calling account's organization
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetConnector](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetConnector.html)  **
+  - **Description:** Grants permission to retrieve details for a connector from Security Hub CSPM based on connector id
+  - **Resource types (\*required):** [connector\*](#list_securityhub-resource-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetConnectorV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetConnectorV2.html)  **
+  - **Description:** Grants permission to retrieve details for a connector V2 from Security Hub based on connector id
+  - **Resource types (\*required):** [connectorv2\*](#list_securityhub-resource-connectorv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetEnabledStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetEnabledStandards.html)  **
+  - **Description:** Grants permission to retrieve a list of the standards that are enabled in Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [GetFindingAggregator](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindingAggregator.html)  **
+  - **Description:** Grants permission to retrieve details for a finding aggregator, which configures finding aggregation across Regions
+  - **Resource types (\*required):** [finding-aggregator\*](#list_securityhub-resource-finding-aggregator)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetFindingHistory](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindingHistory.html)  **
+  - **Description:** Grants permission to retrieve a list of finding history from Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetFindings](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindingsV2.html)  **
+  - **Description:** Grants permission to retrieve a list of findings from Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetFindingsTrendsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindingsTrendsV2.html)  **
+  - **Description:** Grants permission to retrieve findings trends
+  - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetInsightResults](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetInsightResults.html)  **
+  - **Description:** Grants permission to retrieve insight results from Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetInsights](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetInsights.html)  **
+  - **Description:** Grants permission to retrieve Security Hub insights
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [GetInvitationsCount](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetInvitationsCount.html)  **
+  - **Description:** Grants permission to retrieve the count of Security Hub membership invitations sent to the account
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMasterAccount](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetMasterAccount.html)  **
+  - **Description:** Grants permission to retrieve details about the Security Hub master account
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMembers](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetMembers.html)  **
+  - **Description:** Grants permission to retrieve the details of Security Hub member accounts
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRecommendedPolicyV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetRecommendedPolicyV2.html)  **
+  - **Description:** Grants permission to retrieve policy recommendations for an OCSF finding
+  - **Resource types (\*required):** [hubv2\*](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetResourcesStatisticsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetResourcesStatisticsV2.html)  **
+  - **Description:** Grants permission to retrieve aggregate statistics about resources
+  - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetResourcesTrendsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetResourcesTrendsV2.html)  **
+  - **Description:** Grants permission to retrieve resources trends
+  - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetResourcesV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetResourcesV2.html)  **
+  - **Description:** Grants permission to retrieve a list of resources
+  - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSecurityControlDefinition](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetSecurityControlDefinition.html)  **
+  - **Description:** Grants permission to get the definition details of a specific security control identified by ID
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [InviteMembers](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_InviteMembers.html)  **
+  - **Description:** Grants permission to invite other AWS accounts to become Security Hub member accounts
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ListAggregatorsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListAggregatorsV2.html)  **
+  - **Description:** Grants permission to retrieve a list of aggregatorsV2, which configures data aggregation across Regions
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAutomationRules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules)  **
+  - **Description:** Grants permission to retrieve a list of automation rules and their metadata for the calling account from Security Hub
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAutomationRulesV2](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules)  **
+  - **Description:** Grants permission to retrieve a list of automation rules V2 and their metadata for the calling account from Security Hub
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListConfigurationPolicies](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListConfigurationPolicies.html)  **
+  - **Description:** Grants permission to list the summaries of all configuration policies created by the calling account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListConfigurationPolicyAssociations](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListConfigurationPolicyAssociations.html)  **
+  - **Description:** Grants permission to retrieve information about all configuration policies associationed with all member accounts and organizational units of the calling account's organization
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListConnectors](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListConnectors.html)  **
+  - **Description:** Grants permission to retrieve a list of connectors and their metadata for the calling account from Security Hub CSPM
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListConnectorsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListConnectorsV2.html)  **
+  - **Description:** Grants permission to retrieve a list of connectors V2 and their metadata for the calling account from Security Hub
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListEnabledProductsForImport](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListEnabledProductsForImport.html)  **
+  - **Description:** Grants permission to retrieve the Security Hub integrated products that are currently enabled
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListFindingAggregators](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListFindingAggregators.html)  **
+  - **Description:** Grants permission to retrieve a list of finding aggregators, which contain the cross-Region finding aggregation configuration
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListFreeTrialStatusesV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListFreeTrialStatusesV2.html)  **
+  - **Description:** Grants permission to retrieve a list of Security Hub free trial statuses for an account or accounts in an organization
+  - **Resource types (\*required):** [hubv2\*](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListInvitations](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListInvitations.html)  **
+  - **Description:** Grants permission to retrieve the Security Hub invitations sent to the account
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListMembers](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListMembers.html)  **
+  - **Description:** Grants permission to retrieve details about Security Hub member accounts associated with the administrator account
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListOrganizationAdminAccounts](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListOrganizationAdminAccounts.html)  **
+  - **Description:** Grants permission to list the Security Hub administrator accounts for your organization
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSecurityControlDefinitions](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListSecurityControlDefinitions.html)  **
+  - **Description:** Grants permission to retrieve a list of security control definitions, which contain details for security controls in the current region
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListStandardsControlAssociations](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListStandardsControlAssociations.html)  **
+  - **Description:** Grants permission to list the enablement status of a security control in standards
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list of tags associated with a resource
+  - **Resource types (\*required):** [automation-rule](#list_securityhub-resource-automation-rule) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [configuration-policy](#list_securityhub-resource-configuration-policy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [StartConfigurationPolicyAssociation](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_StartConfigurationPolicyAssociation.html)  **
+  - **Description:** Grants permission to associate a configuration policy with a member account or organizational unit in the calling account's organization
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartConfigurationPolicyDisassociation](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_StartConfigurationPolicyDisassociation.html)  **
+  - **Description:** Grants permission to remove a configuration policy association from a member account or organizational unit in the calling account's organization
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to add tags to a Security Hub resource
+  - **Resource types (\*required):** [aggregatorv2](#list_securityhub-resource-aggregatorv2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [automation-rule](#list_securityhub-resource-automation-rule) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [automation-rulev2](#list_securityhub-resource-automation-rulev2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [configuration-policy](#list_securityhub-resource-configuration-policy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [connector](#list_securityhub-resource-connector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [connectorv2](#list_securityhub-resource-connectorv2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove tags from a Security Hub resource
+  - **Resource types (\*required):** [aggregatorv2](#list_securityhub-resource-aggregatorv2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [automation-rule](#list_securityhub-resource-automation-rule) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [automation-rulev2](#list_securityhub-resource-automation-rulev2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [configuration-policy](#list_securityhub-resource-configuration-policy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [connector](#list_securityhub-resource-connector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [connectorv2](#list_securityhub-resource-connectorv2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateActionTarget](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateActionTarget.html)  **
+  - **Description:** Grants permission to update custom actions in Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAggregatorV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateAggregatorV2.html)  **
+  - **Description:** Grants permission to update an aggregatorV2, which configures data aggregation across Regions
+  - **Resource types (\*required):** [aggregatorv2\*](#list_securityhub-resource-aggregatorv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAutomationRuleV2](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules)  **
+  - **Description:** Grants permission to update an automation rule V2 in Security Hub based on rule Amazon Resource Name (ARN) and input parameters
+  - **Resource types (\*required):** [automation-rulev2\*](#list_securityhub-resource-automation-rulev2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateConfigurationPolicy](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateConfigurationPolicy.html)  **
+  - **Description:** Grants permission to update an existing configuration policy
+  - **Resource types (\*required):** [configuration-policy\*](#list_securityhub-resource-configuration-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateConnector](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateConnector.html)  **
+  - **Description:** Grants permission to update a connector in Security Hub CSPM based on connector id and input parameters
+  - **Resource types (\*required):** [connector\*](#list_securityhub-resource-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateConnectorV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateConnectorV2.html)  **
+  - **Description:** Grants permission to update a connector V2 in Security Hub based on connector id and input parameters
+  - **Resource types (\*required):** [connectorv2\*](#list_securityhub-resource-connectorv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateFindingAggregator](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateFindingAggregator.html)  **
+  - **Description:** Grants permission to update a finding aggregator, which contains the cross-Region finding aggregation configuration
+  - **Resource types (\*required):** [finding-aggregator\*](#list_securityhub-resource-finding-aggregator)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateFindings](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateFindings.html)  **
+  - **Description:** Grants permission to update Security Hub findings
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateInsight](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateInsight.html)  **
+  - **Description:** Grants permission to update insights in Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateOrganizationConfiguration](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateOrganizationConfiguration.html)  **
+  - **Description:** Grants permission to update the organization configuration for Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSecurityControl](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateSecurityControl.html)  **
+  - **Description:** Grants permission to update properties of a specific security control identified by ID or ARN
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateSecurityHubConfiguration](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateSecurityHubConfiguration.html)  **
+  - **Description:** Grants permission to update Security Hub configuration
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateStandardsControl](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateStandardsControl.html)  **
+  - **Description:** Grants permission to update Security Hub standards controls
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for AWS Security Hub
+<a name="list_securityhub-permission-only-actions"></a>
 
-The following actions are defined by AWS Security Hub but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by AWS Security Hub but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                                                                              | Description                                                                                                                                                                         | Resource types (\*required)                                                    | Condition keys                                                                                                         | Access level                  |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| [AllowVendedLogDeliveryForResource](../../../securityhub/1.0/APIReference/API_AllowVendedLogDeliveryForResource.md "../../../securityhub/1.0/APIReference/API_AllowVendedLogDeliveryForResource.md") | Grants permission to log delivery for resources                                                                                                                                     | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") | Permissions management, Write |
-| [hubv2](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                              |
-| [BatchGetControlEvaluations](../../../securityhub/latest/userguide/iam-permissions-controls-standards.md "../../../securityhub/latest/userguide/iam-permissions-controls-standards.md")              | Grants permission to get the enablement and compliance status of controls, the findings count for controls, and the overall security score for controls on the Security Hub console | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") | Read                          |
-| [BatchGetEnabledRegionsV2](../../../securityhub/1.0/APIReference/API_BatchGetEnabledRegionsV2.md "../../../securityhub/1.0/APIReference/API_BatchGetEnabledRegionsV2.md")                            | Grants permission to retrieve Security Hub enabled regions for accounts in an organization                                                                                          | [hubv2\*](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2") | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") | Read                          |
-| [GetAdhocInsightResults](../../../securityhub/1.0/APIReference/API_GetFindingStatisticsV2.md "../../../securityhub/1.0/APIReference/API_GetFindingStatisticsV2.md")                                  | Grants permission to retrieve aggregated statistical data about the findings                                                                                                        | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") | Read                          |
-| [hubv2](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_")                                                              |
-| [GetControlFindingSummary](../../../securityhub/1.0/APIReference/API_GetControlFindingSummary.md "../../../securityhub/1.0/APIReference/API_GetControlFindingSummary.md")                            | Grants permission to retrieve a security score and counts of finding and control statuses for a security standard                                                                   | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") | Read                          |
-| [GetCoverageStatisticsV2](../../../securityhub/1.0/APIReference/API_GetCoverageStatisticsV2.md "../../../securityhub/1.0/APIReference/API_GetCoverageStatisticsV2.md")                               | Grants permission to retrieve Security Hub coverage statistics in an organization                                                                                                   | [hubv2\*](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2") | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") | Read                          |
-| [GetFreeTrialEndDate](../../../securityhub/1.0/APIReference/API_GetFreeTrialEndDate.md "../../../securityhub/1.0/APIReference/API_GetFreeTrialEndDate.md")                                           | Grants permission to retrieve the end date for an account's free trial of Security Hub                                                                                              | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") | Read                          |
-| [GetFreeTrialUsage](../../../securityhub/1.0/APIReference/API_GetFreeTrialUsage.md "../../../securityhub/1.0/APIReference/API_GetFreeTrialUsage.md")                                                 | Grants permission to retrieve information about Security Hub usage during the free trial period                                                                                     | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") | Read                          |
-| [GetInsightFindingTrend](../../../securityhub/1.0/APIReference/API_GetInsightFindingTrend.md "../../../securityhub/1.0/APIReference/API_GetInsightFindingTrend.md")                                  | Grants permission to retrieve an insight finding trend from Security Hub in order to generate a graph                                                                               | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") | Read                          |
-| [GetUsage](../../../securityhub/1.0/APIReference/API_GetUsage.md "../../../securityhub/1.0/APIReference/API_GetUsage.md")                                                                            | Grants permission to retrieve information about Security Hub usage by accounts                                                                                                      | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") | Read                          |
-| [GetUsageV2](../../../securityhub/1.0/APIReference/API_GetUsageV2.md "../../../securityhub/1.0/APIReference/API_GetUsageV2.md")                                                                      | Grants permission to retrieve information about Security Hub usage for an account                                                                                                   | [hubv2\*](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2") | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") | Read                          |
-| [ListAccountUsageV2](../../../securityhub/1.0/APIReference/API_ListAccountUsageV2.md "../../../securityhub/1.0/APIReference/API_ListAccountUsageV2.md")                                              | Grants permission to retrieve a list of Security Hub usage for accounts in an organization                                                                                          | [hubv2\*](#list_securityhub-resource-hubv2 "#list_securityhub-resource-hubv2") | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") | List                          |
-| [ListControlEvaluationSummaries](../../../securityhub/1.0/APIReference/API_ListControlEvaluationSummaries.md "../../../securityhub/1.0/APIReference/API_ListControlEvaluationSummaries.md")          | Grants permission to retrieve a list of controls for a standard, including the control IDs, statuses and finding counts                                                             | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") | Read                          |
-| [SendFindingEvents](../../../securityhub/1.0/APIReference/API_SendFindingEvents.md "../../../securityhub/1.0/APIReference/API_SendFindingEvents.md")                                                 | Grants permission to use a custom action to send Security Hub findings to Amazon EventBridge                                                                                        | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") | Read                          |
-| [SendInsightEvents](../../../securityhub/1.0/APIReference/API_SendInsightEvents.md "../../../securityhub/1.0/APIReference/API_SendInsightEvents.md")                                                 | Grants permission to use a custom action to send Security Hub insights to Amazon EventBridge                                                                                        | [hub](#list_securityhub-resource-hub "#list_securityhub-resource-hub")         | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") | Read                          |
+
+
+
+- **   [AllowVendedLogDeliveryForResource](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_AllowVendedLogDeliveryForResource.html)  **
+  - **Description:** Grants permission to log delivery for resources
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [BatchGetControlEvaluations](https://docs.aws.amazon.com/securityhub/latest/userguide/iam-permissions-controls-standards.html)  **
+  - **Description:** Grants permission to get the enablement and compliance status of controls, the findings count for controls, and the overall security score for controls on the Security Hub console
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetEnabledRegionsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchGetEnabledRegionsV2.html)  **
+  - **Description:** Grants permission to retrieve Security Hub enabled regions for accounts in an organization
+  - **Resource types (\*required):** [hubv2\*](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAdhocInsightResults](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindingStatisticsV2.html)  **
+  - **Description:** Grants permission to retrieve aggregated statistical data about the findings
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetControlFindingSummary](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetControlFindingSummary.html)  **
+  - **Description:** Grants permission to retrieve a security score and counts of finding and control statuses for a security standard
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCoverageStatisticsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetCoverageStatisticsV2.html)  **
+  - **Description:** Grants permission to retrieve Security Hub coverage statistics in an organization
+  - **Resource types (\*required):** [hubv2\*](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetFreeTrialEndDate](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFreeTrialEndDate.html)  **
+  - **Description:** Grants permission to retrieve the end date for an account's free trial of Security Hub
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetFreeTrialUsage](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFreeTrialUsage.html)  **
+  - **Description:** Grants permission to retrieve information about Security Hub usage during the free trial period
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetInsightFindingTrend](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetInsightFindingTrend.html)  **
+  - **Description:** Grants permission to retrieve an insight finding trend from Security Hub in order to generate a graph
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetUsage](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetUsage.html)  **
+  - **Description:** Grants permission to retrieve information about Security Hub usage by accounts
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetUsageV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetUsageV2.html)  **
+  - **Description:** Grants permission to retrieve information about Security Hub usage for an account
+  - **Resource types (\*required):** [hubv2\*](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListAccountUsageV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListAccountUsageV2.html)  **
+  - **Description:** Grants permission to retrieve a list of Security Hub usage for accounts in an organization
+  - **Resource types (\*required):** [hubv2\*](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListControlEvaluationSummaries](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListControlEvaluationSummaries.html)  **
+  - **Description:** Grants permission to retrieve a list of controls for a standard, including the control IDs, statuses and finding counts
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [SendFindingEvents](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_SendFindingEvents.html)  **
+  - **Description:** Grants permission to use a custom action to send Security Hub findings to Amazon EventBridge
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [SendInsightEvents](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_SendInsightEvents.html)  **
+  - **Description:** Grants permission to use a custom action to send Security Hub insights to Amazon EventBridge
+  - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+
 
 ## Resource types defined by AWS Security Hub
+<a name="list_securityhub-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                      | ARN                                                                                             | Condition keys                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| [aggregatorv2](../../../securityhub/latest/userguide/securityhub-access.md#resources "../../../securityhub/latest/userguide/securityhub-access.md#resources")       | arn:${Partition}:securityhub:${Region}:${Account}:aggregatorv2/${AggregatorV2Id}                | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") |
-| [automation-rule](../../../securityhub/latest/userguide/automation-rules.md "../../../securityhub/latest/userguide/automation-rules.md")                            | arn:${Partition}:securityhub:${Region}:${Account}:automation-rule/${AutomationRuleId}           | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") |
-| [automation-rulev2](../../../securityhub/latest/userguide/automation-rules.md "../../../securityhub/latest/userguide/automation-rules.md")                          | arn:${Partition}:securityhub:${Region}:${Account}:automation-rulev2/${AutomationRuleV2Id}       | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") |
-| [configuration-policy](../../../securityhub/latest/userguide/central-configuration-intro.md "../../../securityhub/latest/userguide/central-configuration-intro.md") | arn:${Partition}:securityhub:${Region}:${Account}:configuration-policy/${ConfigurationPolicyId} | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") |
-| [connector](../../../securityhub/latest/userguide/securityhub-access.md#resources "../../../securityhub/latest/userguide/securityhub-access.md#resources")          | arn:${Partition}:securityhub:${Region}:${Account}:connector/${ConnectorId}                      | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") |
-| [connectorv2](../../../securityhub/latest/userguide/securityhub-access.md#resources "../../../securityhub/latest/userguide/securityhub-access.md#resources")        | arn:${Partition}:securityhub:${Region}:${Account}:connectorv2/${ConnectorV2Id}                  | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") |
-| [finding-aggregator](../../../securityhub/latest/userguide/securityhub-access.md#resources "../../../securityhub/latest/userguide/securityhub-access.md#resources") | arn:${Partition}:securityhub:${Region}:${Account}:finding-aggregator/${FindingAggregatorId}     |                                                                                                                        |
-| [hub](../../../securityhub/latest/userguide/securityhub-access.md#resources "../../../securityhub/latest/userguide/securityhub-access.md#resources")                | arn:${Partition}:securityhub:${Region}:${Account}:hub/default                                   | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") |
-| [hubv2](../../../securityhub/latest/userguide/securityhub-access.md#resources "../../../securityhub/latest/userguide/securityhub-access.md#resources")              | arn:${Partition}:securityhub:${Region}:${Account}:hubv2/${HubV2Id}                              | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_ "#list_securityhub-aws_ResourceTag___TagKey_") |
-| [product](../../../securityhub/latest/userguide/securityhub-access.md#resources "../../../securityhub/latest/userguide/securityhub-access.md#resources")            | arn:${Partition}:securityhub:${Region}:${Account}:product/${Company}/${ProductId}               |                                                                                                                        |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [aggregatorv2](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-access.html#resources)  | arn:${Partition}:securityhub:${Region}:${Account}:aggregatorv2/${AggregatorV2Id} | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_) | 
+|  [automation-rule](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules)  | arn:${Partition}:securityhub:${Region}:${Account}:automation-rule/${AutomationRuleId} | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_) | 
+|  [automation-rulev2](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules)  | arn:${Partition}:securityhub:${Region}:${Account}:automation-rulev2/${AutomationRuleV2Id} | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_) | 
+|  [configuration-policy](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html)  | arn:${Partition}:securityhub:${Region}:${Account}:configuration-policy/${ConfigurationPolicyId} | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_) | 
+|  [connector](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-access.html#resources)  | arn:${Partition}:securityhub:${Region}:${Account}:connector/${ConnectorId} | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_) | 
+|  [connectorv2](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-access.html#resources)  | arn:${Partition}:securityhub:${Region}:${Account}:connectorv2/${ConnectorV2Id} | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_) | 
+|  [finding-aggregator](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-access.html#resources)  | arn:${Partition}:securityhub:${Region}:${Account}:finding-aggregator/${FindingAggregatorId} |   | 
+|  [hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-access.html#resources)  | arn:${Partition}:securityhub:${Region}:${Account}:hub/default | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_) | 
+|  [hubv2](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-access.html#resources)  | arn:${Partition}:securityhub:${Region}:${Account}:hubv2/${HubV2Id} | [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_) | 
+|  [product](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-access.html#resources)  | arn:${Partition}:securityhub:${Region}:${Account}:product/${Company}/${ProductId} |   | 
 
 ## Condition keys for AWS Security Hub
+<a name="list_securityhub-policy-keys"></a>
 
-AWS Security Hub defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Security Hub defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                                      | Description                                                                           | Type          |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")                             | Filters access by actions based on the presence of tag key-value pairs in the request | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag")                          | Filters access by actions based on tag key-value pairs attached to the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                                                | Filters access by actions based on the presence of tag keys in the request            | ArrayOfString |
-| [securityhub:ASFFSyntaxPath/${ASFFSyntaxPath}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-asffsyntaxpath "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-asffsyntaxpath") | Filters access by the specified fields and values in the request                      | String        |
-| [securityhub:OCSFSyntaxPath/${OCSFSyntaxPath}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-ocsfsyntaxpath "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-ocsfsyntaxpath") | Filters access by the specified fields and values in the request                      | String        |
-| [securityhub:TargetAccount](../../../securityhub/latest/userguide/securityhub-access.md#conditions "../../../securityhub/latest/userguide/securityhub-access.md#conditions")                                                                        | Filters access by the AwsAccountId field that is specified in the request             | String        |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by actions based on the presence of tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by actions based on tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by actions based on the presence of tag keys in the request | ArrayOfString | 
+|   [securityhub:ASFFSyntaxPath/${ASFFSyntaxPath}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-asffsyntaxpath)  | Filters access by the specified fields and values in the request | String | 
+|   [securityhub:OCSFSyntaxPath/${OCSFSyntaxPath}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-ocsfsyntaxpath)  | Filters access by the specified fields and values in the request | String | 
+|   [securityhub:TargetAccount](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-access.html#conditions)  | Filters access by the AwsAccountId field that is specified in the request | String | 

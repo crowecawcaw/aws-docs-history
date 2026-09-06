@@ -1,494 +1,2450 @@
-# Actions, resources, and condition keys for AWS Identity and Access Management (IAM)
 
-AWS Identity and Access Management (IAM) (service prefix: `iam`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Identity and Access Management (IAM)
+<a name="list_iam"></a>
+
+AWS Identity and Access Management (IAM) (service prefix: `iam`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/IAM/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/iam/iam.json) for this service.
 
-- Learn how to [configure this service](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md").
-- View a list of the [API operations available for
-  this service](../../../IAM/latest/APIReference.md "../../../IAM/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/iam/iam.json "https://servicereference.us-east-1.amazonaws.com/v1/iam/iam.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Identity and Access Management (IAM)](#list_iam-operations "#list_iam-operations")
-- [Actions defined by AWS Identity and Access Management (IAM)](#list_iam-actions-as-permissions "#list_iam-actions-as-permissions")
-- [Permission-only actions for AWS Identity and Access Management (IAM)](#list_iam-permission-only-actions "#list_iam-permission-only-actions")
-- [Resource types defined by AWS Identity and Access Management (IAM)](#list_iam-resources-for-iam-policies "#list_iam-resources-for-iam-policies")
-- [Condition keys for AWS Identity and Access Management (IAM)](#list_iam-policy-keys "#list_iam-policy-keys")
+**Topics**
++ [API operations defined by AWS Identity and Access Management (IAM)](#list_iam-operations)
++ [Actions defined by AWS Identity and Access Management (IAM)](#list_iam-actions-as-permissions)
++ [Permission-only actions for AWS Identity and Access Management (IAM)](#list_iam-permission-only-actions)
++ [Resource types defined by AWS Identity and Access Management (IAM)](#list_iam-resources-for-iam-policies)
++ [Condition keys for AWS Identity and Access Management (IAM)](#list_iam-policy-keys)
 
 ## API operations defined by AWS Identity and Access Management (IAM)
+<a name="list_iam-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_iam-actions-as-permissions "#list_iam-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_iam-actions-as-permissions).
 
-| Operation                                                                                                                   | SDK client                                                                           | IAM action                                                                                                                                                               | Condition key                 | Possible value(s) | Access level                  |
-| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- | ----------------- | ----------------------------- |
-| AcceptDelegationRequest                                                                                                     | iam                                                                                  | [iam:AcceptDelegationRequest](#list_iam-action-AcceptDelegationRequest "#list_iam-action-AcceptDelegationRequest")                                                       |                               |                   | Write                         |
-| AcquireRole                                                                                                                 | iam                                                                                  | [iam:AttachRolePolicy](#list_iam-action-AttachRolePolicy "#list_iam-action-AttachRolePolicy")                                                                            |                               |                   | Permissions management, Write |
-| [iam:CreateRole](#list_iam-action-CreateRole "#list_iam-action-CreateRole")                                                 |                                                                                      |                                                                                                                                                                          | Write                         |
-| [iam:GetRole](#list_iam-action-GetRole "#list_iam-action-GetRole")                                                          |                                                                                      |                                                                                                                                                                          | Read                          |
-| [iam:GetRoleTemplateVersion](#list_iam-action-GetRoleTemplateVersion "#list_iam-action-GetRoleTemplateVersion")             |                                                                                      |                                                                                                                                                                          | Read                          |
-| [iam:PutRolePermissionsBoundary](#list_iam-action-PutRolePermissionsBoundary "#list_iam-action-PutRolePermissionsBoundary") |                                                                                      |                                                                                                                                                                          | Permissions management, Write |
-| [iam:PutRolePolicy](#list_iam-action-PutRolePolicy "#list_iam-action-PutRolePolicy")                                        |                                                                                      |                                                                                                                                                                          | Permissions management, Write |
-| [iam:TagRole](#list_iam-action-TagRole "#list_iam-action-TagRole")                                                          |                                                                                      |                                                                                                                                                                          | Tagging, Write                |
-| AddClientIDToOpenIDConnectProvider                                                                                          | iam                                                                                  | [iam:AddClientIDToOpenIDConnectProvider](#list_iam-action-AddClientIDToOpenIDConnectProvider "#list_iam-action-AddClientIDToOpenIDConnectProvider")                      |                               |                   | Write                         |
-| AddRoleToInstanceProfile                                                                                                    | iam                                                                                  | [iam:AddRoleToInstanceProfile](#list_iam-action-AddRoleToInstanceProfile "#list_iam-action-AddRoleToInstanceProfile")                                                    |                               |                   | Write                         |
-| [iam:PassRole](#list_iam-action-PassRole "#list_iam-action-PassRole")                                                       | [iam:PassedToService](#list_iam-iam_PassedToService "#list_iam-iam_PassedToService") | ec2.amazonaws.com                                                                                                                                                        | Write                         |
-| AddUserToGroup                                                                                                              | iam                                                                                  | [iam:AddUserToGroup](#list_iam-action-AddUserToGroup "#list_iam-action-AddUserToGroup")                                                                                  |                               |                   | Write                         |
-| AssociateDelegationRequest                                                                                                  | iam                                                                                  | [iam:AssociateDelegationRequest](#list_iam-action-AssociateDelegationRequest "#list_iam-action-AssociateDelegationRequest")                                              |                               |                   | Write                         |
-| AttachGroupPolicy                                                                                                           | iam                                                                                  | [iam:AttachGroupPolicy](#list_iam-action-AttachGroupPolicy "#list_iam-action-AttachGroupPolicy")                                                                         |                               |                   | Permissions management, Write |
-| AttachRolePolicy                                                                                                            | iam                                                                                  | [iam:AttachRolePolicy](#list_iam-action-AttachRolePolicy "#list_iam-action-AttachRolePolicy")                                                                            |                               |                   | Permissions management, Write |
-| AttachUserPolicy                                                                                                            | iam                                                                                  | [iam:AttachUserPolicy](#list_iam-action-AttachUserPolicy "#list_iam-action-AttachUserPolicy")                                                                            |                               |                   | Permissions management, Write |
-| ChangePassword                                                                                                              | iam                                                                                  | [iam:ChangePassword](#list_iam-action-ChangePassword "#list_iam-action-ChangePassword")                                                                                  |                               |                   | Write                         |
-| CreateAccessKey                                                                                                             | iam                                                                                  | [iam:CreateAccessKey](#list_iam-action-CreateAccessKey "#list_iam-action-CreateAccessKey")                                                                               |                               |                   | Write                         |
-| CreateAccountAlias                                                                                                          | iam                                                                                  | [iam:CreateAccountAlias](#list_iam-action-CreateAccountAlias "#list_iam-action-CreateAccountAlias")                                                                      |                               |                   | Write                         |
-| CreateDelegationRequest                                                                                                     | iam                                                                                  | [iam:CreateDelegationRequest](#list_iam-action-CreateDelegationRequest "#list_iam-action-CreateDelegationRequest")                                                       |                               |                   | Write                         |
-| CreateGroup                                                                                                                 | iam                                                                                  | [iam:CreateGroup](#list_iam-action-CreateGroup "#list_iam-action-CreateGroup")                                                                                           |                               |                   | Write                         |
-| CreateInstanceProfile                                                                                                       | iam                                                                                  | [iam:CreateInstanceProfile](#list_iam-action-CreateInstanceProfile "#list_iam-action-CreateInstanceProfile")                                                             |                               |                   | Write                         |
-| [iam:TagInstanceProfile](#list_iam-action-TagInstanceProfile "#list_iam-action-TagInstanceProfile")                         |                                                                                      |                                                                                                                                                                          | Tagging, Write                |
-| CreateLoginProfile                                                                                                          | iam                                                                                  | [iam:CreateLoginProfile](#list_iam-action-CreateLoginProfile "#list_iam-action-CreateLoginProfile")                                                                      |                               |                   | Write                         |
-| CreateOpenIDConnectProvider                                                                                                 | iam                                                                                  | [iam:CreateOpenIDConnectProvider](#list_iam-action-CreateOpenIDConnectProvider "#list_iam-action-CreateOpenIDConnectProvider")                                           |                               |                   | Write                         |
-| [iam:TagOpenIDConnectProvider](#list_iam-action-TagOpenIDConnectProvider "#list_iam-action-TagOpenIDConnectProvider")       |                                                                                      |                                                                                                                                                                          | Tagging, Write                |
-| CreatePolicy                                                                                                                | iam                                                                                  | [iam:CreatePolicy](#list_iam-action-CreatePolicy "#list_iam-action-CreatePolicy")                                                                                        |                               |                   | Permissions management, Write |
-| [iam:TagPolicy](#list_iam-action-TagPolicy "#list_iam-action-TagPolicy")                                                    |                                                                                      |                                                                                                                                                                          | Tagging, Write                |
-| CreatePolicyVersion                                                                                                         | iam                                                                                  | [iam:CreatePolicyVersion](#list_iam-action-CreatePolicyVersion "#list_iam-action-CreatePolicyVersion")                                                                   |                               |                   | Permissions management, Write |
-| CreateRole                                                                                                                  | iam                                                                                  | [iam:CreateRole](#list_iam-action-CreateRole "#list_iam-action-CreateRole")                                                                                              |                               |                   | Write                         |
-| [iam:TagRole](#list_iam-action-TagRole "#list_iam-action-TagRole")                                                          |                                                                                      |                                                                                                                                                                          | Tagging, Write                |
-| CreateSAMLProvider                                                                                                          | iam                                                                                  | [iam:CreateSAMLProvider](#list_iam-action-CreateSAMLProvider "#list_iam-action-CreateSAMLProvider")                                                                      |                               |                   | Write                         |
-| [iam:TagSAMLProvider](#list_iam-action-TagSAMLProvider "#list_iam-action-TagSAMLProvider")                                  |                                                                                      |                                                                                                                                                                          | Tagging, Write                |
-| CreateServiceLinkedRole                                                                                                     | iam                                                                                  | [iam:CreateServiceLinkedRole](#list_iam-action-CreateServiceLinkedRole "#list_iam-action-CreateServiceLinkedRole")                                                       |                               |                   | Write                         |
-| [iam:PutRolePolicy](#list_iam-action-PutRolePolicy "#list_iam-action-PutRolePolicy")                                        |                                                                                      |                                                                                                                                                                          | Permissions management, Write |
-| CreateServiceSpecificCredential                                                                                             | iam                                                                                  | [iam:CreateServiceSpecificCredential](#list_iam-action-CreateServiceSpecificCredential "#list_iam-action-CreateServiceSpecificCredential")                               |                               |                   | Write                         |
-| CreateUser                                                                                                                  | iam                                                                                  | [iam:CreateUser](#list_iam-action-CreateUser "#list_iam-action-CreateUser")                                                                                              |                               |                   | Write                         |
-| [iam:TagUser](#list_iam-action-TagUser "#list_iam-action-TagUser")                                                          |                                                                                      |                                                                                                                                                                          | Tagging, Write                |
-| CreateVirtualMFADevice                                                                                                      | iam                                                                                  | [iam:CreateVirtualMFADevice](#list_iam-action-CreateVirtualMFADevice "#list_iam-action-CreateVirtualMFADevice")                                                          |                               |                   | Write                         |
-| [iam:TagMFADevice](#list_iam-action-TagMFADevice "#list_iam-action-TagMFADevice")                                           |                                                                                      |                                                                                                                                                                          | Tagging, Write                |
-| DeactivateMFADevice                                                                                                         | iam                                                                                  | [iam:DeactivateMFADevice](#list_iam-action-DeactivateMFADevice "#list_iam-action-DeactivateMFADevice")                                                                   |                               |                   | Write                         |
-| DeleteAccessKey                                                                                                             | iam                                                                                  | [iam:DeleteAccessKey](#list_iam-action-DeleteAccessKey "#list_iam-action-DeleteAccessKey")                                                                               |                               |                   | Write                         |
-| DeleteAccountAlias                                                                                                          | iam                                                                                  | [iam:DeleteAccountAlias](#list_iam-action-DeleteAccountAlias "#list_iam-action-DeleteAccountAlias")                                                                      |                               |                   | Write                         |
-| DeleteAccountPasswordPolicy                                                                                                 | iam                                                                                  | [iam:DeleteAccountPasswordPolicy](#list_iam-action-DeleteAccountPasswordPolicy "#list_iam-action-DeleteAccountPasswordPolicy")                                           |                               |                   | Permissions management, Write |
-| DeleteGroup                                                                                                                 | iam                                                                                  | [iam:DeleteGroup](#list_iam-action-DeleteGroup "#list_iam-action-DeleteGroup")                                                                                           |                               |                   | Write                         |
-| DeleteGroupPolicy                                                                                                           | iam                                                                                  | [iam:DeleteGroupPolicy](#list_iam-action-DeleteGroupPolicy "#list_iam-action-DeleteGroupPolicy")                                                                         |                               |                   | Permissions management, Write |
-| DeleteInstanceProfile                                                                                                       | iam                                                                                  | [iam:DeleteInstanceProfile](#list_iam-action-DeleteInstanceProfile "#list_iam-action-DeleteInstanceProfile")                                                             |                               |                   | Write                         |
-| DeleteLoginProfile                                                                                                          | iam                                                                                  | [iam:DeleteLoginProfile](#list_iam-action-DeleteLoginProfile "#list_iam-action-DeleteLoginProfile")                                                                      |                               |                   | Write                         |
-| DeleteOpenIDConnectProvider                                                                                                 | iam                                                                                  | [iam:DeleteOpenIDConnectProvider](#list_iam-action-DeleteOpenIDConnectProvider "#list_iam-action-DeleteOpenIDConnectProvider")                                           |                               |                   | Write                         |
-| DeletePolicy                                                                                                                | iam                                                                                  | [iam:DeletePolicy](#list_iam-action-DeletePolicy "#list_iam-action-DeletePolicy")                                                                                        |                               |                   | Permissions management, Write |
-| DeletePolicyVersion                                                                                                         | iam                                                                                  | [iam:DeletePolicyVersion](#list_iam-action-DeletePolicyVersion "#list_iam-action-DeletePolicyVersion")                                                                   |                               |                   | Permissions management, Write |
-| DeleteRole                                                                                                                  | iam                                                                                  | [iam:DeleteRole](#list_iam-action-DeleteRole "#list_iam-action-DeleteRole")                                                                                              |                               |                   | Write                         |
-| DeleteRolePermissionsBoundary                                                                                               | iam                                                                                  | [iam:DeleteRolePermissionsBoundary](#list_iam-action-DeleteRolePermissionsBoundary "#list_iam-action-DeleteRolePermissionsBoundary")                                     |                               |                   | Permissions management, Write |
-| DeleteRolePolicy                                                                                                            | iam                                                                                  | [iam:DeleteRolePolicy](#list_iam-action-DeleteRolePolicy "#list_iam-action-DeleteRolePolicy")                                                                            |                               |                   | Permissions management, Write |
-| DeleteSAMLProvider                                                                                                          | iam                                                                                  | [iam:DeleteSAMLProvider](#list_iam-action-DeleteSAMLProvider "#list_iam-action-DeleteSAMLProvider")                                                                      |                               |                   | Write                         |
-| DeleteSSHPublicKey                                                                                                          | iam                                                                                  | [iam:DeleteSSHPublicKey](#list_iam-action-DeleteSSHPublicKey "#list_iam-action-DeleteSSHPublicKey")                                                                      |                               |                   | Write                         |
-| DeleteServerCertificate                                                                                                     | iam                                                                                  | [iam:DeleteServerCertificate](#list_iam-action-DeleteServerCertificate "#list_iam-action-DeleteServerCertificate")                                                       |                               |                   | Write                         |
-| DeleteServiceLinkedRole                                                                                                     | iam                                                                                  | [iam:DeleteServiceLinkedRole](#list_iam-action-DeleteServiceLinkedRole "#list_iam-action-DeleteServiceLinkedRole")                                                       |                               |                   | Write                         |
-| DeleteServiceSpecificCredential                                                                                             | iam                                                                                  | [iam:DeleteServiceSpecificCredential](#list_iam-action-DeleteServiceSpecificCredential "#list_iam-action-DeleteServiceSpecificCredential")                               |                               |                   | Write                         |
-| DeleteSigningCertificate                                                                                                    | iam                                                                                  | [iam:DeleteSigningCertificate](#list_iam-action-DeleteSigningCertificate "#list_iam-action-DeleteSigningCertificate")                                                    |                               |                   | Write                         |
-| DeleteUser                                                                                                                  | iam                                                                                  | [iam:DeleteUser](#list_iam-action-DeleteUser "#list_iam-action-DeleteUser")                                                                                              |                               |                   | Write                         |
-| DeleteUserPermissionsBoundary                                                                                               | iam                                                                                  | [iam:DeleteUserPermissionsBoundary](#list_iam-action-DeleteUserPermissionsBoundary "#list_iam-action-DeleteUserPermissionsBoundary")                                     |                               |                   | Permissions management, Write |
-| DeleteUserPolicy                                                                                                            | iam                                                                                  | [iam:DeleteUserPolicy](#list_iam-action-DeleteUserPolicy "#list_iam-action-DeleteUserPolicy")                                                                            |                               |                   | Permissions management, Write |
-| DeleteVirtualMFADevice                                                                                                      | iam                                                                                  | [iam:DeleteVirtualMFADevice](#list_iam-action-DeleteVirtualMFADevice "#list_iam-action-DeleteVirtualMFADevice")                                                          |                               |                   | Write                         |
-| DetachGroupPolicy                                                                                                           | iam                                                                                  | [iam:DetachGroupPolicy](#list_iam-action-DetachGroupPolicy "#list_iam-action-DetachGroupPolicy")                                                                         |                               |                   | Permissions management, Write |
-| DetachRolePolicy                                                                                                            | iam                                                                                  | [iam:DetachRolePolicy](#list_iam-action-DetachRolePolicy "#list_iam-action-DetachRolePolicy")                                                                            |                               |                   | Permissions management, Write |
-| DetachUserPolicy                                                                                                            | iam                                                                                  | [iam:DetachUserPolicy](#list_iam-action-DetachUserPolicy "#list_iam-action-DetachUserPolicy")                                                                            |                               |                   | Permissions management, Write |
-| DisableOutboundWebIdentityFederation                                                                                        | iam                                                                                  | [iam:DisableOutboundWebIdentityFederation](#list_iam-action-DisableOutboundWebIdentityFederation "#list_iam-action-DisableOutboundWebIdentityFederation")                |                               |                   | Write                         |
-| EnableMFADevice                                                                                                             | iam                                                                                  | [iam:EnableMFADevice](#list_iam-action-EnableMFADevice "#list_iam-action-EnableMFADevice")                                                                               |                               |                   | Write                         |
-| EnableOutboundWebIdentityFederation                                                                                         | iam                                                                                  | [iam:EnableOutboundWebIdentityFederation](#list_iam-action-EnableOutboundWebIdentityFederation "#list_iam-action-EnableOutboundWebIdentityFederation")                   |                               |                   | Write                         |
-| GenerateCredentialReport                                                                                                    | iam                                                                                  | [iam:GenerateCredentialReport](#list_iam-action-GenerateCredentialReport "#list_iam-action-GenerateCredentialReport")                                                    |                               |                   | Read                          |
-| GenerateOrganizationsAccessReport                                                                                           | iam                                                                                  | [iam:GenerateOrganizationsAccessReport](#list_iam-action-GenerateOrganizationsAccessReport "#list_iam-action-GenerateOrganizationsAccessReport")                         |                               |                   | Read                          |
-| GenerateServiceLastAccessedDetails                                                                                          | iam                                                                                  | [iam:GenerateServiceLastAccessedDetails](#list_iam-action-GenerateServiceLastAccessedDetails "#list_iam-action-GenerateServiceLastAccessedDetails")                      |                               |                   | Read                          |
-| GetAccessKeyLastUsed                                                                                                        | iam                                                                                  | [iam:GetAccessKeyLastUsed](#list_iam-action-GetAccessKeyLastUsed "#list_iam-action-GetAccessKeyLastUsed")                                                                |                               |                   | Read                          |
-| GetAccountAuthorizationDetails                                                                                              | iam                                                                                  | [iam:GetAccountAuthorizationDetails](#list_iam-action-GetAccountAuthorizationDetails "#list_iam-action-GetAccountAuthorizationDetails")                                  |                               |                   | Read                          |
-| GetAccountPasswordPolicy                                                                                                    | iam                                                                                  | [iam:GetAccountPasswordPolicy](#list_iam-action-GetAccountPasswordPolicy "#list_iam-action-GetAccountPasswordPolicy")                                                    |                               |                   | Read                          |
-| GetAccountProperties                                                                                                        | iam                                                                                  | [iam:GetAccountProperties](#list_iam-action-GetAccountProperties "#list_iam-action-GetAccountProperties")                                                                |                               |                   | Read                          |
-| GetAccountSummary                                                                                                           | iam                                                                                  | [iam:GetAccountSummary](#list_iam-action-GetAccountSummary "#list_iam-action-GetAccountSummary")                                                                         |                               |                   | List                          |
-| GetContextKeysForCustomPolicy                                                                                               | iam                                                                                  | [iam:GetContextKeysForCustomPolicy](#list_iam-action-GetContextKeysForCustomPolicy "#list_iam-action-GetContextKeysForCustomPolicy")                                     |                               |                   | Read                          |
-| GetContextKeysForPrincipalPolicy                                                                                            | iam                                                                                  | [iam:GetContextKeysForPrincipalPolicy](#list_iam-action-GetContextKeysForPrincipalPolicy "#list_iam-action-GetContextKeysForPrincipalPolicy")                            |                               |                   | Read                          |
-| GetCredentialReport                                                                                                         | iam                                                                                  | [iam:GetCredentialReport](#list_iam-action-GetCredentialReport "#list_iam-action-GetCredentialReport")                                                                   |                               |                   | Read                          |
-| GetDelegationRequest                                                                                                        | iam                                                                                  | [iam:GetDelegationRequest](#list_iam-action-GetDelegationRequest "#list_iam-action-GetDelegationRequest")                                                                |                               |                   | Read                          |
-| GetGroup                                                                                                                    | iam                                                                                  | [iam:GetGroup](#list_iam-action-GetGroup "#list_iam-action-GetGroup")                                                                                                    |                               |                   | Read                          |
-| GetGroupPolicy                                                                                                              | iam                                                                                  | [iam:GetGroupPolicy](#list_iam-action-GetGroupPolicy "#list_iam-action-GetGroupPolicy")                                                                                  |                               |                   | Read                          |
-| GetHumanReadableSummary                                                                                                     | iam                                                                                  | [iam:GetHumanReadableSummary](#list_iam-action-GetHumanReadableSummary "#list_iam-action-GetHumanReadableSummary")                                                       |                               |                   | Read                          |
-| GetInstanceProfile                                                                                                          | iam                                                                                  | [iam:GetInstanceProfile](#list_iam-action-GetInstanceProfile "#list_iam-action-GetInstanceProfile")                                                                      |                               |                   | Read                          |
-| GetLoginProfile                                                                                                             | iam                                                                                  | [iam:GetLoginProfile](#list_iam-action-GetLoginProfile "#list_iam-action-GetLoginProfile")                                                                               |                               |                   | List                          |
-| GetMFADevice                                                                                                                | iam                                                                                  | [iam:GetMFADevice](#list_iam-action-GetMFADevice "#list_iam-action-GetMFADevice")                                                                                        |                               |                   | Read                          |
-| GetOpenIDConnectProvider                                                                                                    | iam                                                                                  | [iam:GetOpenIDConnectProvider](#list_iam-action-GetOpenIDConnectProvider "#list_iam-action-GetOpenIDConnectProvider")                                                    |                               |                   | Read                          |
-| GetOrganizationsAccessReport                                                                                                | iam                                                                                  | [iam:GetOrganizationsAccessReport](#list_iam-action-GetOrganizationsAccessReport "#list_iam-action-GetOrganizationsAccessReport")                                        |                               |                   | Read                          |
-| GetOutboundWebIdentityFederationInfo                                                                                        | iam                                                                                  | [iam:GetOutboundWebIdentityFederationInfo](#list_iam-action-GetOutboundWebIdentityFederationInfo "#list_iam-action-GetOutboundWebIdentityFederationInfo")                |                               |                   | Read                          |
-| GetPolicy                                                                                                                   | iam                                                                                  | [iam:GetPolicy](#list_iam-action-GetPolicy "#list_iam-action-GetPolicy")                                                                                                 |                               |                   | Read                          |
-| GetPolicyVersion                                                                                                            | iam                                                                                  | [iam:GetPolicyVersion](#list_iam-action-GetPolicyVersion "#list_iam-action-GetPolicyVersion")                                                                            |                               |                   | Read                          |
-| GetRole                                                                                                                     | iam                                                                                  | [iam:GetRole](#list_iam-action-GetRole "#list_iam-action-GetRole")                                                                                                       |                               |                   | Read                          |
-| GetRolePolicy                                                                                                               | iam                                                                                  | [iam:GetRolePolicy](#list_iam-action-GetRolePolicy "#list_iam-action-GetRolePolicy")                                                                                     |                               |                   | Read                          |
-| GetRoleTemplateVersion                                                                                                      | iam                                                                                  | [iam:GetRoleTemplateVersion](#list_iam-action-GetRoleTemplateVersion "#list_iam-action-GetRoleTemplateVersion")                                                          |                               |                   | Read                          |
-| GetSAMLProvider                                                                                                             | iam                                                                                  | [iam:GetSAMLProvider](#list_iam-action-GetSAMLProvider "#list_iam-action-GetSAMLProvider")                                                                               |                               |                   | Read                          |
-| GetSSHPublicKey                                                                                                             | iam                                                                                  | [iam:GetSSHPublicKey](#list_iam-action-GetSSHPublicKey "#list_iam-action-GetSSHPublicKey")                                                                               |                               |                   | Read                          |
-| GetServerCertificate                                                                                                        | iam                                                                                  | [iam:GetServerCertificate](#list_iam-action-GetServerCertificate "#list_iam-action-GetServerCertificate")                                                                |                               |                   | Read                          |
-| GetServiceLastAccessedDetails                                                                                               | iam                                                                                  | [iam:GetServiceLastAccessedDetails](#list_iam-action-GetServiceLastAccessedDetails "#list_iam-action-GetServiceLastAccessedDetails")                                     |                               |                   | Read                          |
-| GetServiceLastAccessedDetailsWithEntities                                                                                   | iam                                                                                  | [iam:GetServiceLastAccessedDetailsWithEntities](#list_iam-action-GetServiceLastAccessedDetailsWithEntities "#list_iam-action-GetServiceLastAccessedDetailsWithEntities") |                               |                   | Read                          |
-| GetServiceLinkedRoleDeletionStatus                                                                                          | iam                                                                                  | [iam:GetServiceLinkedRoleDeletionStatus](#list_iam-action-GetServiceLinkedRoleDeletionStatus "#list_iam-action-GetServiceLinkedRoleDeletionStatus")                      |                               |                   | Read                          |
-| GetUser                                                                                                                     | iam                                                                                  | [iam:GetUser](#list_iam-action-GetUser "#list_iam-action-GetUser")                                                                                                       |                               |                   | Read                          |
-| GetUserPolicy                                                                                                               | iam                                                                                  | [iam:GetUserPolicy](#list_iam-action-GetUserPolicy "#list_iam-action-GetUserPolicy")                                                                                     |                               |                   | Read                          |
-| ListAccessKeys                                                                                                              | iam                                                                                  | [iam:ListAccessKeys](#list_iam-action-ListAccessKeys "#list_iam-action-ListAccessKeys")                                                                                  |                               |                   | List                          |
-| ListAccountAliases                                                                                                          | iam                                                                                  | [iam:ListAccountAliases](#list_iam-action-ListAccountAliases "#list_iam-action-ListAccountAliases")                                                                      |                               |                   | List                          |
-| ListAttachedGroupPolicies                                                                                                   | iam                                                                                  | [iam:ListAttachedGroupPolicies](#list_iam-action-ListAttachedGroupPolicies "#list_iam-action-ListAttachedGroupPolicies")                                                 |                               |                   | List                          |
-| ListAttachedRolePolicies                                                                                                    | iam                                                                                  | [iam:ListAttachedRolePolicies](#list_iam-action-ListAttachedRolePolicies "#list_iam-action-ListAttachedRolePolicies")                                                    |                               |                   | List                          |
-| ListAttachedUserPolicies                                                                                                    | iam                                                                                  | [iam:ListAttachedUserPolicies](#list_iam-action-ListAttachedUserPolicies "#list_iam-action-ListAttachedUserPolicies")                                                    |                               |                   | List                          |
-| ListDelegationRequests                                                                                                      | iam                                                                                  | [iam:ListDelegationRequests](#list_iam-action-ListDelegationRequests "#list_iam-action-ListDelegationRequests")                                                          |                               |                   | List                          |
-| ListEntitiesForPolicy                                                                                                       | iam                                                                                  | [iam:ListEntitiesForPolicy](#list_iam-action-ListEntitiesForPolicy "#list_iam-action-ListEntitiesForPolicy")                                                             |                               |                   | List                          |
-| ListGroupPolicies                                                                                                           | iam                                                                                  | [iam:ListGroupPolicies](#list_iam-action-ListGroupPolicies "#list_iam-action-ListGroupPolicies")                                                                         |                               |                   | List                          |
-| ListGroups                                                                                                                  | iam                                                                                  | [iam:ListGroups](#list_iam-action-ListGroups "#list_iam-action-ListGroups")                                                                                              |                               |                   | List                          |
-| ListGroupsForUser                                                                                                           | iam                                                                                  | [iam:ListGroupsForUser](#list_iam-action-ListGroupsForUser "#list_iam-action-ListGroupsForUser")                                                                         |                               |                   | List                          |
-| ListInstanceProfileTags                                                                                                     | iam                                                                                  | [iam:ListInstanceProfileTags](#list_iam-action-ListInstanceProfileTags "#list_iam-action-ListInstanceProfileTags")                                                       |                               |                   | List                          |
-| ListInstanceProfiles                                                                                                        | iam                                                                                  | [iam:ListInstanceProfiles](#list_iam-action-ListInstanceProfiles "#list_iam-action-ListInstanceProfiles")                                                                |                               |                   | List                          |
-| ListInstanceProfilesForRole                                                                                                 | iam                                                                                  | [iam:ListInstanceProfilesForRole](#list_iam-action-ListInstanceProfilesForRole "#list_iam-action-ListInstanceProfilesForRole")                                           |                               |                   | List                          |
-| ListMFADeviceTags                                                                                                           | iam                                                                                  | [iam:ListMFADeviceTags](#list_iam-action-ListMFADeviceTags "#list_iam-action-ListMFADeviceTags")                                                                         |                               |                   | List                          |
-| ListMFADevices                                                                                                              | iam                                                                                  | [iam:ListMFADevices](#list_iam-action-ListMFADevices "#list_iam-action-ListMFADevices")                                                                                  |                               |                   | List                          |
-| ListOpenIDConnectProviderTags                                                                                               | iam                                                                                  | [iam:ListOpenIDConnectProviderTags](#list_iam-action-ListOpenIDConnectProviderTags "#list_iam-action-ListOpenIDConnectProviderTags")                                     |                               |                   | List                          |
-| ListOpenIDConnectProviders                                                                                                  | iam                                                                                  | [iam:ListOpenIDConnectProviders](#list_iam-action-ListOpenIDConnectProviders "#list_iam-action-ListOpenIDConnectProviders")                                              |                               |                   | List                          |
-| ListPolicies                                                                                                                | iam                                                                                  | [iam:ListPolicies](#list_iam-action-ListPolicies "#list_iam-action-ListPolicies")                                                                                        |                               |                   | List                          |
-| ListPoliciesGrantingServiceAccess                                                                                           | iam                                                                                  | [iam:ListPoliciesGrantingServiceAccess](#list_iam-action-ListPoliciesGrantingServiceAccess "#list_iam-action-ListPoliciesGrantingServiceAccess")                         |                               |                   | List                          |
-| ListPolicyTags                                                                                                              | iam                                                                                  | [iam:ListPolicyTags](#list_iam-action-ListPolicyTags "#list_iam-action-ListPolicyTags")                                                                                  |                               |                   | List                          |
-| ListPolicyVersions                                                                                                          | iam                                                                                  | [iam:ListPolicyVersions](#list_iam-action-ListPolicyVersions "#list_iam-action-ListPolicyVersions")                                                                      |                               |                   | List                          |
-| ListRolePolicies                                                                                                            | iam                                                                                  | [iam:ListRolePolicies](#list_iam-action-ListRolePolicies "#list_iam-action-ListRolePolicies")                                                                            |                               |                   | List                          |
-| ListRoleTags                                                                                                                | iam                                                                                  | [iam:ListRoleTags](#list_iam-action-ListRoleTags "#list_iam-action-ListRoleTags")                                                                                        |                               |                   | List                          |
-| ListRoles                                                                                                                   | iam                                                                                  | [iam:ListRoles](#list_iam-action-ListRoles "#list_iam-action-ListRoles")                                                                                                 |                               |                   | List                          |
-| ListSAMLProviderTags                                                                                                        | iam                                                                                  | [iam:ListSAMLProviderTags](#list_iam-action-ListSAMLProviderTags "#list_iam-action-ListSAMLProviderTags")                                                                |                               |                   | List                          |
-| ListSAMLProviders                                                                                                           | iam                                                                                  | [iam:ListSAMLProviders](#list_iam-action-ListSAMLProviders "#list_iam-action-ListSAMLProviders")                                                                         |                               |                   | List                          |
-| ListSSHPublicKeys                                                                                                           | iam                                                                                  | [iam:ListSSHPublicKeys](#list_iam-action-ListSSHPublicKeys "#list_iam-action-ListSSHPublicKeys")                                                                         |                               |                   | List                          |
-| ListServerCertificateTags                                                                                                   | iam                                                                                  | [iam:ListServerCertificateTags](#list_iam-action-ListServerCertificateTags "#list_iam-action-ListServerCertificateTags")                                                 |                               |                   | List                          |
-| ListServerCertificates                                                                                                      | iam                                                                                  | [iam:ListServerCertificates](#list_iam-action-ListServerCertificates "#list_iam-action-ListServerCertificates")                                                          |                               |                   | List                          |
-| ListServiceSpecificCredentials                                                                                              | iam                                                                                  | [iam:ListServiceSpecificCredentials](#list_iam-action-ListServiceSpecificCredentials "#list_iam-action-ListServiceSpecificCredentials")                                  |                               |                   | List                          |
-| ListSigningCertificates                                                                                                     | iam                                                                                  | [iam:ListSigningCertificates](#list_iam-action-ListSigningCertificates "#list_iam-action-ListSigningCertificates")                                                       |                               |                   | List                          |
-| ListUserPolicies                                                                                                            | iam                                                                                  | [iam:ListUserPolicies](#list_iam-action-ListUserPolicies "#list_iam-action-ListUserPolicies")                                                                            |                               |                   | List                          |
-| ListUserTags                                                                                                                | iam                                                                                  | [iam:ListUserTags](#list_iam-action-ListUserTags "#list_iam-action-ListUserTags")                                                                                        |                               |                   | List                          |
-| ListUsers                                                                                                                   | iam                                                                                  | [iam:ListUsers](#list_iam-action-ListUsers "#list_iam-action-ListUsers")                                                                                                 |                               |                   | List                          |
-| ListVirtualMFADevices                                                                                                       | iam                                                                                  | [iam:ListVirtualMFADevices](#list_iam-action-ListVirtualMFADevices "#list_iam-action-ListVirtualMFADevices")                                                             |                               |                   | List                          |
-| PutAccountProperties                                                                                                        | iam                                                                                  | [iam:CreateServiceLinkedRole](#list_iam-action-CreateServiceLinkedRole "#list_iam-action-CreateServiceLinkedRole")                                                       |                               |                   | Write                         |
-| [iam:PutAccountProperties](#list_iam-action-PutAccountProperties "#list_iam-action-PutAccountProperties")                   |                                                                                      |                                                                                                                                                                          | Write                         |
-| PutGroupPolicy                                                                                                              | iam                                                                                  | [iam:PutGroupPolicy](#list_iam-action-PutGroupPolicy "#list_iam-action-PutGroupPolicy")                                                                                  |                               |                   | Permissions management, Write |
-| PutRolePermissionsBoundary                                                                                                  | iam                                                                                  | [iam:PutRolePermissionsBoundary](#list_iam-action-PutRolePermissionsBoundary "#list_iam-action-PutRolePermissionsBoundary")                                              |                               |                   | Permissions management, Write |
-| PutRolePolicy                                                                                                               | iam                                                                                  | [iam:PutRolePolicy](#list_iam-action-PutRolePolicy "#list_iam-action-PutRolePolicy")                                                                                     |                               |                   | Permissions management, Write |
-| PutUserPermissionsBoundary                                                                                                  | iam                                                                                  | [iam:PutUserPermissionsBoundary](#list_iam-action-PutUserPermissionsBoundary "#list_iam-action-PutUserPermissionsBoundary")                                              |                               |                   | Permissions management, Write |
-| PutUserPolicy                                                                                                               | iam                                                                                  | [iam:PutUserPolicy](#list_iam-action-PutUserPolicy "#list_iam-action-PutUserPolicy")                                                                                     |                               |                   | Permissions management, Write |
-| RejectDelegationRequest                                                                                                     | iam                                                                                  | [iam:RejectDelegationRequest](#list_iam-action-RejectDelegationRequest "#list_iam-action-RejectDelegationRequest")                                                       |                               |                   | Write                         |
-| RemoveClientIDFromOpenIDConnectProvider                                                                                     | iam                                                                                  | [iam:RemoveClientIDFromOpenIDConnectProvider](#list_iam-action-RemoveClientIDFromOpenIDConnectProvider "#list_iam-action-RemoveClientIDFromOpenIDConnectProvider")       |                               |                   | Write                         |
-| RemoveRoleFromInstanceProfile                                                                                               | iam                                                                                  | [iam:RemoveRoleFromInstanceProfile](#list_iam-action-RemoveRoleFromInstanceProfile "#list_iam-action-RemoveRoleFromInstanceProfile")                                     |                               |                   | Write                         |
-| RemoveUserFromGroup                                                                                                         | iam                                                                                  | [iam:RemoveUserFromGroup](#list_iam-action-RemoveUserFromGroup "#list_iam-action-RemoveUserFromGroup")                                                                   |                               |                   | Write                         |
-| ResetServiceSpecificCredential                                                                                              | iam                                                                                  | [iam:ResetServiceSpecificCredential](#list_iam-action-ResetServiceSpecificCredential "#list_iam-action-ResetServiceSpecificCredential")                                  |                               |                   | Write                         |
-| ResyncMFADevice                                                                                                             | iam                                                                                  | [iam:ResyncMFADevice](#list_iam-action-ResyncMFADevice "#list_iam-action-ResyncMFADevice")                                                                               |                               |                   | Write                         |
-| SendDelegationToken                                                                                                         | iam                                                                                  | [iam:SendDelegationToken](#list_iam-action-SendDelegationToken "#list_iam-action-SendDelegationToken")                                                                   |                               |                   | Write                         |
-| SetDefaultPolicyVersion                                                                                                     | iam                                                                                  | [iam:SetDefaultPolicyVersion](#list_iam-action-SetDefaultPolicyVersion "#list_iam-action-SetDefaultPolicyVersion")                                                       |                               |                   | Permissions management, Write |
-| SetSecurityTokenServicePreferences                                                                                          | iam                                                                                  | [iam:SetSecurityTokenServicePreferences](#list_iam-action-SetSecurityTokenServicePreferences "#list_iam-action-SetSecurityTokenServicePreferences")                      |                               |                   | Write                         |
-| SimulateCustomPolicy                                                                                                        | iam                                                                                  | [iam:SimulateCustomPolicy](#list_iam-action-SimulateCustomPolicy "#list_iam-action-SimulateCustomPolicy")                                                                |                               |                   | Read                          |
-| SimulatePrincipalPolicy                                                                                                     | iam                                                                                  | [iam:SimulatePrincipalPolicy](#list_iam-action-SimulatePrincipalPolicy "#list_iam-action-SimulatePrincipalPolicy")                                                       |                               |                   | Read                          |
-| TagInstanceProfile                                                                                                          | iam                                                                                  | [iam:TagInstanceProfile](#list_iam-action-TagInstanceProfile "#list_iam-action-TagInstanceProfile")                                                                      |                               |                   | Tagging, Write                |
-| TagMFADevice                                                                                                                | iam                                                                                  | [iam:TagMFADevice](#list_iam-action-TagMFADevice "#list_iam-action-TagMFADevice")                                                                                        |                               |                   | Tagging, Write                |
-| TagOpenIDConnectProvider                                                                                                    | iam                                                                                  | [iam:TagOpenIDConnectProvider](#list_iam-action-TagOpenIDConnectProvider "#list_iam-action-TagOpenIDConnectProvider")                                                    |                               |                   | Tagging, Write                |
-| TagPolicy                                                                                                                   | iam                                                                                  | [iam:TagPolicy](#list_iam-action-TagPolicy "#list_iam-action-TagPolicy")                                                                                                 |                               |                   | Tagging, Write                |
-| TagRole                                                                                                                     | iam                                                                                  | [iam:TagRole](#list_iam-action-TagRole "#list_iam-action-TagRole")                                                                                                       |                               |                   | Tagging, Write                |
-| TagSAMLProvider                                                                                                             | iam                                                                                  | [iam:TagSAMLProvider](#list_iam-action-TagSAMLProvider "#list_iam-action-TagSAMLProvider")                                                                               |                               |                   | Tagging, Write                |
-| TagServerCertificate                                                                                                        | iam                                                                                  | [iam:TagServerCertificate](#list_iam-action-TagServerCertificate "#list_iam-action-TagServerCertificate")                                                                |                               |                   | Tagging, Write                |
-| TagUser                                                                                                                     | iam                                                                                  | [iam:TagUser](#list_iam-action-TagUser "#list_iam-action-TagUser")                                                                                                       |                               |                   | Tagging, Write                |
-| UntagInstanceProfile                                                                                                        | iam                                                                                  | [iam:UntagInstanceProfile](#list_iam-action-UntagInstanceProfile "#list_iam-action-UntagInstanceProfile")                                                                |                               |                   | Tagging, Write                |
-| UntagMFADevice                                                                                                              | iam                                                                                  | [iam:UntagMFADevice](#list_iam-action-UntagMFADevice "#list_iam-action-UntagMFADevice")                                                                                  |                               |                   | Tagging, Write                |
-| UntagOpenIDConnectProvider                                                                                                  | iam                                                                                  | [iam:UntagOpenIDConnectProvider](#list_iam-action-UntagOpenIDConnectProvider "#list_iam-action-UntagOpenIDConnectProvider")                                              |                               |                   | Tagging, Write                |
-| UntagPolicy                                                                                                                 | iam                                                                                  | [iam:UntagPolicy](#list_iam-action-UntagPolicy "#list_iam-action-UntagPolicy")                                                                                           |                               |                   | Tagging, Write                |
-| UntagRole                                                                                                                   | iam                                                                                  | [iam:UntagRole](#list_iam-action-UntagRole "#list_iam-action-UntagRole")                                                                                                 |                               |                   | Tagging, Write                |
-| UntagSAMLProvider                                                                                                           | iam                                                                                  | [iam:UntagSAMLProvider](#list_iam-action-UntagSAMLProvider "#list_iam-action-UntagSAMLProvider")                                                                         |                               |                   | Tagging, Write                |
-| UntagServerCertificate                                                                                                      | iam                                                                                  | [iam:UntagServerCertificate](#list_iam-action-UntagServerCertificate "#list_iam-action-UntagServerCertificate")                                                          |                               |                   | Tagging, Write                |
-| UntagUser                                                                                                                   | iam                                                                                  | [iam:UntagUser](#list_iam-action-UntagUser "#list_iam-action-UntagUser")                                                                                                 |                               |                   | Tagging, Write                |
-| UpdateAccessKey                                                                                                             | iam                                                                                  | [iam:UpdateAccessKey](#list_iam-action-UpdateAccessKey "#list_iam-action-UpdateAccessKey")                                                                               |                               |                   | Write                         |
-| UpdateAccountPasswordPolicy                                                                                                 | iam                                                                                  | [iam:UpdateAccountPasswordPolicy](#list_iam-action-UpdateAccountPasswordPolicy "#list_iam-action-UpdateAccountPasswordPolicy")                                           |                               |                   | Write                         |
-| UpdateAssumeRolePolicy                                                                                                      | iam                                                                                  | [iam:UpdateAssumeRolePolicy](#list_iam-action-UpdateAssumeRolePolicy "#list_iam-action-UpdateAssumeRolePolicy")                                                          |                               |                   | Permissions management, Write |
-| UpdateGroup                                                                                                                 | iam                                                                                  | [iam:UpdateGroup](#list_iam-action-UpdateGroup "#list_iam-action-UpdateGroup")                                                                                           |                               |                   | Write                         |
-| UpdateLoginProfile                                                                                                          | iam                                                                                  | [iam:UpdateLoginProfile](#list_iam-action-UpdateLoginProfile "#list_iam-action-UpdateLoginProfile")                                                                      |                               |                   | Write                         |
-| UpdateOpenIDConnectProviderThumbprint                                                                                       | iam                                                                                  | [iam:UpdateOpenIDConnectProviderThumbprint](#list_iam-action-UpdateOpenIDConnectProviderThumbprint "#list_iam-action-UpdateOpenIDConnectProviderThumbprint")             |                               |                   | Write                         |
-| UpdateRole                                                                                                                  | iam                                                                                  | [iam:UpdateRole](#list_iam-action-UpdateRole "#list_iam-action-UpdateRole")                                                                                              |                               |                   | Write                         |
-| UpdateRoleDescription                                                                                                       | iam                                                                                  | [iam:UpdateRoleDescription](#list_iam-action-UpdateRoleDescription "#list_iam-action-UpdateRoleDescription")                                                             |                               |                   | Write                         |
-| UpdateSAMLProvider                                                                                                          | iam                                                                                  | [iam:UpdateSAMLProvider](#list_iam-action-UpdateSAMLProvider "#list_iam-action-UpdateSAMLProvider")                                                                      |                               |                   | Write                         |
-| UpdateSSHPublicKey                                                                                                          | iam                                                                                  | [iam:UpdateSSHPublicKey](#list_iam-action-UpdateSSHPublicKey "#list_iam-action-UpdateSSHPublicKey")                                                                      |                               |                   | Write                         |
-| UpdateServerCertificate                                                                                                     | iam                                                                                  | [iam:UpdateServerCertificate](#list_iam-action-UpdateServerCertificate "#list_iam-action-UpdateServerCertificate")                                                       |                               |                   | Write                         |
-| UpdateServiceSpecificCredential                                                                                             | iam                                                                                  | [iam:UpdateServiceSpecificCredential](#list_iam-action-UpdateServiceSpecificCredential "#list_iam-action-UpdateServiceSpecificCredential")                               |                               |                   | Write                         |
-| UpdateSigningCertificate                                                                                                    | iam                                                                                  | [iam:UpdateSigningCertificate](#list_iam-action-UpdateSigningCertificate "#list_iam-action-UpdateSigningCertificate")                                                    |                               |                   | Write                         |
-| UpdateUser                                                                                                                  | iam                                                                                  | [iam:UpdateUser](#list_iam-action-UpdateUser "#list_iam-action-UpdateUser")                                                                                              |                               |                   | Write                         |
-| UploadSSHPublicKey                                                                                                          | iam                                                                                  | [iam:UploadSSHPublicKey](#list_iam-action-UploadSSHPublicKey "#list_iam-action-UploadSSHPublicKey")                                                                      |                               |                   | Write                         |
-| UploadServerCertificate                                                                                                     | iam                                                                                  | [iam:TagServerCertificate](#list_iam-action-TagServerCertificate "#list_iam-action-TagServerCertificate")                                                                |                               |                   | Tagging, Write                |
-| [iam:UploadServerCertificate](#list_iam-action-UploadServerCertificate "#list_iam-action-UploadServerCertificate")          |                                                                                      |                                                                                                                                                                          | Write                         |
-| UploadSigningCertificate                                                                                                    | iam                                                                                  | [iam:UploadSigningCertificate](#list_iam-action-UploadSigningCertificate "#list_iam-action-UploadSigningCertificate")                                                    |                               |                   | Write                         |
+
+
+
+- **   AcceptDelegationRequest  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:AcceptDelegationRequest](#list_iam-action-AcceptDelegationRequest) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AcquireRole  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:AttachRolePolicy](#list_iam-action-AttachRolePolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+  - **IAM action:**  [iam:CreateRole](#list_iam-action-CreateRole)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:GetRole](#list_iam-action-GetRole)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [iam:GetRoleTemplateVersion](#list_iam-action-GetRoleTemplateVersion)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [iam:PutRolePermissionsBoundary](#list_iam-action-PutRolePermissionsBoundary)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+  - **IAM action:**  [iam:PutRolePolicy](#list_iam-action-PutRolePolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+  - **IAM action:**  [iam:TagRole](#list_iam-action-TagRole)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   AddClientIDToOpenIDConnectProvider  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:AddClientIDToOpenIDConnectProvider](#list_iam-action-AddClientIDToOpenIDConnectProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AddRoleToInstanceProfile  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:AddRoleToInstanceProfile](#list_iam-action-AddRoleToInstanceProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](#list_iam-action-PassRole)  / **Condition key:** [iam:PassedToService](#list_iam-iam_PassedToService) / **Possible value(s):** ec2.amazonaws.com / **Access level:** Write
+
+- **   AddUserToGroup  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:AddUserToGroup](#list_iam-action-AddUserToGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateDelegationRequest  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:AssociateDelegationRequest](#list_iam-action-AssociateDelegationRequest) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AttachGroupPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:AttachGroupPolicy](#list_iam-action-AttachGroupPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   AttachRolePolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:AttachRolePolicy](#list_iam-action-AttachRolePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   AttachUserPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:AttachUserPolicy](#list_iam-action-AttachUserPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   ChangePassword  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ChangePassword](#list_iam-action-ChangePassword) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAccessKey  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:CreateAccessKey](#list_iam-action-CreateAccessKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAccountAlias  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:CreateAccountAlias](#list_iam-action-CreateAccountAlias) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateDelegationRequest  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:CreateDelegationRequest](#list_iam-action-CreateDelegationRequest) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateGroup  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:CreateGroup](#list_iam-action-CreateGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateInstanceProfile  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:CreateInstanceProfile](#list_iam-action-CreateInstanceProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:TagInstanceProfile](#list_iam-action-TagInstanceProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateLoginProfile  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:CreateLoginProfile](#list_iam-action-CreateLoginProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateOpenIDConnectProvider  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:CreateOpenIDConnectProvider](#list_iam-action-CreateOpenIDConnectProvider)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:TagOpenIDConnectProvider](#list_iam-action-TagOpenIDConnectProvider)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreatePolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:CreatePolicy](#list_iam-action-CreatePolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+  - **IAM action:**  [iam:TagPolicy](#list_iam-action-TagPolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreatePolicyVersion  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:CreatePolicyVersion](#list_iam-action-CreatePolicyVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   CreateRole  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:CreateRole](#list_iam-action-CreateRole)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:TagRole](#list_iam-action-TagRole)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateSAMLProvider  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:CreateSAMLProvider](#list_iam-action-CreateSAMLProvider)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:TagSAMLProvider](#list_iam-action-TagSAMLProvider)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateServiceLinkedRole  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:CreateServiceLinkedRole](#list_iam-action-CreateServiceLinkedRole)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PutRolePolicy](#list_iam-action-PutRolePolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+
+- **   CreateServiceSpecificCredential  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:CreateServiceSpecificCredential](#list_iam-action-CreateServiceSpecificCredential) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateUser  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:CreateUser](#list_iam-action-CreateUser)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:TagUser](#list_iam-action-TagUser)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateVirtualMFADevice  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:CreateVirtualMFADevice](#list_iam-action-CreateVirtualMFADevice)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:TagMFADevice](#list_iam-action-TagMFADevice)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeactivateMFADevice  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeactivateMFADevice](#list_iam-action-DeactivateMFADevice) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAccessKey  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteAccessKey](#list_iam-action-DeleteAccessKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAccountAlias  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteAccountAlias](#list_iam-action-DeleteAccountAlias) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAccountPasswordPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteAccountPasswordPolicy](#list_iam-action-DeleteAccountPasswordPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   DeleteGroup  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteGroup](#list_iam-action-DeleteGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteGroupPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteGroupPolicy](#list_iam-action-DeleteGroupPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   DeleteInstanceProfile  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteInstanceProfile](#list_iam-action-DeleteInstanceProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteLoginProfile  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteLoginProfile](#list_iam-action-DeleteLoginProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteOpenIDConnectProvider  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteOpenIDConnectProvider](#list_iam-action-DeleteOpenIDConnectProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeletePolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeletePolicy](#list_iam-action-DeletePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   DeletePolicyVersion  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeletePolicyVersion](#list_iam-action-DeletePolicyVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   DeleteRole  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteRole](#list_iam-action-DeleteRole) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRolePermissionsBoundary  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteRolePermissionsBoundary](#list_iam-action-DeleteRolePermissionsBoundary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   DeleteRolePolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteRolePolicy](#list_iam-action-DeleteRolePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   DeleteSAMLProvider  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteSAMLProvider](#list_iam-action-DeleteSAMLProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSSHPublicKey  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteSSHPublicKey](#list_iam-action-DeleteSSHPublicKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteServerCertificate  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteServerCertificate](#list_iam-action-DeleteServerCertificate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteServiceLinkedRole  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteServiceLinkedRole](#list_iam-action-DeleteServiceLinkedRole) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteServiceSpecificCredential  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteServiceSpecificCredential](#list_iam-action-DeleteServiceSpecificCredential) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSigningCertificate  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteSigningCertificate](#list_iam-action-DeleteSigningCertificate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteUser  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteUser](#list_iam-action-DeleteUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteUserPermissionsBoundary  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteUserPermissionsBoundary](#list_iam-action-DeleteUserPermissionsBoundary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   DeleteUserPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteUserPolicy](#list_iam-action-DeleteUserPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   DeleteVirtualMFADevice  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DeleteVirtualMFADevice](#list_iam-action-DeleteVirtualMFADevice) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DetachGroupPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DetachGroupPolicy](#list_iam-action-DetachGroupPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   DetachRolePolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DetachRolePolicy](#list_iam-action-DetachRolePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   DetachUserPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DetachUserPolicy](#list_iam-action-DetachUserPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   DisableOutboundWebIdentityFederation  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:DisableOutboundWebIdentityFederation](#list_iam-action-DisableOutboundWebIdentityFederation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   EnableMFADevice  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:EnableMFADevice](#list_iam-action-EnableMFADevice) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   EnableOutboundWebIdentityFederation  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:EnableOutboundWebIdentityFederation](#list_iam-action-EnableOutboundWebIdentityFederation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GenerateCredentialReport  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GenerateCredentialReport](#list_iam-action-GenerateCredentialReport) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GenerateOrganizationsAccessReport  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GenerateOrganizationsAccessReport](#list_iam-action-GenerateOrganizationsAccessReport) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GenerateServiceLastAccessedDetails  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GenerateServiceLastAccessedDetails](#list_iam-action-GenerateServiceLastAccessedDetails) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAccessKeyLastUsed  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetAccessKeyLastUsed](#list_iam-action-GetAccessKeyLastUsed) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAccountAuthorizationDetails  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetAccountAuthorizationDetails](#list_iam-action-GetAccountAuthorizationDetails) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAccountPasswordPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetAccountPasswordPolicy](#list_iam-action-GetAccountPasswordPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAccountProperties  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetAccountProperties](#list_iam-action-GetAccountProperties) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAccountSummary  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetAccountSummary](#list_iam-action-GetAccountSummary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetContextKeysForCustomPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetContextKeysForCustomPolicy](#list_iam-action-GetContextKeysForCustomPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetContextKeysForPrincipalPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetContextKeysForPrincipalPolicy](#list_iam-action-GetContextKeysForPrincipalPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCredentialReport  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetCredentialReport](#list_iam-action-GetCredentialReport) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDelegationRequest  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetDelegationRequest](#list_iam-action-GetDelegationRequest) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetGroup  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetGroup](#list_iam-action-GetGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetGroupPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetGroupPolicy](#list_iam-action-GetGroupPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetHumanReadableSummary  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetHumanReadableSummary](#list_iam-action-GetHumanReadableSummary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetInstanceProfile  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetInstanceProfile](#list_iam-action-GetInstanceProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetLoginProfile  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetLoginProfile](#list_iam-action-GetLoginProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetMFADevice  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetMFADevice](#list_iam-action-GetMFADevice) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetOpenIDConnectProvider  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetOpenIDConnectProvider](#list_iam-action-GetOpenIDConnectProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetOrganizationsAccessReport  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetOrganizationsAccessReport](#list_iam-action-GetOrganizationsAccessReport) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetOutboundWebIdentityFederationInfo  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetOutboundWebIdentityFederationInfo](#list_iam-action-GetOutboundWebIdentityFederationInfo) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetPolicy](#list_iam-action-GetPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPolicyVersion  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetPolicyVersion](#list_iam-action-GetPolicyVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRole  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetRole](#list_iam-action-GetRole) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRolePolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetRolePolicy](#list_iam-action-GetRolePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRoleTemplateVersion  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetRoleTemplateVersion](#list_iam-action-GetRoleTemplateVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSAMLProvider  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetSAMLProvider](#list_iam-action-GetSAMLProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSSHPublicKey  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetSSHPublicKey](#list_iam-action-GetSSHPublicKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetServerCertificate  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetServerCertificate](#list_iam-action-GetServerCertificate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetServiceLastAccessedDetails  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetServiceLastAccessedDetails](#list_iam-action-GetServiceLastAccessedDetails) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetServiceLastAccessedDetailsWithEntities  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetServiceLastAccessedDetailsWithEntities](#list_iam-action-GetServiceLastAccessedDetailsWithEntities) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetServiceLinkedRoleDeletionStatus  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetServiceLinkedRoleDeletionStatus](#list_iam-action-GetServiceLinkedRoleDeletionStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetUser  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetUser](#list_iam-action-GetUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetUserPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:GetUserPolicy](#list_iam-action-GetUserPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAccessKeys  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListAccessKeys](#list_iam-action-ListAccessKeys) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAccountAliases  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListAccountAliases](#list_iam-action-ListAccountAliases) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAttachedGroupPolicies  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListAttachedGroupPolicies](#list_iam-action-ListAttachedGroupPolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAttachedRolePolicies  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListAttachedRolePolicies](#list_iam-action-ListAttachedRolePolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAttachedUserPolicies  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListAttachedUserPolicies](#list_iam-action-ListAttachedUserPolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDelegationRequests  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListDelegationRequests](#list_iam-action-ListDelegationRequests) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEntitiesForPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListEntitiesForPolicy](#list_iam-action-ListEntitiesForPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListGroupPolicies  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListGroupPolicies](#list_iam-action-ListGroupPolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListGroups  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListGroups](#list_iam-action-ListGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListGroupsForUser  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListGroupsForUser](#list_iam-action-ListGroupsForUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListInstanceProfileTags  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListInstanceProfileTags](#list_iam-action-ListInstanceProfileTags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListInstanceProfiles  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListInstanceProfiles](#list_iam-action-ListInstanceProfiles) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListInstanceProfilesForRole  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListInstanceProfilesForRole](#list_iam-action-ListInstanceProfilesForRole) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMFADeviceTags  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListMFADeviceTags](#list_iam-action-ListMFADeviceTags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMFADevices  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListMFADevices](#list_iam-action-ListMFADevices) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListOpenIDConnectProviderTags  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListOpenIDConnectProviderTags](#list_iam-action-ListOpenIDConnectProviderTags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListOpenIDConnectProviders  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListOpenIDConnectProviders](#list_iam-action-ListOpenIDConnectProviders) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPolicies  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListPolicies](#list_iam-action-ListPolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPoliciesGrantingServiceAccess  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListPoliciesGrantingServiceAccess](#list_iam-action-ListPoliciesGrantingServiceAccess) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPolicyTags  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListPolicyTags](#list_iam-action-ListPolicyTags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPolicyVersions  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListPolicyVersions](#list_iam-action-ListPolicyVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRolePolicies  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListRolePolicies](#list_iam-action-ListRolePolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRoleTags  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListRoleTags](#list_iam-action-ListRoleTags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRoles  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListRoles](#list_iam-action-ListRoles) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSAMLProviderTags  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListSAMLProviderTags](#list_iam-action-ListSAMLProviderTags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSAMLProviders  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListSAMLProviders](#list_iam-action-ListSAMLProviders) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSSHPublicKeys  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListSSHPublicKeys](#list_iam-action-ListSSHPublicKeys) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListServerCertificateTags  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListServerCertificateTags](#list_iam-action-ListServerCertificateTags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListServerCertificates  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListServerCertificates](#list_iam-action-ListServerCertificates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListServiceSpecificCredentials  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListServiceSpecificCredentials](#list_iam-action-ListServiceSpecificCredentials) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSigningCertificates  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListSigningCertificates](#list_iam-action-ListSigningCertificates) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListUserPolicies  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListUserPolicies](#list_iam-action-ListUserPolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListUserTags  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListUserTags](#list_iam-action-ListUserTags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListUsers  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListUsers](#list_iam-action-ListUsers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListVirtualMFADevices  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ListVirtualMFADevices](#list_iam-action-ListVirtualMFADevices) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PutAccountProperties  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:CreateServiceLinkedRole](#list_iam-action-CreateServiceLinkedRole)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PutAccountProperties](#list_iam-action-PutAccountProperties)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   PutGroupPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:PutGroupPolicy](#list_iam-action-PutGroupPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   PutRolePermissionsBoundary  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:PutRolePermissionsBoundary](#list_iam-action-PutRolePermissionsBoundary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   PutRolePolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:PutRolePolicy](#list_iam-action-PutRolePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   PutUserPermissionsBoundary  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:PutUserPermissionsBoundary](#list_iam-action-PutUserPermissionsBoundary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   PutUserPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:PutUserPolicy](#list_iam-action-PutUserPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   RejectDelegationRequest  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:RejectDelegationRequest](#list_iam-action-RejectDelegationRequest) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RemoveClientIDFromOpenIDConnectProvider  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:RemoveClientIDFromOpenIDConnectProvider](#list_iam-action-RemoveClientIDFromOpenIDConnectProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RemoveRoleFromInstanceProfile  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:RemoveRoleFromInstanceProfile](#list_iam-action-RemoveRoleFromInstanceProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RemoveUserFromGroup  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:RemoveUserFromGroup](#list_iam-action-RemoveUserFromGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ResetServiceSpecificCredential  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ResetServiceSpecificCredential](#list_iam-action-ResetServiceSpecificCredential) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ResyncMFADevice  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:ResyncMFADevice](#list_iam-action-ResyncMFADevice) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SendDelegationToken  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:SendDelegationToken](#list_iam-action-SendDelegationToken) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SetDefaultPolicyVersion  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:SetDefaultPolicyVersion](#list_iam-action-SetDefaultPolicyVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   SetSecurityTokenServicePreferences  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:SetSecurityTokenServicePreferences](#list_iam-action-SetSecurityTokenServicePreferences) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SimulateCustomPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:SimulateCustomPolicy](#list_iam-action-SimulateCustomPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   SimulatePrincipalPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:SimulatePrincipalPolicy](#list_iam-action-SimulatePrincipalPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   TagInstanceProfile  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:TagInstanceProfile](#list_iam-action-TagInstanceProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   TagMFADevice  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:TagMFADevice](#list_iam-action-TagMFADevice) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   TagOpenIDConnectProvider  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:TagOpenIDConnectProvider](#list_iam-action-TagOpenIDConnectProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   TagPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:TagPolicy](#list_iam-action-TagPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   TagRole  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:TagRole](#list_iam-action-TagRole) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   TagSAMLProvider  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:TagSAMLProvider](#list_iam-action-TagSAMLProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   TagServerCertificate  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:TagServerCertificate](#list_iam-action-TagServerCertificate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   TagUser  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:TagUser](#list_iam-action-TagUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagInstanceProfile  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UntagInstanceProfile](#list_iam-action-UntagInstanceProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagMFADevice  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UntagMFADevice](#list_iam-action-UntagMFADevice) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagOpenIDConnectProvider  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UntagOpenIDConnectProvider](#list_iam-action-UntagOpenIDConnectProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UntagPolicy](#list_iam-action-UntagPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagRole  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UntagRole](#list_iam-action-UntagRole) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagSAMLProvider  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UntagSAMLProvider](#list_iam-action-UntagSAMLProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagServerCertificate  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UntagServerCertificate](#list_iam-action-UntagServerCertificate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagUser  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UntagUser](#list_iam-action-UntagUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAccessKey  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UpdateAccessKey](#list_iam-action-UpdateAccessKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAccountPasswordPolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UpdateAccountPasswordPolicy](#list_iam-action-UpdateAccountPasswordPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAssumeRolePolicy  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UpdateAssumeRolePolicy](#list_iam-action-UpdateAssumeRolePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
+- **   UpdateGroup  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UpdateGroup](#list_iam-action-UpdateGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateLoginProfile  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UpdateLoginProfile](#list_iam-action-UpdateLoginProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateOpenIDConnectProviderThumbprint  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UpdateOpenIDConnectProviderThumbprint](#list_iam-action-UpdateOpenIDConnectProviderThumbprint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRole  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UpdateRole](#list_iam-action-UpdateRole) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRoleDescription  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UpdateRoleDescription](#list_iam-action-UpdateRoleDescription) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSAMLProvider  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UpdateSAMLProvider](#list_iam-action-UpdateSAMLProvider) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSSHPublicKey  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UpdateSSHPublicKey](#list_iam-action-UpdateSSHPublicKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateServerCertificate  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UpdateServerCertificate](#list_iam-action-UpdateServerCertificate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateServiceSpecificCredential  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UpdateServiceSpecificCredential](#list_iam-action-UpdateServiceSpecificCredential) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSigningCertificate  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UpdateSigningCertificate](#list_iam-action-UpdateSigningCertificate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateUser  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UpdateUser](#list_iam-action-UpdateUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UploadSSHPublicKey  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UploadSSHPublicKey](#list_iam-action-UploadSSHPublicKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UploadServerCertificate  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:TagServerCertificate](#list_iam-action-TagServerCertificate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:UploadServerCertificate](#list_iam-action-UploadServerCertificate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   UploadSigningCertificate  **
+  - **SDK client:** iam
+  - **IAM action:**  [iam:UploadSigningCertificate](#list_iam-action-UploadSigningCertificate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS Identity and Access Management (IAM)
+<a name="list_iam-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                        | Description                                                                                                                                                                                                      | Resource types (\*required)                                                                           | Condition keys                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Access level                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| [AcceptDelegationRequest](../../../IAM/latest/APIReference/API_AcceptDelegationRequest.md "../../../IAM/latest/APIReference/API_AcceptDelegationRequest.md")                                                                   | Accepts a delegation request resource, granting the requested temporary access                                                                                                                                   | [delegation-request\*](#list_iam-resource-delegation-request "#list_iam-resource-delegation-request") | [iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner "#list_iam-iam_DelegationRequestOwner")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Write                         |
-| [AddClientIDToOpenIDConnectProvider](../../../IAM/latest/APIReference/API_AddClientIDToOpenIDConnectProvider.md "../../../IAM/latest/APIReference/API_AddClientIDToOpenIDConnectProvider.md")                                  | Grants permission to add a new client ID (audience) to the list of registered IDs for the specified IAM OpenID Connect (OIDC) provider resource                                                                  | [oidc-provider\*](#list_iam-resource-oidc-provider "#list_iam-resource-oidc-provider")                | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Write                         |
-| [AddRoleToInstanceProfile](../../../IAM/latest/APIReference/API_AddRoleToInstanceProfile.md "../../../IAM/latest/APIReference/API_AddRoleToInstanceProfile.md")                                                                | Grants permission to add an IAM role to the specified instance profile                                                                                                                                           | [instance-profile\*](#list_iam-resource-instance-profile "#list_iam-resource-instance-profile")       | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Write                         |
-| [AddUserToGroup](../../../IAM/latest/APIReference/API_AddUserToGroup.md "../../../IAM/latest/APIReference/API_AddUserToGroup.md")                                                                                              | Grants permission to add an IAM user to the specified IAM group                                                                                                                                                  | [group\*](#list_iam-resource-group "#list_iam-resource-group")                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [AssociateDelegationRequest](../../../IAM/latest/APIReference/API_AssociateDelegationRequest.md "../../../IAM/latest/APIReference/API_AssociateDelegationRequest.md")                                                          | Associates a delegation request resource with the calling identity                                                                                                                                               | [delegation-request\*](#list_iam-resource-delegation-request "#list_iam-resource-delegation-request") | [iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner "#list_iam-iam_DelegationRequestOwner")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Write                         |
-| [AttachGroupPolicy](../../../IAM/latest/APIReference/API_AttachGroupPolicy.md "../../../IAM/latest/APIReference/API_AttachGroupPolicy.md")                                                                                     | Grants permission to attach a managed policy to the specified IAM group                                                                                                                                          | [group\*](#list_iam-resource-group "#list_iam-resource-group")                                        | [iam:PolicyARN](#list_iam-iam_PolicyARN "#list_iam-iam_PolicyARN")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Permissions management, Write |
-| [AttachRolePolicy](../../../IAM/latest/APIReference/API_AttachRolePolicy.md "../../../IAM/latest/APIReference/API_AttachRolePolicy.md")                                                                                        | Grants permission to attach a managed policy to the specified IAM role                                                                                                                                           | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:PolicyARN](#list_iam-iam_PolicyARN "#list_iam-iam_PolicyARN")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")<br>[iam:RoleTemplateARN](#list_iam-iam_RoleTemplateARN "#list_iam-iam_RoleTemplateARN")                                                                                                                                                                                                        | Permissions management, Write |
-| [AttachUserPolicy](../../../IAM/latest/APIReference/API_AttachUserPolicy.md "../../../IAM/latest/APIReference/API_AttachUserPolicy.md")                                                                                        | Grants permission to attach a managed policy to the specified IAM user                                                                                                                                           | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:PolicyARN](#list_iam-iam_PolicyARN "#list_iam-iam_PolicyARN")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                | Permissions management, Write |
-| [ChangePassword](../../../IAM/latest/APIReference/API_ChangePassword.md "../../../IAM/latest/APIReference/API_ChangePassword.md")                                                                                              | Grants permission to an IAM user to change their own password                                                                                                                                                    | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [CreateAccessKey](../../../IAM/latest/APIReference/API_CreateAccessKey.md "../../../IAM/latest/APIReference/API_CreateAccessKey.md")                                                                                           | Grants permission to create access key and secret access key for the specified IAM user                                                                                                                          | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [CreateAccountAlias](../../../IAM/latest/APIReference/API_CreateAccountAlias.md "../../../IAM/latest/APIReference/API_CreateAccountAlias.md")                                                                                  | Grants permission to create an alias for your AWS account                                                                                                                                                        |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [CreateDelegationRequest](../../../IAM/latest/APIReference/API_CreateDelegationRequest.md "../../../IAM/latest/APIReference/API_CreateDelegationRequest.md")                                                                   | Creates an IAM delegation request resource for temporary access delegation                                                                                                                                       | [delegation-request\*](#list_iam-resource-delegation-request "#list_iam-resource-delegation-request") | [iam:DelegationDuration](#list_iam-iam_DelegationDuration "#list_iam-iam_DelegationDuration")<br>[iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner "#list_iam-iam_DelegationRequestOwner")<br>[iam:NotificationChannel](#list_iam-iam_NotificationChannel "#list_iam-iam_NotificationChannel")<br>[iam:TemplateArn](#list_iam-iam_TemplateArn "#list_iam-iam_TemplateArn")                                                                                                                                                                                                                                                                                                | Write                         |
-| [CreateGroup](../../../IAM/latest/APIReference/API_CreateGroup.md "../../../IAM/latest/APIReference/API_CreateGroup.md")                                                                                                       | Grants permission to create a new group                                                                                                                                                                          | [group\*](#list_iam-resource-group "#list_iam-resource-group")                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [CreateInstanceProfile](../../../IAM/latest/APIReference/API_CreateInstanceProfile.md "../../../IAM/latest/APIReference/API_CreateInstanceProfile.md")                                                                         | Grants permission to create a new instance profile                                                                                                                                                               | [instance-profile\*](#list_iam-resource-instance-profile "#list_iam-resource-instance-profile")       | [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_ "#list_iam-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                             | Write                         |
-| [CreateLoginProfile](../../../IAM/latest/APIReference/API_CreateLoginProfile.md "../../../IAM/latest/APIReference/API_CreateLoginProfile.md")                                                                                  | Grants permission to create a password for the specified IAM user                                                                                                                                                | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [CreateOpenIDConnectProvider](../../../IAM/latest/APIReference/API_CreateOpenIDConnectProvider.md "../../../IAM/latest/APIReference/API_CreateOpenIDConnectProvider.md")                                                       | Grants permission to create an IAM resource that describes an identity provider (IdP) that supports OpenID Connect (OIDC)                                                                                        | [oidc-provider\*](#list_iam-resource-oidc-provider "#list_iam-resource-oidc-provider")                | [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_ "#list_iam-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                             | Write                         |
-| [CreatePolicy](../../../IAM/latest/APIReference/API_CreatePolicy.md "../../../IAM/latest/APIReference/API_CreatePolicy.md")                                                                                                    | Grants permission to create a new managed policy                                                                                                                                                                 | [policy\*](#list_iam-resource-policy "#list_iam-resource-policy")                                     | [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_ "#list_iam-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                             | Permissions management, Write |
-| [CreatePolicyVersion](../../../IAM/latest/APIReference/API_CreatePolicyVersion.md "../../../IAM/latest/APIReference/API_CreatePolicyVersion.md")                                                                               | Grants permission to create a new version of the specified managed policy                                                                                                                                        | [policy\*](#list_iam-resource-policy "#list_iam-resource-policy")                                     | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Permissions management, Write |
-| [CreateRole](../../../IAM/latest/APIReference/API_CreateRole.md "../../../IAM/latest/APIReference/API_CreateRole.md")                                                                                                          | Grants permission to create a new role                                                                                                                                                                           | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_ "#list_iam-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")<br>[iam:RoleTemplateARN](#list_iam-iam_RoleTemplateARN "#list_iam-iam_RoleTemplateARN")                                                                                                       | Write                         |
-| [CreateSAMLProvider](../../../IAM/latest/APIReference/API_CreateSAMLProvider.md "../../../IAM/latest/APIReference/API_CreateSAMLProvider.md")                                                                                  | Grants permission to create an IAM resource that describes an identity provider (IdP) that supports SAML 2.0                                                                                                     | [saml-provider\*](#list_iam-resource-saml-provider "#list_iam-resource-saml-provider")                | [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_ "#list_iam-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                             | Write                         |
-| [CreateServiceLinkedRole](../../../IAM/latest/APIReference/API_CreateServiceLinkedRole.md "../../../IAM/latest/APIReference/API_CreateServiceLinkedRole.md")                                                                   | Grants permission to create an IAM role that allows an AWS service to perform actions on your behalf                                                                                                             | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:AWSServiceName](#list_iam-iam_AWSServiceName "#list_iam-iam_AWSServiceName")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                     | Write                         |
-| [CreateServiceSpecificCredential](../../../IAM/latest/APIReference/API_CreateServiceSpecificCredential.md "../../../IAM/latest/APIReference/API_CreateServiceSpecificCredential.md")                                           | Grants permission to create a new service-specific credential for an IAM user                                                                                                                                    | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")<br>[iam:ServiceSpecificCredentialAgeDays](#list_iam-iam_ServiceSpecificCredentialAgeDays "#list_iam-iam_ServiceSpecificCredentialAgeDays")<br>[iam:ServiceSpecificCredentialServiceName](#list_iam-iam_ServiceSpecificCredentialServiceName "#list_iam-iam_ServiceSpecificCredentialServiceName")                                                                                                                                                                        | Write                         |
-| [CreateUser](../../../IAM/latest/APIReference/API_CreateUser.md "../../../IAM/latest/APIReference/API_CreateUser.md")                                                                                                          | Grants permission to create a new IAM user                                                                                                                                                                       | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_ "#list_iam-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                               | Write                         |
-| [CreateVirtualMFADevice](../../../IAM/latest/APIReference/API_CreateVirtualMFADevice.md "../../../IAM/latest/APIReference/API_CreateVirtualMFADevice.md")                                                                      | Grants permission to create a new virtual MFA device                                                                                                                                                             | [mfa\*](#list_iam-resource-mfa "#list_iam-resource-mfa")                                              | [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_ "#list_iam-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                             | Write                         |
-| [DeactivateMFADevice](../../../IAM/latest/APIReference/API_DeactivateMFADevice.md "../../../IAM/latest/APIReference/API_DeactivateMFADevice.md")                                                                               | Grants permission to deactivate the specified MFA device and remove its association with the IAM user for which it was originally enabled                                                                        | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [DeleteAccessKey](../../../IAM/latest/APIReference/API_DeleteAccessKey.md "../../../IAM/latest/APIReference/API_DeleteAccessKey.md")                                                                                           | Grants permission to delete the access key pair that is associated with the specified IAM user                                                                                                                   | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [DeleteAccountAlias](../../../IAM/latest/APIReference/API_DeleteAccountAlias.md "../../../IAM/latest/APIReference/API_DeleteAccountAlias.md")                                                                                  | Grants permission to delete the specified AWS account alias                                                                                                                                                      |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [DeleteAccountPasswordPolicy](../../../IAM/latest/APIReference/API_DeleteAccountPasswordPolicy.md "../../../IAM/latest/APIReference/API_DeleteAccountPasswordPolicy.md")                                                       | Grants permission to delete the password policy for the AWS account                                                                                                                                              |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Permissions management, Write |
-| [DeleteCloudFrontPublicKey](../../../AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.md "../../../AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.md")                           | Grants permission to delete an existing CloudFront public key                                                                                                                                                    |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [DeleteGroup](../../../IAM/latest/APIReference/API_DeleteGroup.md "../../../IAM/latest/APIReference/API_DeleteGroup.md")                                                                                                       | Grants permission to delete the specified IAM group                                                                                                                                                              | [group\*](#list_iam-resource-group "#list_iam-resource-group")                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [DeleteGroupPolicy](../../../IAM/latest/APIReference/API_DeleteGroupPolicy.md "../../../IAM/latest/APIReference/API_DeleteGroupPolicy.md")                                                                                     | Grants permission to delete the specified inline policy from its group                                                                                                                                           | [group\*](#list_iam-resource-group "#list_iam-resource-group")                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Permissions management, Write |
-| [DeleteInstanceProfile](../../../IAM/latest/APIReference/API_DeleteInstanceProfile.md "../../../IAM/latest/APIReference/API_DeleteInstanceProfile.md")                                                                         | Grants permission to delete the specified instance profile                                                                                                                                                       | [instance-profile\*](#list_iam-resource-instance-profile "#list_iam-resource-instance-profile")       | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Write                         |
-| [DeleteLoginProfile](../../../IAM/latest/APIReference/API_DeleteLoginProfile.md "../../../IAM/latest/APIReference/API_DeleteLoginProfile.md")                                                                                  | Grants permission to delete the password for the specified IAM user                                                                                                                                              | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [DeleteOpenIDConnectProvider](../../../IAM/latest/APIReference/API_DeleteOpenIDConnectProvider.md "../../../IAM/latest/APIReference/API_DeleteOpenIDConnectProvider.md")                                                       | Grants permission to delete an OpenID Connect identity provider (IdP) resource object in IAM                                                                                                                     | [oidc-provider\*](#list_iam-resource-oidc-provider "#list_iam-resource-oidc-provider")                | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Write                         |
-| [DeletePolicy](../../../IAM/latest/APIReference/API_DeletePolicy.md "../../../IAM/latest/APIReference/API_DeletePolicy.md")                                                                                                    | Grants permission to delete the specified managed policy and remove it from any IAM entities (users, groups, or roles) to which it is attached                                                                   | [policy\*](#list_iam-resource-policy "#list_iam-resource-policy")                                     | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Permissions management, Write |
-| [DeletePolicyVersion](../../../IAM/latest/APIReference/API_DeletePolicyVersion.md "../../../IAM/latest/APIReference/API_DeletePolicyVersion.md")                                                                               | Grants permission to delete a version from the specified managed policy                                                                                                                                          | [policy\*](#list_iam-resource-policy "#list_iam-resource-policy")                                     | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Permissions management, Write |
-| [DeleteRole](../../../IAM/latest/APIReference/API_DeleteRole.md "../../../IAM/latest/APIReference/API_DeleteRole.md")                                                                                                          | Grants permission to delete the specified role                                                                                                                                                                   | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [DeleteRolePermissionsBoundary](../../../IAM/latest/APIReference/API_DeleteRolePermissionsBoundary.md "../../../IAM/latest/APIReference/API_DeleteRolePermissionsBoundary.md")                                                 | Grants permission to remove the permissions boundary from a role                                                                                                                                                 | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                      | Permissions management, Write |
-| [DeleteRolePolicy](../../../IAM/latest/APIReference/API_DeleteRolePolicy.md "../../../IAM/latest/APIReference/API_DeleteRolePolicy.md")                                                                                        | Grants permission to delete the specified inline policy from the specified role                                                                                                                                  | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                      | Permissions management, Write |
-| [DeleteSAMLProvider](../../../IAM/latest/APIReference/API_DeleteSAMLProvider.md "../../../IAM/latest/APIReference/API_DeleteSAMLProvider.md")                                                                                  | Grants permission to delete a SAML provider resource in IAM                                                                                                                                                      | [saml-provider\*](#list_iam-resource-saml-provider "#list_iam-resource-saml-provider")                | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Write                         |
-| [DeleteSSHPublicKey](../../../IAM/latest/APIReference/API_DeleteSSHPublicKey.md "../../../IAM/latest/APIReference/API_DeleteSSHPublicKey.md")                                                                                  | Grants permission to delete the specified SSH public key                                                                                                                                                         | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [DeleteServerCertificate](../../../IAM/latest/APIReference/API_DeleteServerCertificate.md "../../../IAM/latest/APIReference/API_DeleteServerCertificate.md")                                                                   | Grants permission to delete the specified server certificate                                                                                                                                                     | [server-certificate\*](#list_iam-resource-server-certificate "#list_iam-resource-server-certificate") | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Write                         |
-| [DeleteServiceLinkedRole](../../../IAM/latest/APIReference/API_DeleteServiceLinkedRole.md "../../../IAM/latest/APIReference/API_DeleteServiceLinkedRole.md")                                                                   | Grants permission to delete an IAM role that is linked to a specific AWS service, if the service is no longer using it                                                                                           | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [DeleteServiceSpecificCredential](../../../IAM/latest/APIReference/API_DeleteServiceSpecificCredential.md "../../../IAM/latest/APIReference/API_DeleteServiceSpecificCredential.md")                                           | Grants permission to delete the specified service-specific credential for an IAM user                                                                                                                            | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")<br>[iam:ServiceSpecificCredentialServiceName](#list_iam-iam_ServiceSpecificCredentialServiceName "#list_iam-iam_ServiceSpecificCredentialServiceName")                                                                                                                                                                                                                                                                                                                   | Write                         |
-| [DeleteSigningCertificate](../../../IAM/latest/APIReference/API_DeleteSigningCertificate.md "../../../IAM/latest/APIReference/API_DeleteSigningCertificate.md")                                                                | Grants permission to delete a signing certificate that is associated with the specified IAM user                                                                                                                 | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [DeleteUser](../../../IAM/latest/APIReference/API_DeleteUser.md "../../../IAM/latest/APIReference/API_DeleteUser.md")                                                                                                          | Grants permission to delete the specified IAM user                                                                                                                                                               | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [DeleteUserPermissionsBoundary](../../../IAM/latest/APIReference/API_DeleteUserPermissionsBoundary.md "../../../IAM/latest/APIReference/API_DeleteUserPermissionsBoundary.md")                                                 | Grants permission to remove the permissions boundary from the specified IAM user                                                                                                                                 | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                      | Permissions management, Write |
-| [DeleteUserPolicy](../../../IAM/latest/APIReference/API_DeleteUserPolicy.md "../../../IAM/latest/APIReference/API_DeleteUserPolicy.md")                                                                                        | Grants permission to delete the specified inline policy from an IAM user                                                                                                                                         | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                      | Permissions management, Write |
-| [DeleteVirtualMFADevice](../../../IAM/latest/APIReference/API_DeleteVirtualMFADevice.md "../../../IAM/latest/APIReference/API_DeleteVirtualMFADevice.md")                                                                      | Grants permission to delete a virtual MFA device                                                                                                                                                                 | [mfa](#list_iam-resource-mfa "#list_iam-resource-mfa")                                                | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Write                         |
-| [sms-mfa](#list_iam-resource-sms-mfa "#list_iam-resource-sms-mfa")                                                                                                                                                             |                                                                                                                                                                                                                  |
-| [DetachGroupPolicy](../../../IAM/latest/APIReference/API_DetachGroupPolicy.md "../../../IAM/latest/APIReference/API_DetachGroupPolicy.md")                                                                                     | Grants permission to detach a managed policy from the specified IAM group                                                                                                                                        | [group\*](#list_iam-resource-group "#list_iam-resource-group")                                        | [iam:PolicyARN](#list_iam-iam_PolicyARN "#list_iam-iam_PolicyARN")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Permissions management, Write |
-| [DetachRolePolicy](../../../IAM/latest/APIReference/API_DetachRolePolicy.md "../../../IAM/latest/APIReference/API_DetachRolePolicy.md")                                                                                        | Grants permission to detach a managed policy from the specified role                                                                                                                                             | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:PolicyARN](#list_iam-iam_PolicyARN "#list_iam-iam_PolicyARN")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                | Permissions management, Write |
-| [DetachUserPolicy](../../../IAM/latest/APIReference/API_DetachUserPolicy.md "../../../IAM/latest/APIReference/API_DetachUserPolicy.md")                                                                                        | Grants permission to detach a managed policy from the specified IAM user                                                                                                                                         | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:PolicyARN](#list_iam-iam_PolicyARN "#list_iam-iam_PolicyARN")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                | Permissions management, Write |
-| [DisableOrganizationsRootCredentialsManagement](../../../IAM/latest/APIReference/API_DisableOrganizationsRootCredentialsManagement.md "../../../IAM/latest/APIReference/API_DisableOrganizationsRootCredentialsManagement.md") | Grants permission to disable the management of member account root user credentials for an organization managed under the current account                                                                        |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [DisableOrganizationsRootSessions](../../../IAM/latest/APIReference/API_DisableOrganizationsRootSessions.md "../../../IAM/latest/APIReference/API_DisableOrganizationsRootSessions.md")                                        | Grants permission to disable privileged root actions in member accounts for an organization managed under the current account                                                                                    |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [DisableOutboundWebIdentityFederation](../../../IAM/latest/APIReference/API_AddClientIDToOpenIDConnectProvider.md "../../../IAM/latest/APIReference/API_AddClientIDToOpenIDConnectProvider.md")                                | Disables the outbound identity federation feature for the callers account                                                                                                                                        |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [EnableMFADevice](../../../IAM/latest/APIReference/API_EnableMFADevice.md "../../../IAM/latest/APIReference/API_EnableMFADevice.md")                                                                                           | Grants permission to enable an MFA device and associate it with the specified IAM user                                                                                                                           | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:FIDO-certification](#list_iam-iam_FIDO-certification "#list_iam-iam_FIDO-certification")<br>[iam:FIDO-FIPS-140-2-certification](#list_iam-iam_FIDO-FIPS-140-2-certification "#list_iam-iam_FIDO-FIPS-140-2-certification")<br>[iam:FIDO-FIPS-140-3-certification](#list_iam-iam_FIDO-FIPS-140-3-certification "#list_iam-iam_FIDO-FIPS-140-3-certification")<br>[iam:RegisterSecurityKey](#list_iam-iam_RegisterSecurityKey "#list_iam-iam_RegisterSecurityKey")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_") | Write                         |
-| [EnableOrganizationsRootCredentialsManagement](../../../IAM/latest/APIReference/API_EnableOrganizationsRootCredentialsManagement.md "../../../IAM/latest/APIReference/API_EnableOrganizationsRootCredentialsManagement.md")    | Grants permission to enable the management of member account root user credentials for an organization managed under the current account                                                                         |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [EnableOrganizationsRootSessions](../../../IAM/latest/APIReference/API_EnableOrganizationsRootSessions.md "../../../IAM/latest/APIReference/API_EnableOrganizationsRootSessions.md")                                           | Grants permission to enable privileged root actions in member accounts for an organization managed under the current account                                                                                     |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [EnableOutboundWebIdentityFederation](../../../IAM/latest/APIReference/API_EnableOutboundWebIdentityFederation.md "../../../IAM/latest/APIReference/API_EnableOutboundWebIdentityFederation.md")                               | Enables the outbound identity federation feature for the callers account                                                                                                                                         |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [GenerateCredentialReport](../../../IAM/latest/APIReference/API_GenerateCredentialReport.md "../../../IAM/latest/APIReference/API_GenerateCredentialReport.md")                                                                | Grants permission to generate a credential report for the AWS account                                                                                                                                            |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [GenerateOrganizationsAccessReport](../../../IAM/latest/APIReference/API_GenerateOrganizationsAccessReport.md "../../../IAM/latest/APIReference/API_GenerateOrganizationsAccessReport.md")                                     | Grants permission to generate an access report for an AWS Organizations entity                                                                                                                                   | [access-report\*](#list_iam-resource-access-report "#list_iam-resource-access-report")                | [iam:OrganizationsPolicyId](#list_iam-iam_OrganizationsPolicyId "#list_iam-iam_OrganizationsPolicyId")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Read                          |
-| [GenerateServiceLastAccessedDetails](../../../IAM/latest/APIReference/API_GenerateServiceLastAccessedDetails.md "../../../IAM/latest/APIReference/API_GenerateServiceLastAccessedDetails.md")                                  | Grants permission to generate a service last accessed data report for an IAM resource                                                                                                                            | [group\*](#list_iam-resource-group "#list_iam-resource-group")                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [policy\*](#list_iam-resource-policy "#list_iam-resource-policy")                                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                           |
-| [role\*](#list_iam-resource-role "#list_iam-resource-role")                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_") |
-| [user\*](#list_iam-resource-user "#list_iam-resource-user")                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_") |
-| [GetAccessKeyLastUsed](../../../IAM/latest/APIReference/API_GetAccessKeyLastUsed.md "../../../IAM/latest/APIReference/API_GetAccessKeyLastUsed.md")                                                                            | Grants permission to retrieve information about when the specified access key was last used                                                                                                                      | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read                          |
-| [GetAccountAuthorizationDetails](../../../IAM/latest/APIReference/API_GetAccountAuthorizationDetails.md "../../../IAM/latest/APIReference/API_GetAccountAuthorizationDetails.md")                                              | Grants permission to retrieve information about all IAM users, groups, roles, and policies in your AWS account, including their relationships to one another                                                     |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [GetAccountEmailAddress](../../../accounts/latest/reference/manage-acct-update-root-user.md "../../../accounts/latest/reference/manage-acct-update-root-user.md")                                                              | Grants permission to retrieve the email address that is associated with the account                                                                                                                              |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [GetAccountName](../../../accounts/latest/reference/manage-acct-update-root-user.md "../../../accounts/latest/reference/manage-acct-update-root-user.md")                                                                      | Grants permission to retrieve the account name that is associated with the account                                                                                                                               |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [GetAccountPasswordPolicy](../../../IAM/latest/APIReference/API_GetAccountPasswordPolicy.md "../../../IAM/latest/APIReference/API_GetAccountPasswordPolicy.md")                                                                | Grants permission to retrieve the password policy for the AWS account                                                                                                                                            |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [GetAccountProperties](../../../IAM/latest/APIReference/API_GetAccountProperties.md "../../../IAM/latest/APIReference/API_GetAccountProperties.md")                                                                            | Grants permission to retrieve account-level properties for IAM features                                                                                                                                          |                                                                                                       | [iam:AccountPropertyNamespaces](#list_iam-iam_AccountPropertyNamespaces "#list_iam-iam_AccountPropertyNamespaces")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Read                          |
-| [GetAccountSummary](../../../IAM/latest/APIReference/API_GetAccountSummary.md "../../../IAM/latest/APIReference/API_GetAccountSummary.md")                                                                                     | Grants permission to retrieve information about IAM entity usage and IAM quotas in the AWS account                                                                                                               |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [GetCloudFrontPublicKey](../../../AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.md "../../../AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.md")                              | Grants permission to retrieve information about the specified CloudFront public key                                                                                                                              |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [GetContextKeysForCustomPolicy](../../../IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.md "../../../IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.md")                                                 | Grants permission to retrieve a list of all of the context keys that are referenced in the specified policy                                                                                                      |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [GetContextKeysForPrincipalPolicy](../../../IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.md "../../../IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.md")                                        | Grants permission to retrieve a list of all context keys that are referenced in all IAM policies that are attached to the specified IAM identity (user, group, or role)                                          | [group](#list_iam-resource-group "#list_iam-resource-group")                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [role](#list_iam-resource-role "#list_iam-resource-role")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_") |
-| [user](#list_iam-resource-user "#list_iam-resource-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_") |
-| [GetCredentialReport](../../../IAM/latest/APIReference/API_GetCredentialReport.md "../../../IAM/latest/APIReference/API_GetCredentialReport.md")                                                                               | Grants permission to retrieve a credential report for the AWS account                                                                                                                                            |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [GetDelegationRequest](../../../IAM/latest/APIReference/API_GetDelegationRequest.md "../../../IAM/latest/APIReference/API_GetDelegationRequest.md")                                                                            | Retrieves information about a specific delegation request                                                                                                                                                        | [delegation-request\*](#list_iam-resource-delegation-request "#list_iam-resource-delegation-request") | [iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner "#list_iam-iam_DelegationRequestOwner")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Read                          |
-| [GetGroup](../../../IAM/latest/APIReference/API_GetGroup.md "../../../IAM/latest/APIReference/API_GetGroup.md")                                                                                                                | Grants permission to retrieve a list of IAM users in the specified IAM group                                                                                                                                     | [group\*](#list_iam-resource-group "#list_iam-resource-group")                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [GetGroupPolicy](../../../IAM/latest/APIReference/API_GetGroupPolicy.md "../../../IAM/latest/APIReference/API_GetGroupPolicy.md")                                                                                              | Grants permission to retrieve an inline policy document that is embedded in the specified IAM group                                                                                                              | [group\*](#list_iam-resource-group "#list_iam-resource-group")                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [GetHumanReadableSummary](../../../IAM/latest/APIReference/API_GetHumanReadableSummary.md "../../../IAM/latest/APIReference/API_GetHumanReadableSummary.md")                                                                   | Retrieves a human readable summary for a given entity. At this time, only delegation request are supported                                                                                                       | [delegation-request\*](#list_iam-resource-delegation-request "#list_iam-resource-delegation-request") | [iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner "#list_iam-iam_DelegationRequestOwner")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Read                          |
-| [GetInstanceProfile](../../../IAM/latest/APIReference/API_GetInstanceProfile.md "../../../IAM/latest/APIReference/API_GetInstanceProfile.md")                                                                                  | Grants permission to retrieve information about the specified instance profile, including the instance profile's path, GUID, ARN, and role                                                                       | [instance-profile\*](#list_iam-resource-instance-profile "#list_iam-resource-instance-profile")       | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Read                          |
-| [GetLoginProfile](../../../IAM/latest/APIReference/API_GetLoginProfile.md "../../../IAM/latest/APIReference/API_GetLoginProfile.md")                                                                                           | Grants permission to retrieve the user name and password creation date for the specified IAM user                                                                                                                | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List                          |
-| [GetMFADevice](../../../IAM/latest/APIReference/API_GetMFADevice.md "../../../IAM/latest/APIReference/API_GetMFADevice.md")                                                                                                    | Grants permission to retrieve information about an MFA device for the specified user                                                                                                                             | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read                          |
-| [GetOpenIDConnectProvider](../../../IAM/latest/APIReference/API_GetOpenIDConnectProvider.md "../../../IAM/latest/APIReference/API_GetOpenIDConnectProvider.md")                                                                | Grants permission to retrieve information about the specified OpenID Connect (OIDC) provider resource in IAM                                                                                                     | [oidc-provider\*](#list_iam-resource-oidc-provider "#list_iam-resource-oidc-provider")                | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Read                          |
-| [GetOrganizationsAccessReport](../../../IAM/latest/APIReference/API_GetOrganizationsAccessReport.md "../../../IAM/latest/APIReference/API_GetOrganizationsAccessReport.md")                                                    | Grants permission to retrieve an AWS Organizations access report                                                                                                                                                 |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [GetOutboundWebIdentityFederationInfo](../../../IAM/latest/APIReference/API_GetOutboundWebIdentityFederationInfo.md "../../../IAM/latest/APIReference/API_GetOutboundWebIdentityFederationInfo.md")                            | Retrieves the configuration information for the outbound identity federation feature for the callers account                                                                                                     |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [GetPolicy](../../../IAM/latest/APIReference/API_GetPolicy.md "../../../IAM/latest/APIReference/API_GetPolicy.md")                                                                                                             | Grants permission to retrieve information about the specified managed policy, including the policy's default version and the total number of identities to which the policy is attached                          | [policy\*](#list_iam-resource-policy "#list_iam-resource-policy")                                     | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Read                          |
-| [GetPolicyVersion](../../../IAM/latest/APIReference/API_GetPolicyVersion.md "../../../IAM/latest/APIReference/API_GetPolicyVersion.md")                                                                                        | Grants permission to retrieve information about a version of the specified managed policy, including the policy document                                                                                         | [policy\*](#list_iam-resource-policy "#list_iam-resource-policy")                                     | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Read                          |
-| [GetRole](../../../IAM/latest/APIReference/API_GetRole.md "../../../IAM/latest/APIReference/API_GetRole.md")                                                                                                                   | Grants permission to retrieve information about the specified role, including the role's path, GUID, ARN, and the role's trust policy                                                                            | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")<br>[iam:RoleTemplateARN](#list_iam-iam_RoleTemplateARN "#list_iam-iam_RoleTemplateARN")                                                                                                                                                                                                                                                                              | Read                          |
-| [GetRolePolicy](../../../IAM/latest/APIReference/API_GetRolePolicy.md "../../../IAM/latest/APIReference/API_GetRolePolicy.md")                                                                                                 | Grants permission to retrieve an inline policy document that is embedded with the specified IAM role                                                                                                             | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read                          |
-| [GetRoleTemplateVersion](../../../IAM/latest/APIReference/API_GetRoleTemplateVersion.md "../../../IAM/latest/APIReference/API_GetRoleTemplateVersion.md")                                                                      | Grants permission to retrieve information about a specific version of a role template                                                                                                                            | [role-template\*](#list_iam-resource-role-template "#list_iam-resource-role-template")                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [GetSAMLProvider](../../../IAM/latest/APIReference/API_GetSAMLProvider.md "../../../IAM/latest/APIReference/API_GetSAMLProvider.md")                                                                                           | Grants permission to retrieve the SAML provider metadocument that was uploaded when the IAM SAML provider resource was created or updated                                                                        | [saml-provider\*](#list_iam-resource-saml-provider "#list_iam-resource-saml-provider")                | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Read                          |
-| [GetSSHPublicKey](../../../IAM/latest/APIReference/API_GetSSHPublicKey.md "../../../IAM/latest/APIReference/API_GetSSHPublicKey.md")                                                                                           | Grants permission to retrieve the specified SSH public key, including metadata about the key                                                                                                                     | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read                          |
-| [GetServerCertificate](../../../IAM/latest/APIReference/API_GetServerCertificate.md "../../../IAM/latest/APIReference/API_GetServerCertificate.md")                                                                            | Grants permission to retrieve information about the specified server certificate stored in IAM                                                                                                                   | [server-certificate\*](#list_iam-resource-server-certificate "#list_iam-resource-server-certificate") | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Read                          |
-| [GetServiceLastAccessedDetails](../../../IAM/latest/APIReference/API_GetServiceLastAccessedDetails.md "../../../IAM/latest/APIReference/API_GetServiceLastAccessedDetails.md")                                                 | Grants permission to retrieve information about the service last accessed data report                                                                                                                            |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [GetServiceLastAccessedDetailsWithEntities](../../../IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.md "../../../IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.md")             | Grants permission to retrieve information about the entities from the service last accessed data report                                                                                                          |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [GetServiceLinkedRoleDeletionStatus](../../../IAM/latest/APIReference/API_GetServiceLinkedRoleDeletionStatus.md "../../../IAM/latest/APIReference/API_GetServiceLinkedRoleDeletionStatus.md")                                  | Grants permission to retrieve an IAM service-linked role deletion status                                                                                                                                         | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read                          |
-| [GetUser](../../../IAM/latest/APIReference/API_GetUser.md "../../../IAM/latest/APIReference/API_GetUser.md")                                                                                                                   | Grants permission to retrieve information about the specified IAM user, including the user's creation date, path, unique ID, and ARN                                                                             | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read                          |
-| [GetUserPolicy](../../../IAM/latest/APIReference/API_GetUserPolicy.md "../../../IAM/latest/APIReference/API_GetUserPolicy.md")                                                                                                 | Grants permission to retrieve an inline policy document that is embedded in the specified IAM user                                                                                                               | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Read                          |
-| [ListAccessKeys](../../../IAM/latest/APIReference/API_ListAccessKeys.md "../../../IAM/latest/APIReference/API_ListAccessKeys.md")                                                                                              | Grants permission to list information about the access key IDs that are associated with the specified IAM user                                                                                                   | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List                          |
-| [ListAccountAliases](../../../IAM/latest/APIReference/API_ListAccountAliases.md "../../../IAM/latest/APIReference/API_ListAccountAliases.md")                                                                                  | Grants permission to list the account alias that is associated with the AWS account                                                                                                                              |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [ListAttachedGroupPolicies](../../../IAM/latest/APIReference/API_ListAttachedGroupPolicies.md "../../../IAM/latest/APIReference/API_ListAttachedGroupPolicies.md")                                                             | Grants permission to list all managed policies that are attached to the specified IAM group                                                                                                                      | [group\*](#list_iam-resource-group "#list_iam-resource-group")                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [ListAttachedRolePolicies](../../../IAM/latest/APIReference/API_ListAttachedRolePolicies.md "../../../IAM/latest/APIReference/API_ListAttachedRolePolicies.md")                                                                | Grants permission to list all managed policies that are attached to the specified IAM role                                                                                                                       | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List                          |
-| [ListAttachedUserPolicies](../../../IAM/latest/APIReference/API_ListAttachedUserPolicies.md "../../../IAM/latest/APIReference/API_ListAttachedUserPolicies.md")                                                                | Grants permission to list all managed policies that are attached to the specified IAM user                                                                                                                       | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List                          |
-| [ListCloudFrontPublicKeys](../../../AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.md "../../../AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.md")                            | Grants permission to list all current CloudFront public keys for the account                                                                                                                                     |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [ListDelegationRequests](../../../IAM/latest/APIReference/API_ListDelegationRequests.md "../../../IAM/latest/APIReference/API_ListDelegationRequests.md")                                                                      | Lists delegation requests based on the specified criteria                                                                                                                                                        |                                                                                                       | [iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner "#list_iam-iam_DelegationRequestOwner")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | List                          |
-| [ListEntitiesForPolicy](../../../IAM/latest/APIReference/API_ListEntitiesForPolicy.md "../../../IAM/latest/APIReference/API_ListEntitiesForPolicy.md")                                                                         | Grants permission to list all IAM identities to which the specified managed policy is attached                                                                                                                   | [policy\*](#list_iam-resource-policy "#list_iam-resource-policy")                                     | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | List                          |
-| [ListGroupPolicies](../../../IAM/latest/APIReference/API_ListGroupPolicies.md "../../../IAM/latest/APIReference/API_ListGroupPolicies.md")                                                                                     | Grants permission to list the names of the inline policies that are embedded in the specified IAM group                                                                                                          | [group\*](#list_iam-resource-group "#list_iam-resource-group")                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [ListGroups](../../../IAM/latest/APIReference/API_ListGroups.md "../../../IAM/latest/APIReference/API_ListGroups.md")                                                                                                          | Grants permission to list the IAM groups that have the specified path prefix                                                                                                                                     |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [ListGroupsForUser](../../../IAM/latest/APIReference/API_ListGroupsForUser.md "../../../IAM/latest/APIReference/API_ListGroupsForUser.md")                                                                                     | Grants permission to list the IAM groups that the specified IAM user belongs to                                                                                                                                  | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List                          |
-| [ListInstanceProfileTags](../../../IAM/latest/APIReference/API_ListInstanceProfileTags.md "../../../IAM/latest/APIReference/API_ListInstanceProfileTags.md")                                                                   | Grants permission to list the tags that are attached to the specified instance profile                                                                                                                           | [instance-profile\*](#list_iam-resource-instance-profile "#list_iam-resource-instance-profile")       | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | List                          |
-| [ListInstanceProfiles](../../../IAM/latest/APIReference/API_ListInstanceProfiles.md "../../../IAM/latest/APIReference/API_ListInstanceProfiles.md")                                                                            | Grants permission to list the instance profiles that have the specified path prefix                                                                                                                              |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [ListInstanceProfilesForRole](../../../IAM/latest/APIReference/API_ListInstanceProfilesForRole.md "../../../IAM/latest/APIReference/API_ListInstanceProfilesForRole.md")                                                       | Grants permission to list the instance profiles that have the specified associated IAM role                                                                                                                      | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List                          |
-| [ListMFADeviceTags](../../../IAM/latest/APIReference/API_ListMFADeviceTags.md "../../../IAM/latest/APIReference/API_ListMFADeviceTags.md")                                                                                     | Grants permission to list the tags that are attached to the specified virtual mfa device                                                                                                                         | [mfa\*](#list_iam-resource-mfa "#list_iam-resource-mfa")                                              | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | List                          |
-| [ListMFADevices](../../../IAM/latest/APIReference/API_ListMFADevices.md "../../../IAM/latest/APIReference/API_ListMFADevices.md")                                                                                              | Grants permission to list the MFA devices for an IAM user                                                                                                                                                        | [user](#list_iam-resource-user "#list_iam-resource-user")                                             | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List                          |
-| [ListOpenIDConnectProviderTags](../../../IAM/latest/APIReference/API_ListOpenIDConnectProviderTags.md "../../../IAM/latest/APIReference/API_ListOpenIDConnectProviderTags.md")                                                 | Grants permission to list the tags that are attached to the specified OpenID Connect provider                                                                                                                    | [oidc-provider\*](#list_iam-resource-oidc-provider "#list_iam-resource-oidc-provider")                | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | List                          |
-| [ListOpenIDConnectProviders](../../../IAM/latest/APIReference/API_ListOpenIDConnectProviders.md "../../../IAM/latest/APIReference/API_ListOpenIDConnectProviders.md")                                                          | Grants permission to list information about the IAM OpenID Connect (OIDC) provider resource objects that are defined in the AWS account                                                                          |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [ListOrganizationsFeatures](../../../IAM/latest/APIReference/API_ListOrganizationsFeatures.md "../../../IAM/latest/APIReference/API_ListOrganizationsFeatures.md")                                                             | Grants permission to list the centralized root access features enabled for your organization                                                                                                                     |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [ListPolicies](../../../IAM/latest/APIReference/API_ListPolicies.md "../../../IAM/latest/APIReference/API_ListPolicies.md")                                                                                                    | Grants permission to list all managed policies                                                                                                                                                                   |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [ListPoliciesGrantingServiceAccess](../../../IAM/latest/APIReference/API_ListPoliciesGrantingServiceAccess.md "../../../IAM/latest/APIReference/API_ListPoliciesGrantingServiceAccess.md")                                     | Grants permission to list information about the policies that grant an entity access to a specific service                                                                                                       | [group\*](#list_iam-resource-group "#list_iam-resource-group")                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [role\*](#list_iam-resource-role "#list_iam-resource-role")                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_") |
-| [user\*](#list_iam-resource-user "#list_iam-resource-user")                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_") |
-| [ListPolicyTags](../../../IAM/latest/APIReference/API_ListPolicyTags.md "../../../IAM/latest/APIReference/API_ListPolicyTags.md")                                                                                              | Grants permission to list the tags that are attached to the specified managed policy                                                                                                                             | [policy\*](#list_iam-resource-policy "#list_iam-resource-policy")                                     | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | List                          |
-| [ListPolicyVersions](../../../IAM/latest/APIReference/API_ListPolicyVersions.md "../../../IAM/latest/APIReference/API_ListPolicyVersions.md")                                                                                  | Grants permission to list information about the versions of the specified managed policy, including the version that is currently set as the policy's default version                                            | [policy\*](#list_iam-resource-policy "#list_iam-resource-policy")                                     | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | List                          |
-| [ListRolePolicies](../../../IAM/latest/APIReference/API_ListRolePolicies.md "../../../IAM/latest/APIReference/API_ListRolePolicies.md")                                                                                        | Grants permission to list the names of the inline policies that are embedded in the specified IAM role                                                                                                           | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List                          |
-| [ListRoleTags](../../../IAM/latest/APIReference/API_ListRoleTags.md "../../../IAM/latest/APIReference/API_ListRoleTags.md")                                                                                                    | Grants permission to list the tags that are attached to the specified IAM role                                                                                                                                   | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List                          |
-| [ListRoles](../../../IAM/latest/APIReference/API_ListRoles.md "../../../IAM/latest/APIReference/API_ListRoles.md")                                                                                                             | Grants permission to list the IAM roles that have the specified path prefix                                                                                                                                      |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [ListSAMLProviderTags](../../../IAM/latest/APIReference/API_ListSAMLProviderTags.md "../../../IAM/latest/APIReference/API_ListSAMLProviderTags.md")                                                                            | Grants permission to list the tags that are attached to the specified SAML provider                                                                                                                              | [saml-provider\*](#list_iam-resource-saml-provider "#list_iam-resource-saml-provider")                | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | List                          |
-| [ListSAMLProviders](../../../IAM/latest/APIReference/API_ListSAMLProviders.md "../../../IAM/latest/APIReference/API_ListSAMLProviders.md")                                                                                     | Grants permission to list the SAML provider resources in IAM                                                                                                                                                     |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [ListSSHPublicKeys](../../../IAM/latest/APIReference/API_ListSSHPublicKeys.md "../../../IAM/latest/APIReference/API_ListSSHPublicKeys.md")                                                                                     | Grants permission to list information about the SSH public keys that are associated with the specified IAM user                                                                                                  | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List                          |
-| [ListSTSRegionalEndpointsStatus](../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md "../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md")                                                    | Grants permission to list the status of all active STS regional endpoints                                                                                                                                        |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [ListServerCertificateTags](../../../IAM/latest/APIReference/API_ListServerCertificateTags.md "../../../IAM/latest/APIReference/API_ListServerCertificateTags.md")                                                             | Grants permission to list the tags that are attached to the specified server certificate                                                                                                                         | [server-certificate\*](#list_iam-resource-server-certificate "#list_iam-resource-server-certificate") | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | List                          |
-| [ListServerCertificates](../../../IAM/latest/APIReference/API_ListServerCertificates.md "../../../IAM/latest/APIReference/API_ListServerCertificates.md")                                                                      | Grants permission to list the server certificates that have the specified path prefix                                                                                                                            |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [ListServiceSpecificCredentials](../../../IAM/latest/APIReference/API_ListServiceSpecificCredentials.md "../../../IAM/latest/APIReference/API_ListServiceSpecificCredentials.md")                                              | Grants permission to list the service-specific credentials that are associated with the specified IAM user                                                                                                       | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List                          |
-| [ListSigningCertificates](../../../IAM/latest/APIReference/API_ListSigningCertificates.md "../../../IAM/latest/APIReference/API_ListSigningCertificates.md")                                                                   | Grants permission to list information about the signing certificates that are associated with the specified IAM user                                                                                             | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List                          |
-| [ListUserPolicies](../../../IAM/latest/APIReference/API_ListUserPolicies.md "../../../IAM/latest/APIReference/API_ListUserPolicies.md")                                                                                        | Grants permission to list the names of the inline policies that are embedded in the specified IAM user                                                                                                           | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List                          |
-| [ListUserTags](../../../IAM/latest/APIReference/API_ListUserTags.md "../../../IAM/latest/APIReference/API_ListUserTags.md")                                                                                                    | Grants permission to list the tags that are attached to the specified IAM user                                                                                                                                   | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | List                          |
-| [ListUsers](../../../IAM/latest/APIReference/API_ListUsers.md "../../../IAM/latest/APIReference/API_ListUsers.md")                                                                                                             | Grants permission to list the IAM users that have the specified path prefix                                                                                                                                      |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [ListVirtualMFADevices](../../../IAM/latest/APIReference/API_ListVirtualMFADevices.md "../../../IAM/latest/APIReference/API_ListVirtualMFADevices.md")                                                                         | Grants permission to list virtual MFA devices by assignment status                                                                                                                                               |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List                          |
-| [PutAccountProperties](../../../IAM/latest/APIReference/API_PutAccountProperties.md "../../../IAM/latest/APIReference/API_PutAccountProperties.md")                                                                            | Grants permission to set account-level properties for IAM features                                                                                                                                               |                                                                                                       | [iam:AccountPropertyNamespaces](#list_iam-iam_AccountPropertyNamespaces "#list_iam-iam_AccountPropertyNamespaces")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Write                         |
-| [PutGroupPolicy](../../../IAM/latest/APIReference/API_PutGroupPolicy.md "../../../IAM/latest/APIReference/API_PutGroupPolicy.md")                                                                                              | Grants permission to create or update an inline policy document that is embedded in the specified IAM group                                                                                                      | [group\*](#list_iam-resource-group "#list_iam-resource-group")                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Permissions management, Write |
-| [PutRolePermissionsBoundary](../../../IAM/latest/APIReference/API_PutRolePermissionsBoundary.md "../../../IAM/latest/APIReference/API_PutRolePermissionsBoundary.md")                                                          | Grants permission to set a managed policy as a permissions boundary for a role                                                                                                                                   | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")<br>[iam:RoleTemplateARN](#list_iam-iam_RoleTemplateARN "#list_iam-iam_RoleTemplateARN")                                                                                                                                                                                                                                                                              | Permissions management, Write |
-| [PutRolePolicy](../../../IAM/latest/APIReference/API_PutRolePolicy.md "../../../IAM/latest/APIReference/API_PutRolePolicy.md")                                                                                                 | Grants permission to create or update an inline policy document that is embedded in the specified IAM role                                                                                                       | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")<br>[iam:RoleTemplateARN](#list_iam-iam_RoleTemplateARN "#list_iam-iam_RoleTemplateARN")                                                                                                                                                                                                                                                                              | Permissions management, Write |
-| [PutUserPermissionsBoundary](../../../IAM/latest/APIReference/API_PutUserPermissionsBoundary.md "../../../IAM/latest/APIReference/API_PutUserPermissionsBoundary.md")                                                          | Grants permission to set a managed policy as a permissions boundary for an IAM user                                                                                                                              | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                      | Permissions management, Write |
-| [PutUserPolicy](../../../IAM/latest/APIReference/API_PutUserPolicy.md "../../../IAM/latest/APIReference/API_PutUserPolicy.md")                                                                                                 | Grants permission to create or update an inline policy document that is embedded in the specified IAM user                                                                                                       | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                      | Permissions management, Write |
-| [RejectDelegationRequest](../../../IAM/latest/APIReference/API_RejectDelegationRequest.md "../../../IAM/latest/APIReference/API_RejectDelegationRequest.md")                                                                   | Rejects a delegation request, denying the requested temporary access                                                                                                                                             | [delegation-request\*](#list_iam-resource-delegation-request "#list_iam-resource-delegation-request") | [iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner "#list_iam-iam_DelegationRequestOwner")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Write                         |
-| [RemoveClientIDFromOpenIDConnectProvider](../../../IAM/latest/APIReference/API_RemoveClientIDFromOpenIDConnectProvider.md "../../../IAM/latest/APIReference/API_RemoveClientIDFromOpenIDConnectProvider.md")                   | Grants permission to remove the client ID (audience) from the list of client IDs in the specified IAM OpenID Connect (OIDC) provider resource                                                                    | [oidc-provider\*](#list_iam-resource-oidc-provider "#list_iam-resource-oidc-provider")                | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Write                         |
-| [RemoveRoleFromInstanceProfile](../../../IAM/latest/APIReference/API_RemoveRoleFromInstanceProfile.md "../../../IAM/latest/APIReference/API_RemoveRoleFromInstanceProfile.md")                                                 | Grants permission to remove an IAM role from the specified EC2 instance profile                                                                                                                                  | [instance-profile\*](#list_iam-resource-instance-profile "#list_iam-resource-instance-profile")       | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Write                         |
-| [RemoveUserFromGroup](../../../IAM/latest/APIReference/API_RemoveUserFromGroup.md "../../../IAM/latest/APIReference/API_RemoveUserFromGroup.md")                                                                               | Grants permission to remove an IAM user from the specified group                                                                                                                                                 | [group\*](#list_iam-resource-group "#list_iam-resource-group")                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [ResetServiceSpecificCredential](../../../IAM/latest/APIReference/API_ResetServiceSpecificCredential.md "../../../IAM/latest/APIReference/API_ResetServiceSpecificCredential.md")                                              | Grants permission to reset the password for an existing service-specific credential for an IAM user                                                                                                              | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")<br>[iam:ServiceSpecificCredentialServiceName](#list_iam-iam_ServiceSpecificCredentialServiceName "#list_iam-iam_ServiceSpecificCredentialServiceName")                                                                                                                                                                                                                                                                                                                   | Write                         |
-| [ResyncMFADevice](../../../IAM/latest/APIReference/API_ResyncMFADevice.md "../../../IAM/latest/APIReference/API_ResyncMFADevice.md")                                                                                           | Grants permission to synchronize the specified MFA device with its IAM entity (user or role)                                                                                                                     | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [SendDelegationToken](../../../IAM/latest/APIReference/API_SendDelegationToken.md "../../../IAM/latest/APIReference/API_SendDelegationToken.md")                                                                               | Sends the exchange token for an accepted delegation request                                                                                                                                                      | [delegation-request\*](#list_iam-resource-delegation-request "#list_iam-resource-delegation-request") | [iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner "#list_iam-iam_DelegationRequestOwner")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Write                         |
-| [SetDefaultPolicyVersion](../../../IAM/latest/APIReference/API_SetDefaultPolicyVersion.md "../../../IAM/latest/APIReference/API_SetDefaultPolicyVersion.md")                                                                   | Grants permission to set the version of the specified policy as the policy's default version                                                                                                                     | [policy\*](#list_iam-resource-policy "#list_iam-resource-policy")                                     | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Permissions management, Write |
-| [SetSTSRegionalEndpointStatus](../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md "../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md")                                                      | Grants permission to activate or deactivate an STS regional endpoint                                                                                                                                             |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [SetSecurityTokenServicePreferences](../../../IAM/latest/APIReference/API_SetSecurityTokenServicePreferences.md "../../../IAM/latest/APIReference/API_SetSecurityTokenServicePreferences.md")                                  | Grants permission to set the STS global endpoint token version                                                                                                                                                   |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [SimulateCustomPolicy](../../../IAM/latest/APIReference/API_SimulateCustomPolicy.md "../../../IAM/latest/APIReference/API_SimulateCustomPolicy.md")                                                                            | Grants permission to simulate whether an identity-based policy or resource-based policy provides permissions for specific API operations and resources                                                           |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [SimulatePrincipalPolicy](../../../IAM/latest/APIReference/API_SimulatePrincipalPolicy.md "../../../IAM/latest/APIReference/API_SimulatePrincipalPolicy.md")                                                                   | Grants permission to simulate whether an identity-based policy that is attached to a specified IAM entity (user or role) provides permissions for specific API operations and resources                          | [group](#list_iam-resource-group "#list_iam-resource-group")                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read                          |
-| [role](#list_iam-resource-role "#list_iam-resource-role")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_") |
-| [user](#list_iam-resource-user "#list_iam-resource-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_") |
-| [TagInstanceProfile](../../../IAM/latest/APIReference/API_TagInstanceProfile.md "../../../IAM/latest/APIReference/API_TagInstanceProfile.md")                                                                                  | Grants permission to add tags to an instance profile                                                                                                                                                             | [instance-profile\*](#list_iam-resource-instance-profile "#list_iam-resource-instance-profile")       | [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_ "#list_iam-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                             | Tagging, Write                |
-| [TagMFADevice](../../../IAM/latest/APIReference/API_TagMFADevice.md "../../../IAM/latest/APIReference/API_TagMFADevice.md")                                                                                                    | Grants permission to add tags to a virtual mfa device                                                                                                                                                            | [mfa\*](#list_iam-resource-mfa "#list_iam-resource-mfa")                                              | [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_ "#list_iam-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                             | Tagging, Write                |
-| [TagOpenIDConnectProvider](../../../IAM/latest/APIReference/API_TagOpenIDConnectProvider.md "../../../IAM/latest/APIReference/API_TagOpenIDConnectProvider.md")                                                                | Grants permission to add tags to an OpenID Connect provider                                                                                                                                                      | [oidc-provider\*](#list_iam-resource-oidc-provider "#list_iam-resource-oidc-provider")                | [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_ "#list_iam-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                             | Tagging, Write                |
-| [TagPolicy](../../../IAM/latest/APIReference/API_TagPolicy.md "../../../IAM/latest/APIReference/API_TagPolicy.md")                                                                                                             | Grants permission to add tags to a managed policy                                                                                                                                                                | [policy\*](#list_iam-resource-policy "#list_iam-resource-policy")                                     | [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_ "#list_iam-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                             | Tagging, Write                |
-| [TagRole](../../../IAM/latest/APIReference/API_TagRole.md "../../../IAM/latest/APIReference/API_TagRole.md")                                                                                                                   | Grants permission to add tags to an IAM role                                                                                                                                                                     | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_ "#list_iam-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")<br>[iam:RoleTemplateARN](#list_iam-iam_RoleTemplateARN "#list_iam-iam_RoleTemplateARN")                                                                                                                                                                                                           | Tagging, Write                |
-| [TagSAMLProvider](../../../IAM/latest/APIReference/API_TagSAMLProvider.md "../../../IAM/latest/APIReference/API_TagSAMLProvider.md")                                                                                           | Grants permission to add tags to a SAML Provider                                                                                                                                                                 | [saml-provider\*](#list_iam-resource-saml-provider "#list_iam-resource-saml-provider")                | [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_ "#list_iam-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                             | Tagging, Write                |
-| [TagServerCertificate](../../../IAM/latest/APIReference/API_TagServerCertificate.md "../../../IAM/latest/APIReference/API_TagServerCertificate.md")                                                                            | Grants permission to add tags to a server certificate                                                                                                                                                            | [server-certificate\*](#list_iam-resource-server-certificate "#list_iam-resource-server-certificate") | [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_ "#list_iam-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                             | Tagging, Write                |
-| [TagUser](../../../IAM/latest/APIReference/API_TagUser.md "../../../IAM/latest/APIReference/API_TagUser.md")                                                                                                                   | Grants permission to add tags to an IAM user                                                                                                                                                                     | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_ "#list_iam-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                   | Tagging, Write                |
-| [UntagInstanceProfile](../../../IAM/latest/APIReference/API_UntagInstanceProfile.md "../../../IAM/latest/APIReference/API_UntagInstanceProfile.md")                                                                            | Grants permission to remove the specified tags from the instance profile                                                                                                                                         | [instance-profile\*](#list_iam-resource-instance-profile "#list_iam-resource-instance-profile")       | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Tagging, Write                |
-| [UntagMFADevice](../../../IAM/latest/APIReference/API_UntagMFADevice.md "../../../IAM/latest/APIReference/API_UntagMFADevice.md")                                                                                              | Grants permission to remove the specified tags from the virtual mfa device                                                                                                                                       | [mfa\*](#list_iam-resource-mfa "#list_iam-resource-mfa")                                              | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Tagging, Write                |
-| [UntagOpenIDConnectProvider](../../../IAM/latest/APIReference/API_UntagOpenIDConnectProvider.md "../../../IAM/latest/APIReference/API_UntagOpenIDConnectProvider.md")                                                          | Grants permission to remove the specified tags from the OpenID Connect provider                                                                                                                                  | [oidc-provider\*](#list_iam-resource-oidc-provider "#list_iam-resource-oidc-provider")                | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Tagging, Write                |
-| [UntagPolicy](../../../IAM/latest/APIReference/API_UntagPolicy.md "../../../IAM/latest/APIReference/API_UntagPolicy.md")                                                                                                       | Grants permission to remove the specified tags from the managed policy                                                                                                                                           | [policy\*](#list_iam-resource-policy "#list_iam-resource-policy")                                     | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Tagging, Write                |
-| [UntagRole](../../../IAM/latest/APIReference/API_UntagRole.md "../../../IAM/latest/APIReference/API_UntagRole.md")                                                                                                             | Grants permission to remove the specified tags from the role                                                                                                                                                     | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                          | Tagging, Write                |
-| [UntagSAMLProvider](../../../IAM/latest/APIReference/API_UntagSAMLProvider.md "../../../IAM/latest/APIReference/API_UntagSAMLProvider.md")                                                                                     | Grants permission to remove the specified tags from the SAML Provider                                                                                                                                            | [saml-provider\*](#list_iam-resource-saml-provider "#list_iam-resource-saml-provider")                | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Tagging, Write                |
-| [UntagServerCertificate](../../../IAM/latest/APIReference/API_UntagServerCertificate.md "../../../IAM/latest/APIReference/API_UntagServerCertificate.md")                                                                      | Grants permission to remove the specified tags from the server certificate                                                                                                                                       | [server-certificate\*](#list_iam-resource-server-certificate "#list_iam-resource-server-certificate") | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Tagging, Write                |
-| [UntagUser](../../../IAM/latest/APIReference/API_UntagUser.md "../../../IAM/latest/APIReference/API_UntagUser.md")                                                                                                             | Grants permission to remove the specified tags from the user                                                                                                                                                     | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                          | Tagging, Write                |
-| [UpdateAccessKey](../../../IAM/latest/APIReference/API_UpdateAccessKey.md "../../../IAM/latest/APIReference/API_UpdateAccessKey.md")                                                                                           | Grants permission to update the status of the specified access key as Active or Inactive                                                                                                                         | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [UpdateAccountEmailAddress](../../../accounts/latest/reference/manage-acct-update-root-user.md "../../../accounts/latest/reference/manage-acct-update-root-user.md")                                                           | Grants permission to update the email address that is associated with the account                                                                                                                                |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [UpdateAccountName](../../../accounts/latest/reference/manage-acct-update-root-user.md "../../../accounts/latest/reference/manage-acct-update-root-user.md")                                                                   | Grants permission to update the account name that is associated with the account                                                                                                                                 |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [UpdateAccountPasswordPolicy](../../../IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.md "../../../IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.md")                                                       | Grants permission to update the password policy settings for the AWS account                                                                                                                                     |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [UpdateAssumeRolePolicy](../../../IAM/latest/APIReference/API_UpdateAssumeRolePolicy.md "../../../IAM/latest/APIReference/API_UpdateAssumeRolePolicy.md")                                                                      | Grants permission to update the policy that grants an IAM entity permission to assume a role                                                                                                                     | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                      | Permissions management, Write |
-| [UpdateCloudFrontPublicKey](../../../AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.md "../../../AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.md")                           | Grants permission to update an existing CloudFront public key                                                                                                                                                    |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [UpdateGroup](../../../IAM/latest/APIReference/API_UpdateGroup.md "../../../IAM/latest/APIReference/API_UpdateGroup.md")                                                                                                       | Grants permission to update the name or path of the specified IAM group                                                                                                                                          | [group\*](#list_iam-resource-group "#list_iam-resource-group")                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [UpdateLoginProfile](../../../IAM/latest/APIReference/API_UpdateLoginProfile.md "../../../IAM/latest/APIReference/API_UpdateLoginProfile.md")                                                                                  | Grants permission to change the password for the specified IAM user                                                                                                                                              | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [UpdateOpenIDConnectProviderThumbprint](../../../IAM/latest/APIReference/API_UpdateOpenIDConnectProviderThumbprint.md "../../../IAM/latest/APIReference/API_UpdateOpenIDConnectProviderThumbprint.md")                         | Grants permission to update the entire list of server certificate thumbprints that are associated with an OpenID Connect (OIDC) provider resource                                                                | [oidc-provider\*](#list_iam-resource-oidc-provider "#list_iam-resource-oidc-provider")                | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Write                         |
-| [UpdateRole](../../../IAM/latest/APIReference/API_UpdateRole.md "../../../IAM/latest/APIReference/API_UpdateRole.md")                                                                                                          | Grants permission to update the description or maximum session duration setting of a role                                                                                                                        | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [UpdateRoleDescription](../../../IAM/latest/APIReference/API_UpdateRoleDescription.md "../../../IAM/latest/APIReference/API_UpdateRoleDescription.md")                                                                         | Grants permission to update only the description of a role                                                                                                                                                       | [role\*](#list_iam-resource-role "#list_iam-resource-role")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary "#list_iam-iam_PermissionsBoundary")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                      | Write                         |
-| [UpdateSAMLProvider](../../../IAM/latest/APIReference/API_UpdateSAMLProvider.md "../../../IAM/latest/APIReference/API_UpdateSAMLProvider.md")                                                                                  | Grants permission to update the metadata document for an existing SAML provider resource                                                                                                                         | [saml-provider\*](#list_iam-resource-saml-provider "#list_iam-resource-saml-provider")                | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Write                         |
-| [UpdateSSHPublicKey](../../../IAM/latest/APIReference/API_UpdateSSHPublicKey.md "../../../IAM/latest/APIReference/API_UpdateSSHPublicKey.md")                                                                                  | Grants permission to update the status of an IAM user's SSH public key to active or inactive                                                                                                                     | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [UpdateServerCertificate](../../../IAM/latest/APIReference/API_UpdateServerCertificate.md "../../../IAM/latest/APIReference/API_UpdateServerCertificate.md")                                                                   | Grants permission to update the name or the path of the specified server certificate stored in IAM                                                                                                               | [server-certificate\*](#list_iam-resource-server-certificate "#list_iam-resource-server-certificate") | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Write                         |
-| [UpdateServiceSpecificCredential](../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.md "../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.md")                                           | Grants permission to update the status of a service-specific credential to active or inactive for an IAM user                                                                                                    | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")<br>[iam:ServiceSpecificCredentialServiceName](#list_iam-iam_ServiceSpecificCredentialServiceName "#list_iam-iam_ServiceSpecificCredentialServiceName")                                                                                                                                                                                                                                                                                                                   | Write                         |
-| [UpdateSigningCertificate](../../../IAM/latest/APIReference/API_UpdateSigningCertificate.md "../../../IAM/latest/APIReference/API_UpdateSigningCertificate.md")                                                                | Grants permission to update the status of the specified user signing certificate to active or disabled                                                                                                           | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [UpdateUser](../../../IAM/latest/APIReference/API_UpdateUser.md "../../../IAM/latest/APIReference/API_UpdateUser.md")                                                                                                          | Grants permission to update the name or the path of the specified IAM user                                                                                                                                       | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [UploadCloudFrontPublicKey](../../../AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.md "../../../AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.md")                           | Grants permission to upload a CloudFront public key                                                                                                                                                              |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write                         |
-| [UploadSSHPublicKey](../../../IAM/latest/APIReference/API_UploadSSHPublicKey.md "../../../IAM/latest/APIReference/API_UploadSSHPublicKey.md")                                                                                  | Grants permission to upload an SSH public key and associate it with the specified IAM user                                                                                                                       | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
-| [UploadServerCertificate](../../../IAM/latest/APIReference/API_UploadServerCertificate.md "../../../IAM/latest/APIReference/API_UploadServerCertificate.md")                                                                   | Grants permission to upload a server certificate entity for the AWS account                                                                                                                                      | [server-certificate\*](#list_iam-resource-server-certificate "#list_iam-resource-server-certificate") | [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_ "#list_iam-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_iam-aws_TagKeys "#list_iam-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                                                             | Write                         |
-| [UploadSigningCertificate](../../../IAM/latest/APIReference/API_UploadSigningCertificate.md "../../../IAM/latest/APIReference/API_UploadSigningCertificate.md")                                                                | Grants permission to upload an X.509 signing certificate and associate it with the specified IAM user                                                                                                            | [user\*](#list_iam-resource-user "#list_iam-resource-user")                                           | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Write                         |
+
+
+
+- **   [AcceptDelegationRequest](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcceptDelegationRequest.html)  **
+  - **Description:** Accepts a delegation request resource, granting the requested temporary access
+  - **Resource types (\*required):** [delegation-request\*](#list_iam-resource-delegation-request)
+  - **Condition keys:** [iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner)
+  - **Access level:** Write
+
+- **   [AddClientIDToOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AddClientIDToOpenIDConnectProvider.html)  **
+  - **Description:** Grants permission to add a new client ID (audience) to the list of registered IDs for the specified IAM OpenID Connect (OIDC) provider resource
+  - **Resource types (\*required):** [oidc-provider\*](#list_iam-resource-oidc-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AddRoleToInstanceProfile](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AddRoleToInstanceProfile.html)  **
+  - **Description:** Grants permission to add an IAM role to the specified instance profile
+  - **Resource types (\*required):** [instance-profile\*](#list_iam-resource-instance-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AddUserToGroup](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AddUserToGroup.html)  **
+  - **Description:** Grants permission to add an IAM user to the specified IAM group
+  - **Resource types (\*required):** [group\*](#list_iam-resource-group)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [AssociateDelegationRequest](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssociateDelegationRequest.html)  **
+  - **Description:** Associates a delegation request resource with the calling identity
+  - **Resource types (\*required):** [delegation-request\*](#list_iam-resource-delegation-request)
+  - **Condition keys:** [iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner)
+  - **Access level:** Write
+
+- **   [AttachGroupPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachGroupPolicy.html)  **
+  - **Description:** Grants permission to attach a managed policy to the specified IAM group
+  - **Resource types (\*required):** [group\*](#list_iam-resource-group)
+  - **Condition keys:** [iam:PolicyARN](#list_iam-iam_PolicyARN)
+  - **Access level:** Permissions management, Write
+
+- **   [AttachRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html)  **
+  - **Description:** Grants permission to attach a managed policy to the specified IAM role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:PolicyARN](#list_iam-iam_PolicyARN)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)<br />[iam:RoleTemplateARN](#list_iam-iam_RoleTemplateARN)
+  - **Access level:** Permissions management, Write
+
+- **   [AttachUserPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachUserPolicy.html)  **
+  - **Description:** Grants permission to attach a managed policy to the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:PolicyARN](#list_iam-iam_PolicyARN)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [ChangePassword](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html)  **
+  - **Description:** Grants permission to an IAM user to change their own password
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAccessKey](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccessKey.html)  **
+  - **Description:** Grants permission to create access key and secret access key for the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAccountAlias](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccountAlias.html)  **
+  - **Description:** Grants permission to create an alias for your AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateDelegationRequest](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateDelegationRequest.html)  **
+  - **Description:** Creates an IAM delegation request resource for temporary access delegation
+  - **Resource types (\*required):** [delegation-request\*](#list_iam-resource-delegation-request)
+  - **Condition keys:** [iam:DelegationDuration](#list_iam-iam_DelegationDuration)<br />[iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner)<br />[iam:NotificationChannel](#list_iam-iam_NotificationChannel)<br />[iam:TemplateArn](#list_iam-iam_TemplateArn)
+  - **Access level:** Write
+
+- **   [CreateGroup](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html)  **
+  - **Description:** Grants permission to create a new group
+  - **Resource types (\*required):** [group\*](#list_iam-resource-group)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateInstanceProfile](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateInstanceProfile.html)  **
+  - **Description:** Grants permission to create a new instance profile
+  - **Resource types (\*required):** [instance-profile\*](#list_iam-resource-instance-profile)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateLoginProfile](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateLoginProfile.html)  **
+  - **Description:** Grants permission to create a password for the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html)  **
+  - **Description:** Grants permission to create an IAM resource that describes an identity provider (IdP) that supports OpenID Connect (OIDC)
+  - **Resource types (\*required):** [oidc-provider\*](#list_iam-resource-oidc-provider)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreatePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html)  **
+  - **Description:** Grants permission to create a new managed policy
+  - **Resource types (\*required):** [policy\*](#list_iam-resource-policy)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Permissions management, Write
+
+- **   [CreatePolicyVersion](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicyVersion.html)  **
+  - **Description:** Grants permission to create a new version of the specified managed policy
+  - **Resource types (\*required):** [policy\*](#list_iam-resource-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html)  **
+  - **Description:** Grants permission to create a new role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)<br />[iam:RoleTemplateARN](#list_iam-iam_RoleTemplateARN)
+  - **Access level:** Write
+
+- **   [CreateSAMLProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateSAMLProvider.html)  **
+  - **Description:** Grants permission to create an IAM resource that describes an identity provider (IdP) that supports SAML 2.0
+  - **Resource types (\*required):** [saml-provider\*](#list_iam-resource-saml-provider)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateServiceLinkedRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html)  **
+  - **Description:** Grants permission to create an IAM role that allows an AWS service to perform actions on your behalf
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:AWSServiceName](#list_iam-iam_AWSServiceName)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateServiceSpecificCredential](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceSpecificCredential.html)  **
+  - **Description:** Grants permission to create a new service-specific credential for an IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)<br />[iam:ServiceSpecificCredentialAgeDays](#list_iam-iam_ServiceSpecificCredentialAgeDays)<br />[iam:ServiceSpecificCredentialServiceName](#list_iam-iam_ServiceSpecificCredentialServiceName)
+  - **Access level:** Write
+
+- **   [CreateUser](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html)  **
+  - **Description:** Grants permission to create a new IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateVirtualMFADevice](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateVirtualMFADevice.html)  **
+  - **Description:** Grants permission to create a new virtual MFA device
+  - **Resource types (\*required):** [mfa\*](#list_iam-resource-mfa)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeactivateMFADevice](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html)  **
+  - **Description:** Grants permission to deactivate the specified MFA device and remove its association with the IAM user for which it was originally enabled
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAccessKey](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccessKey.html)  **
+  - **Description:** Grants permission to delete the access key pair that is associated with the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAccountAlias](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountAlias.html)  **
+  - **Description:** Grants permission to delete the specified AWS account alias
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteAccountPasswordPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountPasswordPolicy.html)  **
+  - **Description:** Grants permission to delete the password policy for the AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+- **   [DeleteCloudFrontPublicKey](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html)  **
+  - **Description:** Grants permission to delete an existing CloudFront public key
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteGroup](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroup.html)  **
+  - **Description:** Grants permission to delete the specified IAM group
+  - **Resource types (\*required):** [group\*](#list_iam-resource-group)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteGroupPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroupPolicy.html)  **
+  - **Description:** Grants permission to delete the specified inline policy from its group
+  - **Resource types (\*required):** [group\*](#list_iam-resource-group)
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+- **   [DeleteInstanceProfile](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteInstanceProfile.html)  **
+  - **Description:** Grants permission to delete the specified instance profile
+  - **Resource types (\*required):** [instance-profile\*](#list_iam-resource-instance-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteLoginProfile](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteLoginProfile.html)  **
+  - **Description:** Grants permission to delete the password for the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteOpenIDConnectProvider.html)  **
+  - **Description:** Grants permission to delete an OpenID Connect identity provider (IdP) resource object in IAM
+  - **Resource types (\*required):** [oidc-provider\*](#list_iam-resource-oidc-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeletePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicy.html)  **
+  - **Description:** Grants permission to delete the specified managed policy and remove it from any IAM entities (users, groups, or roles) to which it is attached
+  - **Resource types (\*required):** [policy\*](#list_iam-resource-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [DeletePolicyVersion](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeletePolicyVersion.html)  **
+  - **Description:** Grants permission to delete a version from the specified managed policy
+  - **Resource types (\*required):** [policy\*](#list_iam-resource-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [DeleteRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRole.html)  **
+  - **Description:** Grants permission to delete the specified role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRolePermissionsBoundary](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRolePermissionsBoundary.html)  **
+  - **Description:** Grants permission to remove the permissions boundary from a role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [DeleteRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRolePolicy.html)  **
+  - **Description:** Grants permission to delete the specified inline policy from the specified role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [DeleteSAMLProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSAMLProvider.html)  **
+  - **Description:** Grants permission to delete a SAML provider resource in IAM
+  - **Resource types (\*required):** [saml-provider\*](#list_iam-resource-saml-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteSSHPublicKey](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSSHPublicKey.html)  **
+  - **Description:** Grants permission to delete the specified SSH public key
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteServerCertificate](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServerCertificate.html)  **
+  - **Description:** Grants permission to delete the specified server certificate
+  - **Resource types (\*required):** [server-certificate\*](#list_iam-resource-server-certificate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteServiceLinkedRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html)  **
+  - **Description:** Grants permission to delete an IAM role that is linked to a specific AWS service, if the service is no longer using it
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteServiceSpecificCredential](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceSpecificCredential.html)  **
+  - **Description:** Grants permission to delete the specified service-specific credential for an IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)<br />[iam:ServiceSpecificCredentialServiceName](#list_iam-iam_ServiceSpecificCredentialServiceName)
+  - **Access level:** Write
+
+- **   [DeleteSigningCertificate](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSigningCertificate.html)  **
+  - **Description:** Grants permission to delete a signing certificate that is associated with the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteUser](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUser.html)  **
+  - **Description:** Grants permission to delete the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteUserPermissionsBoundary](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUserPermissionsBoundary.html)  **
+  - **Description:** Grants permission to remove the permissions boundary from the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [DeleteUserPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUserPolicy.html)  **
+  - **Description:** Grants permission to delete the specified inline policy from an IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [DeleteVirtualMFADevice](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteVirtualMFADevice.html)  **
+  - **Description:** Grants permission to delete a virtual MFA device
+  - **Resource types (\*required):** [mfa](#list_iam-resource-mfa) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [sms-mfa](#list_iam-resource-sms-mfa) / **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DetachGroupPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachGroupPolicy.html)  **
+  - **Description:** Grants permission to detach a managed policy from the specified IAM group
+  - **Resource types (\*required):** [group\*](#list_iam-resource-group)
+  - **Condition keys:** [iam:PolicyARN](#list_iam-iam_PolicyARN)
+  - **Access level:** Permissions management, Write
+
+- **   [DetachRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachRolePolicy.html)  **
+  - **Description:** Grants permission to detach a managed policy from the specified role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:PolicyARN](#list_iam-iam_PolicyARN)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [DetachUserPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachUserPolicy.html)  **
+  - **Description:** Grants permission to detach a managed policy from the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:PolicyARN](#list_iam-iam_PolicyARN)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [DisableOrganizationsRootCredentialsManagement](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DisableOrganizationsRootCredentialsManagement.html)  **
+  - **Description:** Grants permission to disable the management of member account root user credentials for an organization managed under the current account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DisableOrganizationsRootSessions](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DisableOrganizationsRootSessions.html)  **
+  - **Description:** Grants permission to disable privileged root actions in member accounts for an organization managed under the current account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DisableOutboundWebIdentityFederation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AddClientIDToOpenIDConnectProvider.html)  **
+  - **Description:** Disables the outbound identity federation feature for the callers account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [EnableMFADevice](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html)  **
+  - **Description:** Grants permission to enable an MFA device and associate it with the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:FIDO-certification](#list_iam-iam_FIDO-certification)<br />[iam:FIDO-FIPS-140-2-certification](#list_iam-iam_FIDO-FIPS-140-2-certification)<br />[iam:FIDO-FIPS-140-3-certification](#list_iam-iam_FIDO-FIPS-140-3-certification)<br />[iam:RegisterSecurityKey](#list_iam-iam_RegisterSecurityKey)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [EnableOrganizationsRootCredentialsManagement](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableOrganizationsRootCredentialsManagement.html)  **
+  - **Description:** Grants permission to enable the management of member account root user credentials for an organization managed under the current account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [EnableOrganizationsRootSessions](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableOrganizationsRootSessions.html)  **
+  - **Description:** Grants permission to enable privileged root actions in member accounts for an organization managed under the current account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [EnableOutboundWebIdentityFederation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableOutboundWebIdentityFederation.html)  **
+  - **Description:** Enables the outbound identity federation feature for the callers account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [GenerateCredentialReport](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html)  **
+  - **Description:** Grants permission to generate a credential report for the AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GenerateOrganizationsAccessReport](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateOrganizationsAccessReport.html)  **
+  - **Description:** Grants permission to generate an access report for an AWS Organizations entity
+  - **Resource types (\*required):** [access-report\*](#list_iam-resource-access-report)
+  - **Condition keys:** [iam:OrganizationsPolicyId](#list_iam-iam_OrganizationsPolicyId)
+  - **Access level:** Read
+
+- **   [GenerateServiceLastAccessedDetails](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateServiceLastAccessedDetails.html)  **
+  - **Description:** Grants permission to generate a service last accessed data report for an IAM resource
+  - **Resource types (\*required):** [group\*](#list_iam-resource-group) / **Condition keys:**  
+  - **Resource types (\*required):** [policy\*](#list_iam-resource-policy) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAccessKeyLastUsed](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccessKeyLastUsed.html)  **
+  - **Description:** Grants permission to retrieve information about when the specified access key was last used
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAccountAuthorizationDetails](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html)  **
+  - **Description:** Grants permission to retrieve information about all IAM users, groups, roles, and policies in your AWS account, including their relationships to one another
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAccountEmailAddress](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-root-user.html)  **
+  - **Description:** Grants permission to retrieve the email address that is associated with the account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAccountName](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-root-user.html)  **
+  - **Description:** Grants permission to retrieve the account name that is associated with the account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAccountPasswordPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountPasswordPolicy.html)  **
+  - **Description:** Grants permission to retrieve the password policy for the AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAccountProperties](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountProperties.html)  **
+  - **Description:** Grants permission to retrieve account-level properties for IAM features
+  - **Resource types (\*required):** 
+  - **Condition keys:** [iam:AccountPropertyNamespaces](#list_iam-iam_AccountPropertyNamespaces)
+  - **Access level:** Read
+
+- **   [GetAccountSummary](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummary.html)  **
+  - **Description:** Grants permission to retrieve information about IAM entity usage and IAM quotas in the AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [GetCloudFrontPublicKey](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html)  **
+  - **Description:** Grants permission to retrieve information about the specified CloudFront public key
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetContextKeysForCustomPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html)  **
+  - **Description:** Grants permission to retrieve a list of all of the context keys that are referenced in the specified policy
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetContextKeysForPrincipalPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html)  **
+  - **Description:** Grants permission to retrieve a list of all context keys that are referenced in all IAM policies that are attached to the specified IAM identity (user, group, or role)
+  - **Resource types (\*required):** [group](#list_iam-resource-group) / **Condition keys:**  
+  - **Resource types (\*required):** [role](#list_iam-resource-role) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [user](#list_iam-resource-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCredentialReport](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetCredentialReport.html)  **
+  - **Description:** Grants permission to retrieve a credential report for the AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetDelegationRequest](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetDelegationRequest.html)  **
+  - **Description:** Retrieves information about a specific delegation request
+  - **Resource types (\*required):** [delegation-request\*](#list_iam-resource-delegation-request)
+  - **Condition keys:** [iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner)
+  - **Access level:** Read
+
+- **   [GetGroup](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroup.html)  **
+  - **Description:** Grants permission to retrieve a list of IAM users in the specified IAM group
+  - **Resource types (\*required):** [group\*](#list_iam-resource-group)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetGroupPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroupPolicy.html)  **
+  - **Description:** Grants permission to retrieve an inline policy document that is embedded in the specified IAM group
+  - **Resource types (\*required):** [group\*](#list_iam-resource-group)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetHumanReadableSummary](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetHumanReadableSummary.html)  **
+  - **Description:** Retrieves a human readable summary for a given entity. At this time, only delegation request are supported
+  - **Resource types (\*required):** [delegation-request\*](#list_iam-resource-delegation-request)
+  - **Condition keys:** [iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner)
+  - **Access level:** Read
+
+- **   [GetInstanceProfile](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetInstanceProfile.html)  **
+  - **Description:** Grants permission to retrieve information about the specified instance profile, including the instance profile's path, GUID, ARN, and role
+  - **Resource types (\*required):** [instance-profile\*](#list_iam-resource-instance-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetLoginProfile](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetLoginProfile.html)  **
+  - **Description:** Grants permission to retrieve the user name and password creation date for the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [GetMFADevice](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetMFADevice.html)  **
+  - **Description:** Grants permission to retrieve information about an MFA device for the specified user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIDConnectProvider.html)  **
+  - **Description:** Grants permission to retrieve information about the specified OpenID Connect (OIDC) provider resource in IAM
+  - **Resource types (\*required):** [oidc-provider\*](#list_iam-resource-oidc-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetOrganizationsAccessReport](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html)  **
+  - **Description:** Grants permission to retrieve an AWS Organizations access report
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetOutboundWebIdentityFederationInfo](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOutboundWebIdentityFederationInfo.html)  **
+  - **Description:** Retrieves the configuration information for the outbound identity federation feature for the callers account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicy.html)  **
+  - **Description:** Grants permission to retrieve information about the specified managed policy, including the policy's default version and the total number of identities to which the policy is attached
+  - **Resource types (\*required):** [policy\*](#list_iam-resource-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPolicyVersion](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicyVersion.html)  **
+  - **Description:** Grants permission to retrieve information about a version of the specified managed policy, including the policy document
+  - **Resource types (\*required):** [policy\*](#list_iam-resource-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html)  **
+  - **Description:** Grants permission to retrieve information about the specified role, including the role's path, GUID, ARN, and the role's trust policy
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)<br />[iam:RoleTemplateARN](#list_iam-iam_RoleTemplateARN)
+  - **Access level:** Read
+
+- **   [GetRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRolePolicy.html)  **
+  - **Description:** Grants permission to retrieve an inline policy document that is embedded with the specified IAM role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRoleTemplateVersion](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRoleTemplateVersion.html)  **
+  - **Description:** Grants permission to retrieve information about a specific version of a role template
+  - **Resource types (\*required):** [role-template\*](#list_iam-resource-role-template)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetSAMLProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html)  **
+  - **Description:** Grants permission to retrieve the SAML provider metadocument that was uploaded when the IAM SAML provider resource was created or updated
+  - **Resource types (\*required):** [saml-provider\*](#list_iam-resource-saml-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSSHPublicKey](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSSHPublicKey.html)  **
+  - **Description:** Grants permission to retrieve the specified SSH public key, including metadata about the key
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetServerCertificate](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServerCertificate.html)  **
+  - **Description:** Grants permission to retrieve information about the specified server certificate stored in IAM
+  - **Resource types (\*required):** [server-certificate\*](#list_iam-resource-server-certificate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetServiceLastAccessedDetails](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html)  **
+  - **Description:** Grants permission to retrieve information about the service last accessed data report
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetServiceLastAccessedDetailsWithEntities](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html)  **
+  - **Description:** Grants permission to retrieve information about the entities from the service last accessed data report
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetServiceLinkedRoleDeletionStatus](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLinkedRoleDeletionStatus.html)  **
+  - **Description:** Grants permission to retrieve an IAM service-linked role deletion status
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetUser](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html)  **
+  - **Description:** Grants permission to retrieve information about the specified IAM user, including the user's creation date, path, unique ID, and ARN
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetUserPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUserPolicy.html)  **
+  - **Description:** Grants permission to retrieve an inline policy document that is embedded in the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListAccessKeys](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccessKeys.html)  **
+  - **Description:** Grants permission to list information about the access key IDs that are associated with the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAccountAliases](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccountAliases.html)  **
+  - **Description:** Grants permission to list the account alias that is associated with the AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAttachedGroupPolicies](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedGroupPolicies.html)  **
+  - **Description:** Grants permission to list all managed policies that are attached to the specified IAM group
+  - **Resource types (\*required):** [group\*](#list_iam-resource-group)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAttachedRolePolicies](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedRolePolicies.html)  **
+  - **Description:** Grants permission to list all managed policies that are attached to the specified IAM role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAttachedUserPolicies](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedUserPolicies.html)  **
+  - **Description:** Grants permission to list all managed policies that are attached to the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListCloudFrontPublicKeys](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html)  **
+  - **Description:** Grants permission to list all current CloudFront public keys for the account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDelegationRequests](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListDelegationRequests.html)  **
+  - **Description:** Lists delegation requests based on the specified criteria
+  - **Resource types (\*required):** 
+  - **Condition keys:** [iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner)
+  - **Access level:** List
+
+- **   [ListEntitiesForPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListEntitiesForPolicy.html)  **
+  - **Description:** Grants permission to list all IAM identities to which the specified managed policy is attached
+  - **Resource types (\*required):** [policy\*](#list_iam-resource-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListGroupPolicies](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupPolicies.html)  **
+  - **Description:** Grants permission to list the names of the inline policies that are embedded in the specified IAM group
+  - **Resource types (\*required):** [group\*](#list_iam-resource-group)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListGroups](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroups.html)  **
+  - **Description:** Grants permission to list the IAM groups that have the specified path prefix
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListGroupsForUser](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupsForUser.html)  **
+  - **Description:** Grants permission to list the IAM groups that the specified IAM user belongs to
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListInstanceProfileTags](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfileTags.html)  **
+  - **Description:** Grants permission to list the tags that are attached to the specified instance profile
+  - **Resource types (\*required):** [instance-profile\*](#list_iam-resource-instance-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListInstanceProfiles](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfiles.html)  **
+  - **Description:** Grants permission to list the instance profiles that have the specified path prefix
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListInstanceProfilesForRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfilesForRole.html)  **
+  - **Description:** Grants permission to list the instance profiles that have the specified associated IAM role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListMFADeviceTags](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListMFADeviceTags.html)  **
+  - **Description:** Grants permission to list the tags that are attached to the specified virtual mfa device
+  - **Resource types (\*required):** [mfa\*](#list_iam-resource-mfa)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListMFADevices](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListMFADevices.html)  **
+  - **Description:** Grants permission to list the MFA devices for an IAM user
+  - **Resource types (\*required):** [user](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListOpenIDConnectProviderTags](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviderTags.html)  **
+  - **Description:** Grants permission to list the tags that are attached to the specified OpenID Connect provider
+  - **Resource types (\*required):** [oidc-provider\*](#list_iam-resource-oidc-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListOpenIDConnectProviders](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html)  **
+  - **Description:** Grants permission to list information about the IAM OpenID Connect (OIDC) provider resource objects that are defined in the AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListOrganizationsFeatures](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOrganizationsFeatures.html)  **
+  - **Description:** Grants permission to list the centralized root access features enabled for your organization
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListPolicies](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicies.html)  **
+  - **Description:** Grants permission to list all managed policies
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListPoliciesGrantingServiceAccess](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPoliciesGrantingServiceAccess.html)  **
+  - **Description:** Grants permission to list information about the policies that grant an entity access to a specific service
+  - **Resource types (\*required):** [group\*](#list_iam-resource-group) / **Condition keys:**  
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListPolicyTags](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyTags.html)  **
+  - **Description:** Grants permission to list the tags that are attached to the specified managed policy
+  - **Resource types (\*required):** [policy\*](#list_iam-resource-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListPolicyVersions](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html)  **
+  - **Description:** Grants permission to list information about the versions of the specified managed policy, including the version that is currently set as the policy's default version
+  - **Resource types (\*required):** [policy\*](#list_iam-resource-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRolePolicies](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRolePolicies.html)  **
+  - **Description:** Grants permission to list the names of the inline policies that are embedded in the specified IAM role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRoleTags](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRoleTags.html)  **
+  - **Description:** Grants permission to list the tags that are attached to the specified IAM role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRoles](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRoles.html)  **
+  - **Description:** Grants permission to list the IAM roles that have the specified path prefix
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSAMLProviderTags](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSAMLProviderTags.html)  **
+  - **Description:** Grants permission to list the tags that are attached to the specified SAML provider
+  - **Resource types (\*required):** [saml-provider\*](#list_iam-resource-saml-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSAMLProviders](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSAMLProviders.html)  **
+  - **Description:** Grants permission to list the SAML provider resources in IAM
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSSHPublicKeys](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSSHPublicKeys.html)  **
+  - **Description:** Grants permission to list information about the SSH public keys that are associated with the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSTSRegionalEndpointsStatus](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)  **
+  - **Description:** Grants permission to list the status of all active STS regional endpoints
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListServerCertificateTags](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServerCertificateTags.html)  **
+  - **Description:** Grants permission to list the tags that are attached to the specified server certificate
+  - **Resource types (\*required):** [server-certificate\*](#list_iam-resource-server-certificate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListServerCertificates](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServerCertificates.html)  **
+  - **Description:** Grants permission to list the server certificates that have the specified path prefix
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListServiceSpecificCredentials](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListServiceSpecificCredentials.html)  **
+  - **Description:** Grants permission to list the service-specific credentials that are associated with the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSigningCertificates](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSigningCertificates.html)  **
+  - **Description:** Grants permission to list information about the signing certificates that are associated with the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListUserPolicies](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUserPolicies.html)  **
+  - **Description:** Grants permission to list the names of the inline policies that are embedded in the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListUserTags](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUserTags.html)  **
+  - **Description:** Grants permission to list the tags that are attached to the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListUsers](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html)  **
+  - **Description:** Grants permission to list the IAM users that have the specified path prefix
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListVirtualMFADevices](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListVirtualMFADevices.html)  **
+  - **Description:** Grants permission to list virtual MFA devices by assignment status
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [PutAccountProperties](https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutAccountProperties.html)  **
+  - **Description:** Grants permission to set account-level properties for IAM features
+  - **Resource types (\*required):** 
+  - **Condition keys:** [iam:AccountPropertyNamespaces](#list_iam-iam_AccountPropertyNamespaces)
+  - **Access level:** Write
+
+- **   [PutGroupPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutGroupPolicy.html)  **
+  - **Description:** Grants permission to create or update an inline policy document that is embedded in the specified IAM group
+  - **Resource types (\*required):** [group\*](#list_iam-resource-group)
+  - **Condition keys:**  
+  - **Access level:** Permissions management, Write
+
+- **   [PutRolePermissionsBoundary](https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutRolePermissionsBoundary.html)  **
+  - **Description:** Grants permission to set a managed policy as a permissions boundary for a role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)<br />[iam:RoleTemplateARN](#list_iam-iam_RoleTemplateARN)
+  - **Access level:** Permissions management, Write
+
+- **   [PutRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutRolePolicy.html)  **
+  - **Description:** Grants permission to create or update an inline policy document that is embedded in the specified IAM role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)<br />[iam:RoleTemplateARN](#list_iam-iam_RoleTemplateARN)
+  - **Access level:** Permissions management, Write
+
+- **   [PutUserPermissionsBoundary](https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPermissionsBoundary.html)  **
+  - **Description:** Grants permission to set a managed policy as a permissions boundary for an IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [PutUserPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html)  **
+  - **Description:** Grants permission to create or update an inline policy document that is embedded in the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [RejectDelegationRequest](https://docs.aws.amazon.com/IAM/latest/APIReference/API_RejectDelegationRequest.html)  **
+  - **Description:** Rejects a delegation request, denying the requested temporary access
+  - **Resource types (\*required):** [delegation-request\*](#list_iam-resource-delegation-request)
+  - **Condition keys:** [iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner)
+  - **Access level:** Write
+
+- **   [RemoveClientIDFromOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveClientIDFromOpenIDConnectProvider.html)  **
+  - **Description:** Grants permission to remove the client ID (audience) from the list of client IDs in the specified IAM OpenID Connect (OIDC) provider resource
+  - **Resource types (\*required):** [oidc-provider\*](#list_iam-resource-oidc-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RemoveRoleFromInstanceProfile](https://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveRoleFromInstanceProfile.html)  **
+  - **Description:** Grants permission to remove an IAM role from the specified EC2 instance profile
+  - **Resource types (\*required):** [instance-profile\*](#list_iam-resource-instance-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RemoveUserFromGroup](https://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveUserFromGroup.html)  **
+  - **Description:** Grants permission to remove an IAM user from the specified group
+  - **Resource types (\*required):** [group\*](#list_iam-resource-group)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ResetServiceSpecificCredential](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html)  **
+  - **Description:** Grants permission to reset the password for an existing service-specific credential for an IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)<br />[iam:ServiceSpecificCredentialServiceName](#list_iam-iam_ServiceSpecificCredentialServiceName)
+  - **Access level:** Write
+
+- **   [ResyncMFADevice](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResyncMFADevice.html)  **
+  - **Description:** Grants permission to synchronize the specified MFA device with its IAM entity (user or role)
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SendDelegationToken](https://docs.aws.amazon.com/IAM/latest/APIReference/API_SendDelegationToken.html)  **
+  - **Description:** Sends the exchange token for an accepted delegation request
+  - **Resource types (\*required):** [delegation-request\*](#list_iam-resource-delegation-request)
+  - **Condition keys:** [iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner)
+  - **Access level:** Write
+
+- **   [SetDefaultPolicyVersion](https://docs.aws.amazon.com/IAM/latest/APIReference/API_SetDefaultPolicyVersion.html)  **
+  - **Description:** Grants permission to set the version of the specified policy as the policy's default version
+  - **Resource types (\*required):** [policy\*](#list_iam-resource-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [SetSTSRegionalEndpointStatus](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)  **
+  - **Description:** Grants permission to activate or deactivate an STS regional endpoint
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SetSecurityTokenServicePreferences](https://docs.aws.amazon.com/IAM/latest/APIReference/API_SetSecurityTokenServicePreferences.html)  **
+  - **Description:** Grants permission to set the STS global endpoint token version
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SimulateCustomPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulateCustomPolicy.html)  **
+  - **Description:** Grants permission to simulate whether an identity-based policy or resource-based policy provides permissions for specific API operations and resources
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [SimulatePrincipalPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html)  **
+  - **Description:** Grants permission to simulate whether an identity-based policy that is attached to a specified IAM entity (user or role) provides permissions for specific API operations and resources
+  - **Resource types (\*required):** [group](#list_iam-resource-group) / **Condition keys:**  
+  - **Resource types (\*required):** [role](#list_iam-resource-role) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [user](#list_iam-resource-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [TagInstanceProfile](https://docs.aws.amazon.com/IAM/latest/APIReference/API_TagInstanceProfile.html)  **
+  - **Description:** Grants permission to add tags to an instance profile
+  - **Resource types (\*required):** [instance-profile\*](#list_iam-resource-instance-profile)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [TagMFADevice](https://docs.aws.amazon.com/IAM/latest/APIReference/API_TagMFADevice.html)  **
+  - **Description:** Grants permission to add tags to a virtual mfa device
+  - **Resource types (\*required):** [mfa\*](#list_iam-resource-mfa)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [TagOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_TagOpenIDConnectProvider.html)  **
+  - **Description:** Grants permission to add tags to an OpenID Connect provider
+  - **Resource types (\*required):** [oidc-provider\*](#list_iam-resource-oidc-provider)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [TagPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_TagPolicy.html)  **
+  - **Description:** Grants permission to add tags to a managed policy
+  - **Resource types (\*required):** [policy\*](#list_iam-resource-policy)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [TagRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_TagRole.html)  **
+  - **Description:** Grants permission to add tags to an IAM role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)<br />[iam:RoleTemplateARN](#list_iam-iam_RoleTemplateARN)
+  - **Access level:** Tagging, Write
+
+- **   [TagSAMLProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_TagSAMLProvider.html)  **
+  - **Description:** Grants permission to add tags to a SAML Provider
+  - **Resource types (\*required):** [saml-provider\*](#list_iam-resource-saml-provider)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [TagServerCertificate](https://docs.aws.amazon.com/IAM/latest/APIReference/API_TagServerCertificate.html)  **
+  - **Description:** Grants permission to add tags to a server certificate
+  - **Resource types (\*required):** [server-certificate\*](#list_iam-resource-server-certificate)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [TagUser](https://docs.aws.amazon.com/IAM/latest/APIReference/API_TagUser.html)  **
+  - **Description:** Grants permission to add tags to an IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Tagging, Write
+
+- **   [UntagInstanceProfile](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UntagInstanceProfile.html)  **
+  - **Description:** Grants permission to remove the specified tags from the instance profile
+  - **Resource types (\*required):** [instance-profile\*](#list_iam-resource-instance-profile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagMFADevice](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UntagMFADevice.html)  **
+  - **Description:** Grants permission to remove the specified tags from the virtual mfa device
+  - **Resource types (\*required):** [mfa\*](#list_iam-resource-mfa)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UntagOpenIDConnectProvider.html)  **
+  - **Description:** Grants permission to remove the specified tags from the OpenID Connect provider
+  - **Resource types (\*required):** [oidc-provider\*](#list_iam-resource-oidc-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UntagPolicy.html)  **
+  - **Description:** Grants permission to remove the specified tags from the managed policy
+  - **Resource types (\*required):** [policy\*](#list_iam-resource-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UntagRole.html)  **
+  - **Description:** Grants permission to remove the specified tags from the role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Tagging, Write
+
+- **   [UntagSAMLProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UntagSAMLProvider.html)  **
+  - **Description:** Grants permission to remove the specified tags from the SAML Provider
+  - **Resource types (\*required):** [saml-provider\*](#list_iam-resource-saml-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagServerCertificate](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UntagServerCertificate.html)  **
+  - **Description:** Grants permission to remove the specified tags from the server certificate
+  - **Resource types (\*required):** [server-certificate\*](#list_iam-resource-server-certificate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagUser](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UntagUser.html)  **
+  - **Description:** Grants permission to remove the specified tags from the user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAccessKey](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccessKey.html)  **
+  - **Description:** Grants permission to update the status of the specified access key as Active or Inactive
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAccountEmailAddress](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-root-user.html)  **
+  - **Description:** Grants permission to update the email address that is associated with the account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateAccountName](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-root-user.html)  **
+  - **Description:** Grants permission to update the account name that is associated with the account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateAccountPasswordPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html)  **
+  - **Description:** Grants permission to update the password policy settings for the AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateAssumeRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html)  **
+  - **Description:** Grants permission to update the policy that grants an IAM entity permission to assume a role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Permissions management, Write
+
+- **   [UpdateCloudFrontPublicKey](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html)  **
+  - **Description:** Grants permission to update an existing CloudFront public key
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateGroup](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateGroup.html)  **
+  - **Description:** Grants permission to update the name or path of the specified IAM group
+  - **Resource types (\*required):** [group\*](#list_iam-resource-group)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateLoginProfile](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateLoginProfile.html)  **
+  - **Description:** Grants permission to change the password for the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateOpenIDConnectProviderThumbprint](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateOpenIDConnectProviderThumbprint.html)  **
+  - **Description:** Grants permission to update the entire list of server certificate thumbprints that are associated with an OpenID Connect (OIDC) provider resource
+  - **Resource types (\*required):** [oidc-provider\*](#list_iam-resource-oidc-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateRole.html)  **
+  - **Description:** Grants permission to update the description or maximum session duration setting of a role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRoleDescription](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateRoleDescription.html)  **
+  - **Description:** Grants permission to update only the description of a role
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:PermissionsBoundary](#list_iam-iam_PermissionsBoundary)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSAMLProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSAMLProvider.html)  **
+  - **Description:** Grants permission to update the metadata document for an existing SAML provider resource
+  - **Resource types (\*required):** [saml-provider\*](#list_iam-resource-saml-provider)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSSHPublicKey](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSSHPublicKey.html)  **
+  - **Description:** Grants permission to update the status of an IAM user's SSH public key to active or inactive
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateServerCertificate](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServerCertificate.html)  **
+  - **Description:** Grants permission to update the name or the path of the specified server certificate stored in IAM
+  - **Resource types (\*required):** [server-certificate\*](#list_iam-resource-server-certificate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateServiceSpecificCredential](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServiceSpecificCredential.html)  **
+  - **Description:** Grants permission to update the status of a service-specific credential to active or inactive for an IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)<br />[iam:ServiceSpecificCredentialServiceName](#list_iam-iam_ServiceSpecificCredentialServiceName)
+  - **Access level:** Write
+
+- **   [UpdateSigningCertificate](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSigningCertificate.html)  **
+  - **Description:** Grants permission to update the status of the specified user signing certificate to active or disabled
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateUser](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateUser.html)  **
+  - **Description:** Grants permission to update the name or the path of the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UploadCloudFrontPublicKey](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html)  **
+  - **Description:** Grants permission to upload a CloudFront public key
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UploadSSHPublicKey](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSSHPublicKey.html)  **
+  - **Description:** Grants permission to upload an SSH public key and associate it with the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UploadServerCertificate](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadServerCertificate.html)  **
+  - **Description:** Grants permission to upload a server certificate entity for the AWS account
+  - **Resource types (\*required):** [server-certificate\*](#list_iam-resource-server-certificate)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_iam-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_iam-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [UploadSigningCertificate](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UploadSigningCertificate.html)  **
+  - **Description:** Grants permission to upload an X.509 signing certificate and associate it with the specified IAM user
+  - **Resource types (\*required):** [user\*](#list_iam-resource-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for AWS Identity and Access Management (IAM)
+<a name="list_iam-permission-only-actions"></a>
 
-The following actions are defined by AWS Identity and Access Management (IAM) but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by AWS Identity and Access Management (IAM) but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                     | Description                                   | Resource types (\*required)                                 | Condition keys                                                                                                                                                                                                                                                                                                                                                                                                     | Access level |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ |
-| [PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | Grants permission to pass a role to a service | [role\*](#list_iam-resource-role "#list_iam-resource-role") | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:AssociatedResourceArn](#list_iam-iam_AssociatedResourceArn "#list_iam-iam_AssociatedResourceArn")<br>[iam:PassedToService](#list_iam-iam_PassedToService "#list_iam-iam_PassedToService")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_") | Write        |
+
+
+
+- **   [PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  **
+  - **Description:** Grants permission to pass a role to a service
+  - **Resource types (\*required):** [role\*](#list_iam-resource-role)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:AssociatedResourceArn](#list_iam-iam_AssociatedResourceArn)<br />[iam:PassedToService](#list_iam-iam_PassedToService)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS Identity and Access Management (IAM)
+<a name="list_iam-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                                        | ARN                                                                                                            | Condition keys                                                                                                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [access-report](../../../IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.md "../../../IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.md")      | arn:${Partition}:iam::${Account}:access-report/${EntityPath}                                                   |                                                                                                                                                                                                                  |
-| [assumed-role](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md")                               | arn:${Partition}:iam::${Account}:assumed-role/${RoleName}/${RoleSessionName}                                   |                                                                                                                                                                                                                  |
-| [delegation-request](../../../IAM/latest/UserGuide/access_policies-temporary-delegation.md "../../../IAM/latest/UserGuide/access_policies-temporary-delegation.md")                   | arn:${Partition}:iam::${Account}:delegation-request/${DelegationRequestId}                                     | [iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner "#list_iam-iam_DelegationRequestOwner")                                                                                                        |
-| [federated-user](../../../IAM/latest/UserGuide/id_roles_providers_saml.md "../../../IAM/latest/UserGuide/id_roles_providers_saml.md")                                                 | arn:${Partition}:iam::${Account}:federated-user/${UserName}                                                    |                                                                                                                                                                                                                  |
-| [group](../../../IAM/latest/UserGuide/id_groups.md "../../../IAM/latest/UserGuide/id_groups.md")                                                                                      | arn:${Partition}:iam::${Account}:group/${GroupNameWithPath}                                                    |                                                                                                                                                                                                                  |
-| [instance-profile](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md") | arn:${Partition}:iam::${Account}:instance-profile/${InstanceProfileNameWithPath}                               | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                           |
-| [mfa](../../../IAM/latest/UserGuide/id_credentials_mfa.md "../../../IAM/latest/UserGuide/id_credentials_mfa.md")                                                                      | arn:${Partition}:iam::${Account}:mfa/${MfaTokenIdWithPath}                                                     | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                           |
-| [oidc-provider](../../../IAM/latest/UserGuide/id_roles_providers_create_oidc.md "../../../IAM/latest/UserGuide/id_roles_providers_create_oidc.md")                                    | arn:${Partition}:iam::${Account}:oidc-provider/${OidcProviderName}                                             | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                           |
-| [policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md")                                     | arn:${Partition}:iam::${Account}:policy/${PolicyNameWithPath}                                                  | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                           |
-| [role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")                                                                                         | arn:${Partition}:iam::${Account}:role/${RoleNameWithPath}                                                      | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_") |
-| [role-template](../../../IAM/latest/UserGuide/id_roles_create_role-template.md "../../../IAM/latest/UserGuide/id_roles_create_role-template.md")                                      | arn:${Partition}:iam::aws:role-template/${AWSServicePrincipal}/${RoleTemplateName}:${RoleTemplateMajorVersion} |                                                                                                                                                                                                                  |
-| [saml-provider](../../../IAM/latest/UserGuide/id_roles_providers_saml.md "../../../IAM/latest/UserGuide/id_roles_providers_saml.md")                                                  | arn:${Partition}:iam::${Account}:saml-provider/${SamlProviderName}                                             | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                           |
-| [server-certificate](../../../IAM/latest/UserGuide/id_credentials_server-certs.md "../../../IAM/latest/UserGuide/id_credentials_server-certs.md")                                     | arn:${Partition}:iam::${Account}:server-certificate/${CertificateNameWithPath}                                 | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")                                                                                                           |
-| [sms-mfa](../../../IAM/latest/UserGuide/id_credentials_mfa.md "../../../IAM/latest/UserGuide/id_credentials_mfa.md")                                                                  | arn:${Partition}:iam::${Account}:sms-mfa/${MfaTokenIdWithPath}                                                 |                                                                                                                                                                                                                  |
-| [user](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md")                                                                                         | arn:${Partition}:iam::${Account}:user/${UserNameWithPath}                                                      | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_ "#list_iam-aws_ResourceTag___TagKey_")<br>[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_ "#list_iam-iam_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [access-report](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor-view-data-orgs.html)  | arn:${Partition}:iam::${Account}:access-report/${EntityPath} |   | 
+|  [assumed-role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html)  | arn:${Partition}:iam::${Account}:assumed-role/${RoleName}/${RoleSessionName} |   | 
+|  [delegation-request](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html)  | arn:${Partition}:iam::${Account}:delegation-request/${DelegationRequestId} | [iam:DelegationRequestOwner](#list_iam-iam_DelegationRequestOwner) | 
+|  [federated-user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html)  | arn:${Partition}:iam::${Account}:federated-user/${UserName} |   | 
+|  [group](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups.html)  | arn:${Partition}:iam::${Account}:group/${GroupNameWithPath} |   | 
+|  [instance-profile](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html)  | arn:${Partition}:iam::${Account}:instance-profile/${InstanceProfileNameWithPath} | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_) | 
+|  [mfa](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html)  | arn:${Partition}:iam::${Account}:mfa/${MfaTokenIdWithPath} | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_) | 
+|  [oidc-provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)  | arn:${Partition}:iam::${Account}:oidc-provider/${OidcProviderName} | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_) | 
+|  [policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html)  | arn:${Partition}:iam::${Account}:policy/${PolicyNameWithPath} | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_) | 
+|  [role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html)  | arn:${Partition}:iam::${Account}:role/${RoleNameWithPath} | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_) | 
+|  [role-template](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_role-template.html)  | arn:${Partition}:iam::aws:role-template/${AWSServicePrincipal}/${RoleTemplateName}:${RoleTemplateMajorVersion} |   | 
+|  [saml-provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html)  | arn:${Partition}:iam::${Account}:saml-provider/${SamlProviderName} | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_) | 
+|  [server-certificate](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html)  | arn:${Partition}:iam::${Account}:server-certificate/${CertificateNameWithPath} | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_) | 
+|  [sms-mfa](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html)  | arn:${Partition}:iam::${Account}:sms-mfa/${MfaTokenIdWithPath} |   | 
+|  [user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html)  | arn:${Partition}:iam::${Account}:user/${UserNameWithPath} | [aws:ResourceTag/${TagKey}](#list_iam-aws_ResourceTag___TagKey_)<br />[iam:ResourceTag/${TagKey}](#list_iam-iam_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Identity and Access Management (IAM)
+<a name="list_iam-policy-keys"></a>
 
-AWS Identity and Access Management (IAM) defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Identity and Access Management (IAM) defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                                                              | Description                                                                                                                   | Type          |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")                                                     | Filters access based on the tags that are passed in the request                                                               | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag")                                                  | Filters access based on the tags associated with the resource                                                                 | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                                                                        | Filters access based on the tag keys that are passed in the request                                                           | ArrayOfString |
-| [iam:AWSServiceName](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_AWSServiceName "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_AWSServiceName")                                                                   | Filters access by the AWS service to which this role is attached                                                              | String        |
-| [iam:AccountPropertyNamespaces](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_AccountPropertyNamespaces "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_AccountPropertyNamespaces")                                  | Filters access by the account property namespaces being read or modified                                                      | ArrayOfString |
-| [iam:AssociatedResourceArn](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_AssociatedResourceArn "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_AssociatedResourceArn")                                              | Filters access by the resource that the role will be used on behalf of                                                        | ARN           |
-| [iam:DelegationDuration](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_DelegationDuration "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_DelegationDuration")                                                       | Filters access based on the requested delegation duration                                                                     | String        |
-| [iam:DelegationRequestOwner](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_DelegationRequestOwner "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_DelegationRequestOwner")                                           | Filters access based on the delegation request owner                                                                          | ARN           |
-| [iam:FIDO-FIPS-140-2-certification](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_FIDO-FIPS-140-2-certification "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_FIDO-FIPS-140-2-certification")                      | Filters access by the MFA device FIPS-140-2 validation certification level at the time of registration of a FIDO security key | String        |
-| [iam:FIDO-FIPS-140-3-certification](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_FIDO-FIPS-140-3-certification "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_FIDO-FIPS-140-3-certification")                      | Filters access by the MFA device FIPS-140-3 validation certification level at the time of registration of a FIDO security key | String        |
-| [iam:FIDO-certification](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_FIDO-certification "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_FIDO-certification")                                                       | Filters access by the MFA device FIDO certification level at the time of registration of a FIDO security key                  | String        |
-| [iam:NotificationChannel](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_NotificationChannel "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_NotificationChannel")                                                    | Filters access based on the requested notification channel                                                                    | String        |
-| [iam:OrganizationsPolicyId](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_OrganizationsPolicyId "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_OrganizationsPolicyId")                                              | Filters access by the ID of an AWS Organizations policy                                                                       | String        |
-| [iam:PassedToService](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_PassedToService "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_PassedToService")                                                                | Filters access by the AWS service to which this role is passed                                                                | String        |
-| [iam:PermissionsBoundary](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_PermissionsBoundary "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_PermissionsBoundary")                                                    | Filters access if the specified policy is set as the permissions boundary on the IAM entity (user or role)                    | ARN           |
-| [iam:PolicyARN](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_PolicyARN "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_PolicyARN")                                                                                  | Filters access by the ARN of an IAM policy                                                                                    | ARN           |
-| [iam:RegisterSecurityKey](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_RegisterSecurityKey "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_RegisterSecurityKey")                                                    | Filters access by the current state of MFA device enablement                                                                  | String        |
-| [iam:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_ResourceTag "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_ResourceTag")                                                                  | Filters access by the tags attached to an IAM entity (user or role)                                                           | String        |
-| [iam:RoleTemplateARN](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_RoleTemplateARN "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_RoleTemplateARN")                                                                | Filters access by the role template ARN used in the request                                                                   | ARN           |
-| [iam:ServiceSpecificCredentialAgeDays](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_ServiceSpecificCredentialAgeDays "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_ServiceSpecificCredentialAgeDays")             | Filters access by the duration until the credential's expiration                                                              | Numeric       |
-| [iam:ServiceSpecificCredentialServiceName](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_ServiceSpecificCredentialServiceName "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_ServiceSpecificCredentialServiceName") | Filters access by the service associated with the credential                                                                  | String        |
-| [iam:TemplateArn](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_TemplateArn "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_TemplateArn")                                                                            | Filters access based on the requested template ARN                                                                            | ARN           |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access based on the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access based on the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access based on the tag keys that are passed in the request | ArrayOfString | 
+|   [iam:AWSServiceName](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_AWSServiceName)  | Filters access by the AWS service to which this role is attached | String | 
+|   [iam:AccountPropertyNamespaces](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_AccountPropertyNamespaces)  | Filters access by the account property namespaces being read or modified | ArrayOfString | 
+|   [iam:AssociatedResourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_AssociatedResourceArn)  | Filters access by the resource that the role will be used on behalf of | ARN | 
+|   [iam:DelegationDuration](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_DelegationDuration)  | Filters access based on the requested delegation duration | String | 
+|   [iam:DelegationRequestOwner](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_DelegationRequestOwner)  | Filters access based on the delegation request owner | ARN | 
+|   [iam:FIDO-FIPS-140-2-certification](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_FIDO-FIPS-140-2-certification)  | Filters access by the MFA device FIPS-140-2 validation certification level at the time of registration of a FIDO security key | String | 
+|   [iam:FIDO-FIPS-140-3-certification](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_FIDO-FIPS-140-3-certification)  | Filters access by the MFA device FIPS-140-3 validation certification level at the time of registration of a FIDO security key | String | 
+|   [iam:FIDO-certification](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_FIDO-certification)  | Filters access by the MFA device FIDO certification level at the time of registration of a FIDO security key | String | 
+|   [iam:NotificationChannel](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_NotificationChannel)  | Filters access based on the requested notification channel | String | 
+|   [iam:OrganizationsPolicyId](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_OrganizationsPolicyId)  | Filters access by the ID of an AWS Organizations policy | String | 
+|   [iam:PassedToService](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_PassedToService)  | Filters access by the AWS service to which this role is passed | String | 
+|   [iam:PermissionsBoundary](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_PermissionsBoundary)  | Filters access if the specified policy is set as the permissions boundary on the IAM entity (user or role) | ARN | 
+|   [iam:PolicyARN](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_PolicyARN)  | Filters access by the ARN of an IAM policy | ARN | 
+|   [iam:RegisterSecurityKey](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RegisterSecurityKey)  | Filters access by the current state of MFA device enablement | String | 
+|   [iam:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceTag)  | Filters access by the tags attached to an IAM entity (user or role) | String | 
+|   [iam:RoleTemplateARN](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RoleTemplateARN)  | Filters access by the role template ARN used in the request | ARN | 
+|   [iam:ServiceSpecificCredentialAgeDays](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ServiceSpecificCredentialAgeDays)  | Filters access by the duration until the credential's expiration | Numeric | 
+|   [iam:ServiceSpecificCredentialServiceName](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ServiceSpecificCredentialServiceName)  | Filters access by the service associated with the credential | String | 
+|   [iam:TemplateArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_TemplateArn)  | Filters access based on the requested template ARN | ARN | 

@@ -1,144 +1,378 @@
-# Actions, resources, and condition keys for AWS AppFabric
 
-AWS AppFabric (service prefix: `appfabric`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS AppFabric
+<a name="list_appfabric"></a>
+
+AWS AppFabric (service prefix: `appfabric`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/appfabric/latest/adminguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/appfabric/latest/api/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/appfabric/latest/adminguide/security.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/appfabric/appfabric.json) for this service.
 
-- Learn how to [configure this service](../../../appfabric/latest/adminguide.md "../../../appfabric/latest/adminguide.md").
-- View a list of the [API operations available for
-  this service](../../../appfabric/latest/api.md "../../../appfabric/latest/api.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../appfabric/latest/adminguide/security.md "../../../appfabric/latest/adminguide/security.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/appfabric/appfabric.json "https://servicereference.us-east-1.amazonaws.com/v1/appfabric/appfabric.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS AppFabric](#list_appfabric-operations "#list_appfabric-operations")
-- [Actions defined by AWS AppFabric](#list_appfabric-actions-as-permissions "#list_appfabric-actions-as-permissions")
-- [Resource types defined by AWS AppFabric](#list_appfabric-resources-for-iam-policies "#list_appfabric-resources-for-iam-policies")
-- [Condition keys for AWS AppFabric](#list_appfabric-policy-keys "#list_appfabric-policy-keys")
+**Topics**
++ [API operations defined by AWS AppFabric](#list_appfabric-operations)
++ [Actions defined by AWS AppFabric](#list_appfabric-actions-as-permissions)
++ [Resource types defined by AWS AppFabric](#list_appfabric-resources-for-iam-policies)
++ [Condition keys for AWS AppFabric](#list_appfabric-policy-keys)
 
 ## API operations defined by AWS AppFabric
+<a name="list_appfabric-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_appfabric-actions-as-permissions "#list_appfabric-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_appfabric-actions-as-permissions).
 
-| Operation                                                                                        | IAM action                                                                                                                                    | Condition key | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------- | -------------- |
-| BatchGetUserAccessTasks                                                                          | [appfabric:BatchGetUserAccessTasks](#list_appfabric-action-BatchGetUserAccessTasks "#list_appfabric-action-BatchGetUserAccessTasks")          |               |                   | Write          |
-| ConnectAppAuthorization                                                                          | [appfabric:ConnectAppAuthorization](#list_appfabric-action-ConnectAppAuthorization "#list_appfabric-action-ConnectAppAuthorization")          |               |                   | Write          |
-| CreateAppAuthorization                                                                           | [appfabric:CreateAppAuthorization](#list_appfabric-action-CreateAppAuthorization "#list_appfabric-action-CreateAppAuthorization")             |               |                   | Write          |
-| [appfabric:TagResource](#list_appfabric-action-TagResource "#list_appfabric-action-TagResource") |                                                                                                                                               |               | Tagging, Write    |
-| CreateAppBundle                                                                                  | [appfabric:CreateAppBundle](#list_appfabric-action-CreateAppBundle "#list_appfabric-action-CreateAppBundle")                                  |               |                   | Write          |
-| [appfabric:TagResource](#list_appfabric-action-TagResource "#list_appfabric-action-TagResource") |                                                                                                                                               |               | Tagging, Write    |
-| CreateIngestion                                                                                  | [appfabric:CreateIngestion](#list_appfabric-action-CreateIngestion "#list_appfabric-action-CreateIngestion")                                  |               |                   | Write          |
-| [appfabric:TagResource](#list_appfabric-action-TagResource "#list_appfabric-action-TagResource") |                                                                                                                                               |               | Tagging, Write    |
-| CreateIngestionDestination                                                                       | [appfabric:CreateIngestionDestination](#list_appfabric-action-CreateIngestionDestination "#list_appfabric-action-CreateIngestionDestination") |               |                   | Write          |
-| [appfabric:TagResource](#list_appfabric-action-TagResource "#list_appfabric-action-TagResource") |                                                                                                                                               |               | Tagging, Write    |
-| DeleteAppAuthorization                                                                           | [appfabric:DeleteAppAuthorization](#list_appfabric-action-DeleteAppAuthorization "#list_appfabric-action-DeleteAppAuthorization")             |               |                   | Write          |
-| DeleteAppBundle                                                                                  | [appfabric:DeleteAppBundle](#list_appfabric-action-DeleteAppBundle "#list_appfabric-action-DeleteAppBundle")                                  |               |                   | Write          |
-| DeleteIngestion                                                                                  | [appfabric:DeleteIngestion](#list_appfabric-action-DeleteIngestion "#list_appfabric-action-DeleteIngestion")                                  |               |                   | Write          |
-| DeleteIngestionDestination                                                                       | [appfabric:DeleteIngestionDestination](#list_appfabric-action-DeleteIngestionDestination "#list_appfabric-action-DeleteIngestionDestination") |               |                   | Write          |
-| GetAppAuthorization                                                                              | [appfabric:GetAppAuthorization](#list_appfabric-action-GetAppAuthorization "#list_appfabric-action-GetAppAuthorization")                      |               |                   | Read           |
-| GetAppBundle                                                                                     | [appfabric:GetAppBundle](#list_appfabric-action-GetAppBundle "#list_appfabric-action-GetAppBundle")                                           |               |                   | Read           |
-| GetIngestion                                                                                     | [appfabric:GetIngestion](#list_appfabric-action-GetIngestion "#list_appfabric-action-GetIngestion")                                           |               |                   | Read           |
-| GetIngestionDestination                                                                          | [appfabric:GetIngestionDestination](#list_appfabric-action-GetIngestionDestination "#list_appfabric-action-GetIngestionDestination")          |               |                   | Read           |
-| ListAppAuthorizations                                                                            | [appfabric:ListAppAuthorizations](#list_appfabric-action-ListAppAuthorizations "#list_appfabric-action-ListAppAuthorizations")                |               |                   | List           |
-| ListAppBundles                                                                                   | [appfabric:ListAppBundles](#list_appfabric-action-ListAppBundles "#list_appfabric-action-ListAppBundles")                                     |               |                   | List           |
-| ListIngestionDestinations                                                                        | [appfabric:ListIngestionDestinations](#list_appfabric-action-ListIngestionDestinations "#list_appfabric-action-ListIngestionDestinations")    |               |                   | List           |
-| ListIngestions                                                                                   | [appfabric:ListIngestions](#list_appfabric-action-ListIngestions "#list_appfabric-action-ListIngestions")                                     |               |                   | List           |
-| ListTagsForResource                                                                              | [appfabric:ListTagsForResource](#list_appfabric-action-ListTagsForResource "#list_appfabric-action-ListTagsForResource")                      |               |                   | Read           |
-| StartIngestion                                                                                   | [appfabric:StartIngestion](#list_appfabric-action-StartIngestion "#list_appfabric-action-StartIngestion")                                     |               |                   | Write          |
-| StartUserAccessTasks                                                                             | [appfabric:StartUserAccessTasks](#list_appfabric-action-StartUserAccessTasks "#list_appfabric-action-StartUserAccessTasks")                   |               |                   | Write          |
-| StopIngestion                                                                                    | [appfabric:StopIngestion](#list_appfabric-action-StopIngestion "#list_appfabric-action-StopIngestion")                                        |               |                   | Write          |
-| TagResource                                                                                      | [appfabric:TagResource](#list_appfabric-action-TagResource "#list_appfabric-action-TagResource")                                              |               |                   | Tagging, Write |
-| UntagResource                                                                                    | [appfabric:UntagResource](#list_appfabric-action-UntagResource "#list_appfabric-action-UntagResource")                                        |               |                   | Tagging, Write |
-| UpdateAppAuthorization                                                                           | [appfabric:UpdateAppAuthorization](#list_appfabric-action-UpdateAppAuthorization "#list_appfabric-action-UpdateAppAuthorization")             |               |                   | Write          |
-| UpdateIngestionDestination                                                                       | [appfabric:UpdateIngestionDestination](#list_appfabric-action-UpdateIngestionDestination "#list_appfabric-action-UpdateIngestionDestination") |               |                   | Write          |
+
+
+
+- **   BatchGetUserAccessTasks  **
+  - **IAM action:**  [appfabric:BatchGetUserAccessTasks](#list_appfabric-action-BatchGetUserAccessTasks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ConnectAppAuthorization  **
+  - **IAM action:**  [appfabric:ConnectAppAuthorization](#list_appfabric-action-ConnectAppAuthorization) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAppAuthorization  **
+  - **IAM action:**  [appfabric:CreateAppAuthorization](#list_appfabric-action-CreateAppAuthorization)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appfabric:TagResource](#list_appfabric-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateAppBundle  **
+  - **IAM action:**  [appfabric:CreateAppBundle](#list_appfabric-action-CreateAppBundle)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appfabric:TagResource](#list_appfabric-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateIngestion  **
+  - **IAM action:**  [appfabric:CreateIngestion](#list_appfabric-action-CreateIngestion)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appfabric:TagResource](#list_appfabric-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateIngestionDestination  **
+  - **IAM action:**  [appfabric:CreateIngestionDestination](#list_appfabric-action-CreateIngestionDestination)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [appfabric:TagResource](#list_appfabric-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteAppAuthorization  **
+  - **IAM action:**  [appfabric:DeleteAppAuthorization](#list_appfabric-action-DeleteAppAuthorization) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAppBundle  **
+  - **IAM action:**  [appfabric:DeleteAppBundle](#list_appfabric-action-DeleteAppBundle) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteIngestion  **
+  - **IAM action:**  [appfabric:DeleteIngestion](#list_appfabric-action-DeleteIngestion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteIngestionDestination  **
+  - **IAM action:**  [appfabric:DeleteIngestionDestination](#list_appfabric-action-DeleteIngestionDestination) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAppAuthorization  **
+  - **IAM action:**  [appfabric:GetAppAuthorization](#list_appfabric-action-GetAppAuthorization) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAppBundle  **
+  - **IAM action:**  [appfabric:GetAppBundle](#list_appfabric-action-GetAppBundle) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIngestion  **
+  - **IAM action:**  [appfabric:GetIngestion](#list_appfabric-action-GetIngestion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIngestionDestination  **
+  - **IAM action:**  [appfabric:GetIngestionDestination](#list_appfabric-action-GetIngestionDestination) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAppAuthorizations  **
+  - **IAM action:**  [appfabric:ListAppAuthorizations](#list_appfabric-action-ListAppAuthorizations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAppBundles  **
+  - **IAM action:**  [appfabric:ListAppBundles](#list_appfabric-action-ListAppBundles) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListIngestionDestinations  **
+  - **IAM action:**  [appfabric:ListIngestionDestinations](#list_appfabric-action-ListIngestionDestinations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListIngestions  **
+  - **IAM action:**  [appfabric:ListIngestions](#list_appfabric-action-ListIngestions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [appfabric:ListTagsForResource](#list_appfabric-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartIngestion  **
+  - **IAM action:**  [appfabric:StartIngestion](#list_appfabric-action-StartIngestion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartUserAccessTasks  **
+  - **IAM action:**  [appfabric:StartUserAccessTasks](#list_appfabric-action-StartUserAccessTasks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopIngestion  **
+  - **IAM action:**  [appfabric:StopIngestion](#list_appfabric-action-StopIngestion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [appfabric:TagResource](#list_appfabric-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [appfabric:UntagResource](#list_appfabric-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAppAuthorization  **
+  - **IAM action:**  [appfabric:UpdateAppAuthorization](#list_appfabric-action-UpdateAppAuthorization) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateIngestionDestination  **
+  - **IAM action:**  [appfabric:UpdateIngestionDestination](#list_appfabric-action-UpdateIngestionDestination) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS AppFabric
+<a name="list_appfabric-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                         | Description                                                                                                                                                                                                                                                                                                       | Resource types (\*required)                                                                                 | Condition keys                                                                                                                                                                                                                                                                                                    | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [BatchGetUserAccessTasks](../../../appfabric/latest/api/API_BatchGetUserAccessTasks.md "../../../appfabric/latest/api/API_BatchGetUserAccessTasks.md")          | Grants permission to start user access tasks for multiple users                                                                                                                                                                                                                                                   | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [ConnectAppAuthorization](../../../appfabric/latest/api/API_ConnectAppAuthorization.md "../../../appfabric/latest/api/API_ConnectAppAuthorization.md")          | Grants permission to connect app authorizations                                                                                                                                                                                                                                                                   | [appauthorization\*](#list_appfabric-resource-appauthorization "#list_appfabric-resource-appauthorization") | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                                                                          | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [CreateAppAuthorization](../../../appfabric/latest/api/API_CreateAppAuthorization.md "../../../appfabric/latest/api/API_CreateAppAuthorization.md")             | Grants permission to create app authorizations for app bundles                                                                                                                                                                                                                                                    | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_ "#list_appfabric-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appfabric-aws_TagKeys "#list_appfabric-aws_TagKeys") | Write          |
-| [CreateAppBundle](../../../appfabric/latest/api/API_CreateAppBundle.md "../../../appfabric/latest/api/API_CreateAppBundle.md")                                  | Grants permission to create app bundles in your account                                                                                                                                                                                                                                                           |                                                                                                             | [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_ "#list_appfabric-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_appfabric-aws_TagKeys "#list_appfabric-aws_TagKeys")                                                                                                                       | Write          |
-| [CreateIngestion](../../../appfabric/latest/api/API_CreateIngestion.md "../../../appfabric/latest/api/API_CreateIngestion.md")                                  | Grants permission to create ingestions for app bundles                                                                                                                                                                                                                                                            | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_ "#list_appfabric-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appfabric-aws_TagKeys "#list_appfabric-aws_TagKeys") | Write          |
-| [CreateIngestionDestination](../../../appfabric/latest/api/API_CreateIngestionDestination.md "../../../appfabric/latest/api/API_CreateIngestionDestination.md") | Grants permission to create ingestion destinations for app bundles                                                                                                                                                                                                                                                | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_ "#list_appfabric-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appfabric-aws_TagKeys "#list_appfabric-aws_TagKeys") | Write          |
-| [ingestion\*](#list_appfabric-resource-ingestion "#list_appfabric-resource-ingestion")                                                                          | [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_ "#list_appfabric-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appfabric-aws_TagKeys "#list_appfabric-aws_TagKeys") |
-| [DeleteAppAuthorization](../../../appfabric/latest/api/API_DeleteAppAuthorization.md "../../../appfabric/latest/api/API_DeleteAppAuthorization.md")             | Grants permission to delete app authorizations within an app bundle                                                                                                                                                                                                                                               | [appauthorization\*](#list_appfabric-resource-appauthorization "#list_appfabric-resource-appauthorization") | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                                                                          | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DeleteAppBundle](../../../appfabric/latest/api/API_DeleteAppBundle.md "../../../appfabric/latest/api/API_DeleteAppBundle.md")                                  | Grants permission to delete app bundles in your account                                                                                                                                                                                                                                                           | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteIngestion](../../../appfabric/latest/api/API_DeleteIngestion.md "../../../appfabric/latest/api/API_DeleteIngestion.md")                                  | Grants permission to delete ingestions within an app bundle                                                                                                                                                                                                                                                       | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [ingestion\*](#list_appfabric-resource-ingestion "#list_appfabric-resource-ingestion")                                                                          | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DeleteIngestionDestination](../../../appfabric/latest/api/API_DeleteIngestionDestination.md "../../../appfabric/latest/api/API_DeleteIngestionDestination.md") | Grants permission to delete destinations within an ingestion                                                                                                                                                                                                                                                      | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [ingestion\*](#list_appfabric-resource-ingestion "#list_appfabric-resource-ingestion")                                                                          | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ingestiondestination\*](#list_appfabric-resource-ingestiondestination "#list_appfabric-resource-ingestiondestination")                                         | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetAppAuthorization](../../../appfabric/latest/api/API_GetAppAuthorization.md "../../../appfabric/latest/api/API_GetAppAuthorization.md")                      | Grants permission to view details about app authorizations                                                                                                                                                                                                                                                        | [appauthorization\*](#list_appfabric-resource-appauthorization "#list_appfabric-resource-appauthorization") | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                                                                          | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetAppBundle](../../../appfabric/latest/api/API_GetAppBundle.md "../../../appfabric/latest/api/API_GetAppBundle.md")                                           | Grants permission to view details about app bundles                                                                                                                                                                                                                                                               | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetIngestion](../../../appfabric/latest/api/API_GetIngestion.md "../../../appfabric/latest/api/API_GetIngestion.md")                                           | Grants permission to view details about ingestions                                                                                                                                                                                                                                                                | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [ingestion\*](#list_appfabric-resource-ingestion "#list_appfabric-resource-ingestion")                                                                          | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [GetIngestionDestination](../../../appfabric/latest/api/API_GetIngestionDestination.md "../../../appfabric/latest/api/API_GetIngestionDestination.md")          | Grants permission to view details about ingestion destinations                                                                                                                                                                                                                                                    | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [ingestion\*](#list_appfabric-resource-ingestion "#list_appfabric-resource-ingestion")                                                                          | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ingestiondestination\*](#list_appfabric-resource-ingestiondestination "#list_appfabric-resource-ingestiondestination")                                         | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ListAppAuthorizations](../../../appfabric/latest/api/API_ListAppAuthorizations.md "../../../appfabric/latest/api/API_ListAppAuthorizations.md")                | Grants permission to retrieve a list of app authorizations within an app bundle                                                                                                                                                                                                                                   | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | List           |
-| [ListAppBundles](../../../appfabric/latest/api/API_ListAppBundles.md "../../../appfabric/latest/api/API_ListAppBundles.md")                                     | Grants permission to retrieve a list of app bundles in your account                                                                                                                                                                                                                                               |                                                                                                             |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListIngestionDestinations](../../../appfabric/latest/api/API_ListIngestionDestinations.md "../../../appfabric/latest/api/API_ListIngestionDestinations.md")    | Grants permission to retrieve a list of destinations within an ingestion                                                                                                                                                                                                                                          | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | List           |
-| [ingestion\*](#list_appfabric-resource-ingestion "#list_appfabric-resource-ingestion")                                                                          | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ListIngestions](../../../appfabric/latest/api/API_ListIngestions.md "../../../appfabric/latest/api/API_ListIngestions.md")                                     | Grants permission to retrieve a list of ingestions within an app bundle                                                                                                                                                                                                                                           | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | List           |
-| [ListTagsForResource](../../../appfabric/latest/api/API_ListTagsForResource.md "../../../appfabric/latest/api/API_ListTagsForResource.md")                      | Grants permission to list tags for AppFabric resources                                                                                                                                                                                                                                                            | [appauthorization](#list_appfabric-resource-appauthorization "#list_appfabric-resource-appauthorization")   | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [appbundle](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                                                                            | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ingestion](#list_appfabric-resource-ingestion "#list_appfabric-resource-ingestion")                                                                            | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ingestiondestination](#list_appfabric-resource-ingestiondestination "#list_appfabric-resource-ingestiondestination")                                           | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [StartIngestion](../../../appfabric/latest/api/API_StartIngestion.md "../../../appfabric/latest/api/API_StartIngestion.md")                                     | Grants permission to start ingestions                                                                                                                                                                                                                                                                             | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [ingestion\*](#list_appfabric-resource-ingestion "#list_appfabric-resource-ingestion")                                                                          | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [StartUserAccessTasks](../../../appfabric/latest/api/API_StartUserAccessTasks.md "../../../appfabric/latest/api/API_StartUserAccessTasks.md")                   | Grants permission to start user access tasks                                                                                                                                                                                                                                                                      | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [StopIngestion](../../../appfabric/latest/api/API_StopIngestion.md "../../../appfabric/latest/api/API_StopIngestion.md")                                        | Grants permission to stop ingestions                                                                                                                                                                                                                                                                              | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [ingestion\*](#list_appfabric-resource-ingestion "#list_appfabric-resource-ingestion")                                                                          | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [TagResource](../../../appfabric/latest/api/API_TagResource.md "../../../appfabric/latest/api/API_TagResource.md")                                              | Grants permission to tag AppFabric resources                                                                                                                                                                                                                                                                      | [appauthorization](#list_appfabric-resource-appauthorization "#list_appfabric-resource-appauthorization")   | [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_ "#list_appfabric-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appfabric-aws_TagKeys "#list_appfabric-aws_TagKeys") | Tagging, Write |
-| [appbundle](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                                                                            | [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_ "#list_appfabric-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appfabric-aws_TagKeys "#list_appfabric-aws_TagKeys") |
-| [ingestion](#list_appfabric-resource-ingestion "#list_appfabric-resource-ingestion")                                                                            | [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_ "#list_appfabric-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appfabric-aws_TagKeys "#list_appfabric-aws_TagKeys") |
-| [ingestiondestination](#list_appfabric-resource-ingestiondestination "#list_appfabric-resource-ingestiondestination")                                           | [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_ "#list_appfabric-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appfabric-aws_TagKeys "#list_appfabric-aws_TagKeys") |
-| [UntagResource](../../../appfabric/latest/api/API_UntagResource.md "../../../appfabric/latest/api/API_UntagResource.md")                                        | Grants permission to untag AppFabric resources                                                                                                                                                                                                                                                                    | [appauthorization](#list_appfabric-resource-appauthorization "#list_appfabric-resource-appauthorization")   | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appfabric-aws_TagKeys "#list_appfabric-aws_TagKeys")                                                                                                                    | Tagging, Write |
-| [appbundle](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                                                                            | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appfabric-aws_TagKeys "#list_appfabric-aws_TagKeys")                                                                                                                    |
-| [ingestion](#list_appfabric-resource-ingestion "#list_appfabric-resource-ingestion")                                                                            | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appfabric-aws_TagKeys "#list_appfabric-aws_TagKeys")                                                                                                                    |
-| [ingestiondestination](#list_appfabric-resource-ingestiondestination "#list_appfabric-resource-ingestiondestination")                                           | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_appfabric-aws_TagKeys "#list_appfabric-aws_TagKeys")                                                                                                                    |
-| [UpdateAppAuthorization](../../../appfabric/latest/api/API_UpdateAppAuthorization.md "../../../appfabric/latest/api/API_UpdateAppAuthorization.md")             | Grants permission to update app authorizations within app bundles                                                                                                                                                                                                                                                 | [appauthorization\*](#list_appfabric-resource-appauthorization "#list_appfabric-resource-appauthorization") | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                                                                          | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [UpdateIngestionDestination](../../../appfabric/latest/api/API_UpdateIngestionDestination.md "../../../appfabric/latest/api/API_UpdateIngestionDestination.md") | Grants permission to update destinations within ingestions                                                                                                                                                                                                                                                        | [appbundle\*](#list_appfabric-resource-appbundle "#list_appfabric-resource-appbundle")                      | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [ingestion\*](#list_appfabric-resource-ingestion "#list_appfabric-resource-ingestion")                                                                          | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ingestiondestination\*](#list_appfabric-resource-ingestiondestination "#list_appfabric-resource-ingestiondestination")                                         | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
+
+
+
+- **   [BatchGetUserAccessTasks](https://docs.aws.amazon.com/appfabric/latest/api/API_BatchGetUserAccessTasks.html)  **
+  - **Description:** Grants permission to start user access tasks for multiple users
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ConnectAppAuthorization](https://docs.aws.amazon.com/appfabric/latest/api/API_ConnectAppAuthorization.html)  **
+  - **Description:** Grants permission to connect app authorizations
+  - **Resource types (\*required):** [appauthorization\*](#list_appfabric-resource-appauthorization) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAppAuthorization](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html)  **
+  - **Description:** Grants permission to create app authorizations for app bundles
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appfabric-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAppBundle](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppBundle.html)  **
+  - **Description:** Grants permission to create app bundles in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_appfabric-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateIngestion](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html)  **
+  - **Description:** Grants permission to create ingestions for app bundles
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appfabric-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateIngestionDestination](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestionDestination.html)  **
+  - **Description:** Grants permission to create ingestion destinations for app bundles
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appfabric-aws_TagKeys)
+  - **Resource types (\*required):** [ingestion\*](#list_appfabric-resource-ingestion) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appfabric-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteAppAuthorization](https://docs.aws.amazon.com/appfabric/latest/api/API_DeleteAppAuthorization.html)  **
+  - **Description:** Grants permission to delete app authorizations within an app bundle
+  - **Resource types (\*required):** [appauthorization\*](#list_appfabric-resource-appauthorization) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAppBundle](https://docs.aws.amazon.com/appfabric/latest/api/API_DeleteAppBundle.html)  **
+  - **Description:** Grants permission to delete app bundles in your account
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteIngestion](https://docs.aws.amazon.com/appfabric/latest/api/API_DeleteIngestion.html)  **
+  - **Description:** Grants permission to delete ingestions within an app bundle
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ingestion\*](#list_appfabric-resource-ingestion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteIngestionDestination](https://docs.aws.amazon.com/appfabric/latest/api/API_DeleteIngestionDestination.html)  **
+  - **Description:** Grants permission to delete destinations within an ingestion
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ingestion\*](#list_appfabric-resource-ingestion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ingestiondestination\*](#list_appfabric-resource-ingestiondestination) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetAppAuthorization](https://docs.aws.amazon.com/appfabric/latest/api/API_GetAppAuthorization.html)  **
+  - **Description:** Grants permission to view details about app authorizations
+  - **Resource types (\*required):** [appauthorization\*](#list_appfabric-resource-appauthorization) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAppBundle](https://docs.aws.amazon.com/appfabric/latest/api/API_GetAppBundle.html)  **
+  - **Description:** Grants permission to view details about app bundles
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetIngestion](https://docs.aws.amazon.com/appfabric/latest/api/API_GetIngestion.html)  **
+  - **Description:** Grants permission to view details about ingestions
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ingestion\*](#list_appfabric-resource-ingestion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetIngestionDestination](https://docs.aws.amazon.com/appfabric/latest/api/API_GetIngestionDestination.html)  **
+  - **Description:** Grants permission to view details about ingestion destinations
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ingestion\*](#list_appfabric-resource-ingestion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ingestiondestination\*](#list_appfabric-resource-ingestiondestination) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListAppAuthorizations](https://docs.aws.amazon.com/appfabric/latest/api/API_ListAppAuthorizations.html)  **
+  - **Description:** Grants permission to retrieve a list of app authorizations within an app bundle
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAppBundles](https://docs.aws.amazon.com/appfabric/latest/api/API_ListAppBundles.html)  **
+  - **Description:** Grants permission to retrieve a list of app bundles in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListIngestionDestinations](https://docs.aws.amazon.com/appfabric/latest/api/API_ListIngestionDestinations.html)  **
+  - **Description:** Grants permission to retrieve a list of destinations within an ingestion
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ingestion\*](#list_appfabric-resource-ingestion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListIngestions](https://docs.aws.amazon.com/appfabric/latest/api/API_ListIngestions.html)  **
+  - **Description:** Grants permission to retrieve a list of ingestions within an app bundle
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/appfabric/latest/api/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for AppFabric resources
+  - **Resource types (\*required):** [appauthorization](#list_appfabric-resource-appauthorization) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [appbundle](#list_appfabric-resource-appbundle) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ingestion](#list_appfabric-resource-ingestion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ingestiondestination](#list_appfabric-resource-ingestiondestination) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [StartIngestion](https://docs.aws.amazon.com/appfabric/latest/api/API_StartIngestion.html)  **
+  - **Description:** Grants permission to start ingestions
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ingestion\*](#list_appfabric-resource-ingestion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartUserAccessTasks](https://docs.aws.amazon.com/appfabric/latest/api/API_StartUserAccessTasks.html)  **
+  - **Description:** Grants permission to start user access tasks
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopIngestion](https://docs.aws.amazon.com/appfabric/latest/api/API_StopIngestion.html)  **
+  - **Description:** Grants permission to stop ingestions
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ingestion\*](#list_appfabric-resource-ingestion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/appfabric/latest/api/API_TagResource.html)  **
+  - **Description:** Grants permission to tag AppFabric resources
+  - **Resource types (\*required):** [appauthorization](#list_appfabric-resource-appauthorization) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appfabric-aws_TagKeys)
+  - **Resource types (\*required):** [appbundle](#list_appfabric-resource-appbundle) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appfabric-aws_TagKeys)
+  - **Resource types (\*required):** [ingestion](#list_appfabric-resource-ingestion) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appfabric-aws_TagKeys)
+  - **Resource types (\*required):** [ingestiondestination](#list_appfabric-resource-ingestiondestination) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_appfabric-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appfabric-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/appfabric/latest/api/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag AppFabric resources
+  - **Resource types (\*required):** [appauthorization](#list_appfabric-resource-appauthorization) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appfabric-aws_TagKeys)
+  - **Resource types (\*required):** [appbundle](#list_appfabric-resource-appbundle) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appfabric-aws_TagKeys)
+  - **Resource types (\*required):** [ingestion](#list_appfabric-resource-ingestion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appfabric-aws_TagKeys)
+  - **Resource types (\*required):** [ingestiondestination](#list_appfabric-resource-ingestiondestination) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_appfabric-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAppAuthorization](https://docs.aws.amazon.com/appfabric/latest/api/API_UpdateAppAuthorization.html)  **
+  - **Description:** Grants permission to update app authorizations within app bundles
+  - **Resource types (\*required):** [appauthorization\*](#list_appfabric-resource-appauthorization) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateIngestionDestination](https://docs.aws.amazon.com/appfabric/latest/api/API_UpdateIngestionDestination.html)  **
+  - **Description:** Grants permission to update destinations within ingestions
+  - **Resource types (\*required):** [appbundle\*](#list_appfabric-resource-appbundle) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ingestion\*](#list_appfabric-resource-ingestion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ingestiondestination\*](#list_appfabric-resource-ingestiondestination) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS AppFabric
+<a name="list_appfabric-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                | ARN                                                                                                                                                              | Condition keys                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [appauthorization](../../../appfabric/latest/api/API_AppAuthorization.md "../../../appfabric/latest/api/API_AppAuthorization.md")             | arn:${Partition}:appfabric:${Region}:${Account}:appbundle/${AppbundleId}/appauthorization/${AppAuthorizationIdentifier}                                          | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_") |
-| [appbundle](../../../appfabric/latest/api/API_AppBundle.md "../../../appfabric/latest/api/API_AppBundle.md")                                  | arn:${Partition}:appfabric:${Region}:${Account}:appbundle/${AppBundleIdentifier}                                                                                 | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_") |
-| [ingestion](../../../appfabric/latest/api/API_Ingestion.md "../../../appfabric/latest/api/API_Ingestion.md")                                  | arn:${Partition}:appfabric:${Region}:${Account}:appbundle/${AppbundleId}/ingestion/${IngestionIdentifier}                                                        | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_") |
-| [ingestiondestination](../../../appfabric/latest/api/API_IngestionDestination.md "../../../appfabric/latest/api/API_IngestionDestination.md") | arn:${Partition}:appfabric:${Region}:${Account}:appbundle/${AppbundleId}/ingestion/${IngestionIdentifier}/ingestiondestination/${IngestionDestinationIdentifier} | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_ "#list_appfabric-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [appauthorization](https://docs.aws.amazon.com/appfabric/latest/api/API_AppAuthorization.html)  | arn:${Partition}:appfabric:${Region}:${Account}:appbundle/${AppbundleId}/appauthorization/${AppAuthorizationIdentifier} | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_) | 
+|  [appbundle](https://docs.aws.amazon.com/appfabric/latest/api/API_AppBundle.html)  | arn:${Partition}:appfabric:${Region}:${Account}:appbundle/${AppBundleIdentifier} | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_) | 
+|  [ingestion](https://docs.aws.amazon.com/appfabric/latest/api/API_Ingestion.html)  | arn:${Partition}:appfabric:${Region}:${Account}:appbundle/${AppbundleId}/ingestion/${IngestionIdentifier} | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_) | 
+|  [ingestiondestination](https://docs.aws.amazon.com/appfabric/latest/api/API_IngestionDestination.html)  | arn:${Partition}:appfabric:${Region}:${Account}:appbundle/${AppbundleId}/ingestion/${IngestionIdentifier}/ingestiondestination/${IngestionDestinationIdentifier} | [aws:ResourceTag/${TagKey}](#list_appfabric-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS AppFabric
+<a name="list_appfabric-policy-keys"></a>
 
-AWS AppFabric defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS AppFabric defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                   | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by the tags associated with the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 

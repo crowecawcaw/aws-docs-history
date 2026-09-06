@@ -1,155 +1,636 @@
-# Actions, resources, and condition keys for Amazon Kinesis Video Streams
 
-Amazon Kinesis Video Streams (service prefix: `kinesisvideo`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Kinesis Video Streams
+<a name="list_kinesis-video-streams"></a>
+
+Amazon Kinesis Video Streams (service prefix: `kinesisvideo`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/kinesisvideo/kinesisvideo.json) for this service.
 
-- Learn how to [configure this service](../../../kinesisvideostreams/latest/dg/what-is-kinesis-video.md "../../../kinesisvideostreams/latest/dg/what-is-kinesis-video.md").
-- View a list of the [API operations available for
-  this service](../../../kinesisvideostreams/latest/dg/API_Reference.md "../../../kinesisvideostreams/latest/dg/API_Reference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../kinesisvideostreams/latest/dg/how-iam.md "../../../kinesisvideostreams/latest/dg/how-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/kinesisvideo/kinesisvideo.json "https://servicereference.us-east-1.amazonaws.com/v1/kinesisvideo/kinesisvideo.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon Kinesis Video Streams](#list_kinesis-video-streams-operations "#list_kinesis-video-streams-operations")
-- [Actions defined by Amazon Kinesis Video Streams](#list_kinesis-video-streams-actions-as-permissions "#list_kinesis-video-streams-actions-as-permissions")
-- [Resource types defined by Amazon Kinesis Video Streams](#list_kinesis-video-streams-resources-for-iam-policies "#list_kinesis-video-streams-resources-for-iam-policies")
-- [Condition keys for Amazon Kinesis Video Streams](#list_kinesis-video-streams-policy-keys "#list_kinesis-video-streams-policy-keys")
+**Topics**
++ [API operations defined by Amazon Kinesis Video Streams](#list_kinesis-video-streams-operations)
++ [Actions defined by Amazon Kinesis Video Streams](#list_kinesis-video-streams-actions-as-permissions)
++ [Resource types defined by Amazon Kinesis Video Streams](#list_kinesis-video-streams-resources-for-iam-policies)
++ [Condition keys for Amazon Kinesis Video Streams](#list_kinesis-video-streams-policy-keys)
 
 ## API operations defined by Amazon Kinesis Video Streams
+<a name="list_kinesis-video-streams-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_kinesis-video-streams-actions-as-permissions "#list_kinesis-video-streams-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_kinesis-video-streams-actions-as-permissions).
 
-| Operation                                                                                                                   | SDK client                   | IAM action                                                                                                                                                                                             | Condition key  | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | ----------------- | -------------- |
-| GetClip                                                                                                                     | kinesis-video-archived-media | [kinesisvideo:GetClip](#list_kinesis-video-streams-action-GetClip "#list_kinesis-video-streams-action-GetClip")                                                                                        |                |                   | Read           |
-| GetDASHStreamingSessionURL                                                                                                  | kinesis-video-archived-media | [kinesisvideo:GetDASHStreamingSessionURL](#list_kinesis-video-streams-action-GetDASHStreamingSessionURL "#list_kinesis-video-streams-action-GetDASHStreamingSessionURL")                               |                |                   | Read           |
-| GetHLSStreamingSessionURL                                                                                                   | kinesis-video-archived-media | [kinesisvideo:GetHLSStreamingSessionURL](#list_kinesis-video-streams-action-GetHLSStreamingSessionURL "#list_kinesis-video-streams-action-GetHLSStreamingSessionURL")                                  |                |                   | Read           |
-| GetImages                                                                                                                   | kinesis-video-archived-media | [kinesisvideo:GetImages](#list_kinesis-video-streams-action-GetImages "#list_kinesis-video-streams-action-GetImages")                                                                                  |                |                   | Read           |
-| GetMediaForFragmentList                                                                                                     | kinesis-video-archived-media | [kinesisvideo:GetMediaForFragmentList](#list_kinesis-video-streams-action-GetMediaForFragmentList "#list_kinesis-video-streams-action-GetMediaForFragmentList")                                        |                |                   | Read           |
-| ListFragments                                                                                                               | kinesis-video-archived-media | [kinesisvideo:ListFragments](#list_kinesis-video-streams-action-ListFragments "#list_kinesis-video-streams-action-ListFragments")                                                                      |                |                   | List           |
-| GetMedia                                                                                                                    | kinesis-video-media          | [kinesisvideo:GetMedia](#list_kinesis-video-streams-action-GetMedia "#list_kinesis-video-streams-action-GetMedia")                                                                                     |                |                   | Read           |
-| GetIceServerConfig                                                                                                          | kinesis-video-signaling      | [kinesisvideo:GetIceServerConfig](#list_kinesis-video-streams-action-GetIceServerConfig "#list_kinesis-video-streams-action-GetIceServerConfig")                                                       |                |                   | Read           |
-| SendAlexaOfferToMaster                                                                                                      | kinesis-video-signaling      | [kinesisvideo:SendAlexaOfferToMaster](#list_kinesis-video-streams-action-SendAlexaOfferToMaster "#list_kinesis-video-streams-action-SendAlexaOfferToMaster")                                           |                |                   | Write          |
-| JoinStorageSession                                                                                                          | kinesis-video-webrtc-storage | [kinesisvideo:JoinStorageSession](#list_kinesis-video-streams-action-JoinStorageSession "#list_kinesis-video-streams-action-JoinStorageSession")                                                       |                |                   | Write          |
-| JoinStorageSessionAsViewer                                                                                                  | kinesis-video-webrtc-storage | [kinesisvideo:JoinStorageSessionAsViewer](#list_kinesis-video-streams-action-JoinStorageSessionAsViewer "#list_kinesis-video-streams-action-JoinStorageSessionAsViewer")                               |                |                   | Write          |
-| CreateSignalingChannel                                                                                                      | kinesisvideo                 | [kinesisvideo:CreateSignalingChannel](#list_kinesis-video-streams-action-CreateSignalingChannel "#list_kinesis-video-streams-action-CreateSignalingChannel")                                           |                |                   | Write          |
-| [kinesisvideo:TagResource](#list_kinesis-video-streams-action-TagResource "#list_kinesis-video-streams-action-TagResource") |                              |                                                                                                                                                                                                        | Tagging, Write |
-| CreateStream                                                                                                                | kinesisvideo                 | [kinesisvideo:CreateStream](#list_kinesis-video-streams-action-CreateStream "#list_kinesis-video-streams-action-CreateStream")                                                                         |                |                   | Write          |
-| [kinesisvideo:TagStream](#list_kinesis-video-streams-action-TagStream "#list_kinesis-video-streams-action-TagStream")       |                              |                                                                                                                                                                                                        | Tagging, Write |
-| DeleteEdgeConfiguration                                                                                                     | kinesisvideo                 | [kinesisvideo:DeleteEdgeConfiguration](#list_kinesis-video-streams-action-DeleteEdgeConfiguration "#list_kinesis-video-streams-action-DeleteEdgeConfiguration")                                        |                |                   | Write          |
-| DeleteSignalingChannel                                                                                                      | kinesisvideo                 | [kinesisvideo:DeleteSignalingChannel](#list_kinesis-video-streams-action-DeleteSignalingChannel "#list_kinesis-video-streams-action-DeleteSignalingChannel")                                           |                |                   | Write          |
-| DeleteStream                                                                                                                | kinesisvideo                 | [kinesisvideo:DeleteStream](#list_kinesis-video-streams-action-DeleteStream "#list_kinesis-video-streams-action-DeleteStream")                                                                         |                |                   | Write          |
-| DescribeEdgeConfiguration                                                                                                   | kinesisvideo                 | [kinesisvideo:DescribeEdgeConfiguration](#list_kinesis-video-streams-action-DescribeEdgeConfiguration "#list_kinesis-video-streams-action-DescribeEdgeConfiguration")                                  |                |                   | Read           |
-| DescribeImageGenerationConfiguration                                                                                        | kinesisvideo                 | [kinesisvideo:DescribeImageGenerationConfiguration](#list_kinesis-video-streams-action-DescribeImageGenerationConfiguration "#list_kinesis-video-streams-action-DescribeImageGenerationConfiguration") |                |                   | Read           |
-| DescribeMappedResourceConfiguration                                                                                         | kinesisvideo                 | [kinesisvideo:DescribeMappedResourceConfiguration](#list_kinesis-video-streams-action-DescribeMappedResourceConfiguration "#list_kinesis-video-streams-action-DescribeMappedResourceConfiguration")    |                |                   | List           |
-| DescribeMediaStorageConfiguration                                                                                           | kinesisvideo                 | [kinesisvideo:DescribeMediaStorageConfiguration](#list_kinesis-video-streams-action-DescribeMediaStorageConfiguration "#list_kinesis-video-streams-action-DescribeMediaStorageConfiguration")          |                |                   | Read           |
-| DescribeNotificationConfiguration                                                                                           | kinesisvideo                 | [kinesisvideo:DescribeNotificationConfiguration](#list_kinesis-video-streams-action-DescribeNotificationConfiguration "#list_kinesis-video-streams-action-DescribeNotificationConfiguration")          |                |                   | Read           |
-| DescribeSignalingChannel                                                                                                    | kinesisvideo                 | [kinesisvideo:DescribeSignalingChannel](#list_kinesis-video-streams-action-DescribeSignalingChannel "#list_kinesis-video-streams-action-DescribeSignalingChannel")                                     |                |                   | List           |
-| DescribeStream                                                                                                              | kinesisvideo                 | [kinesisvideo:DescribeStream](#list_kinesis-video-streams-action-DescribeStream "#list_kinesis-video-streams-action-DescribeStream")                                                                   |                |                   | List           |
-| DescribeStreamStorageConfiguration                                                                                          | kinesisvideo                 | [kinesisvideo:DescribeStreamStorageConfiguration](#list_kinesis-video-streams-action-DescribeStreamStorageConfiguration "#list_kinesis-video-streams-action-DescribeStreamStorageConfiguration")       |                |                   | Read           |
-| GetDataEndpoint                                                                                                             | kinesisvideo                 | [kinesisvideo:GetDataEndpoint](#list_kinesis-video-streams-action-GetDataEndpoint "#list_kinesis-video-streams-action-GetDataEndpoint")                                                                |                |                   | Read           |
-| GetSignalingChannelEndpoint                                                                                                 | kinesisvideo                 | [kinesisvideo:GetSignalingChannelEndpoint](#list_kinesis-video-streams-action-GetSignalingChannelEndpoint "#list_kinesis-video-streams-action-GetSignalingChannelEndpoint")                            |                |                   | Read           |
-| ListEdgeAgentConfigurations                                                                                                 | kinesisvideo                 | [kinesisvideo:ListEdgeAgentConfigurations](#list_kinesis-video-streams-action-ListEdgeAgentConfigurations "#list_kinesis-video-streams-action-ListEdgeAgentConfigurations")                            |                |                   | List           |
-| ListSignalingChannels                                                                                                       | kinesisvideo                 | [kinesisvideo:ListSignalingChannels](#list_kinesis-video-streams-action-ListSignalingChannels "#list_kinesis-video-streams-action-ListSignalingChannels")                                              |                |                   | List           |
-| ListStreams                                                                                                                 | kinesisvideo                 | [kinesisvideo:ListStreams](#list_kinesis-video-streams-action-ListStreams "#list_kinesis-video-streams-action-ListStreams")                                                                            |                |                   | List           |
-| ListTagsForResource                                                                                                         | kinesisvideo                 | [kinesisvideo:ListTagsForResource](#list_kinesis-video-streams-action-ListTagsForResource "#list_kinesis-video-streams-action-ListTagsForResource")                                                    |                |                   | Read           |
-| ListTagsForStream                                                                                                           | kinesisvideo                 | [kinesisvideo:ListTagsForStream](#list_kinesis-video-streams-action-ListTagsForStream "#list_kinesis-video-streams-action-ListTagsForStream")                                                          |                |                   | Read           |
-| StartEdgeConfigurationUpdate                                                                                                | kinesisvideo                 | [kinesisvideo:StartEdgeConfigurationUpdate](#list_kinesis-video-streams-action-StartEdgeConfigurationUpdate "#list_kinesis-video-streams-action-StartEdgeConfigurationUpdate")                         |                |                   | Write          |
-| TagResource                                                                                                                 | kinesisvideo                 | [kinesisvideo:TagResource](#list_kinesis-video-streams-action-TagResource "#list_kinesis-video-streams-action-TagResource")                                                                            |                |                   | Tagging, Write |
-| TagStream                                                                                                                   | kinesisvideo                 | [kinesisvideo:TagStream](#list_kinesis-video-streams-action-TagStream "#list_kinesis-video-streams-action-TagStream")                                                                                  |                |                   | Tagging, Write |
-| UntagResource                                                                                                               | kinesisvideo                 | [kinesisvideo:UntagResource](#list_kinesis-video-streams-action-UntagResource "#list_kinesis-video-streams-action-UntagResource")                                                                      |                |                   | Tagging, Write |
-| UntagStream                                                                                                                 | kinesisvideo                 | [kinesisvideo:UntagStream](#list_kinesis-video-streams-action-UntagStream "#list_kinesis-video-streams-action-UntagStream")                                                                            |                |                   | Tagging, Write |
-| UpdateDataRetention                                                                                                         | kinesisvideo                 | [kinesisvideo:UpdateDataRetention](#list_kinesis-video-streams-action-UpdateDataRetention "#list_kinesis-video-streams-action-UpdateDataRetention")                                                    |                |                   | Write          |
-| UpdateImageGenerationConfiguration                                                                                          | kinesisvideo                 | [kinesisvideo:UpdateImageGenerationConfiguration](#list_kinesis-video-streams-action-UpdateImageGenerationConfiguration "#list_kinesis-video-streams-action-UpdateImageGenerationConfiguration")       |                |                   | Write          |
-| UpdateMediaStorageConfiguration                                                                                             | kinesisvideo                 | [kinesisvideo:UpdateMediaStorageConfiguration](#list_kinesis-video-streams-action-UpdateMediaStorageConfiguration "#list_kinesis-video-streams-action-UpdateMediaStorageConfiguration")                |                |                   | Write          |
-| UpdateNotificationConfiguration                                                                                             | kinesisvideo                 | [kinesisvideo:UpdateNotificationConfiguration](#list_kinesis-video-streams-action-UpdateNotificationConfiguration "#list_kinesis-video-streams-action-UpdateNotificationConfiguration")                |                |                   | Write          |
-| UpdateSignalingChannel                                                                                                      | kinesisvideo                 | [kinesisvideo:UpdateSignalingChannel](#list_kinesis-video-streams-action-UpdateSignalingChannel "#list_kinesis-video-streams-action-UpdateSignalingChannel")                                           |                |                   | Write          |
-| UpdateStream                                                                                                                | kinesisvideo                 | [kinesisvideo:UpdateStream](#list_kinesis-video-streams-action-UpdateStream "#list_kinesis-video-streams-action-UpdateStream")                                                                         |                |                   | Write          |
-| UpdateStreamStorageConfiguration                                                                                            | kinesisvideo                 | [kinesisvideo:UpdateStreamStorageConfiguration](#list_kinesis-video-streams-action-UpdateStreamStorageConfiguration "#list_kinesis-video-streams-action-UpdateStreamStorageConfiguration")             |                |                   | Write          |
+
+
+
+- **   GetClip  **
+  - **SDK client:** kinesis-video-archived-media
+  - **IAM action:**  [kinesisvideo:GetClip](#list_kinesis-video-streams-action-GetClip) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDASHStreamingSessionURL  **
+  - **SDK client:** kinesis-video-archived-media
+  - **IAM action:**  [kinesisvideo:GetDASHStreamingSessionURL](#list_kinesis-video-streams-action-GetDASHStreamingSessionURL) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetHLSStreamingSessionURL  **
+  - **SDK client:** kinesis-video-archived-media
+  - **IAM action:**  [kinesisvideo:GetHLSStreamingSessionURL](#list_kinesis-video-streams-action-GetHLSStreamingSessionURL) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetImages  **
+  - **SDK client:** kinesis-video-archived-media
+  - **IAM action:**  [kinesisvideo:GetImages](#list_kinesis-video-streams-action-GetImages) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMediaForFragmentList  **
+  - **SDK client:** kinesis-video-archived-media
+  - **IAM action:**  [kinesisvideo:GetMediaForFragmentList](#list_kinesis-video-streams-action-GetMediaForFragmentList) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListFragments  **
+  - **SDK client:** kinesis-video-archived-media
+  - **IAM action:**  [kinesisvideo:ListFragments](#list_kinesis-video-streams-action-ListFragments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetMedia  **
+  - **SDK client:** kinesis-video-media
+  - **IAM action:**  [kinesisvideo:GetMedia](#list_kinesis-video-streams-action-GetMedia) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIceServerConfig  **
+  - **SDK client:** kinesis-video-signaling
+  - **IAM action:**  [kinesisvideo:GetIceServerConfig](#list_kinesis-video-streams-action-GetIceServerConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   SendAlexaOfferToMaster  **
+  - **SDK client:** kinesis-video-signaling
+  - **IAM action:**  [kinesisvideo:SendAlexaOfferToMaster](#list_kinesis-video-streams-action-SendAlexaOfferToMaster) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   JoinStorageSession  **
+  - **SDK client:** kinesis-video-webrtc-storage
+  - **IAM action:**  [kinesisvideo:JoinStorageSession](#list_kinesis-video-streams-action-JoinStorageSession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   JoinStorageSessionAsViewer  **
+  - **SDK client:** kinesis-video-webrtc-storage
+  - **IAM action:**  [kinesisvideo:JoinStorageSessionAsViewer](#list_kinesis-video-streams-action-JoinStorageSessionAsViewer) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateSignalingChannel  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:CreateSignalingChannel](#list_kinesis-video-streams-action-CreateSignalingChannel)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kinesisvideo:TagResource](#list_kinesis-video-streams-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateStream  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:CreateStream](#list_kinesis-video-streams-action-CreateStream)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [kinesisvideo:TagStream](#list_kinesis-video-streams-action-TagStream)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteEdgeConfiguration  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:DeleteEdgeConfiguration](#list_kinesis-video-streams-action-DeleteEdgeConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSignalingChannel  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:DeleteSignalingChannel](#list_kinesis-video-streams-action-DeleteSignalingChannel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteStream  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:DeleteStream](#list_kinesis-video-streams-action-DeleteStream) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeEdgeConfiguration  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:DescribeEdgeConfiguration](#list_kinesis-video-streams-action-DescribeEdgeConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeImageGenerationConfiguration  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:DescribeImageGenerationConfiguration](#list_kinesis-video-streams-action-DescribeImageGenerationConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeMappedResourceConfiguration  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:DescribeMappedResourceConfiguration](#list_kinesis-video-streams-action-DescribeMappedResourceConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeMediaStorageConfiguration  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:DescribeMediaStorageConfiguration](#list_kinesis-video-streams-action-DescribeMediaStorageConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeNotificationConfiguration  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:DescribeNotificationConfiguration](#list_kinesis-video-streams-action-DescribeNotificationConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeSignalingChannel  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:DescribeSignalingChannel](#list_kinesis-video-streams-action-DescribeSignalingChannel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeStream  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:DescribeStream](#list_kinesis-video-streams-action-DescribeStream) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DescribeStreamStorageConfiguration  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:DescribeStreamStorageConfiguration](#list_kinesis-video-streams-action-DescribeStreamStorageConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDataEndpoint  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:GetDataEndpoint](#list_kinesis-video-streams-action-GetDataEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSignalingChannelEndpoint  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:GetSignalingChannelEndpoint](#list_kinesis-video-streams-action-GetSignalingChannelEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListEdgeAgentConfigurations  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:ListEdgeAgentConfigurations](#list_kinesis-video-streams-action-ListEdgeAgentConfigurations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSignalingChannels  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:ListSignalingChannels](#list_kinesis-video-streams-action-ListSignalingChannels) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListStreams  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:ListStreams](#list_kinesis-video-streams-action-ListStreams) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:ListTagsForResource](#list_kinesis-video-streams-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTagsForStream  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:ListTagsForStream](#list_kinesis-video-streams-action-ListTagsForStream) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartEdgeConfigurationUpdate  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:StartEdgeConfigurationUpdate](#list_kinesis-video-streams-action-StartEdgeConfigurationUpdate) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:TagResource](#list_kinesis-video-streams-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   TagStream  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:TagStream](#list_kinesis-video-streams-action-TagStream) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:UntagResource](#list_kinesis-video-streams-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagStream  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:UntagStream](#list_kinesis-video-streams-action-UntagStream) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateDataRetention  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:UpdateDataRetention](#list_kinesis-video-streams-action-UpdateDataRetention) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateImageGenerationConfiguration  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:UpdateImageGenerationConfiguration](#list_kinesis-video-streams-action-UpdateImageGenerationConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateMediaStorageConfiguration  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:UpdateMediaStorageConfiguration](#list_kinesis-video-streams-action-UpdateMediaStorageConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateNotificationConfiguration  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:UpdateNotificationConfiguration](#list_kinesis-video-streams-action-UpdateNotificationConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSignalingChannel  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:UpdateSignalingChannel](#list_kinesis-video-streams-action-UpdateSignalingChannel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateStream  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:UpdateStream](#list_kinesis-video-streams-action-UpdateStream) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateStreamStorageConfiguration  **
+  - **SDK client:** kinesisvideo
+  - **IAM action:**  [kinesisvideo:UpdateStreamStorageConfiguration](#list_kinesis-video-streams-action-UpdateStreamStorageConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon Kinesis Video Streams
+<a name="list_kinesis-video-streams-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                         | Description                                                                                                                                                                                                                                                                                                                                                                               | Resource types (\*required)                                                                              | Condition keys                                                                                                                                                                                                                                                                                                                                                                            | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [ConnectAsMaster](../../../kinesisvideostreams/latest/dg/API_ConnectAsMaster.md "../../../kinesisvideostreams/latest/dg/API_ConnectAsMaster.md")                                                                | Grants permission to connect as a master to the signaling channel specified by the endpoint                                                                                                                                                                                                                                                                                               | [channel\*](#list_kinesis-video-streams-resource-channel "#list_kinesis-video-streams-resource-channel") | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
-| [ConnectAsViewer](../../../kinesisvideostreams/latest/dg/API_ConnectAsViewer.md "../../../kinesisvideostreams/latest/dg/API_ConnectAsViewer.md")                                                                | Grants permission to connect as a viewer to the signaling channel specified by the endpoint                                                                                                                                                                                                                                                                                               | [channel\*](#list_kinesis-video-streams-resource-channel "#list_kinesis-video-streams-resource-channel") | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
-| [CreateSignalingChannel](../../../kinesisvideostreams/latest/dg/API_CreateSignalingChannel.md "../../../kinesisvideostreams/latest/dg/API_CreateSignalingChannel.md")                                           | Grants permission to create a signaling channel                                                                                                                                                                                                                                                                                                                                           | [channel\*](#list_kinesis-video-streams-resource-channel "#list_kinesis-video-streams-resource-channel") | [aws:RequestTag/${TagKey}](#list_kinesis-video-streams-aws_RequestTag___TagKey_ "#list_kinesis-video-streams-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kinesis-video-streams-aws_TagKeys "#list_kinesis-video-streams-aws_TagKeys") | Write          |
-| [CreateStream](../../../kinesisvideostreams/latest/dg/API_CreateStream.md "../../../kinesisvideostreams/latest/dg/API_CreateStream.md")                                                                         | Grants permission to create a Kinesis video stream                                                                                                                                                                                                                                                                                                                                        | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:RequestTag/${TagKey}](#list_kinesis-video-streams-aws_RequestTag___TagKey_ "#list_kinesis-video-streams-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kinesis-video-streams-aws_TagKeys "#list_kinesis-video-streams-aws_TagKeys") | Write          |
-| [DeleteEdgeConfiguration](../../../kinesisvideostreams/latest/dg/API_DeleteEdgeConfiguration.md "../../../kinesisvideostreams/latest/dg/API_DeleteEdgeConfiguration.md")                                        | Grants permission to delete the edge configuration of your Kinesis Video Stream                                                                                                                                                                                                                                                                                                           | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
-| [DeleteSignalingChannel](../../../kinesisvideostreams/latest/dg/API_DeleteSignalingChannel.md "../../../kinesisvideostreams/latest/dg/API_DeleteSignalingChannel.md")                                           | Grants permission to delete an existing signaling channel                                                                                                                                                                                                                                                                                                                                 | [channel\*](#list_kinesis-video-streams-resource-channel "#list_kinesis-video-streams-resource-channel") | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
-| [DeleteStream](../../../kinesisvideostreams/latest/dg/API_DeleteStream.md "../../../kinesisvideostreams/latest/dg/API_DeleteStream.md")                                                                         | Grants permission to delete an existing Kinesis video stream                                                                                                                                                                                                                                                                                                                              | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
-| [DescribeEdgeConfiguration](../../../kinesisvideostreams/latest/dg/API_DescribeEdgeConfiguration.md "../../../kinesisvideostreams/latest/dg/API_DescribeEdgeConfiguration.md")                                  | Grants permission to describe the edge configuration of your Kinesis Video Stream                                                                                                                                                                                                                                                                                                         | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Read           |
-| [DescribeImageGenerationConfiguration](../../../kinesisvideostreams/latest/dg/API_DescribeImageGenerationConfiguration.md "../../../kinesisvideostreams/latest/dg/API_DescribeImageGenerationConfiguration.md") | Grants permission to describe the image generation configuration of your Kinesis video stream                                                                                                                                                                                                                                                                                             | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Read           |
-| [DescribeMappedResourceConfiguration](../../../kinesisvideostreams/latest/dg/API_DescribeMappedResourceConfiguration.md "../../../kinesisvideostreams/latest/dg/API_DescribeMappedResourceConfiguration.md")    | Grants permission to describe the resource mapped to the Kinesis video stream                                                                                                                                                                                                                                                                                                             | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | List           |
-| [DescribeMediaStorageConfiguration](../../../kinesisvideostreams/latest/dg/API_DescribeMediaStorageConfiguration.md "../../../kinesisvideostreams/latest/dg/API_DescribeMediaStorageConfiguration.md")          | Grants permission to describe the media storage configuration of a signaling channel                                                                                                                                                                                                                                                                                                      | [channel\*](#list_kinesis-video-streams-resource-channel "#list_kinesis-video-streams-resource-channel") | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Read           |
-| [DescribeNotificationConfiguration](../../../kinesisvideostreams/latest/dg/API_DescribeNotificationConfiguration.md "../../../kinesisvideostreams/latest/dg/API_DescribeNotificationConfiguration.md")          | Grants permission to describe the notification configuration of your Kinesis video stream                                                                                                                                                                                                                                                                                                 | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Read           |
-| [DescribeSignalingChannel](../../../kinesisvideostreams/latest/dg/API_DescribeSignalingChannel.md "../../../kinesisvideostreams/latest/dg/API_DescribeSignalingChannel.md")                                     | Grants permission to describe the specified signaling channel                                                                                                                                                                                                                                                                                                                             | [channel\*](#list_kinesis-video-streams-resource-channel "#list_kinesis-video-streams-resource-channel") | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | List           |
-| [DescribeStream](../../../kinesisvideostreams/latest/dg/API_DescribeStream.md "../../../kinesisvideostreams/latest/dg/API_DescribeStream.md")                                                                   | Grants permission to describe the specified Kinesis video stream                                                                                                                                                                                                                                                                                                                          | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | List           |
-| [DescribeStreamStorageConfiguration](../../../kinesisvideostreams/latest/dg/API_DescribeStreamStorageConfiguration.md "../../../kinesisvideostreams/latest/dg/API_DescribeStreamStorageConfiguration.md")       | Grants permission to describe the stream storage configuration of your Kinesis Video Stream                                                                                                                                                                                                                                                                                               | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Read           |
-| [GetClip](../../../kinesisvideostreams/latest/dg/API_reader_GetClip.md "../../../kinesisvideostreams/latest/dg/API_reader_GetClip.md")                                                                          | Grants permission to get a media clip from a video stream                                                                                                                                                                                                                                                                                                                                 | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Read           |
-| [GetDASHStreamingSessionURL](../../../kinesisvideostreams/latest/dg/API_reader_GetDASHStreamingSessionURL.md "../../../kinesisvideostreams/latest/dg/API_reader_GetDASHStreamingSessionURL.md")                 | Grants permission to create a URL for MPEG-DASH video streaming                                                                                                                                                                                                                                                                                                                           | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Read           |
-| [GetDataEndpoint](../../../kinesisvideostreams/latest/dg/API_GetDataEndpoint.md "../../../kinesisvideostreams/latest/dg/API_GetDataEndpoint.md")                                                                | Grants permission to get an endpoint for a specified stream for either reading or writing media data to Kinesis Video Streams                                                                                                                                                                                                                                                             | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Read           |
-| [GetHLSStreamingSessionURL](../../../kinesisvideostreams/latest/dg/API_reader_GetHLSStreamingSessionURL.md "../../../kinesisvideostreams/latest/dg/API_reader_GetHLSStreamingSessionURL.md")                    | Grants permission to create a URL for HLS video streaming                                                                                                                                                                                                                                                                                                                                 | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Read           |
-| [GetIceServerConfig](../../../kinesisvideostreams/latest/dg/API_signaling_GetIceServerConfig.md "../../../kinesisvideostreams/latest/dg/API_signaling_GetIceServerConfig.md")                                   | Grants permission to get the ICE server configuration                                                                                                                                                                                                                                                                                                                                     | [channel\*](#list_kinesis-video-streams-resource-channel "#list_kinesis-video-streams-resource-channel") | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Read           |
-| [GetImages](../../../kinesisvideostreams/latest/dg/API_reader_GetImages.md "../../../kinesisvideostreams/latest/dg/API_reader_GetImages.md")                                                                    | Grants permission to get generated images from your Kinesis video stream                                                                                                                                                                                                                                                                                                                  | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Read           |
-| [GetMedia](../../../kinesisvideostreams/latest/dg/API_dataplane_GetMedia.md "../../../kinesisvideostreams/latest/dg/API_dataplane_GetMedia.md")                                                                 | Grants permission to return media content of a Kinesis video stream                                                                                                                                                                                                                                                                                                                       | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Read           |
-| [GetMediaForFragmentList](../../../kinesisvideostreams/latest/dg/API_reader_GetMediaForFragmentList.md "../../../kinesisvideostreams/latest/dg/API_reader_GetMediaForFragmentList.md")                          | Grants permission to read and return media data only from persisted storage                                                                                                                                                                                                                                                                                                               | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Read           |
-| [GetSignalingChannelEndpoint](../../../kinesisvideostreams/latest/dg/API_GetSignalingChannelEndpoint.md "../../../kinesisvideostreams/latest/dg/API_GetSignalingChannelEndpoint.md")                            | Grants permission to get endpoints for a specified combination of protocol and role for a signaling channel                                                                                                                                                                                                                                                                               | [channel\*](#list_kinesis-video-streams-resource-channel "#list_kinesis-video-streams-resource-channel") | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Read           |
-| [JoinStorageSession](../../../kinesisvideostreams/latest/dg/API_webrtc_JoinStorageSession.md "../../../kinesisvideostreams/latest/dg/API_webrtc_JoinStorageSession.md")                                         | Grants permission to join a storage session for a channel                                                                                                                                                                                                                                                                                                                                 | [channel\*](#list_kinesis-video-streams-resource-channel "#list_kinesis-video-streams-resource-channel") | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
-| [JoinStorageSessionAsViewer](../../../kinesisvideostreams/latest/dg/API_webrtc_JoinStorageSessionAsViewer.md "../../../kinesisvideostreams/latest/dg/API_webrtc_JoinStorageSessionAsViewer.md")                 | Grants permission to join a storage session for a channel as viewer                                                                                                                                                                                                                                                                                                                       | [channel\*](#list_kinesis-video-streams-resource-channel "#list_kinesis-video-streams-resource-channel") | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
-| [ListEdgeAgentConfigurations](../../../kinesisvideostreams/latest/dg/API_ListEdgeAgentConfigurations.md "../../../kinesisvideostreams/latest/dg/API_ListEdgeAgentConfigurations.md")                            | Grants permission to list an edge agent configurations                                                                                                                                                                                                                                                                                                                                    |                                                                                                          |                                                                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListFragments](../../../kinesisvideostreams/latest/dg/API_reader_ListFragments.md "../../../kinesisvideostreams/latest/dg/API_reader_ListFragments.md")                                                        | Grants permission to list the fragments from archival storage based on the pagination token or selector type with range specified                                                                                                                                                                                                                                                         | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | List           |
-| [ListSignalingChannels](../../../kinesisvideostreams/latest/dg/API_ListSignalingChannels.md "../../../kinesisvideostreams/latest/dg/API_ListSignalingChannels.md")                                              | Grants permission to list your signaling channels                                                                                                                                                                                                                                                                                                                                         |                                                                                                          |                                                                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListStreams](../../../kinesisvideostreams/latest/dg/API_ListStreams.md "../../../kinesisvideostreams/latest/dg/API_ListStreams.md")                                                                            | Grants permission to list your Kinesis video streams                                                                                                                                                                                                                                                                                                                                      |                                                                                                          |                                                                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListTagsForResource](../../../kinesisvideostreams/latest/dg/API_ListTagsForResource.md "../../../kinesisvideostreams/latest/dg/API_ListTagsForResource.md")                                                    | Grants permission to fetch the tags associated with your resource                                                                                                                                                                                                                                                                                                                         | [channel](#list_kinesis-video-streams-resource-channel "#list_kinesis-video-streams-resource-channel")   | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Read           |
-| [stream](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")                                                                                                             | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                |
-| [ListTagsForStream](../../../kinesisvideostreams/latest/dg/API_ListTagsForStream.md "../../../kinesisvideostreams/latest/dg/API_ListTagsForStream.md")                                                          | Grants permission to fetch the tags associated with Kinesis video stream                                                                                                                                                                                                                                                                                                                  | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Read           |
-| [PutMedia](../../../kinesisvideostreams/latest/dg/API_dataplane_PutMedia.md "../../../kinesisvideostreams/latest/dg/API_dataplane_PutMedia.md")                                                                 | Grants permission to send media data to a Kinesis video stream                                                                                                                                                                                                                                                                                                                            | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
-| [SendAlexaOfferToMaster](../../../kinesisvideostreams/latest/dg/API_signaling_SendAlexaOfferToMaster.md "../../../kinesisvideostreams/latest/dg/API_signaling_SendAlexaOfferToMaster.md")                       | Grants permission to send the Alexa SDP offer to the master                                                                                                                                                                                                                                                                                                                               | [channel\*](#list_kinesis-video-streams-resource-channel "#list_kinesis-video-streams-resource-channel") | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
-| [StartEdgeConfigurationUpdate](../../../kinesisvideostreams/latest/dg/API_StartEdgeConfigurationUpdate.md "../../../kinesisvideostreams/latest/dg/API_StartEdgeConfigurationUpdate.md")                         | Grants permission to start edge configuration update of your Kinesis Video Stream                                                                                                                                                                                                                                                                                                         | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
-| [TagResource](../../../kinesisvideostreams/latest/dg/API_TagResource.md "../../../kinesisvideostreams/latest/dg/API_TagResource.md")                                                                            | Grants permission to attach set of tags to your resource                                                                                                                                                                                                                                                                                                                                  | [channel](#list_kinesis-video-streams-resource-channel "#list_kinesis-video-streams-resource-channel")   | [aws:RequestTag/${TagKey}](#list_kinesis-video-streams-aws_RequestTag___TagKey_ "#list_kinesis-video-streams-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kinesis-video-streams-aws_TagKeys "#list_kinesis-video-streams-aws_TagKeys") | Tagging, Write |
-| [stream](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")                                                                                                             | [aws:RequestTag/${TagKey}](#list_kinesis-video-streams-aws_RequestTag___TagKey_ "#list_kinesis-video-streams-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kinesis-video-streams-aws_TagKeys "#list_kinesis-video-streams-aws_TagKeys") |
-| [TagStream](../../../kinesisvideostreams/latest/dg/API_TagStream.md "../../../kinesisvideostreams/latest/dg/API_TagStream.md")                                                                                  | Grants permission to attach set of tags to your Kinesis video streams                                                                                                                                                                                                                                                                                                                     | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:RequestTag/${TagKey}](#list_kinesis-video-streams-aws_RequestTag___TagKey_ "#list_kinesis-video-streams-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kinesis-video-streams-aws_TagKeys "#list_kinesis-video-streams-aws_TagKeys") | Tagging, Write |
-| [UntagResource](../../../kinesisvideostreams/latest/dg/API_UntagResource.md "../../../kinesisvideostreams/latest/dg/API_UntagResource.md")                                                                      | Grants permission to remove one or more tags from your resource                                                                                                                                                                                                                                                                                                                           | [channel](#list_kinesis-video-streams-resource-channel "#list_kinesis-video-streams-resource-channel")   | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kinesis-video-streams-aws_TagKeys "#list_kinesis-video-streams-aws_TagKeys")                                                                                                                                            | Tagging, Write |
-| [stream](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")                                                                                                             | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kinesis-video-streams-aws_TagKeys "#list_kinesis-video-streams-aws_TagKeys")                                                                                                                                            |
-| [UntagStream](../../../kinesisvideostreams/latest/dg/API_UntagStream.md "../../../kinesisvideostreams/latest/dg/API_UntagStream.md")                                                                            | Grants permission to remove one or more tags from your Kinesis video streams                                                                                                                                                                                                                                                                                                              | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_kinesis-video-streams-aws_TagKeys "#list_kinesis-video-streams-aws_TagKeys")                                                                                                                                            | Tagging, Write |
-| [UpdateDataRetention](../../../kinesisvideostreams/latest/dg/API_UpdateDataRetention.md "../../../kinesisvideostreams/latest/dg/API_UpdateDataRetention.md")                                                    | Grants permission to update the data retention period of your Kinesis video stream                                                                                                                                                                                                                                                                                                        | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
-| [UpdateImageGenerationConfiguration](../../../kinesisvideostreams/latest/dg/API_UpdateImageGenerationConfiguration.md "../../../kinesisvideostreams/latest/dg/API_UpdateImageGenerationConfiguration.md")       | Grants permission to update the image generation configuration of your Kinesis video stream                                                                                                                                                                                                                                                                                               | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
-| [UpdateMediaStorageConfiguration](../../../kinesisvideostreams/latest/dg/API_UpdateMediaStorageConfiguration.md "../../../kinesisvideostreams/latest/dg/API_UpdateMediaStorageConfiguration.md")                | Grants permission to create or update an mapping between a signaling channel and stream                                                                                                                                                                                                                                                                                                   | [channel\*](#list_kinesis-video-streams-resource-channel "#list_kinesis-video-streams-resource-channel") | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
-| [UpdateNotificationConfiguration](../../../kinesisvideostreams/latest/dg/API_UpdateNotificationConfiguration.md "../../../kinesisvideostreams/latest/dg/API_UpdateNotificationConfiguration.md")                | Grants permission to update the notification configuration of your Kinesis video stream                                                                                                                                                                                                                                                                                                   | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
-| [UpdateSignalingChannel](../../../kinesisvideostreams/latest/dg/API_UpdateSignalingChannel.md "../../../kinesisvideostreams/latest/dg/API_UpdateSignalingChannel.md")                                           | Grants permission to update an existing signaling channel                                                                                                                                                                                                                                                                                                                                 | [channel\*](#list_kinesis-video-streams-resource-channel "#list_kinesis-video-streams-resource-channel") | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
-| [UpdateStream](../../../kinesisvideostreams/latest/dg/API_UpdateStream.md "../../../kinesisvideostreams/latest/dg/API_UpdateStream.md")                                                                         | Grants permission to update an existing Kinesis video stream                                                                                                                                                                                                                                                                                                                              | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
-| [UpdateStreamStorageConfiguration](../../../kinesisvideostreams/latest/dg/API_UpdateStreamStorageConfiguration.md "../../../kinesisvideostreams/latest/dg/API_UpdateStreamStorageConfiguration.md")             | Grants permission to update the stream storage configuration of your Kinesis Video Stream                                                                                                                                                                                                                                                                                                 | [stream\*](#list_kinesis-video-streams-resource-stream "#list_kinesis-video-streams-resource-stream")    | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                | Write          |
+
+
+
+- **   [ConnectAsMaster](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_ConnectAsMaster.html)  **
+  - **Description:** Grants permission to connect as a master to the signaling channel specified by the endpoint
+  - **Resource types (\*required):** [channel\*](#list_kinesis-video-streams-resource-channel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ConnectAsViewer](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_ConnectAsViewer.html)  **
+  - **Description:** Grants permission to connect as a viewer to the signaling channel specified by the endpoint
+  - **Resource types (\*required):** [channel\*](#list_kinesis-video-streams-resource-channel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateSignalingChannel](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_CreateSignalingChannel.html)  **
+  - **Description:** Grants permission to create a signaling channel
+  - **Resource types (\*required):** [channel\*](#list_kinesis-video-streams-resource-channel)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesis-video-streams-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-video-streams-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateStream](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_CreateStream.html)  **
+  - **Description:** Grants permission to create a Kinesis video stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesis-video-streams-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-video-streams-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteEdgeConfiguration](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DeleteEdgeConfiguration.html)  **
+  - **Description:** Grants permission to delete the edge configuration of your Kinesis Video Stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteSignalingChannel](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DeleteSignalingChannel.html)  **
+  - **Description:** Grants permission to delete an existing signaling channel
+  - **Resource types (\*required):** [channel\*](#list_kinesis-video-streams-resource-channel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteStream](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DeleteStream.html)  **
+  - **Description:** Grants permission to delete an existing Kinesis video stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeEdgeConfiguration](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeEdgeConfiguration.html)  **
+  - **Description:** Grants permission to describe the edge configuration of your Kinesis Video Stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeImageGenerationConfiguration](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeImageGenerationConfiguration.html)  **
+  - **Description:** Grants permission to describe the image generation configuration of your Kinesis video stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeMappedResourceConfiguration](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeMappedResourceConfiguration.html)  **
+  - **Description:** Grants permission to describe the resource mapped to the Kinesis video stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [DescribeMediaStorageConfiguration](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeMediaStorageConfiguration.html)  **
+  - **Description:** Grants permission to describe the media storage configuration of a signaling channel
+  - **Resource types (\*required):** [channel\*](#list_kinesis-video-streams-resource-channel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeNotificationConfiguration](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeNotificationConfiguration.html)  **
+  - **Description:** Grants permission to describe the notification configuration of your Kinesis video stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeSignalingChannel](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeSignalingChannel.html)  **
+  - **Description:** Grants permission to describe the specified signaling channel
+  - **Resource types (\*required):** [channel\*](#list_kinesis-video-streams-resource-channel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [DescribeStream](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html)  **
+  - **Description:** Grants permission to describe the specified Kinesis video stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [DescribeStreamStorageConfiguration](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStreamStorageConfiguration.html)  **
+  - **Description:** Grants permission to describe the stream storage configuration of your Kinesis Video Stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetClip](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_GetClip.html)  **
+  - **Description:** Grants permission to get a media clip from a video stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDASHStreamingSessionURL](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_GetDASHStreamingSessionURL.html)  **
+  - **Description:** Grants permission to create a URL for MPEG-DASH video streaming
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDataEndpoint](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_GetDataEndpoint.html)  **
+  - **Description:** Grants permission to get an endpoint for a specified stream for either reading or writing media data to Kinesis Video Streams
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetHLSStreamingSessionURL](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_GetHLSStreamingSessionURL.html)  **
+  - **Description:** Grants permission to create a URL for HLS video streaming
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetIceServerConfig](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_signaling_GetIceServerConfig.html)  **
+  - **Description:** Grants permission to get the ICE server configuration
+  - **Resource types (\*required):** [channel\*](#list_kinesis-video-streams-resource-channel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetImages](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_GetImages.html)  **
+  - **Description:** Grants permission to get generated images from your Kinesis video stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMedia](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_GetMedia.html)  **
+  - **Description:** Grants permission to return media content of a Kinesis video stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMediaForFragmentList](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_GetMediaForFragmentList.html)  **
+  - **Description:** Grants permission to read and return media data only from persisted storage
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSignalingChannelEndpoint](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_GetSignalingChannelEndpoint.html)  **
+  - **Description:** Grants permission to get endpoints for a specified combination of protocol and role for a signaling channel
+  - **Resource types (\*required):** [channel\*](#list_kinesis-video-streams-resource-channel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [JoinStorageSession](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_webrtc_JoinStorageSession.html)  **
+  - **Description:** Grants permission to join a storage session for a channel
+  - **Resource types (\*required):** [channel\*](#list_kinesis-video-streams-resource-channel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [JoinStorageSessionAsViewer](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_webrtc_JoinStorageSessionAsViewer.html)  **
+  - **Description:** Grants permission to join a storage session for a channel as viewer
+  - **Resource types (\*required):** [channel\*](#list_kinesis-video-streams-resource-channel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ListEdgeAgentConfigurations](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_ListEdgeAgentConfigurations.html)  **
+  - **Description:** Grants permission to list an edge agent configurations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListFragments](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_ListFragments.html)  **
+  - **Description:** Grants permission to list the fragments from archival storage based on the pagination token or selector type with range specified
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSignalingChannels](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_ListSignalingChannels.html)  **
+  - **Description:** Grants permission to list your signaling channels
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListStreams](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_ListStreams.html)  **
+  - **Description:** Grants permission to list your Kinesis video streams
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to fetch the tags associated with your resource
+  - **Resource types (\*required):** [channel](#list_kinesis-video-streams-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [stream](#list_kinesis-video-streams-resource-stream) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListTagsForStream](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_ListTagsForStream.html)  **
+  - **Description:** Grants permission to fetch the tags associated with Kinesis video stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [PutMedia](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html)  **
+  - **Description:** Grants permission to send media data to a Kinesis video stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SendAlexaOfferToMaster](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_signaling_SendAlexaOfferToMaster.html)  **
+  - **Description:** Grants permission to send the Alexa SDP offer to the master
+  - **Resource types (\*required):** [channel\*](#list_kinesis-video-streams-resource-channel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartEdgeConfigurationUpdate](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_StartEdgeConfigurationUpdate.html)  **
+  - **Description:** Grants permission to start edge configuration update of your Kinesis Video Stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_TagResource.html)  **
+  - **Description:** Grants permission to attach set of tags to your resource
+  - **Resource types (\*required):** [channel](#list_kinesis-video-streams-resource-channel) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesis-video-streams-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-video-streams-aws_TagKeys)
+  - **Resource types (\*required):** [stream](#list_kinesis-video-streams-resource-stream) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesis-video-streams-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-video-streams-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [TagStream](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_TagStream.html)  **
+  - **Description:** Grants permission to attach set of tags to your Kinesis video streams
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_kinesis-video-streams-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-video-streams-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove one or more tags from your resource
+  - **Resource types (\*required):** [channel](#list_kinesis-video-streams-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-video-streams-aws_TagKeys)
+  - **Resource types (\*required):** [stream](#list_kinesis-video-streams-resource-stream) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-video-streams-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagStream](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_UntagStream.html)  **
+  - **Description:** Grants permission to remove one or more tags from your Kinesis video streams
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_kinesis-video-streams-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateDataRetention](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_UpdateDataRetention.html)  **
+  - **Description:** Grants permission to update the data retention period of your Kinesis video stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateImageGenerationConfiguration](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_UpdateImageGenerationConfiguration.html)  **
+  - **Description:** Grants permission to update the image generation configuration of your Kinesis video stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateMediaStorageConfiguration](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_UpdateMediaStorageConfiguration.html)  **
+  - **Description:** Grants permission to create or update an mapping between a signaling channel and stream
+  - **Resource types (\*required):** [channel\*](#list_kinesis-video-streams-resource-channel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateNotificationConfiguration](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_UpdateNotificationConfiguration.html)  **
+  - **Description:** Grants permission to update the notification configuration of your Kinesis video stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSignalingChannel](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_UpdateSignalingChannel.html)  **
+  - **Description:** Grants permission to update an existing signaling channel
+  - **Resource types (\*required):** [channel\*](#list_kinesis-video-streams-resource-channel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateStream](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_UpdateStream.html)  **
+  - **Description:** Grants permission to update an existing Kinesis video stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateStreamStorageConfiguration](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_UpdateStreamStorageConfiguration.html)  **
+  - **Description:** Grants permission to update the stream storage configuration of your Kinesis Video Stream
+  - **Resource types (\*required):** [stream\*](#list_kinesis-video-streams-resource-stream)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon Kinesis Video Streams
+<a name="list_kinesis-video-streams-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                                 | ARN                                                                                       | Condition keys                                                                                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| [channel](../../../kinesisvideostreams-webrtc-dg/latest/devguide/kvswebrtc-how-it-works.md "../../../kinesisvideostreams-webrtc-dg/latest/devguide/kvswebrtc-how-it-works.md") | arn:${Partition}:kinesisvideo:${Region}:${Account}:channel/${ChannelName}/${CreationTime} | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_") |
-| [stream](../../../kinesisvideostreams/latest/dg/how-it-works.md "../../../kinesisvideostreams/latest/dg/how-it-works.md")                                                      | arn:${Partition}:kinesisvideo:${Region}:${Account}:stream/${StreamName}/${CreationTime}   | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_ "#list_kinesis-video-streams-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [channel](https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/kvswebrtc-how-it-works.html)  | arn:${Partition}:kinesisvideo:${Region}:${Account}:channel/${ChannelName}/${CreationTime} | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_) | 
+|  [stream](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html)  | arn:${Partition}:kinesisvideo:${Region}:${Account}:stream/${StreamName}/${CreationTime} | [aws:ResourceTag/${TagKey}](#list_kinesis-video-streams-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Kinesis Video Streams
+<a name="list_kinesis-video-streams-policy-keys"></a>
 
-Amazon Kinesis Video Streams defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Kinesis Video Streams defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                                 | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters requests based on the allowed set of values for each of the tags    | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters actions based on tag-value assoicated with the stream               | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters requests based on the presence of mandatory tag keys in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters requests based on the allowed set of values for each of the tags | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters actions based on tag-value assoicated with the stream | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters requests based on the presence of mandatory tag keys in the request | ArrayOfString | 

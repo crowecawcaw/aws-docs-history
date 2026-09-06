@@ -1,124 +1,333 @@
-# Actions, resources, and condition keys for AWS Agent Registry
 
-AWS Agent Registry (service prefix: `agent-registry`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Agent Registry
+<a name="list_agent-registry"></a>
+
+AWS Agent Registry (service prefix: `agent-registry`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/agent-registry/latest/APIReference/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/agent-registry/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/agent-registry/latest/APIReference/) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/agent-registry/agent-registry.json) for this service.
 
-- Learn how to [configure this service](../../../agent-registry/latest/APIReference.md "../../../agent-registry/latest/APIReference.md").
-- View a list of the [API operations available for
-  this service](../../../agent-registry/latest/APIReference.md "../../../agent-registry/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../agent-registry/latest/APIReference.md "../../../agent-registry/latest/APIReference.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/agent-registry/agent-registry.json "https://servicereference.us-east-1.amazonaws.com/v1/agent-registry/agent-registry.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Agent Registry](#list_agent-registry-operations "#list_agent-registry-operations")
-- [Actions defined by AWS Agent Registry](#list_agent-registry-actions-as-permissions "#list_agent-registry-actions-as-permissions")
-- [Permission-only actions for AWS Agent Registry](#list_agent-registry-permission-only-actions "#list_agent-registry-permission-only-actions")
-- [Resource types defined by AWS Agent Registry](#list_agent-registry-resources-for-iam-policies "#list_agent-registry-resources-for-iam-policies")
-- [Condition keys for AWS Agent Registry](#list_agent-registry-policy-keys "#list_agent-registry-policy-keys")
+**Topics**
++ [API operations defined by AWS Agent Registry](#list_agent-registry-operations)
++ [Actions defined by AWS Agent Registry](#list_agent-registry-actions-as-permissions)
++ [Permission-only actions for AWS Agent Registry](#list_agent-registry-permission-only-actions)
++ [Resource types defined by AWS Agent Registry](#list_agent-registry-resources-for-iam-policies)
++ [Condition keys for AWS Agent Registry](#list_agent-registry-policy-keys)
 
 ## API operations defined by AWS Agent Registry
+<a name="list_agent-registry-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_agent-registry-actions-as-permissions "#list_agent-registry-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_agent-registry-actions-as-permissions).
 
-| Operation                                                                                                                                                                                               | SDK client             | IAM action                                                                                                                                                                        | Condition key  | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------- | -------------- |
-| BatchGetDiscoverableRegistryRecord                                                                                                                                                                      | agent-registry         | [agent-registry:GetDiscoverableRegistryRecord](#list_agent-registry-action-GetDiscoverableRegistryRecord "#list_agent-registry-action-GetDiscoverableRegistryRecord")             |                |                   | Read           |
-| ListDiscoverableRegistryRecords                                                                                                                                                                         | agent-registry         | [agent-registry:ListDiscoverableRegistryRecords](#list_agent-registry-action-ListDiscoverableRegistryRecords "#list_agent-registry-action-ListDiscoverableRegistryRecords")       |                |                   | List           |
-| SearchDiscoverableRegistryRecords                                                                                                                                                                       | agent-registry         | [agent-registry:SearchDiscoverableRegistryRecords](#list_agent-registry-action-SearchDiscoverableRegistryRecords "#list_agent-registry-action-SearchDiscoverableRegistryRecords") |                |                   | Read           |
-| CreateRegistry                                                                                                                                                                                          | agent-registry-control | [agent-registry:CreateRegistry](#list_agent-registry-action-CreateRegistry "#list_agent-registry-action-CreateRegistry")                                                          |                |                   | Write          |
-| [agent-registry:TagResource](#list_agent-registry-action-TagResource "#list_agent-registry-action-TagResource")                                                                                         |                        |                                                                                                                                                                                   | Tagging, Write |
-| CreateRegistryRecord                                                                                                                                                                                    | agent-registry-control | [agent-registry:CreateRegistryRecord](#list_agent-registry-action-CreateRegistryRecord "#list_agent-registry-action-CreateRegistryRecord")                                        |                |                   | Write          |
-| [agent-registry:TagResource](#list_agent-registry-action-TagResource "#list_agent-registry-action-TagResource")                                                                                         |                        |                                                                                                                                                                                   | Tagging, Write |
-| [bedrock-agentcore:GetResourceOauth2Token](../../../bedrock-agentcore/latest/APIReference/API_GetResourceOauth2Token.md "../../../bedrock-agentcore/latest/APIReference/API_GetResourceOauth2Token.md") |                        |                                                                                                                                                                                   | Read           |
-| [bedrock-agentcore:GetWorkloadAccessToken](../../../bedrock-agentcore/latest/APIReference/API_GetWorkloadAccessToken.md "../../../bedrock-agentcore/latest/APIReference/API_GetWorkloadAccessToken.md") |                        |                                                                                                                                                                                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                         | iam:PassedToService    | agent-registry.amazonaws.com                                                                                                                                                      | Write          |
-| DeleteRegistry                                                                                                                                                                                          | agent-registry-control | [agent-registry:DeleteRegistry](#list_agent-registry-action-DeleteRegistry "#list_agent-registry-action-DeleteRegistry")                                                          |                |                   | Write          |
-| DeleteRegistryRecord                                                                                                                                                                                    | agent-registry-control | [agent-registry:DeleteRegistryRecord](#list_agent-registry-action-DeleteRegistryRecord "#list_agent-registry-action-DeleteRegistryRecord")                                        |                |                   | Write          |
-| GetRegistry                                                                                                                                                                                             | agent-registry-control | [agent-registry:GetRegistry](#list_agent-registry-action-GetRegistry "#list_agent-registry-action-GetRegistry")                                                                   |                |                   | Read           |
-| GetRegistryRecord                                                                                                                                                                                       | agent-registry-control | [agent-registry:GetRegistryRecord](#list_agent-registry-action-GetRegistryRecord "#list_agent-registry-action-GetRegistryRecord")                                                 |                |                   | Read           |
-| ListRegistries                                                                                                                                                                                          | agent-registry-control | [agent-registry:ListRegistries](#list_agent-registry-action-ListRegistries "#list_agent-registry-action-ListRegistries")                                                          |                |                   | List           |
-| ListRegistryRecords                                                                                                                                                                                     | agent-registry-control | [agent-registry:ListRegistryRecords](#list_agent-registry-action-ListRegistryRecords "#list_agent-registry-action-ListRegistryRecords")                                           |                |                   | List           |
-| ListTagsForResource                                                                                                                                                                                     | agent-registry-control | [agent-registry:ListTagsForResource](#list_agent-registry-action-ListTagsForResource "#list_agent-registry-action-ListTagsForResource")                                           |                |                   | List           |
-| SubmitRegistryRecordForApproval                                                                                                                                                                         | agent-registry-control | [agent-registry:SubmitRegistryRecordForApproval](#list_agent-registry-action-SubmitRegistryRecordForApproval "#list_agent-registry-action-SubmitRegistryRecordForApproval")       |                |                   | Write          |
-| TagResource                                                                                                                                                                                             | agent-registry-control | [agent-registry:TagResource](#list_agent-registry-action-TagResource "#list_agent-registry-action-TagResource")                                                                   |                |                   | Tagging, Write |
-| UntagResource                                                                                                                                                                                           | agent-registry-control | [agent-registry:UntagResource](#list_agent-registry-action-UntagResource "#list_agent-registry-action-UntagResource")                                                             |                |                   | Tagging, Write |
-| UpdateRegistry                                                                                                                                                                                          | agent-registry-control | [agent-registry:UpdateRegistry](#list_agent-registry-action-UpdateRegistry "#list_agent-registry-action-UpdateRegistry")                                                          |                |                   | Write          |
-| UpdateRegistryRecord                                                                                                                                                                                    | agent-registry-control | [agent-registry:UpdateRegistryRecord](#list_agent-registry-action-UpdateRegistryRecord "#list_agent-registry-action-UpdateRegistryRecord")                                        |                |                   | Write          |
-| [bedrock-agentcore:GetResourceOauth2Token](../../../bedrock-agentcore/latest/APIReference/API_GetResourceOauth2Token.md "../../../bedrock-agentcore/latest/APIReference/API_GetResourceOauth2Token.md") |                        |                                                                                                                                                                                   | Read           |
-| [bedrock-agentcore:GetWorkloadAccessToken](../../../bedrock-agentcore/latest/APIReference/API_GetWorkloadAccessToken.md "../../../bedrock-agentcore/latest/APIReference/API_GetWorkloadAccessToken.md") |                        |                                                                                                                                                                                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                                         | iam:PassedToService    | agent-registry.amazonaws.com                                                                                                                                                      | Write          |
-| UpdateRegistryRecordStatus                                                                                                                                                                              | agent-registry-control | [agent-registry:UpdateRegistryRecordStatus](#list_agent-registry-action-UpdateRegistryRecordStatus "#list_agent-registry-action-UpdateRegistryRecordStatus")                      |                |                   | Write          |
+
+
+
+- **   BatchGetDiscoverableRegistryRecord  **
+  - **SDK client:** agent-registry
+  - **IAM action:**  [agent-registry:GetDiscoverableRegistryRecord](#list_agent-registry-action-GetDiscoverableRegistryRecord) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListDiscoverableRegistryRecords  **
+  - **SDK client:** agent-registry
+  - **IAM action:**  [agent-registry:ListDiscoverableRegistryRecords](#list_agent-registry-action-ListDiscoverableRegistryRecords) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   SearchDiscoverableRegistryRecords  **
+  - **SDK client:** agent-registry
+  - **IAM action:**  [agent-registry:SearchDiscoverableRegistryRecords](#list_agent-registry-action-SearchDiscoverableRegistryRecords) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   CreateRegistry  **
+  - **SDK client:** agent-registry-control
+  - **IAM action:**  [agent-registry:CreateRegistry](#list_agent-registry-action-CreateRegistry)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [agent-registry:TagResource](#list_agent-registry-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateRegistryRecord  **
+  - **SDK client:** agent-registry-control
+  - **IAM action:**  [agent-registry:CreateRegistryRecord](#list_agent-registry-action-CreateRegistryRecord)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [agent-registry:TagResource](#list_agent-registry-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [bedrock-agentcore:GetResourceOauth2Token](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetResourceOauth2Token.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [bedrock-agentcore:GetWorkloadAccessToken](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetWorkloadAccessToken.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** agent-registry.amazonaws.com / **Access level:** Write
+
+- **   DeleteRegistry  **
+  - **SDK client:** agent-registry-control
+  - **IAM action:**  [agent-registry:DeleteRegistry](#list_agent-registry-action-DeleteRegistry) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRegistryRecord  **
+  - **SDK client:** agent-registry-control
+  - **IAM action:**  [agent-registry:DeleteRegistryRecord](#list_agent-registry-action-DeleteRegistryRecord) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetRegistry  **
+  - **SDK client:** agent-registry-control
+  - **IAM action:**  [agent-registry:GetRegistry](#list_agent-registry-action-GetRegistry) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRegistryRecord  **
+  - **SDK client:** agent-registry-control
+  - **IAM action:**  [agent-registry:GetRegistryRecord](#list_agent-registry-action-GetRegistryRecord) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListRegistries  **
+  - **SDK client:** agent-registry-control
+  - **IAM action:**  [agent-registry:ListRegistries](#list_agent-registry-action-ListRegistries) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRegistryRecords  **
+  - **SDK client:** agent-registry-control
+  - **IAM action:**  [agent-registry:ListRegistryRecords](#list_agent-registry-action-ListRegistryRecords) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **SDK client:** agent-registry-control
+  - **IAM action:**  [agent-registry:ListTagsForResource](#list_agent-registry-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   SubmitRegistryRecordForApproval  **
+  - **SDK client:** agent-registry-control
+  - **IAM action:**  [agent-registry:SubmitRegistryRecordForApproval](#list_agent-registry-action-SubmitRegistryRecordForApproval) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **SDK client:** agent-registry-control
+  - **IAM action:**  [agent-registry:TagResource](#list_agent-registry-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **SDK client:** agent-registry-control
+  - **IAM action:**  [agent-registry:UntagResource](#list_agent-registry-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateRegistry  **
+  - **SDK client:** agent-registry-control
+  - **IAM action:**  [agent-registry:UpdateRegistry](#list_agent-registry-action-UpdateRegistry) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRegistryRecord  **
+  - **SDK client:** agent-registry-control
+  - **IAM action:**  [agent-registry:UpdateRegistryRecord](#list_agent-registry-action-UpdateRegistryRecord)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [bedrock-agentcore:GetResourceOauth2Token](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetResourceOauth2Token.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [bedrock-agentcore:GetWorkloadAccessToken](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetWorkloadAccessToken.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** agent-registry.amazonaws.com / **Access level:** Write
+
+- **   UpdateRegistryRecordStatus  **
+  - **SDK client:** agent-registry-control
+  - **IAM action:**  [agent-registry:UpdateRegistryRecordStatus](#list_agent-registry-action-UpdateRegistryRecordStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by AWS Agent Registry
+<a name="list_agent-registry-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                    | Description                                                                                                                                                                                                                                                                                                                                     | Resource types (\*required)                                                                                        | Condition keys                                                                                                                                                                                                                                                                                                                                  | Access level   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [CreateRegistry](../../../agent-registry-control/latest/APIReference/API_CreateRegistry.md "../../../agent-registry-control/latest/APIReference/API_CreateRegistry.md")                                                    | Grants permission to create a new registry                                                                                                                                                                                                                                                                                                      |                                                                                                                    | [aws:RequestTag/${TagKey}](#list_agent-registry-aws_RequestTag___TagKey_ "#list_agent-registry-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_agent-registry-aws_TagKeys "#list_agent-registry-aws_TagKeys")                                                                                                                                 | Write          |
-| [CreateRegistryRecord](../../../agent-registry-control/latest/APIReference/API_CreateRegistryRecord.md "../../../agent-registry-control/latest/APIReference/API_CreateRegistryRecord.md")                                  | Grants permission to create a new registry record                                                                                                                                                                                                                                                                                               | [registry\*](#list_agent-registry-resource-registry "#list_agent-registry-resource-registry")                      | [aws:RequestTag/${TagKey}](#list_agent-registry-aws_RequestTag___TagKey_ "#list_agent-registry-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_agent-registry-aws_TagKeys "#list_agent-registry-aws_TagKeys") | Write          |
-| [DeleteRegistry](../../../agent-registry-control/latest/APIReference/API_DeleteRegistry.md "../../../agent-registry-control/latest/APIReference/API_DeleteRegistry.md")                                                    | Grants permission to delete an existing registry                                                                                                                                                                                                                                                                                                | [registry\*](#list_agent-registry-resource-registry "#list_agent-registry-resource-registry")                      | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [DeleteRegistryRecord](../../../agent-registry-control/latest/APIReference/API_DeleteRegistryRecord.md "../../../agent-registry-control/latest/APIReference/API_DeleteRegistryRecord.md")                                  | Grants permission to delete an existing registry record                                                                                                                                                                                                                                                                                         | [registry-record\*](#list_agent-registry-resource-registry-record "#list_agent-registry-resource-registry-record") | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [GetDiscoverableRegistryRecord](../../../agent-registry/latest/APIReference/API_BatchGetDiscoverableRegistryRecord.md "../../../agent-registry/latest/APIReference/API_BatchGetDiscoverableRegistryRecord.md")             | Grants permission to retrieve an individual approved registry record. This is a permission-only action used for fine-grained access control with BatchGetApprovedRegistryRecord                                                                                                                                                                 | [registry-record\*](#list_agent-registry-resource-registry-record "#list_agent-registry-resource-registry-record") | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [GetRegistry](../../../agent-registry-control/latest/APIReference/API_GetRegistry.md "../../../agent-registry-control/latest/APIReference/API_GetRegistry.md")                                                             | Grants permission to retrieve an existing registry                                                                                                                                                                                                                                                                                              | [registry\*](#list_agent-registry-resource-registry "#list_agent-registry-resource-registry")                      | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [GetRegistryRecord](../../../agent-registry-control/latest/APIReference/API_GetRegistryRecord.md "../../../agent-registry-control/latest/APIReference/API_GetRegistryRecord.md")                                           | Grants permission to retrieve an existing registry record                                                                                                                                                                                                                                                                                       | [registry-record\*](#list_agent-registry-resource-registry-record "#list_agent-registry-resource-registry-record") | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [InvokeRegistryMcp](../../../bedrock-agentcore/latest/devguide/registry-mcp-endpoint.md "../../../bedrock-agentcore/latest/devguide/registry-mcp-endpoint.md")                                                             | Grants permission to invoke an MCP operation against an existing registry                                                                                                                                                                                                                                                                       | [registry\*](#list_agent-registry-resource-registry "#list_agent-registry-resource-registry")                      | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [ListDiscoverableRegistryRecords](../../../agent-registry/latest/APIReference/API_ListDiscoverableRegistryRecords.md "../../../agent-registry/latest/APIReference/API_ListDiscoverableRegistryRecords.md")                 | Grants permission to list approved registry records in a registry                                                                                                                                                                                                                                                                               | [registry\*](#list_agent-registry-resource-registry "#list_agent-registry-resource-registry")                      | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | List           |
-| [ListRegistries](../../../agent-registry-control/latest/APIReference/API_ListRegistries.md "../../../agent-registry-control/latest/APIReference/API_ListRegistries.md")                                                    | Grants permission to list existing registries                                                                                                                                                                                                                                                                                                   |                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                 | List           |
-| [ListRegistryRecords](../../../agent-registry-control/latest/APIReference/API_ListRegistryRecords.md "../../../agent-registry-control/latest/APIReference/API_ListRegistryRecords.md")                                     | Grants permission to list existing registry records in a registry                                                                                                                                                                                                                                                                               | [registry\*](#list_agent-registry-resource-registry "#list_agent-registry-resource-registry")                      | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | List           |
-| [ListTagsForResource](../../../agent-registry-control/latest/APIReference/API_ListTagsForResource.md "../../../agent-registry-control/latest/APIReference/API_ListTagsForResource.md")                                     | Grants permission to list tags for an Agent Registry resource                                                                                                                                                                                                                                                                                   | [registry](#list_agent-registry-resource-registry "#list_agent-registry-resource-registry")                        | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | List           |
-| [registry-record](#list_agent-registry-resource-registry-record "#list_agent-registry-resource-registry-record")                                                                                                           | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    |
-| [SearchDiscoverableRegistryRecords](../../../agent-registry/latest/APIReference/API_SearchDiscoverableRegistryRecords.md "../../../agent-registry/latest/APIReference/API_SearchDiscoverableRegistryRecords.md")           | Grants permission to search for registry records                                                                                                                                                                                                                                                                                                | [registry\*](#list_agent-registry-resource-registry "#list_agent-registry-resource-registry")                      | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Read           |
-| [SubmitRegistryRecordForApproval](../../../agent-registry-control/latest/APIReference/API_SubmitRegistryRecordForApproval.md "../../../agent-registry-control/latest/APIReference/API_SubmitRegistryRecordForApproval.md") | Grants permission to submit a registry record for approval                                                                                                                                                                                                                                                                                      | [registry-record\*](#list_agent-registry-resource-registry-record "#list_agent-registry-resource-registry-record") | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [TagResource](../../../agent-registry-control/latest/APIReference/API_TagResource.md "../../../agent-registry-control/latest/APIReference/API_TagResource.md")                                                             | Grants permission to tag an Agent Registry resource                                                                                                                                                                                                                                                                                             | [registry](#list_agent-registry-resource-registry "#list_agent-registry-resource-registry")                        | [aws:RequestTag/${TagKey}](#list_agent-registry-aws_RequestTag___TagKey_ "#list_agent-registry-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_agent-registry-aws_TagKeys "#list_agent-registry-aws_TagKeys") | Tagging, Write |
-| [registry-record](#list_agent-registry-resource-registry-record "#list_agent-registry-resource-registry-record")                                                                                                           | [aws:RequestTag/${TagKey}](#list_agent-registry-aws_RequestTag___TagKey_ "#list_agent-registry-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_agent-registry-aws_TagKeys "#list_agent-registry-aws_TagKeys") |
-| [UntagResource](../../../agent-registry-control/latest/APIReference/API_UntagResource.md "../../../agent-registry-control/latest/APIReference/API_UntagResource.md")                                                       | Grants permission to untag an Agent Registry resource                                                                                                                                                                                                                                                                                           | [registry](#list_agent-registry-resource-registry "#list_agent-registry-resource-registry")                        | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_agent-registry-aws_TagKeys "#list_agent-registry-aws_TagKeys")                                                                                                                              | Tagging, Write |
-| [registry-record](#list_agent-registry-resource-registry-record "#list_agent-registry-resource-registry-record")                                                                                                           | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_agent-registry-aws_TagKeys "#list_agent-registry-aws_TagKeys")                                                                                                                              |
-| [UpdateRegistry](../../../agent-registry-control/latest/APIReference/API_UpdateRegistry.md "../../../agent-registry-control/latest/APIReference/API_UpdateRegistry.md")                                                    | Grants permission to update an existing registry                                                                                                                                                                                                                                                                                                | [registry\*](#list_agent-registry-resource-registry "#list_agent-registry-resource-registry")                      | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [UpdateRegistryRecord](../../../agent-registry-control/latest/APIReference/API_UpdateRegistryRecord.md "../../../agent-registry-control/latest/APIReference/API_UpdateRegistryRecord.md")                                  | Grants permission to update an existing registry record                                                                                                                                                                                                                                                                                         | [registry-record\*](#list_agent-registry-resource-registry-record "#list_agent-registry-resource-registry-record") | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
-| [UpdateRegistryRecordStatus](../../../agent-registry-control/latest/APIReference/API_UpdateRegistryRecordStatus.md "../../../agent-registry-control/latest/APIReference/API_UpdateRegistryRecordStatus.md")                | Grants permission to update the status of a registry record                                                                                                                                                                                                                                                                                     | [registry-record\*](#list_agent-registry-resource-registry-record "#list_agent-registry-resource-registry-record") | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                    | Write          |
+
+
+
+- **   [CreateRegistry](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_CreateRegistry.html)  **
+  - **Description:** Grants permission to create a new registry
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_agent-registry-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_agent-registry-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRegistryRecord](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_CreateRegistryRecord.html)  **
+  - **Description:** Grants permission to create a new registry record
+  - **Resource types (\*required):** [registry\*](#list_agent-registry-resource-registry)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_agent-registry-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_agent-registry-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteRegistry](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_DeleteRegistry.html)  **
+  - **Description:** Grants permission to delete an existing registry
+  - **Resource types (\*required):** [registry\*](#list_agent-registry-resource-registry)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRegistryRecord](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_DeleteRegistryRecord.html)  **
+  - **Description:** Grants permission to delete an existing registry record
+  - **Resource types (\*required):** [registry-record\*](#list_agent-registry-resource-registry-record)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetDiscoverableRegistryRecord](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_BatchGetDiscoverableRegistryRecord.html)  **
+  - **Description:** Grants permission to retrieve an individual approved registry record. This is a permission-only action used for fine-grained access control with BatchGetApprovedRegistryRecord
+  - **Resource types (\*required):** [registry-record\*](#list_agent-registry-resource-registry-record)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRegistry](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_GetRegistry.html)  **
+  - **Description:** Grants permission to retrieve an existing registry
+  - **Resource types (\*required):** [registry\*](#list_agent-registry-resource-registry)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRegistryRecord](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_GetRegistryRecord.html)  **
+  - **Description:** Grants permission to retrieve an existing registry record
+  - **Resource types (\*required):** [registry-record\*](#list_agent-registry-resource-registry-record)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [InvokeRegistryMcp](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-mcp-endpoint.html)  **
+  - **Description:** Grants permission to invoke an MCP operation against an existing registry
+  - **Resource types (\*required):** [registry\*](#list_agent-registry-resource-registry)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListDiscoverableRegistryRecords](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_ListDiscoverableRegistryRecords.html)  **
+  - **Description:** Grants permission to list approved registry records in a registry
+  - **Resource types (\*required):** [registry\*](#list_agent-registry-resource-registry)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRegistries](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_ListRegistries.html)  **
+  - **Description:** Grants permission to list existing registries
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRegistryRecords](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_ListRegistryRecords.html)  **
+  - **Description:** Grants permission to list existing registry records in a registry
+  - **Resource types (\*required):** [registry\*](#list_agent-registry-resource-registry)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for an Agent Registry resource
+  - **Resource types (\*required):** [registry](#list_agent-registry-resource-registry) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [registry-record](#list_agent-registry-resource-registry-record) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [SearchDiscoverableRegistryRecords](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_SearchDiscoverableRegistryRecords.html)  **
+  - **Description:** Grants permission to search for registry records
+  - **Resource types (\*required):** [registry\*](#list_agent-registry-resource-registry)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [SubmitRegistryRecordForApproval](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_SubmitRegistryRecordForApproval.html)  **
+  - **Description:** Grants permission to submit a registry record for approval
+  - **Resource types (\*required):** [registry-record\*](#list_agent-registry-resource-registry-record)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag an Agent Registry resource
+  - **Resource types (\*required):** [registry](#list_agent-registry-resource-registry) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_agent-registry-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_agent-registry-aws_TagKeys)
+  - **Resource types (\*required):** [registry-record](#list_agent-registry-resource-registry-record) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_agent-registry-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_agent-registry-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag an Agent Registry resource
+  - **Resource types (\*required):** [registry](#list_agent-registry-resource-registry) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_agent-registry-aws_TagKeys)
+  - **Resource types (\*required):** [registry-record](#list_agent-registry-resource-registry-record) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_agent-registry-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateRegistry](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdateRegistry.html)  **
+  - **Description:** Grants permission to update an existing registry
+  - **Resource types (\*required):** [registry\*](#list_agent-registry-resource-registry)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRegistryRecord](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdateRegistryRecord.html)  **
+  - **Description:** Grants permission to update an existing registry record
+  - **Resource types (\*required):** [registry-record\*](#list_agent-registry-resource-registry-record)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRegistryRecordStatus](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdateRegistryRecordStatus.html)  **
+  - **Description:** Grants permission to update the status of a registry record
+  - **Resource types (\*required):** [registry-record\*](#list_agent-registry-resource-registry-record)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for AWS Agent Registry
+<a name="list_agent-registry-permission-only-actions"></a>
 
-The following actions are defined by AWS Agent Registry but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by AWS Agent Registry but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                                                             | Description                                                                      | Resource types (\*required)                                                                 | Condition keys                                                                                                               | Access level |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [DeleteResourcePolicy](../../../bedrock-agentcore/latest/devguide/registry-cross-account-sharing.md "../../../bedrock-agentcore/latest/devguide/registry-cross-account-sharing.md") | Grants permission to delete the resource-based policy from a specified resource  | [registry](#list_agent-registry-resource-registry "#list_agent-registry-resource-registry") | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_") | Write        |
-| [GetResourcePolicy](../../../bedrock-agentcore/latest/devguide/registry-cross-account-sharing.md "../../../bedrock-agentcore/latest/devguide/registry-cross-account-sharing.md")    | Grants permission to retrieve the resource-based policy for a specified resource | [registry](#list_agent-registry-resource-registry "#list_agent-registry-resource-registry") | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_") | Read         |
-| [PutResourcePolicy](../../../bedrock-agentcore/latest/devguide/registry-cross-account-sharing.md "../../../bedrock-agentcore/latest/devguide/registry-cross-account-sharing.md")    | Grants permission to set a resource-based policy for a specified resource        | [registry](#list_agent-registry-resource-registry "#list_agent-registry-resource-registry") | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_") | Write        |
+
+
+
+- **   [DeleteResourcePolicy](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-cross-account-sharing.html)  **
+  - **Description:** Grants permission to delete the resource-based policy from a specified resource
+  - **Resource types (\*required):** [registry](#list_agent-registry-resource-registry)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetResourcePolicy](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-cross-account-sharing.html)  **
+  - **Description:** Grants permission to retrieve the resource-based policy for a specified resource
+  - **Resource types (\*required):** [registry](#list_agent-registry-resource-registry)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [PutResourcePolicy](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-cross-account-sharing.html)  **
+  - **Description:** Grants permission to set a resource-based policy for a specified resource
+  - **Resource types (\*required):** [registry](#list_agent-registry-resource-registry)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS Agent Registry
+<a name="list_agent-registry-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                   | ARN                                                                                            | Condition keys                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| [registry](../../../agent-registry/latest/APIReference/registry.md "../../../agent-registry/latest/APIReference/registry.md")                    | arn:${Partition}:agent-registry:${Region}:${Account}:registry/${RegistryId}                    | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_") |
-| [registry-record](../../../agent-registry/latest/APIReference/registryRecord.md "../../../agent-registry/latest/APIReference/registryRecord.md") | arn:${Partition}:agent-registry:${Region}:${Account}:registry/${RegistryId}/record/${RecordId} | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_ "#list_agent-registry-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [registry](https://docs.aws.amazon.com/agent-registry/latest/APIReference/registry.html)  | arn:${Partition}:agent-registry:${Region}:${Account}:registry/${RegistryId} | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_) | 
+|  [registry-record](https://docs.aws.amazon.com/agent-registry/latest/APIReference/registryRecord.html)  | arn:${Partition}:agent-registry:${Region}:${Account}:registry/${RegistryId}/record/${RecordId} | [aws:ResourceTag/${TagKey}](#list_agent-registry-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS Agent Registry
+<a name="list_agent-registry-policy-keys"></a>
 
-AWS Agent Registry defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Agent Registry defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                           | Description                                                                                           | Type          |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------- |
-| [agent-registry:RecordCreatorAccount](../../../agent-registry/latest/APIReference.md "../../../agent-registry/latest/APIReference.md")                                                                                                   | Filters access by the AWS account ID of the principal that created the registry record                | String        |
-| [agent-registry:RecordSourceAccount](../../../agent-registry/latest/APIReference.md "../../../agent-registry/latest/APIReference.md")                                                                                                    | Filters access by the AWS account ID of the source resource associated with a registry record         | String        |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-globally-available "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-globally-available")  | Filters access by creating requests based on the allowed set of values for each of the mandatory tags | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-globally-available "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-globally-available") | Filters access by having actions based on the tag value associated with the resource                  | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-globally-available "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-globally-available")               | Filters access by creating requests based on the presence of mandatory tags in the request            | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [agent-registry:RecordCreatorAccount](https://docs.aws.amazon.com/agent-registry/latest/APIReference/)  | Filters access by the AWS account ID of the principal that created the registry record | String | 
+|   [agent-registry:RecordSourceAccount](https://docs.aws.amazon.com/agent-registry/latest/APIReference/)  | Filters access by the AWS account ID of the source resource associated with a registry record | String | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-globally-available)  | Filters access by creating requests based on the allowed set of values for each of the mandatory tags | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-globally-available)  | Filters access by having actions based on the tag value associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-globally-available)  | Filters access by creating requests based on the presence of mandatory tags in the request | ArrayOfString | 

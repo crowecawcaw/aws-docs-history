@@ -1,277 +1,1120 @@
-# Actions, resources, and condition keys for Amazon OpenSearch Service
 
-Amazon OpenSearch Service (service prefix: `es`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon OpenSearch Service
+<a name="list_es"></a>
+
+Amazon OpenSearch Service (service prefix: `es`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/es/es.json) for this service.
 
-- Learn how to [configure this service](../../../opensearch-service/latest/developerguide/what-is.md "../../../opensearch-service/latest/developerguide/what-is.md").
-- View a list of the [API operations available for
-  this service](../../../opensearch-service/latest/APIReference.md "../../../opensearch-service/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../opensearch-service/latest/developerguide/ac.md "../../../opensearch-service/latest/developerguide/ac.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/es/es.json "https://servicereference.us-east-1.amazonaws.com/v1/es/es.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon OpenSearch Service](#list_es-operations "#list_es-operations")
-- [Actions defined by Amazon OpenSearch Service](#list_es-actions-as-permissions "#list_es-actions-as-permissions")
-- [Resource types defined by Amazon OpenSearch Service](#list_es-resources-for-iam-policies "#list_es-resources-for-iam-policies")
-- [Condition keys for Amazon OpenSearch Service](#list_es-policy-keys "#list_es-policy-keys")
+**Topics**
++ [API operations defined by Amazon OpenSearch Service](#list_es-operations)
++ [Actions defined by Amazon OpenSearch Service](#list_es-actions-as-permissions)
++ [Resource types defined by Amazon OpenSearch Service](#list_es-resources-for-iam-policies)
++ [Condition keys for Amazon OpenSearch Service](#list_es-policy-keys)
 
 ## API operations defined by Amazon OpenSearch Service
+<a name="list_es-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_es-actions-as-permissions "#list_es-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_es-actions-as-permissions).
 
-| Operation                                                                                                                                                                         | IAM action                                                                                                                                                                           | Condition key    | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- | ----------------- | -------------- |
-| AcceptInboundCrossClusterSearchConnection                                                                                                                                         | [es:AcceptInboundConnection](#list_es-action-AcceptInboundConnection "#list_es-action-AcceptInboundConnection")                                                                      |                  |                   | Write          |
-| [es:AcceptInboundCrossClusterSearchConnection](#list_es-action-AcceptInboundCrossClusterSearchConnection "#list_es-action-AcceptInboundCrossClusterSearchConnection")             |                                                                                                                                                                                      |                  | Write             |
-| AddTags                                                                                                                                                                           | [es:AddTags](#list_es-action-AddTags "#list_es-action-AddTags")                                                                                                                      |                  |                   | Tagging, Write |
-| AssociatePackage                                                                                                                                                                  | [es:AssociatePackage](#list_es-action-AssociatePackage "#list_es-action-AssociatePackage")                                                                                           |                  |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                   | iam:PassedToService                                                                                                                                                                  | es.amazonaws.com | Write             |
-| AuthorizeVpcEndpointAccess                                                                                                                                                        | [es:AuthorizeVpcEndpointAccess](#list_es-action-AuthorizeVpcEndpointAccess "#list_es-action-AuthorizeVpcEndpointAccess")                                                             |                  |                   | Write          |
-| CancelDomainConfigChange                                                                                                                                                          | [es:CancelDomainConfigChange](#list_es-action-CancelDomainConfigChange "#list_es-action-CancelDomainConfigChange")                                                                   |                  |                   | Write          |
-| CancelElasticsearchServiceSoftwareUpdate                                                                                                                                          | [es:CancelElasticsearchServiceSoftwareUpdate](#list_es-action-CancelElasticsearchServiceSoftwareUpdate "#list_es-action-CancelElasticsearchServiceSoftwareUpdate")                   |                  |                   | Write          |
-| [es:CancelServiceSoftwareUpdate](#list_es-action-CancelServiceSoftwareUpdate "#list_es-action-CancelServiceSoftwareUpdate")                                                       |                                                                                                                                                                                      |                  | Write             |
-| CreateElasticsearchDomain                                                                                                                                                         | [es:AddTags](#list_es-action-AddTags "#list_es-action-AddTags")                                                                                                                      |                  |                   | Tagging, Write |
-| [es:CreateDomain](#list_es-action-CreateDomain "#list_es-action-CreateDomain")                                                                                                    |                                                                                                                                                                                      |                  | Write             |
-| [es:CreateElasticsearchDomain](#list_es-action-CreateElasticsearchDomain "#list_es-action-CreateElasticsearchDomain")                                                             |                                                                                                                                                                                      |                  | Write             |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                   | iam:PassedToService                                                                                                                                                                  | es.amazonaws.com | Write             |
-| CreateOutboundCrossClusterSearchConnection                                                                                                                                        | [es:CreateOutboundConnection](#list_es-action-CreateOutboundConnection "#list_es-action-CreateOutboundConnection")                                                                   |                  |                   | Write          |
-| [es:CreateOutboundCrossClusterSearchConnection](#list_es-action-CreateOutboundCrossClusterSearchConnection "#list_es-action-CreateOutboundCrossClusterSearchConnection")          |                                                                                                                                                                                      |                  | Write             |
-| CreatePackage                                                                                                                                                                     | [es:CreatePackage](#list_es-action-CreatePackage "#list_es-action-CreatePackage")                                                                                                    |                  |                   | Write          |
-| CreateVpcEndpoint                                                                                                                                                                 | [es:CreateVpcEndpoint](#list_es-action-CreateVpcEndpoint "#list_es-action-CreateVpcEndpoint")                                                                                        |                  |                   | Write          |
-| DeleteElasticsearchDomain                                                                                                                                                         | [es:DeleteDomain](#list_es-action-DeleteDomain "#list_es-action-DeleteDomain")                                                                                                       |                  |                   | Write          |
-| [es:DeleteElasticsearchDomain](#list_es-action-DeleteElasticsearchDomain "#list_es-action-DeleteElasticsearchDomain")                                                             |                                                                                                                                                                                      |                  | Write             |
-| DeleteElasticsearchServiceRole                                                                                                                                                    | [es:DeleteElasticsearchServiceRole](#list_es-action-DeleteElasticsearchServiceRole "#list_es-action-DeleteElasticsearchServiceRole")                                                 |                  |                   | Write          |
-| DeleteInboundCrossClusterSearchConnection                                                                                                                                         | [es:DeleteInboundCrossClusterSearchConnection](#list_es-action-DeleteInboundCrossClusterSearchConnection "#list_es-action-DeleteInboundCrossClusterSearchConnection")                |                  |                   | Write          |
-| DeleteOutboundCrossClusterSearchConnection                                                                                                                                        | [es:DeleteOutboundConnection](#list_es-action-DeleteOutboundConnection "#list_es-action-DeleteOutboundConnection")                                                                   |                  |                   | Write          |
-| [es:DeleteOutboundCrossClusterSearchConnection](#list_es-action-DeleteOutboundCrossClusterSearchConnection "#list_es-action-DeleteOutboundCrossClusterSearchConnection")          |                                                                                                                                                                                      |                  | Write             |
-| DeletePackage                                                                                                                                                                     | [es:DeletePackage](#list_es-action-DeletePackage "#list_es-action-DeletePackage")                                                                                                    |                  |                   | Write          |
-| DeleteVpcEndpoint                                                                                                                                                                 | [es:DeleteVpcEndpoint](#list_es-action-DeleteVpcEndpoint "#list_es-action-DeleteVpcEndpoint")                                                                                        |                  |                   | Write          |
-| DescribeDomainAutoTunes                                                                                                                                                           | [es:DescribeDomainAutoTunes](#list_es-action-DescribeDomainAutoTunes "#list_es-action-DescribeDomainAutoTunes")                                                                      |                  |                   | Read           |
-| DescribeDomainChangeProgress                                                                                                                                                      | [es:DescribeDomainChangeProgress](#list_es-action-DescribeDomainChangeProgress "#list_es-action-DescribeDomainChangeProgress")                                                       |                  |                   | Read           |
-| DescribeElasticsearchDomain                                                                                                                                                       | [es:DescribeDomain](#list_es-action-DescribeDomain "#list_es-action-DescribeDomain")                                                                                                 |                  |                   | Read           |
-| [es:DescribeElasticsearchDomain](#list_es-action-DescribeElasticsearchDomain "#list_es-action-DescribeElasticsearchDomain")                                                       |                                                                                                                                                                                      |                  | Read              |
-| DescribeElasticsearchDomainConfig                                                                                                                                                 | [es:DescribeDomainConfig](#list_es-action-DescribeDomainConfig "#list_es-action-DescribeDomainConfig")                                                                               |                  |                   | Read           |
-| [es:DescribeElasticsearchDomainConfig](#list_es-action-DescribeElasticsearchDomainConfig "#list_es-action-DescribeElasticsearchDomainConfig")                                     |                                                                                                                                                                                      |                  | Read              |
-| DescribeElasticsearchDomains                                                                                                                                                      | [es:DescribeDomains](#list_es-action-DescribeDomains "#list_es-action-DescribeDomains")                                                                                              |                  |                   | List           |
-| [es:DescribeElasticsearchDomains](#list_es-action-DescribeElasticsearchDomains "#list_es-action-DescribeElasticsearchDomains")                                                    |                                                                                                                                                                                      |                  | List              |
-| DescribeElasticsearchInstanceTypeLimits                                                                                                                                           | [es:DescribeElasticsearchInstanceTypeLimits](#list_es-action-DescribeElasticsearchInstanceTypeLimits "#list_es-action-DescribeElasticsearchInstanceTypeLimits")                      |                  |                   | List           |
-| [es:DescribeInstanceTypeLimits](#list_es-action-DescribeInstanceTypeLimits "#list_es-action-DescribeInstanceTypeLimits")                                                          |                                                                                                                                                                                      |                  | List              |
-| DescribeInboundCrossClusterSearchConnections                                                                                                                                      | [es:DescribeInboundConnections](#list_es-action-DescribeInboundConnections "#list_es-action-DescribeInboundConnections")                                                             |                  |                   | List           |
-| [es:DescribeInboundCrossClusterSearchConnections](#list_es-action-DescribeInboundCrossClusterSearchConnections "#list_es-action-DescribeInboundCrossClusterSearchConnections")    |                                                                                                                                                                                      |                  | List              |
-| DescribeOutboundCrossClusterSearchConnections                                                                                                                                     | [es:DescribeOutboundConnections](#list_es-action-DescribeOutboundConnections "#list_es-action-DescribeOutboundConnections")                                                          |                  |                   | List           |
-| [es:DescribeOutboundCrossClusterSearchConnections](#list_es-action-DescribeOutboundCrossClusterSearchConnections "#list_es-action-DescribeOutboundCrossClusterSearchConnections") |                                                                                                                                                                                      |                  | List              |
-| DescribePackages                                                                                                                                                                  | [es:DescribePackages](#list_es-action-DescribePackages "#list_es-action-DescribePackages")                                                                                           |                  |                   | Read           |
-| DescribeReservedElasticsearchInstanceOfferings                                                                                                                                    | [es:DescribeReservedElasticsearchInstanceOfferings](#list_es-action-DescribeReservedElasticsearchInstanceOfferings "#list_es-action-DescribeReservedElasticsearchInstanceOfferings") |                  |                   | List           |
-| [es:DescribeReservedInstanceOfferings](#list_es-action-DescribeReservedInstanceOfferings "#list_es-action-DescribeReservedInstanceOfferings")                                     |                                                                                                                                                                                      |                  | List              |
-| DescribeReservedElasticsearchInstances                                                                                                                                            | [es:DescribeReservedElasticsearchInstances](#list_es-action-DescribeReservedElasticsearchInstances "#list_es-action-DescribeReservedElasticsearchInstances")                         |                  |                   | List           |
-| [es:DescribeReservedInstances](#list_es-action-DescribeReservedInstances "#list_es-action-DescribeReservedInstances")                                                             |                                                                                                                                                                                      |                  | List              |
-| DescribeVpcEndpoints                                                                                                                                                              | [es:DescribeVpcEndpoints](#list_es-action-DescribeVpcEndpoints "#list_es-action-DescribeVpcEndpoints")                                                                               |                  |                   | List           |
-| DissociatePackage                                                                                                                                                                 | [es:DissociatePackage](#list_es-action-DissociatePackage "#list_es-action-DissociatePackage")                                                                                        |                  |                   | Write          |
-| GetCompatibleElasticsearchVersions                                                                                                                                                | [es:GetCompatibleElasticsearchVersions](#list_es-action-GetCompatibleElasticsearchVersions "#list_es-action-GetCompatibleElasticsearchVersions")                                     |                  |                   | List           |
-| [es:GetCompatibleVersions](#list_es-action-GetCompatibleVersions "#list_es-action-GetCompatibleVersions")                                                                         |                                                                                                                                                                                      |                  | List              |
-| GetPackageVersionHistory                                                                                                                                                          | [es:GetPackageVersionHistory](#list_es-action-GetPackageVersionHistory "#list_es-action-GetPackageVersionHistory")                                                                   |                  |                   | Read           |
-| GetUpgradeHistory                                                                                                                                                                 | [es:GetUpgradeHistory](#list_es-action-GetUpgradeHistory "#list_es-action-GetUpgradeHistory")                                                                                        |                  |                   | Read           |
-| GetUpgradeStatus                                                                                                                                                                  | [es:GetUpgradeStatus](#list_es-action-GetUpgradeStatus "#list_es-action-GetUpgradeStatus")                                                                                           |                  |                   | Read           |
-| ListDomainNames                                                                                                                                                                   | [es:ListDomainNames](#list_es-action-ListDomainNames "#list_es-action-ListDomainNames")                                                                                              |                  |                   | List           |
-| ListDomainsForPackage                                                                                                                                                             | [es:ListDomainsForPackage](#list_es-action-ListDomainsForPackage "#list_es-action-ListDomainsForPackage")                                                                            |                  |                   | List           |
-| ListElasticsearchInstanceTypes                                                                                                                                                    | [es:ListElasticsearchInstanceTypes](#list_es-action-ListElasticsearchInstanceTypes "#list_es-action-ListElasticsearchInstanceTypes")                                                 |                  |                   | List           |
-| ListElasticsearchVersions                                                                                                                                                         | [es:ListElasticsearchVersions](#list_es-action-ListElasticsearchVersions "#list_es-action-ListElasticsearchVersions")                                                                |                  |                   | List           |
-| [es:ListVersions](#list_es-action-ListVersions "#list_es-action-ListVersions")                                                                                                    |                                                                                                                                                                                      |                  | List              |
-| ListPackagesForDomain                                                                                                                                                             | [es:ListPackagesForDomain](#list_es-action-ListPackagesForDomain "#list_es-action-ListPackagesForDomain")                                                                            |                  |                   | List           |
-| ListTags                                                                                                                                                                          | [es:ListTags](#list_es-action-ListTags "#list_es-action-ListTags")                                                                                                                   |                  |                   | Read           |
-| ListVpcEndpointAccess                                                                                                                                                             | [es:ListVpcEndpointAccess](#list_es-action-ListVpcEndpointAccess "#list_es-action-ListVpcEndpointAccess")                                                                            |                  |                   | List           |
-| ListVpcEndpoints                                                                                                                                                                  | [es:ListVpcEndpoints](#list_es-action-ListVpcEndpoints "#list_es-action-ListVpcEndpoints")                                                                                           |                  |                   | List           |
-| ListVpcEndpointsForDomain                                                                                                                                                         | [es:ListVpcEndpointsForDomain](#list_es-action-ListVpcEndpointsForDomain "#list_es-action-ListVpcEndpointsForDomain")                                                                |                  |                   | List           |
-| PurchaseReservedElasticsearchInstanceOffering                                                                                                                                     | [es:PurchaseReservedElasticsearchInstanceOffering](#list_es-action-PurchaseReservedElasticsearchInstanceOffering "#list_es-action-PurchaseReservedElasticsearchInstanceOffering")    |                  |                   | Write          |
-| [es:PurchaseReservedInstanceOffering](#list_es-action-PurchaseReservedInstanceOffering "#list_es-action-PurchaseReservedInstanceOffering")                                        |                                                                                                                                                                                      |                  | Write             |
-| RejectInboundCrossClusterSearchConnection                                                                                                                                         | [es:RejectInboundConnection](#list_es-action-RejectInboundConnection "#list_es-action-RejectInboundConnection")                                                                      |                  |                   | Write          |
-| [es:RejectInboundCrossClusterSearchConnection](#list_es-action-RejectInboundCrossClusterSearchConnection "#list_es-action-RejectInboundCrossClusterSearchConnection")             |                                                                                                                                                                                      |                  | Write             |
-| RemoveTags                                                                                                                                                                        | [es:RemoveTags](#list_es-action-RemoveTags "#list_es-action-RemoveTags")                                                                                                             |                  |                   | Tagging, Write |
-| RevokeVpcEndpointAccess                                                                                                                                                           | [es:RevokeVpcEndpointAccess](#list_es-action-RevokeVpcEndpointAccess "#list_es-action-RevokeVpcEndpointAccess")                                                                      |                  |                   | Write          |
-| StartElasticsearchServiceSoftwareUpdate                                                                                                                                           | [es:StartElasticsearchServiceSoftwareUpdate](#list_es-action-StartElasticsearchServiceSoftwareUpdate "#list_es-action-StartElasticsearchServiceSoftwareUpdate")                      |                  |                   | Write          |
-| [es:StartServiceSoftwareUpdate](#list_es-action-StartServiceSoftwareUpdate "#list_es-action-StartServiceSoftwareUpdate")                                                          |                                                                                                                                                                                      |                  | Write             |
-| UpdateElasticsearchDomainConfig                                                                                                                                                   | [es:UpdateDomainConfig](#list_es-action-UpdateDomainConfig "#list_es-action-UpdateDomainConfig")                                                                                     |                  |                   | Write          |
-| [es:UpdateElasticsearchDomainConfig](#list_es-action-UpdateElasticsearchDomainConfig "#list_es-action-UpdateElasticsearchDomainConfig")                                           |                                                                                                                                                                                      |                  | Write             |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                   | iam:PassedToService                                                                                                                                                                  | es.amazonaws.com | Write             |
-| UpdatePackage                                                                                                                                                                     | [es:UpdatePackage](#list_es-action-UpdatePackage "#list_es-action-UpdatePackage")                                                                                                    |                  |                   | Write          |
-| UpdateVpcEndpoint                                                                                                                                                                 | [es:UpdateVpcEndpoint](#list_es-action-UpdateVpcEndpoint "#list_es-action-UpdateVpcEndpoint")                                                                                        |                  |                   | Write          |
-| UpgradeElasticsearchDomain                                                                                                                                                        | [es:UpgradeDomain](#list_es-action-UpgradeDomain "#list_es-action-UpgradeDomain")                                                                                                    |                  |                   | Write          |
-| [es:UpgradeElasticsearchDomain](#list_es-action-UpgradeElasticsearchDomain "#list_es-action-UpgradeElasticsearchDomain")                                                          |                                                                                                                                                                                      |                  | Write             |
+
+
+
+- **   AcceptInboundCrossClusterSearchConnection  **
+  - **IAM action:**  [es:AcceptInboundConnection](#list_es-action-AcceptInboundConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:AcceptInboundCrossClusterSearchConnection](#list_es-action-AcceptInboundCrossClusterSearchConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   AddTags  **
+  - **IAM action:**  [es:AddTags](#list_es-action-AddTags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   AssociatePackage  **
+  - **IAM action:**  [es:AssociatePackage](#list_es-action-AssociatePackage)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** es.amazonaws.com / **Access level:** Write
+
+- **   AuthorizeVpcEndpointAccess  **
+  - **IAM action:**  [es:AuthorizeVpcEndpointAccess](#list_es-action-AuthorizeVpcEndpointAccess) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CancelDomainConfigChange  **
+  - **IAM action:**  [es:CancelDomainConfigChange](#list_es-action-CancelDomainConfigChange) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CancelElasticsearchServiceSoftwareUpdate  **
+  - **IAM action:**  [es:CancelElasticsearchServiceSoftwareUpdate](#list_es-action-CancelElasticsearchServiceSoftwareUpdate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:CancelServiceSoftwareUpdate](#list_es-action-CancelServiceSoftwareUpdate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   CreateElasticsearchDomain  **
+  - **IAM action:**  [es:AddTags](#list_es-action-AddTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [es:CreateDomain](#list_es-action-CreateDomain)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:CreateElasticsearchDomain](#list_es-action-CreateElasticsearchDomain)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** es.amazonaws.com / **Access level:** Write
+
+- **   CreateOutboundCrossClusterSearchConnection  **
+  - **IAM action:**  [es:CreateOutboundConnection](#list_es-action-CreateOutboundConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:CreateOutboundCrossClusterSearchConnection](#list_es-action-CreateOutboundCrossClusterSearchConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   CreatePackage  **
+  - **IAM action:**  [es:CreatePackage](#list_es-action-CreatePackage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateVpcEndpoint  **
+  - **IAM action:**  [es:CreateVpcEndpoint](#list_es-action-CreateVpcEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteElasticsearchDomain  **
+  - **IAM action:**  [es:DeleteDomain](#list_es-action-DeleteDomain)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:DeleteElasticsearchDomain](#list_es-action-DeleteElasticsearchDomain)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   DeleteElasticsearchServiceRole  **
+  - **IAM action:**  [es:DeleteElasticsearchServiceRole](#list_es-action-DeleteElasticsearchServiceRole) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteInboundCrossClusterSearchConnection  **
+  - **IAM action:**  [es:DeleteInboundCrossClusterSearchConnection](#list_es-action-DeleteInboundCrossClusterSearchConnection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteOutboundCrossClusterSearchConnection  **
+  - **IAM action:**  [es:DeleteOutboundConnection](#list_es-action-DeleteOutboundConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:DeleteOutboundCrossClusterSearchConnection](#list_es-action-DeleteOutboundCrossClusterSearchConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   DeletePackage  **
+  - **IAM action:**  [es:DeletePackage](#list_es-action-DeletePackage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVpcEndpoint  **
+  - **IAM action:**  [es:DeleteVpcEndpoint](#list_es-action-DeleteVpcEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeDomainAutoTunes  **
+  - **IAM action:**  [es:DescribeDomainAutoTunes](#list_es-action-DescribeDomainAutoTunes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeDomainChangeProgress  **
+  - **IAM action:**  [es:DescribeDomainChangeProgress](#list_es-action-DescribeDomainChangeProgress) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeElasticsearchDomain  **
+  - **IAM action:**  [es:DescribeDomain](#list_es-action-DescribeDomain)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [es:DescribeElasticsearchDomain](#list_es-action-DescribeElasticsearchDomain)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   DescribeElasticsearchDomainConfig  **
+  - **IAM action:**  [es:DescribeDomainConfig](#list_es-action-DescribeDomainConfig)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [es:DescribeElasticsearchDomainConfig](#list_es-action-DescribeElasticsearchDomainConfig)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   DescribeElasticsearchDomains  **
+  - **IAM action:**  [es:DescribeDomains](#list_es-action-DescribeDomains)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:DescribeElasticsearchDomains](#list_es-action-DescribeElasticsearchDomains)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   DescribeElasticsearchInstanceTypeLimits  **
+  - **IAM action:**  [es:DescribeElasticsearchInstanceTypeLimits](#list_es-action-DescribeElasticsearchInstanceTypeLimits)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:DescribeInstanceTypeLimits](#list_es-action-DescribeInstanceTypeLimits)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   DescribeInboundCrossClusterSearchConnections  **
+  - **IAM action:**  [es:DescribeInboundConnections](#list_es-action-DescribeInboundConnections)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:DescribeInboundCrossClusterSearchConnections](#list_es-action-DescribeInboundCrossClusterSearchConnections)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   DescribeOutboundCrossClusterSearchConnections  **
+  - **IAM action:**  [es:DescribeOutboundConnections](#list_es-action-DescribeOutboundConnections)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:DescribeOutboundCrossClusterSearchConnections](#list_es-action-DescribeOutboundCrossClusterSearchConnections)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   DescribePackages  **
+  - **IAM action:**  [es:DescribePackages](#list_es-action-DescribePackages) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeReservedElasticsearchInstanceOfferings  **
+  - **IAM action:**  [es:DescribeReservedElasticsearchInstanceOfferings](#list_es-action-DescribeReservedElasticsearchInstanceOfferings)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:DescribeReservedInstanceOfferings](#list_es-action-DescribeReservedInstanceOfferings)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   DescribeReservedElasticsearchInstances  **
+  - **IAM action:**  [es:DescribeReservedElasticsearchInstances](#list_es-action-DescribeReservedElasticsearchInstances)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:DescribeReservedInstances](#list_es-action-DescribeReservedInstances)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   DescribeVpcEndpoints  **
+  - **IAM action:**  [es:DescribeVpcEndpoints](#list_es-action-DescribeVpcEndpoints) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   DissociatePackage  **
+  - **IAM action:**  [es:DissociatePackage](#list_es-action-DissociatePackage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetCompatibleElasticsearchVersions  **
+  - **IAM action:**  [es:GetCompatibleElasticsearchVersions](#list_es-action-GetCompatibleElasticsearchVersions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:GetCompatibleVersions](#list_es-action-GetCompatibleVersions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   GetPackageVersionHistory  **
+  - **IAM action:**  [es:GetPackageVersionHistory](#list_es-action-GetPackageVersionHistory) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetUpgradeHistory  **
+  - **IAM action:**  [es:GetUpgradeHistory](#list_es-action-GetUpgradeHistory) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetUpgradeStatus  **
+  - **IAM action:**  [es:GetUpgradeStatus](#list_es-action-GetUpgradeStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListDomainNames  **
+  - **IAM action:**  [es:ListDomainNames](#list_es-action-ListDomainNames) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDomainsForPackage  **
+  - **IAM action:**  [es:ListDomainsForPackage](#list_es-action-ListDomainsForPackage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListElasticsearchInstanceTypes  **
+  - **IAM action:**  [es:ListElasticsearchInstanceTypes](#list_es-action-ListElasticsearchInstanceTypes) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListElasticsearchVersions  **
+  - **IAM action:**  [es:ListElasticsearchVersions](#list_es-action-ListElasticsearchVersions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [es:ListVersions](#list_es-action-ListVersions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+
+- **   ListPackagesForDomain  **
+  - **IAM action:**  [es:ListPackagesForDomain](#list_es-action-ListPackagesForDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTags  **
+  - **IAM action:**  [es:ListTags](#list_es-action-ListTags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListVpcEndpointAccess  **
+  - **IAM action:**  [es:ListVpcEndpointAccess](#list_es-action-ListVpcEndpointAccess) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListVpcEndpoints  **
+  - **IAM action:**  [es:ListVpcEndpoints](#list_es-action-ListVpcEndpoints) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListVpcEndpointsForDomain  **
+  - **IAM action:**  [es:ListVpcEndpointsForDomain](#list_es-action-ListVpcEndpointsForDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PurchaseReservedElasticsearchInstanceOffering  **
+  - **IAM action:**  [es:PurchaseReservedElasticsearchInstanceOffering](#list_es-action-PurchaseReservedElasticsearchInstanceOffering)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:PurchaseReservedInstanceOffering](#list_es-action-PurchaseReservedInstanceOffering)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   RejectInboundCrossClusterSearchConnection  **
+  - **IAM action:**  [es:RejectInboundConnection](#list_es-action-RejectInboundConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:RejectInboundCrossClusterSearchConnection](#list_es-action-RejectInboundCrossClusterSearchConnection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   RemoveTags  **
+  - **IAM action:**  [es:RemoveTags](#list_es-action-RemoveTags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   RevokeVpcEndpointAccess  **
+  - **IAM action:**  [es:RevokeVpcEndpointAccess](#list_es-action-RevokeVpcEndpointAccess) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartElasticsearchServiceSoftwareUpdate  **
+  - **IAM action:**  [es:StartElasticsearchServiceSoftwareUpdate](#list_es-action-StartElasticsearchServiceSoftwareUpdate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:StartServiceSoftwareUpdate](#list_es-action-StartServiceSoftwareUpdate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   UpdateElasticsearchDomainConfig  **
+  - **IAM action:**  [es:UpdateDomainConfig](#list_es-action-UpdateDomainConfig)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:UpdateElasticsearchDomainConfig](#list_es-action-UpdateElasticsearchDomainConfig)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** es.amazonaws.com / **Access level:** Write
+
+- **   UpdatePackage  **
+  - **IAM action:**  [es:UpdatePackage](#list_es-action-UpdatePackage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateVpcEndpoint  **
+  - **IAM action:**  [es:UpdateVpcEndpoint](#list_es-action-UpdateVpcEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpgradeElasticsearchDomain  **
+  - **IAM action:**  [es:UpgradeDomain](#list_es-action-UpgradeDomain)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [es:UpgradeElasticsearchDomain](#list_es-action-UpgradeElasticsearchDomain)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+
 
 ## Actions defined by Amazon OpenSearch Service
+<a name="list_es-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                             | Resource types (\*required)                                                    | Condition keys                                                                                                                                                                                                                                                          | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AcceptInboundConnection](../../../opensearch-service/latest/APIReference/API_AcceptInboundConnection.md "../../../opensearch-service/latest/APIReference/API_AcceptInboundConnection.md")                                            | Grants permission to the destination domain owner to accept an inbound cross-cluster search connection request                                                                                                                                                          |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [AcceptInboundCrossClusterSearchConnection](../../../opensearch-service/latest/APIReference/API_AcceptInboundConnection.md "../../../opensearch-service/latest/APIReference/API_AcceptInboundConnection.md")                          | Grants permission to the destination domain owner to accept an inbound cross-cluster search connection request. This permission is deprecated. Use AcceptInboundConnection instead                                                                                      |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [AddDataSource](../../../opensearch-service/latest/APIReference/API_AddDataSource.md "../../../opensearch-service/latest/APIReference/API_AddDataSource.md")                                                                          | Grants permission to add the data source for the OpenSearch Service domain                                                                                                                                                                                              | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [AddDirectQueryDataSource](../../../opensearch-service/latest/APIReference/API_AddDirectQueryDataSource.md "../../../opensearch-service/latest/APIReference/API_AddDirectQueryDataSource.md")                                         | Grants permission to add the data source for the provided OpenSearch arns                                                                                                                                                                                               | [datasource\*](#list_es-resource-datasource "#list_es-resource-datasource")    | [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_ "#list_es-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_es-aws_TagKeys "#list_es-aws_TagKeys") | Write          |
-| [AddTags](../../../opensearch-service/latest/APIReference/API_AddTags.md "../../../opensearch-service/latest/APIReference/API_AddTags.md")                                                                                            | Grants permission to attach resource tags to an OpenSearch Service domain, data source, or application                                                                                                                                                                  | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_ "#list_es-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_es-aws_TagKeys "#list_es-aws_TagKeys") | Tagging, Write |
-| [datasource\*](#list_es-resource-datasource "#list_es-resource-datasource")                                                                                                                                                           | [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_ "#list_es-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_es-aws_TagKeys "#list_es-aws_TagKeys") |
-| [domain\*](#list_es-resource-domain "#list_es-resource-domain")                                                                                                                                                                       | [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_ "#list_es-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_es-aws_TagKeys "#list_es-aws_TagKeys") |
-| [AssociatePackage](../../../opensearch-service/latest/APIReference/API_AssociatePackage.md "../../../opensearch-service/latest/APIReference/API_AssociatePackage.md")                                                                 | Grants permission to associate a package with an OpenSearch Service domain                                                                                                                                                                                              | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [AssociatePackages](../../../opensearch-service/latest/APIReference/API_AssociatePackages.md "../../../opensearch-service/latest/APIReference/API_AssociatePackages.md")                                                              | Grants permission to associate multiple packages with an OpenSearch Service domain                                                                                                                                                                                      | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [AttachDataSource](../../../opensearch-service/latest/APIReference/API_AttachDataSource.md "../../../opensearch-service/latest/APIReference/API_AttachDataSource.md")                                                                 | Grants permission to attach a data source to an OpenSearch Application                                                                                                                                                                                                  | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [AuthorizeVpcEndpointAccess](../../../opensearch-service/latest/APIReference/API_AuthorizeVpcEndpointAccess.md "../../../opensearch-service/latest/APIReference/API_AuthorizeVpcEndpointAccess.md")                                   | Grants permission to provide access to an Amazon OpenSearch Service domain through the use of an interface VPC endpoint                                                                                                                                                 |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [CancelDomainConfigChange](../../../opensearch-service/latest/APIReference/API_CancelDomainConfigChange.md "../../../opensearch-service/latest/APIReference/API_CancelDomainConfigChange.md")                                         | Grants permission to cancel a change on an OpenSearch Service domain                                                                                                                                                                                                    | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [CancelElasticsearchServiceSoftwareUpdate](../../../opensearch-service/latest/APIReference/API_CancelServiceSoftwareUpdate.md "../../../opensearch-service/latest/APIReference/API_CancelServiceSoftwareUpdate.md")                   | Grants permission to cancel a service software update of a domain. This permission is deprecated. Use CancelServiceSoftwareUpdate instead                                                                                                                               | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [CancelServiceSoftwareUpdate](../../../opensearch-service/latest/APIReference/API_CancelServiceSoftwareUpdate.md "../../../opensearch-service/latest/APIReference/API_CancelServiceSoftwareUpdate.md")                                | Grants permission to cancel a service software update of a domain                                                                                                                                                                                                       | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [CreateApplication](../../../opensearch-service/latest/APIReference/API_CreateApplication.md "../../../opensearch-service/latest/APIReference/API_CreateApplication.md")                                                              | Grants permission to create an OpenSearch Application                                                                                                                                                                                                                   |                                                                                | [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_ "#list_es-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_es-aws_TagKeys "#list_es-aws_TagKeys")                                                                                                         | Write          |
-| [CreateDomain](../../../opensearch-service/latest/APIReference/API_CreateDomain.md "../../../opensearch-service/latest/APIReference/API_CreateDomain.md")                                                                             | Grants permission to create an Amazon OpenSearch Service domain                                                                                                                                                                                                         | [domain](#list_es-resource-domain "#list_es-resource-domain")                  | [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_ "#list_es-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_es-aws_TagKeys "#list_es-aws_TagKeys") | Write          |
-| [CreateElasticsearchDomain](../../../opensearch-service/latest/APIReference/API_CreateDomain.md "../../../opensearch-service/latest/APIReference/API_CreateDomain.md")                                                                | Grants permission to create an OpenSearch Service domain. This permission is deprecated. Use CreateDomain instead                                                                                                                                                       | [domain](#list_es-resource-domain "#list_es-resource-domain")                  | [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_ "#list_es-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_es-aws_TagKeys "#list_es-aws_TagKeys") | Write          |
-| [CreateElasticsearchServiceRole](../../../opensearch-service/latest/APIReference/Welcome.md "../../../opensearch-service/latest/APIReference/Welcome.md")                                                                             | Grants permission to create the service-linked role required for OpenSearch Service domains that use VPC access. This permission is deprecated. OpenSearch Service creates the service-linked role for you                                                              |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [CreateIndex](../../../opensearch-service/latest/APIReference/API_CreateIndex.md "../../../opensearch-service/latest/APIReference/API_CreateIndex.md")                                                                                | Grants permission to create index for the OpenSearch Service domain                                                                                                                                                                                                     | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [CreateOutboundConnection](../../../opensearch-service/latest/APIReference/API_CreateOutboundConnection.md "../../../opensearch-service/latest/APIReference/API_CreateOutboundConnection.md")                                         | Grants permission to create a new cross-cluster search connection from a source domain to a destination domain                                                                                                                                                          | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [CreateOutboundCrossClusterSearchConnection](../../../opensearch-service/latest/APIReference/API_CreateOutboundConnection.md "../../../opensearch-service/latest/APIReference/API_CreateOutboundConnection.md")                       | Grants permission to create a new cross-cluster search connection from a source domain to a destination domain. This permission is deprecated. Use CreateOutboundConnection instead                                                                                     | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [CreatePackage](../../../opensearch-service/latest/APIReference/API_CreatePackage.md "../../../opensearch-service/latest/APIReference/API_CreatePackage.md")                                                                          | Grants permission to add a package for use with OpenSearch Service domains                                                                                                                                                                                              |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [CreateServiceRole](../../../opensearch-service/latest/APIReference/Welcome.md "../../../opensearch-service/latest/APIReference/Welcome.md")                                                                                          | Grants permission to create the service-linked role required for Amazon OpenSearch Service domains that use VPC access                                                                                                                                                  |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [CreateVpcEndpoint](../../../opensearch-service/latest/APIReference/API_CreateVpcEndpoint.md "../../../opensearch-service/latest/APIReference/API_CreateVpcEndpoint.md")                                                              | Grants permission to create an Amazon OpenSearch Service-managed VPC endpoint                                                                                                                                                                                           |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteApplication](../../../opensearch-service/latest/APIReference/API_DeleteApplication.md "../../../opensearch-service/latest/APIReference/API_DeleteApplication.md")                                                              | Grants permission to delete an OpenSearch Application                                                                                                                                                                                                                   | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [DeleteDataSource](../../../opensearch-service/latest/APIReference/API_DeleteDataSource.md "../../../opensearch-service/latest/APIReference/API_DeleteDataSource.md")                                                                 | Grants permission to delete the data source for the OpenSearch Service domain                                                                                                                                                                                           | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [DeleteDirectQueryDataSource](../../../opensearch-service/latest/APIReference/API_DeleteDirectQueryDataSource.md "../../../opensearch-service/latest/APIReference/API_DeleteDirectQueryDataSource.md")                                | Grants permission to delete the data source for the provided OpenSearch arns                                                                                                                                                                                            | [datasource\*](#list_es-resource-datasource "#list_es-resource-datasource")    | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [DeleteDomain](../../../opensearch-service/latest/APIReference/API_DeleteDomain.md "../../../opensearch-service/latest/APIReference/API_DeleteDomain.md")                                                                             | Grants permission to delete an Amazon OpenSearch Service domain and all of its data                                                                                                                                                                                     | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [DeleteElasticsearchDomain](../../../opensearch-service/latest/APIReference/API_DeleteDomain.md "../../../opensearch-service/latest/APIReference/API_DeleteDomain.md")                                                                | Grants permission to delete an OpenSearch Service domain and all of its data. This permission is deprecated. Use DeleteDomain instead                                                                                                                                   | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [DeleteElasticsearchServiceRole](../../../opensearch-service/latest/APIReference/API_Welcome.md "../../../opensearch-service/latest/APIReference/API_Welcome.md")                                                                     | Grants permission to delete the service-linked role required for OpenSearch Service domains that use VPC access. This permission is deprecated. Use the IAM API to delete service-linked roles                                                                          |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteInboundConnection](../../../opensearch-service/latest/APIReference/API_DeleteInboundConnection.md "../../../opensearch-service/latest/APIReference/API_DeleteInboundConnection.md")                                            | Grants permission to the destination domain owner to delete an existing inbound cross-cluster search connection                                                                                                                                                         |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteInboundCrossClusterSearchConnection](../../../opensearch-service/latest/APIReference/API_DeleteInboundConnection.md "../../../opensearch-service/latest/APIReference/API_DeleteInboundConnection.md")                          | Grants permission to the destination domain owner to delete an existing inbound cross-cluster search connection. This permission is deprecated. Use DeleteInboundConnection instead                                                                                     |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteIndex](../../../opensearch-service/latest/APIReference/API_DeleteIndex.md "../../../opensearch-service/latest/APIReference/API_DeleteIndex.md")                                                                                | Grants permission to delete Index for the OpenSearch Service domain                                                                                                                                                                                                     | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [DeleteOutboundConnection](../../../opensearch-service/latest/APIReference/API_DeleteOutboundConnection.md "../../../opensearch-service/latest/APIReference/API_DeleteOutboundConnection.md")                                         | Grants permission to the source domain owner to delete an existing outbound cross-cluster search connection                                                                                                                                                             |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteOutboundCrossClusterSearchConnection](../../../opensearch-service/latest/APIReference/API_DeleteOutboundConnection.md "../../../opensearch-service/latest/APIReference/API_DeleteOutboundConnection.md")                       | Grants permission to the source domain owner to delete an existing outbound cross-cluster search connection. This permission is deprecated. Use DeleteOutboundConnection instead                                                                                        |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [DeletePackage](../../../opensearch-service/latest/APIReference/API_DeletePackage.md "../../../opensearch-service/latest/APIReference/API_DeletePackage.md")                                                                          | Grants permission to delete a package from OpenSearch Service. The package cannot be associated with any domains                                                                                                                                                        |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteVpcEndpoint](../../../opensearch-service/latest/APIReference/API_DeleteVpcEndpoint.md "../../../opensearch-service/latest/APIReference/API_DeleteVpcEndpoint.md")                                                              | Grants permission to delete an Amazon OpenSearch Service-managed interface VPC endpoint                                                                                                                                                                                 |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [DeregisterCapability](../../../opensearch-service/latest/APIReference/API_DeregisterCapability.md "../../../opensearch-service/latest/APIReference/API_DeregisterCapability.md")                                                     | Grants permission to deregister a capability from an OpenSearch Application                                                                                                                                                                                             | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [DescribeDataSourceAttachment](../../../opensearch-service/latest/APIReference/API_DescribeDataSourceAttachment.md "../../../opensearch-service/latest/APIReference/API_DescribeDataSourceAttachment.md")                             | Grants permission to describe the status of a data source attachment for an OpenSearch Application                                                                                                                                                                      | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [DescribeDomain](../../../opensearch-service/latest/APIReference/API_DescribeDomain.md "../../../opensearch-service/latest/APIReference/API_DescribeDomain.md")                                                                       | Grants permission to view a description of the domain configuration for the specified OpenSearch Service domain, including the domain ID, service endpoint, and ARN                                                                                                     | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [DescribeDomainAutoTunes](../../../opensearch-service/latest/APIReference/API_DescribeDomainAutoTunes.md "../../../opensearch-service/latest/APIReference/API_DescribeDomainAutoTunes.md")                                            | Grants permission to view the Auto-Tune configuration of the domain for the specified OpenSearch Service domain, including the Auto-Tune state and maintenance schedules                                                                                                | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [DescribeDomainChangeProgress](../../../opensearch-service/latest/APIReference/API_DescribeDomainChangeProgress.md "../../../opensearch-service/latest/APIReference/API_DescribeDomainChangeProgress.md")                             | Grants permission to view detail stage progress of an OpenSearch Service domain                                                                                                                                                                                         | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [DescribeDomainConfig](../../../opensearch-service/latest/APIReference/API_DescribeDomainConfig.md "../../../opensearch-service/latest/APIReference/API_DescribeDomainConfig.md")                                                     | Grants permission to view a description of the configuration options and status of an OpenSearch Service domain                                                                                                                                                         | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [DescribeDomainHealth](../../../opensearch-service/latest/APIReference/API_DescribeDomainHealth.md "../../../opensearch-service/latest/APIReference/API_DescribeDomainHealth.md")                                                     | Grants permission to view information about domain and node health, the standby Availability Zone, number of nodes per Availability Zone, and shard count per node                                                                                                      | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [DescribeDomainNodes](../../../opensearch-service/latest/APIReference/API_DescribeDomainNodes.md "../../../opensearch-service/latest/APIReference/API_DescribeDomainNodes.md")                                                        | Grants permission to view information about nodes configured for the domain and their configurations<br>• the node id, type of node, status of node, Availability Zone, instance type and storage                                                                       | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [DescribeDomains](../../../opensearch-service/latest/APIReference/API_DescribeDomains.md "../../../opensearch-service/latest/APIReference/API_DescribeDomains.md")                                                                    | Grants permission to view a description of the domain configuration for up to five specified OpenSearch Service domains                                                                                                                                                 | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | List           |
-| [DescribeDryRunProgress](../../../opensearch-service/latest/APIReference/API_DescribeDryRunProgress.md "../../../opensearch-service/latest/APIReference/API_DescribeDryRunProgress.md")                                               | Grants permission to describe the status of a pre-update validation check on an OpenSearch Service domain                                                                                                                                                               | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [DescribeElasticsearchDomain](../../../opensearch-service/latest/APIReference/API_DescribeDomain.md "../../../opensearch-service/latest/APIReference/API_DescribeDomain.md")                                                          | Grants permission to view a description of the domain configuration for the specified OpenSearch Service domain, including the domain ID, service endpoint, and ARN. This permission is deprecated. Use DescribeDomain instead                                          | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [DescribeElasticsearchDomainConfig](../../../opensearch-service/latest/APIReference/API_DescribeDomainConfig.md "../../../opensearch-service/latest/APIReference/API_DescribeDomainConfig.md")                                        | Grants permission to view a description of the configuration and status of an OpenSearch Service domain. This permission is deprecated. Use DescribeDomainConfig instead                                                                                                | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [DescribeElasticsearchDomains](../../../opensearch-service/latest/APIReference/API_DescribeDomains.md "../../../opensearch-service/latest/APIReference/API_DescribeDomains.md")                                                       | Grants permission to view a description of the domain configuration for up to five specified Amazon OpenSearch domains. This permission is deprecated. Use DescribeDomains instead                                                                                      | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | List           |
-| [DescribeElasticsearchInstanceTypeLimits](../../../opensearch-service/latest/APIReference/API_DescribeInstanceTypeLimits.md "../../../opensearch-service/latest/APIReference/API_DescribeInstanceTypeLimits.md")                      | Grants permission to view the instance count, storage, and master node limits for a given OpenSearch version and instance type. This permission is deprecated. Use DescribeInstanceTypeLimits instead                                                                   |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [DescribeInboundConnections](../../../opensearch-service/latest/APIReference/API_DescribeInboundConnections.md "../../../opensearch-service/latest/APIReference/API_DescribeInboundConnections.md")                                   | Grants permission to list all the inbound cross-cluster search connections for a destination domain                                                                                                                                                                     |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [DescribeInboundCrossClusterSearchConnections](../../../opensearch-service/latest/APIReference/API_DescribeInboundConnections.md "../../../opensearch-service/latest/APIReference/API_DescribeInboundConnections.md")                 | Grants permission to list all the inbound cross-cluster search connections for a destination domain. This permission is deprecated. Use DescribeInboundConnections instead                                                                                              |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [DescribeInsightDetails](../../../opensearch-service/latest/APIReference/API_DescribeInsightDetails.md "../../../opensearch-service/latest/APIReference/API_DescribeInsightDetails.md")                                               | Grants permission to view detailed information about insights for an OpenSearch Service domain                                                                                                                                                                          | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [DescribeInstanceTypeLimits](../../../opensearch-service/latest/APIReference/API_DescribeInstanceTypeLimits.md "../../../opensearch-service/latest/APIReference/API_DescribeInstanceTypeLimits.md")                                   | Grants permission to view the instance count, storage, and master node limits for a given engine version and instance type                                                                                                                                              |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [DescribeOutboundConnections](../../../opensearch-service/latest/APIReference/API_DescribeOutboundConnections.md "../../../opensearch-service/latest/APIReference/API_DescribeOutboundConnections.md")                                | Grants permission to list all the outbound cross-cluster search connections for a source domain                                                                                                                                                                         |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [DescribeOutboundCrossClusterSearchConnections](../../../opensearch-service/latest/APIReference/API_DescribeOutboundConnections.md "../../../opensearch-service/latest/APIReference/API_DescribeOutboundConnections.md")              | Grants permission to list all the outbound cross-cluster search connections for a source domain. This permission is deprecated. Use DescribeOutboundConnections instead                                                                                                 |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [DescribePackages](../../../opensearch-service/latest/APIReference/API_DescribePackages.md "../../../opensearch-service/latest/APIReference/API_DescribePackages.md")                                                                 | Grants permission to describe all packages available to OpenSearch Service domains                                                                                                                                                                                      |                                                                                |                                                                                                                                                                                                                                                                         | Read           |
-| [DescribeReservedElasticsearchInstanceOfferings](../../../opensearch-service/latest/APIReference/API_DescribeReservedInstanceOfferings.md "../../../opensearch-service/latest/APIReference/API_DescribeReservedInstanceOfferings.md") | Grants permission to fetch Reserved Instance offerings for Amazon OpenSearch Service. This permission is deprecated. Use DescribeReservedInstanceOfferings instead                                                                                                      |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [DescribeReservedElasticsearchInstances](../../../opensearch-service/latest/APIReference/API_DescribeReservedInstances.md "../../../opensearch-service/latest/APIReference/API_DescribeReservedInstances.md")                         | Grants permission to fetch OpenSearch Service Reserved Instances that have already been purchased. This permission is deprecated. Use DescribeReservedInstances instead                                                                                                 |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [DescribeReservedInstanceOfferings](../../../opensearch-service/latest/APIReference/API_DescribeReservedInstanceOfferings.md "../../../opensearch-service/latest/APIReference/API_DescribeReservedInstanceOfferings.md")              | Grants permission to fetch Reserved Instance offerings for OpenSearch Service                                                                                                                                                                                           |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [DescribeReservedInstances](../../../opensearch-service/latest/APIReference/API_DescribeReservedInstances.md "../../../opensearch-service/latest/APIReference/API_DescribeReservedInstances.md")                                      | Grants permission to fetch OpenSearch Service Reserved Instances that have already been purchased                                                                                                                                                                       |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [DescribeVpcEndpoints](../../../opensearch-service/latest/APIReference/API_DescribeVpcEndpoints.md "../../../opensearch-service/latest/APIReference/API_DescribeVpcEndpoints.md")                                                     | Grants permission to describe one or more Amazon OpenSearch Service-managed VPC endpoints                                                                                                                                                                               |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [DetachDataSource](../../../opensearch-service/latest/APIReference/API_DetachDataSource.md "../../../opensearch-service/latest/APIReference/API_DetachDataSource.md")                                                                 | Grants permission to detach a data source from an OpenSearch Application                                                                                                                                                                                                | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [DissociatePackage](../../../opensearch-service/latest/APIReference/API_DissociatePackage.md "../../../opensearch-service/latest/APIReference/API_DissociatePackage.md")                                                              | Grants permission to disassociate a package from the specified OpenSearch Service domain                                                                                                                                                                                | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [DissociatePackages](../../../opensearch-service/latest/APIReference/API_DissociatePackages.md "../../../opensearch-service/latest/APIReference/API_DissociatePackages.md")                                                           | Grants permission to disassociate multiple packages from the specified OpenSearch Service domain                                                                                                                                                                        | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [ESCrossClusterGet](../../../opensearch-service/latest/APIReference/Welcome.md "../../../opensearch-service/latest/APIReference/Welcome.md")                                                                                          | Grants permission to send cross-cluster requests to a destination domain                                                                                                                                                                                                | [domain](#list_es-resource-domain "#list_es-resource-domain")                  | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [ESHttpDelete](../../../opensearch-service/latest/APIReference/Welcome.md "../../../opensearch-service/latest/APIReference/Welcome.md")                                                                                               | Grants permission to send HTTP DELETE requests to the OpenSearch APIs                                                                                                                                                                                                   | [domain](#list_es-resource-domain "#list_es-resource-domain")                  | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [ESHttpGet](../../../opensearch-service/latest/APIReference/Welcome.md "../../../opensearch-service/latest/APIReference/Welcome.md")                                                                                                  | Grants permission to send HTTP GET requests to the OpenSearch APIs                                                                                                                                                                                                      | [domain](#list_es-resource-domain "#list_es-resource-domain")                  | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [ESHttpHead](../../../opensearch-service/latest/APIReference/Welcome.md "../../../opensearch-service/latest/APIReference/Welcome.md")                                                                                                 | Grants permission to send HTTP HEAD requests to the OpenSearch APIs                                                                                                                                                                                                     | [domain](#list_es-resource-domain "#list_es-resource-domain")                  | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [ESHttpPatch](../../../opensearch-service/latest/APIReference/Welcome.md "../../../opensearch-service/latest/APIReference/Welcome.md")                                                                                                | Grants permission to send HTTP PATCH requests to the OpenSearch APIs                                                                                                                                                                                                    | [domain](#list_es-resource-domain "#list_es-resource-domain")                  | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [ESHttpPost](../../../opensearch-service/latest/APIReference/Welcome.md "../../../opensearch-service/latest/APIReference/Welcome.md")                                                                                                 | Grants permission to send HTTP POST requests to the OpenSearch APIs                                                                                                                                                                                                     | [domain](#list_es-resource-domain "#list_es-resource-domain")                  | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [ESHttpPut](../../../opensearch-service/latest/APIReference/Welcome.md "../../../opensearch-service/latest/APIReference/Welcome.md")                                                                                                  | Grants permission to send HTTP PUT requests to the OpenSearch APIs                                                                                                                                                                                                      | [domain](#list_es-resource-domain "#list_es-resource-domain")                  | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [GetApplication](../../../opensearch-service/latest/APIReference/API_GetApplication.md "../../../opensearch-service/latest/APIReference/API_GetApplication.md")                                                                       | Grants permission to get information about an OpenSearch Application                                                                                                                                                                                                    | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [GetCapability](../../../opensearch-service/latest/APIReference/API_GetCapability.md "../../../opensearch-service/latest/APIReference/API_GetCapability.md")                                                                          | Grants permission to get a registered capability for an OpenSearch Application                                                                                                                                                                                          | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [GetCompatibleElasticsearchVersions](../../../opensearch-service/latest/APIReference/API_GetCompatibleVersions.md "../../../opensearch-service/latest/APIReference/API_GetCompatibleVersions.md")                                     | Grants permission to fetch a list of compatible OpenSearch and Elasticsearch versions to which an OpenSearch Service domain can be upgraded. This permission is deprecated. Use GetCompatibleVersions instead                                                           | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | List           |
-| [GetCompatibleVersions](../../../opensearch-service/latest/APIReference/API_GetCompatibleVersions.md "../../../opensearch-service/latest/APIReference/API_GetCompatibleVersions.md")                                                  | Grants permission to fetch list of compatible engine versions to which an OpenSearch Service domain can be upgraded                                                                                                                                                     | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | List           |
-| [GetDataSource](../../../opensearch-service/latest/APIReference/API_GetDataSource.md "../../../opensearch-service/latest/APIReference/API_GetDataSource.md")                                                                          | Grants permission to get the data source for the OpenSearch Service domain                                                                                                                                                                                              | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [GetDefaultApplicationSetting](../../../opensearch-service/latest/APIReference/API_GetDefaultApplicationSetting.md "../../../opensearch-service/latest/APIReference/API_GetDefaultApplicationSetting.md")                             | Grants permission to get the default application setting for OpenSearch Service                                                                                                                                                                                         | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [GetDirectQueryDataSource](../../../opensearch-service/latest/APIReference/API_GetDirectQueryDataSource.md "../../../opensearch-service/latest/APIReference/API_GetDirectQueryDataSource.md")                                         | Grants permission to get the data source for the provided OpenSearch arns                                                                                                                                                                                               | [datasource\*](#list_es-resource-datasource "#list_es-resource-datasource")    | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [GetDomainMaintenanceStatus](../../../opensearch-service/latest/APIReference/API_GetDomainMaintenanceStatus.md "../../../opensearch-service/latest/APIReference/API_GetDomainMaintenanceStatus.md")                                   | Grants permission to retrieve the status of maintenance action for the node                                                                                                                                                                                             | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [GetIndex](../../../opensearch-service/latest/APIReference/API_GetIndex.md "../../../opensearch-service/latest/APIReference/API_GetIndex.md")                                                                                         | Grants permission to get index for the OpenSearch Service domain                                                                                                                                                                                                        | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [GetMigration](../../../opensearch-service/latest/APIReference/API_GetMigration.md "../../../opensearch-service/latest/APIReference/API_GetMigration.md")                                                                             | Grants permission to get the status and progress of a migration job for an OpenSearch Application                                                                                                                                                                       | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [GetPackageVersionHistory](../../../opensearch-service/latest/APIReference/API_GetPackageVersionHistory.md "../../../opensearch-service/latest/APIReference/API_GetPackageVersionHistory.md")                                         | Grants permission to fetch the version history for a package                                                                                                                                                                                                            |                                                                                |                                                                                                                                                                                                                                                                         | Read           |
-| [GetUpgradeHistory](../../../opensearch-service/latest/APIReference/API_GetUpgradeHistory.md "../../../opensearch-service/latest/APIReference/API_GetUpgradeHistory.md")                                                              | Grants permission to fetch the upgrade history of a given OpenSearch Service domain                                                                                                                                                                                     | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [GetUpgradeStatus](../../../opensearch-service/latest/APIReference/API_GetUpgradeStatus.md "../../../opensearch-service/latest/APIReference/API_GetUpgradeStatus.md")                                                                 | Grants permission to fetch the upgrade status of a given OpenSearch Service domain                                                                                                                                                                                      | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [InsightFeedback](../../../opensearch-service/latest/APIReference/API_InsightFeedback.md "../../../opensearch-service/latest/APIReference/API_InsightFeedback.md")                                                                    | Grants permission to submit feedback for OpenSearch domain insight                                                                                                                                                                                                      | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [ListApplications](../../../opensearch-service/latest/APIReference/API_ListApplications.md "../../../opensearch-service/latest/APIReference/API_ListApplications.md")                                                                 | Grants permission to list OpenSearch Applications                                                                                                                                                                                                                       | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | List           |
-| [ListDataSourceAttachments](../../../opensearch-service/latest/APIReference/API_ListDataSourceAttachments.md "../../../opensearch-service/latest/APIReference/API_ListDataSourceAttachments.md")                                      | Grants permission to list data source attachments for an OpenSearch Application                                                                                                                                                                                         | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | List           |
-| [ListDataSources](../../../opensearch-service/latest/APIReference/API_ListDataSources.md "../../../opensearch-service/latest/APIReference/API_ListDataSources.md")                                                                    | Grants permission to retrieve a list of data source for the OpenSearch Service domain                                                                                                                                                                                   | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | List           |
-| [ListDirectQueryDataSources](../../../opensearch-service/latest/APIReference/API_ListDirectQueryDataSources.md "../../../opensearch-service/latest/APIReference/API_ListDirectQueryDataSources.md")                                   | Grants permission to retrieve a list of data source for the provided OpenSearch arns                                                                                                                                                                                    | [datasource\*](#list_es-resource-datasource "#list_es-resource-datasource")    | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | List           |
-| [ListDomainMaintenances](../../../opensearch-service/latest/APIReference/API_ListDomainMaintenances.md "../../../opensearch-service/latest/APIReference/API_ListDomainMaintenances.md")                                               | Grants permission to retrieve a list of maintenance actions for the OpenSearch Service domain                                                                                                                                                                           | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | List           |
-| [ListDomainNames](../../../opensearch-service/latest/APIReference/API_ListDomainNames.md "../../../opensearch-service/latest/APIReference/API_ListDomainNames.md")                                                                    | Grants permission to display the names of all OpenSearch Service domains that the current user owns                                                                                                                                                                     |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [ListDomainsForPackage](../../../opensearch-service/latest/APIReference/API_ListDomainsForPackage.md "../../../opensearch-service/latest/APIReference/API_ListDomainsForPackage.md")                                                  | Grants permission to list all OpenSearch Service domains that a package is associated with                                                                                                                                                                              |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [ListElasticsearchInstanceTypeDetails](../../../opensearch-service/latest/APIReference/API_ListInstanceTypeDetails.md "../../../opensearch-service/latest/APIReference/API_ListInstanceTypeDetails.md")                               | Grants permission to list all instance types and available features for a given OpenSearch version. This permission is deprecated. Use ListInstanceTypeDetails instead                                                                                                  |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [ListElasticsearchInstanceTypes](../../../opensearch-service/latest/APIReference/API_ListInstanceTypeDetails.md "../../../opensearch-service/latest/APIReference/API_ListInstanceTypeDetails.md")                                     | Grants permission to list all EC2 instance types that are supported for a given OpenSearch version                                                                                                                                                                      |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [ListElasticsearchVersions](../../../opensearch-service/latest/APIReference/API_ListVersions.md "../../../opensearch-service/latest/APIReference/API_ListVersions.md")                                                                | Grants permission to list all supported OpenSearch versions on Amazon OpenSearch Service. This permission is deprecated. Use ListVersions instead                                                                                                                       |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [ListInsights](../../../opensearch-service/latest/APIReference/API_ListInsights.md "../../../opensearch-service/latest/APIReference/API_ListInsights.md")                                                                             | Grants permission to list insights for OpenSearch Service domains in the account                                                                                                                                                                                        | [domain](#list_es-resource-domain "#list_es-resource-domain")                  | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | List           |
-| [ListInstanceTypeDetails](../../../opensearch-service/latest/APIReference/API_ListInstanceTypeDetails.md "../../../opensearch-service/latest/APIReference/API_ListInstanceTypeDetails.md")                                            | Grants permission to list all instance types and available features for a given OpenSearch or Elasticsearch version                                                                                                                                                     |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [ListMigrations](../../../opensearch-service/latest/APIReference/API_ListMigrations.md "../../../opensearch-service/latest/APIReference/API_ListMigrations.md")                                                                       | Grants permission to list migration jobs for an OpenSearch Application                                                                                                                                                                                                  | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | List           |
-| [ListPackagesForDomain](../../../opensearch-service/latest/APIReference/API_ListPackagesForDomain.md "../../../opensearch-service/latest/APIReference/API_ListPackagesForDomain.md")                                                  | Grants permission to list all packages associated with the OpenSearch Service domain                                                                                                                                                                                    | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | List           |
-| [ListScheduledActions](../../../opensearch-service/latest/APIReference/API_ListScheduledActions.md "../../../opensearch-service/latest/APIReference/API_ListScheduledActions.md")                                                     | Grants permission to retrieve a list of configuration changes that are scheduled for a OpenSearch Service domain                                                                                                                                                        | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | List           |
-| [ListTags](../../../opensearch-service/latest/APIReference/API_ListTags.md "../../../opensearch-service/latest/APIReference/API_ListTags.md")                                                                                         | Grants permission to display all resource tags for an OpenSearch Service domain, data source, or application                                                                                                                                                            | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Read           |
-| [datasource\*](#list_es-resource-datasource "#list_es-resource-datasource")                                                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    |
-| [domain\*](#list_es-resource-domain "#list_es-resource-domain")                                                                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    |
-| [ListVersions](../../../opensearch-service/latest/APIReference/API_ListVersions.md "../../../opensearch-service/latest/APIReference/API_ListVersions.md")                                                                             | Grants permission to list all supported OpenSearch and Elasticsearch versions in Amazon OpenSearch Service                                                                                                                                                              |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [ListVpcEndpointAccess](../../../opensearch-service/latest/APIReference/API_ListVpcEndpointAccess.md "../../../opensearch-service/latest/APIReference/API_ListVpcEndpointAccess.md")                                                  | Grants permission to retrieve information about each AWS principal that is allowed to access a given Amazon OpenSearch Service domain through the use of an interface VPC endpoint                                                                                      |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [ListVpcEndpoints](../../../opensearch-service/latest/APIReference/API_ListVpcEndpoints.md "../../../opensearch-service/latest/APIReference/API_ListVpcEndpoints.md")                                                                 | Grants permission to retrieve all Amazon OpenSearch Service-managed VPC endpoints in the current AWS account and Region                                                                                                                                                 |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [ListVpcEndpointsForDomain](../../../opensearch-service/latest/APIReference/API_ListVpcEndpointsForDomain.md "../../../opensearch-service/latest/APIReference/API_ListVpcEndpointsForDomain.md")                                      | Grants permission to retrieve all Amazon OpenSearch Service-managed VPC endpoints associated with a particular domain                                                                                                                                                   |                                                                                |                                                                                                                                                                                                                                                                         | List           |
-| [PurchaseReservedElasticsearchInstanceOffering](../../../opensearch-service/latest/APIReference/API_PurchaseReservedInstanceOffering.md "../../../opensearch-service/latest/APIReference/API_PurchaseReservedInstanceOffering.md")    | Grants permission to purchase OpenSearch Service Reserved Instances. This permission is deprecated. Use PurchaseReservedInstanceOffering instead                                                                                                                        |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [PurchaseReservedInstanceOffering](../../../opensearch-service/latest/APIReference/API_PurchaseReservedInstanceOffering.md "../../../opensearch-service/latest/APIReference/API_PurchaseReservedInstanceOffering.md")                 | Grants permission to purchase OpenSearch reserved instances                                                                                                                                                                                                             |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [PutDefaultApplicationSetting](../../../opensearch-service/latest/APIReference/API_PutDefaultApplicationSetting.md "../../../opensearch-service/latest/APIReference/API_PutDefaultApplicationSetting.md")                             | Grants permission to set or remove the default application setting for OpenSearch Service                                                                                                                                                                               | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [RegisterCapability](../../../opensearch-service/latest/APIReference/API_RegisterCapability.md "../../../opensearch-service/latest/APIReference/API_RegisterCapability.md")                                                           | Grants permission to register a capability for an OpenSearch Application                                                                                                                                                                                                | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [RejectInboundConnection](../../../opensearch-service/latest/APIReference/API_RejectInboundConnection.md "../../../opensearch-service/latest/APIReference/API_RejectInboundConnection.md")                                            | Grants permission to the destination domain owner to reject an inbound cross-cluster search connection request                                                                                                                                                          |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [RejectInboundCrossClusterSearchConnection](../../../opensearch-service/latest/APIReference/API_RejectInboundConnection.md "../../../opensearch-service/latest/APIReference/API_RejectInboundConnection.md")                          | Grants permission to the destination domain owner to reject an inbound cross-cluster search connection request. This permission is deprecated. Use RejectInboundConnection instead                                                                                      |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [RemoveTags](../../../opensearch-service/latest/APIReference/API_RemoveTags.md "../../../opensearch-service/latest/APIReference/API_RemoveTags.md")                                                                                   | Grants permission to remove resource tags from an OpenSearch Service domain, data source, or application                                                                                                                                                                | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_es-aws_TagKeys "#list_es-aws_TagKeys")                                                                                                      | Tagging, Write |
-| [datasource\*](#list_es-resource-datasource "#list_es-resource-datasource")                                                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_es-aws_TagKeys "#list_es-aws_TagKeys")                                                                                                      |
-| [domain\*](#list_es-resource-domain "#list_es-resource-domain")                                                                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_es-aws_TagKeys "#list_es-aws_TagKeys")                                                                                                      |
-| [RevokeVpcEndpointAccess](../../../opensearch-service/latest/APIReference/API_RevokeVpcEndpointAccess.md "../../../opensearch-service/latest/APIReference/API_RevokeVpcEndpointAccess.md")                                            | Grants permission to revoke access to an Amazon OpenSearch Service domain that was provided through an interface VPC endpoint                                                                                                                                           |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [RollbackElasticsearchServiceSoftwareUpdate](../../../opensearch-service/latest/APIReference/API_RollbackServiceSoftwareUpdate.md "../../../opensearch-service/latest/APIReference/API_RollbackServiceSoftwareUpdate.md")             | Grants permission to rollback a service software update of an elasticsearch domain to its previous version                                                                                                                                                              | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [RollbackServiceSoftwareUpdate](../../../opensearch-service/latest/APIReference/API_RollbackServiceSoftwareUpdate.md "../../../opensearch-service/latest/APIReference/API_RollbackServiceSoftwareUpdate.md")                          | Grants permission to rollback a service software update of an opensearch domain to its previous version                                                                                                                                                                 | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [StartDomainMaintenance](../../../opensearch-service/latest/APIReference/API_StartDomainMaintenance.md "../../../opensearch-service/latest/APIReference/API_StartDomainMaintenance.md")                                               | Grants permission to initiate the maintenance on the node                                                                                                                                                                                                               | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [StartElasticsearchServiceSoftwareUpdate](../../../opensearch-service/latest/APIReference/API_StartServiceSoftwareUpdate.md "../../../opensearch-service/latest/APIReference/API_StartServiceSoftwareUpdate.md")                      | Grants permission to start a service software update of a domain. This permission is deprecated. Use StartServiceSoftwareUpdate instead                                                                                                                                 | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [StartMigration](../../../opensearch-service/latest/APIReference/API_StartMigration.md "../../../opensearch-service/latest/APIReference/API_StartMigration.md")                                                                       | Grants permission to initiate a migration of saved objects to an OpenSearch Application                                                                                                                                                                                 | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [StartServiceSoftwareUpdate](../../../opensearch-service/latest/APIReference/API_StartServiceSoftwareUpdate.md "../../../opensearch-service/latest/APIReference/API_StartServiceSoftwareUpdate.md")                                   | Grants permission to start a service software update of a domain                                                                                                                                                                                                        | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [UpdateApplication](../../../opensearch-service/latest/APIReference/API_UpdateApplication.md "../../../opensearch-service/latest/APIReference/API_UpdateApplication.md")                                                              | Grants permission to update an OpenSearch Application                                                                                                                                                                                                                   | [application\*](#list_es-resource-application "#list_es-resource-application") | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [UpdateDataSource](../../../opensearch-service/latest/APIReference/API_UpdateDataSource.md "../../../opensearch-service/latest/APIReference/API_UpdateDataSource.md")                                                                 | Grants permission to update the data source for the OpenSearch Service domain                                                                                                                                                                                           | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [UpdateDirectQueryDataSource](../../../opensearch-service/latest/APIReference/API_UpdateDirectQueryDataSource.md "../../../opensearch-service/latest/APIReference/API_UpdateDirectQueryDataSource.md")                                | Grants permission to update the data source for the provided OpenSearch arns                                                                                                                                                                                            | [datasource\*](#list_es-resource-datasource "#list_es-resource-datasource")    | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [UpdateDomainConfig](../../../opensearch-service/latest/APIReference/API_UpdateDomainConfig.md "../../../opensearch-service/latest/APIReference/API_UpdateDomainConfig.md")                                                           | Grants permission to modify the configuration of an OpenSearch Service domain, such as the instance type or number of instances                                                                                                                                         | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [UpdateElasticsearchDomainConfig](../../../opensearch-service/latest/APIReference/API_UpdateDomainConfig.md "../../../opensearch-service/latest/APIReference/API_UpdateDomainConfig.md")                                              | Grants permission to modify the configuration of an OpenSearch Service domain, such as the instance type or number of instances. This permission is deprecated. Use UpdateDomainConfig instead                                                                          | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [UpdateIndex](../../../opensearch-service/latest/APIReference/API_UpdateIndex.md "../../../opensearch-service/latest/APIReference/API_UpdateIndex.md")                                                                                | Grants permission to update index for the OpenSearch Service domain                                                                                                                                                                                                     | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [UpdatePackage](../../../opensearch-service/latest/APIReference/API_UpdatePackage.md "../../../opensearch-service/latest/APIReference/API_UpdatePackage.md")                                                                          | Grants permission to update a package for use with OpenSearch Service domains                                                                                                                                                                                           |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [UpdatePackageScope](../../../opensearch-service/latest/APIReference/API_UpdatePackageScope.md "../../../opensearch-service/latest/APIReference/API_UpdatePackageScope.md")                                                           | Grants permission to update scope a package                                                                                                                                                                                                                             |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [UpdateScheduledAction](../../../opensearch-service/latest/APIReference/API_UpdateScheduledAction.md "../../../opensearch-service/latest/APIReference/API_UpdateScheduledAction.md")                                                  | Grants permission to reschedule a planned OpenSearch Service domain configuration change for a later time                                                                                                                                                               | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [UpdateVpcEndpoint](../../../opensearch-service/latest/APIReference/API_UpdateVpcEndpoint.md "../../../opensearch-service/latest/APIReference/API_UpdateVpcEndpoint.md")                                                              | Grants permission to modify an Amazon OpenSearch Service-managed interface VPC endpoint                                                                                                                                                                                 |                                                                                |                                                                                                                                                                                                                                                                         | Write          |
-| [UpgradeDomain](../../../opensearch-service/latest/APIReference/API_UpgradeDomain.md "../../../opensearch-service/latest/APIReference/API_UpgradeDomain.md")                                                                          | Grants permission to initiate upgrade of an OpenSearch Service domain to a given version                                                                                                                                                                                | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
-| [UpgradeElasticsearchDomain](../../../opensearch-service/latest/APIReference/API_UpgradeDomain.md "../../../opensearch-service/latest/APIReference/API_UpgradeDomain.md")                                                             | Grants permission to initiate upgrade of an OpenSearch Service domain to a specified version. This permission is deprecated. Use UpgradeDomain instead                                                                                                                  | [domain\*](#list_es-resource-domain "#list_es-resource-domain")                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_")                                                                                                                                                                    | Write          |
+
+
+
+- **   [AcceptInboundConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html)  **
+  - **Description:** Grants permission to the destination domain owner to accept an inbound cross-cluster search connection request
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [AcceptInboundCrossClusterSearchConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html)  **
+  - **Description:** Grants permission to the destination domain owner to accept an inbound cross-cluster search connection request. This permission is deprecated. Use AcceptInboundConnection instead
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [AddDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AddDataSource.html)  **
+  - **Description:** Grants permission to add the data source for the OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AddDirectQueryDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AddDirectQueryDataSource.html)  **
+  - **Description:** Grants permission to add the data source for the provided OpenSearch arns
+  - **Resource types (\*required):** [datasource\*](#list_es-resource-datasource)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [AddTags](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AddTags.html)  **
+  - **Description:** Grants permission to attach resource tags to an OpenSearch Service domain, data source, or application
+  - **Resource types (\*required):** [application\*](#list_es-resource-application) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)
+  - **Resource types (\*required):** [datasource\*](#list_es-resource-datasource) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [AssociatePackage](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AssociatePackage.html)  **
+  - **Description:** Grants permission to associate a package with an OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociatePackages](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AssociatePackages.html)  **
+  - **Description:** Grants permission to associate multiple packages with an OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AttachDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AttachDataSource.html)  **
+  - **Description:** Grants permission to attach a data source to an OpenSearch Application
+  - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AuthorizeVpcEndpointAccess](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AuthorizeVpcEndpointAccess.html)  **
+  - **Description:** Grants permission to provide access to an Amazon OpenSearch Service domain through the use of an interface VPC endpoint
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CancelDomainConfigChange](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CancelDomainConfigChange.html)  **
+  - **Description:** Grants permission to cancel a change on an OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelElasticsearchServiceSoftwareUpdate](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CancelServiceSoftwareUpdate.html)  **
+  - **Description:** Grants permission to cancel a service software update of a domain. This permission is deprecated. Use CancelServiceSoftwareUpdate instead
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelServiceSoftwareUpdate](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CancelServiceSoftwareUpdate.html)  **
+  - **Description:** Grants permission to cancel a service software update of a domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateApplication](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateApplication.html)  **
+  - **Description:** Grants permission to create an OpenSearch Application
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html)  **
+  - **Description:** Grants permission to create an Amazon OpenSearch Service domain
+  - **Resource types (\*required):** [domain](#list_es-resource-domain)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateElasticsearchDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html)  **
+  - **Description:** Grants permission to create an OpenSearch Service domain. This permission is deprecated. Use CreateDomain instead
+  - **Resource types (\*required):** [domain](#list_es-resource-domain)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_es-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateElasticsearchServiceRole](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/Welcome.html)  **
+  - **Description:** Grants permission to create the service-linked role required for OpenSearch Service domains that use VPC access. This permission is deprecated. OpenSearch Service creates the service-linked role for you
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateIndex](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateIndex.html)  **
+  - **Description:** Grants permission to create index for the OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateOutboundConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateOutboundConnection.html)  **
+  - **Description:** Grants permission to create a new cross-cluster search connection from a source domain to a destination domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateOutboundCrossClusterSearchConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateOutboundConnection.html)  **
+  - **Description:** Grants permission to create a new cross-cluster search connection from a source domain to a destination domain. This permission is deprecated. Use CreateOutboundConnection instead
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreatePackage](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreatePackage.html)  **
+  - **Description:** Grants permission to add a package for use with OpenSearch Service domains
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateServiceRole](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/Welcome.html)  **
+  - **Description:** Grants permission to create the service-linked role required for Amazon OpenSearch Service domains that use VPC access
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateVpcEndpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateVpcEndpoint.html)  **
+  - **Description:** Grants permission to create an Amazon OpenSearch Service-managed VPC endpoint
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteApplication](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteApplication.html)  **
+  - **Description:** Grants permission to delete an OpenSearch Application
+  - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteDataSource.html)  **
+  - **Description:** Grants permission to delete the data source for the OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDirectQueryDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteDirectQueryDataSource.html)  **
+  - **Description:** Grants permission to delete the data source for the provided OpenSearch arns
+  - **Resource types (\*required):** [datasource\*](#list_es-resource-datasource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteDomain.html)  **
+  - **Description:** Grants permission to delete an Amazon OpenSearch Service domain and all of its data
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteElasticsearchDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteDomain.html)  **
+  - **Description:** Grants permission to delete an OpenSearch Service domain and all of its data. This permission is deprecated. Use DeleteDomain instead
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteElasticsearchServiceRole](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_Welcome.html)  **
+  - **Description:** Grants permission to delete the service-linked role required for OpenSearch Service domains that use VPC access. This permission is deprecated. Use the IAM API to delete service-linked roles
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteInboundConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteInboundConnection.html)  **
+  - **Description:** Grants permission to the destination domain owner to delete an existing inbound cross-cluster search connection
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteInboundCrossClusterSearchConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteInboundConnection.html)  **
+  - **Description:** Grants permission to the destination domain owner to delete an existing inbound cross-cluster search connection. This permission is deprecated. Use DeleteInboundConnection instead
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteIndex](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteIndex.html)  **
+  - **Description:** Grants permission to delete Index for the OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteOutboundConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteOutboundConnection.html)  **
+  - **Description:** Grants permission to the source domain owner to delete an existing outbound cross-cluster search connection
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteOutboundCrossClusterSearchConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteOutboundConnection.html)  **
+  - **Description:** Grants permission to the source domain owner to delete an existing outbound cross-cluster search connection. This permission is deprecated. Use DeleteOutboundConnection instead
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeletePackage](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeletePackage.html)  **
+  - **Description:** Grants permission to delete a package from OpenSearch Service. The package cannot be associated with any domains
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteVpcEndpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteVpcEndpoint.html)  **
+  - **Description:** Grants permission to delete an Amazon OpenSearch Service-managed interface VPC endpoint
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeregisterCapability](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeregisterCapability.html)  **
+  - **Description:** Grants permission to deregister a capability from an OpenSearch Application
+  - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeDataSourceAttachment](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDataSourceAttachment.html)  **
+  - **Description:** Grants permission to describe the status of a data source attachment for an OpenSearch Application
+  - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomain.html)  **
+  - **Description:** Grants permission to view a description of the domain configuration for the specified OpenSearch Service domain, including the domain ID, service endpoint, and ARN
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeDomainAutoTunes](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomainAutoTunes.html)  **
+  - **Description:** Grants permission to view the Auto-Tune configuration of the domain for the specified OpenSearch Service domain, including the Auto-Tune state and maintenance schedules
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeDomainChangeProgress](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomainChangeProgress.html)  **
+  - **Description:** Grants permission to view detail stage progress of an OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeDomainConfig](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomainConfig.html)  **
+  - **Description:** Grants permission to view a description of the configuration options and status of an OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeDomainHealth](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomainHealth.html)  **
+  - **Description:** Grants permission to view information about domain and node health, the standby Availability Zone, number of nodes per Availability Zone, and shard count per node
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeDomainNodes](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomainNodes.html)  **
+  - **Description:** Grants permission to view information about nodes configured for the domain and their configurations- the node id, type of node, status of node, Availability Zone, instance type and storage
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeDomains](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomains.html)  **
+  - **Description:** Grants permission to view a description of the domain configuration for up to five specified OpenSearch Service domains
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [DescribeDryRunProgress](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDryRunProgress.html)  **
+  - **Description:** Grants permission to describe the status of a pre-update validation check on an OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeElasticsearchDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomain.html)  **
+  - **Description:** Grants permission to view a description of the domain configuration for the specified OpenSearch Service domain, including the domain ID, service endpoint, and ARN. This permission is deprecated. Use DescribeDomain instead
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeElasticsearchDomainConfig](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomainConfig.html)  **
+  - **Description:** Grants permission to view a description of the configuration and status of an OpenSearch Service domain. This permission is deprecated. Use DescribeDomainConfig instead
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeElasticsearchDomains](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomains.html)  **
+  - **Description:** Grants permission to view a description of the domain configuration for up to five specified Amazon OpenSearch domains. This permission is deprecated. Use DescribeDomains instead
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [DescribeElasticsearchInstanceTypeLimits](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeInstanceTypeLimits.html)  **
+  - **Description:** Grants permission to view the instance count, storage, and master node limits for a given OpenSearch version and instance type. This permission is deprecated. Use DescribeInstanceTypeLimits instead
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeInboundConnections](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeInboundConnections.html)  **
+  - **Description:** Grants permission to list all the inbound cross-cluster search connections for a destination domain
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeInboundCrossClusterSearchConnections](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeInboundConnections.html)  **
+  - **Description:** Grants permission to list all the inbound cross-cluster search connections for a destination domain. This permission is deprecated. Use DescribeInboundConnections instead
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeInsightDetails](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeInsightDetails.html)  **
+  - **Description:** Grants permission to view detailed information about insights for an OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeInstanceTypeLimits](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeInstanceTypeLimits.html)  **
+  - **Description:** Grants permission to view the instance count, storage, and master node limits for a given engine version and instance type
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeOutboundConnections](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeOutboundConnections.html)  **
+  - **Description:** Grants permission to list all the outbound cross-cluster search connections for a source domain
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeOutboundCrossClusterSearchConnections](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeOutboundConnections.html)  **
+  - **Description:** Grants permission to list all the outbound cross-cluster search connections for a source domain. This permission is deprecated. Use DescribeOutboundConnections instead
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribePackages](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribePackages.html)  **
+  - **Description:** Grants permission to describe all packages available to OpenSearch Service domains
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeReservedElasticsearchInstanceOfferings](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeReservedInstanceOfferings.html)  **
+  - **Description:** Grants permission to fetch Reserved Instance offerings for Amazon OpenSearch Service. This permission is deprecated. Use DescribeReservedInstanceOfferings instead
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeReservedElasticsearchInstances](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeReservedInstances.html)  **
+  - **Description:** Grants permission to fetch OpenSearch Service Reserved Instances that have already been purchased. This permission is deprecated. Use DescribeReservedInstances instead
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeReservedInstanceOfferings](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeReservedInstanceOfferings.html)  **
+  - **Description:** Grants permission to fetch Reserved Instance offerings for OpenSearch Service
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeReservedInstances](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeReservedInstances.html)  **
+  - **Description:** Grants permission to fetch OpenSearch Service Reserved Instances that have already been purchased
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DescribeVpcEndpoints](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeVpcEndpoints.html)  **
+  - **Description:** Grants permission to describe one or more Amazon OpenSearch Service-managed VPC endpoints
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [DetachDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DetachDataSource.html)  **
+  - **Description:** Grants permission to detach a data source from an OpenSearch Application
+  - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DissociatePackage](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DissociatePackage.html)  **
+  - **Description:** Grants permission to disassociate a package from the specified OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DissociatePackages](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DissociatePackages.html)  **
+  - **Description:** Grants permission to disassociate multiple packages from the specified OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ESCrossClusterGet](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/Welcome.html)  **
+  - **Description:** Grants permission to send cross-cluster requests to a destination domain
+  - **Resource types (\*required):** [domain](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ESHttpDelete](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/Welcome.html)  **
+  - **Description:** Grants permission to send HTTP DELETE requests to the OpenSearch APIs
+  - **Resource types (\*required):** [domain](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ESHttpGet](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/Welcome.html)  **
+  - **Description:** Grants permission to send HTTP GET requests to the OpenSearch APIs
+  - **Resource types (\*required):** [domain](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ESHttpHead](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/Welcome.html)  **
+  - **Description:** Grants permission to send HTTP HEAD requests to the OpenSearch APIs
+  - **Resource types (\*required):** [domain](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ESHttpPatch](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/Welcome.html)  **
+  - **Description:** Grants permission to send HTTP PATCH requests to the OpenSearch APIs
+  - **Resource types (\*required):** [domain](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ESHttpPost](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/Welcome.html)  **
+  - **Description:** Grants permission to send HTTP POST requests to the OpenSearch APIs
+  - **Resource types (\*required):** [domain](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ESHttpPut](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/Welcome.html)  **
+  - **Description:** Grants permission to send HTTP PUT requests to the OpenSearch APIs
+  - **Resource types (\*required):** [domain](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetApplication](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetApplication.html)  **
+  - **Description:** Grants permission to get information about an OpenSearch Application
+  - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCapability](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetCapability.html)  **
+  - **Description:** Grants permission to get a registered capability for an OpenSearch Application
+  - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCompatibleElasticsearchVersions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetCompatibleVersions.html)  **
+  - **Description:** Grants permission to fetch a list of compatible OpenSearch and Elasticsearch versions to which an OpenSearch Service domain can be upgraded. This permission is deprecated. Use GetCompatibleVersions instead
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [GetCompatibleVersions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetCompatibleVersions.html)  **
+  - **Description:** Grants permission to fetch list of compatible engine versions to which an OpenSearch Service domain can be upgraded
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [GetDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetDataSource.html)  **
+  - **Description:** Grants permission to get the data source for the OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDefaultApplicationSetting](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetDefaultApplicationSetting.html)  **
+  - **Description:** Grants permission to get the default application setting for OpenSearch Service
+  - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDirectQueryDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetDirectQueryDataSource.html)  **
+  - **Description:** Grants permission to get the data source for the provided OpenSearch arns
+  - **Resource types (\*required):** [datasource\*](#list_es-resource-datasource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDomainMaintenanceStatus](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetDomainMaintenanceStatus.html)  **
+  - **Description:** Grants permission to retrieve the status of maintenance action for the node
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetIndex](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetIndex.html)  **
+  - **Description:** Grants permission to get index for the OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMigration](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetMigration.html)  **
+  - **Description:** Grants permission to get the status and progress of a migration job for an OpenSearch Application
+  - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPackageVersionHistory](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetPackageVersionHistory.html)  **
+  - **Description:** Grants permission to fetch the version history for a package
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetUpgradeHistory](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetUpgradeHistory.html)  **
+  - **Description:** Grants permission to fetch the upgrade history of a given OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetUpgradeStatus](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetUpgradeStatus.html)  **
+  - **Description:** Grants permission to fetch the upgrade status of a given OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [InsightFeedback](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_InsightFeedback.html)  **
+  - **Description:** Grants permission to submit feedback for OpenSearch domain insight
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ListApplications](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListApplications.html)  **
+  - **Description:** Grants permission to list OpenSearch Applications
+  - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDataSourceAttachments](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListDataSourceAttachments.html)  **
+  - **Description:** Grants permission to list data source attachments for an OpenSearch Application
+  - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDataSources](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListDataSources.html)  **
+  - **Description:** Grants permission to retrieve a list of data source for the OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDirectQueryDataSources](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListDirectQueryDataSources.html)  **
+  - **Description:** Grants permission to retrieve a list of data source for the provided OpenSearch arns
+  - **Resource types (\*required):** [datasource\*](#list_es-resource-datasource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDomainMaintenances](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListDomainMaintenances.html)  **
+  - **Description:** Grants permission to retrieve a list of maintenance actions for the OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDomainNames](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListDomainNames.html)  **
+  - **Description:** Grants permission to display the names of all OpenSearch Service domains that the current user owns
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDomainsForPackage](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListDomainsForPackage.html)  **
+  - **Description:** Grants permission to list all OpenSearch Service domains that a package is associated with
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListElasticsearchInstanceTypeDetails](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListInstanceTypeDetails.html)  **
+  - **Description:** Grants permission to list all instance types and available features for a given OpenSearch version. This permission is deprecated. Use ListInstanceTypeDetails instead
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListElasticsearchInstanceTypes](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListInstanceTypeDetails.html)  **
+  - **Description:** Grants permission to list all EC2 instance types that are supported for a given OpenSearch version
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListElasticsearchVersions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListVersions.html)  **
+  - **Description:** Grants permission to list all supported OpenSearch versions on Amazon OpenSearch Service. This permission is deprecated. Use ListVersions instead
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListInsights](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListInsights.html)  **
+  - **Description:** Grants permission to list insights for OpenSearch Service domains in the account
+  - **Resource types (\*required):** [domain](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListInstanceTypeDetails](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListInstanceTypeDetails.html)  **
+  - **Description:** Grants permission to list all instance types and available features for a given OpenSearch or Elasticsearch version
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMigrations](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListMigrations.html)  **
+  - **Description:** Grants permission to list migration jobs for an OpenSearch Application
+  - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListPackagesForDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListPackagesForDomain.html)  **
+  - **Description:** Grants permission to list all packages associated with the OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListScheduledActions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html)  **
+  - **Description:** Grants permission to retrieve a list of configuration changes that are scheduled for a OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListTags](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListTags.html)  **
+  - **Description:** Grants permission to display all resource tags for an OpenSearch Service domain, data source, or application
+  - **Resource types (\*required):** [application\*](#list_es-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [datasource\*](#list_es-resource-datasource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListVersions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListVersions.html)  **
+  - **Description:** Grants permission to list all supported OpenSearch and Elasticsearch versions in Amazon OpenSearch Service
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListVpcEndpointAccess](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListVpcEndpointAccess.html)  **
+  - **Description:** Grants permission to retrieve information about each AWS principal that is allowed to access a given Amazon OpenSearch Service domain through the use of an interface VPC endpoint
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListVpcEndpoints](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListVpcEndpoints.html)  **
+  - **Description:** Grants permission to retrieve all Amazon OpenSearch Service-managed VPC endpoints in the current AWS account and Region
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListVpcEndpointsForDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListVpcEndpointsForDomain.html)  **
+  - **Description:** Grants permission to retrieve all Amazon OpenSearch Service-managed VPC endpoints associated with a particular domain
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [PurchaseReservedElasticsearchInstanceOffering](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_PurchaseReservedInstanceOffering.html)  **
+  - **Description:** Grants permission to purchase OpenSearch Service Reserved Instances. This permission is deprecated. Use PurchaseReservedInstanceOffering instead
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [PurchaseReservedInstanceOffering](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_PurchaseReservedInstanceOffering.html)  **
+  - **Description:** Grants permission to purchase OpenSearch reserved instances
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [PutDefaultApplicationSetting](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_PutDefaultApplicationSetting.html)  **
+  - **Description:** Grants permission to set or remove the default application setting for OpenSearch Service
+  - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RegisterCapability](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RegisterCapability.html)  **
+  - **Description:** Grants permission to register a capability for an OpenSearch Application
+  - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RejectInboundConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RejectInboundConnection.html)  **
+  - **Description:** Grants permission to the destination domain owner to reject an inbound cross-cluster search connection request
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RejectInboundCrossClusterSearchConnection](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RejectInboundConnection.html)  **
+  - **Description:** Grants permission to the destination domain owner to reject an inbound cross-cluster search connection request. This permission is deprecated. Use RejectInboundConnection instead
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RemoveTags](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RemoveTags.html)  **
+  - **Description:** Grants permission to remove resource tags from an OpenSearch Service domain, data source, or application
+  - **Resource types (\*required):** [application\*](#list_es-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)
+  - **Resource types (\*required):** [datasource\*](#list_es-resource-datasource) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_es-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [RevokeVpcEndpointAccess](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RevokeVpcEndpointAccess.html)  **
+  - **Description:** Grants permission to revoke access to an Amazon OpenSearch Service domain that was provided through an interface VPC endpoint
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RollbackElasticsearchServiceSoftwareUpdate](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RollbackServiceSoftwareUpdate.html)  **
+  - **Description:** Grants permission to rollback a service software update of an elasticsearch domain to its previous version
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RollbackServiceSoftwareUpdate](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RollbackServiceSoftwareUpdate.html)  **
+  - **Description:** Grants permission to rollback a service software update of an opensearch domain to its previous version
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartDomainMaintenance](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_StartDomainMaintenance.html)  **
+  - **Description:** Grants permission to initiate the maintenance on the node
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartElasticsearchServiceSoftwareUpdate](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_StartServiceSoftwareUpdate.html)  **
+  - **Description:** Grants permission to start a service software update of a domain. This permission is deprecated. Use StartServiceSoftwareUpdate instead
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartMigration](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_StartMigration.html)  **
+  - **Description:** Grants permission to initiate a migration of saved objects to an OpenSearch Application
+  - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartServiceSoftwareUpdate](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_StartServiceSoftwareUpdate.html)  **
+  - **Description:** Grants permission to start a service software update of a domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateApplication](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateApplication.html)  **
+  - **Description:** Grants permission to update an OpenSearch Application
+  - **Resource types (\*required):** [application\*](#list_es-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateDataSource.html)  **
+  - **Description:** Grants permission to update the data source for the OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDirectQueryDataSource](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateDirectQueryDataSource.html)  **
+  - **Description:** Grants permission to update the data source for the provided OpenSearch arns
+  - **Resource types (\*required):** [datasource\*](#list_es-resource-datasource)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDomainConfig](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateDomainConfig.html)  **
+  - **Description:** Grants permission to modify the configuration of an OpenSearch Service domain, such as the instance type or number of instances
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateElasticsearchDomainConfig](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateDomainConfig.html)  **
+  - **Description:** Grants permission to modify the configuration of an OpenSearch Service domain, such as the instance type or number of instances. This permission is deprecated. Use UpdateDomainConfig instead
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateIndex](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateIndex.html)  **
+  - **Description:** Grants permission to update index for the OpenSearch Service domain
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdatePackage](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdatePackage.html)  **
+  - **Description:** Grants permission to update a package for use with OpenSearch Service domains
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdatePackageScope](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdatePackageScope.html)  **
+  - **Description:** Grants permission to update scope a package
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateScheduledAction](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateScheduledAction.html)  **
+  - **Description:** Grants permission to reschedule a planned OpenSearch Service domain configuration change for a later time
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateVpcEndpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateVpcEndpoint.html)  **
+  - **Description:** Grants permission to modify an Amazon OpenSearch Service-managed interface VPC endpoint
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpgradeDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpgradeDomain.html)  **
+  - **Description:** Grants permission to initiate upgrade of an OpenSearch Service domain to a given version
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpgradeElasticsearchDomain](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpgradeDomain.html)  **
+  - **Description:** Grants permission to initiate upgrade of an OpenSearch Service domain to a specified version. This permission is deprecated. Use UpgradeDomain instead
+  - **Resource types (\*required):** [domain\*](#list_es-resource-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon OpenSearch Service
+<a name="list_es-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                  | ARN                                                                                                                             | Condition keys                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| [application](../../../opensearch-service/latest/developerguide/ac.md "../../../opensearch-service/latest/developerguide/ac.md")                | arn:${Partition}:opensearch:${Region}:${Account}:application/${AppId}                                                           | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_") |
-| [datasource](../../../opensearch-service/latest/developerguide/datasource.md "../../../opensearch-service/latest/developerguide/datasource.md") | arn:${Partition}:opensearch:${Region}:${Account}:datasource/${DataSourceName}                                                   | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_") |
-| [domain](../../../opensearch-service/latest/developerguide/ac.md "../../../opensearch-service/latest/developerguide/ac.md")                     | arn:${Partition}:es:${Region}:${Account}:domain/${DomainName}                                                                   | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_") |
-| [es\_role](../../../opensearch-service/latest/developerguide/slr.md "../../../opensearch-service/latest/developerguide/slr.md")                 | arn:${Partition}:iam::${Account}:role/aws-service-role/es.amazonaws.com/AWSServiceRoleForAmazonOpenSearchService                | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_") |
-| [opensearchservice\_role](../../../opensearch-service/latest/developerguide/slr.md "../../../opensearch-service/latest/developerguide/slr.md")  | arn:${Partition}:iam::${Account}:role/aws-service-role/opensearchservice.amazonaws.com/AWSServiceRoleForAmazonOpenSearchService | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_ "#list_es-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html)  | arn:${Partition}:opensearch:${Region}:${Account}:application/${AppId} | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_) | 
+|  [datasource](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/datasource.html)  | arn:${Partition}:opensearch:${Region}:${Account}:datasource/${DataSourceName} | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_) | 
+|  [domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ac.html)  | arn:${Partition}:es:${Region}:${Account}:domain/${DomainName} | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_) | 
+|  [es\_role](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/slr.html)  | arn:${Partition}:iam::${Account}:role/aws-service-role/es.amazonaws.com/AWSServiceRoleForAmazonOpenSearchService | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_) | 
+|  [opensearchservice\_role](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/slr.html)  | arn:${Partition}:iam::${Account}:role/aws-service-role/opensearchservice.amazonaws.com/AWSServiceRoleForAmazonOpenSearchService | [aws:ResourceTag/${TagKey}](#list_es-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon OpenSearch Service
+<a name="list_es-policy-keys"></a>
 
-Amazon OpenSearch Service defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon OpenSearch Service defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                         | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access based on the tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access based on the tags associated with the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access based on the tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access based on the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access based on the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access based on the tag keys that are passed in the request | ArrayOfString | 

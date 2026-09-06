@@ -1,245 +1,956 @@
-# Actions, resources, and condition keys for Amazon Rekognition
 
-Amazon Rekognition (service prefix: `rekognition`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Rekognition
+<a name="list_rekognition"></a>
+
+Amazon Rekognition (service prefix: `rekognition`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/rekognition/latest/APIReference/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/rekognition/latest/APIReference/Welcome.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/rekognition/latest/dg/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/rekognition/rekognition.json) for this service.
 
-- Learn how to [configure this service](../../../rekognition/latest/APIReference.md "../../../rekognition/latest/APIReference.md").
-- View a list of the [API operations available for
-  this service](../../../rekognition/latest/APIReference/Welcome.md "../../../rekognition/latest/APIReference/Welcome.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../rekognition/latest/dg/security-iam.md "../../../rekognition/latest/dg/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/rekognition/rekognition.json "https://servicereference.us-east-1.amazonaws.com/v1/rekognition/rekognition.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon Rekognition](#list_rekognition-operations "#list_rekognition-operations")
-- [Actions defined by Amazon Rekognition](#list_rekognition-actions-as-permissions "#list_rekognition-actions-as-permissions")
-- [Resource types defined by Amazon Rekognition](#list_rekognition-resources-for-iam-policies "#list_rekognition-resources-for-iam-policies")
-- [Condition keys for Amazon Rekognition](#list_rekognition-policy-keys "#list_rekognition-policy-keys")
+**Topics**
++ [API operations defined by Amazon Rekognition](#list_rekognition-operations)
++ [Actions defined by Amazon Rekognition](#list_rekognition-actions-as-permissions)
++ [Resource types defined by Amazon Rekognition](#list_rekognition-resources-for-iam-policies)
++ [Condition keys for Amazon Rekognition](#list_rekognition-policy-keys)
 
 ## API operations defined by Amazon Rekognition
+<a name="list_rekognition-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_rekognition-actions-as-permissions "#list_rekognition-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_rekognition-actions-as-permissions).
 
-| Operation                                                                                                                         | IAM action                                                                                                                                                   | Condition key             | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------- | ----------------- | -------------- |
-| AssociateFaces                                                                                                                    | [rekognition:AssociateFaces](#list_rekognition-action-AssociateFaces "#list_rekognition-action-AssociateFaces")                                              |                           |                   | Write          |
-| CompareFaces                                                                                                                      | [rekognition:CompareFaces](#list_rekognition-action-CompareFaces "#list_rekognition-action-CompareFaces")                                                    |                           |                   | Read           |
-| CopyProjectVersion                                                                                                                | [rekognition:CopyProjectVersion](#list_rekognition-action-CopyProjectVersion "#list_rekognition-action-CopyProjectVersion")                                  |                           |                   | Write          |
-| [rekognition:CreateProjectVersion](#list_rekognition-action-CreateProjectVersion "#list_rekognition-action-CreateProjectVersion") |                                                                                                                                                              |                           | Write             |
-| [rekognition:TagResource](#list_rekognition-action-TagResource "#list_rekognition-action-TagResource")                            |                                                                                                                                                              |                           | Tagging, Write    |
-| CreateCollection                                                                                                                  | [rekognition:CreateCollection](#list_rekognition-action-CreateCollection "#list_rekognition-action-CreateCollection")                                        |                           |                   | Write          |
-| [rekognition:TagResource](#list_rekognition-action-TagResource "#list_rekognition-action-TagResource")                            |                                                                                                                                                              |                           | Tagging, Write    |
-| CreateDataset                                                                                                                     | [rekognition:CreateDataset](#list_rekognition-action-CreateDataset "#list_rekognition-action-CreateDataset")                                                 |                           |                   | Write          |
-| [rekognition:ListDatasetEntries](#list_rekognition-action-ListDatasetEntries "#list_rekognition-action-ListDatasetEntries")       |                                                                                                                                                              |                           | Read              |
-| [rekognition:TagResource](#list_rekognition-action-TagResource "#list_rekognition-action-TagResource")                            |                                                                                                                                                              |                           | Tagging, Write    |
-| CreateFaceLivenessSession                                                                                                         | [rekognition:CreateFaceLivenessSession](#list_rekognition-action-CreateFaceLivenessSession "#list_rekognition-action-CreateFaceLivenessSession")             |                           |                   | Write          |
-| CreateProject                                                                                                                     | [rekognition:CreateProject](#list_rekognition-action-CreateProject "#list_rekognition-action-CreateProject")                                                 |                           |                   | Write          |
-| [rekognition:TagResource](#list_rekognition-action-TagResource "#list_rekognition-action-TagResource")                            |                                                                                                                                                              |                           | Tagging, Write    |
-| CreateProjectVersion                                                                                                              | [rekognition:CreateProjectVersion](#list_rekognition-action-CreateProjectVersion "#list_rekognition-action-CreateProjectVersion")                            |                           |                   | Write          |
-| [rekognition:TagResource](#list_rekognition-action-TagResource "#list_rekognition-action-TagResource")                            |                                                                                                                                                              |                           | Tagging, Write    |
-| CreateStreamProcessor                                                                                                             | [rekognition:CreateStreamProcessor](#list_rekognition-action-CreateStreamProcessor "#list_rekognition-action-CreateStreamProcessor")                         |                           |                   | Write          |
-| [rekognition:TagResource](#list_rekognition-action-TagResource "#list_rekognition-action-TagResource")                            |                                                                                                                                                              |                           | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")   | iam:PassedToService                                                                                                                                          | rekognition.amazonaws.com | Write             |
-| CreateUser                                                                                                                        | [rekognition:CreateUser](#list_rekognition-action-CreateUser "#list_rekognition-action-CreateUser")                                                          |                           |                   | Write          |
-| DeleteCollection                                                                                                                  | [rekognition:DeleteCollection](#list_rekognition-action-DeleteCollection "#list_rekognition-action-DeleteCollection")                                        |                           |                   | Write          |
-| DeleteDataset                                                                                                                     | [rekognition:DeleteDataset](#list_rekognition-action-DeleteDataset "#list_rekognition-action-DeleteDataset")                                                 |                           |                   | Write          |
-| DeleteFaces                                                                                                                       | [rekognition:DeleteFaces](#list_rekognition-action-DeleteFaces "#list_rekognition-action-DeleteFaces")                                                       |                           |                   | Write          |
-| DeleteProject                                                                                                                     | [rekognition:DeleteProject](#list_rekognition-action-DeleteProject "#list_rekognition-action-DeleteProject")                                                 |                           |                   | Write          |
-| DeleteProjectPolicy                                                                                                               | [rekognition:DeleteProjectPolicy](#list_rekognition-action-DeleteProjectPolicy "#list_rekognition-action-DeleteProjectPolicy")                               |                           |                   | Write          |
-| DeleteProjectVersion                                                                                                              | [rekognition:DeleteProjectVersion](#list_rekognition-action-DeleteProjectVersion "#list_rekognition-action-DeleteProjectVersion")                            |                           |                   | Write          |
-| DeleteStreamProcessor                                                                                                             | [rekognition:DeleteStreamProcessor](#list_rekognition-action-DeleteStreamProcessor "#list_rekognition-action-DeleteStreamProcessor")                         |                           |                   | Write          |
-| DeleteUser                                                                                                                        | [rekognition:DeleteUser](#list_rekognition-action-DeleteUser "#list_rekognition-action-DeleteUser")                                                          |                           |                   | Write          |
-| DescribeCollection                                                                                                                | [rekognition:DescribeCollection](#list_rekognition-action-DescribeCollection "#list_rekognition-action-DescribeCollection")                                  |                           |                   | Read           |
-| DescribeDataset                                                                                                                   | [rekognition:DescribeDataset](#list_rekognition-action-DescribeDataset "#list_rekognition-action-DescribeDataset")                                           |                           |                   | Read           |
-| DescribeProjectVersions                                                                                                           | [rekognition:DescribeProjectVersions](#list_rekognition-action-DescribeProjectVersions "#list_rekognition-action-DescribeProjectVersions")                   |                           |                   | Read           |
-| DescribeProjects                                                                                                                  | [rekognition:DescribeProjects](#list_rekognition-action-DescribeProjects "#list_rekognition-action-DescribeProjects")                                        |                           |                   | Read           |
-| DescribeStreamProcessor                                                                                                           | [rekognition:DescribeStreamProcessor](#list_rekognition-action-DescribeStreamProcessor "#list_rekognition-action-DescribeStreamProcessor")                   |                           |                   | Read           |
-| DetectCustomLabels                                                                                                                | [rekognition:DetectCustomLabels](#list_rekognition-action-DetectCustomLabels "#list_rekognition-action-DetectCustomLabels")                                  |                           |                   | Read           |
-| DetectFaces                                                                                                                       | [rekognition:DetectFaces](#list_rekognition-action-DetectFaces "#list_rekognition-action-DetectFaces")                                                       |                           |                   | Read           |
-| DetectLabels                                                                                                                      | [rekognition:DetectLabels](#list_rekognition-action-DetectLabels "#list_rekognition-action-DetectLabels")                                                    |                           |                   | Read           |
-| DetectModerationLabels                                                                                                            | [rekognition:DetectModerationLabels](#list_rekognition-action-DetectModerationLabels "#list_rekognition-action-DetectModerationLabels")                      |                           |                   | Read           |
-| DetectProtectiveEquipment                                                                                                         | [rekognition:DetectProtectiveEquipment](#list_rekognition-action-DetectProtectiveEquipment "#list_rekognition-action-DetectProtectiveEquipment")             |                           |                   | Read           |
-| DetectText                                                                                                                        | [rekognition:DetectText](#list_rekognition-action-DetectText "#list_rekognition-action-DetectText")                                                          |                           |                   | Read           |
-| DisassociateFaces                                                                                                                 | [rekognition:DisassociateFaces](#list_rekognition-action-DisassociateFaces "#list_rekognition-action-DisassociateFaces")                                     |                           |                   | Write          |
-| DistributeDatasetEntries                                                                                                          | [rekognition:DistributeDatasetEntries](#list_rekognition-action-DistributeDatasetEntries "#list_rekognition-action-DistributeDatasetEntries")                |                           |                   | Write          |
-| GetCelebrityInfo                                                                                                                  | [rekognition:GetCelebrityInfo](#list_rekognition-action-GetCelebrityInfo "#list_rekognition-action-GetCelebrityInfo")                                        |                           |                   | Read           |
-| GetCelebrityRecognition                                                                                                           | [rekognition:GetCelebrityRecognition](#list_rekognition-action-GetCelebrityRecognition "#list_rekognition-action-GetCelebrityRecognition")                   |                           |                   | Read           |
-| GetContentModeration                                                                                                              | [rekognition:GetContentModeration](#list_rekognition-action-GetContentModeration "#list_rekognition-action-GetContentModeration")                            |                           |                   | Read           |
-| GetFaceDetection                                                                                                                  | [rekognition:GetFaceDetection](#list_rekognition-action-GetFaceDetection "#list_rekognition-action-GetFaceDetection")                                        |                           |                   | Read           |
-| GetFaceLivenessSessionResults                                                                                                     | [rekognition:GetFaceLivenessSessionResults](#list_rekognition-action-GetFaceLivenessSessionResults "#list_rekognition-action-GetFaceLivenessSessionResults") |                           |                   | Read           |
-| GetFaceSearch                                                                                                                     | [rekognition:GetFaceSearch](#list_rekognition-action-GetFaceSearch "#list_rekognition-action-GetFaceSearch")                                                 |                           |                   | Read           |
-| GetLabelDetection                                                                                                                 | [rekognition:GetLabelDetection](#list_rekognition-action-GetLabelDetection "#list_rekognition-action-GetLabelDetection")                                     |                           |                   | Read           |
-| GetMediaAnalysisJob                                                                                                               | [rekognition:GetMediaAnalysisJob](#list_rekognition-action-GetMediaAnalysisJob "#list_rekognition-action-GetMediaAnalysisJob")                               |                           |                   | Read           |
-| GetPersonTracking                                                                                                                 | [rekognition:GetPersonTracking](#list_rekognition-action-GetPersonTracking "#list_rekognition-action-GetPersonTracking")                                     |                           |                   | Read           |
-| GetSegmentDetection                                                                                                               | [rekognition:GetSegmentDetection](#list_rekognition-action-GetSegmentDetection "#list_rekognition-action-GetSegmentDetection")                               |                           |                   | Read           |
-| GetTextDetection                                                                                                                  | [rekognition:GetTextDetection](#list_rekognition-action-GetTextDetection "#list_rekognition-action-GetTextDetection")                                        |                           |                   | Read           |
-| IndexFaces                                                                                                                        | [rekognition:IndexFaces](#list_rekognition-action-IndexFaces "#list_rekognition-action-IndexFaces")                                                          |                           |                   | Write          |
-| ListCollections                                                                                                                   | [rekognition:ListCollections](#list_rekognition-action-ListCollections "#list_rekognition-action-ListCollections")                                           |                           |                   | Read           |
-| ListDatasetEntries                                                                                                                | [rekognition:ListDatasetEntries](#list_rekognition-action-ListDatasetEntries "#list_rekognition-action-ListDatasetEntries")                                  |                           |                   | Read           |
-| ListDatasetLabels                                                                                                                 | [rekognition:ListDatasetLabels](#list_rekognition-action-ListDatasetLabels "#list_rekognition-action-ListDatasetLabels")                                     |                           |                   | Read           |
-| ListFaces                                                                                                                         | [rekognition:ListFaces](#list_rekognition-action-ListFaces "#list_rekognition-action-ListFaces")                                                             |                           |                   | Read           |
-| ListMediaAnalysisJobs                                                                                                             | [rekognition:ListMediaAnalysisJobs](#list_rekognition-action-ListMediaAnalysisJobs "#list_rekognition-action-ListMediaAnalysisJobs")                         |                           |                   | Read           |
-| ListProjectPolicies                                                                                                               | [rekognition:ListProjectPolicies](#list_rekognition-action-ListProjectPolicies "#list_rekognition-action-ListProjectPolicies")                               |                           |                   | Read           |
-| ListStreamProcessors                                                                                                              | [rekognition:ListStreamProcessors](#list_rekognition-action-ListStreamProcessors "#list_rekognition-action-ListStreamProcessors")                            |                           |                   | List           |
-| ListTagsForResource                                                                                                               | [rekognition:ListTagsForResource](#list_rekognition-action-ListTagsForResource "#list_rekognition-action-ListTagsForResource")                               |                           |                   | Read           |
-| ListUsers                                                                                                                         | [rekognition:ListUsers](#list_rekognition-action-ListUsers "#list_rekognition-action-ListUsers")                                                             |                           |                   | Read           |
-| PutProjectPolicy                                                                                                                  | [rekognition:PutProjectPolicy](#list_rekognition-action-PutProjectPolicy "#list_rekognition-action-PutProjectPolicy")                                        |                           |                   | Write          |
-| RecognizeCelebrities                                                                                                              | [rekognition:RecognizeCelebrities](#list_rekognition-action-RecognizeCelebrities "#list_rekognition-action-RecognizeCelebrities")                            |                           |                   | Read           |
-| SearchFaces                                                                                                                       | [rekognition:SearchFaces](#list_rekognition-action-SearchFaces "#list_rekognition-action-SearchFaces")                                                       |                           |                   | Read           |
-| SearchFacesByImage                                                                                                                | [rekognition:SearchFacesByImage](#list_rekognition-action-SearchFacesByImage "#list_rekognition-action-SearchFacesByImage")                                  |                           |                   | Read           |
-| SearchUsers                                                                                                                       | [rekognition:SearchUsers](#list_rekognition-action-SearchUsers "#list_rekognition-action-SearchUsers")                                                       |                           |                   | Read           |
-| SearchUsersByImage                                                                                                                | [rekognition:SearchUsersByImage](#list_rekognition-action-SearchUsersByImage "#list_rekognition-action-SearchUsersByImage")                                  |                           |                   | Read           |
-| StartCelebrityRecognition                                                                                                         | [rekognition:StartCelebrityRecognition](#list_rekognition-action-StartCelebrityRecognition "#list_rekognition-action-StartCelebrityRecognition")             |                           |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")   | iam:PassedToService                                                                                                                                          | rekognition.amazonaws.com | Write             |
-| StartContentModeration                                                                                                            | [rekognition:StartContentModeration](#list_rekognition-action-StartContentModeration "#list_rekognition-action-StartContentModeration")                      |                           |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")   | iam:PassedToService                                                                                                                                          | rekognition.amazonaws.com | Write             |
-| StartFaceDetection                                                                                                                | [rekognition:StartFaceDetection](#list_rekognition-action-StartFaceDetection "#list_rekognition-action-StartFaceDetection")                                  |                           |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")   | iam:PassedToService                                                                                                                                          | rekognition.amazonaws.com | Write             |
-| StartFaceSearch                                                                                                                   | [rekognition:StartFaceSearch](#list_rekognition-action-StartFaceSearch "#list_rekognition-action-StartFaceSearch")                                           |                           |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")   | iam:PassedToService                                                                                                                                          | rekognition.amazonaws.com | Write             |
-| StartLabelDetection                                                                                                               | [rekognition:StartLabelDetection](#list_rekognition-action-StartLabelDetection "#list_rekognition-action-StartLabelDetection")                               |                           |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")   | iam:PassedToService                                                                                                                                          | rekognition.amazonaws.com | Write             |
-| StartMediaAnalysisJob                                                                                                             | [rekognition:StartMediaAnalysisJob](#list_rekognition-action-StartMediaAnalysisJob "#list_rekognition-action-StartMediaAnalysisJob")                         |                           |                   | Write          |
-| StartPersonTracking                                                                                                               | [rekognition:StartPersonTracking](#list_rekognition-action-StartPersonTracking "#list_rekognition-action-StartPersonTracking")                               |                           |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")   | iam:PassedToService                                                                                                                                          | rekognition.amazonaws.com | Write             |
-| StartProjectVersion                                                                                                               | [rekognition:StartProjectVersion](#list_rekognition-action-StartProjectVersion "#list_rekognition-action-StartProjectVersion")                               |                           |                   | Write          |
-| StartSegmentDetection                                                                                                             | [rekognition:StartSegmentDetection](#list_rekognition-action-StartSegmentDetection "#list_rekognition-action-StartSegmentDetection")                         |                           |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")   | iam:PassedToService                                                                                                                                          | rekognition.amazonaws.com | Write             |
-| StartStreamProcessor                                                                                                              | [rekognition:StartStreamProcessor](#list_rekognition-action-StartStreamProcessor "#list_rekognition-action-StartStreamProcessor")                            |                           |                   | Write          |
-| StartTextDetection                                                                                                                | [rekognition:StartTextDetection](#list_rekognition-action-StartTextDetection "#list_rekognition-action-StartTextDetection")                                  |                           |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")   | iam:PassedToService                                                                                                                                          | rekognition.amazonaws.com | Write             |
-| StopProjectVersion                                                                                                                | [rekognition:StopProjectVersion](#list_rekognition-action-StopProjectVersion "#list_rekognition-action-StopProjectVersion")                                  |                           |                   | Write          |
-| StopStreamProcessor                                                                                                               | [rekognition:StopStreamProcessor](#list_rekognition-action-StopStreamProcessor "#list_rekognition-action-StopStreamProcessor")                               |                           |                   | Write          |
-| TagResource                                                                                                                       | [rekognition:TagResource](#list_rekognition-action-TagResource "#list_rekognition-action-TagResource")                                                       |                           |                   | Tagging, Write |
-| UntagResource                                                                                                                     | [rekognition:UntagResource](#list_rekognition-action-UntagResource "#list_rekognition-action-UntagResource")                                                 |                           |                   | Tagging, Write |
-| UpdateDatasetEntries                                                                                                              | [rekognition:UpdateDatasetEntries](#list_rekognition-action-UpdateDatasetEntries "#list_rekognition-action-UpdateDatasetEntries")                            |                           |                   | Write          |
-| UpdateStreamProcessor                                                                                                             | [rekognition:UpdateStreamProcessor](#list_rekognition-action-UpdateStreamProcessor "#list_rekognition-action-UpdateStreamProcessor")                         |                           |                   | Write          |
+
+
+
+- **   AssociateFaces  **
+  - **IAM action:**  [rekognition:AssociateFaces](#list_rekognition-action-AssociateFaces) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CompareFaces  **
+  - **IAM action:**  [rekognition:CompareFaces](#list_rekognition-action-CompareFaces) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   CopyProjectVersion  **
+  - **IAM action:**  [rekognition:CopyProjectVersion](#list_rekognition-action-CopyProjectVersion)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [rekognition:CreateProjectVersion](#list_rekognition-action-CreateProjectVersion)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [rekognition:TagResource](#list_rekognition-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateCollection  **
+  - **IAM action:**  [rekognition:CreateCollection](#list_rekognition-action-CreateCollection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [rekognition:TagResource](#list_rekognition-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateDataset  **
+  - **IAM action:**  [rekognition:CreateDataset](#list_rekognition-action-CreateDataset)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [rekognition:ListDatasetEntries](#list_rekognition-action-ListDatasetEntries)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [rekognition:TagResource](#list_rekognition-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateFaceLivenessSession  **
+  - **IAM action:**  [rekognition:CreateFaceLivenessSession](#list_rekognition-action-CreateFaceLivenessSession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateProject  **
+  - **IAM action:**  [rekognition:CreateProject](#list_rekognition-action-CreateProject)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [rekognition:TagResource](#list_rekognition-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateProjectVersion  **
+  - **IAM action:**  [rekognition:CreateProjectVersion](#list_rekognition-action-CreateProjectVersion)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [rekognition:TagResource](#list_rekognition-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateStreamProcessor  **
+  - **IAM action:**  [rekognition:CreateStreamProcessor](#list_rekognition-action-CreateStreamProcessor)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [rekognition:TagResource](#list_rekognition-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** rekognition.amazonaws.com / **Access level:** Write
+
+- **   CreateUser  **
+  - **IAM action:**  [rekognition:CreateUser](#list_rekognition-action-CreateUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteCollection  **
+  - **IAM action:**  [rekognition:DeleteCollection](#list_rekognition-action-DeleteCollection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDataset  **
+  - **IAM action:**  [rekognition:DeleteDataset](#list_rekognition-action-DeleteDataset) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteFaces  **
+  - **IAM action:**  [rekognition:DeleteFaces](#list_rekognition-action-DeleteFaces) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteProject  **
+  - **IAM action:**  [rekognition:DeleteProject](#list_rekognition-action-DeleteProject) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteProjectPolicy  **
+  - **IAM action:**  [rekognition:DeleteProjectPolicy](#list_rekognition-action-DeleteProjectPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteProjectVersion  **
+  - **IAM action:**  [rekognition:DeleteProjectVersion](#list_rekognition-action-DeleteProjectVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteStreamProcessor  **
+  - **IAM action:**  [rekognition:DeleteStreamProcessor](#list_rekognition-action-DeleteStreamProcessor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteUser  **
+  - **IAM action:**  [rekognition:DeleteUser](#list_rekognition-action-DeleteUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeCollection  **
+  - **IAM action:**  [rekognition:DescribeCollection](#list_rekognition-action-DescribeCollection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeDataset  **
+  - **IAM action:**  [rekognition:DescribeDataset](#list_rekognition-action-DescribeDataset) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeProjectVersions  **
+  - **IAM action:**  [rekognition:DescribeProjectVersions](#list_rekognition-action-DescribeProjectVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeProjects  **
+  - **IAM action:**  [rekognition:DescribeProjects](#list_rekognition-action-DescribeProjects) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeStreamProcessor  **
+  - **IAM action:**  [rekognition:DescribeStreamProcessor](#list_rekognition-action-DescribeStreamProcessor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DetectCustomLabels  **
+  - **IAM action:**  [rekognition:DetectCustomLabels](#list_rekognition-action-DetectCustomLabels) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DetectFaces  **
+  - **IAM action:**  [rekognition:DetectFaces](#list_rekognition-action-DetectFaces) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DetectLabels  **
+  - **IAM action:**  [rekognition:DetectLabels](#list_rekognition-action-DetectLabels) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DetectModerationLabels  **
+  - **IAM action:**  [rekognition:DetectModerationLabels](#list_rekognition-action-DetectModerationLabels) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DetectProtectiveEquipment  **
+  - **IAM action:**  [rekognition:DetectProtectiveEquipment](#list_rekognition-action-DetectProtectiveEquipment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DetectText  **
+  - **IAM action:**  [rekognition:DetectText](#list_rekognition-action-DetectText) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DisassociateFaces  **
+  - **IAM action:**  [rekognition:DisassociateFaces](#list_rekognition-action-DisassociateFaces) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DistributeDatasetEntries  **
+  - **IAM action:**  [rekognition:DistributeDatasetEntries](#list_rekognition-action-DistributeDatasetEntries) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetCelebrityInfo  **
+  - **IAM action:**  [rekognition:GetCelebrityInfo](#list_rekognition-action-GetCelebrityInfo) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCelebrityRecognition  **
+  - **IAM action:**  [rekognition:GetCelebrityRecognition](#list_rekognition-action-GetCelebrityRecognition) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetContentModeration  **
+  - **IAM action:**  [rekognition:GetContentModeration](#list_rekognition-action-GetContentModeration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetFaceDetection  **
+  - **IAM action:**  [rekognition:GetFaceDetection](#list_rekognition-action-GetFaceDetection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetFaceLivenessSessionResults  **
+  - **IAM action:**  [rekognition:GetFaceLivenessSessionResults](#list_rekognition-action-GetFaceLivenessSessionResults) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetFaceSearch  **
+  - **IAM action:**  [rekognition:GetFaceSearch](#list_rekognition-action-GetFaceSearch) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetLabelDetection  **
+  - **IAM action:**  [rekognition:GetLabelDetection](#list_rekognition-action-GetLabelDetection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMediaAnalysisJob  **
+  - **IAM action:**  [rekognition:GetMediaAnalysisJob](#list_rekognition-action-GetMediaAnalysisJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPersonTracking  **
+  - **IAM action:**  [rekognition:GetPersonTracking](#list_rekognition-action-GetPersonTracking) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSegmentDetection  **
+  - **IAM action:**  [rekognition:GetSegmentDetection](#list_rekognition-action-GetSegmentDetection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTextDetection  **
+  - **IAM action:**  [rekognition:GetTextDetection](#list_rekognition-action-GetTextDetection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   IndexFaces  **
+  - **IAM action:**  [rekognition:IndexFaces](#list_rekognition-action-IndexFaces) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ListCollections  **
+  - **IAM action:**  [rekognition:ListCollections](#list_rekognition-action-ListCollections) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListDatasetEntries  **
+  - **IAM action:**  [rekognition:ListDatasetEntries](#list_rekognition-action-ListDatasetEntries) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListDatasetLabels  **
+  - **IAM action:**  [rekognition:ListDatasetLabels](#list_rekognition-action-ListDatasetLabels) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListFaces  **
+  - **IAM action:**  [rekognition:ListFaces](#list_rekognition-action-ListFaces) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListMediaAnalysisJobs  **
+  - **IAM action:**  [rekognition:ListMediaAnalysisJobs](#list_rekognition-action-ListMediaAnalysisJobs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListProjectPolicies  **
+  - **IAM action:**  [rekognition:ListProjectPolicies](#list_rekognition-action-ListProjectPolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListStreamProcessors  **
+  - **IAM action:**  [rekognition:ListStreamProcessors](#list_rekognition-action-ListStreamProcessors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [rekognition:ListTagsForResource](#list_rekognition-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListUsers  **
+  - **IAM action:**  [rekognition:ListUsers](#list_rekognition-action-ListUsers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   PutProjectPolicy  **
+  - **IAM action:**  [rekognition:PutProjectPolicy](#list_rekognition-action-PutProjectPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RecognizeCelebrities  **
+  - **IAM action:**  [rekognition:RecognizeCelebrities](#list_rekognition-action-RecognizeCelebrities) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   SearchFaces  **
+  - **IAM action:**  [rekognition:SearchFaces](#list_rekognition-action-SearchFaces) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   SearchFacesByImage  **
+  - **IAM action:**  [rekognition:SearchFacesByImage](#list_rekognition-action-SearchFacesByImage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   SearchUsers  **
+  - **IAM action:**  [rekognition:SearchUsers](#list_rekognition-action-SearchUsers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   SearchUsersByImage  **
+  - **IAM action:**  [rekognition:SearchUsersByImage](#list_rekognition-action-SearchUsersByImage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartCelebrityRecognition  **
+  - **IAM action:**  [rekognition:StartCelebrityRecognition](#list_rekognition-action-StartCelebrityRecognition)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** rekognition.amazonaws.com / **Access level:** Write
+
+- **   StartContentModeration  **
+  - **IAM action:**  [rekognition:StartContentModeration](#list_rekognition-action-StartContentModeration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** rekognition.amazonaws.com / **Access level:** Write
+
+- **   StartFaceDetection  **
+  - **IAM action:**  [rekognition:StartFaceDetection](#list_rekognition-action-StartFaceDetection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** rekognition.amazonaws.com / **Access level:** Write
+
+- **   StartFaceSearch  **
+  - **IAM action:**  [rekognition:StartFaceSearch](#list_rekognition-action-StartFaceSearch)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** rekognition.amazonaws.com / **Access level:** Write
+
+- **   StartLabelDetection  **
+  - **IAM action:**  [rekognition:StartLabelDetection](#list_rekognition-action-StartLabelDetection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** rekognition.amazonaws.com / **Access level:** Write
+
+- **   StartMediaAnalysisJob  **
+  - **IAM action:**  [rekognition:StartMediaAnalysisJob](#list_rekognition-action-StartMediaAnalysisJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartPersonTracking  **
+  - **IAM action:**  [rekognition:StartPersonTracking](#list_rekognition-action-StartPersonTracking)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** rekognition.amazonaws.com / **Access level:** Write
+
+- **   StartProjectVersion  **
+  - **IAM action:**  [rekognition:StartProjectVersion](#list_rekognition-action-StartProjectVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartSegmentDetection  **
+  - **IAM action:**  [rekognition:StartSegmentDetection](#list_rekognition-action-StartSegmentDetection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** rekognition.amazonaws.com / **Access level:** Write
+
+- **   StartStreamProcessor  **
+  - **IAM action:**  [rekognition:StartStreamProcessor](#list_rekognition-action-StartStreamProcessor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartTextDetection  **
+  - **IAM action:**  [rekognition:StartTextDetection](#list_rekognition-action-StartTextDetection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** rekognition.amazonaws.com / **Access level:** Write
+
+- **   StopProjectVersion  **
+  - **IAM action:**  [rekognition:StopProjectVersion](#list_rekognition-action-StopProjectVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopStreamProcessor  **
+  - **IAM action:**  [rekognition:StopStreamProcessor](#list_rekognition-action-StopStreamProcessor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [rekognition:TagResource](#list_rekognition-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [rekognition:UntagResource](#list_rekognition-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateDatasetEntries  **
+  - **IAM action:**  [rekognition:UpdateDatasetEntries](#list_rekognition-action-UpdateDatasetEntries) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateStreamProcessor  **
+  - **IAM action:**  [rekognition:UpdateStreamProcessor](#list_rekognition-action-UpdateStreamProcessor) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon Rekognition
+<a name="list_rekognition-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                   | Description                                                                                                                                                                                                                                                                                                                   | Resource types (\*required)                                                                                  | Condition keys                                                                                                                                                                                                                                                                                                                | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AssociateFaces](../../../rekognition/latest/APIReference/API_AssociateFaces.md "../../../rekognition/latest/APIReference/API_AssociateFaces.md")                                                                         | Grants permission to associate multiple individual faces with a single user                                                                                                                                                                                                                                                   | [collection\*](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [CompareFaces](../../../rekognition/latest/APIReference/API_CompareFaces.md "../../../rekognition/latest/APIReference/API_CompareFaces.md")                                                                               | Grants permission to compare faces in the source input image with each face detected in the target input image                                                                                                                                                                                                                |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [CopyProjectVersion](../../../rekognition/latest/APIReference/API_CopyProjectVersion.md "../../../rekognition/latest/APIReference/API_CopyProjectVersion.md")                                                             | Grants permission to copy an existing model version to a new model version                                                                                                                                                                                                                                                    | [project\*](#list_rekognition-resource-project "#list_rekognition-resource-project")                         | [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_ "#list_rekognition-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys") | Write          |
-| [projectversion\*](#list_rekognition-resource-projectversion "#list_rekognition-resource-projectversion")                                                                                                                 | [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_ "#list_rekognition-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys") |
-| [CreateCollection](../../../rekognition/latest/APIReference/API_CreateCollection.md "../../../rekognition/latest/APIReference/API_CreateCollection.md")                                                                   | Grants permission to create a collection in an AWS Region                                                                                                                                                                                                                                                                     |                                                                                                              | [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_ "#list_rekognition-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys")                                                                                                                           | Write          |
-| [CreateDataset](../../../rekognition/latest/APIReference/API_CreateDataset.md "../../../rekognition/latest/APIReference/API_CreateDataset.md")                                                                            | Grants permission to create a new Amazon Rekognition Custom Labels dataset                                                                                                                                                                                                                                                    | [project\*](#list_rekognition-resource-project "#list_rekognition-resource-project")                         | [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_ "#list_rekognition-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys") | Write          |
-| [CreateFaceLivenessSession](../../../rekognition/latest/APIReference/API_CreateFaceLivenessSession.md "../../../rekognition/latest/APIReference/API_CreateFaceLivenessSession.md")                                        | Grants permission to create a face liveness session                                                                                                                                                                                                                                                                           |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Write          |
-| [CreateProject](../../../rekognition/latest/APIReference/API_CreateProject.md "../../../rekognition/latest/APIReference/API_CreateProject.md")                                                                            | Grants permission to create an Amazon Rekognition Custom Labels project                                                                                                                                                                                                                                                       |                                                                                                              | [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_ "#list_rekognition-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys")                                                                                                                           | Write          |
-| [CreateProjectVersion](../../../rekognition/latest/APIReference/API_CreateProjectVersion.md "../../../rekognition/latest/APIReference/API_CreateProjectVersion.md")                                                       | Grants permission to begin training a new version of a model                                                                                                                                                                                                                                                                  | [project\*](#list_rekognition-resource-project "#list_rekognition-resource-project")                         | [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_ "#list_rekognition-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys") | Write          |
-| [CreateStreamProcessor](../../../rekognition/latest/APIReference/API_CreateStreamProcessor.md "../../../rekognition/latest/APIReference/API_CreateStreamProcessor.md")                                                    | Grants permission to create an Amazon Rekognition stream processor                                                                                                                                                                                                                                                            | [collection\*](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                | [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_ "#list_rekognition-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys") | Write          |
-| [CreateUser](../../../rekognition/latest/APIReference/API_CreateUser.md "../../../rekognition/latest/APIReference/API_CreateUser.md")                                                                                     | Grants permission to create a new user in a collection using a unique user ID you provide                                                                                                                                                                                                                                     | [collection\*](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [DeleteCollection](../../../rekognition/latest/APIReference/API_DeleteCollection.md "../../../rekognition/latest/APIReference/API_DeleteCollection.md")                                                                   | Grants permission to delete the specified collection                                                                                                                                                                                                                                                                          | [collection\*](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [DeleteDataset](../../../rekognition/latest/APIReference/API_DeleteDataset.md "../../../rekognition/latest/APIReference/API_DeleteDataset.md")                                                                            | Grants permission to delete an existing Amazon Rekognition Custom Labels dataset                                                                                                                                                                                                                                              | [dataset\*](#list_rekognition-resource-dataset "#list_rekognition-resource-dataset")                         | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [DeleteFaces](../../../rekognition/latest/APIReference/API_DeleteFaces.md "../../../rekognition/latest/APIReference/API_DeleteFaces.md")                                                                                  | Grants permission to delete faces from a collection                                                                                                                                                                                                                                                                           | [collection\*](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [DeleteProject](../../../rekognition/latest/APIReference/API_DeleteProject.md "../../../rekognition/latest/APIReference/API_DeleteProject.md")                                                                            | Grants permission to delete a project                                                                                                                                                                                                                                                                                         | [project\*](#list_rekognition-resource-project "#list_rekognition-resource-project")                         | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [DeleteProjectPolicy](../../../rekognition/latest/APIReference/API_DeleteProjectPolicy.md "../../../rekognition/latest/APIReference/API_DeleteProjectPolicy.md")                                                          | Grants permission to delete a resource policy attached to a project                                                                                                                                                                                                                                                           | [project\*](#list_rekognition-resource-project "#list_rekognition-resource-project")                         | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [DeleteProjectVersion](../../../rekognition/latest/APIReference/API_DeleteProjectVersion.md "../../../rekognition/latest/APIReference/API_DeleteProjectVersion.md")                                                       | Grants permission to delete a model                                                                                                                                                                                                                                                                                           | [projectversion\*](#list_rekognition-resource-projectversion "#list_rekognition-resource-projectversion")    | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [DeleteStreamProcessor](../../../rekognition/latest/APIReference/API_DeleteStreamProcessor.md "../../../rekognition/latest/APIReference/API_DeleteStreamProcessor.md")                                                    | Grants permission to delete the specified stream processor                                                                                                                                                                                                                                                                    | [streamprocessor\*](#list_rekognition-resource-streamprocessor "#list_rekognition-resource-streamprocessor") | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [DeleteUser](../../../rekognition/latest/APIReference/API_DeleteUser.md "../../../rekognition/latest/APIReference/API_DeleteUser.md")                                                                                     | Grants permission to delete a user from a collection based on the provided user ID                                                                                                                                                                                                                                            | [collection\*](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [DescribeCollection](../../../rekognition/latest/APIReference/API_DescribeCollection.md "../../../rekognition/latest/APIReference/API_DescribeCollection.md")                                                             | Grants permission to read details about a collection                                                                                                                                                                                                                                                                          | [collection\*](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Read           |
-| [DescribeDataset](../../../rekognition/latest/APIReference/API_DescribeDataset.md "../../../rekognition/latest/APIReference/API_DescribeDataset.md")                                                                      | Grants permission to describe an Amazon Rekognition Custom Labels dataset                                                                                                                                                                                                                                                     | [dataset\*](#list_rekognition-resource-dataset "#list_rekognition-resource-dataset")                         | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Read           |
-| [DescribeProjectVersions](../../../rekognition/latest/APIReference/API_DescribeProjectVersions.md "../../../rekognition/latest/APIReference/API_DescribeProjectVersions.md")                                              | Grants permission to list the versions of a model in an Amazon Rekognition Custom Labels project                                                                                                                                                                                                                              | [project\*](#list_rekognition-resource-project "#list_rekognition-resource-project")                         | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Read           |
-| [DescribeProjects](../../../rekognition/latest/APIReference/API_DescribeProjects.md "../../../rekognition/latest/APIReference/API_DescribeProjects.md")                                                                   | Grants permission to list Amazon Rekognition Custom Labels projects                                                                                                                                                                                                                                                           |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [DescribeStreamProcessor](../../../rekognition/latest/APIReference/API_DescribeStreamProcessor.md "../../../rekognition/latest/APIReference/API_DescribeStreamProcessor.md")                                              | Grants permission to get information about the specified stream processor                                                                                                                                                                                                                                                     | [streamprocessor\*](#list_rekognition-resource-streamprocessor "#list_rekognition-resource-streamprocessor") | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Read           |
-| [DetectCustomLabels](../../../rekognition/latest/APIReference/API_DetectCustomLabels.md "../../../rekognition/latest/APIReference/API_DetectCustomLabels.md")                                                             | Grants permission to detect custom labels in a supplied image                                                                                                                                                                                                                                                                 | [projectversion\*](#list_rekognition-resource-projectversion "#list_rekognition-resource-projectversion")    | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Read           |
-| [DetectFaces](../../../rekognition/latest/APIReference/API_DetectFaces.md "../../../rekognition/latest/APIReference/API_DetectFaces.md")                                                                                  | Grants permission to detect human faces within an image provided as input                                                                                                                                                                                                                                                     |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [DetectLabels](../../../rekognition/latest/APIReference/API_DetectLabels.md "../../../rekognition/latest/APIReference/API_DetectLabels.md")                                                                               | Grants permission to detect instances of real-world labels within an image provided as input                                                                                                                                                                                                                                  |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [DetectModerationLabels](../../../rekognition/latest/APIReference/API_DetectModerationLabels.md "../../../rekognition/latest/APIReference/API_DetectModerationLabels.md")                                                 | Grants permission to detect moderation labels within the input image                                                                                                                                                                                                                                                          | [projectversion](#list_rekognition-resource-projectversion "#list_rekognition-resource-projectversion")      | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Read           |
-| [DetectProtectiveEquipment](../../../rekognition/latest/APIReference/API_DetectProtectiveEquipment.md "../../../rekognition/latest/APIReference/API_DetectProtectiveEquipment.md")                                        | Grants permission to detect Personal Protective Equipment in the input image                                                                                                                                                                                                                                                  |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [DetectText](../../../rekognition/latest/APIReference/API_DetectText.md "../../../rekognition/latest/APIReference/API_DetectText.md")                                                                                     | Grants permission to detect text in the input image and convert it into machine-readable text                                                                                                                                                                                                                                 |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [DisassociateFaces](../../../rekognition/latest/APIReference/API_DisassociateFaces.md "../../../rekognition/latest/APIReference/API_DisassociateFaces.md")                                                                | Grants permission to remove the association between a user ID and a face ID                                                                                                                                                                                                                                                   | [collection\*](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [DistributeDatasetEntries](../../../rekognition/latest/APIReference/API_DistributeDatasetEntries.md "../../../rekognition/latest/APIReference/API_DistributeDatasetEntries.md")                                           | Grants permission to distribute the entries in a training dataset across the training dataset and the test dataset for a project                                                                                                                                                                                              | [dataset\*](#list_rekognition-resource-dataset "#list_rekognition-resource-dataset")                         | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [GetCelebrityInfo](../../../rekognition/latest/APIReference/API_GetCelebrityInfo.md "../../../rekognition/latest/APIReference/API_GetCelebrityInfo.md")                                                                   | Grants permission to read the name, and additional information, of a celebrity                                                                                                                                                                                                                                                |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [GetCelebrityRecognition](../../../rekognition/latest/APIReference/API_GetCelebrityRecognition.md "../../../rekognition/latest/APIReference/API_GetCelebrityRecognition.md")                                              | Grants permission to read the celebrity recognition results found in a stored video by an asynchronous celebrity recognition job                                                                                                                                                                                              |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [GetContentModeration](../../../rekognition/latest/APIReference/API_GetContentModeration.md "../../../rekognition/latest/APIReference/API_GetContentModeration.md")                                                       | Grants permission to read the content moderation analysis results found in a stored video by an asynchronous content moderation job                                                                                                                                                                                           |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [GetFaceDetection](../../../rekognition/latest/APIReference/API_GetFaceDetection.md "../../../rekognition/latest/APIReference/API_GetFaceDetection.md")                                                                   | Grants permission to read the faces detection results found in a stored video by an asynchronous face detection job                                                                                                                                                                                                           |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [GetFaceLivenessSessionResults](../../../rekognition/latest/APIReference/API_GetFaceLivenessSessionResults.md "../../../rekognition/latest/APIReference/API_GetFaceLivenessSessionResults.md")                            | Grants permission to get results of a face liveness session                                                                                                                                                                                                                                                                   |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [GetFaceSearch](../../../rekognition/latest/APIReference/API_GetFaceSearch.md "../../../rekognition/latest/APIReference/API_GetFaceSearch.md")                                                                            | Grants permission to read the matching collection faces found in a stored video by an asynchronous face search job                                                                                                                                                                                                            |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [GetLabelDetection](../../../rekognition/latest/APIReference/API_GetLabelDetection.md "../../../rekognition/latest/APIReference/API_GetLabelDetection.md")                                                                | Grants permission to read the label detected resuls found in a stored video by an asynchronous label detection job                                                                                                                                                                                                            |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [GetMediaAnalysisJob](../../../rekognition/latest/APIReference/API_GetMediaAnalysisJob.md "../../../rekognition/latest/APIReference/API_GetMediaAnalysisJob.md")                                                          | Grants permission to read the reference to job results in S3 and additional information about a media analysis job                                                                                                                                                                                                            |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [GetPersonTracking](../../../rekognition/latest/APIReference/API_GetPersonTracking.md "../../../rekognition/latest/APIReference/API_GetPersonTracking.md")                                                                | Grants permission to read the list of persons detected in a stored video by an asynchronous person tracking job                                                                                                                                                                                                               |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [GetSegmentDetection](../../../rekognition/latest/APIReference/API_GetSegmentDetection.md "../../../rekognition/latest/APIReference/API_GetSegmentDetection.md")                                                          | Grants permission to get the vdeo segments found in a stored video by an asynchronous segment detection job                                                                                                                                                                                                                   |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [GetTextDetection](../../../rekognition/latest/APIReference/API_GetTextDetection.md "../../../rekognition/latest/APIReference/API_GetTextDetection.md")                                                                   | Grants permission to get the text found in a stored video by an asynchronous text detection job                                                                                                                                                                                                                               |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [IndexFaces](../../../rekognition/latest/APIReference/API_IndexFaces.md "../../../rekognition/latest/APIReference/API_IndexFaces.md")                                                                                     | Grants permission to update an existing collection with faces detected in the input image                                                                                                                                                                                                                                     | [collection\*](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [ListCollections](../../../rekognition/latest/APIReference/API_ListCollections.md "../../../rekognition/latest/APIReference/API_ListCollections.md")                                                                      | Grants permission to read the collection Id's in your account                                                                                                                                                                                                                                                                 |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [ListDatasetEntries](../../../rekognition/latest/APIReference/API_ListDatasetEntries.md "../../../rekognition/latest/APIReference/API_ListDatasetEntries.md")                                                             | Grants permission to list the dataset entries in an existing Amazon Rekognition Custom Labels dataset                                                                                                                                                                                                                         | [dataset\*](#list_rekognition-resource-dataset "#list_rekognition-resource-dataset")                         | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Read           |
-| [ListDatasetLabels](../../../rekognition/latest/APIReference/API_ListDatasetLabels.md "../../../rekognition/latest/APIReference/API_ListDatasetLabels.md")                                                                | Grants permission to list the labels in a dataset                                                                                                                                                                                                                                                                             | [dataset\*](#list_rekognition-resource-dataset "#list_rekognition-resource-dataset")                         | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Read           |
-| [ListFaces](../../../rekognition/latest/APIReference/API_ListFaces.md "../../../rekognition/latest/APIReference/API_ListFaces.md")                                                                                        | Grants permission to read metadata for faces in the specificed collection                                                                                                                                                                                                                                                     | [collection\*](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Read           |
-| [ListMediaAnalysisJobs](../../../rekognition/latest/APIReference/API_ListMediaAnalysisJobs.md "../../../rekognition/latest/APIReference/API_ListMediaAnalysisJobs.md")                                                    | Grants permission to read the list of media analysis jobs                                                                                                                                                                                                                                                                     |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [ListProjectPolicies](../../../rekognition/latest/APIReference/API_ListProjectPolicies.md "../../../rekognition/latest/APIReference/API_ListProjectPolicies.md")                                                          | Grants permission to list the resource policies attached to a project                                                                                                                                                                                                                                                         | [project\*](#list_rekognition-resource-project "#list_rekognition-resource-project")                         | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Read           |
-| [ListStreamProcessors](../../../rekognition/latest/APIReference/API_ListStreamProcessors.md "../../../rekognition/latest/APIReference/API_ListStreamProcessors.md")                                                       | Grants permission to get a list of your stream processors                                                                                                                                                                                                                                                                     |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | List           |
-| [ListTagsForResource](../../../rekognition/latest/APIReference/API_ListTagsForResource.md "../../../rekognition/latest/APIReference/API_ListTagsForResource.md")                                                          | Grants permission to return a list of tags associated with a resource                                                                                                                                                                                                                                                         | [collection](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                  | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Read           |
-| [dataset](#list_rekognition-resource-dataset "#list_rekognition-resource-dataset")                                                                                                                                        | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        |
-| [project](#list_rekognition-resource-project "#list_rekognition-resource-project")                                                                                                                                        | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        |
-| [projectversion](#list_rekognition-resource-projectversion "#list_rekognition-resource-projectversion")                                                                                                                   | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        |
-| [streamprocessor](#list_rekognition-resource-streamprocessor "#list_rekognition-resource-streamprocessor")                                                                                                                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        |
-| [ListUsers](../../../rekognition/latest/APIReference/API_ListUsers.md "../../../rekognition/latest/APIReference/API_ListUsers.md")                                                                                        | Grants permission to list UserIds and the UserStatus                                                                                                                                                                                                                                                                          | [collection\*](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Read           |
-| [PutProjectPolicy](../../../rekognition/latest/APIReference/API_PutProjectPolicy.md "../../../rekognition/latest/APIReference/API_PutProjectPolicy.md")                                                                   | Grants permission to attach a resource policy to a project                                                                                                                                                                                                                                                                    | [project\*](#list_rekognition-resource-project "#list_rekognition-resource-project")                         | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [RecognizeCelebrities](../../../rekognition/latest/APIReference/API_RecognizeCelebrities.md "../../../rekognition/latest/APIReference/API_RecognizeCelebrities.md")                                                       | Grants permission to detect celebrities in the input image                                                                                                                                                                                                                                                                    |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Read           |
-| [SearchFaces](../../../rekognition/latest/APIReference/API_SearchFaces.md "../../../rekognition/latest/APIReference/API_SearchFaces.md")                                                                                  | Grants permission to search the specificed collection for the supplied face ID                                                                                                                                                                                                                                                | [collection\*](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Read           |
-| [SearchFacesByImage](../../../rekognition/latest/APIReference/API_SearchFacesByImage.md "../../../rekognition/latest/APIReference/API_SearchFacesByImage.md")                                                             | Grants permission to search the specificed collection for the largest face in the input image                                                                                                                                                                                                                                 | [collection\*](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Read           |
-| [SearchUsers](../../../rekognition/latest/APIReference/API_SearchUsers.md "../../../rekognition/latest/APIReference/API_SearchUsers.md")                                                                                  | Grants permission to search the specificed collection for user match result with given either face ID or user ID                                                                                                                                                                                                              | [collection\*](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Read           |
-| [SearchUsersByImage](../../../rekognition/latest/APIReference/API_SearchUsersByImage.md "../../../rekognition/latest/APIReference/API_SearchUsersByImage.md")                                                             | Grants permission to search the specificed collection for user match result by using the largest face in the input image                                                                                                                                                                                                      | [collection\*](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Read           |
-| [StartCelebrityRecognition](../../../rekognition/latest/APIReference/API_StartCelebrityRecognition.md "../../../rekognition/latest/APIReference/API_StartCelebrityRecognition.md")                                        | Grants permission to start the asynchronous recognition of celebrities in a stored video                                                                                                                                                                                                                                      |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Write          |
-| [StartContentModeration](../../../rekognition/latest/APIReference/API_StartContentModeration.md "../../../rekognition/latest/APIReference/API_StartContentModeration.md")                                                 | Grants permission to start asynchronous detection of explicit or suggestive adult content in a stored video                                                                                                                                                                                                                   |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Write          |
-| [StartFaceDetection](../../../rekognition/latest/APIReference/API_StartFaceDetection.md "../../../rekognition/latest/APIReference/API_StartFaceDetection.md")                                                             | Grants permission to start asynchronous detection of faces in a stored video                                                                                                                                                                                                                                                  |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Write          |
-| [StartFaceLivenessSession](../../../rekognition/latest/APIReference/API_rekognitionstreaming_StartFaceLivenessSession.md "../../../rekognition/latest/APIReference/API_rekognitionstreaming_StartFaceLivenessSession.md") | Grants permission to start streaming video for a face liveness session                                                                                                                                                                                                                                                        |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Write          |
-| [StartFaceSearch](../../../rekognition/latest/APIReference/API_StartFaceSearch.md "../../../rekognition/latest/APIReference/API_StartFaceSearch.md")                                                                      | Grants permission to start an asynchronous search for faces in a collection that match the faces of persons detected in a stored video                                                                                                                                                                                        | [collection\*](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [StartLabelDetection](../../../rekognition/latest/APIReference/API_StartLabelDetection.md "../../../rekognition/latest/APIReference/API_StartLabelDetection.md")                                                          | Grants permission to start asynchronous detection of labels in a stored video                                                                                                                                                                                                                                                 |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Write          |
-| [StartMediaAnalysisJob](../../../rekognition/latest/APIReference/API_StartMediaAnalysisJob.md "../../../rekognition/latest/APIReference/API_StartMediaAnalysisJob.md")                                                    | Grants permission to start a media analysis job                                                                                                                                                                                                                                                                               | [projectversion](#list_rekognition-resource-projectversion "#list_rekognition-resource-projectversion")      | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [StartPersonTracking](../../../rekognition/latest/APIReference/API_StartPersonTracking.md "../../../rekognition/latest/APIReference/API_StartPersonTracking.md")                                                          | Grants permission to start the asynchronous tracking of persons in a stored video                                                                                                                                                                                                                                             |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Write          |
-| [StartProjectVersion](../../../rekognition/latest/APIReference/API_StartProjectVersion.md "../../../rekognition/latest/APIReference/API_StartProjectVersion.md")                                                          | Grants permission to start running a model version                                                                                                                                                                                                                                                                            | [projectversion\*](#list_rekognition-resource-projectversion "#list_rekognition-resource-projectversion")    | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [StartSegmentDetection](../../../rekognition/latest/APIReference/API_StartSegmentDetection.md "../../../rekognition/latest/APIReference/API_StartSegmentDetection.md")                                                    | Grants permission to start the asynchronous detection of segments in a stored video                                                                                                                                                                                                                                           |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Write          |
-| [StartStreamProcessor](../../../rekognition/latest/APIReference/API_StartStreamProcessor.md "../../../rekognition/latest/APIReference/API_StartStreamProcessor.md")                                                       | Grants permission to start running a stream processor                                                                                                                                                                                                                                                                         | [streamprocessor\*](#list_rekognition-resource-streamprocessor "#list_rekognition-resource-streamprocessor") | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [StartTextDetection](../../../rekognition/latest/APIReference/API_StartTextDetection.md "../../../rekognition/latest/APIReference/API_StartTextDetection.md")                                                             | Grants permission to start the asynchronous detection of text in a stored video                                                                                                                                                                                                                                               |                                                                                                              |                                                                                                                                                                                                                                                                                                                               | Write          |
-| [StopProjectVersion](../../../rekognition/latest/APIReference/API_StopProjectVersion.md "../../../rekognition/latest/APIReference/API_StopProjectVersion.md")                                                             | Grants permission to stop a running model version                                                                                                                                                                                                                                                                             | [projectversion\*](#list_rekognition-resource-projectversion "#list_rekognition-resource-projectversion")    | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [StopStreamProcessor](../../../rekognition/latest/APIReference/API_StopStreamProcessor.md "../../../rekognition/latest/APIReference/API_StopStreamProcessor.md")                                                          | Grants permission to stop a running stream processor                                                                                                                                                                                                                                                                          | [streamprocessor\*](#list_rekognition-resource-streamprocessor "#list_rekognition-resource-streamprocessor") | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [TagResource](../../../rekognition/latest/APIReference/API_TagResource.md "../../../rekognition/latest/APIReference/API_TagResource.md")                                                                                  | Grants permission to add one or more tags to a resource                                                                                                                                                                                                                                                                       | [collection](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                  | [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_ "#list_rekognition-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys") | Tagging, Write |
-| [dataset](#list_rekognition-resource-dataset "#list_rekognition-resource-dataset")                                                                                                                                        | [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_ "#list_rekognition-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys") |
-| [project](#list_rekognition-resource-project "#list_rekognition-resource-project")                                                                                                                                        | [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_ "#list_rekognition-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys") |
-| [projectversion](#list_rekognition-resource-projectversion "#list_rekognition-resource-projectversion")                                                                                                                   | [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_ "#list_rekognition-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys") |
-| [streamprocessor](#list_rekognition-resource-streamprocessor "#list_rekognition-resource-streamprocessor")                                                                                                                | [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_ "#list_rekognition-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys") |
-| [UntagResource](../../../rekognition/latest/APIReference/API_UntagResource.md "../../../rekognition/latest/APIReference/API_UntagResource.md")                                                                            | Grants permission to remove one or more tags from a resource                                                                                                                                                                                                                                                                  | [collection](#list_rekognition-resource-collection "#list_rekognition-resource-collection")                  | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys")                                                                                                                        | Tagging, Write |
-| [dataset](#list_rekognition-resource-dataset "#list_rekognition-resource-dataset")                                                                                                                                        | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys")                                                                                                                        |
-| [project](#list_rekognition-resource-project "#list_rekognition-resource-project")                                                                                                                                        | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys")                                                                                                                        |
-| [projectversion](#list_rekognition-resource-projectversion "#list_rekognition-resource-projectversion")                                                                                                                   | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys")                                                                                                                        |
-| [streamprocessor](#list_rekognition-resource-streamprocessor "#list_rekognition-resource-streamprocessor")                                                                                                                | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_rekognition-aws_TagKeys "#list_rekognition-aws_TagKeys")                                                                                                                        |
-| [UpdateDatasetEntries](../../../rekognition/latest/APIReference/API_UpdateDatasetEntries.md "../../../rekognition/latest/APIReference/API_UpdateDatasetEntries.md")                                                       | Grants permission to add or update one or more JSON Lines (entries) in a dataset                                                                                                                                                                                                                                              | [dataset\*](#list_rekognition-resource-dataset "#list_rekognition-resource-dataset")                         | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
-| [UpdateStreamProcessor](../../../rekognition/latest/APIReference/API_UpdateStreamProcessor.md "../../../rekognition/latest/APIReference/API_UpdateStreamProcessor.md")                                                    | Grants permission to modify properties for a stream processor                                                                                                                                                                                                                                                                 | [streamprocessor\*](#list_rekognition-resource-streamprocessor "#list_rekognition-resource-streamprocessor") | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_")                                                                                                                                                                                                        | Write          |
+
+
+
+- **   [AssociateFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_AssociateFaces.html)  **
+  - **Description:** Grants permission to associate multiple individual faces with a single user
+  - **Resource types (\*required):** [collection\*](#list_rekognition-resource-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CompareFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CompareFaces.html)  **
+  - **Description:** Grants permission to compare faces in the source input image with each face detected in the target input image
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [CopyProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CopyProjectVersion.html)  **
+  - **Description:** Grants permission to copy an existing model version to a new model version
+  - **Resource types (\*required):** [project\*](#list_rekognition-resource-project) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Resource types (\*required):** [projectversion\*](#list_rekognition-resource-projectversion) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateCollection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateCollection.html)  **
+  - **Description:** Grants permission to create a collection in an AWS Region
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDataset](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateDataset.html)  **
+  - **Description:** Grants permission to create a new Amazon Rekognition Custom Labels dataset
+  - **Resource types (\*required):** [project\*](#list_rekognition-resource-project)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateFaceLivenessSession](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateFaceLivenessSession.html)  **
+  - **Description:** Grants permission to create a face liveness session
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateProject](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProject.html)  **
+  - **Description:** Grants permission to create an Amazon Rekognition Custom Labels project
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateProjectVersion.html)  **
+  - **Description:** Grants permission to begin training a new version of a model 
+  - **Resource types (\*required):** [project\*](#list_rekognition-resource-project)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateStreamProcessor.html)  **
+  - **Description:** Grants permission to create an Amazon Rekognition stream processor
+  - **Resource types (\*required):** [collection\*](#list_rekognition-resource-collection)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateUser](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateUser.html)  **
+  - **Description:** Grants permission to create a new user in a collection using a unique user ID you provide
+  - **Resource types (\*required):** [collection\*](#list_rekognition-resource-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteCollection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteCollection.html)  **
+  - **Description:** Grants permission to delete the specified collection
+  - **Resource types (\*required):** [collection\*](#list_rekognition-resource-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDataset](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteDataset.html)  **
+  - **Description:** Grants permission to delete an existing Amazon Rekognition Custom Labels dataset
+  - **Resource types (\*required):** [dataset\*](#list_rekognition-resource-dataset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteFaces.html)  **
+  - **Description:** Grants permission to delete faces from a collection
+  - **Resource types (\*required):** [collection\*](#list_rekognition-resource-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteProject](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProject.html)  **
+  - **Description:** Grants permission to delete a project
+  - **Resource types (\*required):** [project\*](#list_rekognition-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteProjectPolicy](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectPolicy.html)  **
+  - **Description:** Grants permission to delete a resource policy attached to a project
+  - **Resource types (\*required):** [project\*](#list_rekognition-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteProjectVersion.html)  **
+  - **Description:** Grants permission to delete a model
+  - **Resource types (\*required):** [projectversion\*](#list_rekognition-resource-projectversion)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteStreamProcessor.html)  **
+  - **Description:** Grants permission to delete the specified stream processor
+  - **Resource types (\*required):** [streamprocessor\*](#list_rekognition-resource-streamprocessor)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteUser](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteUser.html)  **
+  - **Description:** Grants permission to delete a user from a collection based on the provided user ID
+  - **Resource types (\*required):** [collection\*](#list_rekognition-resource-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeCollection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeCollection.html)  **
+  - **Description:** Grants permission to read details about a collection
+  - **Resource types (\*required):** [collection\*](#list_rekognition-resource-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeDataset](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeDataset.html)  **
+  - **Description:** Grants permission to describe an Amazon Rekognition Custom Labels dataset
+  - **Resource types (\*required):** [dataset\*](#list_rekognition-resource-dataset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeProjectVersions](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeProjectVersions.html)  **
+  - **Description:** Grants permission to list the versions of a model in an Amazon Rekognition Custom Labels project
+  - **Resource types (\*required):** [project\*](#list_rekognition-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeProjects](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeProjects.html)  **
+  - **Description:** Grants permission to list Amazon Rekognition Custom Labels projects
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeStreamProcessor.html)  **
+  - **Description:** Grants permission to get information about the specified stream processor
+  - **Resource types (\*required):** [streamprocessor\*](#list_rekognition-resource-streamprocessor)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DetectCustomLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectCustomLabels.html)  **
+  - **Description:** Grants permission to detect custom labels in a supplied image
+  - **Resource types (\*required):** [projectversion\*](#list_rekognition-resource-projectversion)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DetectFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectFaces.html)  **
+  - **Description:** Grants permission to detect human faces within an image provided as input
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DetectLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectLabels.html)  **
+  - **Description:** Grants permission to detect instances of real-world labels within an image provided as input
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DetectModerationLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectModerationLabels.html)  **
+  - **Description:** Grants permission to detect moderation labels within the input image
+  - **Resource types (\*required):** [projectversion](#list_rekognition-resource-projectversion)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DetectProtectiveEquipment](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectProtectiveEquipment.html)  **
+  - **Description:** Grants permission to detect Personal Protective Equipment in the input image
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DetectText](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectText.html)  **
+  - **Description:** Grants permission to detect text in the input image and convert it into machine-readable text
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DisassociateFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DisassociateFaces.html)  **
+  - **Description:** Grants permission to remove the association between a user ID and a face ID
+  - **Resource types (\*required):** [collection\*](#list_rekognition-resource-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DistributeDatasetEntries](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DistributeDatasetEntries.html)  **
+  - **Description:** Grants permission to distribute the entries in a training dataset across the training dataset and the test dataset for a project
+  - **Resource types (\*required):** [dataset\*](#list_rekognition-resource-dataset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetCelebrityInfo](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityInfo.html)  **
+  - **Description:** Grants permission to read the name, and additional information, of a celebrity
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetCelebrityRecognition](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityRecognition.html)  **
+  - **Description:** Grants permission to read the celebrity recognition results found in a stored video by an asynchronous celebrity recognition job
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetContentModeration](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetContentModeration.html)  **
+  - **Description:** Grants permission to read the content moderation analysis results found in a stored video by an asynchronous content moderation job
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetFaceDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceDetection.html)  **
+  - **Description:** Grants permission to read the faces detection results found in a stored video by an asynchronous face detection job
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetFaceLivenessSessionResults](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceLivenessSessionResults.html)  **
+  - **Description:** Grants permission to get results of a face liveness session
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetFaceSearch](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetFaceSearch.html)  **
+  - **Description:** Grants permission to read the matching collection faces found in a stored video by an asynchronous face search job
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetLabelDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetLabelDetection.html)  **
+  - **Description:** Grants permission to read the label detected resuls found in a stored video by an asynchronous label detection job
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetMediaAnalysisJob](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetMediaAnalysisJob.html)  **
+  - **Description:** Grants permission to read the reference to job results in S3 and additional information about a media analysis job
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetPersonTracking](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetPersonTracking.html)  **
+  - **Description:** Grants permission to read the list of persons detected in a stored video by an asynchronous person tracking job
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetSegmentDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetSegmentDetection.html)  **
+  - **Description:** Grants permission to get the vdeo segments found in a stored video by an asynchronous segment detection job
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetTextDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetTextDetection.html)  **
+  - **Description:** Grants permission to get the text found in a stored video by an asynchronous text detection job
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [IndexFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_IndexFaces.html)  **
+  - **Description:** Grants permission to update an existing collection with faces detected in the input image
+  - **Resource types (\*required):** [collection\*](#list_rekognition-resource-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ListCollections](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListCollections.html)  **
+  - **Description:** Grants permission to read the collection Id's in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListDatasetEntries](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetEntries.html)  **
+  - **Description:** Grants permission to list the dataset entries in an existing Amazon Rekognition Custom Labels dataset
+  - **Resource types (\*required):** [dataset\*](#list_rekognition-resource-dataset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListDatasetLabels](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListDatasetLabels.html)  **
+  - **Description:** Grants permission to list the labels in a dataset
+  - **Resource types (\*required):** [dataset\*](#list_rekognition-resource-dataset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListFaces.html)  **
+  - **Description:** Grants permission to read metadata for faces in the specificed collection
+  - **Resource types (\*required):** [collection\*](#list_rekognition-resource-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListMediaAnalysisJobs](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListMediaAnalysisJobs.html)  **
+  - **Description:** Grants permission to read the list of media analysis jobs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListProjectPolicies](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListProjectPolicies.html)  **
+  - **Description:** Grants permission to list the resource policies attached to a project
+  - **Resource types (\*required):** [project\*](#list_rekognition-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListStreamProcessors](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListStreamProcessors.html)  **
+  - **Description:** Grants permission to get a list of your stream processors
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to return a list of tags associated with a resource
+  - **Resource types (\*required):** [collection](#list_rekognition-resource-collection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [dataset](#list_rekognition-resource-dataset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [project](#list_rekognition-resource-project) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [projectversion](#list_rekognition-resource-projectversion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [streamprocessor](#list_rekognition-resource-streamprocessor) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListUsers](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListUsers.html)  **
+  - **Description:** Grants permission to list UserIds and the UserStatus
+  - **Resource types (\*required):** [collection\*](#list_rekognition-resource-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [PutProjectPolicy](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_PutProjectPolicy.html)  **
+  - **Description:** Grants permission to attach a resource policy to a project
+  - **Resource types (\*required):** [project\*](#list_rekognition-resource-project)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RecognizeCelebrities](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_RecognizeCelebrities.html)  **
+  - **Description:** Grants permission to detect celebrities in the input image
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [SearchFaces](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFaces.html)  **
+  - **Description:** Grants permission to search the specificed collection for the supplied face ID
+  - **Resource types (\*required):** [collection\*](#list_rekognition-resource-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [SearchFacesByImage](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFacesByImage.html)  **
+  - **Description:** Grants permission to search the specificed collection for the largest face in the input image
+  - **Resource types (\*required):** [collection\*](#list_rekognition-resource-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [SearchUsers](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsers.html)  **
+  - **Description:** Grants permission to search the specificed collection for user match result with given either face ID or user ID
+  - **Resource types (\*required):** [collection\*](#list_rekognition-resource-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [SearchUsersByImage](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsersByImage.html)  **
+  - **Description:** Grants permission to search the specificed collection for user match result by using the largest face in the input image
+  - **Resource types (\*required):** [collection\*](#list_rekognition-resource-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [StartCelebrityRecognition](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartCelebrityRecognition.html)  **
+  - **Description:** Grants permission to start the asynchronous recognition of celebrities in a stored video
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartContentModeration](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartContentModeration.html)  **
+  - **Description:** Grants permission to start asynchronous detection of explicit or suggestive adult content in a stored video
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartFaceDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartFaceDetection.html)  **
+  - **Description:** Grants permission to start asynchronous detection of faces in a stored video
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartFaceLivenessSession](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_rekognitionstreaming_StartFaceLivenessSession.html)  **
+  - **Description:** Grants permission to start streaming video for a face liveness session
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartFaceSearch](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartFaceSearch.html)  **
+  - **Description:** Grants permission to start an asynchronous search for faces in a collection that match the faces of persons detected in a stored video
+  - **Resource types (\*required):** [collection\*](#list_rekognition-resource-collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartLabelDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartLabelDetection.html)  **
+  - **Description:** Grants permission to start asynchronous detection of labels in a stored video
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartMediaAnalysisJob](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartMediaAnalysisJob.html)  **
+  - **Description:** Grants permission to start a media analysis job
+  - **Resource types (\*required):** [projectversion](#list_rekognition-resource-projectversion)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartPersonTracking](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartPersonTracking.html)  **
+  - **Description:** Grants permission to start the asynchronous tracking of persons in a stored video
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartProjectVersion.html)  **
+  - **Description:** Grants permission to start running a model version
+  - **Resource types (\*required):** [projectversion\*](#list_rekognition-resource-projectversion)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartSegmentDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartSegmentDetection.html)  **
+  - **Description:** Grants permission to start the asynchronous detection of segments in a stored video
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartStreamProcessor.html)  **
+  - **Description:** Grants permission to start running a stream processor
+  - **Resource types (\*required):** [streamprocessor\*](#list_rekognition-resource-streamprocessor)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartTextDetection](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartTextDetection.html)  **
+  - **Description:** Grants permission to start the asynchronous detection of text in a stored video
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StopProjectVersion](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopProjectVersion.html)  **
+  - **Description:** Grants permission to stop a running model version
+  - **Resource types (\*required):** [projectversion\*](#list_rekognition-resource-projectversion)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StopStreamProcessor.html)  **
+  - **Description:** Grants permission to stop a running stream processor
+  - **Resource types (\*required):** [streamprocessor\*](#list_rekognition-resource-streamprocessor)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to add one or more tags to a resource
+  - **Resource types (\*required):** [collection](#list_rekognition-resource-collection) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Resource types (\*required):** [dataset](#list_rekognition-resource-dataset) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Resource types (\*required):** [project](#list_rekognition-resource-project) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Resource types (\*required):** [projectversion](#list_rekognition-resource-projectversion) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Resource types (\*required):** [streamprocessor](#list_rekognition-resource-streamprocessor) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_rekognition-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove one or more tags from a resource
+  - **Resource types (\*required):** [collection](#list_rekognition-resource-collection) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Resource types (\*required):** [dataset](#list_rekognition-resource-dataset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Resource types (\*required):** [project](#list_rekognition-resource-project) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Resource types (\*required):** [projectversion](#list_rekognition-resource-projectversion) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Resource types (\*required):** [streamprocessor](#list_rekognition-resource-streamprocessor) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_rekognition-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateDatasetEntries](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateDatasetEntries.html)  **
+  - **Description:** Grants permission to add or update one or more JSON Lines (entries) in a dataset
+  - **Resource types (\*required):** [dataset\*](#list_rekognition-resource-dataset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateStreamProcessor](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_UpdateStreamProcessor.html)  **
+  - **Description:** Grants permission to modify properties for a stream processor
+  - **Resource types (\*required):** [streamprocessor\*](#list_rekognition-resource-streamprocessor)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon Rekognition
+<a name="list_rekognition-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                  | ARN                                                                                                                  | Condition keys                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| [collection](../../../rekognition/latest/dg/collections.md "../../../rekognition/latest/dg/collections.md")                                     | arn:${Partition}:rekognition:${Region}:${Account}:collection/${CollectionId}                                         | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_") |
-| [dataset](../../../rekognition/latest/customlabels-dg/creating-datasets.md "../../../rekognition/latest/customlabels-dg/creating-datasets.md")  | arn:${Partition}:rekognition:${Region}:${Account}:project/${ProjectName}/dataset/${DatasetType}/${CreationTimestamp} | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_") |
-| [project](../../../rekognition/latest/customlabels-dg/mp-create-project.md "../../../rekognition/latest/customlabels-dg/mp-create-project.md")  | arn:${Partition}:rekognition:${Region}:${Account}:project/${ProjectName}/${CreationTimestamp}                        | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_") |
-| [projectversion](../../../rekognition/latest/customlabels-dg/training-model.md "../../../rekognition/latest/customlabels-dg/training-model.md") | arn:${Partition}:rekognition:${Region}:${Account}:project/${ProjectName}/version/${VersionName}/${CreationTimestamp} | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_") |
-| [streamprocessor](../../../rekognition/latest/dg/streaming-video.md "../../../rekognition/latest/dg/streaming-video.md")                        | arn:${Partition}:rekognition:${Region}:${Account}:streamprocessor/${StreamprocessorId}                               | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_ "#list_rekognition-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [collection](https://docs.aws.amazon.com/rekognition/latest/dg/collections.html)  | arn:${Partition}:rekognition:${Region}:${Account}:collection/${CollectionId} | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_) | 
+|  [dataset](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/creating-datasets.html)  | arn:${Partition}:rekognition:${Region}:${Account}:project/${ProjectName}/dataset/${DatasetType}/${CreationTimestamp} | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_) | 
+|  [project](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/mp-create-project.html)  | arn:${Partition}:rekognition:${Region}:${Account}:project/${ProjectName}/${CreationTimestamp} | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_) | 
+|  [projectversion](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/training-model.html)  | arn:${Partition}:rekognition:${Region}:${Account}:project/${ProjectName}/version/${VersionName}/${CreationTimestamp} | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_) | 
+|  [streamprocessor](https://docs.aws.amazon.com/rekognition/latest/dg/streaming-video.html)  | arn:${Partition}:rekognition:${Region}:${Account}:streamprocessor/${StreamprocessorId} | [aws:ResourceTag/${TagKey}](#list_rekognition-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Rekognition
+<a name="list_rekognition-policy-keys"></a>
 
-Amazon Rekognition defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Rekognition defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                               | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by tags associated with the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by tag keys that are passed in the request | ArrayOfString | 

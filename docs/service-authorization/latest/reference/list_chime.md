@@ -1,817 +1,3910 @@
-# Actions, resources, and condition keys for Amazon Chime
 
-Amazon Chime (service prefix: `chime`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Chime
+<a name="list_chime"></a>
+
+Amazon Chime (service prefix: `chime`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/chime/latest/ug/what-is-chime.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/chime/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/chime/latest/ag/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/chime/chime.json) for this service.
 
-- Learn how to [configure this service](../../../chime/latest/ug/what-is-chime.md "../../../chime/latest/ug/what-is-chime.md").
-- View a list of the [API operations available for
-  this service](../../../chime/latest/APIReference.md "../../../chime/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../chime/latest/ag/security-iam.md "../../../chime/latest/ag/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/chime/chime.json "https://servicereference.us-east-1.amazonaws.com/v1/chime/chime.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon Chime](#list_chime-operations "#list_chime-operations")
-- [Actions defined by Amazon Chime](#list_chime-actions-as-permissions "#list_chime-actions-as-permissions")
-- [Permission-only actions for Amazon Chime](#list_chime-permission-only-actions "#list_chime-permission-only-actions")
-- [Resource types defined by Amazon Chime](#list_chime-resources-for-iam-policies "#list_chime-resources-for-iam-policies")
-- [Condition keys for Amazon Chime](#list_chime-policy-keys "#list_chime-policy-keys")
+**Topics**
++ [API operations defined by Amazon Chime](#list_chime-operations)
++ [Actions defined by Amazon Chime](#list_chime-actions-as-permissions)
++ [Permission-only actions for Amazon Chime](#list_chime-permission-only-actions)
++ [Resource types defined by Amazon Chime](#list_chime-resources-for-iam-policies)
++ [Condition keys for Amazon Chime](#list_chime-policy-keys)
 
 ## API operations defined by Amazon Chime
+<a name="list_chime-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_chime-actions-as-permissions "#list_chime-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_chime-actions-as-permissions).
 
-| Operation                                                                                                                                                       | SDK client                | IAM action                                                                                                                                                                                             | Condition key  | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | ----------------- | -------------- |
-| BatchCreateRoomMembership                                                                                                                                       | chime                     | [chime:BatchCreateRoomMembership](#list_chime-action-BatchCreateRoomMembership "#list_chime-action-BatchCreateRoomMembership")                                                                         |                |                   | Write          |
-| BatchDeletePhoneNumber                                                                                                                                          | chime                     | [chime:BatchDeletePhoneNumber](#list_chime-action-BatchDeletePhoneNumber "#list_chime-action-BatchDeletePhoneNumber")                                                                                  |                |                   | Write          |
-| BatchUpdatePhoneNumber                                                                                                                                          | chime                     | [chime:BatchUpdatePhoneNumber](#list_chime-action-BatchUpdatePhoneNumber "#list_chime-action-BatchUpdatePhoneNumber")                                                                                  |                |                   | Write          |
-| CreateAccount                                                                                                                                                   | chime                     | [chime:CreateAccount](#list_chime-action-CreateAccount "#list_chime-action-CreateAccount")                                                                                                             |                |                   | Write          |
-| CreateBot                                                                                                                                                       | chime                     | [chime:CreateBot](#list_chime-action-CreateBot "#list_chime-action-CreateBot")                                                                                                                         |                |                   | Write          |
-| CreateMeetingDialOut                                                                                                                                            | chime                     | [chime:CreateMeetingDialOut](#list_chime-action-CreateMeetingDialOut "#list_chime-action-CreateMeetingDialOut")                                                                                        |                |                   | Write          |
-| CreatePhoneNumberOrder                                                                                                                                          | chime                     | [chime:CreatePhoneNumberOrder](#list_chime-action-CreatePhoneNumberOrder "#list_chime-action-CreatePhoneNumberOrder")                                                                                  |                |                   | Write          |
-| CreateRoom                                                                                                                                                      | chime                     | [chime:CreateRoom](#list_chime-action-CreateRoom "#list_chime-action-CreateRoom")                                                                                                                      |                |                   | Write          |
-| CreateRoomMembership                                                                                                                                            | chime                     | [chime:CreateRoomMembership](#list_chime-action-CreateRoomMembership "#list_chime-action-CreateRoomMembership")                                                                                        |                |                   | Write          |
-| DeleteAccount                                                                                                                                                   | chime                     | [chime:DeleteAccount](#list_chime-action-DeleteAccount "#list_chime-action-DeleteAccount")                                                                                                             |                |                   | Write          |
-| DeleteEventsConfiguration                                                                                                                                       | chime                     | [chime:DeleteEventsConfiguration](#list_chime-action-DeleteEventsConfiguration "#list_chime-action-DeleteEventsConfiguration")                                                                         |                |                   | Write          |
-| DeletePhoneNumber                                                                                                                                               | chime                     | [chime:DeletePhoneNumber](#list_chime-action-DeletePhoneNumber "#list_chime-action-DeletePhoneNumber")                                                                                                 |                |                   | Write          |
-| DeleteRoom                                                                                                                                                      | chime                     | [chime:DeleteRoom](#list_chime-action-DeleteRoom "#list_chime-action-DeleteRoom")                                                                                                                      |                |                   | Write          |
-| DeleteRoomMembership                                                                                                                                            | chime                     | [chime:DeleteRoomMembership](#list_chime-action-DeleteRoomMembership "#list_chime-action-DeleteRoomMembership")                                                                                        |                |                   | Write          |
-| GetAccount                                                                                                                                                      | chime                     | [chime:GetAccount](#list_chime-action-GetAccount "#list_chime-action-GetAccount")                                                                                                                      |                |                   | Read           |
-| GetAccountSettings                                                                                                                                              | chime                     | [chime:GetAccountSettings](#list_chime-action-GetAccountSettings "#list_chime-action-GetAccountSettings")                                                                                              |                |                   | Read           |
-| GetBot                                                                                                                                                          | chime                     | [chime:GetBot](#list_chime-action-GetBot "#list_chime-action-GetBot")                                                                                                                                  |                |                   | Read           |
-| GetEventsConfiguration                                                                                                                                          | chime                     | [chime:GetEventsConfiguration](#list_chime-action-GetEventsConfiguration "#list_chime-action-GetEventsConfiguration")                                                                                  |                |                   | Read           |
-| GetGlobalSettings                                                                                                                                               | chime                     | [chime:GetGlobalSettings](#list_chime-action-GetGlobalSettings "#list_chime-action-GetGlobalSettings")                                                                                                 |                |                   | Read           |
-| GetPhoneNumber                                                                                                                                                  | chime                     | [chime:GetPhoneNumber](#list_chime-action-GetPhoneNumber "#list_chime-action-GetPhoneNumber")                                                                                                          |                |                   | Read           |
-| GetPhoneNumberOrder                                                                                                                                             | chime                     | [chime:GetPhoneNumberOrder](#list_chime-action-GetPhoneNumberOrder "#list_chime-action-GetPhoneNumberOrder")                                                                                           |                |                   | Read           |
-| GetPhoneNumberSettings                                                                                                                                          | chime                     | [chime:GetPhoneNumberSettings](#list_chime-action-GetPhoneNumberSettings "#list_chime-action-GetPhoneNumberSettings")                                                                                  |                |                   | Read           |
-| GetRetentionSettings                                                                                                                                            | chime                     | [chime:GetRetentionSettings](#list_chime-action-GetRetentionSettings "#list_chime-action-GetRetentionSettings")                                                                                        |                |                   | Read           |
-| GetRoom                                                                                                                                                         | chime                     | [chime:GetRoom](#list_chime-action-GetRoom "#list_chime-action-GetRoom")                                                                                                                               |                |                   | Read           |
-| GetUser                                                                                                                                                         | chime                     | [chime:GetUser](#list_chime-action-GetUser "#list_chime-action-GetUser")                                                                                                                               |                |                   | Read           |
-| GetUserSettings                                                                                                                                                 | chime                     | [chime:GetUserSettings](#list_chime-action-GetUserSettings "#list_chime-action-GetUserSettings")                                                                                                       |                |                   | Read           |
-| InviteUsers                                                                                                                                                     | chime                     | [chime:InviteUsers](#list_chime-action-InviteUsers "#list_chime-action-InviteUsers")                                                                                                                   |                |                   | Write          |
-| ListAccounts                                                                                                                                                    | chime                     | [chime:ListAccounts](#list_chime-action-ListAccounts "#list_chime-action-ListAccounts")                                                                                                                |                |                   | List           |
-| ListBots                                                                                                                                                        | chime                     | [chime:ListBots](#list_chime-action-ListBots "#list_chime-action-ListBots")                                                                                                                            |                |                   | List           |
-| ListPhoneNumberOrders                                                                                                                                           | chime                     | [chime:ListPhoneNumberOrders](#list_chime-action-ListPhoneNumberOrders "#list_chime-action-ListPhoneNumberOrders")                                                                                     |                |                   | List           |
-| ListPhoneNumbers                                                                                                                                                | chime                     | [chime:ListPhoneNumbers](#list_chime-action-ListPhoneNumbers "#list_chime-action-ListPhoneNumbers")                                                                                                    |                |                   | List           |
-| ListRoomMemberships                                                                                                                                             | chime                     | [chime:ListRoomMemberships](#list_chime-action-ListRoomMemberships "#list_chime-action-ListRoomMemberships")                                                                                           |                |                   | List           |
-| ListRooms                                                                                                                                                       | chime                     | [chime:ListRooms](#list_chime-action-ListRooms "#list_chime-action-ListRooms")                                                                                                                         |                |                   | List           |
-| ListSupportedPhoneNumberCountries                                                                                                                               | chime                     | [chime:ListSupportedPhoneNumberCountries](#list_chime-action-ListSupportedPhoneNumberCountries "#list_chime-action-ListSupportedPhoneNumberCountries")                                                 |                |                   | List           |
-| ListUsers                                                                                                                                                       | chime                     | [chime:ListUsers](#list_chime-action-ListUsers "#list_chime-action-ListUsers")                                                                                                                         |                |                   | List           |
-| LogoutUser                                                                                                                                                      | chime                     | [chime:LogoutUser](#list_chime-action-LogoutUser "#list_chime-action-LogoutUser")                                                                                                                      |                |                   | Write          |
-| PutEventsConfiguration                                                                                                                                          | chime                     | [chime:PutEventsConfiguration](#list_chime-action-PutEventsConfiguration "#list_chime-action-PutEventsConfiguration")                                                                                  |                |                   | Write          |
-| PutRetentionSettings                                                                                                                                            | chime                     | [chime:PutRetentionSettings](#list_chime-action-PutRetentionSettings "#list_chime-action-PutRetentionSettings")                                                                                        |                |                   | Write          |
-| RedactConversationMessage                                                                                                                                       | chime                     | [chime:RedactConversationMessage](#list_chime-action-RedactConversationMessage "#list_chime-action-RedactConversationMessage")                                                                         |                |                   | Write          |
-| RedactRoomMessage                                                                                                                                               | chime                     | [chime:RedactRoomMessage](#list_chime-action-RedactRoomMessage "#list_chime-action-RedactRoomMessage")                                                                                                 |                |                   | Write          |
-| RegenerateSecurityToken                                                                                                                                         | chime                     | [chime:RegenerateSecurityToken](#list_chime-action-RegenerateSecurityToken "#list_chime-action-RegenerateSecurityToken")                                                                               |                |                   | Write          |
-| RestorePhoneNumber                                                                                                                                              | chime                     | [chime:RestorePhoneNumber](#list_chime-action-RestorePhoneNumber "#list_chime-action-RestorePhoneNumber")                                                                                              |                |                   | Write          |
-| SearchAvailablePhoneNumbers                                                                                                                                     | chime                     | [chime:SearchAvailablePhoneNumbers](#list_chime-action-SearchAvailablePhoneNumbers "#list_chime-action-SearchAvailablePhoneNumbers")                                                                   |                |                   | Read           |
-| UpdateBot                                                                                                                                                       | chime                     | [chime:UpdateBot](#list_chime-action-UpdateBot "#list_chime-action-UpdateBot")                                                                                                                         |                |                   | Write          |
-| UpdateGlobalSettings                                                                                                                                            | chime                     | [chime:UpdateGlobalSettings](#list_chime-action-UpdateGlobalSettings "#list_chime-action-UpdateGlobalSettings")                                                                                        |                |                   | Write          |
-| UpdatePhoneNumber                                                                                                                                               | chime                     | [chime:UpdatePhoneNumber](#list_chime-action-UpdatePhoneNumber "#list_chime-action-UpdatePhoneNumber")                                                                                                 |                |                   | Write          |
-| UpdatePhoneNumberSettings                                                                                                                                       | chime                     | [chime:UpdatePhoneNumberSettings](#list_chime-action-UpdatePhoneNumberSettings "#list_chime-action-UpdatePhoneNumberSettings")                                                                         |                |                   | Write          |
-| UpdateRoom                                                                                                                                                      | chime                     | [chime:UpdateRoom](#list_chime-action-UpdateRoom "#list_chime-action-UpdateRoom")                                                                                                                      |                |                   | Write          |
-| UpdateRoomMembership                                                                                                                                            | chime                     | [chime:UpdateRoomMembership](#list_chime-action-UpdateRoomMembership "#list_chime-action-UpdateRoomMembership")                                                                                        |                |                   | Write          |
-| CreateAppInstance                                                                                                                                               | chime-sdk-identity        | [chime:CreateAppInstance](#list_chime-action-CreateAppInstance "#list_chime-action-CreateAppInstance")                                                                                                 |                |                   | Write          |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| CreateAppInstanceAdmin                                                                                                                                          | chime-sdk-identity        | [chime:CreateAppInstanceAdmin](#list_chime-action-CreateAppInstanceAdmin "#list_chime-action-CreateAppInstanceAdmin")                                                                                  |                |                   | Write          |
-| CreateAppInstanceBot                                                                                                                                            | chime-sdk-identity        | [chime:CreateAppInstanceBot](#list_chime-action-CreateAppInstanceBot "#list_chime-action-CreateAppInstanceBot")                                                                                        |                |                   | Write          |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| CreateAppInstanceUser                                                                                                                                           | chime-sdk-identity        | [chime:CreateAppInstanceUser](#list_chime-action-CreateAppInstanceUser "#list_chime-action-CreateAppInstanceUser")                                                                                     |                |                   | Write          |
-| [chime:PutAppInstanceUserExpirationSettings](#list_chime-action-PutAppInstanceUserExpirationSettings "#list_chime-action-PutAppInstanceUserExpirationSettings") |                           |                                                                                                                                                                                                        | Write          |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| DeleteAppInstance                                                                                                                                               | chime-sdk-identity        | [chime:DeleteAppInstance](#list_chime-action-DeleteAppInstance "#list_chime-action-DeleteAppInstance")                                                                                                 |                |                   | Write          |
-| DeleteAppInstanceAdmin                                                                                                                                          | chime-sdk-identity        | [chime:DeleteAppInstanceAdmin](#list_chime-action-DeleteAppInstanceAdmin "#list_chime-action-DeleteAppInstanceAdmin")                                                                                  |                |                   | Write          |
-| DeleteAppInstanceBot                                                                                                                                            | chime-sdk-identity        | [chime:DeleteAppInstanceBot](#list_chime-action-DeleteAppInstanceBot "#list_chime-action-DeleteAppInstanceBot")                                                                                        |                |                   | Write          |
-| DeleteAppInstanceUser                                                                                                                                           | chime-sdk-identity        | [chime:DeleteAppInstanceUser](#list_chime-action-DeleteAppInstanceUser "#list_chime-action-DeleteAppInstanceUser")                                                                                     |                |                   | Write          |
-| DeregisterAppInstanceUserEndpoint                                                                                                                               | chime-sdk-identity        | [chime:DeregisterAppInstanceUserEndpoint](#list_chime-action-DeregisterAppInstanceUserEndpoint "#list_chime-action-DeregisterAppInstanceUserEndpoint")                                                 |                |                   | Write          |
-| DescribeAppInstance                                                                                                                                             | chime-sdk-identity        | [chime:DescribeAppInstance](#list_chime-action-DescribeAppInstance "#list_chime-action-DescribeAppInstance")                                                                                           |                |                   | Read           |
-| DescribeAppInstanceAdmin                                                                                                                                        | chime-sdk-identity        | [chime:DescribeAppInstanceAdmin](#list_chime-action-DescribeAppInstanceAdmin "#list_chime-action-DescribeAppInstanceAdmin")                                                                            |                |                   | Read           |
-| DescribeAppInstanceBot                                                                                                                                          | chime-sdk-identity        | [chime:DescribeAppInstanceBot](#list_chime-action-DescribeAppInstanceBot "#list_chime-action-DescribeAppInstanceBot")                                                                                  |                |                   | Read           |
-| DescribeAppInstanceUser                                                                                                                                         | chime-sdk-identity        | [chime:DescribeAppInstanceUser](#list_chime-action-DescribeAppInstanceUser "#list_chime-action-DescribeAppInstanceUser")                                                                               |                |                   | Read           |
-| DescribeAppInstanceUserEndpoint                                                                                                                                 | chime-sdk-identity        | [chime:DescribeAppInstanceUserEndpoint](#list_chime-action-DescribeAppInstanceUserEndpoint "#list_chime-action-DescribeAppInstanceUserEndpoint")                                                       |                |                   | Read           |
-| GetAppInstanceRetentionSettings                                                                                                                                 | chime-sdk-identity        | [chime:GetAppInstanceRetentionSettings](#list_chime-action-GetAppInstanceRetentionSettings "#list_chime-action-GetAppInstanceRetentionSettings")                                                       |                |                   | Read           |
-| ListAppInstanceAdmins                                                                                                                                           | chime-sdk-identity        | [chime:ListAppInstanceAdmins](#list_chime-action-ListAppInstanceAdmins "#list_chime-action-ListAppInstanceAdmins")                                                                                     |                |                   | List           |
-| ListAppInstanceBots                                                                                                                                             | chime-sdk-identity        | [chime:ListAppInstanceBots](#list_chime-action-ListAppInstanceBots "#list_chime-action-ListAppInstanceBots")                                                                                           |                |                   | List           |
-| ListAppInstanceUserEndpoints                                                                                                                                    | chime-sdk-identity        | [chime:ListAppInstanceUserEndpoints](#list_chime-action-ListAppInstanceUserEndpoints "#list_chime-action-ListAppInstanceUserEndpoints")                                                                |                |                   | List           |
-| ListAppInstanceUsers                                                                                                                                            | chime-sdk-identity        | [chime:ListAppInstanceUsers](#list_chime-action-ListAppInstanceUsers "#list_chime-action-ListAppInstanceUsers")                                                                                        |                |                   | List           |
-| ListAppInstances                                                                                                                                                | chime-sdk-identity        | [chime:ListAppInstances](#list_chime-action-ListAppInstances "#list_chime-action-ListAppInstances")                                                                                                    |                |                   | List           |
-| ListTagsForResource                                                                                                                                             | chime-sdk-identity        | [chime:ListTagsForResource](#list_chime-action-ListTagsForResource "#list_chime-action-ListTagsForResource")                                                                                           |                |                   | Read           |
-| PutAppInstanceRetentionSettings                                                                                                                                 | chime-sdk-identity        | [chime:PutAppInstanceRetentionSettings](#list_chime-action-PutAppInstanceRetentionSettings "#list_chime-action-PutAppInstanceRetentionSettings")                                                       |                |                   | Write          |
-| PutAppInstanceUserExpirationSettings                                                                                                                            | chime-sdk-identity        | [chime:PutAppInstanceUserExpirationSettings](#list_chime-action-PutAppInstanceUserExpirationSettings "#list_chime-action-PutAppInstanceUserExpirationSettings")                                        |                |                   | Write          |
-| RegisterAppInstanceUserEndpoint                                                                                                                                 | chime-sdk-identity        | [chime:RegisterAppInstanceUserEndpoint](#list_chime-action-RegisterAppInstanceUserEndpoint "#list_chime-action-RegisterAppInstanceUserEndpoint")                                                       |                |                   | Write          |
-| TagResource                                                                                                                                                     | chime-sdk-identity        | [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                                                                   |                |                   | Tagging, Write |
-| UntagResource                                                                                                                                                   | chime-sdk-identity        | [chime:UntagResource](#list_chime-action-UntagResource "#list_chime-action-UntagResource")                                                                                                             |                |                   | Tagging, Write |
-| UpdateAppInstance                                                                                                                                               | chime-sdk-identity        | [chime:UpdateAppInstance](#list_chime-action-UpdateAppInstance "#list_chime-action-UpdateAppInstance")                                                                                                 |                |                   | Write          |
-| UpdateAppInstanceBot                                                                                                                                            | chime-sdk-identity        | [chime:UpdateAppInstanceBot](#list_chime-action-UpdateAppInstanceBot "#list_chime-action-UpdateAppInstanceBot")                                                                                        |                |                   | Write          |
-| UpdateAppInstanceUser                                                                                                                                           | chime-sdk-identity        | [chime:UpdateAppInstanceUser](#list_chime-action-UpdateAppInstanceUser "#list_chime-action-UpdateAppInstanceUser")                                                                                     |                |                   | Write          |
-| UpdateAppInstanceUserEndpoint                                                                                                                                   | chime-sdk-identity        | [chime:UpdateAppInstanceUserEndpoint](#list_chime-action-UpdateAppInstanceUserEndpoint "#list_chime-action-UpdateAppInstanceUserEndpoint")                                                             |                |                   | Write          |
-| CreateMediaCapturePipeline                                                                                                                                      | chime-sdk-media-pipelines | [chime:CreateMediaCapturePipeline](#list_chime-action-CreateMediaCapturePipeline "#list_chime-action-CreateMediaCapturePipeline")                                                                      |                |                   | Write          |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                 | iam:PassedToService       | mediapipelines.chime.amazonaws.com                                                                                                                                                                     | Write          |
-| CreateMediaConcatenationPipeline                                                                                                                                | chime-sdk-media-pipelines | [chime:CreateMediaConcatenationPipeline](#list_chime-action-CreateMediaConcatenationPipeline "#list_chime-action-CreateMediaConcatenationPipeline")                                                    |                |                   | Write          |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| CreateMediaInsightsPipeline                                                                                                                                     | chime-sdk-media-pipelines | [chime:CreateMediaInsightsPipeline](#list_chime-action-CreateMediaInsightsPipeline "#list_chime-action-CreateMediaInsightsPipeline")                                                                   |                |                   | Write          |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| CreateMediaInsightsPipelineConfiguration                                                                                                                        | chime-sdk-media-pipelines | [chime:CreateMediaInsightsPipelineConfiguration](#list_chime-action-CreateMediaInsightsPipelineConfiguration "#list_chime-action-CreateMediaInsightsPipelineConfiguration")                            |                |                   | Write          |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                 | iam:PassedToService       | mediapipelines.chime.amazonaws.com                                                                                                                                                                     | Write          |
-| CreateMediaLiveConnectorPipeline                                                                                                                                | chime-sdk-media-pipelines | [chime:CreateMediaLiveConnectorPipeline](#list_chime-action-CreateMediaLiveConnectorPipeline "#list_chime-action-CreateMediaLiveConnectorPipeline")                                                    |                |                   | Write          |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| CreateMediaPipelineKinesisVideoStreamPool                                                                                                                       | chime-sdk-media-pipelines | [chime:CreateMediaPipelineKinesisVideoStreamPool](#list_chime-action-CreateMediaPipelineKinesisVideoStreamPool "#list_chime-action-CreateMediaPipelineKinesisVideoStreamPool")                         |                |                   | Write          |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| CreateMediaStreamPipeline                                                                                                                                       | chime-sdk-media-pipelines | [chime:CreateMediaStreamPipeline](#list_chime-action-CreateMediaStreamPipeline "#list_chime-action-CreateMediaStreamPipeline")                                                                         |                |                   | Write          |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| DeleteMediaCapturePipeline                                                                                                                                      | chime-sdk-media-pipelines | [chime:DeleteMediaCapturePipeline](#list_chime-action-DeleteMediaCapturePipeline "#list_chime-action-DeleteMediaCapturePipeline")                                                                      |                |                   | Write          |
-| DeleteMediaInsightsPipelineConfiguration                                                                                                                        | chime-sdk-media-pipelines | [chime:DeleteMediaInsightsPipelineConfiguration](#list_chime-action-DeleteMediaInsightsPipelineConfiguration "#list_chime-action-DeleteMediaInsightsPipelineConfiguration")                            |                |                   | Write          |
-| DeleteMediaPipeline                                                                                                                                             | chime-sdk-media-pipelines | [chime:DeleteMediaPipeline](#list_chime-action-DeleteMediaPipeline "#list_chime-action-DeleteMediaPipeline")                                                                                           |                |                   | Write          |
-| DeleteMediaPipelineKinesisVideoStreamPool                                                                                                                       | chime-sdk-media-pipelines | [chime:DeleteMediaPipelineKinesisVideoStreamPool](#list_chime-action-DeleteMediaPipelineKinesisVideoStreamPool "#list_chime-action-DeleteMediaPipelineKinesisVideoStreamPool")                         |                |                   | Write          |
-| GetMediaCapturePipeline                                                                                                                                         | chime-sdk-media-pipelines | [chime:GetMediaCapturePipeline](#list_chime-action-GetMediaCapturePipeline "#list_chime-action-GetMediaCapturePipeline")                                                                               |                |                   | Read           |
-| GetMediaInsightsPipelineConfiguration                                                                                                                           | chime-sdk-media-pipelines | [chime:GetMediaInsightsPipelineConfiguration](#list_chime-action-GetMediaInsightsPipelineConfiguration "#list_chime-action-GetMediaInsightsPipelineConfiguration")                                     |                |                   | Read           |
-| GetMediaPipeline                                                                                                                                                | chime-sdk-media-pipelines | [chime:GetMediaPipeline](#list_chime-action-GetMediaPipeline "#list_chime-action-GetMediaPipeline")                                                                                                    |                |                   | Read           |
-| GetMediaPipelineKinesisVideoStreamPool                                                                                                                          | chime-sdk-media-pipelines | [chime:GetMediaPipelineKinesisVideoStreamPool](#list_chime-action-GetMediaPipelineKinesisVideoStreamPool "#list_chime-action-GetMediaPipelineKinesisVideoStreamPool")                                  |                |                   | Read           |
-| GetSpeakerSearchTask                                                                                                                                            | chime-sdk-media-pipelines | [chime:GetSpeakerSearchTask](#list_chime-action-GetSpeakerSearchTask "#list_chime-action-GetSpeakerSearchTask")                                                                                        |                |                   | Read           |
-| GetVoiceToneAnalysisTask                                                                                                                                        | chime-sdk-media-pipelines | [chime:GetVoiceToneAnalysisTask](#list_chime-action-GetVoiceToneAnalysisTask "#list_chime-action-GetVoiceToneAnalysisTask")                                                                            |                |                   | Read           |
-| ListMediaCapturePipelines                                                                                                                                       | chime-sdk-media-pipelines | [chime:ListMediaCapturePipelines](#list_chime-action-ListMediaCapturePipelines "#list_chime-action-ListMediaCapturePipelines")                                                                         |                |                   | List           |
-| ListMediaInsightsPipelineConfigurations                                                                                                                         | chime-sdk-media-pipelines | [chime:ListMediaInsightsPipelineConfigurations](#list_chime-action-ListMediaInsightsPipelineConfigurations "#list_chime-action-ListMediaInsightsPipelineConfigurations")                               |                |                   | List           |
-| ListMediaPipelineKinesisVideoStreamPools                                                                                                                        | chime-sdk-media-pipelines | [chime:ListMediaPipelineKinesisVideoStreamPools](#list_chime-action-ListMediaPipelineKinesisVideoStreamPools "#list_chime-action-ListMediaPipelineKinesisVideoStreamPools")                            |                |                   | List           |
-| ListMediaPipelines                                                                                                                                              | chime-sdk-media-pipelines | [chime:ListMediaPipelines](#list_chime-action-ListMediaPipelines "#list_chime-action-ListMediaPipelines")                                                                                              |                |                   | List           |
-| ListTagsForResource                                                                                                                                             | chime-sdk-media-pipelines | [chime:ListTagsForResource](#list_chime-action-ListTagsForResource "#list_chime-action-ListTagsForResource")                                                                                           |                |                   | Read           |
-| StartSpeakerSearchTask                                                                                                                                          | chime-sdk-media-pipelines | [chime:StartSpeakerSearchTask](#list_chime-action-StartSpeakerSearchTask "#list_chime-action-StartSpeakerSearchTask")                                                                                  |                |                   | Write          |
-| StartVoiceToneAnalysisTask                                                                                                                                      | chime-sdk-media-pipelines | [chime:StartVoiceToneAnalysisTask](#list_chime-action-StartVoiceToneAnalysisTask "#list_chime-action-StartVoiceToneAnalysisTask")                                                                      |                |                   | Write          |
-| StopSpeakerSearchTask                                                                                                                                           | chime-sdk-media-pipelines | [chime:StopSpeakerSearchTask](#list_chime-action-StopSpeakerSearchTask "#list_chime-action-StopSpeakerSearchTask")                                                                                     |                |                   | Write          |
-| StopVoiceToneAnalysisTask                                                                                                                                       | chime-sdk-media-pipelines | [chime:StopVoiceToneAnalysisTask](#list_chime-action-StopVoiceToneAnalysisTask "#list_chime-action-StopVoiceToneAnalysisTask")                                                                         |                |                   | Write          |
-| TagResource                                                                                                                                                     | chime-sdk-media-pipelines | [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                                                                   |                |                   | Tagging, Write |
-| UntagResource                                                                                                                                                   | chime-sdk-media-pipelines | [chime:UntagResource](#list_chime-action-UntagResource "#list_chime-action-UntagResource")                                                                                                             |                |                   | Tagging, Write |
-| UpdateMediaInsightsPipelineConfiguration                                                                                                                        | chime-sdk-media-pipelines | [chime:UpdateMediaInsightsPipelineConfiguration](#list_chime-action-UpdateMediaInsightsPipelineConfiguration "#list_chime-action-UpdateMediaInsightsPipelineConfiguration")                            |                |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                 | iam:PassedToService       | mediapipelines.chime.amazonaws.com                                                                                                                                                                     | Write          |
-| UpdateMediaInsightsPipelineStatus                                                                                                                               | chime-sdk-media-pipelines | [chime:UpdateMediaInsightsPipelineStatus](#list_chime-action-UpdateMediaInsightsPipelineStatus "#list_chime-action-UpdateMediaInsightsPipelineStatus")                                                 |                |                   | Write          |
-| UpdateMediaPipelineKinesisVideoStreamPool                                                                                                                       | chime-sdk-media-pipelines | [chime:UpdateMediaPipelineKinesisVideoStreamPool](#list_chime-action-UpdateMediaPipelineKinesisVideoStreamPool "#list_chime-action-UpdateMediaPipelineKinesisVideoStreamPool")                         |                |                   | Write          |
-| BatchCreateAttendee                                                                                                                                             | chime-sdk-meetings        | [chime:BatchCreateAttendee](#list_chime-action-BatchCreateAttendee "#list_chime-action-BatchCreateAttendee")                                                                                           |                |                   | Write          |
-| BatchUpdateAttendeeCapabilitiesExcept                                                                                                                           | chime-sdk-meetings        | [chime:BatchUpdateAttendeeCapabilitiesExcept](#list_chime-action-BatchUpdateAttendeeCapabilitiesExcept "#list_chime-action-BatchUpdateAttendeeCapabilitiesExcept")                                     |                |                   | Write          |
-| CreateAttendee                                                                                                                                                  | chime-sdk-meetings        | [chime:CreateAttendee](#list_chime-action-CreateAttendee "#list_chime-action-CreateAttendee")                                                                                                          |                |                   | Write          |
-| [chime:TagAttendee](#list_chime-action-TagAttendee "#list_chime-action-TagAttendee")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| CreateMeeting                                                                                                                                                   | chime-sdk-meetings        | [chime:CreateMeeting](#list_chime-action-CreateMeeting "#list_chime-action-CreateMeeting")                                                                                                             |                |                   | Write          |
-| [chime:TagMeeting](#list_chime-action-TagMeeting "#list_chime-action-TagMeeting")                                                                               |                           |                                                                                                                                                                                                        | Tagging, Write |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| CreateMeetingWithAttendees                                                                                                                                      | chime-sdk-meetings        | [chime:CreateMeetingWithAttendees](#list_chime-action-CreateMeetingWithAttendees "#list_chime-action-CreateMeetingWithAttendees")                                                                      |                |                   | Write          |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| DeleteAttendee                                                                                                                                                  | chime-sdk-meetings        | [chime:DeleteAttendee](#list_chime-action-DeleteAttendee "#list_chime-action-DeleteAttendee")                                                                                                          |                |                   | Write          |
-| DeleteMeeting                                                                                                                                                   | chime-sdk-meetings        | [chime:DeleteMeeting](#list_chime-action-DeleteMeeting "#list_chime-action-DeleteMeeting")                                                                                                             |                |                   | Write          |
-| GetAttendee                                                                                                                                                     | chime-sdk-meetings        | [chime:GetAttendee](#list_chime-action-GetAttendee "#list_chime-action-GetAttendee")                                                                                                                   |                |                   | Read           |
-| GetMeeting                                                                                                                                                      | chime-sdk-meetings        | [chime:GetMeeting](#list_chime-action-GetMeeting "#list_chime-action-GetMeeting")                                                                                                                      |                |                   | Read           |
-| ListAttendees                                                                                                                                                   | chime-sdk-meetings        | [chime:ListAttendees](#list_chime-action-ListAttendees "#list_chime-action-ListAttendees")                                                                                                             |                |                   | List           |
-| ListTagsForResource                                                                                                                                             | chime-sdk-meetings        | [chime:ListTagsForResource](#list_chime-action-ListTagsForResource "#list_chime-action-ListTagsForResource")                                                                                           |                |                   | Read           |
-| StartMeetingTranscription                                                                                                                                       | chime-sdk-meetings        | [chime:StartMeetingTranscription](#list_chime-action-StartMeetingTranscription "#list_chime-action-StartMeetingTranscription")                                                                         |                |                   | Write          |
-| StopMeetingTranscription                                                                                                                                        | chime-sdk-meetings        | [chime:StopMeetingTranscription](#list_chime-action-StopMeetingTranscription "#list_chime-action-StopMeetingTranscription")                                                                            |                |                   | Write          |
-| TagResource                                                                                                                                                     | chime-sdk-meetings        | [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                                                                   |                |                   | Tagging, Write |
-| UntagResource                                                                                                                                                   | chime-sdk-meetings        | [chime:UntagResource](#list_chime-action-UntagResource "#list_chime-action-UntagResource")                                                                                                             |                |                   | Tagging, Write |
-| UpdateAttendeeCapabilities                                                                                                                                      | chime-sdk-meetings        | [chime:UpdateAttendeeCapabilities](#list_chime-action-UpdateAttendeeCapabilities "#list_chime-action-UpdateAttendeeCapabilities")                                                                      |                |                   | Write          |
-| AssociateChannelFlow                                                                                                                                            | chime-sdk-messaging       | [chime:AssociateChannelFlow](#list_chime-action-AssociateChannelFlow "#list_chime-action-AssociateChannelFlow")                                                                                        |                |                   | Write          |
-| BatchCreateChannelMembership                                                                                                                                    | chime-sdk-messaging       | [chime:BatchCreateChannelMembership](#list_chime-action-BatchCreateChannelMembership "#list_chime-action-BatchCreateChannelMembership")                                                                |                |                   | Write          |
-| ChannelFlowCallback                                                                                                                                             | chime-sdk-messaging       | [chime:ChannelFlowCallback](#list_chime-action-ChannelFlowCallback "#list_chime-action-ChannelFlowCallback")                                                                                           |                |                   | Write          |
-| CreateChannel                                                                                                                                                   | chime-sdk-messaging       | [chime:CreateChannel](#list_chime-action-CreateChannel "#list_chime-action-CreateChannel")                                                                                                             |                |                   | Write          |
-| [chime:CreateChannelMembership](#list_chime-action-CreateChannelMembership "#list_chime-action-CreateChannelMembership")                                        |                           |                                                                                                                                                                                                        | Write          |
-| [chime:CreateChannelModerator](#list_chime-action-CreateChannelModerator "#list_chime-action-CreateChannelModerator")                                           |                           |                                                                                                                                                                                                        | Write          |
-| [chime:PutChannelExpirationSettings](#list_chime-action-PutChannelExpirationSettings "#list_chime-action-PutChannelExpirationSettings")                         |                           |                                                                                                                                                                                                        | Write          |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| CreateChannelBan                                                                                                                                                | chime-sdk-messaging       | [chime:CreateChannelBan](#list_chime-action-CreateChannelBan "#list_chime-action-CreateChannelBan")                                                                                                    |                |                   | Write          |
-| CreateChannelFlow                                                                                                                                               | chime-sdk-messaging       | [chime:CreateChannelFlow](#list_chime-action-CreateChannelFlow "#list_chime-action-CreateChannelFlow")                                                                                                 |                |                   | Write          |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| CreateChannelMembership                                                                                                                                         | chime-sdk-messaging       | [chime:CreateChannelMembership](#list_chime-action-CreateChannelMembership "#list_chime-action-CreateChannelMembership")                                                                               |                |                   | Write          |
-| CreateChannelModerator                                                                                                                                          | chime-sdk-messaging       | [chime:CreateChannelModerator](#list_chime-action-CreateChannelModerator "#list_chime-action-CreateChannelModerator")                                                                                  |                |                   | Write          |
-| DeleteChannel                                                                                                                                                   | chime-sdk-messaging       | [chime:DeleteChannel](#list_chime-action-DeleteChannel "#list_chime-action-DeleteChannel")                                                                                                             |                |                   | Write          |
-| DeleteChannelBan                                                                                                                                                | chime-sdk-messaging       | [chime:DeleteChannelBan](#list_chime-action-DeleteChannelBan "#list_chime-action-DeleteChannelBan")                                                                                                    |                |                   | Write          |
-| DeleteChannelFlow                                                                                                                                               | chime-sdk-messaging       | [chime:DeleteChannelFlow](#list_chime-action-DeleteChannelFlow "#list_chime-action-DeleteChannelFlow")                                                                                                 |                |                   | Write          |
-| DeleteChannelMembership                                                                                                                                         | chime-sdk-messaging       | [chime:DeleteChannelMembership](#list_chime-action-DeleteChannelMembership "#list_chime-action-DeleteChannelMembership")                                                                               |                |                   | Write          |
-| DeleteChannelMessage                                                                                                                                            | chime-sdk-messaging       | [chime:DeleteChannelMessage](#list_chime-action-DeleteChannelMessage "#list_chime-action-DeleteChannelMessage")                                                                                        |                |                   | Write          |
-| DeleteChannelModerator                                                                                                                                          | chime-sdk-messaging       | [chime:DeleteChannelModerator](#list_chime-action-DeleteChannelModerator "#list_chime-action-DeleteChannelModerator")                                                                                  |                |                   | Write          |
-| DeleteMessagingStreamingConfigurations                                                                                                                          | chime-sdk-messaging       | [chime:DeleteMessagingStreamingConfigurations](#list_chime-action-DeleteMessagingStreamingConfigurations "#list_chime-action-DeleteMessagingStreamingConfigurations")                                  |                |                   | Write          |
-| DescribeChannel                                                                                                                                                 | chime-sdk-messaging       | [chime:DescribeChannel](#list_chime-action-DescribeChannel "#list_chime-action-DescribeChannel")                                                                                                       |                |                   | Read           |
-| DescribeChannelBan                                                                                                                                              | chime-sdk-messaging       | [chime:DescribeChannelBan](#list_chime-action-DescribeChannelBan "#list_chime-action-DescribeChannelBan")                                                                                              |                |                   | Read           |
-| DescribeChannelFlow                                                                                                                                             | chime-sdk-messaging       | [chime:DescribeChannelFlow](#list_chime-action-DescribeChannelFlow "#list_chime-action-DescribeChannelFlow")                                                                                           |                |                   | Read           |
-| DescribeChannelMembership                                                                                                                                       | chime-sdk-messaging       | [chime:DescribeChannelMembership](#list_chime-action-DescribeChannelMembership "#list_chime-action-DescribeChannelMembership")                                                                         |                |                   | Read           |
-| DescribeChannelMembershipForAppInstanceUser                                                                                                                     | chime-sdk-messaging       | [chime:DescribeChannelMembershipForAppInstanceUser](#list_chime-action-DescribeChannelMembershipForAppInstanceUser "#list_chime-action-DescribeChannelMembershipForAppInstanceUser")                   |                |                   | Read           |
-| DescribeChannelModeratedByAppInstanceUser                                                                                                                       | chime-sdk-messaging       | [chime:DescribeChannelModeratedByAppInstanceUser](#list_chime-action-DescribeChannelModeratedByAppInstanceUser "#list_chime-action-DescribeChannelModeratedByAppInstanceUser")                         |                |                   | Read           |
-| DescribeChannelModerator                                                                                                                                        | chime-sdk-messaging       | [chime:DescribeChannelModerator](#list_chime-action-DescribeChannelModerator "#list_chime-action-DescribeChannelModerator")                                                                            |                |                   | Read           |
-| DisassociateChannelFlow                                                                                                                                         | chime-sdk-messaging       | [chime:DisassociateChannelFlow](#list_chime-action-DisassociateChannelFlow "#list_chime-action-DisassociateChannelFlow")                                                                               |                |                   | Write          |
-| GetChannelMembershipPreferences                                                                                                                                 | chime-sdk-messaging       | [chime:GetChannelMembershipPreferences](#list_chime-action-GetChannelMembershipPreferences "#list_chime-action-GetChannelMembershipPreferences")                                                       |                |                   | Read           |
-| GetChannelMessage                                                                                                                                               | chime-sdk-messaging       | [chime:GetChannelMessage](#list_chime-action-GetChannelMessage "#list_chime-action-GetChannelMessage")                                                                                                 |                |                   | Read           |
-| GetChannelMessageStatus                                                                                                                                         | chime-sdk-messaging       | [chime:GetChannelMessageStatus](#list_chime-action-GetChannelMessageStatus "#list_chime-action-GetChannelMessageStatus")                                                                               |                |                   | Read           |
-| GetMessagingSessionEndpoint                                                                                                                                     | chime-sdk-messaging       | [chime:GetMessagingSessionEndpoint](#list_chime-action-GetMessagingSessionEndpoint "#list_chime-action-GetMessagingSessionEndpoint")                                                                   |                |                   | Read           |
-| GetMessagingStreamingConfigurations                                                                                                                             | chime-sdk-messaging       | [chime:GetMessagingStreamingConfigurations](#list_chime-action-GetMessagingStreamingConfigurations "#list_chime-action-GetMessagingStreamingConfigurations")                                           |                |                   | Read           |
-| ListChannelBans                                                                                                                                                 | chime-sdk-messaging       | [chime:ListChannelBans](#list_chime-action-ListChannelBans "#list_chime-action-ListChannelBans")                                                                                                       |                |                   | List           |
-| ListChannelFlows                                                                                                                                                | chime-sdk-messaging       | [chime:ListChannelFlows](#list_chime-action-ListChannelFlows "#list_chime-action-ListChannelFlows")                                                                                                    |                |                   | List           |
-| ListChannelMemberships                                                                                                                                          | chime-sdk-messaging       | [chime:ListChannelMemberships](#list_chime-action-ListChannelMemberships "#list_chime-action-ListChannelMemberships")                                                                                  |                |                   | List           |
-| ListChannelMembershipsForAppInstanceUser                                                                                                                        | chime-sdk-messaging       | [chime:ListChannelMembershipsForAppInstanceUser](#list_chime-action-ListChannelMembershipsForAppInstanceUser "#list_chime-action-ListChannelMembershipsForAppInstanceUser")                            |                |                   | List           |
-| ListChannelMessages                                                                                                                                             | chime-sdk-messaging       | [chime:ListChannelMessages](#list_chime-action-ListChannelMessages "#list_chime-action-ListChannelMessages")                                                                                           |                |                   | Read           |
-| ListChannelModerators                                                                                                                                           | chime-sdk-messaging       | [chime:ListChannelModerators](#list_chime-action-ListChannelModerators "#list_chime-action-ListChannelModerators")                                                                                     |                |                   | List           |
-| ListChannels                                                                                                                                                    | chime-sdk-messaging       | [chime:ListChannels](#list_chime-action-ListChannels "#list_chime-action-ListChannels")                                                                                                                |                |                   | List           |
-| ListChannelsAssociatedWithChannelFlow                                                                                                                           | chime-sdk-messaging       | [chime:ListChannelsAssociatedWithChannelFlow](#list_chime-action-ListChannelsAssociatedWithChannelFlow "#list_chime-action-ListChannelsAssociatedWithChannelFlow")                                     |                |                   | List           |
-| ListChannelsModeratedByAppInstanceUser                                                                                                                          | chime-sdk-messaging       | [chime:ListChannelsModeratedByAppInstanceUser](#list_chime-action-ListChannelsModeratedByAppInstanceUser "#list_chime-action-ListChannelsModeratedByAppInstanceUser")                                  |                |                   | List           |
-| ListSubChannels                                                                                                                                                 | chime-sdk-messaging       | [chime:ListSubChannels](#list_chime-action-ListSubChannels "#list_chime-action-ListSubChannels")                                                                                                       |                |                   | List           |
-| ListTagsForResource                                                                                                                                             | chime-sdk-messaging       | [chime:ListTagsForResource](#list_chime-action-ListTagsForResource "#list_chime-action-ListTagsForResource")                                                                                           |                |                   | Read           |
-| PutChannelExpirationSettings                                                                                                                                    | chime-sdk-messaging       | [chime:PutChannelExpirationSettings](#list_chime-action-PutChannelExpirationSettings "#list_chime-action-PutChannelExpirationSettings")                                                                |                |                   | Write          |
-| PutChannelMembershipPreferences                                                                                                                                 | chime-sdk-messaging       | [chime:PutChannelMembershipPreferences](#list_chime-action-PutChannelMembershipPreferences "#list_chime-action-PutChannelMembershipPreferences")                                                       |                |                   | Write          |
-| PutMessagingStreamingConfigurations                                                                                                                             | chime-sdk-messaging       | [chime:PutMessagingStreamingConfigurations](#list_chime-action-PutMessagingStreamingConfigurations "#list_chime-action-PutMessagingStreamingConfigurations")                                           |                |                   | Write          |
-| RedactChannelMessage                                                                                                                                            | chime-sdk-messaging       | [chime:RedactChannelMessage](#list_chime-action-RedactChannelMessage "#list_chime-action-RedactChannelMessage")                                                                                        |                |                   | Write          |
-| SearchChannels                                                                                                                                                  | chime-sdk-messaging       | [chime:SearchChannels](#list_chime-action-SearchChannels "#list_chime-action-SearchChannels")                                                                                                          |                |                   | List           |
-| SendChannelMessage                                                                                                                                              | chime-sdk-messaging       | [chime:SendChannelMessage](#list_chime-action-SendChannelMessage "#list_chime-action-SendChannelMessage")                                                                                              |                |                   | Write          |
-| TagResource                                                                                                                                                     | chime-sdk-messaging       | [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                                                                   |                |                   | Tagging, Write |
-| UntagResource                                                                                                                                                   | chime-sdk-messaging       | [chime:UntagResource](#list_chime-action-UntagResource "#list_chime-action-UntagResource")                                                                                                             |                |                   | Tagging, Write |
-| UpdateChannel                                                                                                                                                   | chime-sdk-messaging       | [chime:UpdateChannel](#list_chime-action-UpdateChannel "#list_chime-action-UpdateChannel")                                                                                                             |                |                   | Write          |
-| UpdateChannelFlow                                                                                                                                               | chime-sdk-messaging       | [chime:UpdateChannelFlow](#list_chime-action-UpdateChannelFlow "#list_chime-action-UpdateChannelFlow")                                                                                                 |                |                   | Write          |
-| UpdateChannelMessage                                                                                                                                            | chime-sdk-messaging       | [chime:UpdateChannelMessage](#list_chime-action-UpdateChannelMessage "#list_chime-action-UpdateChannelMessage")                                                                                        |                |                   | Write          |
-| UpdateChannelReadMarker                                                                                                                                         | chime-sdk-messaging       | [chime:UpdateChannelReadMarker](#list_chime-action-UpdateChannelReadMarker "#list_chime-action-UpdateChannelReadMarker")                                                                               |                |                   | Write          |
-| AssociatePhoneNumbersWithVoiceConnector                                                                                                                         | chime-sdk-voice           | [chime:AssociatePhoneNumbersWithVoiceConnector](#list_chime-action-AssociatePhoneNumbersWithVoiceConnector "#list_chime-action-AssociatePhoneNumbersWithVoiceConnector")                               |                |                   | Write          |
-| AssociatePhoneNumbersWithVoiceConnectorGroup                                                                                                                    | chime-sdk-voice           | [chime:AssociatePhoneNumbersWithVoiceConnectorGroup](#list_chime-action-AssociatePhoneNumbersWithVoiceConnectorGroup "#list_chime-action-AssociatePhoneNumbersWithVoiceConnectorGroup")                |                |                   | Write          |
-| BatchDeletePhoneNumber                                                                                                                                          | chime-sdk-voice           | [chime:BatchDeletePhoneNumber](#list_chime-action-BatchDeletePhoneNumber "#list_chime-action-BatchDeletePhoneNumber")                                                                                  |                |                   | Write          |
-| BatchUpdatePhoneNumber                                                                                                                                          | chime-sdk-voice           | [chime:BatchUpdatePhoneNumber](#list_chime-action-BatchUpdatePhoneNumber "#list_chime-action-BatchUpdatePhoneNumber")                                                                                  |                |                   | Write          |
-| CreatePhoneNumberOrder                                                                                                                                          | chime-sdk-voice           | [chime:CreatePhoneNumberOrder](#list_chime-action-CreatePhoneNumberOrder "#list_chime-action-CreatePhoneNumberOrder")                                                                                  |                |                   | Write          |
-| CreateProxySession                                                                                                                                              | chime-sdk-voice           | [chime:CreateProxySession](#list_chime-action-CreateProxySession "#list_chime-action-CreateProxySession")                                                                                              |                |                   | Write          |
-| CreateSipMediaApplication                                                                                                                                       | chime-sdk-voice           | [chime:CreateSipMediaApplication](#list_chime-action-CreateSipMediaApplication "#list_chime-action-CreateSipMediaApplication")                                                                         |                |                   | Write          |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| CreateSipMediaApplicationCall                                                                                                                                   | chime-sdk-voice           | [chime:CreateSipMediaApplicationCall](#list_chime-action-CreateSipMediaApplicationCall "#list_chime-action-CreateSipMediaApplicationCall")                                                             |                |                   | Write          |
-| CreateSipRule                                                                                                                                                   | chime-sdk-voice           | [chime:CreateSipRule](#list_chime-action-CreateSipRule "#list_chime-action-CreateSipRule")                                                                                                             |                |                   | Write          |
-| CreateVoiceConnector                                                                                                                                            | chime-sdk-voice           | [chime:CreateConnectAnalyticsConnector](#list_chime-action-CreateConnectAnalyticsConnector "#list_chime-action-CreateConnectAnalyticsConnector")                                                       |                |                   | Write          |
-| [chime:CreateConnectCallTransferConnector](#list_chime-action-CreateConnectCallTransferConnector "#list_chime-action-CreateConnectCallTransferConnector")       |                           |                                                                                                                                                                                                        | Write          |
-| [chime:CreateVoiceConnector](#list_chime-action-CreateVoiceConnector "#list_chime-action-CreateVoiceConnector")                                                 |                           |                                                                                                                                                                                                        | Write          |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| CreateVoiceConnectorGroup                                                                                                                                       | chime-sdk-voice           | [chime:CreateVoiceConnectorGroup](#list_chime-action-CreateVoiceConnectorGroup "#list_chime-action-CreateVoiceConnectorGroup")                                                                         |                |                   | Write          |
-| CreateVoiceProfile                                                                                                                                              | chime-sdk-voice           | [chime:CreateVoiceProfile](#list_chime-action-CreateVoiceProfile "#list_chime-action-CreateVoiceProfile")                                                                                              |                |                   | Write          |
-| CreateVoiceProfileDomain                                                                                                                                        | chime-sdk-voice           | [chime:CreateVoiceProfileDomain](#list_chime-action-CreateVoiceProfileDomain "#list_chime-action-CreateVoiceProfileDomain")                                                                            |                |                   | Write          |
-| [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                            |                           |                                                                                                                                                                                                        | Tagging, Write |
-| DeletePhoneNumber                                                                                                                                               | chime-sdk-voice           | [chime:DeletePhoneNumber](#list_chime-action-DeletePhoneNumber "#list_chime-action-DeletePhoneNumber")                                                                                                 |                |                   | Write          |
-| DeleteProxySession                                                                                                                                              | chime-sdk-voice           | [chime:DeleteProxySession](#list_chime-action-DeleteProxySession "#list_chime-action-DeleteProxySession")                                                                                              |                |                   | Write          |
-| DeleteSipMediaApplication                                                                                                                                       | chime-sdk-voice           | [chime:DeleteSipMediaApplication](#list_chime-action-DeleteSipMediaApplication "#list_chime-action-DeleteSipMediaApplication")                                                                         |                |                   | Write          |
-| DeleteSipRule                                                                                                                                                   | chime-sdk-voice           | [chime:DeleteSipRule](#list_chime-action-DeleteSipRule "#list_chime-action-DeleteSipRule")                                                                                                             |                |                   | Write          |
-| DeleteVoiceConnector                                                                                                                                            | chime-sdk-voice           | [chime:DeleteVoiceConnector](#list_chime-action-DeleteVoiceConnector "#list_chime-action-DeleteVoiceConnector")                                                                                        |                |                   | Write          |
-| DeleteVoiceConnectorEmergencyCallingConfiguration                                                                                                               | chime-sdk-voice           | [chime:DeleteVoiceConnectorEmergencyCallingConfiguration](#list_chime-action-DeleteVoiceConnectorEmergencyCallingConfiguration "#list_chime-action-DeleteVoiceConnectorEmergencyCallingConfiguration") |                |                   | Write          |
-| DeleteVoiceConnectorExternalSystemsConfiguration                                                                                                                | chime-sdk-voice           | [chime:DeleteVoiceConnectorExternalSystemsConfiguration](#list_chime-action-DeleteVoiceConnectorExternalSystemsConfiguration "#list_chime-action-DeleteVoiceConnectorExternalSystemsConfiguration")    |                |                   | Write          |
-| DeleteVoiceConnectorGroup                                                                                                                                       | chime-sdk-voice           | [chime:DeleteVoiceConnectorGroup](#list_chime-action-DeleteVoiceConnectorGroup "#list_chime-action-DeleteVoiceConnectorGroup")                                                                         |                |                   | Write          |
-| DeleteVoiceConnectorOrigination                                                                                                                                 | chime-sdk-voice           | [chime:DeleteVoiceConnectorOrigination](#list_chime-action-DeleteVoiceConnectorOrigination "#list_chime-action-DeleteVoiceConnectorOrigination")                                                       |                |                   | Write          |
-| DeleteVoiceConnectorProxy                                                                                                                                       | chime-sdk-voice           | [chime:DeleteVoiceConnectorProxy](#list_chime-action-DeleteVoiceConnectorProxy "#list_chime-action-DeleteVoiceConnectorProxy")                                                                         |                |                   | Write          |
-| DeleteVoiceConnectorStreamingConfiguration                                                                                                                      | chime-sdk-voice           | [chime:DeleteVoiceConnectorStreamingConfiguration](#list_chime-action-DeleteVoiceConnectorStreamingConfiguration "#list_chime-action-DeleteVoiceConnectorStreamingConfiguration")                      |                |                   | Write          |
-| DeleteVoiceConnectorTermination                                                                                                                                 | chime-sdk-voice           | [chime:DeleteVoiceConnectorTermination](#list_chime-action-DeleteVoiceConnectorTermination "#list_chime-action-DeleteVoiceConnectorTermination")                                                       |                |                   | Write          |
-| DeleteVoiceConnectorTerminationCredentials                                                                                                                      | chime-sdk-voice           | [chime:DeleteVoiceConnectorTerminationCredentials](#list_chime-action-DeleteVoiceConnectorTerminationCredentials "#list_chime-action-DeleteVoiceConnectorTerminationCredentials")                      |                |                   | Write          |
-| DeleteVoiceProfile                                                                                                                                              | chime-sdk-voice           | [chime:DeleteVoiceProfile](#list_chime-action-DeleteVoiceProfile "#list_chime-action-DeleteVoiceProfile")                                                                                              |                |                   | Write          |
-| DeleteVoiceProfileDomain                                                                                                                                        | chime-sdk-voice           | [chime:DeleteVoiceProfileDomain](#list_chime-action-DeleteVoiceProfileDomain "#list_chime-action-DeleteVoiceProfileDomain")                                                                            |                |                   | Write          |
-| DisassociatePhoneNumbersFromVoiceConnector                                                                                                                      | chime-sdk-voice           | [chime:DisassociatePhoneNumbersFromVoiceConnector](#list_chime-action-DisassociatePhoneNumbersFromVoiceConnector "#list_chime-action-DisassociatePhoneNumbersFromVoiceConnector")                      |                |                   | Write          |
-| DisassociatePhoneNumbersFromVoiceConnectorGroup                                                                                                                 | chime-sdk-voice           | [chime:DisassociatePhoneNumbersFromVoiceConnectorGroup](#list_chime-action-DisassociatePhoneNumbersFromVoiceConnectorGroup "#list_chime-action-DisassociatePhoneNumbersFromVoiceConnectorGroup")       |                |                   | Write          |
-| GetGlobalSettings                                                                                                                                               | chime-sdk-voice           | [chime:GetGlobalSettings](#list_chime-action-GetGlobalSettings "#list_chime-action-GetGlobalSettings")                                                                                                 |                |                   | Read           |
-| GetPhoneNumber                                                                                                                                                  | chime-sdk-voice           | [chime:GetPhoneNumber](#list_chime-action-GetPhoneNumber "#list_chime-action-GetPhoneNumber")                                                                                                          |                |                   | Read           |
-| GetPhoneNumberOrder                                                                                                                                             | chime-sdk-voice           | [chime:GetPhoneNumberOrder](#list_chime-action-GetPhoneNumberOrder "#list_chime-action-GetPhoneNumberOrder")                                                                                           |                |                   | Read           |
-| GetPhoneNumberSettings                                                                                                                                          | chime-sdk-voice           | [chime:GetPhoneNumberSettings](#list_chime-action-GetPhoneNumberSettings "#list_chime-action-GetPhoneNumberSettings")                                                                                  |                |                   | Read           |
-| GetProxySession                                                                                                                                                 | chime-sdk-voice           | [chime:GetProxySession](#list_chime-action-GetProxySession "#list_chime-action-GetProxySession")                                                                                                       |                |                   | Read           |
-| GetSipMediaApplication                                                                                                                                          | chime-sdk-voice           | [chime:GetSipMediaApplication](#list_chime-action-GetSipMediaApplication "#list_chime-action-GetSipMediaApplication")                                                                                  |                |                   | Read           |
-| GetSipMediaApplicationAlexaSkillConfiguration                                                                                                                   | chime-sdk-voice           | [chime:GetSipMediaApplicationAlexaSkillConfiguration](#list_chime-action-GetSipMediaApplicationAlexaSkillConfiguration "#list_chime-action-GetSipMediaApplicationAlexaSkillConfiguration")             |                |                   | Read           |
-| GetSipMediaApplicationLoggingConfiguration                                                                                                                      | chime-sdk-voice           | [chime:GetSipMediaApplicationLoggingConfiguration](#list_chime-action-GetSipMediaApplicationLoggingConfiguration "#list_chime-action-GetSipMediaApplicationLoggingConfiguration")                      |                |                   | Read           |
-| GetSipRule                                                                                                                                                      | chime-sdk-voice           | [chime:GetSipRule](#list_chime-action-GetSipRule "#list_chime-action-GetSipRule")                                                                                                                      |                |                   | Read           |
-| GetSpeakerSearchTask                                                                                                                                            | chime-sdk-voice           | [chime:GetSpeakerSearchTask](#list_chime-action-GetSpeakerSearchTask "#list_chime-action-GetSpeakerSearchTask")                                                                                        |                |                   | Read           |
-| GetVoiceConnector                                                                                                                                               | chime-sdk-voice           | [chime:GetVoiceConnector](#list_chime-action-GetVoiceConnector "#list_chime-action-GetVoiceConnector")                                                                                                 |                |                   | Read           |
-| GetVoiceConnectorEmergencyCallingConfiguration                                                                                                                  | chime-sdk-voice           | [chime:GetVoiceConnectorEmergencyCallingConfiguration](#list_chime-action-GetVoiceConnectorEmergencyCallingConfiguration "#list_chime-action-GetVoiceConnectorEmergencyCallingConfiguration")          |                |                   | Read           |
-| GetVoiceConnectorExternalSystemsConfiguration                                                                                                                   | chime-sdk-voice           | [chime:GetVoiceConnectorExternalSystemsConfiguration](#list_chime-action-GetVoiceConnectorExternalSystemsConfiguration "#list_chime-action-GetVoiceConnectorExternalSystemsConfiguration")             |                |                   | Read           |
-| GetVoiceConnectorGroup                                                                                                                                          | chime-sdk-voice           | [chime:GetVoiceConnectorGroup](#list_chime-action-GetVoiceConnectorGroup "#list_chime-action-GetVoiceConnectorGroup")                                                                                  |                |                   | Read           |
-| GetVoiceConnectorLoggingConfiguration                                                                                                                           | chime-sdk-voice           | [chime:GetVoiceConnectorLoggingConfiguration](#list_chime-action-GetVoiceConnectorLoggingConfiguration "#list_chime-action-GetVoiceConnectorLoggingConfiguration")                                     |                |                   | Read           |
-| GetVoiceConnectorOrigination                                                                                                                                    | chime-sdk-voice           | [chime:GetVoiceConnectorOrigination](#list_chime-action-GetVoiceConnectorOrigination "#list_chime-action-GetVoiceConnectorOrigination")                                                                |                |                   | Read           |
-| GetVoiceConnectorProxy                                                                                                                                          | chime-sdk-voice           | [chime:GetVoiceConnectorProxy](#list_chime-action-GetVoiceConnectorProxy "#list_chime-action-GetVoiceConnectorProxy")                                                                                  |                |                   | Read           |
-| GetVoiceConnectorStreamingConfiguration                                                                                                                         | chime-sdk-voice           | [chime:GetVoiceConnectorStreamingConfiguration](#list_chime-action-GetVoiceConnectorStreamingConfiguration "#list_chime-action-GetVoiceConnectorStreamingConfiguration")                               |                |                   | Read           |
-| GetVoiceConnectorTermination                                                                                                                                    | chime-sdk-voice           | [chime:GetVoiceConnectorTermination](#list_chime-action-GetVoiceConnectorTermination "#list_chime-action-GetVoiceConnectorTermination")                                                                |                |                   | Read           |
-| GetVoiceConnectorTerminationHealth                                                                                                                              | chime-sdk-voice           | [chime:GetVoiceConnectorTerminationHealth](#list_chime-action-GetVoiceConnectorTerminationHealth "#list_chime-action-GetVoiceConnectorTerminationHealth")                                              |                |                   | Read           |
-| GetVoiceProfile                                                                                                                                                 | chime-sdk-voice           | [chime:GetVoiceProfile](#list_chime-action-GetVoiceProfile "#list_chime-action-GetVoiceProfile")                                                                                                       |                |                   | Read           |
-| GetVoiceProfileDomain                                                                                                                                           | chime-sdk-voice           | [chime:GetVoiceProfileDomain](#list_chime-action-GetVoiceProfileDomain "#list_chime-action-GetVoiceProfileDomain")                                                                                     |                |                   | Read           |
-| GetVoiceToneAnalysisTask                                                                                                                                        | chime-sdk-voice           | [chime:GetVoiceToneAnalysisTask](#list_chime-action-GetVoiceToneAnalysisTask "#list_chime-action-GetVoiceToneAnalysisTask")                                                                            |                |                   | Read           |
-| ListAvailableVoiceConnectorRegions                                                                                                                              | chime-sdk-voice           | [chime:ListAvailableVoiceConnectorRegions](#list_chime-action-ListAvailableVoiceConnectorRegions "#list_chime-action-ListAvailableVoiceConnectorRegions")                                              |                |                   | List           |
-| ListPhoneNumberOrders                                                                                                                                           | chime-sdk-voice           | [chime:ListPhoneNumberOrders](#list_chime-action-ListPhoneNumberOrders "#list_chime-action-ListPhoneNumberOrders")                                                                                     |                |                   | List           |
-| ListPhoneNumbers                                                                                                                                                | chime-sdk-voice           | [chime:ListPhoneNumbers](#list_chime-action-ListPhoneNumbers "#list_chime-action-ListPhoneNumbers")                                                                                                    |                |                   | List           |
-| ListProxySessions                                                                                                                                               | chime-sdk-voice           | [chime:ListProxySessions](#list_chime-action-ListProxySessions "#list_chime-action-ListProxySessions")                                                                                                 |                |                   | List           |
-| ListSipMediaApplications                                                                                                                                        | chime-sdk-voice           | [chime:ListSipMediaApplications](#list_chime-action-ListSipMediaApplications "#list_chime-action-ListSipMediaApplications")                                                                            |                |                   | List           |
-| ListSipRules                                                                                                                                                    | chime-sdk-voice           | [chime:ListSipRules](#list_chime-action-ListSipRules "#list_chime-action-ListSipRules")                                                                                                                |                |                   | List           |
-| ListSupportedPhoneNumberCountries                                                                                                                               | chime-sdk-voice           | [chime:ListSupportedPhoneNumberCountries](#list_chime-action-ListSupportedPhoneNumberCountries "#list_chime-action-ListSupportedPhoneNumberCountries")                                                 |                |                   | List           |
-| ListTagsForResource                                                                                                                                             | chime-sdk-voice           | [chime:ListTagsForResource](#list_chime-action-ListTagsForResource "#list_chime-action-ListTagsForResource")                                                                                           |                |                   | Read           |
-| ListVoiceConnectorGroups                                                                                                                                        | chime-sdk-voice           | [chime:ListVoiceConnectorGroups](#list_chime-action-ListVoiceConnectorGroups "#list_chime-action-ListVoiceConnectorGroups")                                                                            |                |                   | List           |
-| ListVoiceConnectorTerminationCredentials                                                                                                                        | chime-sdk-voice           | [chime:ListVoiceConnectorTerminationCredentials](#list_chime-action-ListVoiceConnectorTerminationCredentials "#list_chime-action-ListVoiceConnectorTerminationCredentials")                            |                |                   | List           |
-| ListVoiceConnectors                                                                                                                                             | chime-sdk-voice           | [chime:ListVoiceConnectors](#list_chime-action-ListVoiceConnectors "#list_chime-action-ListVoiceConnectors")                                                                                           |                |                   | List           |
-| ListVoiceProfileDomains                                                                                                                                         | chime-sdk-voice           | [chime:ListVoiceProfileDomains](#list_chime-action-ListVoiceProfileDomains "#list_chime-action-ListVoiceProfileDomains")                                                                               |                |                   | List           |
-| ListVoiceProfiles                                                                                                                                               | chime-sdk-voice           | [chime:ListVoiceProfiles](#list_chime-action-ListVoiceProfiles "#list_chime-action-ListVoiceProfiles")                                                                                                 |                |                   | List           |
-| PutSipMediaApplicationAlexaSkillConfiguration                                                                                                                   | chime-sdk-voice           | [chime:PutSipMediaApplicationAlexaSkillConfiguration](#list_chime-action-PutSipMediaApplicationAlexaSkillConfiguration "#list_chime-action-PutSipMediaApplicationAlexaSkillConfiguration")             |                |                   | Write          |
-| PutSipMediaApplicationLoggingConfiguration                                                                                                                      | chime-sdk-voice           | [chime:PutSipMediaApplicationLoggingConfiguration](#list_chime-action-PutSipMediaApplicationLoggingConfiguration "#list_chime-action-PutSipMediaApplicationLoggingConfiguration")                      |                |                   | Write          |
-| PutVoiceConnectorEmergencyCallingConfiguration                                                                                                                  | chime-sdk-voice           | [chime:PutVoiceConnectorEmergencyCallingConfiguration](#list_chime-action-PutVoiceConnectorEmergencyCallingConfiguration "#list_chime-action-PutVoiceConnectorEmergencyCallingConfiguration")          |                |                   | Write          |
-| PutVoiceConnectorExternalSystemsConfiguration                                                                                                                   | chime-sdk-voice           | [chime:PutVoiceConnectorExternalSystemsConfiguration](#list_chime-action-PutVoiceConnectorExternalSystemsConfiguration "#list_chime-action-PutVoiceConnectorExternalSystemsConfiguration")             |                |                   | Write          |
-| PutVoiceConnectorLoggingConfiguration                                                                                                                           | chime-sdk-voice           | [chime:PutVoiceConnectorLoggingConfiguration](#list_chime-action-PutVoiceConnectorLoggingConfiguration "#list_chime-action-PutVoiceConnectorLoggingConfiguration")                                     |                |                   | Write          |
-| PutVoiceConnectorOrigination                                                                                                                                    | chime-sdk-voice           | [chime:PutVoiceConnectorOrigination](#list_chime-action-PutVoiceConnectorOrigination "#list_chime-action-PutVoiceConnectorOrigination")                                                                |                |                   | Write          |
-| PutVoiceConnectorProxy                                                                                                                                          | chime-sdk-voice           | [chime:PutVoiceConnectorProxy](#list_chime-action-PutVoiceConnectorProxy "#list_chime-action-PutVoiceConnectorProxy")                                                                                  |                |                   | Write          |
-| PutVoiceConnectorStreamingConfiguration                                                                                                                         | chime-sdk-voice           | [chime:PutVoiceConnectorStreamingConfiguration](#list_chime-action-PutVoiceConnectorStreamingConfiguration "#list_chime-action-PutVoiceConnectorStreamingConfiguration")                               |                |                   | Write          |
-| PutVoiceConnectorTermination                                                                                                                                    | chime-sdk-voice           | [chime:PutVoiceConnectorTermination](#list_chime-action-PutVoiceConnectorTermination "#list_chime-action-PutVoiceConnectorTermination")                                                                |                |                   | Write          |
-| PutVoiceConnectorTerminationCredentials                                                                                                                         | chime-sdk-voice           | [chime:PutVoiceConnectorTerminationCredentials](#list_chime-action-PutVoiceConnectorTerminationCredentials "#list_chime-action-PutVoiceConnectorTerminationCredentials")                               |                |                   | Write          |
-| RestorePhoneNumber                                                                                                                                              | chime-sdk-voice           | [chime:RestorePhoneNumber](#list_chime-action-RestorePhoneNumber "#list_chime-action-RestorePhoneNumber")                                                                                              |                |                   | Write          |
-| SearchAvailablePhoneNumbers                                                                                                                                     | chime-sdk-voice           | [chime:SearchAvailablePhoneNumbers](#list_chime-action-SearchAvailablePhoneNumbers "#list_chime-action-SearchAvailablePhoneNumbers")                                                                   |                |                   | Read           |
-| StartSpeakerSearchTask                                                                                                                                          | chime-sdk-voice           | [chime:StartSpeakerSearchTask](#list_chime-action-StartSpeakerSearchTask "#list_chime-action-StartSpeakerSearchTask")                                                                                  |                |                   | Write          |
-| StartVoiceToneAnalysisTask                                                                                                                                      | chime-sdk-voice           | [chime:StartVoiceToneAnalysisTask](#list_chime-action-StartVoiceToneAnalysisTask "#list_chime-action-StartVoiceToneAnalysisTask")                                                                      |                |                   | Write          |
-| StopSpeakerSearchTask                                                                                                                                           | chime-sdk-voice           | [chime:StopSpeakerSearchTask](#list_chime-action-StopSpeakerSearchTask "#list_chime-action-StopSpeakerSearchTask")                                                                                     |                |                   | Write          |
-| StopVoiceToneAnalysisTask                                                                                                                                       | chime-sdk-voice           | [chime:StopVoiceToneAnalysisTask](#list_chime-action-StopVoiceToneAnalysisTask "#list_chime-action-StopVoiceToneAnalysisTask")                                                                         |                |                   | Write          |
-| TagResource                                                                                                                                                     | chime-sdk-voice           | [chime:TagResource](#list_chime-action-TagResource "#list_chime-action-TagResource")                                                                                                                   |                |                   | Tagging, Write |
-| UntagResource                                                                                                                                                   | chime-sdk-voice           | [chime:UntagResource](#list_chime-action-UntagResource "#list_chime-action-UntagResource")                                                                                                             |                |                   | Tagging, Write |
-| UpdateGlobalSettings                                                                                                                                            | chime-sdk-voice           | [chime:UpdateGlobalSettings](#list_chime-action-UpdateGlobalSettings "#list_chime-action-UpdateGlobalSettings")                                                                                        |                |                   | Write          |
-| UpdatePhoneNumber                                                                                                                                               | chime-sdk-voice           | [chime:UpdatePhoneNumber](#list_chime-action-UpdatePhoneNumber "#list_chime-action-UpdatePhoneNumber")                                                                                                 |                |                   | Write          |
-| UpdatePhoneNumberSettings                                                                                                                                       | chime-sdk-voice           | [chime:UpdatePhoneNumberSettings](#list_chime-action-UpdatePhoneNumberSettings "#list_chime-action-UpdatePhoneNumberSettings")                                                                         |                |                   | Write          |
-| UpdateProxySession                                                                                                                                              | chime-sdk-voice           | [chime:UpdateProxySession](#list_chime-action-UpdateProxySession "#list_chime-action-UpdateProxySession")                                                                                              |                |                   | Write          |
-| UpdateSipMediaApplication                                                                                                                                       | chime-sdk-voice           | [chime:UpdateSipMediaApplication](#list_chime-action-UpdateSipMediaApplication "#list_chime-action-UpdateSipMediaApplication")                                                                         |                |                   | Write          |
-| UpdateSipMediaApplicationCall                                                                                                                                   | chime-sdk-voice           | [chime:UpdateSipMediaApplicationCall](#list_chime-action-UpdateSipMediaApplicationCall "#list_chime-action-UpdateSipMediaApplicationCall")                                                             |                |                   | Write          |
-| UpdateSipRule                                                                                                                                                   | chime-sdk-voice           | [chime:UpdateSipRule](#list_chime-action-UpdateSipRule "#list_chime-action-UpdateSipRule")                                                                                                             |                |                   | Write          |
-| UpdateVoiceConnector                                                                                                                                            | chime-sdk-voice           | [chime:UpdateVoiceConnector](#list_chime-action-UpdateVoiceConnector "#list_chime-action-UpdateVoiceConnector")                                                                                        |                |                   | Write          |
-| UpdateVoiceConnectorGroup                                                                                                                                       | chime-sdk-voice           | [chime:UpdateVoiceConnectorGroup](#list_chime-action-UpdateVoiceConnectorGroup "#list_chime-action-UpdateVoiceConnectorGroup")                                                                         |                |                   | Write          |
-| UpdateVoiceProfile                                                                                                                                              | chime-sdk-voice           | [chime:UpdateVoiceProfile](#list_chime-action-UpdateVoiceProfile "#list_chime-action-UpdateVoiceProfile")                                                                                              |                |                   | Write          |
-| UpdateVoiceProfileDomain                                                                                                                                        | chime-sdk-voice           | [chime:UpdateVoiceProfileDomain](#list_chime-action-UpdateVoiceProfileDomain "#list_chime-action-UpdateVoiceProfileDomain")                                                                            |                |                   | Write          |
-| ValidateE911Address                                                                                                                                             | chime-sdk-voice           | [chime:ValidateE911Address](#list_chime-action-ValidateE911Address "#list_chime-action-ValidateE911Address")                                                                                           |                |                   | Read           |
+
+
+
+- **   BatchCreateRoomMembership  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:BatchCreateRoomMembership](#list_chime-action-BatchCreateRoomMembership) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchDeletePhoneNumber  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:BatchDeletePhoneNumber](#list_chime-action-BatchDeletePhoneNumber) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchUpdatePhoneNumber  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:BatchUpdatePhoneNumber](#list_chime-action-BatchUpdatePhoneNumber) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAccount  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:CreateAccount](#list_chime-action-CreateAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateBot  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:CreateBot](#list_chime-action-CreateBot) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateMeetingDialOut  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:CreateMeetingDialOut](#list_chime-action-CreateMeetingDialOut) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreatePhoneNumberOrder  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:CreatePhoneNumberOrder](#list_chime-action-CreatePhoneNumberOrder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateRoom  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:CreateRoom](#list_chime-action-CreateRoom) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateRoomMembership  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:CreateRoomMembership](#list_chime-action-CreateRoomMembership) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAccount  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:DeleteAccount](#list_chime-action-DeleteAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteEventsConfiguration  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:DeleteEventsConfiguration](#list_chime-action-DeleteEventsConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeletePhoneNumber  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:DeletePhoneNumber](#list_chime-action-DeletePhoneNumber) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRoom  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:DeleteRoom](#list_chime-action-DeleteRoom) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRoomMembership  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:DeleteRoomMembership](#list_chime-action-DeleteRoomMembership) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAccount  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:GetAccount](#list_chime-action-GetAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAccountSettings  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:GetAccountSettings](#list_chime-action-GetAccountSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetBot  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:GetBot](#list_chime-action-GetBot) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetEventsConfiguration  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:GetEventsConfiguration](#list_chime-action-GetEventsConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetGlobalSettings  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:GetGlobalSettings](#list_chime-action-GetGlobalSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPhoneNumber  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:GetPhoneNumber](#list_chime-action-GetPhoneNumber) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPhoneNumberOrder  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:GetPhoneNumberOrder](#list_chime-action-GetPhoneNumberOrder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPhoneNumberSettings  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:GetPhoneNumberSettings](#list_chime-action-GetPhoneNumberSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRetentionSettings  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:GetRetentionSettings](#list_chime-action-GetRetentionSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRoom  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:GetRoom](#list_chime-action-GetRoom) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetUser  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:GetUser](#list_chime-action-GetUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetUserSettings  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:GetUserSettings](#list_chime-action-GetUserSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   InviteUsers  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:InviteUsers](#list_chime-action-InviteUsers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ListAccounts  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:ListAccounts](#list_chime-action-ListAccounts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListBots  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:ListBots](#list_chime-action-ListBots) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPhoneNumberOrders  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:ListPhoneNumberOrders](#list_chime-action-ListPhoneNumberOrders) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPhoneNumbers  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:ListPhoneNumbers](#list_chime-action-ListPhoneNumbers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRoomMemberships  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:ListRoomMemberships](#list_chime-action-ListRoomMemberships) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRooms  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:ListRooms](#list_chime-action-ListRooms) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSupportedPhoneNumberCountries  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:ListSupportedPhoneNumberCountries](#list_chime-action-ListSupportedPhoneNumberCountries) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListUsers  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:ListUsers](#list_chime-action-ListUsers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   LogoutUser  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:LogoutUser](#list_chime-action-LogoutUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutEventsConfiguration  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:PutEventsConfiguration](#list_chime-action-PutEventsConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutRetentionSettings  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:PutRetentionSettings](#list_chime-action-PutRetentionSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RedactConversationMessage  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:RedactConversationMessage](#list_chime-action-RedactConversationMessage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RedactRoomMessage  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:RedactRoomMessage](#list_chime-action-RedactRoomMessage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RegenerateSecurityToken  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:RegenerateSecurityToken](#list_chime-action-RegenerateSecurityToken) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RestorePhoneNumber  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:RestorePhoneNumber](#list_chime-action-RestorePhoneNumber) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SearchAvailablePhoneNumbers  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:SearchAvailablePhoneNumbers](#list_chime-action-SearchAvailablePhoneNumbers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   UpdateBot  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:UpdateBot](#list_chime-action-UpdateBot) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateGlobalSettings  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:UpdateGlobalSettings](#list_chime-action-UpdateGlobalSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdatePhoneNumber  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:UpdatePhoneNumber](#list_chime-action-UpdatePhoneNumber) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdatePhoneNumberSettings  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:UpdatePhoneNumberSettings](#list_chime-action-UpdatePhoneNumberSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRoom  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:UpdateRoom](#list_chime-action-UpdateRoom) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRoomMembership  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:UpdateRoomMembership](#list_chime-action-UpdateRoomMembership) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAppInstance  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:CreateAppInstance](#list_chime-action-CreateAppInstance)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateAppInstanceAdmin  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:CreateAppInstanceAdmin](#list_chime-action-CreateAppInstanceAdmin) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAppInstanceBot  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:CreateAppInstanceBot](#list_chime-action-CreateAppInstanceBot)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateAppInstanceUser  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:CreateAppInstanceUser](#list_chime-action-CreateAppInstanceUser)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:PutAppInstanceUserExpirationSettings](#list_chime-action-PutAppInstanceUserExpirationSettings)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteAppInstance  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:DeleteAppInstance](#list_chime-action-DeleteAppInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAppInstanceAdmin  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:DeleteAppInstanceAdmin](#list_chime-action-DeleteAppInstanceAdmin) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAppInstanceBot  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:DeleteAppInstanceBot](#list_chime-action-DeleteAppInstanceBot) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAppInstanceUser  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:DeleteAppInstanceUser](#list_chime-action-DeleteAppInstanceUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeregisterAppInstanceUserEndpoint  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:DeregisterAppInstanceUserEndpoint](#list_chime-action-DeregisterAppInstanceUserEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeAppInstance  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:DescribeAppInstance](#list_chime-action-DescribeAppInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeAppInstanceAdmin  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:DescribeAppInstanceAdmin](#list_chime-action-DescribeAppInstanceAdmin) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeAppInstanceBot  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:DescribeAppInstanceBot](#list_chime-action-DescribeAppInstanceBot) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeAppInstanceUser  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:DescribeAppInstanceUser](#list_chime-action-DescribeAppInstanceUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeAppInstanceUserEndpoint  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:DescribeAppInstanceUserEndpoint](#list_chime-action-DescribeAppInstanceUserEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAppInstanceRetentionSettings  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:GetAppInstanceRetentionSettings](#list_chime-action-GetAppInstanceRetentionSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAppInstanceAdmins  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:ListAppInstanceAdmins](#list_chime-action-ListAppInstanceAdmins) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAppInstanceBots  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:ListAppInstanceBots](#list_chime-action-ListAppInstanceBots) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAppInstanceUserEndpoints  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:ListAppInstanceUserEndpoints](#list_chime-action-ListAppInstanceUserEndpoints) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAppInstanceUsers  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:ListAppInstanceUsers](#list_chime-action-ListAppInstanceUsers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListAppInstances  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:ListAppInstances](#list_chime-action-ListAppInstances) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:ListTagsForResource](#list_chime-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   PutAppInstanceRetentionSettings  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:PutAppInstanceRetentionSettings](#list_chime-action-PutAppInstanceRetentionSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutAppInstanceUserExpirationSettings  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:PutAppInstanceUserExpirationSettings](#list_chime-action-PutAppInstanceUserExpirationSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RegisterAppInstanceUserEndpoint  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:RegisterAppInstanceUserEndpoint](#list_chime-action-RegisterAppInstanceUserEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:UntagResource](#list_chime-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAppInstance  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:UpdateAppInstance](#list_chime-action-UpdateAppInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAppInstanceBot  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:UpdateAppInstanceBot](#list_chime-action-UpdateAppInstanceBot) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAppInstanceUser  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:UpdateAppInstanceUser](#list_chime-action-UpdateAppInstanceUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAppInstanceUserEndpoint  **
+  - **SDK client:** chime-sdk-identity
+  - **IAM action:**  [chime:UpdateAppInstanceUserEndpoint](#list_chime-action-UpdateAppInstanceUserEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateMediaCapturePipeline  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:CreateMediaCapturePipeline](#list_chime-action-CreateMediaCapturePipeline)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** mediapipelines.chime.amazonaws.com / **Access level:** Write
+
+- **   CreateMediaConcatenationPipeline  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:CreateMediaConcatenationPipeline](#list_chime-action-CreateMediaConcatenationPipeline)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateMediaInsightsPipeline  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:CreateMediaInsightsPipeline](#list_chime-action-CreateMediaInsightsPipeline)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateMediaInsightsPipelineConfiguration  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:CreateMediaInsightsPipelineConfiguration](#list_chime-action-CreateMediaInsightsPipelineConfiguration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** mediapipelines.chime.amazonaws.com / **Access level:** Write
+
+- **   CreateMediaLiveConnectorPipeline  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:CreateMediaLiveConnectorPipeline](#list_chime-action-CreateMediaLiveConnectorPipeline)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateMediaPipelineKinesisVideoStreamPool  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:CreateMediaPipelineKinesisVideoStreamPool](#list_chime-action-CreateMediaPipelineKinesisVideoStreamPool)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateMediaStreamPipeline  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:CreateMediaStreamPipeline](#list_chime-action-CreateMediaStreamPipeline)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteMediaCapturePipeline  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:DeleteMediaCapturePipeline](#list_chime-action-DeleteMediaCapturePipeline) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteMediaInsightsPipelineConfiguration  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:DeleteMediaInsightsPipelineConfiguration](#list_chime-action-DeleteMediaInsightsPipelineConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteMediaPipeline  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:DeleteMediaPipeline](#list_chime-action-DeleteMediaPipeline) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteMediaPipelineKinesisVideoStreamPool  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:DeleteMediaPipelineKinesisVideoStreamPool](#list_chime-action-DeleteMediaPipelineKinesisVideoStreamPool) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetMediaCapturePipeline  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:GetMediaCapturePipeline](#list_chime-action-GetMediaCapturePipeline) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMediaInsightsPipelineConfiguration  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:GetMediaInsightsPipelineConfiguration](#list_chime-action-GetMediaInsightsPipelineConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMediaPipeline  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:GetMediaPipeline](#list_chime-action-GetMediaPipeline) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMediaPipelineKinesisVideoStreamPool  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:GetMediaPipelineKinesisVideoStreamPool](#list_chime-action-GetMediaPipelineKinesisVideoStreamPool) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSpeakerSearchTask  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:GetSpeakerSearchTask](#list_chime-action-GetSpeakerSearchTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetVoiceToneAnalysisTask  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:GetVoiceToneAnalysisTask](#list_chime-action-GetVoiceToneAnalysisTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListMediaCapturePipelines  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:ListMediaCapturePipelines](#list_chime-action-ListMediaCapturePipelines) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMediaInsightsPipelineConfigurations  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:ListMediaInsightsPipelineConfigurations](#list_chime-action-ListMediaInsightsPipelineConfigurations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMediaPipelineKinesisVideoStreamPools  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:ListMediaPipelineKinesisVideoStreamPools](#list_chime-action-ListMediaPipelineKinesisVideoStreamPools) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMediaPipelines  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:ListMediaPipelines](#list_chime-action-ListMediaPipelines) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:ListTagsForResource](#list_chime-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartSpeakerSearchTask  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:StartSpeakerSearchTask](#list_chime-action-StartSpeakerSearchTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartVoiceToneAnalysisTask  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:StartVoiceToneAnalysisTask](#list_chime-action-StartVoiceToneAnalysisTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopSpeakerSearchTask  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:StopSpeakerSearchTask](#list_chime-action-StopSpeakerSearchTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopVoiceToneAnalysisTask  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:StopVoiceToneAnalysisTask](#list_chime-action-StopVoiceToneAnalysisTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:UntagResource](#list_chime-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateMediaInsightsPipelineConfiguration  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:UpdateMediaInsightsPipelineConfiguration](#list_chime-action-UpdateMediaInsightsPipelineConfiguration)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** mediapipelines.chime.amazonaws.com / **Access level:** Write
+
+- **   UpdateMediaInsightsPipelineStatus  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:UpdateMediaInsightsPipelineStatus](#list_chime-action-UpdateMediaInsightsPipelineStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateMediaPipelineKinesisVideoStreamPool  **
+  - **SDK client:** chime-sdk-media-pipelines
+  - **IAM action:**  [chime:UpdateMediaPipelineKinesisVideoStreamPool](#list_chime-action-UpdateMediaPipelineKinesisVideoStreamPool) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchCreateAttendee  **
+  - **SDK client:** chime-sdk-meetings
+  - **IAM action:**  [chime:BatchCreateAttendee](#list_chime-action-BatchCreateAttendee) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchUpdateAttendeeCapabilitiesExcept  **
+  - **SDK client:** chime-sdk-meetings
+  - **IAM action:**  [chime:BatchUpdateAttendeeCapabilitiesExcept](#list_chime-action-BatchUpdateAttendeeCapabilitiesExcept) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateAttendee  **
+  - **SDK client:** chime-sdk-meetings
+  - **IAM action:**  [chime:CreateAttendee](#list_chime-action-CreateAttendee)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagAttendee](#list_chime-action-TagAttendee)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateMeeting  **
+  - **SDK client:** chime-sdk-meetings
+  - **IAM action:**  [chime:CreateMeeting](#list_chime-action-CreateMeeting)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagMeeting](#list_chime-action-TagMeeting)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateMeetingWithAttendees  **
+  - **SDK client:** chime-sdk-meetings
+  - **IAM action:**  [chime:CreateMeetingWithAttendees](#list_chime-action-CreateMeetingWithAttendees)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteAttendee  **
+  - **SDK client:** chime-sdk-meetings
+  - **IAM action:**  [chime:DeleteAttendee](#list_chime-action-DeleteAttendee) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteMeeting  **
+  - **SDK client:** chime-sdk-meetings
+  - **IAM action:**  [chime:DeleteMeeting](#list_chime-action-DeleteMeeting) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAttendee  **
+  - **SDK client:** chime-sdk-meetings
+  - **IAM action:**  [chime:GetAttendee](#list_chime-action-GetAttendee) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMeeting  **
+  - **SDK client:** chime-sdk-meetings
+  - **IAM action:**  [chime:GetMeeting](#list_chime-action-GetMeeting) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAttendees  **
+  - **SDK client:** chime-sdk-meetings
+  - **IAM action:**  [chime:ListAttendees](#list_chime-action-ListAttendees) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **SDK client:** chime-sdk-meetings
+  - **IAM action:**  [chime:ListTagsForResource](#list_chime-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartMeetingTranscription  **
+  - **SDK client:** chime-sdk-meetings
+  - **IAM action:**  [chime:StartMeetingTranscription](#list_chime-action-StartMeetingTranscription) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopMeetingTranscription  **
+  - **SDK client:** chime-sdk-meetings
+  - **IAM action:**  [chime:StopMeetingTranscription](#list_chime-action-StopMeetingTranscription) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **SDK client:** chime-sdk-meetings
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **SDK client:** chime-sdk-meetings
+  - **IAM action:**  [chime:UntagResource](#list_chime-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAttendeeCapabilities  **
+  - **SDK client:** chime-sdk-meetings
+  - **IAM action:**  [chime:UpdateAttendeeCapabilities](#list_chime-action-UpdateAttendeeCapabilities) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateChannelFlow  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:AssociateChannelFlow](#list_chime-action-AssociateChannelFlow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchCreateChannelMembership  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:BatchCreateChannelMembership](#list_chime-action-BatchCreateChannelMembership) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ChannelFlowCallback  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:ChannelFlowCallback](#list_chime-action-ChannelFlowCallback) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateChannel  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:CreateChannel](#list_chime-action-CreateChannel)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:CreateChannelMembership](#list_chime-action-CreateChannelMembership)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:CreateChannelModerator](#list_chime-action-CreateChannelModerator)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:PutChannelExpirationSettings](#list_chime-action-PutChannelExpirationSettings)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateChannelBan  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:CreateChannelBan](#list_chime-action-CreateChannelBan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateChannelFlow  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:CreateChannelFlow](#list_chime-action-CreateChannelFlow)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateChannelMembership  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:CreateChannelMembership](#list_chime-action-CreateChannelMembership) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateChannelModerator  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:CreateChannelModerator](#list_chime-action-CreateChannelModerator) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteChannel  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:DeleteChannel](#list_chime-action-DeleteChannel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteChannelBan  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:DeleteChannelBan](#list_chime-action-DeleteChannelBan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteChannelFlow  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:DeleteChannelFlow](#list_chime-action-DeleteChannelFlow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteChannelMembership  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:DeleteChannelMembership](#list_chime-action-DeleteChannelMembership) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteChannelMessage  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:DeleteChannelMessage](#list_chime-action-DeleteChannelMessage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteChannelModerator  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:DeleteChannelModerator](#list_chime-action-DeleteChannelModerator) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteMessagingStreamingConfigurations  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:DeleteMessagingStreamingConfigurations](#list_chime-action-DeleteMessagingStreamingConfigurations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeChannel  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:DescribeChannel](#list_chime-action-DescribeChannel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeChannelBan  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:DescribeChannelBan](#list_chime-action-DescribeChannelBan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeChannelFlow  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:DescribeChannelFlow](#list_chime-action-DescribeChannelFlow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeChannelMembership  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:DescribeChannelMembership](#list_chime-action-DescribeChannelMembership) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeChannelMembershipForAppInstanceUser  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:DescribeChannelMembershipForAppInstanceUser](#list_chime-action-DescribeChannelMembershipForAppInstanceUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeChannelModeratedByAppInstanceUser  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:DescribeChannelModeratedByAppInstanceUser](#list_chime-action-DescribeChannelModeratedByAppInstanceUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeChannelModerator  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:DescribeChannelModerator](#list_chime-action-DescribeChannelModerator) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DisassociateChannelFlow  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:DisassociateChannelFlow](#list_chime-action-DisassociateChannelFlow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetChannelMembershipPreferences  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:GetChannelMembershipPreferences](#list_chime-action-GetChannelMembershipPreferences) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetChannelMessage  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:GetChannelMessage](#list_chime-action-GetChannelMessage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetChannelMessageStatus  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:GetChannelMessageStatus](#list_chime-action-GetChannelMessageStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMessagingSessionEndpoint  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:GetMessagingSessionEndpoint](#list_chime-action-GetMessagingSessionEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMessagingStreamingConfigurations  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:GetMessagingStreamingConfigurations](#list_chime-action-GetMessagingStreamingConfigurations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListChannelBans  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:ListChannelBans](#list_chime-action-ListChannelBans) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListChannelFlows  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:ListChannelFlows](#list_chime-action-ListChannelFlows) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListChannelMemberships  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:ListChannelMemberships](#list_chime-action-ListChannelMemberships) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListChannelMembershipsForAppInstanceUser  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:ListChannelMembershipsForAppInstanceUser](#list_chime-action-ListChannelMembershipsForAppInstanceUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListChannelMessages  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:ListChannelMessages](#list_chime-action-ListChannelMessages) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListChannelModerators  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:ListChannelModerators](#list_chime-action-ListChannelModerators) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListChannels  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:ListChannels](#list_chime-action-ListChannels) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListChannelsAssociatedWithChannelFlow  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:ListChannelsAssociatedWithChannelFlow](#list_chime-action-ListChannelsAssociatedWithChannelFlow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListChannelsModeratedByAppInstanceUser  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:ListChannelsModeratedByAppInstanceUser](#list_chime-action-ListChannelsModeratedByAppInstanceUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSubChannels  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:ListSubChannels](#list_chime-action-ListSubChannels) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:ListTagsForResource](#list_chime-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   PutChannelExpirationSettings  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:PutChannelExpirationSettings](#list_chime-action-PutChannelExpirationSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutChannelMembershipPreferences  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:PutChannelMembershipPreferences](#list_chime-action-PutChannelMembershipPreferences) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutMessagingStreamingConfigurations  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:PutMessagingStreamingConfigurations](#list_chime-action-PutMessagingStreamingConfigurations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RedactChannelMessage  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:RedactChannelMessage](#list_chime-action-RedactChannelMessage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SearchChannels  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:SearchChannels](#list_chime-action-SearchChannels) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   SendChannelMessage  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:SendChannelMessage](#list_chime-action-SendChannelMessage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:UntagResource](#list_chime-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateChannel  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:UpdateChannel](#list_chime-action-UpdateChannel) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateChannelFlow  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:UpdateChannelFlow](#list_chime-action-UpdateChannelFlow) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateChannelMessage  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:UpdateChannelMessage](#list_chime-action-UpdateChannelMessage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateChannelReadMarker  **
+  - **SDK client:** chime-sdk-messaging
+  - **IAM action:**  [chime:UpdateChannelReadMarker](#list_chime-action-UpdateChannelReadMarker) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociatePhoneNumbersWithVoiceConnector  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:AssociatePhoneNumbersWithVoiceConnector](#list_chime-action-AssociatePhoneNumbersWithVoiceConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociatePhoneNumbersWithVoiceConnectorGroup  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:AssociatePhoneNumbersWithVoiceConnectorGroup](#list_chime-action-AssociatePhoneNumbersWithVoiceConnectorGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchDeletePhoneNumber  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:BatchDeletePhoneNumber](#list_chime-action-BatchDeletePhoneNumber) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchUpdatePhoneNumber  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:BatchUpdatePhoneNumber](#list_chime-action-BatchUpdatePhoneNumber) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreatePhoneNumberOrder  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:CreatePhoneNumberOrder](#list_chime-action-CreatePhoneNumberOrder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateProxySession  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:CreateProxySession](#list_chime-action-CreateProxySession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateSipMediaApplication  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:CreateSipMediaApplication](#list_chime-action-CreateSipMediaApplication)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateSipMediaApplicationCall  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:CreateSipMediaApplicationCall](#list_chime-action-CreateSipMediaApplicationCall) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateSipRule  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:CreateSipRule](#list_chime-action-CreateSipRule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateVoiceConnector  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:CreateConnectAnalyticsConnector](#list_chime-action-CreateConnectAnalyticsConnector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:CreateConnectCallTransferConnector](#list_chime-action-CreateConnectCallTransferConnector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:CreateVoiceConnector](#list_chime-action-CreateVoiceConnector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateVoiceConnectorGroup  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:CreateVoiceConnectorGroup](#list_chime-action-CreateVoiceConnectorGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateVoiceProfile  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:CreateVoiceProfile](#list_chime-action-CreateVoiceProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateVoiceProfileDomain  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:CreateVoiceProfileDomain](#list_chime-action-CreateVoiceProfileDomain)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeletePhoneNumber  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DeletePhoneNumber](#list_chime-action-DeletePhoneNumber) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteProxySession  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DeleteProxySession](#list_chime-action-DeleteProxySession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSipMediaApplication  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DeleteSipMediaApplication](#list_chime-action-DeleteSipMediaApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSipRule  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DeleteSipRule](#list_chime-action-DeleteSipRule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVoiceConnector  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DeleteVoiceConnector](#list_chime-action-DeleteVoiceConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVoiceConnectorEmergencyCallingConfiguration  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DeleteVoiceConnectorEmergencyCallingConfiguration](#list_chime-action-DeleteVoiceConnectorEmergencyCallingConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVoiceConnectorExternalSystemsConfiguration  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DeleteVoiceConnectorExternalSystemsConfiguration](#list_chime-action-DeleteVoiceConnectorExternalSystemsConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVoiceConnectorGroup  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DeleteVoiceConnectorGroup](#list_chime-action-DeleteVoiceConnectorGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVoiceConnectorOrigination  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DeleteVoiceConnectorOrigination](#list_chime-action-DeleteVoiceConnectorOrigination) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVoiceConnectorProxy  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DeleteVoiceConnectorProxy](#list_chime-action-DeleteVoiceConnectorProxy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVoiceConnectorStreamingConfiguration  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DeleteVoiceConnectorStreamingConfiguration](#list_chime-action-DeleteVoiceConnectorStreamingConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVoiceConnectorTermination  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DeleteVoiceConnectorTermination](#list_chime-action-DeleteVoiceConnectorTermination) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVoiceConnectorTerminationCredentials  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DeleteVoiceConnectorTerminationCredentials](#list_chime-action-DeleteVoiceConnectorTerminationCredentials) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVoiceProfile  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DeleteVoiceProfile](#list_chime-action-DeleteVoiceProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVoiceProfileDomain  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DeleteVoiceProfileDomain](#list_chime-action-DeleteVoiceProfileDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociatePhoneNumbersFromVoiceConnector  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DisassociatePhoneNumbersFromVoiceConnector](#list_chime-action-DisassociatePhoneNumbersFromVoiceConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociatePhoneNumbersFromVoiceConnectorGroup  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:DisassociatePhoneNumbersFromVoiceConnectorGroup](#list_chime-action-DisassociatePhoneNumbersFromVoiceConnectorGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetGlobalSettings  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetGlobalSettings](#list_chime-action-GetGlobalSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPhoneNumber  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetPhoneNumber](#list_chime-action-GetPhoneNumber) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPhoneNumberOrder  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetPhoneNumberOrder](#list_chime-action-GetPhoneNumberOrder) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPhoneNumberSettings  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetPhoneNumberSettings](#list_chime-action-GetPhoneNumberSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetProxySession  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetProxySession](#list_chime-action-GetProxySession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSipMediaApplication  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetSipMediaApplication](#list_chime-action-GetSipMediaApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSipMediaApplicationAlexaSkillConfiguration  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetSipMediaApplicationAlexaSkillConfiguration](#list_chime-action-GetSipMediaApplicationAlexaSkillConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSipMediaApplicationLoggingConfiguration  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetSipMediaApplicationLoggingConfiguration](#list_chime-action-GetSipMediaApplicationLoggingConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSipRule  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetSipRule](#list_chime-action-GetSipRule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSpeakerSearchTask  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetSpeakerSearchTask](#list_chime-action-GetSpeakerSearchTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetVoiceConnector  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetVoiceConnector](#list_chime-action-GetVoiceConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetVoiceConnectorEmergencyCallingConfiguration  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetVoiceConnectorEmergencyCallingConfiguration](#list_chime-action-GetVoiceConnectorEmergencyCallingConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetVoiceConnectorExternalSystemsConfiguration  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetVoiceConnectorExternalSystemsConfiguration](#list_chime-action-GetVoiceConnectorExternalSystemsConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetVoiceConnectorGroup  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetVoiceConnectorGroup](#list_chime-action-GetVoiceConnectorGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetVoiceConnectorLoggingConfiguration  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetVoiceConnectorLoggingConfiguration](#list_chime-action-GetVoiceConnectorLoggingConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetVoiceConnectorOrigination  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetVoiceConnectorOrigination](#list_chime-action-GetVoiceConnectorOrigination) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetVoiceConnectorProxy  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetVoiceConnectorProxy](#list_chime-action-GetVoiceConnectorProxy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetVoiceConnectorStreamingConfiguration  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetVoiceConnectorStreamingConfiguration](#list_chime-action-GetVoiceConnectorStreamingConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetVoiceConnectorTermination  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetVoiceConnectorTermination](#list_chime-action-GetVoiceConnectorTermination) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetVoiceConnectorTerminationHealth  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetVoiceConnectorTerminationHealth](#list_chime-action-GetVoiceConnectorTerminationHealth) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetVoiceProfile  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetVoiceProfile](#list_chime-action-GetVoiceProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetVoiceProfileDomain  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetVoiceProfileDomain](#list_chime-action-GetVoiceProfileDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetVoiceToneAnalysisTask  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:GetVoiceToneAnalysisTask](#list_chime-action-GetVoiceToneAnalysisTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAvailableVoiceConnectorRegions  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:ListAvailableVoiceConnectorRegions](#list_chime-action-ListAvailableVoiceConnectorRegions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPhoneNumberOrders  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:ListPhoneNumberOrders](#list_chime-action-ListPhoneNumberOrders) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPhoneNumbers  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:ListPhoneNumbers](#list_chime-action-ListPhoneNumbers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListProxySessions  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:ListProxySessions](#list_chime-action-ListProxySessions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSipMediaApplications  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:ListSipMediaApplications](#list_chime-action-ListSipMediaApplications) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSipRules  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:ListSipRules](#list_chime-action-ListSipRules) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSupportedPhoneNumberCountries  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:ListSupportedPhoneNumberCountries](#list_chime-action-ListSupportedPhoneNumberCountries) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:ListTagsForResource](#list_chime-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListVoiceConnectorGroups  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:ListVoiceConnectorGroups](#list_chime-action-ListVoiceConnectorGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListVoiceConnectorTerminationCredentials  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:ListVoiceConnectorTerminationCredentials](#list_chime-action-ListVoiceConnectorTerminationCredentials) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListVoiceConnectors  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:ListVoiceConnectors](#list_chime-action-ListVoiceConnectors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListVoiceProfileDomains  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:ListVoiceProfileDomains](#list_chime-action-ListVoiceProfileDomains) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListVoiceProfiles  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:ListVoiceProfiles](#list_chime-action-ListVoiceProfiles) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PutSipMediaApplicationAlexaSkillConfiguration  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:PutSipMediaApplicationAlexaSkillConfiguration](#list_chime-action-PutSipMediaApplicationAlexaSkillConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutSipMediaApplicationLoggingConfiguration  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:PutSipMediaApplicationLoggingConfiguration](#list_chime-action-PutSipMediaApplicationLoggingConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutVoiceConnectorEmergencyCallingConfiguration  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:PutVoiceConnectorEmergencyCallingConfiguration](#list_chime-action-PutVoiceConnectorEmergencyCallingConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutVoiceConnectorExternalSystemsConfiguration  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:PutVoiceConnectorExternalSystemsConfiguration](#list_chime-action-PutVoiceConnectorExternalSystemsConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutVoiceConnectorLoggingConfiguration  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:PutVoiceConnectorLoggingConfiguration](#list_chime-action-PutVoiceConnectorLoggingConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutVoiceConnectorOrigination  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:PutVoiceConnectorOrigination](#list_chime-action-PutVoiceConnectorOrigination) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutVoiceConnectorProxy  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:PutVoiceConnectorProxy](#list_chime-action-PutVoiceConnectorProxy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutVoiceConnectorStreamingConfiguration  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:PutVoiceConnectorStreamingConfiguration](#list_chime-action-PutVoiceConnectorStreamingConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutVoiceConnectorTermination  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:PutVoiceConnectorTermination](#list_chime-action-PutVoiceConnectorTermination) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PutVoiceConnectorTerminationCredentials  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:PutVoiceConnectorTerminationCredentials](#list_chime-action-PutVoiceConnectorTerminationCredentials) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RestorePhoneNumber  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:RestorePhoneNumber](#list_chime-action-RestorePhoneNumber) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SearchAvailablePhoneNumbers  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:SearchAvailablePhoneNumbers](#list_chime-action-SearchAvailablePhoneNumbers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   StartSpeakerSearchTask  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:StartSpeakerSearchTask](#list_chime-action-StartSpeakerSearchTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartVoiceToneAnalysisTask  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:StartVoiceToneAnalysisTask](#list_chime-action-StartVoiceToneAnalysisTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopSpeakerSearchTask  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:StopSpeakerSearchTask](#list_chime-action-StopSpeakerSearchTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopVoiceToneAnalysisTask  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:StopVoiceToneAnalysisTask](#list_chime-action-StopVoiceToneAnalysisTask) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:TagResource](#list_chime-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:UntagResource](#list_chime-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateGlobalSettings  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:UpdateGlobalSettings](#list_chime-action-UpdateGlobalSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdatePhoneNumber  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:UpdatePhoneNumber](#list_chime-action-UpdatePhoneNumber) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdatePhoneNumberSettings  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:UpdatePhoneNumberSettings](#list_chime-action-UpdatePhoneNumberSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateProxySession  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:UpdateProxySession](#list_chime-action-UpdateProxySession) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSipMediaApplication  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:UpdateSipMediaApplication](#list_chime-action-UpdateSipMediaApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSipMediaApplicationCall  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:UpdateSipMediaApplicationCall](#list_chime-action-UpdateSipMediaApplicationCall) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSipRule  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:UpdateSipRule](#list_chime-action-UpdateSipRule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateVoiceConnector  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:UpdateVoiceConnector](#list_chime-action-UpdateVoiceConnector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateVoiceConnectorGroup  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:UpdateVoiceConnectorGroup](#list_chime-action-UpdateVoiceConnectorGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateVoiceProfile  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:UpdateVoiceProfile](#list_chime-action-UpdateVoiceProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateVoiceProfileDomain  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:UpdateVoiceProfileDomain](#list_chime-action-UpdateVoiceProfileDomain) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ValidateE911Address  **
+  - **SDK client:** chime-sdk-voice
+  - **IAM action:**  [chime:ValidateE911Address](#list_chime-action-ValidateE911Address) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+
 
 ## Actions defined by Amazon Chime
+<a name="list_chime-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                               | Resource types (\*required)                                                                                                                                                 | Condition keys                                                                                                                                                                                                                                                                            | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AcceptDelegate](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                                   | Grants permission to accept the delegate invitation to share management of an Amazon Chime account with another AWS Account                                                                                                                                                               |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [ActivateUsers](../../../chime/latest/ag/manage-access.md "../../../chime/latest/ag/manage-access.md")                                                                                                                                                                      | Grants permission to activate users in an Amazon Chime Enterprise account                                                                                                                                                                                                                 |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [AddDomain](../../../chime/latest/ag/claim-domain.md "../../../chime/latest/ag/claim-domain.md")                                                                                                                                                                            | Grants permission to add a domain to your Amazon Chime account                                                                                                                                                                                                                            |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [AddOrUpdateGroups](../../../chime/latest/ag/manage-chime-account.md "../../../chime/latest/ag/manage-chime-account.md")                                                                                                                                                    | Grants permission to add new or update existing Active Directory or Okta user groups associated with your Amazon Chime Enterprise account                                                                                                                                                 |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [AssociateChannelFlow](../../../chime-sdk/latest/APIReference/API_messaging-chime_AssociateChannelFlow.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_AssociateChannelFlow.md")                                                                             | Grants permission to associate a flow with a channel                                                                                                                                                                                                                                      | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel-flow\*](#list_chime-resource-channel-flow "#list_chime-resource-channel-flow")                                                                                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [AssociatePhoneNumberWithUser](../../../chime/latest/APIReference/API_AssociatePhoneNumberWithUser.md "../../../chime/latest/APIReference/API_AssociatePhoneNumberWithUser.md")                                                                                             | Grants permission to associate a phone number with an Amazon Chime user                                                                                                                                                                                                                   |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [AssociatePhoneNumbersWithVoiceConnector](../../../chime/latest/APIReference/API_AssociatePhoneNumbersWithVoiceConnector.md "../../../chime/latest/APIReference/API_AssociatePhoneNumbersWithVoiceConnector.md")                                                            | Grants permission to associate multiple phone numbers with an Amazon Chime Voice Connector                                                                                                                                                                                                | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [AssociatePhoneNumbersWithVoiceConnectorGroup](../../../chime/latest/APIReference/API_AssociatePhoneNumbersWithVoiceConnectorGroup.md "../../../chime/latest/APIReference/API_AssociatePhoneNumbersWithVoiceConnectorGroup.md")                                             | Grants permission to associate multiple phone numbers with an Amazon Chime Voice Connector Group                                                                                                                                                                                          |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [AssociateSigninDelegateGroupsWithAccount](../../../chime/latest/APIReference/API_AssociateSigninDelegateGroupsWithAccount.md "../../../chime/latest/APIReference/API_AssociateSigninDelegateGroupsWithAccount.md")                                                         | Grants permission to associate the specified sign-in delegate groups with the specified Amazon Chime account                                                                                                                                                                              |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [AuthorizeDirectory](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                               | Grants permission to authorize an Active Directory for your Amazon Chime Enterprise account                                                                                                                                                                                               |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [BatchCreateAttendee](../../../chime/latest/APIReference/API_BatchCreateAttendee.md "../../../chime/latest/APIReference/API_BatchCreateAttendee.md")                                                                                                                        | Grants permission to create new attendees for an active Amazon Chime SDK meeting                                                                                                                                                                                                          | [meeting\*](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [BatchCreateChannelMembership](../../../chime-sdk/latest/APIReference/API_messaging-chime_BatchCreateChannelMembership.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_BatchCreateChannelMembership.md")                                                     | Grants permission to add multiple users and bots to a channel                                                                                                                                                                                                                             | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [BatchCreateRoomMembership](../../../chime/latest/APIReference/API_BatchCreateRoomMembership.md "../../../chime/latest/APIReference/API_BatchCreateRoomMembership.md")                                                                                                      | Grants permission to batch add room members                                                                                                                                                                                                                                               |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [BatchDeletePhoneNumber](../../../chime/latest/APIReference/API_BatchDeletePhoneNumber.md "../../../chime/latest/APIReference/API_BatchDeletePhoneNumber.md")                                                                                                               | Grants permission to move up to 50 phone numbers to the deletion queue                                                                                                                                                                                                                    |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [BatchSuspendUser](../../../chime/latest/APIReference/API_BatchSuspendUser.md "../../../chime/latest/APIReference/API_BatchSuspendUser.md")                                                                                                                                 | Grants permission to suspend up to 50 users from a Team or EnterpriseLWA Amazon Chime account                                                                                                                                                                                             |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [BatchUnsuspendUser](../../../chime/latest/APIReference/API_BatchUnsuspendUser.md "../../../chime/latest/APIReference/API_BatchUnsuspendUser.md")                                                                                                                           | Grants permission to remove the suspension from up to 50 previously suspended users for the specified Amazon Chime EnterpriseLWA account                                                                                                                                                  |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [BatchUpdateAttendeeCapabilitiesExcept](../../../chime-sdk/latest/APIReference/API_meeting-chime_BatchUpdateAttendeeCapabilitiesExcept.md "../../../chime-sdk/latest/APIReference/API_meeting-chime_BatchUpdateAttendeeCapabilitiesExcept.md")                              | Grants permission to update AttendeeCapabilities except the capabilities listed in an ExcludedAttendeeIds table                                                                                                                                                                           | [meeting\*](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [BatchUpdatePhoneNumber](../../../chime/latest/APIReference/API_BatchUpdatePhoneNumber.md "../../../chime/latest/APIReference/API_BatchUpdatePhoneNumber.md")                                                                                                               | Grants permission to update phone number details within the UpdatePhoneNumberRequestItem object for up to 50 phone numbers                                                                                                                                                                |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [BatchUpdateUser](../../../chime/latest/APIReference/API_BatchUpdateUser.md "../../../chime/latest/APIReference/API_BatchUpdateUser.md")                                                                                                                                    | Grants permission to update user details within the UpdateUserRequestItem object for up to 20 users for the specified Amazon Chime account                                                                                                                                                |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [ChannelFlowCallback](../../../chime-sdk/latest/APIReference/API_messaging-chime_ChannelFlowCallback.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_ChannelFlowCallback.md")                                                                                | Grants permission to callback for a message on a channel                                                                                                                                                                                                                                  | [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [Connect](../../../chime-sdk/latest/APIReference/API_messaging-chime_Connect.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_Connect.md")                                                                                                                    | Grants permission to establish a web socket connection for app instance user to the messaging session endpoint                                                                                                                                                                            | [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [ConnectDirectory](../../../chime/latest/ag/active_directory.md "../../../chime/latest/ag/active_directory.md")                                                                                                                                                             | Grants permission to connect an Active Directory to your Amazon Chime Enterprise account                                                                                                                                                                                                  |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [CreateAccount](../../../chime/latest/APIReference/API_CreateAccount.md "../../../chime/latest/APIReference/API_CreateAccount.md")                                                                                                                                          | Grants permission to create an Amazon Chime account under the administrator's AWS account                                                                                                                                                                                                 |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [CreateApiKey](../../../chime/latest/ag/okta_sso.md "../../../chime/latest/ag/okta_sso.md")                                                                                                                                                                                 | Grants permission to create a new SCIM access key for your Amazon Chime account and Okta configuration                                                                                                                                                                                    |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [CreateAppInstance](../../../chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstance.md "../../../chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstance.md")                                                                                        | Grants permission to create an app instance in the AWS account (tag-based access controls are only supported on identity-chime.<region>.amazonaws.com endpoints)                                                                                                                          |                                                                                                                                                                             | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                               | Write          |
-| [CreateAppInstanceAdmin](../../../chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceAdmin.md "../../../chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceAdmin.md")                                                                         | Grants permission to promote a user or bot to an AppInstanceAdmin                                                                                                                                                                                                                         | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [CreateAppInstanceBot](../../../chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceBot.md "../../../chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceBot.md")                                                                               | Grants permission to create a bot within an AppInstance (tag-based access controls are only supported on identity-chime.<region>.amazonaws.com endpoints)                                                                                                                                 |                                                                                                                                                                             | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                               | Write          |
-| [CreateAppInstanceUser](../../../chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceUser.md "../../../chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceUser.md")                                                                            | Grants permission to create a user within an AppInstance (tag-based access controls are only supported on identity-chime.<region>.amazonaws.com endpoints)                                                                                                                                |                                                                                                                                                                             | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                               | Write          |
-| [CreateAttendee](../../../chime/latest/APIReference/API_CreateAttendee.md "../../../chime/latest/APIReference/API_CreateAttendee.md")                                                                                                                                       | Grants permission to create a new attendee for an active Amazon Chime SDK meeting                                                                                                                                                                                                         | [meeting\*](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [CreateBot](../../../chime/latest/APIReference/API_CreateBot.md "../../../chime/latest/APIReference/API_CreateBot.md")                                                                                                                                                      | Grants permission to create a bot for an Amazon Chime Enterprise account                                                                                                                                                                                                                  |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [CreateCDRBucket](../../../chime/latest/ag/manage-access.md "../../../chime/latest/ag/manage-access.md")                                                                                                                                                                    | Grants permission to create a new Call Detail Record S3 bucket                                                                                                                                                                                                                            |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [CreateChannel](../../../chime-sdk/latest/APIReference/API_messaging-chime_CreateChannel.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_CreateChannel.md")                                                                                                  | Grants permission to create a channel for an app instance in the AWS account (tag-based access controls are only supported on messaging-chime.<region>.amazonaws.com endpoints)                                                                                                           | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") |
-| [CreateChannelBan](../../../chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelBan.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelBan.md")                                                                                         | Grants permission to ban a user or bot from a channel                                                                                                                                                                                                                                     | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [CreateChannelFlow](../../../chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelFlow.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelFlow.md")                                                                                      | Grants permission to create a channel flow for an app instance in the AWS account (tag-based access controls are only supported on messaging-chime.<region>.amazonaws.com endpoints)                                                                                                      | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") | Write          |
-| [CreateChannelMembership](../../../chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelMembership.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelMembership.md")                                                                    | Grants permission to add a user or bot to a channel                                                                                                                                                                                                                                       | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [CreateChannelModerator](../../../chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelModerator.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelModerator.md")                                                                       | Grants permission to create a channel moderator                                                                                                                                                                                                                                           | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [CreateMediaCapturePipeline](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaCapturePipeline.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaCapturePipeline.md")                                               | Grants permission to create a media capture pipeline (tag-based access controls are only supported on media-pipelines-chime.<region>.amazonaws.com endpoints)                                                                                                                             |                                                                                                                                                                             | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                               | Write          |
-| [CreateMediaConcatenationPipeline](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaConcatenationPipeline.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaConcatenationPipeline.md")                             | Grants permission to create a media concatenation pipeline (tag-based access controls are only supported on media-pipelines-chime.<region>.amazonaws.com endpoints)                                                                                                                       |                                                                                                                                                                             | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                               | Write          |
-| [CreateMediaInsightsPipeline](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaInsightsPipeline.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaInsightsPipeline.md")                                            | Grants permission to create a media insights pipeline (tag-based access controls are only supported on media-pipelines-chime.<region>.amazonaws.com endpoints)                                                                                                                            | [media-insights-pipeline-configuration\*](#list_chime-resource-media-insights-pipeline-configuration "#list_chime-resource-media-insights-pipeline-configuration")          | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") | Write          |
-| [CreateMediaInsightsPipelineConfiguration](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaInsightsPipelineConfiguration.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaInsightsPipelineConfiguration.md")     | Grants permission to create a media insights pipeline configuration (tag-based access controls are only supported on media-pipelines-chime.<region>.amazonaws.com endpoints)                                                                                                              |                                                                                                                                                                             | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                               | Write          |
-| [CreateMediaLiveConnectorPipeline](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaLiveConnectorPipeline.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaLiveConnectorPipeline.md")                             | Grants permission to create a media live connector pipeline (tag-based access controls are only supported on media-pipelines-chime.<region>.amazonaws.com endpoints)                                                                                                                      |                                                                                                                                                                             | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                               | Write          |
-| [CreateMediaPipelineKinesisVideoStreamPool](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaPipelineKinesisVideoStreamPool.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaPipelineKinesisVideoStreamPool.md")  | Grants permission to create kinesis video stream pool (tag-based access controls are only supported on media-pipelines-chime.<region>.amazonaws.com endpoints)                                                                                                                            |                                                                                                                                                                             | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                               | Write          |
-| [CreateMediaStreamPipeline](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaStreamPipeline.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaStreamPipeline.md")                                                  | Grants permission to create a media stream pipeline (tag-based access controls are only supported on media-pipelines-chime.<region>.amazonaws.com endpoints)                                                                                                                              | [media-pipeline-kinesis-video-stream-pool\*](#list_chime-resource-media-pipeline-kinesis-video-stream-pool "#list_chime-resource-media-pipeline-kinesis-video-stream-pool") | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") | Write          |
-| [CreateMeeting](../../../chime/latest/APIReference/API_CreateMeeting.md "../../../chime/latest/APIReference/API_CreateMeeting.md")                                                                                                                                          | Grants permission to create a new meeting in the specified media Region, with no initial attendees (tag-based access controls are only supported on meetings-chime.<region>.amazonaws.com endpoints)                                                                                      |                                                                                                                                                                             | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                               | Write          |
-| [CreateMeetingDialOut](../../../chime/latest/APIReference/API_CreateMeetingDialOut.md "../../../chime/latest/APIReference/API_CreateMeetingDialOut.md")                                                                                                                     | Grants permission to call a phone number to join the specified Amazon Chime SDK meeting                                                                                                                                                                                                   | [meeting\*](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [CreateMeetingWithAttendees](../../../chime/latest/APIReference/API_CreateMeetingWithAttendees.md "../../../chime/latest/APIReference/API_CreateMeetingWithAttendees.md")                                                                                                   | Grants permission to create a new meeting in the specified media Region, with a set of attendees (tag-based access controls are only supported on meetings-chime.<region>.amazonaws.com endpoints)                                                                                        |                                                                                                                                                                             | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                               | Write          |
-| [CreatePhoneNumberOrder](../../../chime/latest/APIReference/API_CreatePhoneNumberOrder.md "../../../chime/latest/APIReference/API_CreatePhoneNumberOrder.md")                                                                                                               | Grants permission to create a phone number order with the Carriers                                                                                                                                                                                                                        |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [CreateProxySession](../../../chime/latest/APIReference/API_CreateProxySession.md "../../../chime/latest/APIReference/API_CreateProxySession.md")                                                                                                                           | Grants permission to create a proxy session for the specified Amazon Chime Voice Connector                                                                                                                                                                                                | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [CreateRoom](../../../chime/latest/APIReference/API_CreateRoom.md "../../../chime/latest/APIReference/API_CreateRoom.md")                                                                                                                                                   | Grants permission to create a room                                                                                                                                                                                                                                                        |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [CreateRoomMembership](../../../chime/latest/APIReference/API_CreateRoomMembership.md "../../../chime/latest/APIReference/API_CreateRoomMembership.md")                                                                                                                     | Grants permission to add a room member                                                                                                                                                                                                                                                    |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [CreateSipMediaApplication](../../../chime/latest/APIReference/API_CreateSipMediaApplication.md "../../../chime/latest/APIReference/API_CreateSipMediaApplication.md")                                                                                                      | Grants permission to create an Amazon Chime SIP media application in the AWS account (tag-based access controls are only supported on voice-chime.<region>.amazonaws.com endpoints)                                                                                                       |                                                                                                                                                                             | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                               | Write          |
-| [CreateSipMediaApplicationCall](../../../chime/latest/APIReference/API_CreateSipMediaApplicationCall.md "../../../chime/latest/APIReference/API_CreateSipMediaApplicationCall.md")                                                                                          | Grants permission to create outbound call for Amazon Chime SIP media application under the administrator's AWS account                                                                                                                                                                    | [sip-media-application\*](#list_chime-resource-sip-media-application "#list_chime-resource-sip-media-application")                                                          | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [CreateSipRule](../../../chime/latest/APIReference/API_CreateSipRule.md "../../../chime/latest/APIReference/API_CreateSipRule.md")                                                                                                                                          | Grants permission to create an Amazon Chime SIP rule under the administrator's AWS account                                                                                                                                                                                                | [sip-media-application](#list_chime-resource-sip-media-application "#list_chime-resource-sip-media-application")                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [CreateUser](../../../chime/latest/APIReference/API_CreateUser.md "../../../chime/latest/APIReference/API_CreateUser.md")                                                                                                                                                   | Grants permission to create a user under the specified Amazon Chime account                                                                                                                                                                                                               |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [CreateVoiceConnector](../../../chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.md "../../../chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.md")                                                                                     | Grants permission to create a Voice Connector in the AWS account (tag-based access controls are only supported on voice-chime.<region>.amazonaws.com endpoints)                                                                                                                           |                                                                                                                                                                             | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                               | Write          |
-| [CreateVoiceConnectorGroup](../../../chime/latest/APIReference/API_CreateVoiceConnectorGroup.md "../../../chime/latest/APIReference/API_CreateVoiceConnectorGroup.md")                                                                                                      | Grants permission to create a Amazon Chime Voice Connector Group under the administrator's AWS account                                                                                                                                                                                    | [voice-connector](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                              | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [CreateVoiceProfile](../../../chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceProfile.md "../../../chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceProfile.md")                                                                                           | Grants permission to create a voice profile                                                                                                                                                                                                                                               |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [CreateVoiceProfileDomain](../../../chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceProfileDomain.md "../../../chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceProfileDomain.md")                                                                         | Grants permission to create a voice profile domain (tag-based access controls are only supported on voice-chime.<region>.amazonaws.com endpoints)                                                                                                                                         |                                                                                                                                                                             | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                               | Write          |
-| [DeleteAccount](../../../chime/latest/APIReference/API_DeleteAccount.md "../../../chime/latest/APIReference/API_DeleteAccount.md")                                                                                                                                          | Grants permission to delete the specified Amazon Chime account                                                                                                                                                                                                                            |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteAccountOpenIdConfig](../../../chime/latest/ag/okta_sso.md "../../../chime/latest/ag/okta_sso.md")                                                                                                                                                                    | Grants permission to delete the OpenIdConfig attributes from your Amazon Chime account                                                                                                                                                                                                    |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteApiKey](../../../chime/latest/ag/okta_sso.md "../../../chime/latest/ag/okta_sso.md")                                                                                                                                                                                 | Grants permission to delete the specified SCIM access key associated with your Amazon Chime account and Okta configuration                                                                                                                                                                |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteAppInstance](../../../chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstance.md "../../../chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstance.md")                                                                                        | Grants permission to delete an AppInstance                                                                                                                                                                                                                                                | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteAppInstanceAdmin](../../../chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceAdmin.md "../../../chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceAdmin.md")                                                                         | Grants permission to demote an AppInstanceAdmin to a user or bot                                                                                                                                                                                                                          | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DeleteAppInstanceBot](../../../chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceBot.md "../../../chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceBot.md")                                                                               | Grants permission to delete an AppInstanceBot                                                                                                                                                                                                                                             | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteAppInstanceStreamingConfigurations](../../../chime-sdk/latest/APIReference/API_DeleteAppInstanceStreamingConfigurations.md "../../../chime-sdk/latest/APIReference/API_DeleteAppInstanceStreamingConfigurations.md")                                                 | Grants permission to disable data streaming for the app instance                                                                                                                                                                                                                          | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteAppInstanceUser](../../../chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceUser.md "../../../chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceUser.md")                                                                            | Grants permission to delete an AppInstanceUser                                                                                                                                                                                                                                            | [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteAttendee](../../../chime/latest/APIReference/API_DeleteAttendee.md "../../../chime/latest/APIReference/API_DeleteAttendee.md")                                                                                                                                       | Grants permission to delete the specified attendee from an Amazon Chime SDK meeting                                                                                                                                                                                                       | [meeting\*](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteCDRBucket](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                                  | Grants permission to delete a Call Detail Record S3 bucket from your Amazon Chime account                                                                                                                                                                                                 |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteChannel](../../../chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannel.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannel.md")                                                                                                  | Grants permission to delete a channel                                                                                                                                                                                                                                                     | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DeleteChannelBan](../../../chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelBan.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelBan.md")                                                                                         | Grants permission to remove a user or bot from a channel's ban list                                                                                                                                                                                                                       | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DeleteChannelFlow](../../../chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelFlow.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelFlow.md")                                                                                      | Grants permission to delete a channel flow                                                                                                                                                                                                                                                | [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteChannelMembership](../../../chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelMembership.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelMembership.md")                                                                    | Grants permission to remove a member from a channel                                                                                                                                                                                                                                       | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DeleteChannelMessage](../../../chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelMessage.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelMessage.md")                                                                             | Grants permission to delete a channel message                                                                                                                                                                                                                                             | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DeleteChannelModerator](../../../chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelModerator.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelModerator.md")                                                                       | Grants permission to delete a channel moderator                                                                                                                                                                                                                                           | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DeleteDelegate](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                                   | Grants permission to delete delegated AWS account management from your Amazon Chime account                                                                                                                                                                                               |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteDomain](../../../chime/latest/ag/claim-domain.md "../../../chime/latest/ag/claim-domain.md")                                                                                                                                                                         | Grants permission to delete a domain from your Amazon Chime account                                                                                                                                                                                                                       |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteEventsConfiguration](../../../chime/latest/APIReference/API_DeleteEventsConfiguration.md "../../../chime/latest/APIReference/API_DeleteEventsConfiguration.md")                                                                                                      | Grants permission to delete an events configuration for a bot to receive outgoing events                                                                                                                                                                                                  |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteGroups](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                                     | Grants permission to delete Active Directory or Okta user groups from your Amazon Chime Enterprise account                                                                                                                                                                                |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteMediaCapturePipeline](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaCapturePipeline.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaCapturePipeline.md")                                               | Grants permission to delete a media capture pipeline                                                                                                                                                                                                                                      | [media-pipeline\*](#list_chime-resource-media-pipeline "#list_chime-resource-media-pipeline")                                                                               | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteMediaInsightsPipelineConfiguration](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaInsightsPipelineConfiguration.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaInsightsPipelineConfiguration.md")     | Grants permission to delete a media insights pipeline configuration                                                                                                                                                                                                                       | [media-insights-pipeline-configuration\*](#list_chime-resource-media-insights-pipeline-configuration "#list_chime-resource-media-insights-pipeline-configuration")          | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteMediaPipeline](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaPipeline.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaPipeline.md")                                                                    | Grants permission to delete a media pipeline                                                                                                                                                                                                                                              | [media-pipeline\*](#list_chime-resource-media-pipeline "#list_chime-resource-media-pipeline")                                                                               | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteMediaPipelineKinesisVideoStreamPool](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaPipelineKinesisVideoStreamPool.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaPipelineKinesisVideoStreamPool.md")  | Grants permission to delete kinesis video stream pool                                                                                                                                                                                                                                     | [media-pipeline-kinesis-video-stream-pool\*](#list_chime-resource-media-pipeline-kinesis-video-stream-pool "#list_chime-resource-media-pipeline-kinesis-video-stream-pool") | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteMeeting](../../../chime/latest/APIReference/API_DeleteMeeting.md "../../../chime/latest/APIReference/API_DeleteMeeting.md")                                                                                                                                          | Grants permission to delete the specified Amazon Chime SDK meeting                                                                                                                                                                                                                        | [meeting\*](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteMessagingStreamingConfigurations](../../../chime-sdk/latest/APIReference/API_messaging-chime_DeleteMessagingStreamingConfigurations.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_DeleteMessagingStreamingConfigurations.md")                       | Grants permission to delete the data streaming configurations of an AppInstance                                                                                                                                                                                                           | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeletePhoneNumber](../../../chime/latest/APIReference/API_DeletePhoneNumber.md "../../../chime/latest/APIReference/API_DeletePhoneNumber.md")                                                                                                                              | Grants permission to move a phone number to the deletion queue                                                                                                                                                                                                                            |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteProxySession](../../../chime/latest/APIReference/API_DeleteProxySession.md "../../../chime/latest/APIReference/API_DeleteProxySession.md")                                                                                                                           | Grants permission to delete a proxy session for the specified Amazon Chime Voice Connector                                                                                                                                                                                                | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteRoom](../../../chime/latest/APIReference/API_DeleteRoom.md "../../../chime/latest/APIReference/API_DeleteRoom.md")                                                                                                                                                   | Grants permission to delete a room                                                                                                                                                                                                                                                        |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteRoomMembership](../../../chime/latest/APIReference/API_DeleteRoomMembership.md "../../../chime/latest/APIReference/API_DeleteRoomMembership.md")                                                                                                                     | Grants permission to remove a room member                                                                                                                                                                                                                                                 |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteSipMediaApplication](../../../chime/latest/APIReference/API_DeleteSipMediaApplication.md "../../../chime/latest/APIReference/API_DeleteSipMediaApplication.md")                                                                                                      | Grants permission to delete Amazon Chime SIP media application under the administrator's AWS account                                                                                                                                                                                      | [sip-media-application\*](#list_chime-resource-sip-media-application "#list_chime-resource-sip-media-application")                                                          | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteSipRule](../../../chime/latest/APIReference/API_DeleteSipRule.md "../../../chime/latest/APIReference/API_DeleteSipRule.md")                                                                                                                                          | Grants permission to delete Amazon Chime SIP rule under the administrator's AWS account                                                                                                                                                                                                   |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteVoiceConnector](../../../chime/latest/APIReference/API_DeleteVoiceConnector.md "../../../chime/latest/APIReference/API_DeleteVoiceConnector.md")                                                                                                                     | Grants permission to delete the specified Amazon Chime Voice Connector                                                                                                                                                                                                                    | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteVoiceConnectorEmergencyCallingConfiguration](../../../chime/latest/APIReference/API_DeleteVoiceConnectorEmergencyCallingConfiguration.md "../../../chime/latest/APIReference/API_DeleteVoiceConnectorEmergencyCallingConfiguration.md")                              | Grants permission to delete emergency calling configuration for the specified Amazon Chime Voice Connector                                                                                                                                                                                | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteVoiceConnectorExternalSystemsConfiguration](../../../chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorExternalSystemsConfiguration.md "../../../chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorExternalSystemsConfiguration.md") | Grants permission to delete the configuration of the external system that is connected with the specified Amazon Chime Voice Connector                                                                                                                                                    | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteVoiceConnectorGroup](../../../chime/latest/APIReference/API_DeleteVoiceConnectorGroup.md "../../../chime/latest/APIReference/API_DeleteVoiceConnectorGroup.md")                                                                                                      | Grants permission to delete the specified Amazon Chime Voice Connector Group                                                                                                                                                                                                              |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteVoiceConnectorOrigination](../../../chime/latest/APIReference/API_DeleteVoiceConnectorOrigination.md "../../../chime/latest/APIReference/API_DeleteVoiceConnectorOrigination.md")                                                                                    | Grants permission to delete the origination settings for the specified Amazon Chime Voice Connector                                                                                                                                                                                       | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteVoiceConnectorProxy](../../../chime/latest/APIReference/API_DeleteVoiceConnectorProxy.md "../../../chime/latest/APIReference/API_DeleteVoiceConnectorProxy.md")                                                                                                      | Grants permission to delete proxy configuration for the specified Amazon Chime Voice Connector                                                                                                                                                                                            | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteVoiceConnectorStreamingConfiguration](../../../chime/latest/APIReference/API_DeleteVoiceConnectorStreamingConfiguration.md "../../../chime/latest/APIReference/API_DeleteVoiceConnectorStreamingConfiguration.md")                                                   | Grants permission to delete streaming configuration for the specified Amazon Chime Voice Connector                                                                                                                                                                                        | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteVoiceConnectorTermination](../../../chime/latest/APIReference/API_DeleteVoiceConnectorTermination.md "../../../chime/latest/APIReference/API_DeleteVoiceConnectorTermination.md")                                                                                    | Grants permission to delete the termination settings for the specified Amazon Chime Voice Connector                                                                                                                                                                                       | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteVoiceConnectorTerminationCredentials](../../../chime/latest/APIReference/API_DeleteVoiceConnectorTerminationCredentials.md "../../../chime/latest/APIReference/API_DeleteVoiceConnectorTerminationCredentials.md")                                                   | Grants permission to delete SIP termination credentials for the specified Amazon Chime Voice Connector                                                                                                                                                                                    | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeleteVoiceProfile](../../../chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceProfile.md "../../../chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceProfile.md")                                                                                           | Grants permission to delete a voice profile                                                                                                                                                                                                                                               | [voice-profile\*](#list_chime-resource-voice-profile "#list_chime-resource-voice-profile")                                                                                  |                                                                                                                                                                                                                                                                                           | Write          |
-| [DeleteVoiceProfileDomain](../../../chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceProfileDomain.md "../../../chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceProfileDomain.md")                                                                         | Grants permission to delete a voice profile domain                                                                                                                                                                                                                                        | [voice-profile-domain\*](#list_chime-resource-voice-profile-domain "#list_chime-resource-voice-profile-domain")                                                             | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DeregisterAppInstanceUserEndpoint](../../../chime-sdk/latest/APIReference/API_identity-chime_DeregisterAppInstanceUserEndpoint.md "../../../chime-sdk/latest/APIReference/API_identity-chime_DeregisterAppInstanceUserEndpoint.md")                                        | Grants permission to deregister an endpoint for an app instance user                                                                                                                                                                                                                      | [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DescribeAppInstance](../../../chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstance.md "../../../chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstance.md")                                                                                  | Grants permission to get the full details of an AppInstance                                                                                                                                                                                                                               | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [DescribeAppInstanceAdmin](../../../chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceAdmin.md "../../../chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceAdmin.md")                                                                   | Grants permission to get the full details of an AppInstanceAdmin                                                                                                                                                                                                                          | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DescribeAppInstanceBot](../../../chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceBot.md "../../../chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceBot.md")                                                                         | Grants permission to get the full details of an AppInstanceBot                                                                                                                                                                                                                            | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [DescribeAppInstanceUser](../../../chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceUser.md "../../../chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceUser.md")                                                                      | Grants permission to get the full details of an AppInstanceUser                                                                                                                                                                                                                           | [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [DescribeAppInstanceUserEndpoint](../../../chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceUserEndpoint.md "../../../chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceUserEndpoint.md")                                              | Grants permission to describe an endpoint registered for an app instance user                                                                                                                                                                                                             | [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [DescribeChannel](../../../chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannel.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannel.md")                                                                                            | Grants permission to get the full details of a channel                                                                                                                                                                                                                                    | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DescribeChannelBan](../../../chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelBan.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelBan.md")                                                                                   | Grants permission to get the full details of a channel ban                                                                                                                                                                                                                                | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DescribeChannelFlow](../../../chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelFlow.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelFlow.md")                                                                                | Grants permission to get the full details of a channel flow                                                                                                                                                                                                                               | [channel-flow\*](#list_chime-resource-channel-flow "#list_chime-resource-channel-flow")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [DescribeChannelMembership](../../../chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelMembership.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelMembership.md")                                                              | Grants permission to get the full details of a channel membership                                                                                                                                                                                                                         | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DescribeChannelMembershipForAppInstanceUser](../../../chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelMembershipForAppInstanceUser.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelMembershipForAppInstanceUser.md")        | Grants permission to get the details of a channel based on the membership of the specified user or bot                                                                                                                                                                                    | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DescribeChannelModeratedByAppInstanceUser](../../../chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelModeratedByAppInstanceUser.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelModeratedByAppInstanceUser.md")              | Grants permission to get the full details of a channel moderated by the specified user or bot                                                                                                                                                                                             | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DescribeChannelModerator](../../../chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelModerator.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelModerator.md")                                                                 | Grants permission to get the full details of a single ChannelModerator                                                                                                                                                                                                                    | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DisassociateChannelFlow](../../../chime-sdk/latest/APIReference/API_messaging-chime_DisassociateChannelFlow.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_DisassociateChannelFlow.md")                                                                    | Grants permission to disassociate a flow from a channel                                                                                                                                                                                                                                   | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel-flow\*](#list_chime-resource-channel-flow "#list_chime-resource-channel-flow")                                                                                                                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [DisassociatePhoneNumberFromUser](../../../chime/latest/APIReference/API_DisassociatePhoneNumberFromUser.md "../../../chime/latest/APIReference/API_DisassociatePhoneNumberFromUser.md")                                                                                    | Grants permission to disassociate the primary provisioned number from the specified Amazon Chime user                                                                                                                                                                                     |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [DisassociatePhoneNumbersFromVoiceConnector](../../../chime/latest/APIReference/API_DisassociatePhoneNumbersFromVoiceConnector.md "../../../chime/latest/APIReference/API_DisassociatePhoneNumbersFromVoiceConnector.md")                                                   | Grants permission to disassociate multiple phone numbers from the specified Amazon Chime Voice Connector                                                                                                                                                                                  | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [DisassociatePhoneNumbersFromVoiceConnectorGroup](../../../chime/latest/APIReference/API_DisassociatePhoneNumbersFromVoiceConnectorGroup.md "../../../chime/latest/APIReference/API_DisassociatePhoneNumbersFromVoiceConnectorGroup.md")                                    | Grants permission to disassociate multiple phone numbers from the specified Amazon Chime Voice Connector Group                                                                                                                                                                            |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [DisassociateSigninDelegateGroupsFromAccount](../../../chime/latest/APIReference/API_DisassociateSigninDelegateGroupsFromAccount.md "../../../chime/latest/APIReference/API_DisassociateSigninDelegateGroupsFromAccount.md")                                                | Grants permission to disassociate the specified sign-in delegate groups from the specified Amazon Chime account                                                                                                                                                                           |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [DisconnectDirectory](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                              | Grants permission to disconnect the Active Directory from your Amazon Chime Enterprise account                                                                                                                                                                                            |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [GetAccount](../../../chime/latest/APIReference/API_GetAccount.md "../../../chime/latest/APIReference/API_GetAccount.md")                                                                                                                                                   | Grants permission to get details for the specified Amazon Chime account                                                                                                                                                                                                                   |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetAccountResource](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                               | Grants permission to get details for the account resource associated with your Amazon Chime account                                                                                                                                                                                       |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetAccountSettings](../../../chime/latest/APIReference/API_GetAccountSettings.md "../../../chime/latest/APIReference/API_GetAccountSettings.md")                                                                                                                           | Grants permission to get account settings for the specified Amazon Chime account ID                                                                                                                                                                                                       |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetAccountWithOpenIdConfig](../../../chime/latest/ag/okta_sso.md "../../../chime/latest/ag/okta_sso.md")                                                                                                                                                                   | Grants permission to get the account details and OpenIdConfig attributes for your Amazon Chime account                                                                                                                                                                                    |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetAppInstanceRetentionSettings](../../../chime-sdk/latest/APIReference/API_identity-chime_GetAppInstanceRetentionSettings.md "../../../chime-sdk/latest/APIReference/API_identity-chime_GetAppInstanceRetentionSettings.md")                                              | Grants permission to get retention settings for an app instance                                                                                                                                                                                                                           | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetAppInstanceStreamingConfigurations](../../../chime-sdk/latest/APIReference/API_GetAppInstanceStreamingConfigurations.md "../../../chime-sdk/latest/APIReference/API_GetAppInstanceStreamingConfigurations.md")                                                          | Grants permission to get the streaming configurations for an app instance                                                                                                                                                                                                                 | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetAttendee](../../../chime/latest/APIReference/API_GetAttendee.md "../../../chime/latest/APIReference/API_GetAttendee.md")                                                                                                                                                | Grants permission to get attendee details for a specified meeting ID and attendee ID                                                                                                                                                                                                      | [meeting\*](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetBot](../../../chime/latest/APIReference/API_GetBot.md "../../../chime/latest/APIReference/API_GetBot.md")                                                                                                                                                               | Grants permission to retrieve details for the specified bot                                                                                                                                                                                                                               |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetCDRBucket](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                                     | Grants permission to get details of a Call Detail Record S3 bucket associated with your Amazon Chime account                                                                                                                                                                              |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetChannelMembershipPreferences](../../../chime-sdk/latest/APIReference/API_messaging-chime_GetChannelMembershipPreferences.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_GetChannelMembershipPreferences.md")                                            | Grants permission to get the preferences for a channel membership                                                                                                                                                                                                                         | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [GetChannelMessage](../../../chime-sdk/latest/APIReference/API_messaging-chime_GetChannelMessage.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_GetChannelMessage.md")                                                                                      | Grants permission to get the full details of a channel message                                                                                                                                                                                                                            | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [GetChannelMessageStatus](../../../chime-sdk/latest/APIReference/API_messaging-chime_GetChannelMessageStatus.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_GetChannelMessageStatus.md")                                                                    | Grants permission to get the status of a channel message                                                                                                                                                                                                                                  | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [GetDomain](../../../chime/latest/ag/claim-domain.md "../../../chime/latest/ag/claim-domain.md")                                                                                                                                                                            | Grants permission to get domain details for a domain associated with your Amazon Chime account                                                                                                                                                                                            |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetEventsConfiguration](../../../chime/latest/APIReference/API_GetEventsConfiguration.md "../../../chime/latest/APIReference/API_GetEventsConfiguration.md")                                                                                                               | Grants permission to retrieve details for an events configuration for a bot to receive outgoing events                                                                                                                                                                                    |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetGlobalSettings](../../../chime/latest/APIReference/API_GetGlobalSettings.md "../../../chime/latest/APIReference/API_GetGlobalSettings.md")                                                                                                                              | Grants permission to get global settings related to Amazon Chime for the AWS account                                                                                                                                                                                                      |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetMediaCapturePipeline](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaCapturePipeline.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaCapturePipeline.md")                                                        | Grants permission to get an existing media capture pipeline                                                                                                                                                                                                                               | [media-pipeline\*](#list_chime-resource-media-pipeline "#list_chime-resource-media-pipeline")                                                                               | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetMediaInsightsPipelineConfiguration](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaInsightsPipelineConfiguration.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaInsightsPipelineConfiguration.md")              | Grants permission to get a media insights pipeline configuration                                                                                                                                                                                                                          | [media-insights-pipeline-configuration\*](#list_chime-resource-media-insights-pipeline-configuration "#list_chime-resource-media-insights-pipeline-configuration")          | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetMediaPipeline](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaPipeline.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaPipeline.md")                                                                             | Grants permission to get an existing media pipeline                                                                                                                                                                                                                                       | [media-pipeline\*](#list_chime-resource-media-pipeline "#list_chime-resource-media-pipeline")                                                                               | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetMediaPipelineKinesisVideoStreamPool](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaPipelineKinesisVideoStreamPool.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaPipelineKinesisVideoStreamPool.md")           | Grants permission to get an existing media pipeline                                                                                                                                                                                                                                       | [media-pipeline-kinesis-video-stream-pool\*](#list_chime-resource-media-pipeline-kinesis-video-stream-pool "#list_chime-resource-media-pipeline-kinesis-video-stream-pool") | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetMeeting](../../../chime/latest/APIReference/API_GetMeeting.md "../../../chime/latest/APIReference/API_GetMeeting.md")                                                                                                                                                   | Grants permission to get the meeting record for a specified meeting ID                                                                                                                                                                                                                    | [meeting\*](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetMeetingDetail](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                                 | Grants permission to get attendee, connection, and other details for a meeting                                                                                                                                                                                                            |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetMessagingSessionEndpoint](../../../chime-sdk/latest/APIReference/API_messaging-chime_GetMessagingSessionEndpoint.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_GetMessagingSessionEndpoint.md")                                                        | Grants permission to get the endpoint for the messaging session                                                                                                                                                                                                                           |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetMessagingStreamingConfigurations](../../../chime-sdk/latest/APIReference/API_messaging-chime_GetMessagingStreamingConfigurations.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_GetMessagingStreamingConfigurations.md")                                | Grants permission to get the data streaming configurations of an AppInstance                                                                                                                                                                                                              | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetPhoneNumber](../../../chime/latest/APIReference/API_GetPhoneNumber.md "../../../chime/latest/APIReference/API_GetPhoneNumber.md")                                                                                                                                       | Grants permission to get details for the specified phone number                                                                                                                                                                                                                           |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetPhoneNumberOrder](../../../chime/latest/APIReference/API_GetPhoneNumberOrder.md "../../../chime/latest/APIReference/API_GetPhoneNumberOrder.md")                                                                                                                        | Grants permission to get details for the specified phone number order                                                                                                                                                                                                                     |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetPhoneNumberSettings](../../../chime/latest/APIReference/API_GetPhoneNumberSettings.md "../../../chime/latest/APIReference/API_GetPhoneNumberSettings.md")                                                                                                               | Grants permission to get phone number settings related to Amazon Chime for the AWS account                                                                                                                                                                                                |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetProxySession](../../../chime/latest/APIReference/API_GetProxySession.md "../../../chime/latest/APIReference/API_GetProxySession.md")                                                                                                                                    | Grants permission to get details of the specified proxy session for the specified Amazon Chime Voice Connector                                                                                                                                                                            | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetRetentionSettings](../../../chime/latest/APIReference/API_GetRetentionSettings.md "../../../chime/latest/APIReference/API_GetRetentionSettings.md")                                                                                                                     | Grants permission to retrieve the retention settings for the specified Amazon Chime account                                                                                                                                                                                               |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetRoom](../../../chime/latest/APIReference/API_GetRoom.md "../../../chime/latest/APIReference/API_GetRoom.md")                                                                                                                                                            | Grants permission to retrieve a room                                                                                                                                                                                                                                                      |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetSipMediaApplication](../../../chime/latest/APIReference/API_GetSipMediaApplication.md "../../../chime/latest/APIReference/API_GetSipMediaApplication.md")                                                                                                               | Grants permission to get details of Amazon Chime SIP media application under the administrator's AWS account                                                                                                                                                                              | [sip-media-application\*](#list_chime-resource-sip-media-application "#list_chime-resource-sip-media-application")                                                          | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetSipMediaApplicationAlexaSkillConfiguration](../../../chime-sdk/latest/APIReference/API_voice-chime_GetSipMediaApplicationAlexaSkillConfiguration.md "../../../chime-sdk/latest/APIReference/API_voice-chime_GetSipMediaApplicationAlexaSkillConfiguration.md")          | Grants permission to get Alexa Skill configuration settings for Amazon Chime SIP media application under the administrator's AWS account                                                                                                                                                  | [sip-media-application\*](#list_chime-resource-sip-media-application "#list_chime-resource-sip-media-application")                                                          | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetSipMediaApplicationLoggingConfiguration](../../../chime/latest/APIReference/API_GetSipMediaApplicationLoggingConfiguration.md "../../../chime/latest/APIReference/API_GetSipMediaApplicationLoggingConfiguration.md")                                                   | Grants permission to get logging configuration settings for Amazon Chime SIP media application under the administrator's AWS account                                                                                                                                                      | [sip-media-application\*](#list_chime-resource-sip-media-application "#list_chime-resource-sip-media-application")                                                          | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetSipRule](../../../chime/latest/APIReference/API_GetSipRule.md "../../../chime/latest/APIReference/API_GetSipRule.md")                                                                                                                                                   | Grants permission to get details of Amazon Chime SIP rule under the administrator's AWS account                                                                                                                                                                                           |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetSpeakerSearchTask](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_GetSpeakerSearchTask.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_GetSpeakerSearchTask.md")                                                                 | Grants permission to get a speaker search task on the specified Amazon Chime resource                                                                                                                                                                                                     | [media-pipeline](#list_chime-resource-media-pipeline "#list_chime-resource-media-pipeline")                                                                                 | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [voice-connector](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [GetTelephonyLimits](../../../chime/latest/ag/phone-numbers.md "../../../chime/latest/ag/phone-numbers.md")                                                                                                                                                                 | Grants permission to get telephony limits for the AWS account                                                                                                                                                                                                                             |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetUser](../../../chime/latest/APIReference/API_GetUser.md "../../../chime/latest/APIReference/API_GetUser.md")                                                                                                                                                            | Grants permission to get details for the specified user ID                                                                                                                                                                                                                                |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetUserActivityReportData](../../../chime/latest/ag/user-details.md "../../../chime/latest/ag/user-details.md")                                                                                                                                                            | Grants permission to get a summary of user activity on the user details page                                                                                                                                                                                                              |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetUserByEmail](../../../chime/latest/ag/user-details.md "../../../chime/latest/ag/user-details.md")                                                                                                                                                                       | Grants permission to get user details for an Amazon Chime user based on the email address in an Amazon Chime Enterprise or Team account                                                                                                                                                   |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetUserSettings](../../../chime/latest/APIReference/API_GetUserSettings.md "../../../chime/latest/APIReference/API_GetUserSettings.md")                                                                                                                                    | Grants permission to get user settings related to the specified Amazon Chime user                                                                                                                                                                                                         |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetVoiceConnector](../../../chime/latest/APIReference/API_GetVoiceConnector.md "../../../chime/latest/APIReference/API_GetVoiceConnector.md")                                                                                                                              | Grants permission to get details for the specified Amazon Chime Voice Connector                                                                                                                                                                                                           | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetVoiceConnectorEmergencyCallingConfiguration](../../../chime/latest/APIReference/API_GetVoiceConnectorEmergencyCallingConfiguration.md "../../../chime/latest/APIReference/API_GetVoiceConnectorEmergencyCallingConfiguration.md")                                       | Grants permission to get details of the emergency calling configuration for the specified Amazon Chime Voice Connector                                                                                                                                                                    | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetVoiceConnectorExternalSystemsConfiguration](../../../chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorExternalSystemsConfiguration.md "../../../chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorExternalSystemsConfiguration.md")          | Grants permission to get the configuration of the external system that is connected with the specified Amazon Chime Voice Connector                                                                                                                                                       | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetVoiceConnectorGroup](../../../chime/latest/APIReference/API_GetVoiceConnectorGroup.md "../../../chime/latest/APIReference/API_GetVoiceConnectorGroup.md")                                                                                                               | Grants permission to get details for the specified Amazon Chime Voice Connector Group                                                                                                                                                                                                     |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetVoiceConnectorLoggingConfiguration](../../../chime/latest/APIReference/API_GetVoiceConnectorLoggingConfiguration.md "../../../chime/latest/APIReference/API_GetVoiceConnectorLoggingConfiguration.md")                                                                  | Grants permission to get details of the logging configuration for the specified Amazon Chime Voice Connector                                                                                                                                                                              | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetVoiceConnectorOrigination](../../../chime/latest/APIReference/API_GetVoiceConnectorOrigination.md "../../../chime/latest/APIReference/API_GetVoiceConnectorOrigination.md")                                                                                             | Grants permission to get details of the origination settings for the specified Amazon Chime Voice Connector                                                                                                                                                                               | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetVoiceConnectorProxy](../../../chime/latest/APIReference/API_GetVoiceConnectorProxy.md "../../../chime/latest/APIReference/API_GetVoiceConnectorProxy.md")                                                                                                               | Grants permission to get details of the proxy configuration for the specified Amazon Chime Voice Connector                                                                                                                                                                                | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetVoiceConnectorStreamingConfiguration](../../../chime/latest/APIReference/API_GetVoiceConnectorStreamingConfiguration.md "../../../chime/latest/APIReference/API_GetVoiceConnectorStreamingConfiguration.md")                                                            | Grants permission to get details of the streaming configuration for the specified Amazon Chime Voice Connector                                                                                                                                                                            | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetVoiceConnectorTermination](../../../chime/latest/APIReference/API_GetVoiceConnectorTermination.md "../../../chime/latest/APIReference/API_GetVoiceConnectorTermination.md")                                                                                             | Grants permission to get details of the termination settings for the specified Amazon Chime Voice Connector                                                                                                                                                                               | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetVoiceConnectorTerminationHealth](../../../chime/latest/APIReference/API_GetVoiceConnectorTerminationHealth.md "../../../chime/latest/APIReference/API_GetVoiceConnectorTerminationHealth.md")                                                                           | Grants permission to get details of the termination health for the specified Amazon Chime Voice Connector                                                                                                                                                                                 | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetVoiceProfile](../../../chime-sdk/latest/APIReference/API_voice-chime_GetVoiceProfile.md "../../../chime-sdk/latest/APIReference/API_voice-chime_GetVoiceProfile.md")                                                                                                    | Grants permission to get a voice profile                                                                                                                                                                                                                                                  | [voice-profile\*](#list_chime-resource-voice-profile "#list_chime-resource-voice-profile")                                                                                  |                                                                                                                                                                                                                                                                                           | Read           |
-| [GetVoiceProfileDomain](../../../chime-sdk/latest/APIReference/API_voice-chime_GetVoiceProfileDomain.md "../../../chime-sdk/latest/APIReference/API_voice-chime_GetVoiceProfileDomain.md")                                                                                  | Grants permission to get a voice profile domain                                                                                                                                                                                                                                           | [voice-profile-domain\*](#list_chime-resource-voice-profile-domain "#list_chime-resource-voice-profile-domain")                                                             | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [GetVoiceToneAnalysisTask](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_GetVoiceToneAnalysisTask.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_GetVoiceToneAnalysisTask.md")                                                     | Grants permission to get a voice tone analysis task on the specified Amazon Chime resource                                                                                                                                                                                                | [media-pipeline](#list_chime-resource-media-pipeline "#list_chime-resource-media-pipeline")                                                                                 | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [voice-connector](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [InviteDelegate](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                                   | Grants permission to send an invitation to accept a request for AWS account delegation for an Amazon Chime account                                                                                                                                                                        |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [InviteUsers](../../../chime/latest/APIReference/API_InviteUsers.md "../../../chime/latest/APIReference/API_InviteUsers.md")                                                                                                                                                | Grants permission to invite as many as 50 users to the specified Amazon Chime account                                                                                                                                                                                                     |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [InviteUsersFromProvider](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                          | Grants permission to invite users from a third party provider to your Amazon Chime account                                                                                                                                                                                                |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [ListAccountUsageReportData](../../../chime/latest/ag/view-reports.md "../../../chime/latest/ag/view-reports.md")                                                                                                                                                           | Grants permission to list Amazon Chime account usage reporting data                                                                                                                                                                                                                       |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListAccounts](../../../chime/latest/APIReference/API_ListAccounts.md "../../../chime/latest/APIReference/API_ListAccounts.md")                                                                                                                                             | Grants permission to list the Amazon Chime accounts under the administrator's AWS account                                                                                                                                                                                                 |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListApiKeys](../../../chime/latest/ag/okta_sso.md "../../../chime/latest/ag/okta_sso.md")                                                                                                                                                                                  | Grants permission to list the SCIM access keys defined for your Amazon Chime account and Okta configuration                                                                                                                                                                               |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListAppInstanceAdmins](../../../chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceAdmins.md "../../../chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceAdmins.md")                                                                            | Grants permission to list administrators in the app instance                                                                                                                                                                                                                              | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [ListAppInstanceBots](../../../chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceBots.md "../../../chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceBots.md")                                                                                  | Grants permission to list all AppInstanceBots created under a single app instance                                                                                                                                                                                                         | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListAppInstanceUserEndpoints](../../../chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceUserEndpoints.md "../../../chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceUserEndpoints.md")                                                       | Grants permission to list the endpoints registered for an app instance user                                                                                                                                                                                                               | [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListAppInstanceUsers](../../../chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceUsers.md "../../../chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceUsers.md")                                                                               | Grants permission to list all AppInstanceUsers created under a single app instance                                                                                                                                                                                                        | [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListAppInstances](../../../chime-sdk/latest/APIReference/API_identity-chime_ListAppInstances.md "../../../chime-sdk/latest/APIReference/API_identity-chime_ListAppInstances.md")                                                                                           | Grants permission to list all Amazon Chime app instances created under a single AWS account                                                                                                                                                                                               | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListAttendeeTags](../../../chime/latest/APIReference/API_ListAttendeeTags.md "../../../chime/latest/APIReference/API_ListAttendeeTags.md")                                                                                                                                 | Grants permission to list the tags applied to an Amazon Chime SDK attendee resource                                                                                                                                                                                                       | [meeting\*](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListAttendees](../../../chime/latest/APIReference/API_ListAttendees.md "../../../chime/latest/APIReference/API_ListAttendees.md")                                                                                                                                          | Grants permission to list up to 100 attendees for a specified Amazon Chime SDK meeting                                                                                                                                                                                                    | [meeting\*](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListAvailableVoiceConnectorRegions](API_ListAvailableVoiceConnectorRegions.md "API_ListAvailableVoiceConnectorRegions.md")                                                                                                                                                 | Grants permission to list the available AWS Regions in which you can create an Amazon Chime SDK Voice Connector                                                                                                                                                                           |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListBots](../../../chime/latest/APIReference/API_ListBots.md "../../../chime/latest/APIReference/API_ListBots.md")                                                                                                                                                         | Grants permission to list the bots associated with the administrator's Amazon Chime Enterprise account                                                                                                                                                                                    |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListCDRBucket](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                                    | Grants permission to list Call Detail Record S3 buckets                                                                                                                                                                                                                                   |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListCallingRegions](../../../chime/latest/ag/phone-numbers.md "../../../chime/latest/ag/phone-numbers.md")                                                                                                                                                                 | Grants permission to list the calling regions available for the administrator's AWS account                                                                                                                                                                                               |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListChannelBans](../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannelBans.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannelBans.md")                                                                                            | Grants permission to list all the users and bots banned from a particular channel                                                                                                                                                                                                         | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [ListChannelFlows](../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannelFlows.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannelFlows.md")                                                                                         | Grants permission to list all the Channel Flows created under a single Chime AppInstance                                                                                                                                                                                                  | [channel-flow\*](#list_chime-resource-channel-flow "#list_chime-resource-channel-flow")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListChannelMemberships](../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMemberships.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMemberships.md")                                                                       | Grants permission to list all channel memberships in a channel                                                                                                                                                                                                                            | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [ListChannelMembershipsForAppInstanceUser](../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.md")                 | Grants permission to list all channels that a particular user or bot is a part of                                                                                                                                                                                                         | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [ListChannelMessages](../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMessages.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMessages.md")                                                                                | Grants permission to list all the messages in a channel                                                                                                                                                                                                                                   | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [ListChannelModerators](../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannelModerators.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannelModerators.md")                                                                          | Grants permission to list all the moderators for a channel                                                                                                                                                                                                                                | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [ListChannels](../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannels.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannels.md")                                                                                                     | Grants permission to list all the Channels created under a single Chime AppInstance                                                                                                                                                                                                       | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [ListChannelsAssociatedWithChannelFlow](../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannelsAssociatedWithChannelFlow.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannelsAssociatedWithChannelFlow.md")                          | Grants permission to list all the Channels associated with a single Chime Channel Flow                                                                                                                                                                                                    | [channel-flow\*](#list_chime-resource-channel-flow "#list_chime-resource-channel-flow")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListChannelsModeratedByAppInstanceUser](../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannelsModeratedByAppInstanceUser.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_ListChannelsModeratedByAppInstanceUser.md")                       | Grants permission to list all channels moderated by a user or bot                                                                                                                                                                                                                         | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [ListDelegates](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                                    | Grants permission to list account delegate information associated with your Amazon Chime account                                                                                                                                                                                          |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListDirectories](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                                  | Grants permission to list active Active Directories hosted in the Directory Service of your AWS account                                                                                                                                                                                   |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListDomains](../../../chime/latest/ag/claim-domain.md "../../../chime/latest/ag/claim-domain.md")                                                                                                                                                                          | Grants permission to list domains associated with your Amazon Chime account                                                                                                                                                                                                               |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListGroups](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                                       | Grants permission to list Active Directory or Okta user groups associated with your Amazon Chime Enterprise account                                                                                                                                                                       |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListMediaCapturePipelines](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaCapturePipelines.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaCapturePipelines.md")                                                  | Grants permission to list media capture pipelines                                                                                                                                                                                                                                         |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListMediaInsightsPipelineConfigurations](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaInsightsPipelineConfigurations.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaInsightsPipelineConfigurations.md")        | Grants permission to list all media insights pipeline configurations                                                                                                                                                                                                                      |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListMediaPipelineKinesisVideoStreamPools](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaPipelineKinesisVideoStreamPools.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaPipelineKinesisVideoStreamPools.md")     | Grants permission to list media pipelines                                                                                                                                                                                                                                                 |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListMediaPipelines](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaPipelines.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaPipelines.md")                                                                       | Grants permission to list media pipelines                                                                                                                                                                                                                                                 |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListMeetingEvents](../../../chime/latest/ag/view-reports.md "../../../chime/latest/ag/view-reports.md")                                                                                                                                                                    | Grants permission to list all events that occurred for a specified meeting                                                                                                                                                                                                                |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListMeetingTags](../../../chime/latest/APIReference/API_ListMeetingTags.md "../../../chime/latest/APIReference/API_ListMeetingTags.md")                                                                                                                                    | Grants permission to list the tags applied to an Amazon Chime SDK meeting resource                                                                                                                                                                                                        | [meeting\*](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListMeetings](../../../chime/latest/APIReference/API_ListMeetings.md "../../../chime/latest/APIReference/API_ListMeetings.md")                                                                                                                                             | Grants permission to list up to 100 active Amazon Chime SDK meetings                                                                                                                                                                                                                      |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListMeetingsReportData](../../../chime/latest/ag/view-reports.md "../../../chime/latest/ag/view-reports.md")                                                                                                                                                               | Grants permission to list meetings ended during the specified date range                                                                                                                                                                                                                  |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListPhoneNumberOrders](../../../chime/latest/APIReference/API_ListPhoneNumberOrders.md "../../../chime/latest/APIReference/API_ListPhoneNumberOrders.md")                                                                                                                  | Grants permission to list the phone number orders under the administrator's AWS account                                                                                                                                                                                                   |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListPhoneNumbers](../../../chime/latest/APIReference/API_ListPhoneNumbers.md "../../../chime/latest/APIReference/API_ListPhoneNumbers.md")                                                                                                                                 | Grants permission to list the phone numbers under the administrator's AWS account                                                                                                                                                                                                         |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListProxySessions](../../../chime/latest/APIReference/API_ListProxySessions.md "../../../chime/latest/APIReference/API_ListProxySessions.md")                                                                                                                              | Grants permission to list proxy sessions for the specified Amazon Chime Voice Connector                                                                                                                                                                                                   | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListRoomMemberships](../../../chime/latest/APIReference/API_ListRoomMemberships.md "../../../chime/latest/APIReference/API_ListRoomMemberships.md")                                                                                                                        | Grants permission to list all room members                                                                                                                                                                                                                                                |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListRooms](../../../chime/latest/APIReference/API_ListRooms.md "../../../chime/latest/APIReference/API_ListRooms.md")                                                                                                                                                      | Grants permission to list rooms                                                                                                                                                                                                                                                           |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListSipMediaApplications](../../../chime/latest/APIReference/API_ListSipMediaApplications.md "../../../chime/latest/APIReference/API_ListSipMediaApplications.md")                                                                                                         | Grants permission to list all Amazon Chime SIP media applications under the administrator's AWS account                                                                                                                                                                                   |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListSipRules](../../../chime/latest/APIReference/API_ListSipRules.md "../../../chime/latest/APIReference/API_ListSipRules.md")                                                                                                                                             | Grants permission to list all Amazon Chime SIP rules under the administrator's AWS account                                                                                                                                                                                                | [sip-media-application](#list_chime-resource-sip-media-application "#list_chime-resource-sip-media-application")                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListSubChannels](../../../chime-sdk/latest/APIReference/API_messaging-chime_ListSubChannels.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_ListSubChannels.md")                                                                                            | Grants permission to list all the SubChannels under a single Channel                                                                                                                                                                                                                      | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [ListSupportedPhoneNumberCountries](API_ListSupportedPhoneNumberCountries.md "API_ListSupportedPhoneNumberCountries.md")                                                                                                                                                    | Grants permission to list the phone number countries supported by the AWS account                                                                                                                                                                                                         |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListTagsForResource](../../../chime/latest/APIReference/API_ListTagsForResource.md "../../../chime/latest/APIReference/API_ListTagsForResource.md")                                                                                                                        | Grants permission to list the tags applied to an Amazon Chime resource                                                                                                                                                                                                                    | [app-instance](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                       | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Read           |
-| [app-instance-bot](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [app-instance-user](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                        | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel-flow](#list_chime-resource-channel-flow "#list_chime-resource-channel-flow")                                                                                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [media-insights-pipeline-configuration](#list_chime-resource-media-insights-pipeline-configuration "#list_chime-resource-media-insights-pipeline-configuration")                                                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [media-pipeline](#list_chime-resource-media-pipeline "#list_chime-resource-media-pipeline")                                                                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [media-pipeline-kinesis-video-stream-pool](#list_chime-resource-media-pipeline-kinesis-video-stream-pool "#list_chime-resource-media-pipeline-kinesis-video-stream-pool")                                                                                                   | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [meeting](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [sip-media-application](#list_chime-resource-sip-media-application "#list_chime-resource-sip-media-application")                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [voice-connector](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [voice-profile-domain](#list_chime-resource-voice-profile-domain "#list_chime-resource-voice-profile-domain")                                                                                                                                                               | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [ListUsers](../../../chime/latest/APIReference/API_ListUsers.md "../../../chime/latest/APIReference/API_ListUsers.md")                                                                                                                                                      | Grants permission to list the users that belong to the specified Amazon Chime account                                                                                                                                                                                                     |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListVoiceConnectorGroups](../../../chime/latest/APIReference/API_ListVoiceConnectorGroups.md "../../../chime/latest/APIReference/API_ListVoiceConnectorGroups.md")                                                                                                         | Grants permission to list the Amazon Chime Voice Connector Groups under the administrator's AWS account                                                                                                                                                                                   |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListVoiceConnectorTerminationCredentials](../../../chime/latest/APIReference/API_ListVoiceConnectorTerminationCredentials.md "../../../chime/latest/APIReference/API_ListVoiceConnectorTerminationCredentials.md")                                                         | Grants permission to list the SIP termination credentials for the specified Amazon Chime Voice Connector                                                                                                                                                                                  | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [ListVoiceConnectors](../../../chime/latest/APIReference/API_ListVoiceConnectors.md "../../../chime/latest/APIReference/API_ListVoiceConnectors.md")                                                                                                                        | Grants permission to list the Amazon Chime Voice Connectors under the administrator's AWS account                                                                                                                                                                                         |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListVoiceProfileDomains](../../../chime-sdk/latest/APIReference/API_voice-chime_ListVoiceProfileDomains.md "../../../chime-sdk/latest/APIReference/API_voice-chime_ListVoiceProfileDomains.md")                                                                            | Grants permission to list voice profile domains                                                                                                                                                                                                                                           |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | List           |
-| [ListVoiceProfiles](../../../chime-sdk/latest/APIReference/API_voice-chime_ListVoiceProfiles.md "../../../chime-sdk/latest/APIReference/API_voice-chime_ListVoiceProfiles.md")                                                                                              | Grants permission to list voice profiles                                                                                                                                                                                                                                                  | [voice-profile-domain\*](#list_chime-resource-voice-profile-domain "#list_chime-resource-voice-profile-domain")                                                             | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [LogoutUser](../../../chime/latest/APIReference/API_LogoutUser.md "../../../chime/latest/APIReference/API_LogoutUser.md")                                                                                                                                                   | Grants permission to log out the specified user from all of the devices they are currently logged into                                                                                                                                                                                    |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [PutAppInstanceRetentionSettings](../../../chime-sdk/latest/APIReference/API_identity-chime_PutAppInstanceRetentionSettings.md "../../../chime-sdk/latest/APIReference/API_identity-chime_PutAppInstanceRetentionSettings.md")                                              | Grants permission to enable data retention for the app instance                                                                                                                                                                                                                           | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [PutAppInstanceStreamingConfigurations](../../../chime-sdk/latest/APIReference/API_PutAppInstanceStreamingConfigurations.md "../../../chime-sdk/latest/APIReference/API_PutAppInstanceStreamingConfigurations.md")                                                          | Grants permission to configure data streaming for the app instance                                                                                                                                                                                                                        | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [PutAppInstanceUserExpirationSettings](../../../chime-sdk/latest/APIReference/API_identity-chime_PutAppInstanceUserExpirationSettings.md "../../../chime-sdk/latest/APIReference/API_identity-chime_PutAppInstanceUserExpirationSettings.md")                               | Grants permission to put expiration settings for an AppInstanceUser                                                                                                                                                                                                                       | [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [PutChannelExpirationSettings](../../../chime-sdk/latest/APIReference/API_messaging-chime_PutChannelExpirationSettings.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_PutChannelExpirationSettings.md")                                                     | Grants permission to put expiration settings for a channel                                                                                                                                                                                                                                | [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [PutChannelMembershipPreferences](../../../chime-sdk/latest/APIReference/API_messaging-chime_PutChannelMembershipPreferences.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_PutChannelMembershipPreferences.md")                                            | Grants permission to put the preferences for a channel membership                                                                                                                                                                                                                         | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [PutEventsConfiguration](../../../chime/latest/APIReference/API_PutEventsConfiguration.md "../../../chime/latest/APIReference/API_PutEventsConfiguration.md")                                                                                                               | Grants permission to update details for an events configuration for a bot to receive outgoing events                                                                                                                                                                                      |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [PutMessagingStreamingConfigurations](../../../chime-sdk/latest/APIReference/API_messaging-chime_PutMessagingStreamingConfigurations.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_PutMessagingStreamingConfigurations.md")                                | Grants permission to put the data streaming configurations of an AppInstance                                                                                                                                                                                                              | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [PutRetentionSettings](../../../chime/latest/APIReference/API_PutRetentionSettings.md "../../../chime/latest/APIReference/API_PutRetentionSettings.md")                                                                                                                     | Grants permission to create or update retention settings for the specified Amazon Chime account                                                                                                                                                                                           |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [PutSipMediaApplicationAlexaSkillConfiguration](../../../chime-sdk/latest/APIReference/API_voice-chime_PutSipMediaApplicationAlexaSkillConfiguration.md "../../../chime-sdk/latest/APIReference/API_voice-chime_PutSipMediaApplicationAlexaSkillConfiguration.md")          | Grants permission to update Alexa Skill configuration settings for Amazon Chime SIP media application under the administrator's AWS account                                                                                                                                               | [sip-media-application\*](#list_chime-resource-sip-media-application "#list_chime-resource-sip-media-application")                                                          | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [PutSipMediaApplicationLoggingConfiguration](../../../chime/latest/APIReference/API_PutSipMediaApplicationLoggingConfiguration.md "../../../chime/latest/APIReference/API_PutSipMediaApplicationLoggingConfiguration.md")                                                   | Grants permission to update logging configuration settings for Amazon Chime SIP media application under the administrator's AWS account                                                                                                                                                   | [sip-media-application\*](#list_chime-resource-sip-media-application "#list_chime-resource-sip-media-application")                                                          | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [PutVoiceConnectorEmergencyCallingConfiguration](../../../chime/latest/APIReference/API_PutVoiceConnectorEmergencyCallingConfiguration.md "../../../chime/latest/APIReference/API_PutVoiceConnectorEmergencyCallingConfiguration.md")                                       | Grants permission to add emergency calling configuration for the specified Amazon Chime Voice Connector                                                                                                                                                                                   | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [PutVoiceConnectorExternalSystemsConfiguration](../../../chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorExternalSystemsConfiguration.md "../../../chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorExternalSystemsConfiguration.md")          | Grants permission to update the configuration of the external system that is connected with the specified Amazon Chime Voice Connector                                                                                                                                                    | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [PutVoiceConnectorLoggingConfiguration](../../../chime/latest/APIReference/API_PutVoiceConnectorLoggingConfiguration.md "../../../chime/latest/APIReference/API_PutVoiceConnectorLoggingConfiguration.md")                                                                  | Grants permission to add logging configuration for the specified Amazon Chime Voice Connector                                                                                                                                                                                             | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [PutVoiceConnectorOrigination](../../../chime/latest/APIReference/API_PutVoiceConnectorOrigination.md "../../../chime/latest/APIReference/API_PutVoiceConnectorOrigination.md")                                                                                             | Grants permission to update the origination settings for the specified Amazon Chime Voice Connector                                                                                                                                                                                       | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [PutVoiceConnectorProxy](../../../chime/latest/APIReference/API_PutVoiceConnectorProxy.md "../../../chime/latest/APIReference/API_PutVoiceConnectorProxy.md")                                                                                                               | Grants permission to add proxy configuration for the specified Amazon Chime Voice Connector                                                                                                                                                                                               | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [PutVoiceConnectorStreamingConfiguration](../../../chime/latest/APIReference/API_PutVoiceConnectorStreamingConfiguration.md "../../../chime/latest/APIReference/API_PutVoiceConnectorStreamingConfiguration.md")                                                            | Grants permission to add streaming configuration for the specified Amazon Chime Voice Connector                                                                                                                                                                                           | [media-insights-pipeline-configuration](#list_chime-resource-media-insights-pipeline-configuration "#list_chime-resource-media-insights-pipeline-configuration")            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [PutVoiceConnectorTermination](../../../chime/latest/APIReference/API_PutVoiceConnectorTermination.md "../../../chime/latest/APIReference/API_PutVoiceConnectorTermination.md")                                                                                             | Grants permission to update the termination settings for the specified Amazon Chime Voice Connector                                                                                                                                                                                       | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [PutVoiceConnectorTerminationCredentials](../../../chime/latest/APIReference/API_PutVoiceConnectorTerminationCredentials.md "../../../chime/latest/APIReference/API_PutVoiceConnectorTerminationCredentials.md")                                                            | Grants permission to add SIP termination credentials for the specified Amazon Chime Voice Connector                                                                                                                                                                                       | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [RedactChannelMessage](../../../chime-sdk/latest/APIReference/API_messaging-chime_RedactChannelMessage.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_RedactChannelMessage.md")                                                                             | Grants permission to redact message content                                                                                                                                                                                                                                               | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [RedactConversationMessage](../../../chime/latest/APIReference/API_RedactConversationMessage.md "../../../chime/latest/APIReference/API_RedactConversationMessage.md")                                                                                                      | Grants permission to redact the specified Chime conversation Message                                                                                                                                                                                                                      |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [RedactRoomMessage](../../../chime/latest/APIReference/API_RedactRoomMessage.md "../../../chime/latest/APIReference/API_RedactRoomMessage.md")                                                                                                                              | Grants permission to redacts the specified Chime room Message                                                                                                                                                                                                                             |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [RegenerateSecurityToken](../../../chime/latest/APIReference/API_RegenerateSecurityToken.md "../../../chime/latest/APIReference/API_RegenerateSecurityToken.md")                                                                                                            | Grants permission to regenerate the security token for the specified bot                                                                                                                                                                                                                  |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [RegisterAppInstanceUserEndpoint](../../../chime-sdk/latest/APIReference/API_identity-chime_RegisterAppInstanceUserEndpoint.md "../../../chime-sdk/latest/APIReference/API_identity-chime_RegisterAppInstanceUserEndpoint.md")                                              | Grants permission to register an endpoint for an app instance user                                                                                                                                                                                                                        | [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [RenameAccount](../../../chime/latest/ag/rename-account.md "../../../chime/latest/ag/rename-account.md")                                                                                                                                                                    | Grants permission to modify the account name for your Amazon Chime Enterprise or Team account                                                                                                                                                                                             |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [RenewDelegate](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                                    | Grants permission to renew the delegation request associated with an Amazon Chime account                                                                                                                                                                                                 |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [ResetAccountResource](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                             | Grants permission to reset the account resource in your Amazon Chime account                                                                                                                                                                                                              |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [ResetPersonalPIN](../../../chime/latest/APIReference/API_ResetPersonalPIN.md "../../../chime/latest/APIReference/API_ResetPersonalPIN.md")                                                                                                                                 | Grants permission to reset the personal meeting PIN for the specified user on an Amazon Chime account                                                                                                                                                                                     |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [RestorePhoneNumber](../../../chime/latest/APIReference/API_RestorePhoneNumber.md "../../../chime/latest/APIReference/API_RestorePhoneNumber.md")                                                                                                                           | Grants permission to restore the specified phone number from the deltion queue back to the phone number inventory                                                                                                                                                                         |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [RetrieveDataExports](../../../chime/latest/ag/request-attachments.md "../../../chime/latest/ag/request-attachments.md")                                                                                                                                                    | Grants permission to download the file containing links to all user attachments returned as part of the "Request attachments" action                                                                                                                                                      |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [SearchAvailablePhoneNumbers](../../../chime/latest/APIReference/API_SearchAvailablePhoneNumbers.md "../../../chime/latest/APIReference/API_SearchAvailablePhoneNumbers.md")                                                                                                | Grants permission to search phone numbers that can be ordered from the carrier                                                                                                                                                                                                            |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [SearchChannels](../../../chime-sdk/latest/APIReference/API_messaging-chime_SearchChannels.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_SearchChannels.md")                                                                                               | Grants permission to search channels that an AppInstanceUser belongs to, or search channels across the AppInstance for an AppInstaceAdmin                                                                                                                                                 | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | List           |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [SendChannelMessage](../../../chime-sdk/latest/APIReference/API_messaging-chime_SendChannelMessage.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_SendChannelMessage.md")                                                                                   | Grants permission to send a message to a particular channel that the member is a part of                                                                                                                                                                                                  | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [StartDataExport](../../../chime/latest/ag/request-attachments.md "../../../chime/latest/ag/request-attachments.md")                                                                                                                                                        | Grants permission to submit the "Request attachments" request                                                                                                                                                                                                                             |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [StartMeetingTranscription](../../../chime/latest/APIReference/API_StartMeetingTranscription.md "../../../chime/latest/APIReference/API_StartMeetingTranscription.md")                                                                                                      | Grants permission to start transcription for a meeting                                                                                                                                                                                                                                    |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [StartSpeakerSearchTask](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_StartSpeakerSearchTask.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_StartSpeakerSearchTask.md")                                                           | Grants permission to start a speaker search task on the specified Amazon Chime resource                                                                                                                                                                                                   | [media-pipeline](#list_chime-resource-media-pipeline "#list_chime-resource-media-pipeline")                                                                                 | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [voice-connector](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [StartVoiceToneAnalysisTask](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_StartVoiceToneAnalysisTask.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_StartVoiceToneAnalysisTask.md")                                               | Grants permission to start a voice tone analysis task on the specified Amazon Chime resource                                                                                                                                                                                              | [media-pipeline](#list_chime-resource-media-pipeline "#list_chime-resource-media-pipeline")                                                                                 | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [voice-connector](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [StopMeetingTranscription](../../../chime/latest/APIReference/API_StopMeetingTranscription.md "../../../chime/latest/APIReference/API_StopMeetingTranscription.md")                                                                                                         | Grants permission to stop transcription for a meeting                                                                                                                                                                                                                                     |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [StopSpeakerSearchTask](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_StopSpeakerSearchTask.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_StopSpeakerSearchTask.md")                                                              | Grants permission to stop a speaker search task on the specified Amazon Chime resource                                                                                                                                                                                                    | [media-pipeline](#list_chime-resource-media-pipeline "#list_chime-resource-media-pipeline")                                                                                 | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [voice-connector](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [StopVoiceToneAnalysisTask](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_StopVoiceToneAnalysisTask.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_StopVoiceToneAnalysisTask.md")                                                  | Grants permission to stop a voice tone analysis task on the specified Amazon Chime resource                                                                                                                                                                                               | [media-pipeline](#list_chime-resource-media-pipeline "#list_chime-resource-media-pipeline")                                                                                 | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [voice-connector](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [SubmitSupportRequest](../../../chime/latest/ag/chime-getting-admin-support.md "../../../chime/latest/ag/chime-getting-admin-support.md")                                                                                                                                   | Grants permission to submit a customer service support request                                                                                                                                                                                                                            |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [SuspendUsers](../../../chime/latest/ag/manage-access.md "../../../chime/latest/ag/manage-access.md")                                                                                                                                                                       | Grants permission to suspend users from an Amazon Chime Enterprise account                                                                                                                                                                                                                |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [TagAttendee](../../../chime/latest/APIReference/API_TagAttendee.md "../../../chime/latest/APIReference/API_TagAttendee.md")                                                                                                                                                | Grants permission to apply the specified tags to the specified Amazon Chime SDK attendee                                                                                                                                                                                                  | [meeting\*](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Tagging, Write |
-| [TagMeeting](../../../chime/latest/APIReference/API_TagMeeting.md "../../../chime/latest/APIReference/API_TagMeeting.md")                                                                                                                                                   | Grants permission to apply the specified tags to the specified Amazon Chime SDK meeting                                                                                                                                                                                                   | [meeting\*](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                    | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") | Tagging, Write |
-| [TagResource](../../../chime/latest/APIReference/API_TagResource.md "../../../chime/latest/APIReference/API_TagResource.md")                                                                                                                                                | Grants permission to apply the specified tags to the specified resource (tag-based access controls are only supported on \*-chime.<region>.amazonaws.com endpoints)                                                                                                                       | [app-instance](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                       | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") | Tagging, Write |
-| [app-instance-bot](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                                                                                                                           | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") |
-| [app-instance-user](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                        | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") |
-| [channel](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                      | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") |
-| [channel-flow](#list_chime-resource-channel-flow "#list_chime-resource-channel-flow")                                                                                                                                                                                       | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") |
-| [media-insights-pipeline-configuration](#list_chime-resource-media-insights-pipeline-configuration "#list_chime-resource-media-insights-pipeline-configuration")                                                                                                            | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") |
-| [media-pipeline](#list_chime-resource-media-pipeline "#list_chime-resource-media-pipeline")                                                                                                                                                                                 | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") |
-| [media-pipeline-kinesis-video-stream-pool](#list_chime-resource-media-pipeline-kinesis-video-stream-pool "#list_chime-resource-media-pipeline-kinesis-video-stream-pool")                                                                                                   | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") |
-| [meeting](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                                                                                                                      | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") |
-| [sip-media-application](#list_chime-resource-sip-media-application "#list_chime-resource-sip-media-application")                                                                                                                                                            | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") |
-| [voice-connector](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                                                                                                                              | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") |
-| [voice-profile-domain](#list_chime-resource-voice-profile-domain "#list_chime-resource-voice-profile-domain")                                                                                                                                                               | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") |
-| [UnauthorizeDirectory](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                             | Grants permission to unauthorize an Active Directory from your Amazon Chime Enterprise account                                                                                                                                                                                            |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [UntagAttendee](../../../chime/latest/APIReference/API_UntagAttendee.md "../../../chime/latest/APIReference/API_UntagAttendee.md")                                                                                                                                          | Grants permission to untag the specified tags from the specified Amazon Chime SDK attendee                                                                                                                                                                                                | [meeting\*](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Tagging, Write |
-| [UntagMeeting](../../../chime/latest/APIReference/API_UntagMeeting.md "../../../chime/latest/APIReference/API_UntagMeeting.md")                                                                                                                                             | Grants permission to untag the specified tags from the specified Amazon Chime SDK meeting                                                                                                                                                                                                 | [meeting\*](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Tagging, Write |
-| [UntagResource](../../../chime/latest/APIReference/API_UntagResource.md "../../../chime/latest/APIReference/API_UntagResource.md")                                                                                                                                          | Grants permission to untag the specified tags from the specified resource (tag-based access controls are only supported on \*-chime.<region>.amazonaws.com endpoints)                                                                                                                     | [app-instance](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                       | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                            | Tagging, Write |
-| [app-instance-bot](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                                                                                                                           | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                            |
-| [app-instance-user](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                        | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                            |
-| [channel](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                            |
-| [channel-flow](#list_chime-resource-channel-flow "#list_chime-resource-channel-flow")                                                                                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                            |
-| [media-insights-pipeline-configuration](#list_chime-resource-media-insights-pipeline-configuration "#list_chime-resource-media-insights-pipeline-configuration")                                                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                            |
-| [media-pipeline](#list_chime-resource-media-pipeline "#list_chime-resource-media-pipeline")                                                                                                                                                                                 | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                            |
-| [media-pipeline-kinesis-video-stream-pool](#list_chime-resource-media-pipeline-kinesis-video-stream-pool "#list_chime-resource-media-pipeline-kinesis-video-stream-pool")                                                                                                   | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                            |
-| [meeting](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                            |
-| [sip-media-application](#list_chime-resource-sip-media-application "#list_chime-resource-sip-media-application")                                                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                            |
-| [voice-connector](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                            |
-| [voice-profile-domain](#list_chime-resource-voice-profile-domain "#list_chime-resource-voice-profile-domain")                                                                                                                                                               | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys")                                                                                                            |
-| [UpdateAccount](../../../chime/latest/APIReference/API_UpdateAccount.md "../../../chime/latest/APIReference/API_UpdateAccount.md")                                                                                                                                          | Grants permission to update account details for the specified Amazon Chime account                                                                                                                                                                                                        |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateAccountOpenIdConfig](../../../chime/latest/ag/okta_sso.md "../../../chime/latest/ag/okta_sso.md")                                                                                                                                                                    | Grants permission to update the OpenIdConfig attributes for your Amazon Chime account                                                                                                                                                                                                     |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateAccountResource](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                            | Grants permission to update the account resource in your Amazon Chime account                                                                                                                                                                                                             |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateAccountSettings](../../../chime/latest/APIReference/API_UpdateAccountSettings.md "../../../chime/latest/APIReference/API_UpdateAccountSettings.md")                                                                                                                  | Grants permission to update the settings for the specified Amazon Chime account                                                                                                                                                                                                           |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateAppInstance](../../../chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstance.md "../../../chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstance.md")                                                                                        | Grants permission to update AppInstance metadata                                                                                                                                                                                                                                          | [app-instance\*](#list_chime-resource-app-instance "#list_chime-resource-app-instance")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateAppInstanceBot](../../../chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceBot.md "../../../chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceBot.md")                                                                               | Grants permission to update the details for an AppInstanceBot                                                                                                                                                                                                                             | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateAppInstanceUser](../../../chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceUser.md "../../../chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceUser.md")                                                                            | Grants permission to update the details for an AppInstanceUser                                                                                                                                                                                                                            | [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateAppInstanceUserEndpoint](../../../chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceUserEndpoint.md "../../../chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceUserEndpoint.md")                                                    | Grants permission to update an endpoint registered for an app instance user                                                                                                                                                                                                               | [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateAttendeeCapabilities](../../../chime-sdk/latest/APIReference/API_meeting-chime_UpdateAttendeeCapabilities.md "../../../chime-sdk/latest/APIReference/API_meeting-chime_UpdateAttendeeCapabilities.md")                                                               | Grants permission to the capabilties that you want to update                                                                                                                                                                                                                              | [meeting\*](#list_chime-resource-meeting "#list_chime-resource-meeting")                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateBot](../../../chime/latest/APIReference/API_UpdateBot.md "../../../chime/latest/APIReference/API_UpdateBot.md")                                                                                                                                                      | Grants permission to update the status of the specified bot                                                                                                                                                                                                                               |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateCDRSettings](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                                | Grants permission to update your Call Detail Record S3 bucket                                                                                                                                                                                                                             |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateChannel](../../../chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannel.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannel.md")                                                                                                  | Grants permission to update a channel's attributes                                                                                                                                                                                                                                        | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [UpdateChannelFlow](../../../chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelFlow.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelFlow.md")                                                                                      | Grants permission to update a channel flow                                                                                                                                                                                                                                                | [channel-flow\*](#list_chime-resource-channel-flow "#list_chime-resource-channel-flow")                                                                                     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateChannelMessage](../../../chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelMessage.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelMessage.md")                                                                             | Grants permission to update the content of a message                                                                                                                                                                                                                                      | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [UpdateChannelReadMarker](../../../chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelReadMarker.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelReadMarker.md")                                                                    | Grants permission to set the timestamp to the point when a user last read messages in a channel                                                                                                                                                                                           | [app-instance-bot\*](#list_chime-resource-app-instance-bot "#list_chime-resource-app-instance-bot")                                                                         | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [app-instance-user\*](#list_chime-resource-app-instance-user "#list_chime-resource-app-instance-user")                                                                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [channel\*](#list_chime-resource-channel "#list_chime-resource-channel")                                                                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                |
-| [UpdateGlobalSettings](../../../chime/latest/APIReference/API_UpdateGlobalSettings.md "../../../chime/latest/APIReference/API_UpdateGlobalSettings.md")                                                                                                                     | Grants permission to update the global settings related to Amazon Chime for the AWS account                                                                                                                                                                                               |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateMediaInsightsPipelineConfiguration](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_UpdateMediaInsightsPipelineConfiguration.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_UpdateMediaInsightsPipelineConfiguration.md")     | Grants permission to update the status of a media insights pipeline configuration                                                                                                                                                                                                         | [media-insights-pipeline-configuration\*](#list_chime-resource-media-insights-pipeline-configuration "#list_chime-resource-media-insights-pipeline-configuration")          | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateMediaInsightsPipelineStatus](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_UpdateMediaInsightsPipelineStatus.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_UpdateMediaInsightsPipelineStatus.md")                          | Grants permission to update the status of a media insights pipeline                                                                                                                                                                                                                       | [media-pipeline\*](#list_chime-resource-media-pipeline "#list_chime-resource-media-pipeline")                                                                               | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateMediaPipelineKinesisVideoStreamPool](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_UpdateMediaPipelineKinesisVideoStreamPool.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_UpdateMediaPipelineKinesisVideoStreamPool.md")  | Grants permission to update kinesis video stream pool                                                                                                                                                                                                                                     | [media-pipeline-kinesis-video-stream-pool\*](#list_chime-resource-media-pipeline-kinesis-video-stream-pool "#list_chime-resource-media-pipeline-kinesis-video-stream-pool") | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdatePhoneNumber](../../../chime/latest/APIReference/API_UpdatePhoneNumber.md "../../../chime/latest/APIReference/API_UpdatePhoneNumber.md")                                                                                                                              | Grants permission to update phone number details for the specified phone number                                                                                                                                                                                                           |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdatePhoneNumberSettings](../../../chime/latest/APIReference/API_UpdatePhoneNumberSettings.md "../../../chime/latest/APIReference/API_UpdatePhoneNumberSettings.md")                                                                                                      | Grants permission to update phone number settings related to Amazon Chime for the AWS account                                                                                                                                                                                             |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateProxySession](../../../chime/latest/APIReference/API_UpdateProxySession.md "../../../chime/latest/APIReference/API_UpdateProxySession.md")                                                                                                                           | Grants permission to update a proxy session for the specified Amazon Chime Voice Connector                                                                                                                                                                                                | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateRoom](../../../chime/latest/APIReference/API_UpdateRoom.md "../../../chime/latest/APIReference/API_UpdateRoom.md")                                                                                                                                                   | Grants permission to update a room                                                                                                                                                                                                                                                        |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateRoomMembership](../../../chime/latest/APIReference/API_UpdateRoomMembership.md "../../../chime/latest/APIReference/API_UpdateRoomMembership.md")                                                                                                                     | Grants permission to update room membership role                                                                                                                                                                                                                                          |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateSipMediaApplication](../../../chime/latest/APIReference/API_UpdateSipMediaApplication.md "../../../chime/latest/APIReference/API_UpdateSipMediaApplication.md")                                                                                                      | Grants permission to update properties of Amazon Chime SIP media application under the administrator's AWS account                                                                                                                                                                        | [sip-media-application\*](#list_chime-resource-sip-media-application "#list_chime-resource-sip-media-application")                                                          | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateSipMediaApplicationCall](../../../chime/latest/APIReference/API_UpdateSipMediaApplicationCall.md "../../../chime/latest/APIReference/API_UpdateSipMediaApplicationCall.md")                                                                                          | Grants permission to update an Amazon Chime SIP media application call under the administrator's AWS account                                                                                                                                                                              | [sip-media-application\*](#list_chime-resource-sip-media-application "#list_chime-resource-sip-media-application")                                                          | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateSipRule](../../../chime/latest/APIReference/API_UpdateSipRule.md "../../../chime/latest/APIReference/API_UpdateSipRule.md")                                                                                                                                          | Grants permission to update properties of Amazon Chime SIP rule under the administrator's AWS account                                                                                                                                                                                     | [sip-media-application](#list_chime-resource-sip-media-application "#list_chime-resource-sip-media-application")                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateSupportedLicenses](../../../chime/latest/ag/manage-access.md "../../../chime/latest/ag/manage-access.md")                                                                                                                                                            | Grants permission to update the supported license tiers available for users in your Amazon Chime account                                                                                                                                                                                  |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateUser](../../../chime/latest/APIReference/API_UpdateUser.md "../../../chime/latest/APIReference/API_UpdateUser.md")                                                                                                                                                   | Grants permission to update user details for a specified user ID                                                                                                                                                                                                                          |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateUserLicenses](../../../chime/latest/ag/manage-access.md "../../../chime/latest/ag/manage-access.md")                                                                                                                                                                 | Grants permission to update the licenses for your Amazon Chime users                                                                                                                                                                                                                      |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateUserSettings](../../../chime/latest/APIReference/API_UpdateUserSettings.md "../../../chime/latest/APIReference/API_UpdateUserSettings.md")                                                                                                                           | Grants permission to update user settings related to the specified Amazon Chime user                                                                                                                                                                                                      |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateVoiceConnector](../../../chime/latest/APIReference/API_UpdateVoiceConnector.md "../../../chime/latest/APIReference/API_UpdateVoiceConnector.md")                                                                                                                     | Grants permission to update Amazon Chime Voice Connector details for the specified Amazon Chime Voice Connector                                                                                                                                                                           | [voice-connector\*](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                            | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateVoiceConnectorGroup](../../../chime/latest/APIReference/API_UpdateVoiceConnectorGroup.md "../../../chime/latest/APIReference/API_UpdateVoiceConnectorGroup.md")                                                                                                      | Grants permission to update Amazon Chime Voice Connector Group details for the specified Amazon Chime Voice Connector Group                                                                                                                                                               | [voice-connector](#list_chime-resource-voice-connector "#list_chime-resource-voice-connector")                                                                              | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [UpdateVoiceProfile](../../../chime-sdk/latest/APIReference/API_voice-chime_UpdateVoiceProfile.md "../../../chime-sdk/latest/APIReference/API_voice-chime_UpdateVoiceProfile.md")                                                                                           | Grants permission to update a voice profile                                                                                                                                                                                                                                               | [voice-profile\*](#list_chime-resource-voice-profile "#list_chime-resource-voice-profile")                                                                                  |                                                                                                                                                                                                                                                                                           | Write          |
-| [UpdateVoiceProfileDomain](../../../chime-sdk/latest/APIReference/API_voice-chime_UpdateVoiceProfileDomain.md "../../../chime-sdk/latest/APIReference/API_voice-chime_UpdateVoiceProfileDomain.md")                                                                         | Grants permission to update a voice profile domain                                                                                                                                                                                                                                        | [voice-profile-domain\*](#list_chime-resource-voice-profile-domain "#list_chime-resource-voice-profile-domain")                                                             | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_")                                                                                                                                                                                | Write          |
-| [ValidateAccountResource](../../../chime/latest/ag/control-access.md "../../../chime/latest/ag/control-access.md")                                                                                                                                                          | Grants permission to validate the account resource in your Amazon Chime account                                                                                                                                                                                                           |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
-| [ValidateE911Address](../../../chime/latest/APIReference/API_ValidateE911Address.md "../../../chime/latest/APIReference/API_ValidateE911Address.md")                                                                                                                        | Grants permission to validate an address to be used for 911 calls made with Amazon Chime Voice Connectors                                                                                                                                                                                 |                                                                                                                                                                             |                                                                                                                                                                                                                                                                                           | Read           |
+
+
+
+- **   [AcceptDelegate](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to accept the delegate invitation to share management of an Amazon Chime account with another AWS Account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ActivateUsers](https://docs.aws.amazon.com/chime/latest/ag/manage-access.html)  **
+  - **Description:** Grants permission to activate users in an Amazon Chime Enterprise account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [AddDomain](https://docs.aws.amazon.com/chime/latest/ag/claim-domain.html)  **
+  - **Description:** Grants permission to add a domain to your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [AddOrUpdateGroups](https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html)  **
+  - **Description:** Grants permission to add new or update existing Active Directory or Okta user groups associated with your Amazon Chime Enterprise account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [AssociateChannelFlow](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_AssociateChannelFlow.html)  **
+  - **Description:** Grants permission to associate a flow with a channel
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel-flow\*](#list_chime-resource-channel-flow) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociatePhoneNumberWithUser](https://docs.aws.amazon.com/chime/latest/APIReference/API_AssociatePhoneNumberWithUser.html)  **
+  - **Description:** Grants permission to associate a phone number with an Amazon Chime user
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [AssociatePhoneNumbersWithVoiceConnector](https://docs.aws.amazon.com/chime/latest/APIReference/API_AssociatePhoneNumbersWithVoiceConnector.html)  **
+  - **Description:** Grants permission to associate multiple phone numbers with an Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AssociatePhoneNumbersWithVoiceConnectorGroup](https://docs.aws.amazon.com/chime/latest/APIReference/API_AssociatePhoneNumbersWithVoiceConnectorGroup.html)  **
+  - **Description:** Grants permission to associate multiple phone numbers with an Amazon Chime Voice Connector Group
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [AssociateSigninDelegateGroupsWithAccount](https://docs.aws.amazon.com/chime/latest/APIReference/API_AssociateSigninDelegateGroupsWithAccount.html)  **
+  - **Description:** Grants permission to associate the specified sign-in delegate groups with the specified Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [AuthorizeDirectory](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to authorize an Active Directory for your Amazon Chime Enterprise account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [BatchCreateAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_BatchCreateAttendee.html)  **
+  - **Description:** Grants permission to create new attendees for an active Amazon Chime SDK meeting
+  - **Resource types (\*required):** [meeting\*](#list_chime-resource-meeting)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchCreateChannelMembership](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_BatchCreateChannelMembership.html)  **
+  - **Description:** Grants permission to add multiple users and bots to a channel
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchCreateRoomMembership](https://docs.aws.amazon.com/chime/latest/APIReference/API_BatchCreateRoomMembership.html)  **
+  - **Description:** Grants permission to batch add room members
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [BatchDeletePhoneNumber](https://docs.aws.amazon.com/chime/latest/APIReference/API_BatchDeletePhoneNumber.html)  **
+  - **Description:** Grants permission to move up to 50 phone numbers to the deletion queue
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [BatchSuspendUser](https://docs.aws.amazon.com/chime/latest/APIReference/API_BatchSuspendUser.html)  **
+  - **Description:** Grants permission to suspend up to 50 users from a Team or EnterpriseLWA Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [BatchUnsuspendUser](https://docs.aws.amazon.com/chime/latest/APIReference/API_BatchUnsuspendUser.html)  **
+  - **Description:** Grants permission to remove the suspension from up to 50 previously suspended users for the specified Amazon Chime EnterpriseLWA account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [BatchUpdateAttendeeCapabilitiesExcept](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_BatchUpdateAttendeeCapabilitiesExcept.html)  **
+  - **Description:** Grants permission to update AttendeeCapabilities except the capabilities listed in an ExcludedAttendeeIds table
+  - **Resource types (\*required):** [meeting\*](#list_chime-resource-meeting)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchUpdatePhoneNumber](https://docs.aws.amazon.com/chime/latest/APIReference/API_BatchUpdatePhoneNumber.html)  **
+  - **Description:** Grants permission to update phone number details within the UpdatePhoneNumberRequestItem object for up to 50 phone numbers
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [BatchUpdateUser](https://docs.aws.amazon.com/chime/latest/APIReference/API_BatchUpdateUser.html)  **
+  - **Description:** Grants permission to update user details within the UpdateUserRequestItem object for up to 20 users for the specified Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ChannelFlowCallback](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ChannelFlowCallback.html)  **
+  - **Description:** Grants permission to callback for a message on a channel
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [Connect](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_Connect.html)  **
+  - **Description:** Grants permission to establish a web socket connection for app instance user to the messaging session endpoint
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ConnectDirectory](https://docs.aws.amazon.com/chime/latest/ag/active_directory.html)  **
+  - **Description:** Grants permission to connect an Active Directory to your Amazon Chime Enterprise account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateAccount](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAccount.html)  **
+  - **Description:** Grants permission to create an Amazon Chime account under the administrator's AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateApiKey](https://docs.aws.amazon.com/chime/latest/ag/okta_sso.html)  **
+  - **Description:** Grants permission to create a new SCIM access key for your Amazon Chime account and Okta configuration
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateAppInstance](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstance.html)  **
+  - **Description:** Grants permission to create an app instance in the AWS account (tag-based access controls are only supported on identity-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAppInstanceAdmin](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceAdmin.html)  **
+  - **Description:** Grants permission to promote a user or bot to an AppInstanceAdmin
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateAppInstanceBot](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceBot.html)  **
+  - **Description:** Grants permission to create a bot within an AppInstance (tag-based access controls are only supported on identity-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceUser.html)  **
+  - **Description:** Grants permission to create a user within an AppInstance (tag-based access controls are only supported on identity-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html)  **
+  - **Description:** Grants permission to create a new attendee for an active Amazon Chime SDK meeting
+  - **Resource types (\*required):** [meeting\*](#list_chime-resource-meeting)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateBot](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateBot.html)  **
+  - **Description:** Grants permission to create a bot for an Amazon Chime Enterprise account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateCDRBucket](https://docs.aws.amazon.com/chime/latest/ag/manage-access.html)  **
+  - **Description:** Grants permission to create a new Call Detail Record S3 bucket
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateChannel](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannel.html)  **
+  - **Description:** Grants permission to create a channel for an app instance in the AWS account (tag-based access controls are only supported on messaging-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateChannelBan](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelBan.html)  **
+  - **Description:** Grants permission to ban a user or bot from a channel
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateChannelFlow](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelFlow.html)  **
+  - **Description:** Grants permission to create a channel flow for an app instance in the AWS account (tag-based access controls are only supported on messaging-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateChannelMembership](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelMembership.html)  **
+  - **Description:** Grants permission to add a user or bot to a channel
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateChannelModerator](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelModerator.html)  **
+  - **Description:** Grants permission to create a channel moderator
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateMediaCapturePipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaCapturePipeline.html)  **
+  - **Description:** Grants permission to create a media capture pipeline (tag-based access controls are only supported on media-pipelines-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMediaConcatenationPipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaConcatenationPipeline.html)  **
+  - **Description:** Grants permission to create a media concatenation pipeline (tag-based access controls are only supported on media-pipelines-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMediaInsightsPipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaInsightsPipeline.html)  **
+  - **Description:** Grants permission to create a media insights pipeline (tag-based access controls are only supported on media-pipelines-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** [media-insights-pipeline-configuration\*](#list_chime-resource-media-insights-pipeline-configuration)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMediaInsightsPipelineConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaInsightsPipelineConfiguration.html)  **
+  - **Description:** Grants permission to create a media insights pipeline configuration (tag-based access controls are only supported on media-pipelines-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMediaLiveConnectorPipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaLiveConnectorPipeline.html)  **
+  - **Description:** Grants permission to create a media live connector pipeline (tag-based access controls are only supported on media-pipelines-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMediaPipelineKinesisVideoStreamPool](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaPipelineKinesisVideoStreamPool.html)  **
+  - **Description:** Grants permission to create kinesis video stream pool (tag-based access controls are only supported on media-pipelines-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMediaStreamPipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaStreamPipeline.html)  **
+  - **Description:** Grants permission to create a media stream pipeline (tag-based access controls are only supported on media-pipelines-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** [media-pipeline-kinesis-video-stream-pool\*](#list_chime-resource-media-pipeline-kinesis-video-stream-pool)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMeeting.html)  **
+  - **Description:** Grants permission to create a new meeting in the specified media Region, with no initial attendees (tag-based access controls are only supported on meetings-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMeetingDialOut](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMeetingDialOut.html)  **
+  - **Description:** Grants permission to call a phone number to join the specified Amazon Chime SDK meeting
+  - **Resource types (\*required):** [meeting\*](#list_chime-resource-meeting)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateMeetingWithAttendees](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMeetingWithAttendees.html)  **
+  - **Description:** Grants permission to create a new meeting in the specified media Region, with a set of attendees (tag-based access controls are only supported on meetings-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreatePhoneNumberOrder](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreatePhoneNumberOrder.html)  **
+  - **Description:** Grants permission to create a phone number order with the Carriers
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateProxySession](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateProxySession.html)  **
+  - **Description:** Grants permission to create a proxy session for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateRoom](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateRoom.html)  **
+  - **Description:** Grants permission to create a room
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateRoomMembership](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateRoomMembership.html)  **
+  - **Description:** Grants permission to add a room member
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateSipMediaApplication](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateSipMediaApplication.html)  **
+  - **Description:** Grants permission to create an Amazon Chime SIP media application in the AWS account (tag-based access controls are only supported on voice-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateSipMediaApplicationCall](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateSipMediaApplicationCall.html)  **
+  - **Description:** Grants permission to create outbound call for Amazon Chime SIP media application under the administrator's AWS account
+  - **Resource types (\*required):** [sip-media-application\*](#list_chime-resource-sip-media-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateSipRule](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateSipRule.html)  **
+  - **Description:** Grants permission to create an Amazon Chime SIP rule under the administrator's AWS account
+  - **Resource types (\*required):** [sip-media-application](#list_chime-resource-sip-media-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateUser](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateUser.html)  **
+  - **Description:** Grants permission to create a user under the specified Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateVoiceConnector](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.html)  **
+  - **Description:** Grants permission to create a Voice Connector in the AWS account (tag-based access controls are only supported on voice-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateVoiceConnectorGroup](https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateVoiceConnectorGroup.html)  **
+  - **Description:** Grants permission to create a Amazon Chime Voice Connector Group under the administrator's AWS account
+  - **Resource types (\*required):** [voice-connector](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateVoiceProfile](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceProfile.html)  **
+  - **Description:** Grants permission to create a voice profile
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateVoiceProfileDomain](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceProfileDomain.html)  **
+  - **Description:** Grants permission to create a voice profile domain (tag-based access controls are only supported on voice-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteAccount](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteAccount.html)  **
+  - **Description:** Grants permission to delete the specified Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteAccountOpenIdConfig](https://docs.aws.amazon.com/chime/latest/ag/okta_sso.html)  **
+  - **Description:** Grants permission to delete the OpenIdConfig attributes from your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteApiKey](https://docs.aws.amazon.com/chime/latest/ag/okta_sso.html)  **
+  - **Description:** Grants permission to delete the specified SCIM access key associated with your Amazon Chime account and Okta configuration
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteAppInstance](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstance.html)  **
+  - **Description:** Grants permission to delete an AppInstance
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAppInstanceAdmin](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceAdmin.html)  **
+  - **Description:** Grants permission to demote an AppInstanceAdmin to a user or bot
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAppInstanceBot](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceBot.html)  **
+  - **Description:** Grants permission to delete an AppInstanceBot
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAppInstanceStreamingConfigurations](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_DeleteAppInstanceStreamingConfigurations.html)  **
+  - **Description:** Grants permission to disable data streaming for the app instance
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceUser.html)  **
+  - **Description:** Grants permission to delete an AppInstanceUser
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteAttendee.html)  **
+  - **Description:** Grants permission to delete the specified attendee from an Amazon Chime SDK meeting
+  - **Resource types (\*required):** [meeting\*](#list_chime-resource-meeting)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteCDRBucket](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to delete a Call Detail Record S3 bucket from your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteChannel](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannel.html)  **
+  - **Description:** Grants permission to delete a channel
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteChannelBan](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelBan.html)  **
+  - **Description:** Grants permission to remove a user or bot from a channel's ban list
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteChannelFlow](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelFlow.html)  **
+  - **Description:** Grants permission to delete a channel flow
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteChannelMembership](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelMembership.html)  **
+  - **Description:** Grants permission to remove a member from a channel
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteChannelMessage](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelMessage.html)  **
+  - **Description:** Grants permission to delete a channel message
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteChannelModerator](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelModerator.html)  **
+  - **Description:** Grants permission to delete a channel moderator
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDelegate](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to delete delegated AWS account management from your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteDomain](https://docs.aws.amazon.com/chime/latest/ag/claim-domain.html)  **
+  - **Description:** Grants permission to delete a domain from your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteEventsConfiguration](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteEventsConfiguration.html)  **
+  - **Description:** Grants permission to delete an events configuration for a bot to receive outgoing events
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteGroups](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to delete Active Directory or Okta user groups from your Amazon Chime Enterprise account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteMediaCapturePipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaCapturePipeline.html)  **
+  - **Description:** Grants permission to delete a media capture pipeline
+  - **Resource types (\*required):** [media-pipeline\*](#list_chime-resource-media-pipeline)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteMediaInsightsPipelineConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaInsightsPipelineConfiguration.html)  **
+  - **Description:** Grants permission to delete a media insights pipeline configuration
+  - **Resource types (\*required):** [media-insights-pipeline-configuration\*](#list_chime-resource-media-insights-pipeline-configuration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteMediaPipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaPipeline.html)  **
+  - **Description:** Grants permission to delete a media pipeline
+  - **Resource types (\*required):** [media-pipeline\*](#list_chime-resource-media-pipeline)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteMediaPipelineKinesisVideoStreamPool](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaPipelineKinesisVideoStreamPool.html)  **
+  - **Description:** Grants permission to delete kinesis video stream pool
+  - **Resource types (\*required):** [media-pipeline-kinesis-video-stream-pool\*](#list_chime-resource-media-pipeline-kinesis-video-stream-pool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteMeeting.html)  **
+  - **Description:** Grants permission to delete the specified Amazon Chime SDK meeting
+  - **Resource types (\*required):** [meeting\*](#list_chime-resource-meeting)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteMessagingStreamingConfigurations](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteMessagingStreamingConfigurations.html)  **
+  - **Description:** Grants permission to delete the data streaming configurations of an AppInstance
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeletePhoneNumber](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeletePhoneNumber.html)  **
+  - **Description:** Grants permission to move a phone number to the deletion queue
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteProxySession](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteProxySession.html)  **
+  - **Description:** Grants permission to delete a proxy session for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRoom](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteRoom.html)  **
+  - **Description:** Grants permission to delete a room
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteRoomMembership](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteRoomMembership.html)  **
+  - **Description:** Grants permission to remove a room member
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteSipMediaApplication](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteSipMediaApplication.html)  **
+  - **Description:** Grants permission to delete Amazon Chime SIP media application under the administrator's AWS account
+  - **Resource types (\*required):** [sip-media-application\*](#list_chime-resource-sip-media-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteSipRule](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteSipRule.html)  **
+  - **Description:** Grants permission to delete Amazon Chime SIP rule under the administrator's AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteVoiceConnector](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteVoiceConnector.html)  **
+  - **Description:** Grants permission to delete the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteVoiceConnectorEmergencyCallingConfiguration](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteVoiceConnectorEmergencyCallingConfiguration.html)  **
+  - **Description:** Grants permission to delete emergency calling configuration for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteVoiceConnectorExternalSystemsConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorExternalSystemsConfiguration.html)  **
+  - **Description:** Grants permission to delete the configuration of the external system that is connected with the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteVoiceConnectorGroup](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteVoiceConnectorGroup.html)  **
+  - **Description:** Grants permission to delete the specified Amazon Chime Voice Connector Group
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteVoiceConnectorOrigination](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteVoiceConnectorOrigination.html)  **
+  - **Description:** Grants permission to delete the origination settings for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteVoiceConnectorProxy](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteVoiceConnectorProxy.html)  **
+  - **Description:** Grants permission to delete proxy configuration for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteVoiceConnectorStreamingConfiguration](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteVoiceConnectorStreamingConfiguration.html)  **
+  - **Description:** Grants permission to delete streaming configuration for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteVoiceConnectorTermination](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteVoiceConnectorTermination.html)  **
+  - **Description:** Grants permission to delete the termination settings for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteVoiceConnectorTerminationCredentials](https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteVoiceConnectorTerminationCredentials.html)  **
+  - **Description:** Grants permission to delete SIP termination credentials for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteVoiceProfile](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceProfile.html)  **
+  - **Description:** Grants permission to delete a voice profile
+  - **Resource types (\*required):** [voice-profile\*](#list_chime-resource-voice-profile)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteVoiceProfileDomain](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceProfileDomain.html)  **
+  - **Description:** Grants permission to delete a voice profile domain
+  - **Resource types (\*required):** [voice-profile-domain\*](#list_chime-resource-voice-profile-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeregisterAppInstanceUserEndpoint](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeregisterAppInstanceUserEndpoint.html)  **
+  - **Description:** Grants permission to deregister an endpoint for an app instance user
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeAppInstance](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstance.html)  **
+  - **Description:** Grants permission to get the full details of an AppInstance
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeAppInstanceAdmin](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceAdmin.html)  **
+  - **Description:** Grants permission to get the full details of an AppInstanceAdmin
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeAppInstanceBot](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceBot.html)  **
+  - **Description:** Grants permission to get the full details of an AppInstanceBot
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceUser.html)  **
+  - **Description:** Grants permission to get the full details of an AppInstanceUser
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeAppInstanceUserEndpoint](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceUserEndpoint.html)  **
+  - **Description:** Grants permission to describe an endpoint registered for an app instance user
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeChannel](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannel.html)  **
+  - **Description:** Grants permission to get the full details of a channel
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeChannelBan](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelBan.html)  **
+  - **Description:** Grants permission to get the full details of a channel ban
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeChannelFlow](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelFlow.html)  **
+  - **Description:** Grants permission to get the full details of a channel flow
+  - **Resource types (\*required):** [channel-flow\*](#list_chime-resource-channel-flow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeChannelMembership](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelMembership.html)  **
+  - **Description:** Grants permission to get the full details of a channel membership
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeChannelMembershipForAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelMembershipForAppInstanceUser.html)  **
+  - **Description:** Grants permission to get the details of a channel based on the membership of the specified user or bot
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeChannelModeratedByAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelModeratedByAppInstanceUser.html)  **
+  - **Description:** Grants permission to get the full details of a channel moderated by the specified user or bot
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeChannelModerator](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelModerator.html)  **
+  - **Description:** Grants permission to get the full details of a single ChannelModerator
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DisassociateChannelFlow](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DisassociateChannelFlow.html)  **
+  - **Description:** Grants permission to disassociate a flow from a channel
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel-flow\*](#list_chime-resource-channel-flow) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociatePhoneNumberFromUser](https://docs.aws.amazon.com/chime/latest/APIReference/API_DisassociatePhoneNumberFromUser.html)  **
+  - **Description:** Grants permission to disassociate the primary provisioned number from the specified Amazon Chime user
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DisassociatePhoneNumbersFromVoiceConnector](https://docs.aws.amazon.com/chime/latest/APIReference/API_DisassociatePhoneNumbersFromVoiceConnector.html)  **
+  - **Description:** Grants permission to disassociate multiple phone numbers from the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DisassociatePhoneNumbersFromVoiceConnectorGroup](https://docs.aws.amazon.com/chime/latest/APIReference/API_DisassociatePhoneNumbersFromVoiceConnectorGroup.html)  **
+  - **Description:** Grants permission to disassociate multiple phone numbers from the specified Amazon Chime Voice Connector Group
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DisassociateSigninDelegateGroupsFromAccount](https://docs.aws.amazon.com/chime/latest/APIReference/API_DisassociateSigninDelegateGroupsFromAccount.html)  **
+  - **Description:** Grants permission to disassociate the specified sign-in delegate groups from the specified Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DisconnectDirectory](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to disconnect the Active Directory from your Amazon Chime Enterprise account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [GetAccount](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetAccount.html)  **
+  - **Description:** Grants permission to get details for the specified Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAccountResource](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to get details for the account resource associated with your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAccountSettings](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetAccountSettings.html)  **
+  - **Description:** Grants permission to get account settings for the specified Amazon Chime account ID
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAccountWithOpenIdConfig](https://docs.aws.amazon.com/chime/latest/ag/okta_sso.html)  **
+  - **Description:** Grants permission to get the account details and OpenIdConfig attributes for your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetAppInstanceRetentionSettings](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_GetAppInstanceRetentionSettings.html)  **
+  - **Description:** Grants permission to get retention settings for an app instance
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAppInstanceStreamingConfigurations](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_GetAppInstanceStreamingConfigurations.html)  **
+  - **Description:** Grants permission to get the streaming configurations for an app instance
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetAttendee.html)  **
+  - **Description:** Grants permission to get attendee details for a specified meeting ID and attendee ID
+  - **Resource types (\*required):** [meeting\*](#list_chime-resource-meeting)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetBot](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetBot.html)  **
+  - **Description:** Grants permission to retrieve details for the specified bot
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetCDRBucket](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to get details of a Call Detail Record S3 bucket associated with your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetChannelMembershipPreferences](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetChannelMembershipPreferences.html)  **
+  - **Description:** Grants permission to get the preferences for a channel membership
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetChannelMessage](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetChannelMessage.html)  **
+  - **Description:** Grants permission to get the full details of a channel message
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetChannelMessageStatus](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetChannelMessageStatus.html)  **
+  - **Description:** Grants permission to get the status of a channel message
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetDomain](https://docs.aws.amazon.com/chime/latest/ag/claim-domain.html)  **
+  - **Description:** Grants permission to get domain details for a domain associated with your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetEventsConfiguration](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetEventsConfiguration.html)  **
+  - **Description:** Grants permission to retrieve details for an events configuration for a bot to receive outgoing events
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetGlobalSettings](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetGlobalSettings.html)  **
+  - **Description:** Grants permission to get global settings related to Amazon Chime for the AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetMediaCapturePipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaCapturePipeline.html)  **
+  - **Description:** Grants permission to get an existing media capture pipeline
+  - **Resource types (\*required):** [media-pipeline\*](#list_chime-resource-media-pipeline)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMediaInsightsPipelineConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaInsightsPipelineConfiguration.html)  **
+  - **Description:** Grants permission to get a media insights pipeline configuration
+  - **Resource types (\*required):** [media-insights-pipeline-configuration\*](#list_chime-resource-media-insights-pipeline-configuration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMediaPipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaPipeline.html)  **
+  - **Description:** Grants permission to get an existing media pipeline
+  - **Resource types (\*required):** [media-pipeline\*](#list_chime-resource-media-pipeline)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMediaPipelineKinesisVideoStreamPool](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaPipelineKinesisVideoStreamPool.html)  **
+  - **Description:** Grants permission to get an existing media pipeline
+  - **Resource types (\*required):** [media-pipeline-kinesis-video-stream-pool\*](#list_chime-resource-media-pipeline-kinesis-video-stream-pool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetMeeting.html)  **
+  - **Description:** Grants permission to get the meeting record for a specified meeting ID
+  - **Resource types (\*required):** [meeting\*](#list_chime-resource-meeting)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMeetingDetail](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to get attendee, connection, and other details for a meeting
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetMessagingSessionEndpoint](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetMessagingSessionEndpoint.html)  **
+  - **Description:** Grants permission to get the endpoint for the messaging session
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetMessagingStreamingConfigurations](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetMessagingStreamingConfigurations.html)  **
+  - **Description:** Grants permission to get the data streaming configurations of an AppInstance
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetPhoneNumber](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetPhoneNumber.html)  **
+  - **Description:** Grants permission to get details for the specified phone number
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetPhoneNumberOrder](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetPhoneNumberOrder.html)  **
+  - **Description:** Grants permission to get details for the specified phone number order
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetPhoneNumberSettings](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetPhoneNumberSettings.html)  **
+  - **Description:** Grants permission to get phone number settings related to Amazon Chime for the AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetProxySession](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetProxySession.html)  **
+  - **Description:** Grants permission to get details of the specified proxy session for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRetentionSettings](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetRetentionSettings.html)  **
+  - **Description:** Grants permission to retrieve the retention settings for the specified Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetRoom](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetRoom.html)  **
+  - **Description:** Grants permission to retrieve a room
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetSipMediaApplication](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetSipMediaApplication.html)  **
+  - **Description:** Grants permission to get details of Amazon Chime SIP media application under the administrator's AWS account
+  - **Resource types (\*required):** [sip-media-application\*](#list_chime-resource-sip-media-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSipMediaApplicationAlexaSkillConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSipMediaApplicationAlexaSkillConfiguration.html)  **
+  - **Description:** Grants permission to get Alexa Skill configuration settings for Amazon Chime SIP media application under the administrator's AWS account
+  - **Resource types (\*required):** [sip-media-application\*](#list_chime-resource-sip-media-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSipMediaApplicationLoggingConfiguration](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetSipMediaApplicationLoggingConfiguration.html)  **
+  - **Description:** Grants permission to get logging configuration settings for Amazon Chime SIP media application under the administrator's AWS account
+  - **Resource types (\*required):** [sip-media-application\*](#list_chime-resource-sip-media-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSipRule](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetSipRule.html)  **
+  - **Description:** Grants permission to get details of Amazon Chime SIP rule under the administrator's AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetSpeakerSearchTask](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetSpeakerSearchTask.html)  **
+  - **Description:** Grants permission to get a speaker search task on the specified Amazon Chime resource
+  - **Resource types (\*required):** [media-pipeline](#list_chime-resource-media-pipeline) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [voice-connector](#list_chime-resource-voice-connector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetTelephonyLimits](https://docs.aws.amazon.com/chime/latest/ag/phone-numbers.html)  **
+  - **Description:** Grants permission to get telephony limits for the AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetUser](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetUser.html)  **
+  - **Description:** Grants permission to get details for the specified user ID
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetUserActivityReportData](https://docs.aws.amazon.com/chime/latest/ag/user-details.html)  **
+  - **Description:** Grants permission to get a summary of user activity on the user details page
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetUserByEmail](https://docs.aws.amazon.com/chime/latest/ag/user-details.html)  **
+  - **Description:** Grants permission to get user details for an Amazon Chime user based on the email address in an Amazon Chime Enterprise or Team account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetUserSettings](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetUserSettings.html)  **
+  - **Description:** Grants permission to get user settings related to the specified Amazon Chime user
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetVoiceConnector](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetVoiceConnector.html)  **
+  - **Description:** Grants permission to get details for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetVoiceConnectorEmergencyCallingConfiguration](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetVoiceConnectorEmergencyCallingConfiguration.html)  **
+  - **Description:** Grants permission to get details of the emergency calling configuration for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetVoiceConnectorExternalSystemsConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorExternalSystemsConfiguration.html)  **
+  - **Description:** Grants permission to get the configuration of the external system that is connected with the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetVoiceConnectorGroup](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetVoiceConnectorGroup.html)  **
+  - **Description:** Grants permission to get details for the specified Amazon Chime Voice Connector Group
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetVoiceConnectorLoggingConfiguration](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetVoiceConnectorLoggingConfiguration.html)  **
+  - **Description:** Grants permission to get details of the logging configuration for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetVoiceConnectorOrigination](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetVoiceConnectorOrigination.html)  **
+  - **Description:** Grants permission to get details of the origination settings for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetVoiceConnectorProxy](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetVoiceConnectorProxy.html)  **
+  - **Description:** Grants permission to get details of the proxy configuration for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetVoiceConnectorStreamingConfiguration](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetVoiceConnectorStreamingConfiguration.html)  **
+  - **Description:** Grants permission to get details of the streaming configuration for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetVoiceConnectorTermination](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetVoiceConnectorTermination.html)  **
+  - **Description:** Grants permission to get details of the termination settings for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetVoiceConnectorTerminationHealth](https://docs.aws.amazon.com/chime/latest/APIReference/API_GetVoiceConnectorTerminationHealth.html)  **
+  - **Description:** Grants permission to get details of the termination health for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetVoiceProfile](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceProfile.html)  **
+  - **Description:** Grants permission to get a voice profile
+  - **Resource types (\*required):** [voice-profile\*](#list_chime-resource-voice-profile)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetVoiceProfileDomain](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceProfileDomain.html)  **
+  - **Description:** Grants permission to get a voice profile domain
+  - **Resource types (\*required):** [voice-profile-domain\*](#list_chime-resource-voice-profile-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetVoiceToneAnalysisTask](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetVoiceToneAnalysisTask.html)  **
+  - **Description:** Grants permission to get a voice tone analysis task on the specified Amazon Chime resource
+  - **Resource types (\*required):** [media-pipeline](#list_chime-resource-media-pipeline) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [voice-connector](#list_chime-resource-voice-connector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [InviteDelegate](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to send an invitation to accept a request for AWS account delegation for an Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [InviteUsers](https://docs.aws.amazon.com/chime/latest/APIReference/API_InviteUsers.html)  **
+  - **Description:** Grants permission to invite as many as 50 users to the specified Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [InviteUsersFromProvider](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to invite users from a third party provider to your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ListAccountUsageReportData](https://docs.aws.amazon.com/chime/latest/ag/view-reports.html)  **
+  - **Description:** Grants permission to list Amazon Chime account usage reporting data
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAccounts](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListAccounts.html)  **
+  - **Description:** Grants permission to list the Amazon Chime accounts under the administrator's AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListApiKeys](https://docs.aws.amazon.com/chime/latest/ag/okta_sso.html)  **
+  - **Description:** Grants permission to list the SCIM access keys defined for your Amazon Chime account and Okta configuration
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListAppInstanceAdmins](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceAdmins.html)  **
+  - **Description:** Grants permission to list administrators in the app instance
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAppInstanceBots](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceBots.html)  **
+  - **Description:** Grants permission to list all AppInstanceBots created under a single app instance
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAppInstanceUserEndpoints](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceUserEndpoints.html)  **
+  - **Description:** Grants permission to list the endpoints registered for an app instance user
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAppInstanceUsers](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceUsers.html)  **
+  - **Description:** Grants permission to list all AppInstanceUsers created under a single app instance
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAppInstances](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstances.html)  **
+  - **Description:** Grants permission to list all Amazon Chime app instances created under a single AWS account
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAttendeeTags](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListAttendeeTags.html)  **
+  - **Description:** Grants permission to list the tags applied to an Amazon Chime SDK attendee resource
+  - **Resource types (\*required):** [meeting\*](#list_chime-resource-meeting)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAttendees](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListAttendees.html)  **
+  - **Description:** Grants permission to list up to 100 attendees for a specified Amazon Chime SDK meeting
+  - **Resource types (\*required):** [meeting\*](#list_chime-resource-meeting)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListAvailableVoiceConnectorRegions](API_ListAvailableVoiceConnectorRegions.html)  **
+  - **Description:** Grants permission to list the available AWS Regions in which you can create an Amazon Chime SDK Voice Connector
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListBots](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListBots.html)  **
+  - **Description:** Grants permission to list the bots associated with the administrator's Amazon Chime Enterprise account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListCDRBucket](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to list Call Detail Record S3 buckets
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListCallingRegions](https://docs.aws.amazon.com/chime/latest/ag/phone-numbers.html)  **
+  - **Description:** Grants permission to list the calling regions available for the administrator's AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListChannelBans](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelBans.html)  **
+  - **Description:** Grants permission to list all the users and bots banned from a particular channel
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListChannelFlows](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelFlows.html)  **
+  - **Description:** Grants permission to list all the Channel Flows created under a single Chime AppInstance
+  - **Resource types (\*required):** [channel-flow\*](#list_chime-resource-channel-flow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListChannelMemberships](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMemberships.html)  **
+  - **Description:** Grants permission to list all channel memberships in a channel
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListChannelMembershipsForAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html)  **
+  - **Description:** Grants permission to list all channels that a particular user or bot is a part of
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListChannelMessages](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMessages.html)  **
+  - **Description:** Grants permission to list all the messages in a channel
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListChannelModerators](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelModerators.html)  **
+  - **Description:** Grants permission to list all the moderators for a channel
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListChannels](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannels.html)  **
+  - **Description:** Grants permission to list all the Channels created under a single Chime AppInstance
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListChannelsAssociatedWithChannelFlow](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelsAssociatedWithChannelFlow.html)  **
+  - **Description:** Grants permission to list all the Channels associated with a single Chime Channel Flow
+  - **Resource types (\*required):** [channel-flow\*](#list_chime-resource-channel-flow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListChannelsModeratedByAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelsModeratedByAppInstanceUser.html)  **
+  - **Description:** Grants permission to list all channels moderated by a user or bot
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDelegates](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to list account delegate information associated with your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDirectories](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to list active Active Directories hosted in the Directory Service of your AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDomains](https://docs.aws.amazon.com/chime/latest/ag/claim-domain.html)  **
+  - **Description:** Grants permission to list domains associated with your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListGroups](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to list Active Directory or Okta user groups associated with your Amazon Chime Enterprise account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMediaCapturePipelines](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaCapturePipelines.html)  **
+  - **Description:** Grants permission to list media capture pipelines
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMediaInsightsPipelineConfigurations](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaInsightsPipelineConfigurations.html)  **
+  - **Description:** Grants permission to list all media insights pipeline configurations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMediaPipelineKinesisVideoStreamPools](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaPipelineKinesisVideoStreamPools.html)  **
+  - **Description:** Grants permission to list media pipelines
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMediaPipelines](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaPipelines.html)  **
+  - **Description:** Grants permission to list media pipelines
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMeetingEvents](https://docs.aws.amazon.com/chime/latest/ag/view-reports.html)  **
+  - **Description:** Grants permission to list all events that occurred for a specified meeting
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMeetingTags](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListMeetingTags.html)  **
+  - **Description:** Grants permission to list the tags applied to an Amazon Chime SDK meeting resource
+  - **Resource types (\*required):** [meeting\*](#list_chime-resource-meeting)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListMeetings](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListMeetings.html)  **
+  - **Description:** Grants permission to list up to 100 active Amazon Chime SDK meetings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMeetingsReportData](https://docs.aws.amazon.com/chime/latest/ag/view-reports.html)  **
+  - **Description:** Grants permission to list meetings ended during the specified date range
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListPhoneNumberOrders](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListPhoneNumberOrders.html)  **
+  - **Description:** Grants permission to list the phone number orders under the administrator's AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListPhoneNumbers](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListPhoneNumbers.html)  **
+  - **Description:** Grants permission to list the phone numbers under the administrator's AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListProxySessions](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListProxySessions.html)  **
+  - **Description:** Grants permission to list proxy sessions for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListRoomMemberships](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListRoomMemberships.html)  **
+  - **Description:** Grants permission to list all room members
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRooms](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListRooms.html)  **
+  - **Description:** Grants permission to list rooms
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSipMediaApplications](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListSipMediaApplications.html)  **
+  - **Description:** Grants permission to list all Amazon Chime SIP media applications under the administrator's AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSipRules](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListSipRules.html)  **
+  - **Description:** Grants permission to list all Amazon Chime SIP rules under the administrator's AWS account
+  - **Resource types (\*required):** [sip-media-application](#list_chime-resource-sip-media-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSubChannels](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListSubChannels.html)  **
+  - **Description:** Grants permission to list all the SubChannels under a single Channel
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListSupportedPhoneNumberCountries](API_ListSupportedPhoneNumberCountries.html)  **
+  - **Description:** Grants permission to list the phone number countries supported by the AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list the tags applied to an Amazon Chime resource
+  - **Resource types (\*required):** [app-instance](#list_chime-resource-app-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-bot](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel-flow](#list_chime-resource-channel-flow) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [media-insights-pipeline-configuration](#list_chime-resource-media-insights-pipeline-configuration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [media-pipeline](#list_chime-resource-media-pipeline) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [media-pipeline-kinesis-video-stream-pool](#list_chime-resource-media-pipeline-kinesis-video-stream-pool) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [meeting](#list_chime-resource-meeting) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [sip-media-application](#list_chime-resource-sip-media-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [voice-connector](#list_chime-resource-voice-connector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [voice-profile-domain](#list_chime-resource-voice-profile-domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListUsers](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListUsers.html)  **
+  - **Description:** Grants permission to list the users that belong to the specified Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListVoiceConnectorGroups](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListVoiceConnectorGroups.html)  **
+  - **Description:** Grants permission to list the Amazon Chime Voice Connector Groups under the administrator's AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListVoiceConnectorTerminationCredentials](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListVoiceConnectorTerminationCredentials.html)  **
+  - **Description:** Grants permission to list the SIP termination credentials for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListVoiceConnectors](https://docs.aws.amazon.com/chime/latest/APIReference/API_ListVoiceConnectors.html)  **
+  - **Description:** Grants permission to list the Amazon Chime Voice Connectors under the administrator's AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListVoiceProfileDomains](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceProfileDomains.html)  **
+  - **Description:** Grants permission to list voice profile domains
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListVoiceProfiles](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceProfiles.html)  **
+  - **Description:** Grants permission to list voice profiles
+  - **Resource types (\*required):** [voice-profile-domain\*](#list_chime-resource-voice-profile-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [LogoutUser](https://docs.aws.amazon.com/chime/latest/APIReference/API_LogoutUser.html)  **
+  - **Description:** Grants permission to log out the specified user from all of the devices they are currently logged into
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [PutAppInstanceRetentionSettings](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_PutAppInstanceRetentionSettings.html)  **
+  - **Description:** Grants permission to enable data retention for the app instance
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutAppInstanceStreamingConfigurations](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_PutAppInstanceStreamingConfigurations.html)  **
+  - **Description:** Grants permission to configure data streaming for the app instance
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutAppInstanceUserExpirationSettings](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_PutAppInstanceUserExpirationSettings.html)  **
+  - **Description:** Grants permission to put expiration settings for an AppInstanceUser
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutChannelExpirationSettings](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_PutChannelExpirationSettings.html)  **
+  - **Description:** Grants permission to put expiration settings for a channel
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutChannelMembershipPreferences](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_PutChannelMembershipPreferences.html)  **
+  - **Description:** Grants permission to put the preferences for a channel membership
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutEventsConfiguration](https://docs.aws.amazon.com/chime/latest/APIReference/API_PutEventsConfiguration.html)  **
+  - **Description:** Grants permission to update details for an events configuration for a bot to receive outgoing events
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [PutMessagingStreamingConfigurations](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_PutMessagingStreamingConfigurations.html)  **
+  - **Description:** Grants permission to put the data streaming configurations of an AppInstance
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutRetentionSettings](https://docs.aws.amazon.com/chime/latest/APIReference/API_PutRetentionSettings.html)  **
+  - **Description:** Grants permission to create or update retention settings for the specified Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [PutSipMediaApplicationAlexaSkillConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutSipMediaApplicationAlexaSkillConfiguration.html)  **
+  - **Description:** Grants permission to update Alexa Skill configuration settings for Amazon Chime SIP media application under the administrator's AWS account
+  - **Resource types (\*required):** [sip-media-application\*](#list_chime-resource-sip-media-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutSipMediaApplicationLoggingConfiguration](https://docs.aws.amazon.com/chime/latest/APIReference/API_PutSipMediaApplicationLoggingConfiguration.html)  **
+  - **Description:** Grants permission to update logging configuration settings for Amazon Chime SIP media application under the administrator's AWS account
+  - **Resource types (\*required):** [sip-media-application\*](#list_chime-resource-sip-media-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutVoiceConnectorEmergencyCallingConfiguration](https://docs.aws.amazon.com/chime/latest/APIReference/API_PutVoiceConnectorEmergencyCallingConfiguration.html)  **
+  - **Description:** Grants permission to add emergency calling configuration for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutVoiceConnectorExternalSystemsConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorExternalSystemsConfiguration.html)  **
+  - **Description:** Grants permission to update the configuration of the external system that is connected with the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutVoiceConnectorLoggingConfiguration](https://docs.aws.amazon.com/chime/latest/APIReference/API_PutVoiceConnectorLoggingConfiguration.html)  **
+  - **Description:** Grants permission to add logging configuration for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutVoiceConnectorOrigination](https://docs.aws.amazon.com/chime/latest/APIReference/API_PutVoiceConnectorOrigination.html)  **
+  - **Description:** Grants permission to update the origination settings for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutVoiceConnectorProxy](https://docs.aws.amazon.com/chime/latest/APIReference/API_PutVoiceConnectorProxy.html)  **
+  - **Description:** Grants permission to add proxy configuration for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutVoiceConnectorStreamingConfiguration](https://docs.aws.amazon.com/chime/latest/APIReference/API_PutVoiceConnectorStreamingConfiguration.html)  **
+  - **Description:** Grants permission to add streaming configuration for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [media-insights-pipeline-configuration](#list_chime-resource-media-insights-pipeline-configuration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutVoiceConnectorTermination](https://docs.aws.amazon.com/chime/latest/APIReference/API_PutVoiceConnectorTermination.html)  **
+  - **Description:** Grants permission to update the termination settings for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [PutVoiceConnectorTerminationCredentials](https://docs.aws.amazon.com/chime/latest/APIReference/API_PutVoiceConnectorTerminationCredentials.html)  **
+  - **Description:** Grants permission to add SIP termination credentials for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RedactChannelMessage](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_RedactChannelMessage.html)  **
+  - **Description:** Grants permission to redact message content
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RedactConversationMessage](https://docs.aws.amazon.com/chime/latest/APIReference/API_RedactConversationMessage.html)  **
+  - **Description:** Grants permission to redact the specified Chime conversation Message
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RedactRoomMessage](https://docs.aws.amazon.com/chime/latest/APIReference/API_RedactRoomMessage.html)  **
+  - **Description:** Grants permission to redacts the specified Chime room Message
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RegenerateSecurityToken](https://docs.aws.amazon.com/chime/latest/APIReference/API_RegenerateSecurityToken.html)  **
+  - **Description:** Grants permission to regenerate the security token for the specified bot
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RegisterAppInstanceUserEndpoint](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_RegisterAppInstanceUserEndpoint.html)  **
+  - **Description:** Grants permission to register an endpoint for an app instance user
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RenameAccount](https://docs.aws.amazon.com/chime/latest/ag/rename-account.html)  **
+  - **Description:** Grants permission to modify the account name for your Amazon Chime Enterprise or Team account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RenewDelegate](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to renew the delegation request associated with an Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ResetAccountResource](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to reset the account resource in your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ResetPersonalPIN](https://docs.aws.amazon.com/chime/latest/APIReference/API_ResetPersonalPIN.html)  **
+  - **Description:** Grants permission to reset the personal meeting PIN for the specified user on an Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RestorePhoneNumber](https://docs.aws.amazon.com/chime/latest/APIReference/API_RestorePhoneNumber.html)  **
+  - **Description:** Grants permission to restore the specified phone number from the deltion queue back to the phone number inventory
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RetrieveDataExports](https://docs.aws.amazon.com/chime/latest/ag/request-attachments.html)  **
+  - **Description:** Grants permission to download the file containing links to all user attachments returned as part of the "Request attachments" action
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [SearchAvailablePhoneNumbers](https://docs.aws.amazon.com/chime/latest/APIReference/API_SearchAvailablePhoneNumbers.html)  **
+  - **Description:** Grants permission to search phone numbers that can be ordered from the carrier
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [SearchChannels](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_SearchChannels.html)  **
+  - **Description:** Grants permission to search channels that an AppInstanceUser belongs to, or search channels across the AppInstance for an AppInstaceAdmin
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [SendChannelMessage](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_SendChannelMessage.html)  **
+  - **Description:** Grants permission to send a message to a particular channel that the member is a part of
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartDataExport](https://docs.aws.amazon.com/chime/latest/ag/request-attachments.html)  **
+  - **Description:** Grants permission to submit the "Request attachments" request
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartMeetingTranscription](https://docs.aws.amazon.com/chime/latest/APIReference/API_StartMeetingTranscription.html)  **
+  - **Description:** Grants permission to start transcription for a meeting
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartSpeakerSearchTask](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_StartSpeakerSearchTask.html)  **
+  - **Description:** Grants permission to start a speaker search task on the specified Amazon Chime resource
+  - **Resource types (\*required):** [media-pipeline](#list_chime-resource-media-pipeline) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [voice-connector](#list_chime-resource-voice-connector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartVoiceToneAnalysisTask](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_StartVoiceToneAnalysisTask.html)  **
+  - **Description:** Grants permission to start a voice tone analysis task on the specified Amazon Chime resource
+  - **Resource types (\*required):** [media-pipeline](#list_chime-resource-media-pipeline) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [voice-connector](#list_chime-resource-voice-connector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopMeetingTranscription](https://docs.aws.amazon.com/chime/latest/APIReference/API_StopMeetingTranscription.html)  **
+  - **Description:** Grants permission to stop transcription for a meeting
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StopSpeakerSearchTask](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_StopSpeakerSearchTask.html)  **
+  - **Description:** Grants permission to stop a speaker search task on the specified Amazon Chime resource
+  - **Resource types (\*required):** [media-pipeline](#list_chime-resource-media-pipeline) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [voice-connector](#list_chime-resource-voice-connector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopVoiceToneAnalysisTask](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_StopVoiceToneAnalysisTask.html)  **
+  - **Description:** Grants permission to stop a voice tone analysis task on the specified Amazon Chime resource
+  - **Resource types (\*required):** [media-pipeline](#list_chime-resource-media-pipeline) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [voice-connector](#list_chime-resource-voice-connector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SubmitSupportRequest](https://docs.aws.amazon.com/chime/latest/ag/chime-getting-admin-support.html)  **
+  - **Description:** Grants permission to submit a customer service support request
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SuspendUsers](https://docs.aws.amazon.com/chime/latest/ag/manage-access.html)  **
+  - **Description:** Grants permission to suspend users from an Amazon Chime Enterprise account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [TagAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_TagAttendee.html)  **
+  - **Description:** Grants permission to apply the specified tags to the specified Amazon Chime SDK attendee
+  - **Resource types (\*required):** [meeting\*](#list_chime-resource-meeting)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Tagging, Write
+
+- **   [TagMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_TagMeeting.html)  **
+  - **Description:** Grants permission to apply the specified tags to the specified Amazon Chime SDK meeting
+  - **Resource types (\*required):** [meeting\*](#list_chime-resource-meeting)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [TagResource](https://docs.aws.amazon.com/chime/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to apply the specified tags to the specified resource (tag-based access controls are only supported on \*-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** [app-instance](#list_chime-resource-app-instance) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [app-instance-bot](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [app-instance-user](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [channel](#list_chime-resource-channel) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [channel-flow](#list_chime-resource-channel-flow) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [media-insights-pipeline-configuration](#list_chime-resource-media-insights-pipeline-configuration) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [media-pipeline](#list_chime-resource-media-pipeline) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [media-pipeline-kinesis-video-stream-pool](#list_chime-resource-media-pipeline-kinesis-video-stream-pool) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [meeting](#list_chime-resource-meeting) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [sip-media-application](#list_chime-resource-sip-media-application) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [voice-connector](#list_chime-resource-voice-connector) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [voice-profile-domain](#list_chime-resource-voice-profile-domain) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UnauthorizeDirectory](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to unauthorize an Active Directory from your Amazon Chime Enterprise account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UntagAttendee](https://docs.aws.amazon.com/chime/latest/APIReference/API_UntagAttendee.html)  **
+  - **Description:** Grants permission to untag the specified tags from the specified Amazon Chime SDK attendee
+  - **Resource types (\*required):** [meeting\*](#list_chime-resource-meeting)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Tagging, Write
+
+- **   [UntagMeeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_UntagMeeting.html)  **
+  - **Description:** Grants permission to untag the specified tags from the specified Amazon Chime SDK meeting
+  - **Resource types (\*required):** [meeting\*](#list_chime-resource-meeting)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/chime/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to untag the specified tags from the specified resource (tag-based access controls are only supported on \*-chime.<region>.amazonaws.com endpoints)
+  - **Resource types (\*required):** [app-instance](#list_chime-resource-app-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [app-instance-bot](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [app-instance-user](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [channel](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [channel-flow](#list_chime-resource-channel-flow) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [media-insights-pipeline-configuration](#list_chime-resource-media-insights-pipeline-configuration) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [media-pipeline](#list_chime-resource-media-pipeline) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [media-pipeline-kinesis-video-stream-pool](#list_chime-resource-media-pipeline-kinesis-video-stream-pool) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [meeting](#list_chime-resource-meeting) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [sip-media-application](#list_chime-resource-sip-media-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [voice-connector](#list_chime-resource-voice-connector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Resource types (\*required):** [voice-profile-domain](#list_chime-resource-voice-profile-domain) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAccount](https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdateAccount.html)  **
+  - **Description:** Grants permission to update account details for the specified Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateAccountOpenIdConfig](https://docs.aws.amazon.com/chime/latest/ag/okta_sso.html)  **
+  - **Description:** Grants permission to update the OpenIdConfig attributes for your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateAccountResource](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to update the account resource in your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateAccountSettings](https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdateAccountSettings.html)  **
+  - **Description:** Grants permission to update the settings for the specified Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateAppInstance](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstance.html)  **
+  - **Description:** Grants permission to update AppInstance metadata
+  - **Resource types (\*required):** [app-instance\*](#list_chime-resource-app-instance)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAppInstanceBot](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceBot.html)  **
+  - **Description:** Grants permission to update the details for an AppInstanceBot
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAppInstanceUser](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceUser.html)  **
+  - **Description:** Grants permission to update the details for an AppInstanceUser
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAppInstanceUserEndpoint](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceUserEndpoint.html)  **
+  - **Description:** Grants permission to update an endpoint registered for an app instance user
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateAttendeeCapabilities](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_UpdateAttendeeCapabilities.html)  **
+  - **Description:** Grants permission to the capabilties that you want to update
+  - **Resource types (\*required):** [meeting\*](#list_chime-resource-meeting)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateBot](https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdateBot.html)  **
+  - **Description:** Grants permission to update the status of the specified bot
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateCDRSettings](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to update your Call Detail Record S3 bucket
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateChannel](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannel.html)  **
+  - **Description:** Grants permission to update a channel's attributes
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateChannelFlow](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelFlow.html)  **
+  - **Description:** Grants permission to update a channel flow
+  - **Resource types (\*required):** [channel-flow\*](#list_chime-resource-channel-flow)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateChannelMessage](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelMessage.html)  **
+  - **Description:** Grants permission to update the content of a message
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateChannelReadMarker](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelReadMarker.html)  **
+  - **Description:** Grants permission to set the timestamp to the point when a user last read messages in a channel
+  - **Resource types (\*required):** [app-instance-bot\*](#list_chime-resource-app-instance-bot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [app-instance-user\*](#list_chime-resource-app-instance-user) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [channel\*](#list_chime-resource-channel) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateGlobalSettings](https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdateGlobalSettings.html)  **
+  - **Description:** Grants permission to update the global settings related to Amazon Chime for the AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateMediaInsightsPipelineConfiguration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_UpdateMediaInsightsPipelineConfiguration.html)  **
+  - **Description:** Grants permission to update the status of a media insights pipeline configuration
+  - **Resource types (\*required):** [media-insights-pipeline-configuration\*](#list_chime-resource-media-insights-pipeline-configuration)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateMediaInsightsPipelineStatus](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_UpdateMediaInsightsPipelineStatus.html)  **
+  - **Description:** Grants permission to update the status of a media insights pipeline
+  - **Resource types (\*required):** [media-pipeline\*](#list_chime-resource-media-pipeline)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateMediaPipelineKinesisVideoStreamPool](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_UpdateMediaPipelineKinesisVideoStreamPool.html)  **
+  - **Description:** Grants permission to update kinesis video stream pool
+  - **Resource types (\*required):** [media-pipeline-kinesis-video-stream-pool\*](#list_chime-resource-media-pipeline-kinesis-video-stream-pool)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdatePhoneNumber](https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdatePhoneNumber.html)  **
+  - **Description:** Grants permission to update phone number details for the specified phone number
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdatePhoneNumberSettings](https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdatePhoneNumberSettings.html)  **
+  - **Description:** Grants permission to update phone number settings related to Amazon Chime for the AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateProxySession](https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdateProxySession.html)  **
+  - **Description:** Grants permission to update a proxy session for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateRoom](https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdateRoom.html)  **
+  - **Description:** Grants permission to update a room
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateRoomMembership](https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdateRoomMembership.html)  **
+  - **Description:** Grants permission to update room membership role
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateSipMediaApplication](https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdateSipMediaApplication.html)  **
+  - **Description:** Grants permission to update properties of Amazon Chime SIP media application under the administrator's AWS account
+  - **Resource types (\*required):** [sip-media-application\*](#list_chime-resource-sip-media-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSipMediaApplicationCall](https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdateSipMediaApplicationCall.html)  **
+  - **Description:** Grants permission to update an Amazon Chime SIP media application call under the administrator's AWS account
+  - **Resource types (\*required):** [sip-media-application\*](#list_chime-resource-sip-media-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSipRule](https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdateSipRule.html)  **
+  - **Description:** Grants permission to update properties of Amazon Chime SIP rule under the administrator's AWS account
+  - **Resource types (\*required):** [sip-media-application](#list_chime-resource-sip-media-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSupportedLicenses](https://docs.aws.amazon.com/chime/latest/ag/manage-access.html)  **
+  - **Description:** Grants permission to update the supported license tiers available for users in your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateUser](https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdateUser.html)  **
+  - **Description:** Grants permission to update user details for a specified user ID
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateUserLicenses](https://docs.aws.amazon.com/chime/latest/ag/manage-access.html)  **
+  - **Description:** Grants permission to update the licenses for your Amazon Chime users
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateUserSettings](https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdateUserSettings.html)  **
+  - **Description:** Grants permission to update user settings related to the specified Amazon Chime user
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateVoiceConnector](https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdateVoiceConnector.html)  **
+  - **Description:** Grants permission to update Amazon Chime Voice Connector details for the specified Amazon Chime Voice Connector
+  - **Resource types (\*required):** [voice-connector\*](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateVoiceConnectorGroup](https://docs.aws.amazon.com/chime/latest/APIReference/API_UpdateVoiceConnectorGroup.html)  **
+  - **Description:** Grants permission to update Amazon Chime Voice Connector Group details for the specified Amazon Chime Voice Connector Group
+  - **Resource types (\*required):** [voice-connector](#list_chime-resource-voice-connector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateVoiceProfile](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateVoiceProfile.html)  **
+  - **Description:** Grants permission to update a voice profile
+  - **Resource types (\*required):** [voice-profile\*](#list_chime-resource-voice-profile)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateVoiceProfileDomain](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateVoiceProfileDomain.html)  **
+  - **Description:** Grants permission to update a voice profile domain
+  - **Resource types (\*required):** [voice-profile-domain\*](#list_chime-resource-voice-profile-domain)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ValidateAccountResource](https://docs.aws.amazon.com/chime/latest/ag/control-access.html)  **
+  - **Description:** Grants permission to validate the account resource in your Amazon Chime account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ValidateE911Address](https://docs.aws.amazon.com/chime/latest/APIReference/API_ValidateE911Address.html)  **
+  - **Description:** Grants permission to validate an address to be used for 911 calls made with Amazon Chime Voice Connectors
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+
 
 ## Permission-only actions for Amazon Chime
+<a name="list_chime-permission-only-actions"></a>
 
-The following actions are defined by Amazon Chime but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by Amazon Chime but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                                                                               | Description                                                                                                                                                                             | Resource types (\*required) | Condition keys                                                                                                                                                              | Access level |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [AssociateVoiceConnectorConnect](list_amazonconnect.md#amazonconnect-actions-as-permissions "list_amazonconnect.md#amazonconnect-actions-as-permissions")                                             | Grants permission to associate the specified Amazon Connect instance with an Amazon Chime Voice Connector                                                                               |                             |                                                                                                                                                                             | Write        |
-| [CreateConnectAnalyticsConnector](../../../chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.md "../../../chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.md")    | Grants permission to create an Amazon Connect Analytics Connector in the AWS account (tag-based access controls are only supported on voice-chime.<region>.amazonaws.com endpoints)     |                             | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") | Write        |
-| [CreateConnectCallTransferConnector](../../../chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.md "../../../chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.md") | Grants permission to create an Amazon Connect Call Transfer Connector in the AWS account (tag-based access controls are only supported on voice-chime.<region>.amazonaws.com endpoints) |                             | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_ "#list_chime-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_chime-aws_TagKeys "#list_chime-aws_TagKeys") | Write        |
-| [DisassociateVoiceConnectorConnect](list_amazonconnect.md#amazonconnect-actions-as-permissions "list_amazonconnect.md#amazonconnect-actions-as-permissions")                                          | Grants permission to disassociate the Amazon Connect instance from the specified Amazon Chime Voice Connector                                                                           |                             |                                                                                                                                                                             | Write        |
+
+
+| Actions | Description | Resource types (\*required) | Condition keys | Access level | 
+| --- | --- | --- | --- | --- | 
+|   [AssociateVoiceConnectorConnect](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions)  | Grants permission to associate the specified Amazon Connect instance with an Amazon Chime Voice Connector |  |   | Write | 
+|   [CreateConnectAnalyticsConnector](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.html)  | Grants permission to create an Amazon Connect Analytics Connector in the AWS account (tag-based access controls are only supported on voice-chime.<region>.amazonaws.com endpoints) |  | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys) | Write | 
+|   [CreateConnectCallTransferConnector](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.html)  | Grants permission to create an Amazon Connect Call Transfer Connector in the AWS account (tag-based access controls are only supported on voice-chime.<region>.amazonaws.com endpoints) |  | [aws:RequestTag/${TagKey}](#list_chime-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_chime-aws_TagKeys) | Write | 
+|   [DisassociateVoiceConnectorConnect](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions)  | Grants permission to disassociate the Amazon Connect instance from the specified Amazon Chime Voice Connector |  |   | Write | 
 
 ## Resource types defined by Amazon Chime
+<a name="list_chime-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                                                                                                                | ARN                                                                                                       | Condition keys                                                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| [app-instance](../../../chime-sdk/latest/APIReference/API_identity-chime_AppInstance.md "../../../chime-sdk/latest/APIReference/API_identity-chime_AppInstance.md")                                                                                           | arn:${Partition}:chime:${Region}:${AccountId}:app-instance/${AppInstanceId}                               | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_") |
-| [app-instance-bot](../../../chime-sdk/latest/APIReference/API_identity-chime_AppInstanceBot.md "../../../chime-sdk/latest/APIReference/API_identity-chime_AppInstanceBot.md")                                                                                 | arn:${Partition}:chime:${Region}:${AccountId}:app-instance/${AppInstanceId}/bot/${AppInstanceBotId}       | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_") |
-| [app-instance-user](../../../chime-sdk/latest/APIReference/API_identity-chime_AppInstanceUser.md "../../../chime-sdk/latest/APIReference/API_identity-chime_AppInstanceUser.md")                                                                              | arn:${Partition}:chime:${Region}:${AccountId}:app-instance/${AppInstanceId}/user/${AppInstanceUserId}     | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_") |
-| [channel](../../../chime-sdk/latest/APIReference/API_messaging-chime_Channel.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_Channel.md")                                                                                                      | arn:${Partition}:chime:${Region}:${AccountId}:app-instance/${AppInstanceId}/channel/${ChannelId}          | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_") |
-| [channel-flow](../../../chime-sdk/latest/APIReference/API_messaging-chime_ChannelFlow.md "../../../chime-sdk/latest/APIReference/API_messaging-chime_ChannelFlow.md")                                                                                         | arn:${Partition}:chime:${Region}:${AccountId}:app-instance/${AppInstanceId}/channel-flow/${ChannelFlowId} | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_") |
-| [media-insights-pipeline-configuration](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_MediaInsightsPipelineConfiguration.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_MediaInsightsPipelineConfiguration.md")      | arn:${Partition}:chime:${Region}:${AccountId}:media-insights-pipeline-configuration/${ConfigurationName}  | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_") |
-| [media-pipeline](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_MediaPipeline.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_MediaPipeline.md")                                                                       | arn:${Partition}:chime:${Region}:${AccountId}:media-pipeline/${MediaPipelineId}                           | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_") |
-| [media-pipeline-kinesis-video-stream-pool](../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_KinesisVideoStreamPoolConfiguration.md "../../../chime-sdk/latest/APIReference/API_media-pipelines-chime_KinesisVideoStreamPoolConfiguration.md") | arn:${Partition}:chime:${Region}:${AccountId}:media-pipeline-kinesis-video-stream-pool/${PoolName}        | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_") |
-| [meeting](../../../chime/latest/APIReference/API_Meeting.md "../../../chime/latest/APIReference/API_Meeting.md")                                                                                                                                              | arn:${Partition}:chime:${Region}:${AccountId}:meeting/${MeetingId}                                        | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_") |
-| [sip-media-application](../../../chime-sdk/latest/APIReference/API_voice-chime_SipMediaApplication.md "../../../chime-sdk/latest/APIReference/API_voice-chime_SipMediaApplication.md")                                                                        | arn:${Partition}:chime:${Region}:${AccountId}:sma/${SipMediaApplicationId}                                | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_") |
-| [voice-connector](../../../chime-sdk/latest/APIReference/API_voice-chime_VoiceConnector.md "../../../chime-sdk/latest/APIReference/API_voice-chime_VoiceConnector.md")                                                                                        | arn:${Partition}:chime:${Region}:${AccountId}:vc/${VoiceConnectorId}                                      | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_") |
-| [voice-profile](../../../chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceProfile.md "../../../chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceProfile.md")                                                                                  | arn:${Partition}:chime:${Region}:${AccountId}:voice-profile/${VoiceProfileId}                             |                                                                                                            |
-| [voice-profile-domain](../../../chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceProfileDomain.md "../../../chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceProfileDomain.md")                                                               | arn:${Partition}:chime:${Region}:${AccountId}:voice-profile-domain/${VoiceProfileDomainId}                | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_ "#list_chime-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [app-instance](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_AppInstance.html)  | arn:${Partition}:chime:${Region}:${AccountId}:app-instance/${AppInstanceId} | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_) | 
+|  [app-instance-bot](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_AppInstanceBot.html)  | arn:${Partition}:chime:${Region}:${AccountId}:app-instance/${AppInstanceId}/bot/${AppInstanceBotId} | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_) | 
+|  [app-instance-user](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_AppInstanceUser.html)  | arn:${Partition}:chime:${Region}:${AccountId}:app-instance/${AppInstanceId}/user/${AppInstanceUserId} | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_) | 
+|  [channel](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_Channel.html)  | arn:${Partition}:chime:${Region}:${AccountId}:app-instance/${AppInstanceId}/channel/${ChannelId} | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_) | 
+|  [channel-flow](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ChannelFlow.html)  | arn:${Partition}:chime:${Region}:${AccountId}:app-instance/${AppInstanceId}/channel-flow/${ChannelFlowId} | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_) | 
+|  [media-insights-pipeline-configuration](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_MediaInsightsPipelineConfiguration.html)  | arn:${Partition}:chime:${Region}:${AccountId}:media-insights-pipeline-configuration/${ConfigurationName} | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_) | 
+|  [media-pipeline](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_MediaPipeline.html)  | arn:${Partition}:chime:${Region}:${AccountId}:media-pipeline/${MediaPipelineId} | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_) | 
+|  [media-pipeline-kinesis-video-stream-pool](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_KinesisVideoStreamPoolConfiguration.html)  | arn:${Partition}:chime:${Region}:${AccountId}:media-pipeline-kinesis-video-stream-pool/${PoolName} | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_) | 
+|  [meeting](https://docs.aws.amazon.com/chime/latest/APIReference/API_Meeting.html)  | arn:${Partition}:chime:${Region}:${AccountId}:meeting/${MeetingId} | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_) | 
+|  [sip-media-application](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_SipMediaApplication.html)  | arn:${Partition}:chime:${Region}:${AccountId}:sma/${SipMediaApplicationId} | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_) | 
+|  [voice-connector](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_VoiceConnector.html)  | arn:${Partition}:chime:${Region}:${AccountId}:vc/${VoiceConnectorId} | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_) | 
+|  [voice-profile](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceProfile.html)  | arn:${Partition}:chime:${Region}:${AccountId}:voice-profile/${VoiceProfileId} |   | 
+|  [voice-profile-domain](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceProfileDomain.html)  | arn:${Partition}:chime:${Region}:${AccountId}:voice-profile-domain/${VoiceProfileDomainId} | [aws:ResourceTag/${TagKey}](#list_chime-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Chime
+<a name="list_chime-policy-keys"></a>
 
-Amazon Chime defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Chime defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                        | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by a tag's key and value in a request               | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by the tag key-value pairs attached to the resource | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the tag keys in a request                        | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by a tag's key and value in a request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys in a request | ArrayOfString | 

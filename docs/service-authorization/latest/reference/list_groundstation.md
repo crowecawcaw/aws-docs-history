@@ -1,178 +1,553 @@
-# Actions, resources, and condition keys for AWS Ground Station
 
-AWS Ground Station (service prefix: `groundstation`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS Ground Station
+<a name="list_groundstation"></a>
+
+AWS Ground Station (service prefix: `groundstation`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/ground-station/latest/ug/what-is.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/ground-station/latest/APIReference/Welcome.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/ground-station/latest/ug/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/groundstation/groundstation.json) for this service.
 
-- Learn how to [configure this service](../../../ground-station/latest/ug/what-is.md "../../../ground-station/latest/ug/what-is.md").
-- View a list of the [API operations available for
-  this service](../../../ground-station/latest/APIReference/Welcome.md "../../../ground-station/latest/APIReference/Welcome.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../ground-station/latest/ug/security-iam.md "../../../ground-station/latest/ug/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/groundstation/groundstation.json "https://servicereference.us-east-1.amazonaws.com/v1/groundstation/groundstation.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS Ground Station](#list_groundstation-operations "#list_groundstation-operations")
-- [Actions defined by AWS Ground Station](#list_groundstation-actions-as-permissions "#list_groundstation-actions-as-permissions")
-- [Resource types defined by AWS Ground Station](#list_groundstation-resources-for-iam-policies "#list_groundstation-resources-for-iam-policies")
-- [Condition keys for AWS Ground Station](#list_groundstation-policy-keys "#list_groundstation-policy-keys")
+**Topics**
++ [API operations defined by AWS Ground Station](#list_groundstation-operations)
++ [Actions defined by AWS Ground Station](#list_groundstation-actions-as-permissions)
++ [Resource types defined by AWS Ground Station](#list_groundstation-resources-for-iam-policies)
++ [Condition keys for AWS Ground Station](#list_groundstation-policy-keys)
 
 ## API operations defined by AWS Ground Station
+<a name="list_groundstation-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_groundstation-actions-as-permissions "#list_groundstation-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_groundstation-actions-as-permissions).
 
-| Operation                                                                                                                       | IAM action                                                                                                                                                         | Condition key               | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------- | ----------------- | -------------- |
-| CancelContact                                                                                                                   | [groundstation:CancelContact](#list_groundstation-action-CancelContact "#list_groundstation-action-CancelContact")                                                 |                             |                   | Write          |
-| CreateConfig                                                                                                                    | [groundstation:CreateConfig](#list_groundstation-action-CreateConfig "#list_groundstation-action-CreateConfig")                                                    |                             |                   | Write          |
-| [groundstation:TagResource](#list_groundstation-action-TagResource "#list_groundstation-action-TagResource")                    |                                                                                                                                                                    |                             | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                | groundstation.amazonaws.com | Write             |
-| CreateDataflowEndpointGroup                                                                                                     | [groundstation:CreateDataflowEndpointGroup](#list_groundstation-action-CreateDataflowEndpointGroup "#list_groundstation-action-CreateDataflowEndpointGroup")       |                             |                   | Write          |
-| [groundstation:TagResource](#list_groundstation-action-TagResource "#list_groundstation-action-TagResource")                    |                                                                                                                                                                    |                             | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                | groundstation.amazonaws.com | Write             |
-| CreateDataflowEndpointGroupV2                                                                                                   | [groundstation:CreateDataflowEndpointGroupV2](#list_groundstation-action-CreateDataflowEndpointGroupV2 "#list_groundstation-action-CreateDataflowEndpointGroupV2") |                             |                   | Write          |
-| [groundstation:TagResource](#list_groundstation-action-TagResource "#list_groundstation-action-TagResource")                    |                                                                                                                                                                    |                             | Tagging, Write    |
-| CreateEphemeris                                                                                                                 | [groundstation:CreateEphemeris](#list_groundstation-action-CreateEphemeris "#list_groundstation-action-CreateEphemeris")                                           |                             |                   | Write          |
-| [groundstation:TagResource](#list_groundstation-action-TagResource "#list_groundstation-action-TagResource")                    |                                                                                                                                                                    |                             | Tagging, Write    |
-| CreateMissionProfile                                                                                                            | [groundstation:CreateMissionProfile](#list_groundstation-action-CreateMissionProfile "#list_groundstation-action-CreateMissionProfile")                            |                             |                   | Write          |
-| [groundstation:TagResource](#list_groundstation-action-TagResource "#list_groundstation-action-TagResource")                    |                                                                                                                                                                    |                             | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                | groundstation.amazonaws.com | Write             |
-| DeleteConfig                                                                                                                    | [groundstation:DeleteConfig](#list_groundstation-action-DeleteConfig "#list_groundstation-action-DeleteConfig")                                                    |                             |                   | Write          |
-| DeleteDataflowEndpointGroup                                                                                                     | [groundstation:DeleteDataflowEndpointGroup](#list_groundstation-action-DeleteDataflowEndpointGroup "#list_groundstation-action-DeleteDataflowEndpointGroup")       |                             |                   | Write          |
-| DeleteEphemeris                                                                                                                 | [groundstation:DeleteEphemeris](#list_groundstation-action-DeleteEphemeris "#list_groundstation-action-DeleteEphemeris")                                           |                             |                   | Write          |
-| DeleteMissionProfile                                                                                                            | [groundstation:DeleteMissionProfile](#list_groundstation-action-DeleteMissionProfile "#list_groundstation-action-DeleteMissionProfile")                            |                             |                   | Write          |
-| DescribeContact                                                                                                                 | [groundstation:DescribeContact](#list_groundstation-action-DescribeContact "#list_groundstation-action-DescribeContact")                                           |                             |                   | Read           |
-| DescribeContactVersion                                                                                                          | [groundstation:DescribeContactVersion](#list_groundstation-action-DescribeContactVersion "#list_groundstation-action-DescribeContactVersion")                      |                             |                   | Read           |
-| DescribeEphemeris                                                                                                               | [groundstation:DescribeEphemeris](#list_groundstation-action-DescribeEphemeris "#list_groundstation-action-DescribeEphemeris")                                     |                             |                   | Read           |
-| GetAgentConfiguration                                                                                                           | [groundstation:GetAgentConfiguration](#list_groundstation-action-GetAgentConfiguration "#list_groundstation-action-GetAgentConfiguration")                         |                             |                   | Read           |
-| GetAgentTaskResponseUrl                                                                                                         | [groundstation:GetAgentTaskResponseUrl](#list_groundstation-action-GetAgentTaskResponseUrl "#list_groundstation-action-GetAgentTaskResponseUrl")                   |                             |                   | Read           |
-| GetConfig                                                                                                                       | [groundstation:GetConfig](#list_groundstation-action-GetConfig "#list_groundstation-action-GetConfig")                                                             |                             |                   | Read           |
-| GetDataflowEndpointGroup                                                                                                        | [groundstation:GetDataflowEndpointGroup](#list_groundstation-action-GetDataflowEndpointGroup "#list_groundstation-action-GetDataflowEndpointGroup")                |                             |                   | Read           |
-| GetMinuteUsage                                                                                                                  | [groundstation:GetMinuteUsage](#list_groundstation-action-GetMinuteUsage "#list_groundstation-action-GetMinuteUsage")                                              |                             |                   | Read           |
-| GetMissionProfile                                                                                                               | [groundstation:GetMissionProfile](#list_groundstation-action-GetMissionProfile "#list_groundstation-action-GetMissionProfile")                                     |                             |                   | Read           |
-| GetSatellite                                                                                                                    | [groundstation:GetSatellite](#list_groundstation-action-GetSatellite "#list_groundstation-action-GetSatellite")                                                    |                             |                   | Read           |
-| ListAntennas                                                                                                                    | [groundstation:ListAntennas](#list_groundstation-action-ListAntennas "#list_groundstation-action-ListAntennas")                                                    |                             |                   | List           |
-| ListConfigs                                                                                                                     | [groundstation:ListConfigs](#list_groundstation-action-ListConfigs "#list_groundstation-action-ListConfigs")                                                       |                             |                   | List           |
-| ListContactVersions                                                                                                             | [groundstation:ListContactVersions](#list_groundstation-action-ListContactVersions "#list_groundstation-action-ListContactVersions")                               |                             |                   | List           |
-| ListContacts                                                                                                                    | [groundstation:ListContacts](#list_groundstation-action-ListContacts "#list_groundstation-action-ListContacts")                                                    |                             |                   | List           |
-| ListDataflowEndpointGroups                                                                                                      | [groundstation:ListDataflowEndpointGroups](#list_groundstation-action-ListDataflowEndpointGroups "#list_groundstation-action-ListDataflowEndpointGroups")          |                             |                   | List           |
-| ListEphemerides                                                                                                                 | [groundstation:ListEphemerides](#list_groundstation-action-ListEphemerides "#list_groundstation-action-ListEphemerides")                                           |                             |                   | List           |
-| ListGroundStationReservations                                                                                                   | [groundstation:ListGroundStationReservations](#list_groundstation-action-ListGroundStationReservations "#list_groundstation-action-ListGroundStationReservations") |                             |                   | List           |
-| ListGroundStations                                                                                                              | [groundstation:ListGroundStations](#list_groundstation-action-ListGroundStations "#list_groundstation-action-ListGroundStations")                                  |                             |                   | List           |
-| ListMissionProfiles                                                                                                             | [groundstation:ListMissionProfiles](#list_groundstation-action-ListMissionProfiles "#list_groundstation-action-ListMissionProfiles")                               |                             |                   | List           |
-| ListSatellites                                                                                                                  | [groundstation:ListSatellites](#list_groundstation-action-ListSatellites "#list_groundstation-action-ListSatellites")                                              |                             |                   | List           |
-| ListTagsForResource                                                                                                             | [groundstation:ListTagsForResource](#list_groundstation-action-ListTagsForResource "#list_groundstation-action-ListTagsForResource")                               |                             |                   | Read           |
-| RegisterAgent                                                                                                                   | [groundstation:RegisterAgent](#list_groundstation-action-RegisterAgent "#list_groundstation-action-RegisterAgent")                                                 |                             |                   | Write          |
-| ReserveContact                                                                                                                  | [groundstation:ReserveContact](#list_groundstation-action-ReserveContact "#list_groundstation-action-ReserveContact")                                              |                             |                   | Write          |
-| [groundstation:TagResource](#list_groundstation-action-TagResource "#list_groundstation-action-TagResource")                    |                                                                                                                                                                    |                             | Tagging, Write    |
-| TagResource                                                                                                                     | [groundstation:TagResource](#list_groundstation-action-TagResource "#list_groundstation-action-TagResource")                                                       |                             |                   | Tagging, Write |
-| UntagResource                                                                                                                   | [groundstation:UntagResource](#list_groundstation-action-UntagResource "#list_groundstation-action-UntagResource")                                                 |                             |                   | Tagging, Write |
-| UpdateAgentStatus                                                                                                               | [groundstation:UpdateAgentStatus](#list_groundstation-action-UpdateAgentStatus "#list_groundstation-action-UpdateAgentStatus")                                     |                             |                   | Write          |
-| UpdateConfig                                                                                                                    | [groundstation:UpdateConfig](#list_groundstation-action-UpdateConfig "#list_groundstation-action-UpdateConfig")                                                    |                             |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                | groundstation.amazonaws.com | Write             |
-| UpdateContact                                                                                                                   | [groundstation:UpdateContact](#list_groundstation-action-UpdateContact "#list_groundstation-action-UpdateContact")                                                 |                             |                   | Write          |
-| UpdateEphemeris                                                                                                                 | [groundstation:UpdateEphemeris](#list_groundstation-action-UpdateEphemeris "#list_groundstation-action-UpdateEphemeris")                                           |                             |                   | Write          |
-| UpdateMissionProfile                                                                                                            | [groundstation:UpdateMissionProfile](#list_groundstation-action-UpdateMissionProfile "#list_groundstation-action-UpdateMissionProfile")                            |                             |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                | groundstation.amazonaws.com | Write             |
+
+
+
+- **   CancelContact  **
+  - **IAM action:**  [groundstation:CancelContact](#list_groundstation-action-CancelContact) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateConfig  **
+  - **IAM action:**  [groundstation:CreateConfig](#list_groundstation-action-CreateConfig)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [groundstation:TagResource](#list_groundstation-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** groundstation.amazonaws.com / **Access level:** Write
+
+- **   CreateDataflowEndpointGroup  **
+  - **IAM action:**  [groundstation:CreateDataflowEndpointGroup](#list_groundstation-action-CreateDataflowEndpointGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [groundstation:TagResource](#list_groundstation-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** groundstation.amazonaws.com / **Access level:** Write
+
+- **   CreateDataflowEndpointGroupV2  **
+  - **IAM action:**  [groundstation:CreateDataflowEndpointGroupV2](#list_groundstation-action-CreateDataflowEndpointGroupV2)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [groundstation:TagResource](#list_groundstation-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateEphemeris  **
+  - **IAM action:**  [groundstation:CreateEphemeris](#list_groundstation-action-CreateEphemeris)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [groundstation:TagResource](#list_groundstation-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateMissionProfile  **
+  - **IAM action:**  [groundstation:CreateMissionProfile](#list_groundstation-action-CreateMissionProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [groundstation:TagResource](#list_groundstation-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** groundstation.amazonaws.com / **Access level:** Write
+
+- **   DeleteConfig  **
+  - **IAM action:**  [groundstation:DeleteConfig](#list_groundstation-action-DeleteConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDataflowEndpointGroup  **
+  - **IAM action:**  [groundstation:DeleteDataflowEndpointGroup](#list_groundstation-action-DeleteDataflowEndpointGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteEphemeris  **
+  - **IAM action:**  [groundstation:DeleteEphemeris](#list_groundstation-action-DeleteEphemeris) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteMissionProfile  **
+  - **IAM action:**  [groundstation:DeleteMissionProfile](#list_groundstation-action-DeleteMissionProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeContact  **
+  - **IAM action:**  [groundstation:DescribeContact](#list_groundstation-action-DescribeContact) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeContactVersion  **
+  - **IAM action:**  [groundstation:DescribeContactVersion](#list_groundstation-action-DescribeContactVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeEphemeris  **
+  - **IAM action:**  [groundstation:DescribeEphemeris](#list_groundstation-action-DescribeEphemeris) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAgentConfiguration  **
+  - **IAM action:**  [groundstation:GetAgentConfiguration](#list_groundstation-action-GetAgentConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAgentTaskResponseUrl  **
+  - **IAM action:**  [groundstation:GetAgentTaskResponseUrl](#list_groundstation-action-GetAgentTaskResponseUrl) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetConfig  **
+  - **IAM action:**  [groundstation:GetConfig](#list_groundstation-action-GetConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDataflowEndpointGroup  **
+  - **IAM action:**  [groundstation:GetDataflowEndpointGroup](#list_groundstation-action-GetDataflowEndpointGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMinuteUsage  **
+  - **IAM action:**  [groundstation:GetMinuteUsage](#list_groundstation-action-GetMinuteUsage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMissionProfile  **
+  - **IAM action:**  [groundstation:GetMissionProfile](#list_groundstation-action-GetMissionProfile) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSatellite  **
+  - **IAM action:**  [groundstation:GetSatellite](#list_groundstation-action-GetSatellite) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAntennas  **
+  - **IAM action:**  [groundstation:ListAntennas](#list_groundstation-action-ListAntennas) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConfigs  **
+  - **IAM action:**  [groundstation:ListConfigs](#list_groundstation-action-ListConfigs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListContactVersions  **
+  - **IAM action:**  [groundstation:ListContactVersions](#list_groundstation-action-ListContactVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListContacts  **
+  - **IAM action:**  [groundstation:ListContacts](#list_groundstation-action-ListContacts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDataflowEndpointGroups  **
+  - **IAM action:**  [groundstation:ListDataflowEndpointGroups](#list_groundstation-action-ListDataflowEndpointGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEphemerides  **
+  - **IAM action:**  [groundstation:ListEphemerides](#list_groundstation-action-ListEphemerides) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListGroundStationReservations  **
+  - **IAM action:**  [groundstation:ListGroundStationReservations](#list_groundstation-action-ListGroundStationReservations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListGroundStations  **
+  - **IAM action:**  [groundstation:ListGroundStations](#list_groundstation-action-ListGroundStations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMissionProfiles  **
+  - **IAM action:**  [groundstation:ListMissionProfiles](#list_groundstation-action-ListMissionProfiles) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSatellites  **
+  - **IAM action:**  [groundstation:ListSatellites](#list_groundstation-action-ListSatellites) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [groundstation:ListTagsForResource](#list_groundstation-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   RegisterAgent  **
+  - **IAM action:**  [groundstation:RegisterAgent](#list_groundstation-action-RegisterAgent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ReserveContact  **
+  - **IAM action:**  [groundstation:ReserveContact](#list_groundstation-action-ReserveContact)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [groundstation:TagResource](#list_groundstation-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   TagResource  **
+  - **IAM action:**  [groundstation:TagResource](#list_groundstation-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [groundstation:UntagResource](#list_groundstation-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateAgentStatus  **
+  - **IAM action:**  [groundstation:UpdateAgentStatus](#list_groundstation-action-UpdateAgentStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateConfig  **
+  - **IAM action:**  [groundstation:UpdateConfig](#list_groundstation-action-UpdateConfig)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** groundstation.amazonaws.com / **Access level:** Write
+
+- **   UpdateContact  **
+  - **IAM action:**  [groundstation:UpdateContact](#list_groundstation-action-UpdateContact) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateEphemeris  **
+  - **IAM action:**  [groundstation:UpdateEphemeris](#list_groundstation-action-UpdateEphemeris) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateMissionProfile  **
+  - **IAM action:**  [groundstation:UpdateMissionProfile](#list_groundstation-action-UpdateMissionProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** groundstation.amazonaws.com / **Access level:** Write
+
+
 
 ## Actions defined by AWS Ground Station
+<a name="list_groundstation-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Resource types (\*required)                                                                                                        | Condition keys                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Access level   |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [CancelContact](../../../ground-station/latest/APIReference/API_CancelContact.md "../../../ground-station/latest/APIReference/API_CancelContact.md")                                                 | Grants permission to cancel a contact                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | [Contact\*](#list_groundstation-resource-Contact "#list_groundstation-resource-Contact")                                           | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:ContactId](#list_groundstation-groundstation_ContactId "#list_groundstation-groundstation_ContactId")                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [CreateConfig](../../../ground-station/latest/APIReference/API_CreateConfig.md "../../../ground-station/latest/APIReference/API_CreateConfig.md")                                                    | Grants permission to create a configuration                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                    | [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_ "#list_groundstation-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_groundstation-aws_TagKeys "#list_groundstation-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                               | Write          |
-| [CreateDataflowEndpointGroup](../../../ground-station/latest/APIReference/API_CreateDataflowEndpointGroup.md "../../../ground-station/latest/APIReference/API_CreateDataflowEndpointGroup.md")       | Grants permission to create a data flow endpoint group                                                                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                                                                                    | [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_ "#list_groundstation-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_groundstation-aws_TagKeys "#list_groundstation-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                               | Write          |
-| [CreateDataflowEndpointGroupV2](../../../ground-station/latest/APIReference/API_CreateDataflowEndpointGroupV2.md "../../../ground-station/latest/APIReference/API_CreateDataflowEndpointGroupV2.md") | Grants permission to create a data flow endpoint group using the V2 operation                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                    | [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_ "#list_groundstation-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_groundstation-aws_TagKeys "#list_groundstation-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                               | Write          |
-| [CreateEphemeris](../../../ground-station/latest/APIReference/API_CreateEphemeris.md "../../../ground-station/latest/APIReference/API_CreateEphemeris.md")                                           | Grants permission to create an ephemeris item                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                    | [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_ "#list_groundstation-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_groundstation-aws_TagKeys "#list_groundstation-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                               | Write          |
-| [CreateMissionProfile](../../../ground-station/latest/APIReference/API_CreateMissionProfile.md "../../../ground-station/latest/APIReference/API_CreateMissionProfile.md")                            | Grants permission to create a mission profile                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                    | [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_ "#list_groundstation-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_groundstation-aws_TagKeys "#list_groundstation-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                               | Write          |
-| [DeleteConfig](../../../ground-station/latest/APIReference/API_DeleteConfig.md "../../../ground-station/latest/APIReference/API_DeleteConfig.md")                                                    | Grants permission to delete a config                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | [Config\*](#list_groundstation-resource-Config "#list_groundstation-resource-Config")                                              | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:ConfigId](#list_groundstation-groundstation_ConfigId "#list_groundstation-groundstation_ConfigId")<br>[groundstation:ConfigType](#list_groundstation-groundstation_ConfigType "#list_groundstation-groundstation_ConfigType")                                                                                                                                                                                                                | Write          |
-| [DeleteDataflowEndpointGroup](../../../ground-station/latest/APIReference/API_DeleteDataflowEndpointGroup.md "../../../ground-station/latest/APIReference/API_DeleteDataflowEndpointGroup.md")       | Grants permission to delete a data flow endpoint group                                                                                                                                                                                                                                                                                                                                                                                                                                                      | [DataflowEndpointGroup\*](#list_groundstation-resource-DataflowEndpointGroup "#list_groundstation-resource-DataflowEndpointGroup") | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:DataflowEndpointGroupId](#list_groundstation-groundstation_DataflowEndpointGroupId "#list_groundstation-groundstation_DataflowEndpointGroupId")                                                                                                                                                                                                                                                                                              | Write          |
-| [DeleteEphemeris](../../../ground-station/latest/APIReference/API_DeleteEphemeris.md "../../../ground-station/latest/APIReference/API_DeleteEphemeris.md")                                           | Grants permission to delete an ephemeris item                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [EphemerisItem\*](#list_groundstation-resource-EphemerisItem "#list_groundstation-resource-EphemerisItem")                         | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:EphemerisId](#list_groundstation-groundstation_EphemerisId "#list_groundstation-groundstation_EphemerisId")                                                                                                                                                                                                                                                                                                                                  | Write          |
-| [DeleteMissionProfile](../../../ground-station/latest/APIReference/API_DeleteMissionProfile.md "../../../ground-station/latest/APIReference/API_DeleteMissionProfile.md")                            | Grants permission to delete a mission profile                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [MissionProfile\*](#list_groundstation-resource-MissionProfile "#list_groundstation-resource-MissionProfile")                      | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:MissionProfileId](#list_groundstation-groundstation_MissionProfileId "#list_groundstation-groundstation_MissionProfileId")                                                                                                                                                                                                                                                                                                                   | Write          |
-| [DescribeContact](../../../ground-station/latest/APIReference/API_DescribeContact.md "../../../ground-station/latest/APIReference/API_DescribeContact.md")                                           | Grants permission to describe a contact                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | [Contact\*](#list_groundstation-resource-Contact "#list_groundstation-resource-Contact")                                           | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:ContactId](#list_groundstation-groundstation_ContactId "#list_groundstation-groundstation_ContactId")                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [DescribeContactVersion](../../../ground-station/latest/APIReference/API_DescribeContactVersion.md "../../../ground-station/latest/APIReference/API_DescribeContactVersion.md")                      | Grants permission to describe a specific version of a contact                                                                                                                                                                                                                                                                                                                                                                                                                                               | [Contact\*](#list_groundstation-resource-Contact "#list_groundstation-resource-Contact")                                           | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:ContactId](#list_groundstation-groundstation_ContactId "#list_groundstation-groundstation_ContactId")                                                                                                                                                                                                                                                                                                                                        | Read           |
-| [DescribeEphemeris](../../../ground-station/latest/APIReference/API_DescribeEphemeris.md "../../../ground-station/latest/APIReference/API_DescribeEphemeris.md")                                     | Grants permission to describe an ephemeris item                                                                                                                                                                                                                                                                                                                                                                                                                                                             | [EphemerisItem\*](#list_groundstation-resource-EphemerisItem "#list_groundstation-resource-EphemerisItem")                         | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:EphemerisId](#list_groundstation-groundstation_EphemerisId "#list_groundstation-groundstation_EphemerisId")                                                                                                                                                                                                                                                                                                                                  | Read           |
-| [GetAgentConfiguration](../../../ground-station/latest/APIReference/API_GetAgentConfiguration.md "../../../ground-station/latest/APIReference/API_GetAgentConfiguration.md")                         | Grants permission to get the configuration of an agent                                                                                                                                                                                                                                                                                                                                                                                                                                                      | [Agent\*](#list_groundstation-resource-Agent "#list_groundstation-resource-Agent")                                                 | [groundstation:AgentId](#list_groundstation-groundstation_AgentId "#list_groundstation-groundstation_AgentId")                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Read           |
-| [GetAgentTaskResponseUrl](../../../ground-station/latest/APIReference/API_GetAgentTaskResponseUrl.md "../../../ground-station/latest/APIReference/API_GetAgentTaskResponseUrl.md")                   | Grants permission to retrieve presigned S3 logging URLs                                                                                                                                                                                                                                                                                                                                                                                                                                                     | [Agent\*](#list_groundstation-resource-Agent "#list_groundstation-resource-Agent")                                                 | [groundstation:AgentId](#list_groundstation-groundstation_AgentId "#list_groundstation-groundstation_AgentId")                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Read           |
-| [GetConfig](../../../ground-station/latest/APIReference/API_GetConfig.md "../../../ground-station/latest/APIReference/API_GetConfig.md")                                                             | Grants permission to return a configuration                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | [Config\*](#list_groundstation-resource-Config "#list_groundstation-resource-Config")                                              | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:ConfigId](#list_groundstation-groundstation_ConfigId "#list_groundstation-groundstation_ConfigId")<br>[groundstation:ConfigType](#list_groundstation-groundstation_ConfigType "#list_groundstation-groundstation_ConfigType")                                                                                                                                                                                                                | Read           |
-| [GetDataflowEndpointGroup](../../../ground-station/latest/APIReference/API_GetDataflowEndpointGroup.md "../../../ground-station/latest/APIReference/API_GetDataflowEndpointGroup.md")                | Grants permission to return a data flow endpoint group                                                                                                                                                                                                                                                                                                                                                                                                                                                      | [DataflowEndpointGroup\*](#list_groundstation-resource-DataflowEndpointGroup "#list_groundstation-resource-DataflowEndpointGroup") | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:DataflowEndpointGroupId](#list_groundstation-groundstation_DataflowEndpointGroupId "#list_groundstation-groundstation_DataflowEndpointGroupId")                                                                                                                                                                                                                                                                                              | Read           |
-| [GetMinuteUsage](../../../ground-station/latest/APIReference/API_GetMinuteUsage.md "../../../ground-station/latest/APIReference/API_GetMinuteUsage.md")                                              | Grants permission to return minutes usage                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |                                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Read           |
-| [GetMissionProfile](../../../ground-station/latest/APIReference/API_GetMissionProfile.md "../../../ground-station/latest/APIReference/API_GetMissionProfile.md")                                     | Grants permission to retrieve a mission profile                                                                                                                                                                                                                                                                                                                                                                                                                                                             | [MissionProfile\*](#list_groundstation-resource-MissionProfile "#list_groundstation-resource-MissionProfile")                      | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:MissionProfileId](#list_groundstation-groundstation_MissionProfileId "#list_groundstation-groundstation_MissionProfileId")                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetSatellite](../../../ground-station/latest/APIReference/API_GetSatellite.md "../../../ground-station/latest/APIReference/API_GetSatellite.md")                                                    | Grants permission to return information about a satellite                                                                                                                                                                                                                                                                                                                                                                                                                                                   | [Satellite\*](#list_groundstation-resource-Satellite "#list_groundstation-resource-Satellite")                                     | [groundstation:SatelliteId](#list_groundstation-groundstation_SatelliteId "#list_groundstation-groundstation_SatelliteId")                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Read           |
-| [ListAntennas](../../../ground-station/latest/APIReference/API_ListAntennas.md "../../../ground-station/latest/APIReference/API_ListAntennas.md")                                                    | Grants permission to list antennas for a ground station                                                                                                                                                                                                                                                                                                                                                                                                                                                     | [GroundStationResource\*](#list_groundstation-resource-GroundStationResource "#list_groundstation-resource-GroundStationResource") | [groundstation:GroundStationId](#list_groundstation-groundstation_GroundStationId "#list_groundstation-groundstation_GroundStationId")                                                                                                                                                                                                                                                                                                                                                                                                                                                    | List           |
-| [ListConfigs](../../../ground-station/latest/APIReference/API_ListConfigs.md "../../../ground-station/latest/APIReference/API_ListConfigs.md")                                                       | Grants permission to return a list of past configurations                                                                                                                                                                                                                                                                                                                                                                                                                                                   |                                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListContactVersions](../../../ground-station/latest/APIReference/API_ListContactVersions.md "../../../ground-station/latest/APIReference/API_ListContactVersions.md")                               | Grants permission to list versions of a contact                                                                                                                                                                                                                                                                                                                                                                                                                                                             | [Contact\*](#list_groundstation-resource-Contact "#list_groundstation-resource-Contact")                                           | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:ContactId](#list_groundstation-groundstation_ContactId "#list_groundstation-groundstation_ContactId")                                                                                                                                                                                                                                                                                                                                        | List           |
-| [ListContacts](../../../ground-station/latest/APIReference/API_ListContacts.md "../../../ground-station/latest/APIReference/API_ListContacts.md")                                                    | Grants permission to return a list of contacts                                                                                                                                                                                                                                                                                                                                                                                                                                                              |                                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListDataflowEndpointGroups](../../../ground-station/latest/APIReference/API_ListDataflowEndpointGroups.md "../../../ground-station/latest/APIReference/API_ListDataflowEndpointGroups.md")          | Grants permission to list data flow endpoint groups                                                                                                                                                                                                                                                                                                                                                                                                                                                         |                                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListEphemerides](../../../ground-station/latest/APIReference/API_ListEphemerides.md "../../../ground-station/latest/APIReference/API_ListEphemerides.md")                                           | Grants permission to list ephemerides                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListGroundStationReservations](../../../ground-station/latest/APIReference/API_ListGroundStationReservations.md "../../../ground-station/latest/APIReference/API_ListGroundStationReservations.md") | Grants permission to list reservations for a ground station                                                                                                                                                                                                                                                                                                                                                                                                                                                 | [GroundStationResource\*](#list_groundstation-resource-GroundStationResource "#list_groundstation-resource-GroundStationResource") | [groundstation:GroundStationId](#list_groundstation-groundstation_GroundStationId "#list_groundstation-groundstation_GroundStationId")                                                                                                                                                                                                                                                                                                                                                                                                                                                    | List           |
-| [ListGroundStations](../../../ground-station/latest/APIReference/API_ListGroundStations.md "../../../ground-station/latest/APIReference/API_ListGroundStations.md")                                  | Grants permission to list ground stations                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |                                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListMissionProfiles](../../../ground-station/latest/APIReference/API_ListMissionProfiles.md "../../../ground-station/latest/APIReference/API_ListMissionProfiles.md")                               | Grants permission to return a list of mission profiles                                                                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListSatellites](../../../ground-station/latest/APIReference/API_ListSatellites.md "../../../ground-station/latest/APIReference/API_ListSatellites.md")                                              | Grants permission to list satellites                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |                                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | List           |
-| [ListTagsForResource](../../../ground-station/latest/APIReference/API_ListTagsForResource.md "../../../ground-station/latest/APIReference/API_ListTagsForResource.md")                               | Grants permission to list tags for a resource                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [Config](#list_groundstation-resource-Config "#list_groundstation-resource-Config")                                                | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:ConfigId](#list_groundstation-groundstation_ConfigId "#list_groundstation-groundstation_ConfigId")<br>[groundstation:ConfigType](#list_groundstation-groundstation_ConfigType "#list_groundstation-groundstation_ConfigType")                                                                                                                                                                                                                | Read           |
-| [Contact](#list_groundstation-resource-Contact "#list_groundstation-resource-Contact")                                                                                                               | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:ContactId](#list_groundstation-groundstation_ContactId "#list_groundstation-groundstation_ContactId")                                                                                                                                                                                                                                                          |
-| [DataflowEndpointGroup](#list_groundstation-resource-DataflowEndpointGroup "#list_groundstation-resource-DataflowEndpointGroup")                                                                     | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:DataflowEndpointGroupId](#list_groundstation-groundstation_DataflowEndpointGroupId "#list_groundstation-groundstation_DataflowEndpointGroupId")                                                                                                                                                                                                                |
-| [MissionProfile](#list_groundstation-resource-MissionProfile "#list_groundstation-resource-MissionProfile")                                                                                          | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:MissionProfileId](#list_groundstation-groundstation_MissionProfileId "#list_groundstation-groundstation_MissionProfileId")                                                                                                                                                                                                                                     |
-| [RegisterAgent](../../../ground-station/latest/APIReference/API_RegisterAgent.md "../../../ground-station/latest/APIReference/API_RegisterAgent.md")                                                 | Grants permission to register an agent                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Write          |
-| [ReserveContact](../../../ground-station/latest/APIReference/API_ReserveContact.md "../../../ground-station/latest/APIReference/API_ReserveContact.md")                                              | Grants permission to reserve a contact                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                                                                                    | [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_ "#list_groundstation-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_groundstation-aws_TagKeys "#list_groundstation-aws_TagKeys")                                                                                                                                                                                                                                                                                                                                                                               | Write          |
-| [TagResource](../../../ground-station/latest/APIReference/API_TagResource.md "../../../ground-station/latest/APIReference/API_TagResource.md")                                                       | Grants permission to assign a resource tag                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | [Config](#list_groundstation-resource-Config "#list_groundstation-resource-Config")                                                | [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_ "#list_groundstation-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_groundstation-aws_TagKeys "#list_groundstation-aws_TagKeys")<br>[groundstation:ConfigId](#list_groundstation-groundstation_ConfigId "#list_groundstation-groundstation_ConfigId")<br>[groundstation:ConfigType](#list_groundstation-groundstation_ConfigType "#list_groundstation-groundstation_ConfigType") | Tagging, Write |
-| [Contact](#list_groundstation-resource-Contact "#list_groundstation-resource-Contact")                                                                                                               | [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_ "#list_groundstation-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_groundstation-aws_TagKeys "#list_groundstation-aws_TagKeys")<br>[groundstation:ContactId](#list_groundstation-groundstation_ContactId "#list_groundstation-groundstation_ContactId")                                           |
-| [DataflowEndpointGroup](#list_groundstation-resource-DataflowEndpointGroup "#list_groundstation-resource-DataflowEndpointGroup")                                                                     | [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_ "#list_groundstation-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_groundstation-aws_TagKeys "#list_groundstation-aws_TagKeys")<br>[groundstation:DataflowEndpointGroupId](#list_groundstation-groundstation_DataflowEndpointGroupId "#list_groundstation-groundstation_DataflowEndpointGroupId") |
-| [EphemerisItem](#list_groundstation-resource-EphemerisItem "#list_groundstation-resource-EphemerisItem")                                                                                             | [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_ "#list_groundstation-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_groundstation-aws_TagKeys "#list_groundstation-aws_TagKeys")<br>[groundstation:EphemerisId](#list_groundstation-groundstation_EphemerisId "#list_groundstation-groundstation_EphemerisId")                                     |
-| [MissionProfile](#list_groundstation-resource-MissionProfile "#list_groundstation-resource-MissionProfile")                                                                                          | [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_ "#list_groundstation-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_groundstation-aws_TagKeys "#list_groundstation-aws_TagKeys")<br>[groundstation:MissionProfileId](#list_groundstation-groundstation_MissionProfileId "#list_groundstation-groundstation_MissionProfileId")                      |
-| [UntagResource](../../../ground-station/latest/APIReference/API_UntagResource.md "../../../ground-station/latest/APIReference/API_UntagResource.md")                                                 | Grants permission to unassign a resource tag                                                                                                                                                                                                                                                                                                                                                                                                                                                                | [Config](#list_groundstation-resource-Config "#list_groundstation-resource-Config")                                                | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_groundstation-aws_TagKeys "#list_groundstation-aws_TagKeys")<br>[groundstation:ConfigId](#list_groundstation-groundstation_ConfigId "#list_groundstation-groundstation_ConfigId")<br>[groundstation:ConfigType](#list_groundstation-groundstation_ConfigType "#list_groundstation-groundstation_ConfigType")                                                                                                                            | Tagging, Write |
-| [Contact](#list_groundstation-resource-Contact "#list_groundstation-resource-Contact")                                                                                                               | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_groundstation-aws_TagKeys "#list_groundstation-aws_TagKeys")<br>[groundstation:ContactId](#list_groundstation-groundstation_ContactId "#list_groundstation-groundstation_ContactId")                                                                                                                                                                      |
-| [DataflowEndpointGroup](#list_groundstation-resource-DataflowEndpointGroup "#list_groundstation-resource-DataflowEndpointGroup")                                                                     | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_groundstation-aws_TagKeys "#list_groundstation-aws_TagKeys")<br>[groundstation:DataflowEndpointGroupId](#list_groundstation-groundstation_DataflowEndpointGroupId "#list_groundstation-groundstation_DataflowEndpointGroupId")                                                                                                                            |
-| [EphemerisItem](#list_groundstation-resource-EphemerisItem "#list_groundstation-resource-EphemerisItem")                                                                                             | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_groundstation-aws_TagKeys "#list_groundstation-aws_TagKeys")<br>[groundstation:EphemerisId](#list_groundstation-groundstation_EphemerisId "#list_groundstation-groundstation_EphemerisId")                                                                                                                                                                |
-| [MissionProfile](#list_groundstation-resource-MissionProfile "#list_groundstation-resource-MissionProfile")                                                                                          | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_groundstation-aws_TagKeys "#list_groundstation-aws_TagKeys")<br>[groundstation:MissionProfileId](#list_groundstation-groundstation_MissionProfileId "#list_groundstation-groundstation_MissionProfileId")                                                                                                                                                 |
-| [UpdateAgentStatus](../../../ground-station/latest/APIReference/API_UpdateAgentStatus.md "../../../ground-station/latest/APIReference/API_UpdateAgentStatus.md")                                     | Grants permission to update the status of an agent                                                                                                                                                                                                                                                                                                                                                                                                                                                          | [Agent\*](#list_groundstation-resource-Agent "#list_groundstation-resource-Agent")                                                 | [groundstation:AgentId](#list_groundstation-groundstation_AgentId "#list_groundstation-groundstation_AgentId")                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Write          |
-| [UpdateConfig](../../../ground-station/latest/APIReference/API_UpdateConfig.md "../../../ground-station/latest/APIReference/API_UpdateConfig.md")                                                    | Grants permission to update a configuration                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | [Config\*](#list_groundstation-resource-Config "#list_groundstation-resource-Config")                                              | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:ConfigId](#list_groundstation-groundstation_ConfigId "#list_groundstation-groundstation_ConfigId")<br>[groundstation:ConfigType](#list_groundstation-groundstation_ConfigType "#list_groundstation-groundstation_ConfigType")                                                                                                                                                                                                                | Write          |
-| [UpdateContact](../../../ground-station/latest/APIReference/API_UpdateContact.md "../../../ground-station/latest/APIReference/API_UpdateContact.md")                                                 | Grants permission to update a contact                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | [Contact\*](#list_groundstation-resource-Contact "#list_groundstation-resource-Contact")                                           | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:ContactId](#list_groundstation-groundstation_ContactId "#list_groundstation-groundstation_ContactId")                                                                                                                                                                                                                                                                                                                                        | Write          |
-| [UpdateEphemeris](../../../ground-station/latest/APIReference/API_UpdateEphemeris.md "../../../ground-station/latest/APIReference/API_UpdateEphemeris.md")                                           | Grants permission to update an ephemeris item                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [EphemerisItem\*](#list_groundstation-resource-EphemerisItem "#list_groundstation-resource-EphemerisItem")                         | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:EphemerisId](#list_groundstation-groundstation_EphemerisId "#list_groundstation-groundstation_EphemerisId")                                                                                                                                                                                                                                                                                                                                  | Write          |
-| [UpdateMissionProfile](../../../ground-station/latest/APIReference/API_UpdateMissionProfile.md "../../../ground-station/latest/APIReference/API_UpdateMissionProfile.md")                            | Grants permission to update a mission profile                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [MissionProfile\*](#list_groundstation-resource-MissionProfile "#list_groundstation-resource-MissionProfile")                      | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:MissionProfileId](#list_groundstation-groundstation_MissionProfileId "#list_groundstation-groundstation_MissionProfileId")                                                                                                                                                                                                                                                                                                                   | Write          |
+
+
+
+- **   [CancelContact](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_CancelContact.html)  **
+  - **Description:** Grants permission to cancel a contact
+  - **Resource types (\*required):** [Contact\*](#list_groundstation-resource-Contact)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:ContactId](#list_groundstation-groundstation_ContactId)
+  - **Access level:** Write
+
+- **   [CreateConfig](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_CreateConfig.html)  **
+  - **Description:** Grants permission to create a configuration
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_groundstation-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDataflowEndpointGroup](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_CreateDataflowEndpointGroup.html)  **
+  - **Description:** Grants permission to create a data flow endpoint group
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_groundstation-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDataflowEndpointGroupV2](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_CreateDataflowEndpointGroupV2.html)  **
+  - **Description:** Grants permission to create a data flow endpoint group using the V2 operation
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_groundstation-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateEphemeris](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_CreateEphemeris.html)  **
+  - **Description:** Grants permission to create an ephemeris item
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_groundstation-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMissionProfile](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_CreateMissionProfile.html)  **
+  - **Description:** Grants permission to create a mission profile
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_groundstation-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteConfig](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DeleteConfig.html)  **
+  - **Description:** Grants permission to delete a config
+  - **Resource types (\*required):** [Config\*](#list_groundstation-resource-Config)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:ConfigId](#list_groundstation-groundstation_ConfigId)<br />[groundstation:ConfigType](#list_groundstation-groundstation_ConfigType)
+  - **Access level:** Write
+
+- **   [DeleteDataflowEndpointGroup](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DeleteDataflowEndpointGroup.html)  **
+  - **Description:** Grants permission to delete a data flow endpoint group
+  - **Resource types (\*required):** [DataflowEndpointGroup\*](#list_groundstation-resource-DataflowEndpointGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:DataflowEndpointGroupId](#list_groundstation-groundstation_DataflowEndpointGroupId)
+  - **Access level:** Write
+
+- **   [DeleteEphemeris](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DeleteEphemeris.html)  **
+  - **Description:** Grants permission to delete an ephemeris item
+  - **Resource types (\*required):** [EphemerisItem\*](#list_groundstation-resource-EphemerisItem)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:EphemerisId](#list_groundstation-groundstation_EphemerisId)
+  - **Access level:** Write
+
+- **   [DeleteMissionProfile](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DeleteMissionProfile.html)  **
+  - **Description:** Grants permission to delete a mission profile
+  - **Resource types (\*required):** [MissionProfile\*](#list_groundstation-resource-MissionProfile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:MissionProfileId](#list_groundstation-groundstation_MissionProfileId)
+  - **Access level:** Write
+
+- **   [DescribeContact](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DescribeContact.html)  **
+  - **Description:** Grants permission to describe a contact
+  - **Resource types (\*required):** [Contact\*](#list_groundstation-resource-Contact)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:ContactId](#list_groundstation-groundstation_ContactId)
+  - **Access level:** Read
+
+- **   [DescribeContactVersion](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DescribeContactVersion.html)  **
+  - **Description:** Grants permission to describe a specific version of a contact
+  - **Resource types (\*required):** [Contact\*](#list_groundstation-resource-Contact)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:ContactId](#list_groundstation-groundstation_ContactId)
+  - **Access level:** Read
+
+- **   [DescribeEphemeris](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DescribeEphemeris.html)  **
+  - **Description:** Grants permission to describe an ephemeris item
+  - **Resource types (\*required):** [EphemerisItem\*](#list_groundstation-resource-EphemerisItem)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:EphemerisId](#list_groundstation-groundstation_EphemerisId)
+  - **Access level:** Read
+
+- **   [GetAgentConfiguration](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_GetAgentConfiguration.html)  **
+  - **Description:** Grants permission to get the configuration of an agent
+  - **Resource types (\*required):** [Agent\*](#list_groundstation-resource-Agent)
+  - **Condition keys:** [groundstation:AgentId](#list_groundstation-groundstation_AgentId)
+  - **Access level:** Read
+
+- **   [GetAgentTaskResponseUrl](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_GetAgentTaskResponseUrl.html)  **
+  - **Description:** Grants permission to retrieve presigned S3 logging URLs
+  - **Resource types (\*required):** [Agent\*](#list_groundstation-resource-Agent)
+  - **Condition keys:** [groundstation:AgentId](#list_groundstation-groundstation_AgentId)
+  - **Access level:** Read
+
+- **   [GetConfig](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_GetConfig.html)  **
+  - **Description:** Grants permission to return a configuration
+  - **Resource types (\*required):** [Config\*](#list_groundstation-resource-Config)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:ConfigId](#list_groundstation-groundstation_ConfigId)<br />[groundstation:ConfigType](#list_groundstation-groundstation_ConfigType)
+  - **Access level:** Read
+
+- **   [GetDataflowEndpointGroup](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_GetDataflowEndpointGroup.html)  **
+  - **Description:** Grants permission to return a data flow endpoint group
+  - **Resource types (\*required):** [DataflowEndpointGroup\*](#list_groundstation-resource-DataflowEndpointGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:DataflowEndpointGroupId](#list_groundstation-groundstation_DataflowEndpointGroupId)
+  - **Access level:** Read
+
+- **   [GetMinuteUsage](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_GetMinuteUsage.html)  **
+  - **Description:** Grants permission to return minutes usage
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetMissionProfile](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_GetMissionProfile.html)  **
+  - **Description:** Grants permission to retrieve a mission profile
+  - **Resource types (\*required):** [MissionProfile\*](#list_groundstation-resource-MissionProfile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:MissionProfileId](#list_groundstation-groundstation_MissionProfileId)
+  - **Access level:** Read
+
+- **   [GetSatellite](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_GetSatellite.html)  **
+  - **Description:** Grants permission to return information about a satellite
+  - **Resource types (\*required):** [Satellite\*](#list_groundstation-resource-Satellite)
+  - **Condition keys:** [groundstation:SatelliteId](#list_groundstation-groundstation_SatelliteId)
+  - **Access level:** Read
+
+- **   [ListAntennas](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListAntennas.html)  **
+  - **Description:** Grants permission to list antennas for a ground station
+  - **Resource types (\*required):** [GroundStationResource\*](#list_groundstation-resource-GroundStationResource)
+  - **Condition keys:** [groundstation:GroundStationId](#list_groundstation-groundstation_GroundStationId)
+  - **Access level:** List
+
+- **   [ListConfigs](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListConfigs.html)  **
+  - **Description:** Grants permission to return a list of past configurations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListContactVersions](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListContactVersions.html)  **
+  - **Description:** Grants permission to list versions of a contact
+  - **Resource types (\*required):** [Contact\*](#list_groundstation-resource-Contact)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:ContactId](#list_groundstation-groundstation_ContactId)
+  - **Access level:** List
+
+- **   [ListContacts](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListContacts.html)  **
+  - **Description:** Grants permission to return a list of contacts
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDataflowEndpointGroups](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListDataflowEndpointGroups.html)  **
+  - **Description:** Grants permission to list data flow endpoint groups
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListEphemerides](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListEphemerides.html)  **
+  - **Description:** Grants permission to list ephemerides
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListGroundStationReservations](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListGroundStationReservations.html)  **
+  - **Description:** Grants permission to list reservations for a ground station
+  - **Resource types (\*required):** [GroundStationResource\*](#list_groundstation-resource-GroundStationResource)
+  - **Condition keys:** [groundstation:GroundStationId](#list_groundstation-groundstation_GroundStationId)
+  - **Access level:** List
+
+- **   [ListGroundStations](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListGroundStations.html)  **
+  - **Description:** Grants permission to list ground stations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMissionProfiles](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListMissionProfiles.html)  **
+  - **Description:** Grants permission to return a list of mission profiles
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSatellites](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListSatellites.html)  **
+  - **Description:** Grants permission to list satellites
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for a resource
+  - **Resource types (\*required):** [Config](#list_groundstation-resource-Config) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:ConfigId](#list_groundstation-groundstation_ConfigId)<br />[groundstation:ConfigType](#list_groundstation-groundstation_ConfigType)
+  - **Resource types (\*required):** [Contact](#list_groundstation-resource-Contact) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:ContactId](#list_groundstation-groundstation_ContactId)
+  - **Resource types (\*required):** [DataflowEndpointGroup](#list_groundstation-resource-DataflowEndpointGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:DataflowEndpointGroupId](#list_groundstation-groundstation_DataflowEndpointGroupId)
+  - **Resource types (\*required):** [MissionProfile](#list_groundstation-resource-MissionProfile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:MissionProfileId](#list_groundstation-groundstation_MissionProfileId)
+  - **Access level:** Read
+
+- **   [RegisterAgent](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_RegisterAgent.html)  **
+  - **Description:** Grants permission to register an agent
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ReserveContact](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ReserveContact.html)  **
+  - **Description:** Grants permission to reserve a contact
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_groundstation-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to assign a resource tag
+  - **Resource types (\*required):** [Config](#list_groundstation-resource-Config) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_groundstation-aws_TagKeys)<br />[groundstation:ConfigId](#list_groundstation-groundstation_ConfigId)<br />[groundstation:ConfigType](#list_groundstation-groundstation_ConfigType)
+  - **Resource types (\*required):** [Contact](#list_groundstation-resource-Contact) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_groundstation-aws_TagKeys)<br />[groundstation:ContactId](#list_groundstation-groundstation_ContactId)
+  - **Resource types (\*required):** [DataflowEndpointGroup](#list_groundstation-resource-DataflowEndpointGroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_groundstation-aws_TagKeys)<br />[groundstation:DataflowEndpointGroupId](#list_groundstation-groundstation_DataflowEndpointGroupId)
+  - **Resource types (\*required):** [EphemerisItem](#list_groundstation-resource-EphemerisItem) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_groundstation-aws_TagKeys)<br />[groundstation:EphemerisId](#list_groundstation-groundstation_EphemerisId)
+  - **Resource types (\*required):** [MissionProfile](#list_groundstation-resource-MissionProfile) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_groundstation-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_groundstation-aws_TagKeys)<br />[groundstation:MissionProfileId](#list_groundstation-groundstation_MissionProfileId)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to unassign a resource tag
+  - **Resource types (\*required):** [Config](#list_groundstation-resource-Config) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_groundstation-aws_TagKeys)<br />[groundstation:ConfigId](#list_groundstation-groundstation_ConfigId)<br />[groundstation:ConfigType](#list_groundstation-groundstation_ConfigType)
+  - **Resource types (\*required):** [Contact](#list_groundstation-resource-Contact) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_groundstation-aws_TagKeys)<br />[groundstation:ContactId](#list_groundstation-groundstation_ContactId)
+  - **Resource types (\*required):** [DataflowEndpointGroup](#list_groundstation-resource-DataflowEndpointGroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_groundstation-aws_TagKeys)<br />[groundstation:DataflowEndpointGroupId](#list_groundstation-groundstation_DataflowEndpointGroupId)
+  - **Resource types (\*required):** [EphemerisItem](#list_groundstation-resource-EphemerisItem) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_groundstation-aws_TagKeys)<br />[groundstation:EphemerisId](#list_groundstation-groundstation_EphemerisId)
+  - **Resource types (\*required):** [MissionProfile](#list_groundstation-resource-MissionProfile) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_groundstation-aws_TagKeys)<br />[groundstation:MissionProfileId](#list_groundstation-groundstation_MissionProfileId)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateAgentStatus](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_UpdateAgentStatus.html)  **
+  - **Description:** Grants permission to update the status of an agent
+  - **Resource types (\*required):** [Agent\*](#list_groundstation-resource-Agent)
+  - **Condition keys:** [groundstation:AgentId](#list_groundstation-groundstation_AgentId)
+  - **Access level:** Write
+
+- **   [UpdateConfig](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_UpdateConfig.html)  **
+  - **Description:** Grants permission to update a configuration
+  - **Resource types (\*required):** [Config\*](#list_groundstation-resource-Config)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:ConfigId](#list_groundstation-groundstation_ConfigId)<br />[groundstation:ConfigType](#list_groundstation-groundstation_ConfigType)
+  - **Access level:** Write
+
+- **   [UpdateContact](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_UpdateContact.html)  **
+  - **Description:** Grants permission to update a contact
+  - **Resource types (\*required):** [Contact\*](#list_groundstation-resource-Contact)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:ContactId](#list_groundstation-groundstation_ContactId)
+  - **Access level:** Write
+
+- **   [UpdateEphemeris](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_UpdateEphemeris.html)  **
+  - **Description:** Grants permission to update an ephemeris item
+  - **Resource types (\*required):** [EphemerisItem\*](#list_groundstation-resource-EphemerisItem)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:EphemerisId](#list_groundstation-groundstation_EphemerisId)
+  - **Access level:** Write
+
+- **   [UpdateMissionProfile](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_UpdateMissionProfile.html)  **
+  - **Description:** Grants permission to update a mission profile
+  - **Resource types (\*required):** [MissionProfile\*](#list_groundstation-resource-MissionProfile)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:MissionProfileId](#list_groundstation-groundstation_MissionProfileId)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by AWS Ground Station
+<a name="list_groundstation-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                          | ARN                                                                                                    | Condition keys                                                                                                                                                                                                                                                                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Agent](../../../ground-station/latest/APIReference/API_AgentDetails.md "../../../ground-station/latest/APIReference/API_AgentDetails.md")                              | arn:${Partition}:groundstation:${Region}:${Account}:agent/${AgentId}                                   | [groundstation:AgentId](#list_groundstation-groundstation_AgentId "#list_groundstation-groundstation_AgentId")                                                                                                                                                                                                                                                             |
-| [Config](../../../ground-station/latest/APIReference/API_ConfigListItem.md "../../../ground-station/latest/APIReference/API_ConfigListItem.md")                         | arn:${Partition}:groundstation:${Region}:${Account}:config/${ConfigType}/${ConfigId}                   | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:ConfigId](#list_groundstation-groundstation_ConfigId "#list_groundstation-groundstation_ConfigId")<br>[groundstation:ConfigType](#list_groundstation-groundstation_ConfigType "#list_groundstation-groundstation_ConfigType") |
-| [Contact](../../../ground-station/latest/APIReference/API_ContactData.md "../../../ground-station/latest/APIReference/API_ContactData.md")                              | arn:${Partition}:groundstation:${Region}:${Account}:contact/${ContactId}                               | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:ContactId](#list_groundstation-groundstation_ContactId "#list_groundstation-groundstation_ContactId")                                                                                                                         |
-| [DataflowEndpointGroup](../../../ground-station/latest/APIReference/API_DataflowEndpoint.md "../../../ground-station/latest/APIReference/API_DataflowEndpoint.md")      | arn:${Partition}:groundstation:${Region}:${Account}:dataflow-endpoint-group/${DataflowEndpointGroupId} | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:DataflowEndpointGroupId](#list_groundstation-groundstation_DataflowEndpointGroupId "#list_groundstation-groundstation_DataflowEndpointGroupId")                                                                               |
-| [EphemerisItem](../../../ground-station/latest/APIReference/API_EphemerisItem.md "../../../ground-station/latest/APIReference/API_EphemerisItem.md")                    | arn:${Partition}:groundstation:${Region}:${Account}:ephemeris/${EphemerisId}                           | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:EphemerisId](#list_groundstation-groundstation_EphemerisId "#list_groundstation-groundstation_EphemerisId")                                                                                                                   |
-| [GroundStationResource](../../../ground-station/latest/APIReference/API_GroundStationData.md "../../../ground-station/latest/APIReference/API_GroundStationData.md")    | arn:${Partition}:groundstation:${Region}:${Account}:groundstation:${GroundStationId}                   | [groundstation:GroundStationId](#list_groundstation-groundstation_GroundStationId "#list_groundstation-groundstation_GroundStationId")                                                                                                                                                                                                                                     |
-| [MissionProfile](../../../ground-station/latest/APIReference/API_MissionProfileListItem.md "../../../ground-station/latest/APIReference/API_MissionProfileListItem.md") | arn:${Partition}:groundstation:${Region}:${Account}:mission-profile/${MissionProfileId}                | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_ "#list_groundstation-aws_ResourceTag___TagKey_")<br>[groundstation:MissionProfileId](#list_groundstation-groundstation_MissionProfileId "#list_groundstation-groundstation_MissionProfileId")                                                                                                    |
-| [Satellite](../../../ground-station/latest/APIReference/API_SatelliteListItem.md "../../../ground-station/latest/APIReference/API_SatelliteListItem.md")                | arn:${Partition}:groundstation:${Region}:${Account}:satellite/${SatelliteId}                           | [groundstation:SatelliteId](#list_groundstation-groundstation_SatelliteId "#list_groundstation-groundstation_SatelliteId")                                                                                                                                                                                                                                                 |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [Agent](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_AgentDetails.html)  | arn:${Partition}:groundstation:${Region}:${Account}:agent/${AgentId} | [groundstation:AgentId](#list_groundstation-groundstation_AgentId) | 
+|  [Config](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ConfigListItem.html)  | arn:${Partition}:groundstation:${Region}:${Account}:config/${ConfigType}/${ConfigId} | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:ConfigId](#list_groundstation-groundstation_ConfigId)<br />[groundstation:ConfigType](#list_groundstation-groundstation_ConfigType) | 
+|  [Contact](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ContactData.html)  | arn:${Partition}:groundstation:${Region}:${Account}:contact/${ContactId} | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:ContactId](#list_groundstation-groundstation_ContactId) | 
+|  [DataflowEndpointGroup](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_DataflowEndpoint.html)  | arn:${Partition}:groundstation:${Region}:${Account}:dataflow-endpoint-group/${DataflowEndpointGroupId} | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:DataflowEndpointGroupId](#list_groundstation-groundstation_DataflowEndpointGroupId) | 
+|  [EphemerisItem](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_EphemerisItem.html)  | arn:${Partition}:groundstation:${Region}:${Account}:ephemeris/${EphemerisId} | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:EphemerisId](#list_groundstation-groundstation_EphemerisId) | 
+|  [GroundStationResource](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_GroundStationData.html)  | arn:${Partition}:groundstation:${Region}:${Account}:groundstation:${GroundStationId} | [groundstation:GroundStationId](#list_groundstation-groundstation_GroundStationId) | 
+|  [MissionProfile](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_MissionProfileListItem.html)  | arn:${Partition}:groundstation:${Region}:${Account}:mission-profile/${MissionProfileId} | [aws:ResourceTag/${TagKey}](#list_groundstation-aws_ResourceTag___TagKey_)<br />[groundstation:MissionProfileId](#list_groundstation-groundstation_MissionProfileId) | 
+|  [Satellite](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_SatelliteListItem.html)  | arn:${Partition}:groundstation:${Region}:${Account}:satellite/${SatelliteId} | [groundstation:SatelliteId](#list_groundstation-groundstation_SatelliteId) | 
 
 ## Condition keys for AWS Ground Station
+<a name="list_groundstation-policy-keys"></a>
 
-AWS Ground Station defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS Ground Station defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                                                                                                                                                 | Description                                                   | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")                                                                                                                                        | Filters access by the tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag")                                                                                                                                     | Filters access by the tags associated with the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                                                                                                                                                           | Filters access by the tag keys that are passed in the request | ArrayOfString |
-| [groundstation:AgentId](../../../ground-station/latest/APIReference/API_RegisterAgent.md#groundstation-RegisterAgent-response-agentId "../../../ground-station/latest/APIReference/API_RegisterAgent.md#groundstation-RegisterAgent-response-agentId")                                                                                                         | Filters access by the ID of an agent                          | String        |
-| [groundstation:ConfigId](../../../ground-station/latest/APIReference/API_CreateConfig.md#groundstation-CreateConfig-response-configId "../../../ground-station/latest/APIReference/API_CreateConfig.md#groundstation-CreateConfig-response-configId")                                                                                                          | Filters access by the ID of a config                          | String        |
-| [groundstation:ConfigType](../../../ground-station/latest/APIReference/API_CreateConfig.md#groundstation-CreateConfig-response-configType "../../../ground-station/latest/APIReference/API_CreateConfig.md#groundstation-CreateConfig-response-configType")                                                                                                    | Filters access by the type of a config                        | String        |
-| [groundstation:ContactId](../../../ground-station/latest/APIReference/API_ReserveContact.md#groundstation-ReserveContact-response-contactId "../../../ground-station/latest/APIReference/API_ReserveContact.md#groundstation-ReserveContact-response-contactId")                                                                                               | Filters access by the ID of a contact                         | String        |
-| [groundstation:DataflowEndpointGroupId](../../../ground-station/latest/APIReference/API_CreateDataflowEndpointGroup.md#groundstation-CreateDataflowEndpointGroup-response-dataflowEndpointGroupId "../../../ground-station/latest/APIReference/API_CreateDataflowEndpointGroup.md#groundstation-CreateDataflowEndpointGroup-response-dataflowEndpointGroupId") | Filters access by the ID of a dataflow endpoint group         | String        |
-| [groundstation:EphemerisId](../../../ground-station/latest/APIReference/API_CreateEphemeris.md#groundstation-CreateEphemeris-response-ephemerisId "../../../ground-station/latest/APIReference/API_CreateEphemeris.md#groundstation-CreateEphemeris-response-ephemerisId")                                                                                     | Filters access by the ID of an ephemeris                      | String        |
-| [groundstation:GroundStationId](../../../ground-station/latest/APIReference/API_GroundStationData.md#groundstation-Type-GroundStationData-groundStationId "../../../ground-station/latest/APIReference/API_GroundStationData.md#groundstation-Type-GroundStationData-groundStationId")                                                                         | Filters access by the ID of a ground station                  | String        |
-| [groundstation:MissionProfileId](../../../ground-station/latest/APIReference/API_CreateMissionProfile.md#groundstation-CreateMissionProfile-response-missionProfileId "../../../ground-station/latest/APIReference/API_CreateMissionProfile.md#groundstation-CreateMissionProfile-response-missionProfileId")                                                  | Filters access by the ID of a mission profile                 | String        |
-| [groundstation:SatelliteId](../../../ground-station/latest/APIReference/API_SatelliteListItem.md#groundstation-Type-SatelliteListItem-satelliteId "../../../ground-station/latest/APIReference/API_SatelliteListItem.md#groundstation-Type-SatelliteListItem-satelliteId")                                                                                     | Filters access by the ID of a satellite                       | String        |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 
+|   [groundstation:AgentId](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_RegisterAgent.html#groundstation-RegisterAgent-response-agentId)  | Filters access by the ID of an agent | String | 
+|   [groundstation:ConfigId](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_CreateConfig.html#groundstation-CreateConfig-response-configId)  | Filters access by the ID of a config | String | 
+|   [groundstation:ConfigType](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_CreateConfig.html#groundstation-CreateConfig-response-configType)  | Filters access by the type of a config | String | 
+|   [groundstation:ContactId](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_ReserveContact.html#groundstation-ReserveContact-response-contactId)  | Filters access by the ID of a contact | String | 
+|   [groundstation:DataflowEndpointGroupId](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_CreateDataflowEndpointGroup.html#groundstation-CreateDataflowEndpointGroup-response-dataflowEndpointGroupId)  | Filters access by the ID of a dataflow endpoint group | String | 
+|   [groundstation:EphemerisId](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_CreateEphemeris.html#groundstation-CreateEphemeris-response-ephemerisId)  | Filters access by the ID of an ephemeris | String | 
+|   [groundstation:GroundStationId](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_GroundStationData.html#groundstation-Type-GroundStationData-groundStationId)  | Filters access by the ID of a ground station | String | 
+|   [groundstation:MissionProfileId](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_CreateMissionProfile.html#groundstation-CreateMissionProfile-response-missionProfileId)  | Filters access by the ID of a mission profile | String | 
+|   [groundstation:SatelliteId](https://docs.aws.amazon.com/ground-station/latest/APIReference/API_SatelliteListItem.html#groundstation-Type-SatelliteListItem-satelliteId)  | Filters access by the ID of a satellite | String | 

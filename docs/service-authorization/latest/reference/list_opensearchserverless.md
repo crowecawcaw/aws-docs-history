@@ -1,164 +1,635 @@
-# Actions, resources, and condition keys for Amazon OpenSearch Serverless
 
-Amazon OpenSearch Serverless (service prefix: `aoss`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon OpenSearch Serverless
+<a name="list_opensearchserverless"></a>
+
+Amazon OpenSearch Serverless (service prefix: `aoss`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/security-iam-serverless.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/aoss/aoss.json) for this service.
 
-- Learn how to [configure this service](../../../opensearch-service/latest/developerguide.md "../../../opensearch-service/latest/developerguide.md").
-- View a list of the [API operations available for
-  this service](../../../opensearch-service/latest/ServerlessAPIReference.md "../../../opensearch-service/latest/ServerlessAPIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../opensearch-service/latest/developerguide/security-iam-serverless.md "../../../opensearch-service/latest/developerguide/security-iam-serverless.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/aoss/aoss.json "https://servicereference.us-east-1.amazonaws.com/v1/aoss/aoss.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon OpenSearch Serverless](#list_opensearchserverless-operations "#list_opensearchserverless-operations")
-- [Actions defined by Amazon OpenSearch Serverless](#list_opensearchserverless-actions-as-permissions "#list_opensearchserverless-actions-as-permissions")
-- [Resource types defined by Amazon OpenSearch Serverless](#list_opensearchserverless-resources-for-iam-policies "#list_opensearchserverless-resources-for-iam-policies")
-- [Condition keys for Amazon OpenSearch Serverless](#list_opensearchserverless-policy-keys "#list_opensearchserverless-policy-keys")
+**Topics**
++ [API operations defined by Amazon OpenSearch Serverless](#list_opensearchserverless-operations)
++ [Actions defined by Amazon OpenSearch Serverless](#list_opensearchserverless-actions-as-permissions)
++ [Resource types defined by Amazon OpenSearch Serverless](#list_opensearchserverless-resources-for-iam-policies)
++ [Condition keys for Amazon OpenSearch Serverless](#list_opensearchserverless-policy-keys)
 
 ## API operations defined by Amazon OpenSearch Serverless
+<a name="list_opensearchserverless-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_opensearchserverless-actions-as-permissions "#list_opensearchserverless-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_opensearchserverless-actions-as-permissions).
 
-| Operation                                                                                                                        | IAM action                                                                                                                                                                       | Condition key | Possible value(s) | Access level |
-| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------- | ------------ |
-| BatchGetCollection                                                                                                               | [aoss:BatchGetCollection](#list_opensearchserverless-action-BatchGetCollection "#list_opensearchserverless-action-BatchGetCollection")                                           |               |                   | Read         |
-| BatchGetCollectionGroup                                                                                                          | [aoss:BatchGetCollectionGroup](#list_opensearchserverless-action-BatchGetCollectionGroup "#list_opensearchserverless-action-BatchGetCollectionGroup")                            |               |                   | Read         |
-| BatchGetEffectiveLifecyclePolicy                                                                                                 | [aoss:BatchGetEffectiveLifecyclePolicy](#list_opensearchserverless-action-BatchGetEffectiveLifecyclePolicy "#list_opensearchserverless-action-BatchGetEffectiveLifecyclePolicy") |               |                   | Read         |
-| BatchGetLifecyclePolicy                                                                                                          | [aoss:BatchGetLifecyclePolicy](#list_opensearchserverless-action-BatchGetLifecyclePolicy "#list_opensearchserverless-action-BatchGetLifecyclePolicy")                            |               |                   | Read         |
-| BatchGetVpcEndpoint                                                                                                              | [aoss:BatchGetVpcEndpoint](#list_opensearchserverless-action-BatchGetVpcEndpoint "#list_opensearchserverless-action-BatchGetVpcEndpoint")                                        |               |                   | Read         |
-| CreateAccessPolicy                                                                                                               | [aoss:CreateAccessPolicy](#list_opensearchserverless-action-CreateAccessPolicy "#list_opensearchserverless-action-CreateAccessPolicy")                                           |               |                   | Write        |
-| CreateCollection                                                                                                                 | [aoss:AddCollectionToCollectionGroup](#list_opensearchserverless-action-AddCollectionToCollectionGroup "#list_opensearchserverless-action-AddCollectionToCollectionGroup")       |               |                   | Write        |
-| [aoss:CreateCollection](#list_opensearchserverless-action-CreateCollection "#list_opensearchserverless-action-CreateCollection") |                                                                                                                                                                                  |               | Write             |
-| [aoss:TagResource](#list_opensearchserverless-action-TagResource "#list_opensearchserverless-action-TagResource")                |                                                                                                                                                                                  |               | Write             |
-| CreateCollectionGroup                                                                                                            | [aoss:CreateCollectionGroup](#list_opensearchserverless-action-CreateCollectionGroup "#list_opensearchserverless-action-CreateCollectionGroup")                                  |               |                   | Write        |
-| [aoss:TagResource](#list_opensearchserverless-action-TagResource "#list_opensearchserverless-action-TagResource")                |                                                                                                                                                                                  |               | Write             |
-| CreateIndex                                                                                                                      | [aoss:CreateIndex](#list_opensearchserverless-action-CreateIndex "#list_opensearchserverless-action-CreateIndex")                                                                |               |                   | Write        |
-| CreateLifecyclePolicy                                                                                                            | [aoss:CreateLifecyclePolicy](#list_opensearchserverless-action-CreateLifecyclePolicy "#list_opensearchserverless-action-CreateLifecyclePolicy")                                  |               |                   | Write        |
-| CreateSecurityConfig                                                                                                             | [aoss:CreateSecurityConfig](#list_opensearchserverless-action-CreateSecurityConfig "#list_opensearchserverless-action-CreateSecurityConfig")                                     |               |                   | Write        |
-| CreateSecurityPolicy                                                                                                             | [aoss:CreateSecurityPolicy](#list_opensearchserverless-action-CreateSecurityPolicy "#list_opensearchserverless-action-CreateSecurityPolicy")                                     |               |                   | Write        |
-| CreateVpcEndpoint                                                                                                                | [aoss:CreateVpcEndpoint](#list_opensearchserverless-action-CreateVpcEndpoint "#list_opensearchserverless-action-CreateVpcEndpoint")                                              |               |                   | Write        |
-| DeleteAccessPolicy                                                                                                               | [aoss:DeleteAccessPolicy](#list_opensearchserverless-action-DeleteAccessPolicy "#list_opensearchserverless-action-DeleteAccessPolicy")                                           |               |                   | Write        |
-| DeleteCollection                                                                                                                 | [aoss:DeleteCollection](#list_opensearchserverless-action-DeleteCollection "#list_opensearchserverless-action-DeleteCollection")                                                 |               |                   | Write        |
-| DeleteCollectionGroup                                                                                                            | [aoss:DeleteCollectionGroup](#list_opensearchserverless-action-DeleteCollectionGroup "#list_opensearchserverless-action-DeleteCollectionGroup")                                  |               |                   | Write        |
-| DeleteIndex                                                                                                                      | [aoss:DeleteIndex](#list_opensearchserverless-action-DeleteIndex "#list_opensearchserverless-action-DeleteIndex")                                                                |               |                   | Write        |
-| DeleteLifecyclePolicy                                                                                                            | [aoss:DeleteLifecyclePolicy](#list_opensearchserverless-action-DeleteLifecyclePolicy "#list_opensearchserverless-action-DeleteLifecyclePolicy")                                  |               |                   | Write        |
-| DeleteSecurityConfig                                                                                                             | [aoss:DeleteSecurityConfig](#list_opensearchserverless-action-DeleteSecurityConfig "#list_opensearchserverless-action-DeleteSecurityConfig")                                     |               |                   | Write        |
-| DeleteSecurityPolicy                                                                                                             | [aoss:DeleteSecurityPolicy](#list_opensearchserverless-action-DeleteSecurityPolicy "#list_opensearchserverless-action-DeleteSecurityPolicy")                                     |               |                   | Write        |
-| DeleteVpcEndpoint                                                                                                                | [aoss:DeleteVpcEndpoint](#list_opensearchserverless-action-DeleteVpcEndpoint "#list_opensearchserverless-action-DeleteVpcEndpoint")                                              |               |                   | Write        |
-| GetAccessPolicy                                                                                                                  | [aoss:GetAccessPolicy](#list_opensearchserverless-action-GetAccessPolicy "#list_opensearchserverless-action-GetAccessPolicy")                                                    |               |                   | Read         |
-| GetAccountSettings                                                                                                               | [aoss:GetAccountSettings](#list_opensearchserverless-action-GetAccountSettings "#list_opensearchserverless-action-GetAccountSettings")                                           |               |                   | Read         |
-| GetIndex                                                                                                                         | [aoss:GetIndex](#list_opensearchserverless-action-GetIndex "#list_opensearchserverless-action-GetIndex")                                                                         |               |                   | Read         |
-| GetPoliciesStats                                                                                                                 | [aoss:GetPoliciesStats](#list_opensearchserverless-action-GetPoliciesStats "#list_opensearchserverless-action-GetPoliciesStats")                                                 |               |                   | Read         |
-| GetSecurityConfig                                                                                                                | [aoss:GetSecurityConfig](#list_opensearchserverless-action-GetSecurityConfig "#list_opensearchserverless-action-GetSecurityConfig")                                              |               |                   | Read         |
-| GetSecurityPolicy                                                                                                                | [aoss:GetSecurityPolicy](#list_opensearchserverless-action-GetSecurityPolicy "#list_opensearchserverless-action-GetSecurityPolicy")                                              |               |                   | Read         |
-| ListAccessPolicies                                                                                                               | [aoss:ListAccessPolicies](#list_opensearchserverless-action-ListAccessPolicies "#list_opensearchserverless-action-ListAccessPolicies")                                           |               |                   | List         |
-| ListCollectionGroups                                                                                                             | [aoss:ListCollectionGroups](#list_opensearchserverless-action-ListCollectionGroups "#list_opensearchserverless-action-ListCollectionGroups")                                     |               |                   | List         |
-| ListCollections                                                                                                                  | [aoss:ListCollections](#list_opensearchserverless-action-ListCollections "#list_opensearchserverless-action-ListCollections")                                                    |               |                   | List         |
-| ListLifecyclePolicies                                                                                                            | [aoss:ListLifecyclePolicies](#list_opensearchserverless-action-ListLifecyclePolicies "#list_opensearchserverless-action-ListLifecyclePolicies")                                  |               |                   | List         |
-| ListSecurityConfigs                                                                                                              | [aoss:ListSecurityConfigs](#list_opensearchserverless-action-ListSecurityConfigs "#list_opensearchserverless-action-ListSecurityConfigs")                                        |               |                   | List         |
-| ListSecurityPolicies                                                                                                             | [aoss:ListSecurityPolicies](#list_opensearchserverless-action-ListSecurityPolicies "#list_opensearchserverless-action-ListSecurityPolicies")                                     |               |                   | List         |
-| ListTagsForResource                                                                                                              | [aoss:ListTagsForResource](#list_opensearchserverless-action-ListTagsForResource "#list_opensearchserverless-action-ListTagsForResource")                                        |               |                   | List         |
-| ListVpcEndpoints                                                                                                                 | [aoss:ListVpcEndpoints](#list_opensearchserverless-action-ListVpcEndpoints "#list_opensearchserverless-action-ListVpcEndpoints")                                                 |               |                   | List         |
-| TagResource                                                                                                                      | [aoss:TagResource](#list_opensearchserverless-action-TagResource "#list_opensearchserverless-action-TagResource")                                                                |               |                   | Write        |
-| UntagResource                                                                                                                    | [aoss:UntagResource](#list_opensearchserverless-action-UntagResource "#list_opensearchserverless-action-UntagResource")                                                          |               |                   | Write        |
-| UpdateAccessPolicy                                                                                                               | [aoss:UpdateAccessPolicy](#list_opensearchserverless-action-UpdateAccessPolicy "#list_opensearchserverless-action-UpdateAccessPolicy")                                           |               |                   | Write        |
-| UpdateAccountSettings                                                                                                            | [aoss:UpdateAccountSettings](#list_opensearchserverless-action-UpdateAccountSettings "#list_opensearchserverless-action-UpdateAccountSettings")                                  |               |                   | Write        |
-| UpdateCollection                                                                                                                 | [aoss:UpdateCollection](#list_opensearchserverless-action-UpdateCollection "#list_opensearchserverless-action-UpdateCollection")                                                 |               |                   | Write        |
-| UpdateCollectionGroup                                                                                                            | [aoss:UpdateCollectionGroup](#list_opensearchserverless-action-UpdateCollectionGroup "#list_opensearchserverless-action-UpdateCollectionGroup")                                  |               |                   | Write        |
-| UpdateIndex                                                                                                                      | [aoss:UpdateIndex](#list_opensearchserverless-action-UpdateIndex "#list_opensearchserverless-action-UpdateIndex")                                                                |               |                   | Write        |
-| UpdateLifecyclePolicy                                                                                                            | [aoss:UpdateLifecyclePolicy](#list_opensearchserverless-action-UpdateLifecyclePolicy "#list_opensearchserverless-action-UpdateLifecyclePolicy")                                  |               |                   | Write        |
-| UpdateSecurityConfig                                                                                                             | [aoss:UpdateSecurityConfig](#list_opensearchserverless-action-UpdateSecurityConfig "#list_opensearchserverless-action-UpdateSecurityConfig")                                     |               |                   | Write        |
-| UpdateSecurityPolicy                                                                                                             | [aoss:UpdateSecurityPolicy](#list_opensearchserverless-action-UpdateSecurityPolicy "#list_opensearchserverless-action-UpdateSecurityPolicy")                                     |               |                   | Write        |
-| UpdateVpcEndpoint                                                                                                                | [aoss:UpdateVpcEndpoint](#list_opensearchserverless-action-UpdateVpcEndpoint "#list_opensearchserverless-action-UpdateVpcEndpoint")                                              |               |                   | Write        |
+
+
+
+- **   BatchGetCollection  **
+  - **IAM action:**  [aoss:BatchGetCollection](#list_opensearchserverless-action-BatchGetCollection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetCollectionGroup  **
+  - **IAM action:**  [aoss:BatchGetCollectionGroup](#list_opensearchserverless-action-BatchGetCollectionGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetEffectiveLifecyclePolicy  **
+  - **IAM action:**  [aoss:BatchGetEffectiveLifecyclePolicy](#list_opensearchserverless-action-BatchGetEffectiveLifecyclePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetLifecyclePolicy  **
+  - **IAM action:**  [aoss:BatchGetLifecyclePolicy](#list_opensearchserverless-action-BatchGetLifecyclePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetVpcEndpoint  **
+  - **IAM action:**  [aoss:BatchGetVpcEndpoint](#list_opensearchserverless-action-BatchGetVpcEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   CreateAccessPolicy  **
+  - **IAM action:**  [aoss:CreateAccessPolicy](#list_opensearchserverless-action-CreateAccessPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateCollection  **
+  - **IAM action:**  [aoss:AddCollectionToCollectionGroup](#list_opensearchserverless-action-AddCollectionToCollectionGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [aoss:CreateCollection](#list_opensearchserverless-action-CreateCollection)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [aoss:TagResource](#list_opensearchserverless-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   CreateCollectionGroup  **
+  - **IAM action:**  [aoss:CreateCollectionGroup](#list_opensearchserverless-action-CreateCollectionGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [aoss:TagResource](#list_opensearchserverless-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   CreateIndex  **
+  - **IAM action:**  [aoss:CreateIndex](#list_opensearchserverless-action-CreateIndex) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateLifecyclePolicy  **
+  - **IAM action:**  [aoss:CreateLifecyclePolicy](#list_opensearchserverless-action-CreateLifecyclePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateSecurityConfig  **
+  - **IAM action:**  [aoss:CreateSecurityConfig](#list_opensearchserverless-action-CreateSecurityConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateSecurityPolicy  **
+  - **IAM action:**  [aoss:CreateSecurityPolicy](#list_opensearchserverless-action-CreateSecurityPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateVpcEndpoint  **
+  - **IAM action:**  [aoss:CreateVpcEndpoint](#list_opensearchserverless-action-CreateVpcEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteAccessPolicy  **
+  - **IAM action:**  [aoss:DeleteAccessPolicy](#list_opensearchserverless-action-DeleteAccessPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteCollection  **
+  - **IAM action:**  [aoss:DeleteCollection](#list_opensearchserverless-action-DeleteCollection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteCollectionGroup  **
+  - **IAM action:**  [aoss:DeleteCollectionGroup](#list_opensearchserverless-action-DeleteCollectionGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteIndex  **
+  - **IAM action:**  [aoss:DeleteIndex](#list_opensearchserverless-action-DeleteIndex) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteLifecyclePolicy  **
+  - **IAM action:**  [aoss:DeleteLifecyclePolicy](#list_opensearchserverless-action-DeleteLifecyclePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSecurityConfig  **
+  - **IAM action:**  [aoss:DeleteSecurityConfig](#list_opensearchserverless-action-DeleteSecurityConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteSecurityPolicy  **
+  - **IAM action:**  [aoss:DeleteSecurityPolicy](#list_opensearchserverless-action-DeleteSecurityPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteVpcEndpoint  **
+  - **IAM action:**  [aoss:DeleteVpcEndpoint](#list_opensearchserverless-action-DeleteVpcEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAccessPolicy  **
+  - **IAM action:**  [aoss:GetAccessPolicy](#list_opensearchserverless-action-GetAccessPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetAccountSettings  **
+  - **IAM action:**  [aoss:GetAccountSettings](#list_opensearchserverless-action-GetAccountSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIndex  **
+  - **IAM action:**  [aoss:GetIndex](#list_opensearchserverless-action-GetIndex) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetPoliciesStats  **
+  - **IAM action:**  [aoss:GetPoliciesStats](#list_opensearchserverless-action-GetPoliciesStats) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSecurityConfig  **
+  - **IAM action:**  [aoss:GetSecurityConfig](#list_opensearchserverless-action-GetSecurityConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetSecurityPolicy  **
+  - **IAM action:**  [aoss:GetSecurityPolicy](#list_opensearchserverless-action-GetSecurityPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListAccessPolicies  **
+  - **IAM action:**  [aoss:ListAccessPolicies](#list_opensearchserverless-action-ListAccessPolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCollectionGroups  **
+  - **IAM action:**  [aoss:ListCollectionGroups](#list_opensearchserverless-action-ListCollectionGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCollections  **
+  - **IAM action:**  [aoss:ListCollections](#list_opensearchserverless-action-ListCollections) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListLifecyclePolicies  **
+  - **IAM action:**  [aoss:ListLifecyclePolicies](#list_opensearchserverless-action-ListLifecyclePolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSecurityConfigs  **
+  - **IAM action:**  [aoss:ListSecurityConfigs](#list_opensearchserverless-action-ListSecurityConfigs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListSecurityPolicies  **
+  - **IAM action:**  [aoss:ListSecurityPolicies](#list_opensearchserverless-action-ListSecurityPolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [aoss:ListTagsForResource](#list_opensearchserverless-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListVpcEndpoints  **
+  - **IAM action:**  [aoss:ListVpcEndpoints](#list_opensearchserverless-action-ListVpcEndpoints) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   TagResource  **
+  - **IAM action:**  [aoss:TagResource](#list_opensearchserverless-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UntagResource  **
+  - **IAM action:**  [aoss:UntagResource](#list_opensearchserverless-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAccessPolicy  **
+  - **IAM action:**  [aoss:UpdateAccessPolicy](#list_opensearchserverless-action-UpdateAccessPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateAccountSettings  **
+  - **IAM action:**  [aoss:UpdateAccountSettings](#list_opensearchserverless-action-UpdateAccountSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateCollection  **
+  - **IAM action:**  [aoss:UpdateCollection](#list_opensearchserverless-action-UpdateCollection) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateCollectionGroup  **
+  - **IAM action:**  [aoss:UpdateCollectionGroup](#list_opensearchserverless-action-UpdateCollectionGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateIndex  **
+  - **IAM action:**  [aoss:UpdateIndex](#list_opensearchserverless-action-UpdateIndex) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateLifecyclePolicy  **
+  - **IAM action:**  [aoss:UpdateLifecyclePolicy](#list_opensearchserverless-action-UpdateLifecyclePolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSecurityConfig  **
+  - **IAM action:**  [aoss:UpdateSecurityConfig](#list_opensearchserverless-action-UpdateSecurityConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateSecurityPolicy  **
+  - **IAM action:**  [aoss:UpdateSecurityPolicy](#list_opensearchserverless-action-UpdateSecurityPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateVpcEndpoint  **
+  - **IAM action:**  [aoss:UpdateVpcEndpoint](#list_opensearchserverless-action-UpdateVpcEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon OpenSearch Serverless
+<a name="list_opensearchserverless-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                                   | Description                                                                                             | Resource types (\*required)                                                                                                    | Condition keys                                                                                                                                                                                                                                                                                                                                                                      | Access level |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [APIAccessAll](../../../opensearch-service/latest/ServerlessAPIReference/API_APIAccessAll.md "../../../opensearch-service/latest/ServerlessAPIReference/API_APIAccessAll.md")                                                             | Grant permission to all the supported Opensearch APIs                                                   | [Collection\*](#list_opensearchserverless-resource-Collection "#list_opensearchserverless-resource-Collection")                | [aoss:collection](#list_opensearchserverless-aoss_collection "#list_opensearchserverless-aoss_collection")<br>[aoss:CollectionId](#list_opensearchserverless-aoss_CollectionId "#list_opensearchserverless-aoss_CollectionId")<br>[aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_ "#list_opensearchserverless-aws_ResourceTag___TagKey_")          | Write        |
-| [AddCollectionToCollectionGroup](../../../opensearch-service/latest/ServerlessAPIReference/API_CreateCollection.md "../../../opensearch-service/latest/ServerlessAPIReference/API_CreateCollection.md")                                   | Grants permission to add a serverless collection to a specified collection group                        | [CollectionGroup\*](#list_opensearchserverless-resource-CollectionGroup "#list_opensearchserverless-resource-CollectionGroup") | [aoss:collection-group](#list_opensearchserverless-aoss_collection-group "#list_opensearchserverless-aoss_collection-group")<br>[aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_ "#list_opensearchserverless-aws_ResourceTag___TagKey_")                                                                                                            | Write        |
-| [BatchGetCollection](../../../opensearch-service/latest/ServerlessAPIReference/API_BatchGetCollection.md "../../../opensearch-service/latest/ServerlessAPIReference/API_BatchGetCollection.md")                                           | Grants permission to get attributes for one or more collections                                         |                                                                                                                                | [aoss:collection](#list_opensearchserverless-aoss_collection "#list_opensearchserverless-aoss_collection")                                                                                                                                                                                                                                                                          | Read         |
-| [BatchGetCollectionGroup](../../../opensearch-service/latest/ServerlessAPIReference/API_BatchGetCollectionGroup.md "../../../opensearch-service/latest/ServerlessAPIReference/API_BatchGetCollectionGroup.md")                            | Grants permission to get attributes for one or more collection groups                                   |                                                                                                                                | [aoss:collection-group](#list_opensearchserverless-aoss_collection-group "#list_opensearchserverless-aoss_collection-group")                                                                                                                                                                                                                                                        | Read         |
-| [BatchGetEffectiveLifecyclePolicy](../../../opensearch-service/latest/ServerlessAPIReference/API_BatchGetEffectiveLifecyclePolicy.md "../../../opensearch-service/latest/ServerlessAPIReference/API_BatchGetEffectiveLifecyclePolicy.md") | Grants permission to get the information about a lifecycle policy applied to one or more AOSS resources |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Read         |
-| [BatchGetLifecyclePolicy](../../../opensearch-service/latest/ServerlessAPIReference/API_BatchGetLifecyclePolicy.md "../../../opensearch-service/latest/ServerlessAPIReference/API_BatchGetLifecyclePolicy.md")                            | Grants permission to get information about one or more lifecycle policies                               |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Read         |
-| [BatchGetVpcEndpoint](../../../opensearch-service/latest/ServerlessAPIReference/API_BatchGetVpcEndpoint.md "../../../opensearch-service/latest/ServerlessAPIReference/API_BatchGetVpcEndpoint.md")                                        | Grants permission to get attributes for one or more VPC endpoints                                       |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Read         |
-| [CreateAccessPolicy](../../../opensearch-service/latest/ServerlessAPIReference/API_CreateAccessPolicy.md "../../../opensearch-service/latest/ServerlessAPIReference/API_CreateAccessPolicy.md")                                           | Grants permission to create a data access policy                                                        |                                                                                                                                | [aoss:collection](#list_opensearchserverless-aoss_collection "#list_opensearchserverless-aoss_collection")<br>[aoss:index](#list_opensearchserverless-aoss_index "#list_opensearchserverless-aoss_index")                                                                                                                                                                           | Write        |
-| [CreateCollection](../../../opensearch-service/latest/ServerlessAPIReference/API_CreateCollection.md "../../../opensearch-service/latest/ServerlessAPIReference/API_CreateCollection.md")                                                 | Grants permission to create a serverless collection                                                     |                                                                                                                                | [aws:RequestTag/${TagKey}](#list_opensearchserverless-aws_RequestTag___TagKey_ "#list_opensearchserverless-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_ "#list_opensearchserverless-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_opensearchserverless-aws_TagKeys "#list_opensearchserverless-aws_TagKeys") | Write        |
-| [CreateCollectionGroup](../../../opensearch-service/latest/ServerlessAPIReference/API_CreateCollectionGroup.md "../../../opensearch-service/latest/ServerlessAPIReference/API_CreateCollectionGroup.md")                                  | Grants permission to create a serverless collection group                                               |                                                                                                                                | [aws:RequestTag/${TagKey}](#list_opensearchserverless-aws_RequestTag___TagKey_ "#list_opensearchserverless-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_opensearchserverless-aws_TagKeys "#list_opensearchserverless-aws_TagKeys")                                                                                                                                             | Write        |
-| [CreateIndex](../../../opensearch-service/latest/ServerlessAPIReference/API_CreateIndex.md "../../../opensearch-service/latest/ServerlessAPIReference/API_CreateIndex.md")                                                                | Grants permission to create an opensearch index                                                         |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Write        |
-| [CreateLifecyclePolicy](../../../opensearch-service/latest/ServerlessAPIReference/API_CreateLifecyclePolicy.md "../../../opensearch-service/latest/ServerlessAPIReference/API_CreateLifecyclePolicy.md")                                  | Grants permission to create a lifecycle policy                                                          |                                                                                                                                | [aoss:index](#list_opensearchserverless-aoss_index "#list_opensearchserverless-aoss_index")                                                                                                                                                                                                                                                                                         | Write        |
-| [CreateSecurityConfig](../../../opensearch-service/latest/ServerlessAPIReference/API_CreateSecurityConfig.md "../../../opensearch-service/latest/ServerlessAPIReference/API_CreateSecurityConfig.md")                                     | Grants permission to create a serverless security configuration                                         |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Write        |
-| [CreateSecurityPolicy](../../../opensearch-service/latest/ServerlessAPIReference/API_CreateSecurityPolicy.md "../../../opensearch-service/latest/ServerlessAPIReference/API_CreateSecurityPolicy.md")                                     | Grants permission to create a network or encryption policy                                              |                                                                                                                                | [aoss:collection](#list_opensearchserverless-aoss_collection "#list_opensearchserverless-aoss_collection")                                                                                                                                                                                                                                                                          | Write        |
-| [CreateVpcEndpoint](../../../opensearch-service/latest/ServerlessAPIReference/API_CreateVpcEndpoint.md "../../../opensearch-service/latest/ServerlessAPIReference/API_CreateVpcEndpoint.md")                                              | Grants permission to create an OpenSearch-Serverless-managed interface VPC endpoint                     |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Write        |
-| [DashboardsAccessAll](../../../opensearch-service/latest/ServerlessAPIReference/API_DashboardsAccessAll.md "../../../opensearch-service/latest/ServerlessAPIReference/API_DashboardsAccessAll.md")                                        | Grants permission to Opensearch Serverless Dashboards                                                   | [Dashboards\*](#list_opensearchserverless-resource-Dashboards "#list_opensearchserverless-resource-Dashboards")                | [aoss:collection](#list_opensearchserverless-aoss_collection "#list_opensearchserverless-aoss_collection")<br>[aoss:CollectionId](#list_opensearchserverless-aoss_CollectionId "#list_opensearchserverless-aoss_CollectionId")                                                                                                                                                      | Write        |
-| [DeleteAccessPolicy](../../../opensearch-service/latest/ServerlessAPIReference/API_DeleteAccessPolicy.md "../../../opensearch-service/latest/ServerlessAPIReference/API_DeleteAccessPolicy.md")                                           | Grants permission to delete a data access policy                                                        |                                                                                                                                | [aoss:collection](#list_opensearchserverless-aoss_collection "#list_opensearchserverless-aoss_collection")<br>[aoss:index](#list_opensearchserverless-aoss_index "#list_opensearchserverless-aoss_index")                                                                                                                                                                           | Write        |
-| [DeleteCollection](../../../opensearch-service/latest/ServerlessAPIReference/API_DeleteCollection.md "../../../opensearch-service/latest/ServerlessAPIReference/API_DeleteCollection.md")                                                 | Grants permission to delete a serverless collection                                                     | [Collection\*](#list_opensearchserverless-resource-Collection "#list_opensearchserverless-resource-Collection")                | [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_ "#list_opensearchserverless-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Write        |
-| [DeleteCollectionGroup](../../../opensearch-service/latest/ServerlessAPIReference/API_DeleteCollectionGroup.md "../../../opensearch-service/latest/ServerlessAPIReference/API_DeleteCollectionGroup.md")                                  | Grants permission to delete a serverless collection group                                               | [CollectionGroup\*](#list_opensearchserverless-resource-CollectionGroup "#list_opensearchserverless-resource-CollectionGroup") | [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_ "#list_opensearchserverless-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Write        |
-| [DeleteIndex](../../../opensearch-service/latest/ServerlessAPIReference/API_DeleteIndex.md "../../../opensearch-service/latest/ServerlessAPIReference/API_DeleteIndex.md")                                                                | Grants permission to delete an opensearch index                                                         |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Write        |
-| [DeleteLifecyclePolicy](../../../opensearch-service/latest/ServerlessAPIReference/API_DeleteLifecyclePolicy.md "../../../opensearch-service/latest/ServerlessAPIReference/API_DeleteLifecyclePolicy.md")                                  | Grants permission to delete a lifecycle policy                                                          |                                                                                                                                | [aoss:index](#list_opensearchserverless-aoss_index "#list_opensearchserverless-aoss_index")                                                                                                                                                                                                                                                                                         | Write        |
-| [DeleteSecurityConfig](../../../opensearch-service/latest/ServerlessAPIReference/API_DeleteSecurityConfig.md "../../../opensearch-service/latest/ServerlessAPIReference/API_DeleteSecurityConfig.md")                                     | Grants permission to delete a security configuration                                                    |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Write        |
-| [DeleteSecurityPolicy](../../../opensearch-service/latest/ServerlessAPIReference/API_DeleteSecurityPolicy.md "../../../opensearch-service/latest/ServerlessAPIReference/API_DeleteSecurityPolicy.md")                                     | Grants permission to delete a security policy                                                           |                                                                                                                                | [aoss:collection](#list_opensearchserverless-aoss_collection "#list_opensearchserverless-aoss_collection")                                                                                                                                                                                                                                                                          | Write        |
-| [DeleteVpcEndpoint](../../../opensearch-service/latest/ServerlessAPIReference/API_DeleteVpcEndpoint.md "../../../opensearch-service/latest/ServerlessAPIReference/API_DeleteVpcEndpoint.md")                                              | Grants permission to delete an OpenSearch Serverless-managed interface VPC endpoint                     |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Write        |
-| [GetAccessPolicy](../../../opensearch-service/latest/ServerlessAPIReference/API_GetAccessPolicy.md "../../../opensearch-service/latest/ServerlessAPIReference/API_GetAccessPolicy.md")                                                    | Grants permission to get information about a data access policy                                         |                                                                                                                                | [aoss:collection](#list_opensearchserverless-aoss_collection "#list_opensearchserverless-aoss_collection")<br>[aoss:index](#list_opensearchserverless-aoss_index "#list_opensearchserverless-aoss_index")                                                                                                                                                                           | Read         |
-| [GetAccountSettings](../../../opensearch-service/latest/ServerlessAPIReference/API_GetAccountSettings.md "../../../opensearch-service/latest/ServerlessAPIReference/API_GetAccountSettings.md")                                           | Grants permission to get account settings, including capacity settings                                  |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Read         |
-| [GetIndex](../../../opensearch-service/latest/ServerlessAPIReference/API_GetIndex.md "../../../opensearch-service/latest/ServerlessAPIReference/API_GetIndex.md")                                                                         | Grants permission to get an opensearch index                                                            |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Read         |
-| [GetPoliciesStats](../../../opensearch-service/latest/ServerlessAPIReference/API_GetPoliciesStats.md "../../../opensearch-service/latest/ServerlessAPIReference/API_GetPoliciesStats.md")                                                 | Grants permission to get statistis about the security policies in your account                          |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Read         |
-| [GetSecurityConfig](../../../opensearch-service/latest/ServerlessAPIReference/API_GetSecurityConfig.md "../../../opensearch-service/latest/ServerlessAPIReference/API_GetSecurityConfig.md")                                              | Grants permission to get information about a serverless security configuration                          |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Read         |
-| [GetSecurityPolicy](../../../opensearch-service/latest/ServerlessAPIReference/API_GetSecurityPolicy.md "../../../opensearch-service/latest/ServerlessAPIReference/API_GetSecurityPolicy.md")                                              | Grants permission to get information about a security policy                                            |                                                                                                                                | [aoss:collection](#list_opensearchserverless-aoss_collection "#list_opensearchserverless-aoss_collection")                                                                                                                                                                                                                                                                          | Read         |
-| [ListAccessPolicies](../../../opensearch-service/latest/ServerlessAPIReference/API_ListAccessPolicies.md "../../../opensearch-service/latest/ServerlessAPIReference/API_ListAccessPolicies.md")                                           | Grants permission to list data access policies                                                          |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | List         |
-| [ListCollectionGroups](../../../opensearch-service/latest/ServerlessAPIReference/API_ListCollectionGroups.md "../../../opensearch-service/latest/ServerlessAPIReference/API_ListCollectionGroups.md")                                     | Grants permission to list collection groups                                                             |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | List         |
-| [ListCollections](../../../opensearch-service/latest/ServerlessAPIReference/API_ListCollections.md "../../../opensearch-service/latest/ServerlessAPIReference/API_ListCollections.md")                                                    | Grants permission to list collections                                                                   |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | List         |
-| [ListLifecyclePolicies](../../../opensearch-service/latest/ServerlessAPIReference/API_ListLifecyclePolicies.md "../../../opensearch-service/latest/ServerlessAPIReference/API_ListLifecyclePolicies.md")                                  | Grants permission to list lifecycle policies                                                            |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | List         |
-| [ListSecurityConfigs](../../../opensearch-service/latest/ServerlessAPIReference/API_ListSecurityConfigs.md "../../../opensearch-service/latest/ServerlessAPIReference/API_ListSecurityConfigs.md")                                        | Grants permission to list security configurations                                                       |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | List         |
-| [ListSecurityPolicies](../../../opensearch-service/latest/ServerlessAPIReference/API_ListSecurityPolicies.md "../../../opensearch-service/latest/ServerlessAPIReference/API_ListSecurityPolicies.md")                                     | Grants permission to list security policies                                                             |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | List         |
-| [ListTagsForResource](../../../opensearch-service/latest/ServerlessAPIReference/API_ListTagsForResource.md "../../../opensearch-service/latest/ServerlessAPIReference/API_ListTagsForResource.md")                                        | Grants permission to list tags for a collection                                                         |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | List         |
-| [ListVpcEndpoints](../../../opensearch-service/latest/ServerlessAPIReference/API_ListVpcEndpoints.md "../../../opensearch-service/latest/ServerlessAPIReference/API_ListVpcEndpoints.md")                                                 | Grants permission to list OpenSearch Serverless-managed VPC endpoints                                   |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | List         |
-| [TagResource](../../../opensearch-service/latest/ServerlessAPIReference/API_TagResource.md "../../../opensearch-service/latest/ServerlessAPIReference/API_TagResource.md")                                                                | Grants permission to tag a serverless collection                                                        |                                                                                                                                | [aws:RequestTag/${TagKey}](#list_opensearchserverless-aws_RequestTag___TagKey_ "#list_opensearchserverless-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_ "#list_opensearchserverless-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_opensearchserverless-aws_TagKeys "#list_opensearchserverless-aws_TagKeys") | Write        |
-| [UntagResource](../../../opensearch-service/latest/ServerlessAPIReference/API_UntagResource.md "../../../opensearch-service/latest/ServerlessAPIReference/API_UntagResource.md")                                                          | Grants permission to remove tags from a collection                                                      |                                                                                                                                | [aws:TagKeys](#list_opensearchserverless-aws_TagKeys "#list_opensearchserverless-aws_TagKeys")                                                                                                                                                                                                                                                                                      | Write        |
-| [UpdateAccessPolicy](../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateAccessPolicy.md "../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateAccessPolicy.md")                                           | Grants permission to update a data access policy                                                        |                                                                                                                                | [aoss:collection](#list_opensearchserverless-aoss_collection "#list_opensearchserverless-aoss_collection")<br>[aoss:index](#list_opensearchserverless-aoss_index "#list_opensearchserverless-aoss_index")                                                                                                                                                                           | Write        |
-| [UpdateAccountSettings](../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateAccountSettings.md "../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateAccountSettings.md")                                  | Grants permission to update account settings, including capacity settings                               |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Write        |
-| [UpdateCollection](../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateCollection.md "../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateCollection.md")                                                 | Grants permission to update a collection                                                                | [Collection\*](#list_opensearchserverless-resource-Collection "#list_opensearchserverless-resource-Collection")                | [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_ "#list_opensearchserverless-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Write        |
-| [UpdateCollectionGroup](../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateCollectionGroup.md "../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateCollectionGroup.md")                                  | Grants permission to update a collection group                                                          | [CollectionGroup\*](#list_opensearchserverless-resource-CollectionGroup "#list_opensearchserverless-resource-CollectionGroup") | [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_ "#list_opensearchserverless-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                            | Write        |
-| [UpdateIndex](../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateIndex.md "../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateIndex.md")                                                                | Grants permission to update an opensearch index                                                         |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Write        |
-| [UpdateLifecyclePolicy](../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateLifecyclePolicy.md "../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateLifecyclePolicy.md")                                  | Grants permission to update a lifecycle policy                                                          |                                                                                                                                | [aoss:index](#list_opensearchserverless-aoss_index "#list_opensearchserverless-aoss_index")                                                                                                                                                                                                                                                                                         | Write        |
-| [UpdateSecurityConfig](../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateSecurityConfig.md "../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateSecurityConfig.md")                                     | Grants permission to update a security configuration                                                    |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Write        |
-| [UpdateSecurityPolicy](../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateSecurityPolicy.md "../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateSecurityPolicy.md")                                     | Grants permission to update a security policy                                                           |                                                                                                                                | [aoss:collection](#list_opensearchserverless-aoss_collection "#list_opensearchserverless-aoss_collection")                                                                                                                                                                                                                                                                          | Write        |
-| [UpdateVpcEndpoint](../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateVpcEndpoint.md "../../../opensearch-service/latest/ServerlessAPIReference/API_UpdateVpcEndpoint.md")                                              | Grants permission to update an OpenSearch Serverless-managed VPC endpoint                               |                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                     | Write        |
+
+
+
+- **   [APIAccessAll](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_APIAccessAll.html)  **
+  - **Description:** Grant permission to all the supported Opensearch APIs
+  - **Resource types (\*required):** [Collection\*](#list_opensearchserverless-resource-Collection)
+  - **Condition keys:** [aoss:collection](#list_opensearchserverless-aoss_collection)<br />[aoss:CollectionId](#list_opensearchserverless-aoss_CollectionId)<br />[aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [AddCollectionToCollectionGroup](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_CreateCollection.html)  **
+  - **Description:** Grants permission to add a serverless collection to a specified collection group
+  - **Resource types (\*required):** [CollectionGroup\*](#list_opensearchserverless-resource-CollectionGroup)
+  - **Condition keys:** [aoss:collection-group](#list_opensearchserverless-aoss_collection-group)<br />[aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [BatchGetCollection](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_BatchGetCollection.html)  **
+  - **Description:** Grants permission to get attributes for one or more collections
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aoss:collection](#list_opensearchserverless-aoss_collection)
+  - **Access level:** Read
+
+- **   [BatchGetCollectionGroup](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_BatchGetCollectionGroup.html)  **
+  - **Description:** Grants permission to get attributes for one or more collection groups
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aoss:collection-group](#list_opensearchserverless-aoss_collection-group)
+  - **Access level:** Read
+
+- **   [BatchGetEffectiveLifecyclePolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_BatchGetEffectiveLifecyclePolicy.html)  **
+  - **Description:** Grants permission to get the information about a lifecycle policy applied to one or more AOSS resources
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [BatchGetLifecyclePolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_BatchGetLifecyclePolicy.html)  **
+  - **Description:** Grants permission to get information about one or more lifecycle policies
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [BatchGetVpcEndpoint](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_BatchGetVpcEndpoint.html)  **
+  - **Description:** Grants permission to get attributes for one or more VPC endpoints
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [CreateAccessPolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_CreateAccessPolicy.html)  **
+  - **Description:** Grants permission to create a data access policy
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aoss:collection](#list_opensearchserverless-aoss_collection)<br />[aoss:index](#list_opensearchserverless-aoss_index)
+  - **Access level:** Write
+
+- **   [CreateCollection](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_CreateCollection.html)  **
+  - **Description:** Grants permission to create a serverless collection
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_opensearchserverless-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_opensearchserverless-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateCollectionGroup](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_CreateCollectionGroup.html)  **
+  - **Description:** Grants permission to create a serverless collection group
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_opensearchserverless-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_opensearchserverless-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateIndex](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_CreateIndex.html)  **
+  - **Description:** Grants permission to create an opensearch index
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateLifecyclePolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_CreateLifecyclePolicy.html)  **
+  - **Description:** Grants permission to create a lifecycle policy
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aoss:index](#list_opensearchserverless-aoss_index)
+  - **Access level:** Write
+
+- **   [CreateSecurityConfig](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_CreateSecurityConfig.html)  **
+  - **Description:** Grants permission to create a serverless security configuration
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateSecurityPolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_CreateSecurityPolicy.html)  **
+  - **Description:** Grants permission to create a network or encryption policy
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aoss:collection](#list_opensearchserverless-aoss_collection)
+  - **Access level:** Write
+
+- **   [CreateVpcEndpoint](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_CreateVpcEndpoint.html)  **
+  - **Description:** Grants permission to create an OpenSearch-Serverless-managed interface VPC endpoint
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DashboardsAccessAll](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_DashboardsAccessAll.html)  **
+  - **Description:** Grants permission to Opensearch Serverless Dashboards
+  - **Resource types (\*required):** [Dashboards\*](#list_opensearchserverless-resource-Dashboards)
+  - **Condition keys:** [aoss:collection](#list_opensearchserverless-aoss_collection)<br />[aoss:CollectionId](#list_opensearchserverless-aoss_CollectionId)
+  - **Access level:** Write
+
+- **   [DeleteAccessPolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_DeleteAccessPolicy.html)  **
+  - **Description:** Grants permission to delete a data access policy
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aoss:collection](#list_opensearchserverless-aoss_collection)<br />[aoss:index](#list_opensearchserverless-aoss_index)
+  - **Access level:** Write
+
+- **   [DeleteCollection](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_DeleteCollection.html)  **
+  - **Description:** Grants permission to delete a serverless collection
+  - **Resource types (\*required):** [Collection\*](#list_opensearchserverless-resource-Collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteCollectionGroup](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_DeleteCollectionGroup.html)  **
+  - **Description:** Grants permission to delete a serverless collection group
+  - **Resource types (\*required):** [CollectionGroup\*](#list_opensearchserverless-resource-CollectionGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteIndex](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_DeleteIndex.html)  **
+  - **Description:** Grants permission to delete an opensearch index
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteLifecyclePolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_DeleteLifecyclePolicy.html)  **
+  - **Description:** Grants permission to delete a lifecycle policy
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aoss:index](#list_opensearchserverless-aoss_index)
+  - **Access level:** Write
+
+- **   [DeleteSecurityConfig](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_DeleteSecurityConfig.html)  **
+  - **Description:** Grants permission to delete a security configuration
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteSecurityPolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_DeleteSecurityPolicy.html)  **
+  - **Description:** Grants permission to delete a security policy
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aoss:collection](#list_opensearchserverless-aoss_collection)
+  - **Access level:** Write
+
+- **   [DeleteVpcEndpoint](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_DeleteVpcEndpoint.html)  **
+  - **Description:** Grants permission to delete an OpenSearch Serverless-managed interface VPC endpoint
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [GetAccessPolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_GetAccessPolicy.html)  **
+  - **Description:** Grants permission to get information about a data access policy
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aoss:collection](#list_opensearchserverless-aoss_collection)<br />[aoss:index](#list_opensearchserverless-aoss_index)
+  - **Access level:** Read
+
+- **   [GetAccountSettings](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_GetAccountSettings.html)  **
+  - **Description:** Grants permission to get account settings, including capacity settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetIndex](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_GetIndex.html)  **
+  - **Description:** Grants permission to get an opensearch index
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetPoliciesStats](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_GetPoliciesStats.html)  **
+  - **Description:** Grants permission to get statistis about the security policies in your account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetSecurityConfig](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_GetSecurityConfig.html)  **
+  - **Description:** Grants permission to get information about a serverless security configuration
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetSecurityPolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_GetSecurityPolicy.html)  **
+  - **Description:** Grants permission to get information about a security policy
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aoss:collection](#list_opensearchserverless-aoss_collection)
+  - **Access level:** Read
+
+- **   [ListAccessPolicies](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListAccessPolicies.html)  **
+  - **Description:** Grants permission to list data access policies
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListCollectionGroups](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListCollectionGroups.html)  **
+  - **Description:** Grants permission to list collection groups
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListCollections](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListCollections.html)  **
+  - **Description:** Grants permission to list collections
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListLifecyclePolicies](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListLifecyclePolicies.html)  **
+  - **Description:** Grants permission to list lifecycle policies
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSecurityConfigs](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListSecurityConfigs.html)  **
+  - **Description:** Grants permission to list security configurations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSecurityPolicies](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListSecurityPolicies.html)  **
+  - **Description:** Grants permission to list security policies
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to list tags for a collection
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListVpcEndpoints](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListVpcEndpoints.html)  **
+  - **Description:** Grants permission to list OpenSearch Serverless-managed VPC endpoints
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [TagResource](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to tag a serverless collection
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_opensearchserverless-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_opensearchserverless-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove tags from a collection
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:TagKeys](#list_opensearchserverless-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [UpdateAccessPolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_UpdateAccessPolicy.html)  **
+  - **Description:** Grants permission to update a data access policy
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aoss:collection](#list_opensearchserverless-aoss_collection)<br />[aoss:index](#list_opensearchserverless-aoss_index)
+  - **Access level:** Write
+
+- **   [UpdateAccountSettings](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_UpdateAccountSettings.html)  **
+  - **Description:** Grants permission to update account settings, including capacity settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateCollection](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_UpdateCollection.html)  **
+  - **Description:** Grants permission to update a collection
+  - **Resource types (\*required):** [Collection\*](#list_opensearchserverless-resource-Collection)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateCollectionGroup](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_UpdateCollectionGroup.html)  **
+  - **Description:** Grants permission to update a collection group
+  - **Resource types (\*required):** [CollectionGroup\*](#list_opensearchserverless-resource-CollectionGroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateIndex](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_UpdateIndex.html)  **
+  - **Description:** Grants permission to update an opensearch index
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateLifecyclePolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_UpdateLifecyclePolicy.html)  **
+  - **Description:** Grants permission to update a lifecycle policy
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aoss:index](#list_opensearchserverless-aoss_index)
+  - **Access level:** Write
+
+- **   [UpdateSecurityConfig](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_UpdateSecurityConfig.html)  **
+  - **Description:** Grants permission to update a security configuration
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateSecurityPolicy](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_UpdateSecurityPolicy.html)  **
+  - **Description:** Grants permission to update a security policy
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aoss:collection](#list_opensearchserverless-aoss_collection)
+  - **Access level:** Write
+
+- **   [UpdateVpcEndpoint](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_UpdateVpcEndpoint.html)  **
+  - **Description:** Grants permission to update an OpenSearch Serverless-managed VPC endpoint
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon OpenSearch Serverless
+<a name="list_opensearchserverless-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                         | ARN                                                                              | Condition keys                                                                                                                           |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| [Collection](../../../opensearch-service/latest/developerguide/serverless-overview.md "../../../opensearch-service/latest/developerguide/serverless-overview.md")      | arn:${Partition}:aoss:${Region}:${Account}:collection/${CollectionId}            | [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_ "#list_opensearchserverless-aws_ResourceTag___TagKey_") |
-| [CollectionGroup](../../../opensearch-service/latest/developerguide/serverless-overview.md "../../../opensearch-service/latest/developerguide/serverless-overview.md") | arn:${Partition}:aoss:${Region}:${Account}:collection-group/${CollectionGroupId} | [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_ "#list_opensearchserverless-aws_ResourceTag___TagKey_") |
-| [Dashboards](../../../opensearch-service/latest/developerguide/serverless-overview.md "../../../opensearch-service/latest/developerguide/serverless-overview.md")      | arn:${Partition}:aoss:${Region}:${Account}:dashboards/default                    |                                                                                                                                          |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [Collection](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html)  | arn:${Partition}:aoss:${Region}:${Account}:collection/${CollectionId} | [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_) | 
+|  [CollectionGroup](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html)  | arn:${Partition}:aoss:${Region}:${Account}:collection-group/${CollectionGroupId} | [aws:ResourceTag/${TagKey}](#list_opensearchserverless-aws_ResourceTag___TagKey_) | 
+|  [Dashboards](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html)  | arn:${Partition}:aoss:${Region}:${Account}:dashboards/default |   | 
 
 ## Condition keys for Amazon OpenSearch Serverless
+<a name="list_opensearchserverless-policy-keys"></a>
 
-Amazon OpenSearch Serverless defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon OpenSearch Serverless defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                                                                   | Description                                                         | Type          |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------- |
-| [aoss:CollectionId](../../../opensearch-service/latest/developerguide/security-iam-serverless.md#security_iam_serverless-conditionkeys "../../../opensearch-service/latest/developerguide/security-iam-serverless.md#security_iam_serverless-conditionkeys")     | Filters access by the identifier of the collection                  | String        |
-| [aoss:collection](../../../opensearch-service/latest/developerguide/security-iam-serverless.md#security_iam_serverless-conditionkeys "../../../opensearch-service/latest/developerguide/security-iam-serverless.md#security_iam_serverless-conditionkeys")       | Filters access by the collection name                               | String        |
-| [aoss:collection-group](../../../opensearch-service/latest/developerguide/security-iam-serverless.md#security_iam_serverless-conditionkeys "../../../opensearch-service/latest/developerguide/security-iam-serverless.md#security_iam_serverless-conditionkeys") | Filters access by the collection group name                         | String        |
-| [aoss:index](../../../opensearch-service/latest/developerguide/security-iam-serverless.md#security_iam_serverless-conditionkeys "../../../opensearch-service/latest/developerguide/security-iam-serverless.md#security_iam_serverless-conditionkeys")            | Filters access by the index                                         | String        |
-| [aws:RequestTag/${TagKey}](security-iam-serverless.md#condition-keys-requesttag "security-iam-serverless.md#condition-keys-requesttag")                                                                                                                          | Filters access based on the tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](security-iam-serverless.md#condition-keys-resourcetag "security-iam-serverless.md#condition-keys-resourcetag")                                                                                                                       | Filters access based on the tags associated with the resource       | String        |
-| [aws:TagKeys](security-iam-serverless.md#condition-keys-tagkeys "security-iam-serverless.md#condition-keys-tagkeys")                                                                                                                                             | Filters access based on the tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aoss:CollectionId](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/security-iam-serverless.html#security_iam_serverless-conditionkeys)  | Filters access by the identifier of the collection | String | 
+|   [aoss:collection](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/security-iam-serverless.html#security_iam_serverless-conditionkeys)  | Filters access by the collection name | String | 
+|   [aoss:collection-group](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/security-iam-serverless.html#security_iam_serverless-conditionkeys)  | Filters access by the collection group name | String | 
+|   [aoss:index](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/security-iam-serverless.html#security_iam_serverless-conditionkeys)  | Filters access by the index | String | 
+|   [aws:RequestTag/${TagKey}](security-iam-serverless.html#condition-keys-requesttag)  | Filters access based on the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](security-iam-serverless.html#condition-keys-resourcetag)  | Filters access based on the tags associated with the resource | String | 
+|   [aws:TagKeys](security-iam-serverless.html#condition-keys-tagkeys)  | Filters access based on the tag keys that are passed in the request | ArrayOfString | 

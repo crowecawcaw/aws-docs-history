@@ -1,310 +1,1301 @@
-# Actions, resources, and condition keys for Amazon GuardDuty
 
-Amazon GuardDuty (service prefix: `guardduty`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon GuardDuty
+<a name="list_guardduty"></a>
+
+Amazon GuardDuty (service prefix: `guardduty`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/guardduty/latest/APIReference/Welcome.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_managing_access.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/guardduty/guardduty.json) for this service.
 
-- Learn how to [configure this service](../../../guardduty/latest/ug/what-is-guardduty.md "../../../guardduty/latest/ug/what-is-guardduty.md").
-- View a list of the [API operations available for
-  this service](../../../guardduty/latest/APIReference/Welcome.md "../../../guardduty/latest/APIReference/Welcome.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../guardduty/latest/ug/guardduty_managing_access.md "../../../guardduty/latest/ug/guardduty_managing_access.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/guardduty/guardduty.json "https://servicereference.us-east-1.amazonaws.com/v1/guardduty/guardduty.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon GuardDuty](#list_guardduty-operations "#list_guardduty-operations")
-- [Actions defined by Amazon GuardDuty](#list_guardduty-actions-as-permissions "#list_guardduty-actions-as-permissions")
-- [Resource types defined by Amazon GuardDuty](#list_guardduty-resources-for-iam-policies "#list_guardduty-resources-for-iam-policies")
-- [Condition keys for Amazon GuardDuty](#list_guardduty-policy-keys "#list_guardduty-policy-keys")
+**Topics**
++ [API operations defined by Amazon GuardDuty](#list_guardduty-operations)
++ [Actions defined by Amazon GuardDuty](#list_guardduty-actions-as-permissions)
++ [Resource types defined by Amazon GuardDuty](#list_guardduty-resources-for-iam-policies)
++ [Condition keys for Amazon GuardDuty](#list_guardduty-policy-keys)
 
 ## API operations defined by Amazon GuardDuty
+<a name="list_guardduty-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_guardduty-actions-as-permissions "#list_guardduty-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_guardduty-actions-as-permissions).
 
-| Operation                                                                                                                       | IAM action                                                                                                                                                                                 | Condition key                                   | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- | ----------------- | -------------- |
-| AcceptAdministratorInvitation                                                                                                   | [guardduty:AcceptAdministratorInvitation](#list_guardduty-action-AcceptAdministratorInvitation "#list_guardduty-action-AcceptAdministratorInvitation")                                     |                                                 |                   | Write          |
-| AcceptInvitation                                                                                                                | [guardduty:AcceptInvitation](#list_guardduty-action-AcceptInvitation "#list_guardduty-action-AcceptInvitation")                                                                            |                                                 |                   | Write          |
-| ArchiveFindings                                                                                                                 | [guardduty:ArchiveFindings](#list_guardduty-action-ArchiveFindings "#list_guardduty-action-ArchiveFindings")                                                                               |                                                 |                   | Write          |
-| CreateCustomDetectionRuleAssociation                                                                                            | [guardduty:CreateCustomDetectionRuleAssociation](#list_guardduty-action-CreateCustomDetectionRuleAssociation "#list_guardduty-action-CreateCustomDetectionRuleAssociation")                |                                                 |                   | Write          |
-| [guardduty:TagResource](#list_guardduty-action-TagResource "#list_guardduty-action-TagResource")                                |                                                                                                                                                                                            |                                                 | Tagging, Write    |
-| CreateCustomDetectionRuleOrgConfiguration                                                                                       | [guardduty:CreateCustomDetectionRuleOrgConfiguration](#list_guardduty-action-CreateCustomDetectionRuleOrgConfiguration "#list_guardduty-action-CreateCustomDetectionRuleOrgConfiguration") |                                                 |                   | Write          |
-| CreateDetector                                                                                                                  | [guardduty:CreateDetector](#list_guardduty-action-CreateDetector "#list_guardduty-action-CreateDetector")                                                                                  |                                                 |                   | Write          |
-| [guardduty:TagResource](#list_guardduty-action-TagResource "#list_guardduty-action-TagResource")                                |                                                                                                                                                                                            |                                                 | Tagging, Write    |
-| CreateFilter                                                                                                                    | [guardduty:CreateFilter](#list_guardduty-action-CreateFilter "#list_guardduty-action-CreateFilter")                                                                                        |                                                 |                   | Write          |
-| [guardduty:TagResource](#list_guardduty-action-TagResource "#list_guardduty-action-TagResource")                                |                                                                                                                                                                                            |                                                 | Tagging, Write    |
-| CreateIPSet                                                                                                                     | [guardduty:CreateIPSet](#list_guardduty-action-CreateIPSet "#list_guardduty-action-CreateIPSet")                                                                                           |                                                 |                   | Write          |
-| [guardduty:TagResource](#list_guardduty-action-TagResource "#list_guardduty-action-TagResource")                                |                                                                                                                                                                                            |                                                 | Tagging, Write    |
-| CreateInvestigation                                                                                                             | [guardduty:CreateInvestigation](#list_guardduty-action-CreateInvestigation "#list_guardduty-action-CreateInvestigation")                                                                   |                                                 |                   | Write          |
-| CreateMalwareProtectionPlan                                                                                                     | [guardduty:CreateMalwareProtectionPlan](#list_guardduty-action-CreateMalwareProtectionPlan "#list_guardduty-action-CreateMalwareProtectionPlan")                                           |                                                 |                   | Write          |
-| [guardduty:TagResource](#list_guardduty-action-TagResource "#list_guardduty-action-TagResource")                                |                                                                                                                                                                                            |                                                 | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                        | malware-protection-plan.guardduty.amazonaws.com | Write             |
-| CreateMembers                                                                                                                   | [guardduty:CreateMembers](#list_guardduty-action-CreateMembers "#list_guardduty-action-CreateMembers")                                                                                     |                                                 |                   | Write          |
-| CreatePublishingDestination                                                                                                     | [guardduty:CreatePublishingDestination](#list_guardduty-action-CreatePublishingDestination "#list_guardduty-action-CreatePublishingDestination")                                           |                                                 |                   | Write          |
-| [guardduty:TagResource](#list_guardduty-action-TagResource "#list_guardduty-action-TagResource")                                |                                                                                                                                                                                            |                                                 | Tagging, Write    |
-| CreateSampleFindings                                                                                                            | [guardduty:CreateSampleFindings](#list_guardduty-action-CreateSampleFindings "#list_guardduty-action-CreateSampleFindings")                                                                |                                                 |                   | Write          |
-| CreateThreatEntitySet                                                                                                           | [guardduty:CreateThreatEntitySet](#list_guardduty-action-CreateThreatEntitySet "#list_guardduty-action-CreateThreatEntitySet")                                                             |                                                 |                   | Write          |
-| [guardduty:TagResource](#list_guardduty-action-TagResource "#list_guardduty-action-TagResource")                                |                                                                                                                                                                                            |                                                 | Tagging, Write    |
-| CreateThreatIntelSet                                                                                                            | [guardduty:CreateThreatIntelSet](#list_guardduty-action-CreateThreatIntelSet "#list_guardduty-action-CreateThreatIntelSet")                                                                |                                                 |                   | Write          |
-| [guardduty:TagResource](#list_guardduty-action-TagResource "#list_guardduty-action-TagResource")                                |                                                                                                                                                                                            |                                                 | Tagging, Write    |
-| CreateTrustedEntitySet                                                                                                          | [guardduty:CreateTrustedEntitySet](#list_guardduty-action-CreateTrustedEntitySet "#list_guardduty-action-CreateTrustedEntitySet")                                                          |                                                 |                   | Write          |
-| [guardduty:TagResource](#list_guardduty-action-TagResource "#list_guardduty-action-TagResource")                                |                                                                                                                                                                                            |                                                 | Tagging, Write    |
-| DeclineInvitations                                                                                                              | [guardduty:DeclineInvitations](#list_guardduty-action-DeclineInvitations "#list_guardduty-action-DeclineInvitations")                                                                      |                                                 |                   | Write          |
-| DeleteCustomDetectionRuleAssociation                                                                                            | [guardduty:DeleteCustomDetectionRuleAssociation](#list_guardduty-action-DeleteCustomDetectionRuleAssociation "#list_guardduty-action-DeleteCustomDetectionRuleAssociation")                |                                                 |                   | Write          |
-| DeleteCustomDetectionRuleOrgConfiguration                                                                                       | [guardduty:DeleteCustomDetectionRuleOrgConfiguration](#list_guardduty-action-DeleteCustomDetectionRuleOrgConfiguration "#list_guardduty-action-DeleteCustomDetectionRuleOrgConfiguration") |                                                 |                   | Write          |
-| DeleteDetector                                                                                                                  | [guardduty:DeleteDetector](#list_guardduty-action-DeleteDetector "#list_guardduty-action-DeleteDetector")                                                                                  |                                                 |                   | Write          |
-| DeleteFilter                                                                                                                    | [guardduty:DeleteFilter](#list_guardduty-action-DeleteFilter "#list_guardduty-action-DeleteFilter")                                                                                        |                                                 |                   | Write          |
-| DeleteIPSet                                                                                                                     | [guardduty:DeleteIPSet](#list_guardduty-action-DeleteIPSet "#list_guardduty-action-DeleteIPSet")                                                                                           |                                                 |                   | Write          |
-| DeleteInvitations                                                                                                               | [guardduty:DeleteInvitations](#list_guardduty-action-DeleteInvitations "#list_guardduty-action-DeleteInvitations")                                                                         |                                                 |                   | Write          |
-| DeleteMalwareProtectionPlan                                                                                                     | [guardduty:DeleteMalwareProtectionPlan](#list_guardduty-action-DeleteMalwareProtectionPlan "#list_guardduty-action-DeleteMalwareProtectionPlan")                                           |                                                 |                   | Write          |
-| DeleteMembers                                                                                                                   | [guardduty:DeleteMembers](#list_guardduty-action-DeleteMembers "#list_guardduty-action-DeleteMembers")                                                                                     |                                                 |                   | Write          |
-| DeletePublishingDestination                                                                                                     | [guardduty:DeletePublishingDestination](#list_guardduty-action-DeletePublishingDestination "#list_guardduty-action-DeletePublishingDestination")                                           |                                                 |                   | Write          |
-| DeleteThreatEntitySet                                                                                                           | [guardduty:DeleteThreatEntitySet](#list_guardduty-action-DeleteThreatEntitySet "#list_guardduty-action-DeleteThreatEntitySet")                                                             |                                                 |                   | Write          |
-| DeleteThreatIntelSet                                                                                                            | [guardduty:DeleteThreatIntelSet](#list_guardduty-action-DeleteThreatIntelSet "#list_guardduty-action-DeleteThreatIntelSet")                                                                |                                                 |                   | Write          |
-| DeleteTrustedEntitySet                                                                                                          | [guardduty:DeleteTrustedEntitySet](#list_guardduty-action-DeleteTrustedEntitySet "#list_guardduty-action-DeleteTrustedEntitySet")                                                          |                                                 |                   | Write          |
-| DescribeMalwareScans                                                                                                            | [guardduty:DescribeMalwareScans](#list_guardduty-action-DescribeMalwareScans "#list_guardduty-action-DescribeMalwareScans")                                                                |                                                 |                   | Read           |
-| DescribeOrganizationConfiguration                                                                                               | [guardduty:DescribeOrganizationConfiguration](#list_guardduty-action-DescribeOrganizationConfiguration "#list_guardduty-action-DescribeOrganizationConfiguration")                         |                                                 |                   | Read           |
-| DescribePublishingDestination                                                                                                   | [guardduty:DescribePublishingDestination](#list_guardduty-action-DescribePublishingDestination "#list_guardduty-action-DescribePublishingDestination")                                     |                                                 |                   | Read           |
-| DisableOrganizationAdminAccount                                                                                                 | [guardduty:DisableOrganizationAdminAccount](#list_guardduty-action-DisableOrganizationAdminAccount "#list_guardduty-action-DisableOrganizationAdminAccount")                               |                                                 |                   | Write          |
-| DisassociateFromAdministratorAccount                                                                                            | [guardduty:DisassociateFromAdministratorAccount](#list_guardduty-action-DisassociateFromAdministratorAccount "#list_guardduty-action-DisassociateFromAdministratorAccount")                |                                                 |                   | Write          |
-| DisassociateFromMasterAccount                                                                                                   | [guardduty:DisassociateFromMasterAccount](#list_guardduty-action-DisassociateFromMasterAccount "#list_guardduty-action-DisassociateFromMasterAccount")                                     |                                                 |                   | Write          |
-| DisassociateMembers                                                                                                             | [guardduty:DisassociateMembers](#list_guardduty-action-DisassociateMembers "#list_guardduty-action-DisassociateMembers")                                                                   |                                                 |                   | Write          |
-| EnableOrganizationAdminAccount                                                                                                  | [guardduty:EnableOrganizationAdminAccount](#list_guardduty-action-EnableOrganizationAdminAccount "#list_guardduty-action-EnableOrganizationAdminAccount")                                  |                                                 |                   | Write          |
-| GetAdministratorAccount                                                                                                         | [guardduty:GetAdministratorAccount](#list_guardduty-action-GetAdministratorAccount "#list_guardduty-action-GetAdministratorAccount")                                                       |                                                 |                   | Read           |
-| GetCoverageStatistics                                                                                                           | [guardduty:GetCoverageStatistics](#list_guardduty-action-GetCoverageStatistics "#list_guardduty-action-GetCoverageStatistics")                                                             |                                                 |                   | Read           |
-| GetCustomDetectionRule                                                                                                          | [guardduty:GetCustomDetectionRule](#list_guardduty-action-GetCustomDetectionRule "#list_guardduty-action-GetCustomDetectionRule")                                                          |                                                 |                   | Read           |
-| GetCustomDetectionRuleAssociation                                                                                               | [guardduty:GetCustomDetectionRuleAssociation](#list_guardduty-action-GetCustomDetectionRuleAssociation "#list_guardduty-action-GetCustomDetectionRuleAssociation")                         |                                                 |                   | Read           |
-| GetCustomDetectionRuleOrgConfiguration                                                                                          | [guardduty:GetCustomDetectionRuleOrgConfiguration](#list_guardduty-action-GetCustomDetectionRuleOrgConfiguration "#list_guardduty-action-GetCustomDetectionRuleOrgConfiguration")          |                                                 |                   | Read           |
-| GetDetector                                                                                                                     | [guardduty:GetDetector](#list_guardduty-action-GetDetector "#list_guardduty-action-GetDetector")                                                                                           |                                                 |                   | Read           |
-| GetFilter                                                                                                                       | [guardduty:GetFilter](#list_guardduty-action-GetFilter "#list_guardduty-action-GetFilter")                                                                                                 |                                                 |                   | Read           |
-| GetFindings                                                                                                                     | [guardduty:GetFindings](#list_guardduty-action-GetFindings "#list_guardduty-action-GetFindings")                                                                                           |                                                 |                   | Read           |
-| GetFindingsStatistics                                                                                                           | [guardduty:GetFindingsStatistics](#list_guardduty-action-GetFindingsStatistics "#list_guardduty-action-GetFindingsStatistics")                                                             |                                                 |                   | Read           |
-| GetIPSet                                                                                                                        | [guardduty:GetIPSet](#list_guardduty-action-GetIPSet "#list_guardduty-action-GetIPSet")                                                                                                    |                                                 |                   | Read           |
-| GetInvestigation                                                                                                                | [guardduty:GetInvestigation](#list_guardduty-action-GetInvestigation "#list_guardduty-action-GetInvestigation")                                                                            |                                                 |                   | Read           |
-| GetInvitationsCount                                                                                                             | [guardduty:GetInvitationsCount](#list_guardduty-action-GetInvitationsCount "#list_guardduty-action-GetInvitationsCount")                                                                   |                                                 |                   | Read           |
-| GetMalwareProtectionPlan                                                                                                        | [guardduty:GetMalwareProtectionPlan](#list_guardduty-action-GetMalwareProtectionPlan "#list_guardduty-action-GetMalwareProtectionPlan")                                                    |                                                 |                   | Read           |
-| GetMalwareScan                                                                                                                  | [guardduty:GetMalwareScan](#list_guardduty-action-GetMalwareScan "#list_guardduty-action-GetMalwareScan")                                                                                  |                                                 |                   | Read           |
-| GetMalwareScanSettings                                                                                                          | [guardduty:GetMalwareScanSettings](#list_guardduty-action-GetMalwareScanSettings "#list_guardduty-action-GetMalwareScanSettings")                                                          |                                                 |                   | Read           |
-| GetMasterAccount                                                                                                                | [guardduty:GetMasterAccount](#list_guardduty-action-GetMasterAccount "#list_guardduty-action-GetMasterAccount")                                                                            |                                                 |                   | Read           |
-| GetMemberDetectors                                                                                                              | [guardduty:GetMemberDetectors](#list_guardduty-action-GetMemberDetectors "#list_guardduty-action-GetMemberDetectors")                                                                      |                                                 |                   | Read           |
-| GetMembers                                                                                                                      | [guardduty:GetMembers](#list_guardduty-action-GetMembers "#list_guardduty-action-GetMembers")                                                                                              |                                                 |                   | Read           |
-| GetOrganizationStatistics                                                                                                       | [guardduty:GetOrganizationStatistics](#list_guardduty-action-GetOrganizationStatistics "#list_guardduty-action-GetOrganizationStatistics")                                                 |                                                 |                   | Read           |
-| GetRemainingFreeTrialDays                                                                                                       | [guardduty:GetRemainingFreeTrialDays](#list_guardduty-action-GetRemainingFreeTrialDays "#list_guardduty-action-GetRemainingFreeTrialDays")                                                 |                                                 |                   | Read           |
-| GetThreatEntitySet                                                                                                              | [guardduty:GetThreatEntitySet](#list_guardduty-action-GetThreatEntitySet "#list_guardduty-action-GetThreatEntitySet")                                                                      |                                                 |                   | Read           |
-| GetThreatIntelSet                                                                                                               | [guardduty:GetThreatIntelSet](#list_guardduty-action-GetThreatIntelSet "#list_guardduty-action-GetThreatIntelSet")                                                                         |                                                 |                   | Read           |
-| GetTrustedEntitySet                                                                                                             | [guardduty:GetTrustedEntitySet](#list_guardduty-action-GetTrustedEntitySet "#list_guardduty-action-GetTrustedEntitySet")                                                                   |                                                 |                   | Read           |
-| GetUsageStatistics                                                                                                              | [guardduty:GetUsageStatistics](#list_guardduty-action-GetUsageStatistics "#list_guardduty-action-GetUsageStatistics")                                                                      |                                                 |                   | Read           |
-| InviteMembers                                                                                                                   | [guardduty:InviteMembers](#list_guardduty-action-InviteMembers "#list_guardduty-action-InviteMembers")                                                                                     |                                                 |                   | Write          |
-| ListCoverage                                                                                                                    | [guardduty:ListCoverage](#list_guardduty-action-ListCoverage "#list_guardduty-action-ListCoverage")                                                                                        |                                                 |                   | List           |
-| ListCustomDetectionRuleAssociations                                                                                             | [guardduty:ListCustomDetectionRuleAssociations](#list_guardduty-action-ListCustomDetectionRuleAssociations "#list_guardduty-action-ListCustomDetectionRuleAssociations")                   |                                                 |                   | List           |
-| ListCustomDetectionRuleOrgConfigurations                                                                                        | [guardduty:ListCustomDetectionRuleOrgConfigurations](#list_guardduty-action-ListCustomDetectionRuleOrgConfigurations "#list_guardduty-action-ListCustomDetectionRuleOrgConfigurations")    |                                                 |                   | List           |
-| ListCustomDetectionRules                                                                                                        | [guardduty:ListCustomDetectionRules](#list_guardduty-action-ListCustomDetectionRules "#list_guardduty-action-ListCustomDetectionRules")                                                    |                                                 |                   | List           |
-| ListDetectors                                                                                                                   | [guardduty:ListDetectors](#list_guardduty-action-ListDetectors "#list_guardduty-action-ListDetectors")                                                                                     |                                                 |                   | List           |
-| ListFilters                                                                                                                     | [guardduty:ListFilters](#list_guardduty-action-ListFilters "#list_guardduty-action-ListFilters")                                                                                           |                                                 |                   | List           |
-| ListFindings                                                                                                                    | [guardduty:ListFindings](#list_guardduty-action-ListFindings "#list_guardduty-action-ListFindings")                                                                                        |                                                 |                   | List           |
-| ListIPSets                                                                                                                      | [guardduty:ListIPSets](#list_guardduty-action-ListIPSets "#list_guardduty-action-ListIPSets")                                                                                              |                                                 |                   | List           |
-| ListInvestigations                                                                                                              | [guardduty:ListInvestigations](#list_guardduty-action-ListInvestigations "#list_guardduty-action-ListInvestigations")                                                                      |                                                 |                   | List           |
-| ListInvitations                                                                                                                 | [guardduty:ListInvitations](#list_guardduty-action-ListInvitations "#list_guardduty-action-ListInvitations")                                                                               |                                                 |                   | List           |
-| ListMalwareProtectionPlans                                                                                                      | [guardduty:ListMalwareProtectionPlans](#list_guardduty-action-ListMalwareProtectionPlans "#list_guardduty-action-ListMalwareProtectionPlans")                                              |                                                 |                   | List           |
-| ListMalwareScans                                                                                                                | [guardduty:ListMalwareScans](#list_guardduty-action-ListMalwareScans "#list_guardduty-action-ListMalwareScans")                                                                            |                                                 |                   | List           |
-| ListMembers                                                                                                                     | [guardduty:ListMembers](#list_guardduty-action-ListMembers "#list_guardduty-action-ListMembers")                                                                                           |                                                 |                   | List           |
-| ListOrganizationAdminAccounts                                                                                                   | [guardduty:ListOrganizationAdminAccounts](#list_guardduty-action-ListOrganizationAdminAccounts "#list_guardduty-action-ListOrganizationAdminAccounts")                                     |                                                 |                   | List           |
-| ListPublishingDestinations                                                                                                      | [guardduty:ListPublishingDestinations](#list_guardduty-action-ListPublishingDestinations "#list_guardduty-action-ListPublishingDestinations")                                              |                                                 |                   | List           |
-| ListTagsForResource                                                                                                             | [guardduty:ListTagsForResource](#list_guardduty-action-ListTagsForResource "#list_guardduty-action-ListTagsForResource")                                                                   |                                                 |                   | Read           |
-| ListThreatEntitySets                                                                                                            | [guardduty:ListThreatEntitySets](#list_guardduty-action-ListThreatEntitySets "#list_guardduty-action-ListThreatEntitySets")                                                                |                                                 |                   | List           |
-| ListThreatIntelSets                                                                                                             | [guardduty:ListThreatIntelSets](#list_guardduty-action-ListThreatIntelSets "#list_guardduty-action-ListThreatIntelSets")                                                                   |                                                 |                   | List           |
-| ListTrustedEntitySets                                                                                                           | [guardduty:ListTrustedEntitySets](#list_guardduty-action-ListTrustedEntitySets "#list_guardduty-action-ListTrustedEntitySets")                                                             |                                                 |                   | List           |
-| SendObjectMalwareScan                                                                                                           | [guardduty:SendObjectMalwareScan](#list_guardduty-action-SendObjectMalwareScan "#list_guardduty-action-SendObjectMalwareScan")                                                             |                                                 |                   | Write          |
-| StartMalwareScan                                                                                                                | [guardduty:StartMalwareScan](#list_guardduty-action-StartMalwareScan "#list_guardduty-action-StartMalwareScan")                                                                            |                                                 |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                        | malware-protection.guardduty.amazonaws.com      | Write             |
-| StartMonitoringMembers                                                                                                          | [guardduty:StartMonitoringMembers](#list_guardduty-action-StartMonitoringMembers "#list_guardduty-action-StartMonitoringMembers")                                                          |                                                 |                   | Write          |
-| StopMonitoringMembers                                                                                                           | [guardduty:StopMonitoringMembers](#list_guardduty-action-StopMonitoringMembers "#list_guardduty-action-StopMonitoringMembers")                                                             |                                                 |                   | Write          |
-| TagResource                                                                                                                     | [guardduty:TagResource](#list_guardduty-action-TagResource "#list_guardduty-action-TagResource")                                                                                           |                                                 |                   | Tagging, Write |
-| UnarchiveFindings                                                                                                               | [guardduty:UnarchiveFindings](#list_guardduty-action-UnarchiveFindings "#list_guardduty-action-UnarchiveFindings")                                                                         |                                                 |                   | Write          |
-| UntagResource                                                                                                                   | [guardduty:UntagResource](#list_guardduty-action-UntagResource "#list_guardduty-action-UntagResource")                                                                                     |                                                 |                   | Tagging, Write |
-| UpdateCustomDetectionRuleAssociation                                                                                            | [guardduty:UpdateCustomDetectionRuleAssociation](#list_guardduty-action-UpdateCustomDetectionRuleAssociation "#list_guardduty-action-UpdateCustomDetectionRuleAssociation")                |                                                 |                   | Write          |
-| UpdateCustomDetectionRuleOrgConfiguration                                                                                       | [guardduty:UpdateCustomDetectionRuleOrgConfiguration](#list_guardduty-action-UpdateCustomDetectionRuleOrgConfiguration "#list_guardduty-action-UpdateCustomDetectionRuleOrgConfiguration") |                                                 |                   | Write          |
-| UpdateDetector                                                                                                                  | [guardduty:UpdateDetector](#list_guardduty-action-UpdateDetector "#list_guardduty-action-UpdateDetector")                                                                                  |                                                 |                   | Write          |
-| UpdateFilter                                                                                                                    | [guardduty:UpdateFilter](#list_guardduty-action-UpdateFilter "#list_guardduty-action-UpdateFilter")                                                                                        |                                                 |                   | Write          |
-| UpdateFindingsFeedback                                                                                                          | [guardduty:UpdateFindingsFeedback](#list_guardduty-action-UpdateFindingsFeedback "#list_guardduty-action-UpdateFindingsFeedback")                                                          |                                                 |                   | Write          |
-| UpdateIPSet                                                                                                                     | [guardduty:UpdateIPSet](#list_guardduty-action-UpdateIPSet "#list_guardduty-action-UpdateIPSet")                                                                                           |                                                 |                   | Write          |
-| UpdateMalwareProtectionPlan                                                                                                     | [guardduty:UpdateMalwareProtectionPlan](#list_guardduty-action-UpdateMalwareProtectionPlan "#list_guardduty-action-UpdateMalwareProtectionPlan")                                           |                                                 |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") | iam:PassedToService                                                                                                                                                                        | malware-protection-plan.guardduty.amazonaws.com | Write             |
-| UpdateMalwareScanSettings                                                                                                       | [guardduty:UpdateMalwareScanSettings](#list_guardduty-action-UpdateMalwareScanSettings "#list_guardduty-action-UpdateMalwareScanSettings")                                                 |                                                 |                   | Write          |
-| UpdateMemberDetectors                                                                                                           | [guardduty:UpdateMemberDetectors](#list_guardduty-action-UpdateMemberDetectors "#list_guardduty-action-UpdateMemberDetectors")                                                             |                                                 |                   | Write          |
-| UpdateOrganizationConfiguration                                                                                                 | [guardduty:UpdateOrganizationConfiguration](#list_guardduty-action-UpdateOrganizationConfiguration "#list_guardduty-action-UpdateOrganizationConfiguration")                               |                                                 |                   | Write          |
-| UpdatePublishingDestination                                                                                                     | [guardduty:UpdatePublishingDestination](#list_guardduty-action-UpdatePublishingDestination "#list_guardduty-action-UpdatePublishingDestination")                                           |                                                 |                   | Write          |
-| UpdateThreatEntitySet                                                                                                           | [guardduty:UpdateThreatEntitySet](#list_guardduty-action-UpdateThreatEntitySet "#list_guardduty-action-UpdateThreatEntitySet")                                                             |                                                 |                   | Write          |
-| UpdateThreatIntelSet                                                                                                            | [guardduty:UpdateThreatIntelSet](#list_guardduty-action-UpdateThreatIntelSet "#list_guardduty-action-UpdateThreatIntelSet")                                                                |                                                 |                   | Write          |
-| UpdateTrustedEntitySet                                                                                                          | [guardduty:UpdateTrustedEntitySet](#list_guardduty-action-UpdateTrustedEntitySet "#list_guardduty-action-UpdateTrustedEntitySet")                                                          |                                                 |                   | Write          |
+
+
+
+- **   AcceptAdministratorInvitation  **
+  - **IAM action:**  [guardduty:AcceptAdministratorInvitation](#list_guardduty-action-AcceptAdministratorInvitation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AcceptInvitation  **
+  - **IAM action:**  [guardduty:AcceptInvitation](#list_guardduty-action-AcceptInvitation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ArchiveFindings  **
+  - **IAM action:**  [guardduty:ArchiveFindings](#list_guardduty-action-ArchiveFindings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateCustomDetectionRuleAssociation  **
+  - **IAM action:**  [guardduty:CreateCustomDetectionRuleAssociation](#list_guardduty-action-CreateCustomDetectionRuleAssociation)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [guardduty:TagResource](#list_guardduty-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateCustomDetectionRuleOrgConfiguration  **
+  - **IAM action:**  [guardduty:CreateCustomDetectionRuleOrgConfiguration](#list_guardduty-action-CreateCustomDetectionRuleOrgConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateDetector  **
+  - **IAM action:**  [guardduty:CreateDetector](#list_guardduty-action-CreateDetector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [guardduty:TagResource](#list_guardduty-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateFilter  **
+  - **IAM action:**  [guardduty:CreateFilter](#list_guardduty-action-CreateFilter)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [guardduty:TagResource](#list_guardduty-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateIPSet  **
+  - **IAM action:**  [guardduty:CreateIPSet](#list_guardduty-action-CreateIPSet)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [guardduty:TagResource](#list_guardduty-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateInvestigation  **
+  - **IAM action:**  [guardduty:CreateInvestigation](#list_guardduty-action-CreateInvestigation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateMalwareProtectionPlan  **
+  - **IAM action:**  [guardduty:CreateMalwareProtectionPlan](#list_guardduty-action-CreateMalwareProtectionPlan)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [guardduty:TagResource](#list_guardduty-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** malware-protection-plan.guardduty.amazonaws.com / **Access level:** Write
+
+- **   CreateMembers  **
+  - **IAM action:**  [guardduty:CreateMembers](#list_guardduty-action-CreateMembers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreatePublishingDestination  **
+  - **IAM action:**  [guardduty:CreatePublishingDestination](#list_guardduty-action-CreatePublishingDestination)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [guardduty:TagResource](#list_guardduty-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateSampleFindings  **
+  - **IAM action:**  [guardduty:CreateSampleFindings](#list_guardduty-action-CreateSampleFindings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateThreatEntitySet  **
+  - **IAM action:**  [guardduty:CreateThreatEntitySet](#list_guardduty-action-CreateThreatEntitySet)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [guardduty:TagResource](#list_guardduty-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateThreatIntelSet  **
+  - **IAM action:**  [guardduty:CreateThreatIntelSet](#list_guardduty-action-CreateThreatIntelSet)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [guardduty:TagResource](#list_guardduty-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateTrustedEntitySet  **
+  - **IAM action:**  [guardduty:CreateTrustedEntitySet](#list_guardduty-action-CreateTrustedEntitySet)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [guardduty:TagResource](#list_guardduty-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeclineInvitations  **
+  - **IAM action:**  [guardduty:DeclineInvitations](#list_guardduty-action-DeclineInvitations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteCustomDetectionRuleAssociation  **
+  - **IAM action:**  [guardduty:DeleteCustomDetectionRuleAssociation](#list_guardduty-action-DeleteCustomDetectionRuleAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteCustomDetectionRuleOrgConfiguration  **
+  - **IAM action:**  [guardduty:DeleteCustomDetectionRuleOrgConfiguration](#list_guardduty-action-DeleteCustomDetectionRuleOrgConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDetector  **
+  - **IAM action:**  [guardduty:DeleteDetector](#list_guardduty-action-DeleteDetector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteFilter  **
+  - **IAM action:**  [guardduty:DeleteFilter](#list_guardduty-action-DeleteFilter) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteIPSet  **
+  - **IAM action:**  [guardduty:DeleteIPSet](#list_guardduty-action-DeleteIPSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteInvitations  **
+  - **IAM action:**  [guardduty:DeleteInvitations](#list_guardduty-action-DeleteInvitations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteMalwareProtectionPlan  **
+  - **IAM action:**  [guardduty:DeleteMalwareProtectionPlan](#list_guardduty-action-DeleteMalwareProtectionPlan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteMembers  **
+  - **IAM action:**  [guardduty:DeleteMembers](#list_guardduty-action-DeleteMembers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeletePublishingDestination  **
+  - **IAM action:**  [guardduty:DeletePublishingDestination](#list_guardduty-action-DeletePublishingDestination) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteThreatEntitySet  **
+  - **IAM action:**  [guardduty:DeleteThreatEntitySet](#list_guardduty-action-DeleteThreatEntitySet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteThreatIntelSet  **
+  - **IAM action:**  [guardduty:DeleteThreatIntelSet](#list_guardduty-action-DeleteThreatIntelSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteTrustedEntitySet  **
+  - **IAM action:**  [guardduty:DeleteTrustedEntitySet](#list_guardduty-action-DeleteTrustedEntitySet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DescribeMalwareScans  **
+  - **IAM action:**  [guardduty:DescribeMalwareScans](#list_guardduty-action-DescribeMalwareScans) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeOrganizationConfiguration  **
+  - **IAM action:**  [guardduty:DescribeOrganizationConfiguration](#list_guardduty-action-DescribeOrganizationConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribePublishingDestination  **
+  - **IAM action:**  [guardduty:DescribePublishingDestination](#list_guardduty-action-DescribePublishingDestination) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DisableOrganizationAdminAccount  **
+  - **IAM action:**  [guardduty:DisableOrganizationAdminAccount](#list_guardduty-action-DisableOrganizationAdminAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateFromAdministratorAccount  **
+  - **IAM action:**  [guardduty:DisassociateFromAdministratorAccount](#list_guardduty-action-DisassociateFromAdministratorAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateFromMasterAccount  **
+  - **IAM action:**  [guardduty:DisassociateFromMasterAccount](#list_guardduty-action-DisassociateFromMasterAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateMembers  **
+  - **IAM action:**  [guardduty:DisassociateMembers](#list_guardduty-action-DisassociateMembers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   EnableOrganizationAdminAccount  **
+  - **IAM action:**  [guardduty:EnableOrganizationAdminAccount](#list_guardduty-action-EnableOrganizationAdminAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetAdministratorAccount  **
+  - **IAM action:**  [guardduty:GetAdministratorAccount](#list_guardduty-action-GetAdministratorAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCoverageStatistics  **
+  - **IAM action:**  [guardduty:GetCoverageStatistics](#list_guardduty-action-GetCoverageStatistics) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCustomDetectionRule  **
+  - **IAM action:**  [guardduty:GetCustomDetectionRule](#list_guardduty-action-GetCustomDetectionRule) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCustomDetectionRuleAssociation  **
+  - **IAM action:**  [guardduty:GetCustomDetectionRuleAssociation](#list_guardduty-action-GetCustomDetectionRuleAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCustomDetectionRuleOrgConfiguration  **
+  - **IAM action:**  [guardduty:GetCustomDetectionRuleOrgConfiguration](#list_guardduty-action-GetCustomDetectionRuleOrgConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetDetector  **
+  - **IAM action:**  [guardduty:GetDetector](#list_guardduty-action-GetDetector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetFilter  **
+  - **IAM action:**  [guardduty:GetFilter](#list_guardduty-action-GetFilter) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetFindings  **
+  - **IAM action:**  [guardduty:GetFindings](#list_guardduty-action-GetFindings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetFindingsStatistics  **
+  - **IAM action:**  [guardduty:GetFindingsStatistics](#list_guardduty-action-GetFindingsStatistics) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetIPSet  **
+  - **IAM action:**  [guardduty:GetIPSet](#list_guardduty-action-GetIPSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetInvestigation  **
+  - **IAM action:**  [guardduty:GetInvestigation](#list_guardduty-action-GetInvestigation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetInvitationsCount  **
+  - **IAM action:**  [guardduty:GetInvitationsCount](#list_guardduty-action-GetInvitationsCount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMalwareProtectionPlan  **
+  - **IAM action:**  [guardduty:GetMalwareProtectionPlan](#list_guardduty-action-GetMalwareProtectionPlan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMalwareScan  **
+  - **IAM action:**  [guardduty:GetMalwareScan](#list_guardduty-action-GetMalwareScan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMalwareScanSettings  **
+  - **IAM action:**  [guardduty:GetMalwareScanSettings](#list_guardduty-action-GetMalwareScanSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMasterAccount  **
+  - **IAM action:**  [guardduty:GetMasterAccount](#list_guardduty-action-GetMasterAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMemberDetectors  **
+  - **IAM action:**  [guardduty:GetMemberDetectors](#list_guardduty-action-GetMemberDetectors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetMembers  **
+  - **IAM action:**  [guardduty:GetMembers](#list_guardduty-action-GetMembers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetOrganizationStatistics  **
+  - **IAM action:**  [guardduty:GetOrganizationStatistics](#list_guardduty-action-GetOrganizationStatistics) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRemainingFreeTrialDays  **
+  - **IAM action:**  [guardduty:GetRemainingFreeTrialDays](#list_guardduty-action-GetRemainingFreeTrialDays) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetThreatEntitySet  **
+  - **IAM action:**  [guardduty:GetThreatEntitySet](#list_guardduty-action-GetThreatEntitySet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetThreatIntelSet  **
+  - **IAM action:**  [guardduty:GetThreatIntelSet](#list_guardduty-action-GetThreatIntelSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTrustedEntitySet  **
+  - **IAM action:**  [guardduty:GetTrustedEntitySet](#list_guardduty-action-GetTrustedEntitySet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetUsageStatistics  **
+  - **IAM action:**  [guardduty:GetUsageStatistics](#list_guardduty-action-GetUsageStatistics) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   InviteMembers  **
+  - **IAM action:**  [guardduty:InviteMembers](#list_guardduty-action-InviteMembers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ListCoverage  **
+  - **IAM action:**  [guardduty:ListCoverage](#list_guardduty-action-ListCoverage) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCustomDetectionRuleAssociations  **
+  - **IAM action:**  [guardduty:ListCustomDetectionRuleAssociations](#list_guardduty-action-ListCustomDetectionRuleAssociations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCustomDetectionRuleOrgConfigurations  **
+  - **IAM action:**  [guardduty:ListCustomDetectionRuleOrgConfigurations](#list_guardduty-action-ListCustomDetectionRuleOrgConfigurations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListCustomDetectionRules  **
+  - **IAM action:**  [guardduty:ListCustomDetectionRules](#list_guardduty-action-ListCustomDetectionRules) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDetectors  **
+  - **IAM action:**  [guardduty:ListDetectors](#list_guardduty-action-ListDetectors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListFilters  **
+  - **IAM action:**  [guardduty:ListFilters](#list_guardduty-action-ListFilters) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListFindings  **
+  - **IAM action:**  [guardduty:ListFindings](#list_guardduty-action-ListFindings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListIPSets  **
+  - **IAM action:**  [guardduty:ListIPSets](#list_guardduty-action-ListIPSets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListInvestigations  **
+  - **IAM action:**  [guardduty:ListInvestigations](#list_guardduty-action-ListInvestigations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListInvitations  **
+  - **IAM action:**  [guardduty:ListInvitations](#list_guardduty-action-ListInvitations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMalwareProtectionPlans  **
+  - **IAM action:**  [guardduty:ListMalwareProtectionPlans](#list_guardduty-action-ListMalwareProtectionPlans) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMalwareScans  **
+  - **IAM action:**  [guardduty:ListMalwareScans](#list_guardduty-action-ListMalwareScans) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListMembers  **
+  - **IAM action:**  [guardduty:ListMembers](#list_guardduty-action-ListMembers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListOrganizationAdminAccounts  **
+  - **IAM action:**  [guardduty:ListOrganizationAdminAccounts](#list_guardduty-action-ListOrganizationAdminAccounts) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListPublishingDestinations  **
+  - **IAM action:**  [guardduty:ListPublishingDestinations](#list_guardduty-action-ListPublishingDestinations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [guardduty:ListTagsForResource](#list_guardduty-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListThreatEntitySets  **
+  - **IAM action:**  [guardduty:ListThreatEntitySets](#list_guardduty-action-ListThreatEntitySets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListThreatIntelSets  **
+  - **IAM action:**  [guardduty:ListThreatIntelSets](#list_guardduty-action-ListThreatIntelSets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTrustedEntitySets  **
+  - **IAM action:**  [guardduty:ListTrustedEntitySets](#list_guardduty-action-ListTrustedEntitySets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   SendObjectMalwareScan  **
+  - **IAM action:**  [guardduty:SendObjectMalwareScan](#list_guardduty-action-SendObjectMalwareScan) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StartMalwareScan  **
+  - **IAM action:**  [guardduty:StartMalwareScan](#list_guardduty-action-StartMalwareScan)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** malware-protection.guardduty.amazonaws.com / **Access level:** Write
+
+- **   StartMonitoringMembers  **
+  - **IAM action:**  [guardduty:StartMonitoringMembers](#list_guardduty-action-StartMonitoringMembers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopMonitoringMembers  **
+  - **IAM action:**  [guardduty:StopMonitoringMembers](#list_guardduty-action-StopMonitoringMembers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [guardduty:TagResource](#list_guardduty-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UnarchiveFindings  **
+  - **IAM action:**  [guardduty:UnarchiveFindings](#list_guardduty-action-UnarchiveFindings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UntagResource  **
+  - **IAM action:**  [guardduty:UntagResource](#list_guardduty-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateCustomDetectionRuleAssociation  **
+  - **IAM action:**  [guardduty:UpdateCustomDetectionRuleAssociation](#list_guardduty-action-UpdateCustomDetectionRuleAssociation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateCustomDetectionRuleOrgConfiguration  **
+  - **IAM action:**  [guardduty:UpdateCustomDetectionRuleOrgConfiguration](#list_guardduty-action-UpdateCustomDetectionRuleOrgConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateDetector  **
+  - **IAM action:**  [guardduty:UpdateDetector](#list_guardduty-action-UpdateDetector) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateFilter  **
+  - **IAM action:**  [guardduty:UpdateFilter](#list_guardduty-action-UpdateFilter) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateFindingsFeedback  **
+  - **IAM action:**  [guardduty:UpdateFindingsFeedback](#list_guardduty-action-UpdateFindingsFeedback) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateIPSet  **
+  - **IAM action:**  [guardduty:UpdateIPSet](#list_guardduty-action-UpdateIPSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateMalwareProtectionPlan  **
+  - **IAM action:**  [guardduty:UpdateMalwareProtectionPlan](#list_guardduty-action-UpdateMalwareProtectionPlan)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** malware-protection-plan.guardduty.amazonaws.com / **Access level:** Write
+
+- **   UpdateMalwareScanSettings  **
+  - **IAM action:**  [guardduty:UpdateMalwareScanSettings](#list_guardduty-action-UpdateMalwareScanSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateMemberDetectors  **
+  - **IAM action:**  [guardduty:UpdateMemberDetectors](#list_guardduty-action-UpdateMemberDetectors) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateOrganizationConfiguration  **
+  - **IAM action:**  [guardduty:UpdateOrganizationConfiguration](#list_guardduty-action-UpdateOrganizationConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdatePublishingDestination  **
+  - **IAM action:**  [guardduty:UpdatePublishingDestination](#list_guardduty-action-UpdatePublishingDestination) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateThreatEntitySet  **
+  - **IAM action:**  [guardduty:UpdateThreatEntitySet](#list_guardduty-action-UpdateThreatEntitySet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateThreatIntelSet  **
+  - **IAM action:**  [guardduty:UpdateThreatIntelSet](#list_guardduty-action-UpdateThreatIntelSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateTrustedEntitySet  **
+  - **IAM action:**  [guardduty:UpdateTrustedEntitySet](#list_guardduty-action-UpdateTrustedEntitySet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon GuardDuty
+<a name="list_guardduty-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                                       | Resource types (\*required)                                                                                                                           | Condition keys                                                                                                                                                                                                                                                                                                    | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AcceptAdministratorInvitation](../../../guardduty/latest/APIReference/API_AcceptAdministratorInvitation.md "../../../guardduty/latest/APIReference/API_AcceptAdministratorInvitation.md")                                     | Grants permission to accept invitations to become a GuardDuty member account                                                                                                                                                                                                                                      |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [AcceptInvitation](../../../guardduty/latest/APIReference/API_AcceptInvitation.md "../../../guardduty/latest/APIReference/API_AcceptInvitation.md")                                                                            | Grants permission to accept invitations to become a GuardDuty member account                                                                                                                                                                                                                                      |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [ArchiveFindings](../../../guardduty/latest/APIReference/API_ArchiveFindings.md "../../../guardduty/latest/APIReference/API_ArchiveFindings.md")                                                                               | Grants permission to archive GuardDuty findings                                                                                                                                                                                                                                                                   |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [CreateCustomDetectionRuleAssociation](../../../guardduty/latest/APIReference/API_CreateCustomDetectionRuleAssociation.md "../../../guardduty/latest/APIReference/API_CreateCustomDetectionRuleAssociation.md")                | Grants permission to create a GuardDuty custom detection rule association                                                                                                                                                                                                                                         |                                                                                                                                                       | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys")                                                                                                                       | Write          |
-| [CreateCustomDetectionRuleOrgConfiguration](../../../guardduty/latest/APIReference/API_CreateCustomDetectionRuleOrgConfiguration.md "../../../guardduty/latest/APIReference/API_CreateCustomDetectionRuleOrgConfiguration.md") | Grants permission to create the organization configuration for a GuardDuty custom detection rule                                                                                                                                                                                                                  |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [CreateDetector](../../../guardduty/latest/APIReference/API_CreateDetector.md "../../../guardduty/latest/APIReference/API_CreateDetector.md")                                                                                  | Grants permission to create a detector                                                                                                                                                                                                                                                                            |                                                                                                                                                       | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys") | Write          |
-| [CreateFilter](../../../guardduty/latest/APIReference/API_CreateFilter.md "../../../guardduty/latest/APIReference/API_CreateFilter.md")                                                                                        | Grants permission to create GuardDuty filters. A filters defines finding attributes and conditions used to filter findings                                                                                                                                                                                        | [filter\*](#list_guardduty-resource-filter "#list_guardduty-resource-filter")                                                                         | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys") | Write          |
-| [CreateIPSet](../../../guardduty/latest/APIReference/API_CreateIPSet.md "../../../guardduty/latest/APIReference/API_CreateIPSet.md")                                                                                           | Grants permission to create an IPSet                                                                                                                                                                                                                                                                              |                                                                                                                                                       | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys") | Write          |
-| [CreateInvestigation](../../../guardduty/latest/APIReference/API_CreateInvestigation.md "../../../guardduty/latest/APIReference/API_CreateInvestigation.md")                                                                   | Grants permission to create a GuardDuty investigation                                                                                                                                                                                                                                                             |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [CreateMalwareProtectionPlan](../../../guardduty/latest/APIReference/API_CreateMalwareProtectionPlan.md "../../../guardduty/latest/APIReference/API_CreateMalwareProtectionPlan.md")                                           | Grants permission to create a new Malware Protection plan                                                                                                                                                                                                                                                         |                                                                                                                                                       | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys") | Write          |
-| [CreateMembers](../../../guardduty/latest/APIReference/API_CreateMembers.md "../../../guardduty/latest/APIReference/API_CreateMembers.md")                                                                                     | Grants permission to create GuardDuty member accounts, where the account used to create a member becomes the GuardDuty administrator account                                                                                                                                                                      |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [CreatePublishingDestination](../../../guardduty/latest/APIReference/API_CreatePublishingDestination.md "../../../guardduty/latest/APIReference/API_CreatePublishingDestination.md")                                           | Grants permission to create a publishing destination                                                                                                                                                                                                                                                              |                                                                                                                                                       | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys") | Write          |
-| [CreateSampleFindings](../../../guardduty/latest/APIReference/API_CreateSampleFindings.md "../../../guardduty/latest/APIReference/API_CreateSampleFindings.md")                                                                | Grants permission to create sample findings                                                                                                                                                                                                                                                                       |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [CreateThreatEntitySet](../../../guardduty/latest/APIReference/API_CreateThreatEntitySet.md "../../../guardduty/latest/APIReference/API_CreateThreatEntitySet.md")                                                             | Grants permission to create GuardDuty ThreatEntitySets, where a ThreatEntitySet consists of known malicious IP addresses and/or domains used by GuardDuty to generate findings                                                                                                                                    |                                                                                                                                                       | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys")                                                                                                                       | Write          |
-| [CreateThreatIntelSet](../../../guardduty/latest/APIReference/API_CreateThreatIntelSet.md "../../../guardduty/latest/APIReference/API_CreateThreatIntelSet.md")                                                                | Grants permission to create GuardDuty ThreatIntelSets, where a ThreatIntelSet consists of known malicious IP addresses used by GuardDuty to generate findings                                                                                                                                                     |                                                                                                                                                       | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys")                                                                                                                       | Write          |
-| [CreateTrustedEntitySet](../../../guardduty/latest/APIReference/API_CreateTrustedEntitySet.md "../../../guardduty/latest/APIReference/API_CreateTrustedEntitySet.md")                                                          | Grants permission to create a TrustedEntitySet                                                                                                                                                                                                                                                                    |                                                                                                                                                       | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys") | Write          |
-| [DeclineInvitations](../../../guardduty/latest/APIReference/API_DeclineInvitations.md "../../../guardduty/latest/APIReference/API_DeclineInvitations.md")                                                                      | Grants permission to decline invitations to become a GuardDuty member account                                                                                                                                                                                                                                     |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [DeleteCustomDetectionRuleAssociation](../../../guardduty/latest/APIReference/API_DeleteCustomDetectionRuleAssociation.md "../../../guardduty/latest/APIReference/API_DeleteCustomDetectionRuleAssociation.md")                | Grants permission to delete a GuardDuty custom detection rule association                                                                                                                                                                                                                                         | [customdetectionruleassociation\*](#list_guardduty-resource-customdetectionruleassociation "#list_guardduty-resource-customdetectionruleassociation") | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteCustomDetectionRuleOrgConfiguration](../../../guardduty/latest/APIReference/API_DeleteCustomDetectionRuleOrgConfiguration.md "../../../guardduty/latest/APIReference/API_DeleteCustomDetectionRuleOrgConfiguration.md") | Grants permission to delete the organization configuration for a GuardDuty custom detection rule                                                                                                                                                                                                                  |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [DeleteDetector](../../../guardduty/latest/APIReference/API_DeleteDetector.md "../../../guardduty/latest/APIReference/API_DeleteDetector.md")                                                                                  | Grants permission to delete GuardDuty detectors                                                                                                                                                                                                                                                                   | [detector\*](#list_guardduty-resource-detector "#list_guardduty-resource-detector")                                                                   | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteFilter](../../../guardduty/latest/APIReference/API_DeleteFilter.md "../../../guardduty/latest/APIReference/API_DeleteFilter.md")                                                                                        | Grants permission to delete GuardDuty filters                                                                                                                                                                                                                                                                     | [filter\*](#list_guardduty-resource-filter "#list_guardduty-resource-filter")                                                                         | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteIPSet](../../../guardduty/latest/APIReference/API_DeleteIPSet.md "../../../guardduty/latest/APIReference/API_DeleteIPSet.md")                                                                                           | Grants permission to delete GuardDuty IPSets                                                                                                                                                                                                                                                                      | [ipset\*](#list_guardduty-resource-ipset "#list_guardduty-resource-ipset")                                                                            | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteInvitations](../../../guardduty/latest/APIReference/API_DeleteInvitations.md "../../../guardduty/latest/APIReference/API_DeleteInvitations.md")                                                                         | Grants permission to delete invitations to become a GuardDuty member account                                                                                                                                                                                                                                      |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [DeleteMalwareProtectionPlan](../../../guardduty/latest/APIReference/API_DeleteMalwareProtectionPlan.md "../../../guardduty/latest/APIReference/API_DeleteMalwareProtectionPlan.md")                                           | Grants permission to delete a Malware Protection plan                                                                                                                                                                                                                                                             | [malwareprotectionplan\*](#list_guardduty-resource-malwareprotectionplan "#list_guardduty-resource-malwareprotectionplan")                            | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteMembers](../../../guardduty/latest/APIReference/API_DeleteMembers.md "../../../guardduty/latest/APIReference/API_DeleteMembers.md")                                                                                     | Grants permission to delete GuardDuty member accounts                                                                                                                                                                                                                                                             |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [DeletePublishingDestination](../../../guardduty/latest/APIReference/API_DeletePublishingDestination.md "../../../guardduty/latest/APIReference/API_DeletePublishingDestination.md")                                           | Grants permission to delete a publishing destination                                                                                                                                                                                                                                                              | [publishingDestination\*](#list_guardduty-resource-publishingDestination "#list_guardduty-resource-publishingDestination")                            | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteThreatEntitySet](../../../guardduty/latest/APIReference/API_DeleteThreatEntitySet.md "../../../guardduty/latest/APIReference/API_DeleteThreatEntitySet.md")                                                             | Grants permission to delete GuardDuty ThreatEntitySets                                                                                                                                                                                                                                                            | [threatentityset\*](#list_guardduty-resource-threatentityset "#list_guardduty-resource-threatentityset")                                              | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteThreatIntelSet](../../../guardduty/latest/APIReference/API_DeleteThreatIntelSet.md "../../../guardduty/latest/APIReference/API_DeleteThreatIntelSet.md")                                                                | Grants permission to delete GuardDuty ThreatIntelSets                                                                                                                                                                                                                                                             | [threatintelset\*](#list_guardduty-resource-threatintelset "#list_guardduty-resource-threatintelset")                                                 | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteTrustedEntitySet](../../../guardduty/latest/APIReference/API_DeleteTrustedEntitySet.md "../../../guardduty/latest/APIReference/API_DeleteTrustedEntitySet.md")                                                          | Grants permission to delete GuardDuty TrustedEntitySets                                                                                                                                                                                                                                                           | [trustedentityset\*](#list_guardduty-resource-trustedentityset "#list_guardduty-resource-trustedentityset")                                           | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DescribeMalwareScans](../../../guardduty/latest/APIReference/API_DescribeMalwareScans.md "../../../guardduty/latest/APIReference/API_DescribeMalwareScans.md")                                                                | Grants permission to retrieve details about malware scans                                                                                                                                                                                                                                                         |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [DescribeOrganizationConfiguration](../../../guardduty/latest/APIReference/API_DescribeOrganizationConfiguration.md "../../../guardduty/latest/APIReference/API_DescribeOrganizationConfiguration.md")                         | Grants permission to retrieve details about the delegated administrator associated with a GuardDuty detector                                                                                                                                                                                                      |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [DescribePublishingDestination](../../../guardduty/latest/APIReference/API_DescribePublishingDestination.md "../../../guardduty/latest/APIReference/API_DescribePublishingDestination.md")                                     | Grants permission to retrieve details about a publishing destination                                                                                                                                                                                                                                              | [publishingDestination\*](#list_guardduty-resource-publishingDestination "#list_guardduty-resource-publishingDestination")                            | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [DisableOrganizationAdminAccount](../../../guardduty/latest/APIReference/API_DisableOrganizationAdminAccount.md "../../../guardduty/latest/APIReference/API_DisableOrganizationAdminAccount.md")                               | Grants permission to disable the organization delegated administrator for GuardDuty                                                                                                                                                                                                                               |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [DisassociateFromAdministratorAccount](../../../guardduty/latest/APIReference/API_DisassociateFromAdministratorAccount.md "../../../guardduty/latest/APIReference/API_DisassociateFromAdministratorAccount.md")                | Grants permission to disassociate a GuardDuty member account from its GuardDuty administrator account                                                                                                                                                                                                             |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [DisassociateFromMasterAccount](../../../guardduty/latest/APIReference/API_DisassociateFromMasterAccount.md "../../../guardduty/latest/APIReference/API_DisassociateFromMasterAccount.md")                                     | Grants permission to disassociate a GuardDuty member account from its GuardDuty administrator account                                                                                                                                                                                                             |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [DisassociateMembers](../../../guardduty/latest/APIReference/API_DisassociateMembers.md "../../../guardduty/latest/APIReference/API_DisassociateMembers.md")                                                                   | Grants permission to disassociate GuardDuty member accounts from their administrator GuardDuty account                                                                                                                                                                                                            |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [EnableOrganizationAdminAccount](../../../guardduty/latest/APIReference/API_EnableOrganizationAdminAccount.md "../../../guardduty/latest/APIReference/API_EnableOrganizationAdminAccount.md")                                  | Grants permission to enable an organization delegated administrator for GuardDuty                                                                                                                                                                                                                                 |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [GetAdministratorAccount](../../../guardduty/latest/APIReference/API_GetAdministratorAccount.md "../../../guardduty/latest/APIReference/API_GetAdministratorAccount.md")                                                       | Grants permission to retrieve details of the GuardDuty administrator account associated with a member account                                                                                                                                                                                                     |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetCoverageStatistics](../../../guardduty/latest/APIReference/API_GetCoverageStatistics.md "../../../guardduty/latest/APIReference/API_GetCoverageStatistics.md")                                                             | Grants permission to list Amazon GuardDuty coverage statistics for the specified GuardDuty account in a Region                                                                                                                                                                                                    | [detector\*](#list_guardduty-resource-detector "#list_guardduty-resource-detector")                                                                   | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetCustomDetectionRule](../../../guardduty/latest/APIReference/API_GetCustomDetectionRule.md "../../../guardduty/latest/APIReference/API_GetCustomDetectionRule.md")                                                          | Grants permission to retrieve a GuardDuty custom detection rule                                                                                                                                                                                                                                                   | [customdetectionrule\*](#list_guardduty-resource-customdetectionrule "#list_guardduty-resource-customdetectionrule")                                  |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetCustomDetectionRuleAssociation](../../../guardduty/latest/APIReference/API_GetCustomDetectionRuleAssociation.md "../../../guardduty/latest/APIReference/API_GetCustomDetectionRuleAssociation.md")                         | Grants permission to retrieve a GuardDuty custom detection rule association                                                                                                                                                                                                                                       | [customdetectionruleassociation\*](#list_guardduty-resource-customdetectionruleassociation "#list_guardduty-resource-customdetectionruleassociation") | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetCustomDetectionRuleOrgConfiguration](../../../guardduty/latest/APIReference/API_GetCustomDetectionRuleOrgConfiguration.md "../../../guardduty/latest/APIReference/API_GetCustomDetectionRuleOrgConfiguration.md")          | Grants permission to retrieve the organization configuration for a GuardDuty custom detection rule                                                                                                                                                                                                                |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetDetector](../../../guardduty/latest/APIReference/API_GetDetector.md "../../../guardduty/latest/APIReference/API_GetDetector.md")                                                                                           | Grants permission to retrieve GuardDuty detectors                                                                                                                                                                                                                                                                 | [detector\*](#list_guardduty-resource-detector "#list_guardduty-resource-detector")                                                                   | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetFilter](../../../guardduty/latest/APIReference/API_GetFilter.md "../../../guardduty/latest/APIReference/API_GetFilter.md")                                                                                                 | Grants permission to retrieve GuardDuty filters                                                                                                                                                                                                                                                                   | [filter\*](#list_guardduty-resource-filter "#list_guardduty-resource-filter")                                                                         | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetFindings](../../../guardduty/latest/APIReference/API_GetFindings.md "../../../guardduty/latest/APIReference/API_GetFindings.md")                                                                                           | Grants permission to retrieve GuardDuty findings                                                                                                                                                                                                                                                                  |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetFindingsStatistics](../../../guardduty/latest/APIReference/API_GetFindingsStatistics.md "../../../guardduty/latest/APIReference/API_GetFindingsStatistics.md")                                                             | Grants permission to retrieve a list of GuardDuty finding statistics                                                                                                                                                                                                                                              |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetIPSet](../../../guardduty/latest/APIReference/API_GetIPSet.md "../../../guardduty/latest/APIReference/API_GetIPSet.md")                                                                                                    | Grants permission to retrieve GuardDuty IPSets                                                                                                                                                                                                                                                                    | [ipset\*](#list_guardduty-resource-ipset "#list_guardduty-resource-ipset")                                                                            | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetInvestigation](../../../guardduty/latest/APIReference/API_GetInvestigation.md "../../../guardduty/latest/APIReference/API_GetInvestigation.md")                                                                            | Grants permission to retrieve a GuardDuty investigation                                                                                                                                                                                                                                                           |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetInvitationsCount](../../../guardduty/latest/APIReference/API_GetInvitationsCount.md "../../../guardduty/latest/APIReference/API_GetInvitationsCount.md")                                                                   | Grants permission to retrieve the count of all GuardDuty invitations sent to a specified account, which does not include the accepted invitation                                                                                                                                                                  |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetMalwareProtectionPlan](../../../guardduty/latest/APIReference/API_GetMalwareProtectionPlan.md "../../../guardduty/latest/APIReference/API_GetMalwareProtectionPlan.md")                                                    | Grants permission to retrieve a Malware Protection plan details                                                                                                                                                                                                                                                   | [malwareprotectionplan\*](#list_guardduty-resource-malwareprotectionplan "#list_guardduty-resource-malwareprotectionplan")                            | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetMalwareScan](../../../guardduty/latest/APIReference/API_GetMalwareScan.md "../../../guardduty/latest/APIReference/API_GetMalwareScan.md")                                                                                  | Grants permission to retrieve a malware scan's details                                                                                                                                                                                                                                                            |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetMalwareScanSettings](../../../guardduty/latest/APIReference/API_GetMalwareScanSettings.md "../../../guardduty/latest/APIReference/API_GetMalwareScanSettings.md")                                                          | Grants permission to retrieve the malware scan settings                                                                                                                                                                                                                                                           |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetMasterAccount](../../../guardduty/latest/APIReference/API_GetMasterAccount.md "../../../guardduty/latest/APIReference/API_GetMasterAccount.md")                                                                            | Grants permission to retrieve details of the GuardDuty administrator account associated with a member account                                                                                                                                                                                                     |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetMemberDetectors](../../../guardduty/latest/APIReference/API_GetMemberDetectors.md "../../../guardduty/latest/APIReference/API_GetMemberDetectors.md")                                                                      | Grants permission to describe which data sources are enabled for member accounts detectors                                                                                                                                                                                                                        |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetMembers](../../../guardduty/latest/APIReference/API_GetMembers.md "../../../guardduty/latest/APIReference/API_GetMembers.md")                                                                                              | Grants permission to retrieve the member accounts associated with an administrator account                                                                                                                                                                                                                        |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetOrganizationStatistics](../../../guardduty/latest/APIReference/API_GetOrganizationStatistics.md "../../../guardduty/latest/APIReference/API_GetOrganizationStatistics.md")                                                 | Grants permission to retrieve GuardDuty protection plan coverage statistics for member accounts in a Region                                                                                                                                                                                                       |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetRemainingFreeTrialDays](../../../guardduty/latest/APIReference/API_GetRemainingFreeTrialDays.md "../../../guardduty/latest/APIReference/API_GetRemainingFreeTrialDays.md")                                                 | Grants permission to provide the number of days left for each data source used in the free trial period                                                                                                                                                                                                           |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [GetThreatEntitySet](../../../guardduty/latest/APIReference/API_GetThreatEntitySet.md "../../../guardduty/latest/APIReference/API_GetThreatEntitySet.md")                                                                      | Grants permission to retrieve GuardDuty ThreatEntitySets                                                                                                                                                                                                                                                          | [threatentityset\*](#list_guardduty-resource-threatentityset "#list_guardduty-resource-threatentityset")                                              | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetThreatIntelSet](../../../guardduty/latest/APIReference/API_GetThreatIntelSet.md "../../../guardduty/latest/APIReference/API_GetThreatIntelSet.md")                                                                         | Grants permission to retrieve GuardDuty ThreatIntelSets                                                                                                                                                                                                                                                           | [threatintelset\*](#list_guardduty-resource-threatintelset "#list_guardduty-resource-threatintelset")                                                 | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetTrustedEntitySet](../../../guardduty/latest/APIReference/API_GetTrustedEntitySet.md "../../../guardduty/latest/APIReference/API_GetTrustedEntitySet.md")                                                                   | Grants permission to retrieve GuardDuty TrustedEntitySets                                                                                                                                                                                                                                                         | [trustedentityset\*](#list_guardduty-resource-trustedentityset "#list_guardduty-resource-trustedentityset")                                           | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetUsageStatistics](../../../guardduty/latest/APIReference/API_GetUsageStatistics.md "../../../guardduty/latest/APIReference/API_GetUsageStatistics.md")                                                                      | Grants permission to list Amazon GuardDuty usage statistics over the last 30 days for the specified detector ID                                                                                                                                                                                                   |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [InviteMembers](../../../guardduty/latest/APIReference/API_InviteMembers.md "../../../guardduty/latest/APIReference/API_InviteMembers.md")                                                                                     | Grants permission to invite other AWS accounts to enable GuardDuty and become GuardDuty member accounts                                                                                                                                                                                                           |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [ListCoverage](../../../guardduty/latest/APIReference/API_ListCoverage.md "../../../guardduty/latest/APIReference/API_ListCoverage.md")                                                                                        | Grants permission to list all the resource details for a given account in a Region                                                                                                                                                                                                                                | [detector\*](#list_guardduty-resource-detector "#list_guardduty-resource-detector")                                                                   | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | List           |
-| [ListCustomDetectionRuleAssociations](../../../guardduty/latest/APIReference/API_ListCustomDetectionRuleAssociations.md "../../../guardduty/latest/APIReference/API_ListCustomDetectionRuleAssociations.md")                   | Grants permission to retrieve a list of GuardDuty custom detection rule associations                                                                                                                                                                                                                              |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListCustomDetectionRuleOrgConfigurations](../../../guardduty/latest/APIReference/API_ListCustomDetectionRuleOrgConfigurations.md "../../../guardduty/latest/APIReference/API_ListCustomDetectionRuleOrgConfigurations.md")    | Grants permission to retrieve a list of organization configurations for GuardDuty custom detection rules                                                                                                                                                                                                          |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListCustomDetectionRules](../../../guardduty/latest/APIReference/API_ListCustomDetectionRules.md "../../../guardduty/latest/APIReference/API_ListCustomDetectionRules.md")                                                    | Grants permission to retrieve a list of GuardDuty custom detection rules                                                                                                                                                                                                                                          |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListDetectors](../../../guardduty/latest/APIReference/API_ListDetectors.md "../../../guardduty/latest/APIReference/API_ListDetectors.md")                                                                                     | Grants permission to retrieve a list of GuardDuty detectors                                                                                                                                                                                                                                                       |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListFilters](../../../guardduty/latest/APIReference/API_ListFilters.md "../../../guardduty/latest/APIReference/API_ListFilters.md")                                                                                           | Grants permission to retrieve a list of GuardDuty filters                                                                                                                                                                                                                                                         |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListFindings](../../../guardduty/latest/APIReference/API_ListFindings.md "../../../guardduty/latest/APIReference/API_ListFindings.md")                                                                                        | Grants permission to retrieve a list of GuardDuty findings                                                                                                                                                                                                                                                        |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListIPSets](../../../guardduty/latest/APIReference/API_ListIPSets.md "../../../guardduty/latest/APIReference/API_ListIPSets.md")                                                                                              | Grants permission to retrieve a list of GuardDuty IPSets                                                                                                                                                                                                                                                          |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListInvestigations](../../../guardduty/latest/APIReference/API_ListInvestigations.md "../../../guardduty/latest/APIReference/API_ListInvestigations.md")                                                                      | Grants permission to retrieve a list of GuardDuty investigations                                                                                                                                                                                                                                                  |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListInvitations](../../../guardduty/latest/APIReference/API_ListInvitations.md "../../../guardduty/latest/APIReference/API_ListInvitations.md")                                                                               | Grants permission to retrieve a list of all of the GuardDuty membership invitations that were sent to an AWS account                                                                                                                                                                                              |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListMalwareProtectionPlans](../../../guardduty/latest/APIReference/API_ListMalwareProtectionPlans.md "../../../guardduty/latest/APIReference/API_ListMalwareProtectionPlans.md")                                              | Grants permission to retrieve a list of Malware Protection plans                                                                                                                                                                                                                                                  |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListMalwareScans](../../../guardduty/latest/APIReference/API_ListMalwareScans.md "../../../guardduty/latest/APIReference/API_ListMalwareScans.md")                                                                            | Grants permission to retrieve a list of malware scans                                                                                                                                                                                                                                                             |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListMembers](../../../guardduty/latest/APIReference/API_ListMembers.md "../../../guardduty/latest/APIReference/API_ListMembers.md")                                                                                           | Grants permission to retrieve a list of GuardDuty member accounts associated with an administrator account                                                                                                                                                                                                        |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListOrganizationAdminAccounts](../../../guardduty/latest/APIReference/API_ListOrganizationAdminAccounts.md "../../../guardduty/latest/APIReference/API_ListOrganizationAdminAccounts.md")                                     | Grants permission to list details about the organization delegated administrator for GuardDuty                                                                                                                                                                                                                    |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListPublishingDestinations](../../../guardduty/latest/APIReference/API_ListPublishingDestinations.md "../../../guardduty/latest/APIReference/API_ListPublishingDestinations.md")                                              | Grants permission to retrieve a list of publishing destinations                                                                                                                                                                                                                                                   |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListTagsForResource](../../../guardduty/latest/APIReference/API_ListTagsForResource.md "../../../guardduty/latest/APIReference/API_ListTagsForResource.md")                                                                   | Grants permission to retrieve a list of tags associated with a GuardDuty resource                                                                                                                                                                                                                                 | [customdetectionruleassociation](#list_guardduty-resource-customdetectionruleassociation "#list_guardduty-resource-customdetectionruleassociation")   | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [detector](#list_guardduty-resource-detector "#list_guardduty-resource-detector")                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [filter](#list_guardduty-resource-filter "#list_guardduty-resource-filter")                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ipset](#list_guardduty-resource-ipset "#list_guardduty-resource-ipset")                                                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [malwareprotectionplan](#list_guardduty-resource-malwareprotectionplan "#list_guardduty-resource-malwareprotectionplan")                                                                                                       | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [publishingDestination](#list_guardduty-resource-publishingDestination "#list_guardduty-resource-publishingDestination")                                                                                                       | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [threatentityset](#list_guardduty-resource-threatentityset "#list_guardduty-resource-threatentityset")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [threatintelset](#list_guardduty-resource-threatintelset "#list_guardduty-resource-threatintelset")                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [trustedentityset](#list_guardduty-resource-trustedentityset "#list_guardduty-resource-trustedentityset")                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ListThreatEntitySets](../../../guardduty/latest/APIReference/API_ListThreatEntitySets.md "../../../guardduty/latest/APIReference/API_ListThreatEntitySets.md")                                                                | Grants permission to retrieve a list of GuardDuty ThreatEntitySets                                                                                                                                                                                                                                                |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListThreatIntelSets](../../../guardduty/latest/APIReference/API_ListThreatIntelSets.md "../../../guardduty/latest/APIReference/API_ListThreatIntelSets.md")                                                                   | Grants permission to retrieve a list of GuardDuty ThreatIntelSets                                                                                                                                                                                                                                                 |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListTrustedEntitySets](../../../guardduty/latest/APIReference/API_ListTrustedEntitySets.md "../../../guardduty/latest/APIReference/API_ListTrustedEntitySets.md")                                                             | Grants permission to retrieve a list of GuardDuty TrustedEntitySets                                                                                                                                                                                                                                               |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | List           |
-| [SendObjectMalwareScan](../../../guardduty/latest/APIReference/API_SendObjectMalwareScan.md "../../../guardduty/latest/APIReference/API_SendObjectMalwareScan.md")                                                             | Grants permission to initiate a new object malware scan                                                                                                                                                                                                                                                           |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [SendSecurityTelemetry](../../../guardduty/latest/APIReference/API_SendSecurityTelemetry.md "../../../guardduty/latest/APIReference/API_SendSecurityTelemetry.md")                                                             | Grants permission to send security telemetry for a specific GuardDuty account in a Region                                                                                                                                                                                                                         |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [StartMalwareScan](../../../guardduty/latest/APIReference/API_StartMalwareScan.md "../../../guardduty/latest/APIReference/API_StartMalwareScan.md")                                                                            | Grants permission to initiate a new malware scan                                                                                                                                                                                                                                                                  |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [StartMonitoringMembers](../../../guardduty/latest/APIReference/API_StartMonitoringMembers.md "../../../guardduty/latest/APIReference/API_StartMonitoringMembers.md")                                                          | Grants permission to a GuardDuty administrator account to monitor findings from GuardDuty member accounts                                                                                                                                                                                                         |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [StopMonitoringMembers](../../../guardduty/latest/APIReference/API_StopMonitoringMembers.md "../../../guardduty/latest/APIReference/API_StopMonitoringMembers.md")                                                             | Grants permission to disable monitoring findings from member accounts                                                                                                                                                                                                                                             |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [TagResource](../../../guardduty/latest/APIReference/API_TagResource.md "../../../guardduty/latest/APIReference/API_TagResource.md")                                                                                           | Grants permission to add tags to a GuardDuty resource                                                                                                                                                                                                                                                             | [customdetectionruleassociation](#list_guardduty-resource-customdetectionruleassociation "#list_guardduty-resource-customdetectionruleassociation")   | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys") | Tagging, Write |
-| [detector](#list_guardduty-resource-detector "#list_guardduty-resource-detector")                                                                                                                                              | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys") |
-| [filter](#list_guardduty-resource-filter "#list_guardduty-resource-filter")                                                                                                                                                    | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys") |
-| [ipset](#list_guardduty-resource-ipset "#list_guardduty-resource-ipset")                                                                                                                                                       | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys") |
-| [malwareprotectionplan](#list_guardduty-resource-malwareprotectionplan "#list_guardduty-resource-malwareprotectionplan")                                                                                                       | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys") |
-| [publishingDestination](#list_guardduty-resource-publishingDestination "#list_guardduty-resource-publishingDestination")                                                                                                       | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys") |
-| [threatentityset](#list_guardduty-resource-threatentityset "#list_guardduty-resource-threatentityset")                                                                                                                         | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys") |
-| [threatintelset](#list_guardduty-resource-threatintelset "#list_guardduty-resource-threatintelset")                                                                                                                            | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys") |
-| [trustedentityset](#list_guardduty-resource-trustedentityset "#list_guardduty-resource-trustedentityset")                                                                                                                      | [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_ "#list_guardduty-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys") |
-| [UnarchiveFindings](../../../guardduty/latest/APIReference/API_UnarchiveFindings.md "../../../guardduty/latest/APIReference/API_UnarchiveFindings.md")                                                                         | Grants permission to unarchive GuardDuty findings                                                                                                                                                                                                                                                                 |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [UntagResource](../../../guardduty/latest/APIReference/API_UntagResource.md "../../../guardduty/latest/APIReference/API_UntagResource.md")                                                                                     | Grants permission to remove tags from a GuardDuty resource                                                                                                                                                                                                                                                        | [customdetectionruleassociation](#list_guardduty-resource-customdetectionruleassociation "#list_guardduty-resource-customdetectionruleassociation")   | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys")                                                                                                                    | Tagging, Write |
-| [detector](#list_guardduty-resource-detector "#list_guardduty-resource-detector")                                                                                                                                              | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys")                                                                                                                    |
-| [filter](#list_guardduty-resource-filter "#list_guardduty-resource-filter")                                                                                                                                                    | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys")                                                                                                                    |
-| [ipset](#list_guardduty-resource-ipset "#list_guardduty-resource-ipset")                                                                                                                                                       | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys")                                                                                                                    |
-| [malwareprotectionplan](#list_guardduty-resource-malwareprotectionplan "#list_guardduty-resource-malwareprotectionplan")                                                                                                       | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys")                                                                                                                    |
-| [publishingDestination](#list_guardduty-resource-publishingDestination "#list_guardduty-resource-publishingDestination")                                                                                                       | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys")                                                                                                                    |
-| [threatentityset](#list_guardduty-resource-threatentityset "#list_guardduty-resource-threatentityset")                                                                                                                         | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys")                                                                                                                    |
-| [threatintelset](#list_guardduty-resource-threatintelset "#list_guardduty-resource-threatintelset")                                                                                                                            | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys")                                                                                                                    |
-| [trustedentityset](#list_guardduty-resource-trustedentityset "#list_guardduty-resource-trustedentityset")                                                                                                                      | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_guardduty-aws_TagKeys "#list_guardduty-aws_TagKeys")                                                                                                                    |
-| [UpdateCustomDetectionRuleAssociation](../../../guardduty/latest/APIReference/API_UpdateCustomDetectionRuleAssociation.md "../../../guardduty/latest/APIReference/API_UpdateCustomDetectionRuleAssociation.md")                | Grants permission to update a GuardDuty custom detection rule association                                                                                                                                                                                                                                         | [customdetectionruleassociation\*](#list_guardduty-resource-customdetectionruleassociation "#list_guardduty-resource-customdetectionruleassociation") | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [UpdateCustomDetectionRuleOrgConfiguration](../../../guardduty/latest/APIReference/API_UpdateCustomDetectionRuleOrgConfiguration.md "../../../guardduty/latest/APIReference/API_UpdateCustomDetectionRuleOrgConfiguration.md") | Grants permission to update the organization configuration for a GuardDuty custom detection rule                                                                                                                                                                                                                  |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [UpdateDetector](../../../guardduty/latest/APIReference/API_UpdateDetector.md "../../../guardduty/latest/APIReference/API_UpdateDetector.md")                                                                                  | Grants permission to update GuardDuty detectors                                                                                                                                                                                                                                                                   | [detector\*](#list_guardduty-resource-detector "#list_guardduty-resource-detector")                                                                   | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [UpdateFilter](../../../guardduty/latest/APIReference/API_UpdateFilter.md "../../../guardduty/latest/APIReference/API_UpdateFilter.md")                                                                                        | Grants permission to updates GuardDuty filters                                                                                                                                                                                                                                                                    | [filter\*](#list_guardduty-resource-filter "#list_guardduty-resource-filter")                                                                         | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [UpdateFindingsFeedback](../../../guardduty/latest/APIReference/API_UpdateFindingsFeedback.md "../../../guardduty/latest/APIReference/API_UpdateFindingsFeedback.md")                                                          | Grants permission to update findings feedback to mark GuardDuty findings as useful or not useful                                                                                                                                                                                                                  |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [UpdateIPSet](../../../guardduty/latest/APIReference/API_UpdateIPSet.md "../../../guardduty/latest/APIReference/API_UpdateIPSet.md")                                                                                           | Grants permission to update GuardDuty IPSets                                                                                                                                                                                                                                                                      | [ipset\*](#list_guardduty-resource-ipset "#list_guardduty-resource-ipset")                                                                            | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [UpdateMalwareProtectionPlan](../../../guardduty/latest/APIReference/API_UpdateMalwareProtectionPlan.md "../../../guardduty/latest/APIReference/API_UpdateMalwareProtectionPlan.md")                                           | Grants permission to update the Malware Protection plan                                                                                                                                                                                                                                                           | [malwareprotectionplan\*](#list_guardduty-resource-malwareprotectionplan "#list_guardduty-resource-malwareprotectionplan")                            | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [UpdateMalwareScanSettings](../../../guardduty/latest/APIReference/API_UpdateMalwareScanSettings.md "../../../guardduty/latest/APIReference/API_UpdateMalwareScanSettings.md")                                                 | Grants permission to update the malware scan settings                                                                                                                                                                                                                                                             |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [UpdateMemberDetectors](../../../guardduty/latest/APIReference/API_UpdateMemberDetectors.md "../../../guardduty/latest/APIReference/API_UpdateMemberDetectors.md")                                                             | Grants permission to update which data sources are enabled for member accounts detectors                                                                                                                                                                                                                          |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [UpdateOrganizationConfiguration](../../../guardduty/latest/APIReference/API_UpdateOrganizationConfiguration.md "../../../guardduty/latest/APIReference/API_UpdateOrganizationConfiguration.md")                               | Grants permission to update the delegated administrator configuration associated with a GuardDuty detector                                                                                                                                                                                                        |                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [UpdatePublishingDestination](../../../guardduty/latest/APIReference/API_UpdatePublishingDestination.md "../../../guardduty/latest/APIReference/API_UpdatePublishingDestination.md")                                           | Grants permission to update a publishing destination                                                                                                                                                                                                                                                              | [publishingDestination\*](#list_guardduty-resource-publishingDestination "#list_guardduty-resource-publishingDestination")                            | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [UpdateThreatEntitySet](../../../guardduty/latest/APIReference/API_UpdateThreatEntitySet.md "../../../guardduty/latest/APIReference/API_UpdateThreatEntitySet.md")                                                             | Grants permission to update GuardDuty ThreatEntitySets                                                                                                                                                                                                                                                            | [threatentityset\*](#list_guardduty-resource-threatentityset "#list_guardduty-resource-threatentityset")                                              | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [UpdateThreatIntelSet](../../../guardduty/latest/APIReference/API_UpdateThreatIntelSet.md "../../../guardduty/latest/APIReference/API_UpdateThreatIntelSet.md")                                                                | Grants permission to updates the GuardDuty ThreatIntelSets                                                                                                                                                                                                                                                        | [threatintelset\*](#list_guardduty-resource-threatintelset "#list_guardduty-resource-threatintelset")                                                 | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [UpdateTrustedEntitySet](../../../guardduty/latest/APIReference/API_UpdateTrustedEntitySet.md "../../../guardduty/latest/APIReference/API_UpdateTrustedEntitySet.md")                                                          | Grants permission to update GuardDuty TrustedEntitySets                                                                                                                                                                                                                                                           | [trustedentityset\*](#list_guardduty-resource-trustedentityset "#list_guardduty-resource-trustedentityset")                                           | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
+
+
+
+- **   [AcceptAdministratorInvitation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_AcceptAdministratorInvitation.html)  **
+  - **Description:** Grants permission to accept invitations to become a GuardDuty member account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [AcceptInvitation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_AcceptInvitation.html)  **
+  - **Description:** Grants permission to accept invitations to become a GuardDuty member account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ArchiveFindings](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ArchiveFindings.html)  **
+  - **Description:** Grants permission to archive GuardDuty findings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateCustomDetectionRuleAssociation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateCustomDetectionRuleAssociation.html)  **
+  - **Description:** Grants permission to create a GuardDuty custom detection rule association
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateCustomDetectionRuleOrgConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateCustomDetectionRuleOrgConfiguration.html)  **
+  - **Description:** Grants permission to create the organization configuration for a GuardDuty custom detection rule
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateDetector](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateDetector.html)  **
+  - **Description:** Grants permission to create a detector
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateFilter](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateFilter.html)  **
+  - **Description:** Grants permission to create GuardDuty filters. A filters defines finding attributes and conditions used to filter findings
+  - **Resource types (\*required):** [filter\*](#list_guardduty-resource-filter)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateIPSet](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateIPSet.html)  **
+  - **Description:** Grants permission to create an IPSet
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateInvestigation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateInvestigation.html)  **
+  - **Description:** Grants permission to create a GuardDuty investigation
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateMalwareProtectionPlan](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMalwareProtectionPlan.html)  **
+  - **Description:** Grants permission to create a new Malware Protection plan
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html)  **
+  - **Description:** Grants permission to create GuardDuty member accounts, where the account used to create a member becomes the GuardDuty administrator account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreatePublishingDestination](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreatePublishingDestination.html)  **
+  - **Description:** Grants permission to create a publishing destination
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateSampleFindings](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateSampleFindings.html)  **
+  - **Description:** Grants permission to create sample findings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateThreatEntitySet](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateThreatEntitySet.html)  **
+  - **Description:** Grants permission to create GuardDuty ThreatEntitySets, where a ThreatEntitySet consists of known malicious IP addresses and/or domains used by GuardDuty to generate findings
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateThreatIntelSet](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateThreatIntelSet.html)  **
+  - **Description:** Grants permission to create GuardDuty ThreatIntelSets, where a ThreatIntelSet consists of known malicious IP addresses used by GuardDuty to generate findings
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateTrustedEntitySet](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateTrustedEntitySet.html)  **
+  - **Description:** Grants permission to create a TrustedEntitySet
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeclineInvitations](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeclineInvitations.html)  **
+  - **Description:** Grants permission to decline invitations to become a GuardDuty member account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteCustomDetectionRuleAssociation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteCustomDetectionRuleAssociation.html)  **
+  - **Description:** Grants permission to delete a GuardDuty custom detection rule association
+  - **Resource types (\*required):** [customdetectionruleassociation\*](#list_guardduty-resource-customdetectionruleassociation)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteCustomDetectionRuleOrgConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteCustomDetectionRuleOrgConfiguration.html)  **
+  - **Description:** Grants permission to delete the organization configuration for a GuardDuty custom detection rule
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteDetector](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteDetector.html)  **
+  - **Description:** Grants permission to delete GuardDuty detectors
+  - **Resource types (\*required):** [detector\*](#list_guardduty-resource-detector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteFilter](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteFilter.html)  **
+  - **Description:** Grants permission to delete GuardDuty filters
+  - **Resource types (\*required):** [filter\*](#list_guardduty-resource-filter)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteIPSet](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteIPSet.html)  **
+  - **Description:** Grants permission to delete GuardDuty IPSets
+  - **Resource types (\*required):** [ipset\*](#list_guardduty-resource-ipset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteInvitations](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteInvitations.html)  **
+  - **Description:** Grants permission to delete invitations to become a GuardDuty member account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteMalwareProtectionPlan](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMalwareProtectionPlan.html)  **
+  - **Description:** Grants permission to delete a Malware Protection plan
+  - **Resource types (\*required):** [malwareprotectionplan\*](#list_guardduty-resource-malwareprotectionplan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html)  **
+  - **Description:** Grants permission to delete GuardDuty member accounts
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeletePublishingDestination](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeletePublishingDestination.html)  **
+  - **Description:** Grants permission to delete a publishing destination
+  - **Resource types (\*required):** [publishingDestination\*](#list_guardduty-resource-publishingDestination)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteThreatEntitySet](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteThreatEntitySet.html)  **
+  - **Description:** Grants permission to delete GuardDuty ThreatEntitySets
+  - **Resource types (\*required):** [threatentityset\*](#list_guardduty-resource-threatentityset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteThreatIntelSet](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteThreatIntelSet.html)  **
+  - **Description:** Grants permission to delete GuardDuty ThreatIntelSets
+  - **Resource types (\*required):** [threatintelset\*](#list_guardduty-resource-threatintelset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteTrustedEntitySet](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteTrustedEntitySet.html)  **
+  - **Description:** Grants permission to delete GuardDuty TrustedEntitySets
+  - **Resource types (\*required):** [trustedentityset\*](#list_guardduty-resource-trustedentityset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeMalwareScans](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribeMalwareScans.html)  **
+  - **Description:** Grants permission to retrieve details about malware scans
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribeOrganizationConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribeOrganizationConfiguration.html)  **
+  - **Description:** Grants permission to retrieve details about the delegated administrator associated with a GuardDuty detector
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [DescribePublishingDestination](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribePublishingDestination.html)  **
+  - **Description:** Grants permission to retrieve details about a publishing destination
+  - **Resource types (\*required):** [publishingDestination\*](#list_guardduty-resource-publishingDestination)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DisableOrganizationAdminAccount](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DisableOrganizationAdminAccount.html)  **
+  - **Description:** Grants permission to disable the organization delegated administrator for GuardDuty
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DisassociateFromAdministratorAccount](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DisassociateFromAdministratorAccount.html)  **
+  - **Description:** Grants permission to disassociate a GuardDuty member account from its GuardDuty administrator account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DisassociateFromMasterAccount](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DisassociateFromMasterAccount.html)  **
+  - **Description:** Grants permission to disassociate a GuardDuty member account from its GuardDuty administrator account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DisassociateMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DisassociateMembers.html)  **
+  - **Description:** Grants permission to disassociate GuardDuty member accounts from their administrator GuardDuty account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [EnableOrganizationAdminAccount](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_EnableOrganizationAdminAccount.html)  **
+  - **Description:** Grants permission to enable an organization delegated administrator for GuardDuty
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [GetAdministratorAccount](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetAdministratorAccount.html)  **
+  - **Description:** Grants permission to retrieve details of the GuardDuty administrator account associated with a member account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetCoverageStatistics](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetCoverageStatistics.html)  **
+  - **Description:** Grants permission to list Amazon GuardDuty coverage statistics for the specified GuardDuty account in a Region
+  - **Resource types (\*required):** [detector\*](#list_guardduty-resource-detector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCustomDetectionRule](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetCustomDetectionRule.html)  **
+  - **Description:** Grants permission to retrieve a GuardDuty custom detection rule
+  - **Resource types (\*required):** [customdetectionrule\*](#list_guardduty-resource-customdetectionrule)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetCustomDetectionRuleAssociation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetCustomDetectionRuleAssociation.html)  **
+  - **Description:** Grants permission to retrieve a GuardDuty custom detection rule association
+  - **Resource types (\*required):** [customdetectionruleassociation\*](#list_guardduty-resource-customdetectionruleassociation)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCustomDetectionRuleOrgConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetCustomDetectionRuleOrgConfiguration.html)  **
+  - **Description:** Grants permission to retrieve the organization configuration for a GuardDuty custom detection rule
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetDetector](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetDetector.html)  **
+  - **Description:** Grants permission to retrieve GuardDuty detectors
+  - **Resource types (\*required):** [detector\*](#list_guardduty-resource-detector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetFilter](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetFilter.html)  **
+  - **Description:** Grants permission to retrieve GuardDuty filters
+  - **Resource types (\*required):** [filter\*](#list_guardduty-resource-filter)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetFindings](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetFindings.html)  **
+  - **Description:** Grants permission to retrieve GuardDuty findings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetFindingsStatistics](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetFindingsStatistics.html)  **
+  - **Description:** Grants permission to retrieve a list of GuardDuty finding statistics
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetIPSet](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetIPSet.html)  **
+  - **Description:** Grants permission to retrieve GuardDuty IPSets
+  - **Resource types (\*required):** [ipset\*](#list_guardduty-resource-ipset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetInvestigation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetInvestigation.html)  **
+  - **Description:** Grants permission to retrieve a GuardDuty investigation
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetInvitationsCount](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetInvitationsCount.html)  **
+  - **Description:** Grants permission to retrieve the count of all GuardDuty invitations sent to a specified account, which does not include the accepted invitation
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetMalwareProtectionPlan](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetMalwareProtectionPlan.html)  **
+  - **Description:** Grants permission to retrieve a Malware Protection plan details
+  - **Resource types (\*required):** [malwareprotectionplan\*](#list_guardduty-resource-malwareprotectionplan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetMalwareScan](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetMalwareScan.html)  **
+  - **Description:** Grants permission to retrieve a malware scan's details
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetMalwareScanSettings](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetMalwareScanSettings.html)  **
+  - **Description:** Grants permission to retrieve the malware scan settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetMasterAccount](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetMasterAccount.html)  **
+  - **Description:** Grants permission to retrieve details of the GuardDuty administrator account associated with a member account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetMemberDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetMemberDetectors.html)  **
+  - **Description:** Grants permission to describe which data sources are enabled for member accounts detectors
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetMembers.html)  **
+  - **Description:** Grants permission to retrieve the member accounts associated with an administrator account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetOrganizationStatistics](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetOrganizationStatistics.html)  **
+  - **Description:** Grants permission to retrieve GuardDuty protection plan coverage statistics for member accounts in a Region
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetRemainingFreeTrialDays](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetRemainingFreeTrialDays.html)  **
+  - **Description:** Grants permission to provide the number of days left for each data source used in the free trial period
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetThreatEntitySet](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetThreatEntitySet.html)  **
+  - **Description:** Grants permission to retrieve GuardDuty ThreatEntitySets
+  - **Resource types (\*required):** [threatentityset\*](#list_guardduty-resource-threatentityset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetThreatIntelSet](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetThreatIntelSet.html)  **
+  - **Description:** Grants permission to retrieve GuardDuty ThreatIntelSets
+  - **Resource types (\*required):** [threatintelset\*](#list_guardduty-resource-threatintelset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetTrustedEntitySet](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetTrustedEntitySet.html)  **
+  - **Description:** Grants permission to retrieve GuardDuty TrustedEntitySets
+  - **Resource types (\*required):** [trustedentityset\*](#list_guardduty-resource-trustedentityset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetUsageStatistics](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetUsageStatistics.html)  **
+  - **Description:** Grants permission to list Amazon GuardDuty usage statistics over the last 30 days for the specified detector ID
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [InviteMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html)  **
+  - **Description:** Grants permission to invite other AWS accounts to enable GuardDuty and become GuardDuty member accounts
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ListCoverage](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListCoverage.html)  **
+  - **Description:** Grants permission to list all the resource details for a given account in a Region
+  - **Resource types (\*required):** [detector\*](#list_guardduty-resource-detector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListCustomDetectionRuleAssociations](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListCustomDetectionRuleAssociations.html)  **
+  - **Description:** Grants permission to retrieve a list of GuardDuty custom detection rule associations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListCustomDetectionRuleOrgConfigurations](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListCustomDetectionRuleOrgConfigurations.html)  **
+  - **Description:** Grants permission to retrieve a list of organization configurations for GuardDuty custom detection rules
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListCustomDetectionRules](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListCustomDetectionRules.html)  **
+  - **Description:** Grants permission to retrieve a list of GuardDuty custom detection rules
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html)  **
+  - **Description:** Grants permission to retrieve a list of GuardDuty detectors
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListFilters](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListFilters.html)  **
+  - **Description:** Grants permission to retrieve a list of GuardDuty filters
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListFindings](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListFindings.html)  **
+  - **Description:** Grants permission to retrieve a list of GuardDuty findings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListIPSets](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListIPSets.html)  **
+  - **Description:** Grants permission to retrieve a list of GuardDuty IPSets
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListInvestigations](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListInvestigations.html)  **
+  - **Description:** Grants permission to retrieve a list of GuardDuty investigations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListInvitations](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListInvitations.html)  **
+  - **Description:** Grants permission to retrieve a list of all of the GuardDuty membership invitations that were sent to an AWS account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMalwareProtectionPlans](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListMalwareProtectionPlans.html)  **
+  - **Description:** Grants permission to retrieve a list of Malware Protection plans
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMalwareScans](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListMalwareScans.html)  **
+  - **Description:** Grants permission to retrieve a list of malware scans
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListMembers.html)  **
+  - **Description:** Grants permission to retrieve a list of GuardDuty member accounts associated with an administrator account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListOrganizationAdminAccounts](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListOrganizationAdminAccounts.html)  **
+  - **Description:** Grants permission to list details about the organization delegated administrator for GuardDuty
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListPublishingDestinations](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListPublishingDestinations.html)  **
+  - **Description:** Grants permission to retrieve a list of publishing destinations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to retrieve a list of tags associated with a GuardDuty resource
+  - **Resource types (\*required):** [customdetectionruleassociation](#list_guardduty-resource-customdetectionruleassociation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [detector](#list_guardduty-resource-detector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [filter](#list_guardduty-resource-filter) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [ipset](#list_guardduty-resource-ipset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [malwareprotectionplan](#list_guardduty-resource-malwareprotectionplan) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [publishingDestination](#list_guardduty-resource-publishingDestination) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [threatentityset](#list_guardduty-resource-threatentityset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [threatintelset](#list_guardduty-resource-threatintelset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [trustedentityset](#list_guardduty-resource-trustedentityset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListThreatEntitySets](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListThreatEntitySets.html)  **
+  - **Description:** Grants permission to retrieve a list of GuardDuty ThreatEntitySets
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListThreatIntelSets](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListThreatIntelSets.html)  **
+  - **Description:** Grants permission to retrieve a list of GuardDuty ThreatIntelSets
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTrustedEntitySets](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListTrustedEntitySets.html)  **
+  - **Description:** Grants permission to retrieve a list of GuardDuty TrustedEntitySets
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [SendObjectMalwareScan](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_SendObjectMalwareScan.html)  **
+  - **Description:** Grants permission to initiate a new object malware scan
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SendSecurityTelemetry](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_SendSecurityTelemetry.html)  **
+  - **Description:** Grants permission to send security telemetry for a specific GuardDuty account in a Region
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartMalwareScan](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StartMalwareScan.html)  **
+  - **Description:** Grants permission to initiate a new malware scan
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartMonitoringMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StartMonitoringMembers.html)  **
+  - **Description:** Grants permission to a GuardDuty administrator account to monitor findings from GuardDuty member accounts
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StopMonitoringMembers](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html)  **
+  - **Description:** Grants permission to disable monitoring findings from member accounts
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to add tags to a GuardDuty resource
+  - **Resource types (\*required):** [customdetectionruleassociation](#list_guardduty-resource-customdetectionruleassociation) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Resource types (\*required):** [detector](#list_guardduty-resource-detector) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Resource types (\*required):** [filter](#list_guardduty-resource-filter) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Resource types (\*required):** [ipset](#list_guardduty-resource-ipset) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Resource types (\*required):** [malwareprotectionplan](#list_guardduty-resource-malwareprotectionplan) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Resource types (\*required):** [publishingDestination](#list_guardduty-resource-publishingDestination) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Resource types (\*required):** [threatentityset](#list_guardduty-resource-threatentityset) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Resource types (\*required):** [threatintelset](#list_guardduty-resource-threatintelset) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Resource types (\*required):** [trustedentityset](#list_guardduty-resource-trustedentityset) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_guardduty-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UnarchiveFindings](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UnarchiveFindings.html)  **
+  - **Description:** Grants permission to unarchive GuardDuty findings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to remove tags from a GuardDuty resource
+  - **Resource types (\*required):** [customdetectionruleassociation](#list_guardduty-resource-customdetectionruleassociation) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Resource types (\*required):** [detector](#list_guardduty-resource-detector) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Resource types (\*required):** [filter](#list_guardduty-resource-filter) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Resource types (\*required):** [ipset](#list_guardduty-resource-ipset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Resource types (\*required):** [malwareprotectionplan](#list_guardduty-resource-malwareprotectionplan) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Resource types (\*required):** [publishingDestination](#list_guardduty-resource-publishingDestination) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Resource types (\*required):** [threatentityset](#list_guardduty-resource-threatentityset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Resource types (\*required):** [threatintelset](#list_guardduty-resource-threatintelset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Resource types (\*required):** [trustedentityset](#list_guardduty-resource-trustedentityset) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_guardduty-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateCustomDetectionRuleAssociation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateCustomDetectionRuleAssociation.html)  **
+  - **Description:** Grants permission to update a GuardDuty custom detection rule association
+  - **Resource types (\*required):** [customdetectionruleassociation\*](#list_guardduty-resource-customdetectionruleassociation)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateCustomDetectionRuleOrgConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateCustomDetectionRuleOrgConfiguration.html)  **
+  - **Description:** Grants permission to update the organization configuration for a GuardDuty custom detection rule
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateDetector](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateDetector.html)  **
+  - **Description:** Grants permission to update GuardDuty detectors
+  - **Resource types (\*required):** [detector\*](#list_guardduty-resource-detector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateFilter](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateFilter.html)  **
+  - **Description:** Grants permission to updates GuardDuty filters
+  - **Resource types (\*required):** [filter\*](#list_guardduty-resource-filter)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateFindingsFeedback](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateFindingsFeedback.html)  **
+  - **Description:** Grants permission to update findings feedback to mark GuardDuty findings as useful or not useful
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateIPSet](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateIPSet.html)  **
+  - **Description:** Grants permission to update GuardDuty IPSets
+  - **Resource types (\*required):** [ipset\*](#list_guardduty-resource-ipset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateMalwareProtectionPlan](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateMalwareProtectionPlan.html)  **
+  - **Description:** Grants permission to update the Malware Protection plan
+  - **Resource types (\*required):** [malwareprotectionplan\*](#list_guardduty-resource-malwareprotectionplan)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateMalwareScanSettings](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateMalwareScanSettings.html)  **
+  - **Description:** Grants permission to update the malware scan settings
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateMemberDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateMemberDetectors.html)  **
+  - **Description:** Grants permission to update which data sources are enabled for member accounts detectors
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdateOrganizationConfiguration](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateOrganizationConfiguration.html)  **
+  - **Description:** Grants permission to update the delegated administrator configuration associated with a GuardDuty detector
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [UpdatePublishingDestination](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdatePublishingDestination.html)  **
+  - **Description:** Grants permission to update a publishing destination
+  - **Resource types (\*required):** [publishingDestination\*](#list_guardduty-resource-publishingDestination)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateThreatEntitySet](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateThreatEntitySet.html)  **
+  - **Description:** Grants permission to update GuardDuty ThreatEntitySets
+  - **Resource types (\*required):** [threatentityset\*](#list_guardduty-resource-threatentityset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateThreatIntelSet](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateThreatIntelSet.html)  **
+  - **Description:** Grants permission to updates the GuardDuty ThreatIntelSets
+  - **Resource types (\*required):** [threatintelset\*](#list_guardduty-resource-threatintelset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateTrustedEntitySet](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateTrustedEntitySet.html)  **
+  - **Description:** Grants permission to update GuardDuty TrustedEntitySets
+  - **Resource types (\*required):** [trustedentityset\*](#list_guardduty-resource-trustedentityset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon GuardDuty
+<a name="list_guardduty-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                                                  | ARN                                                                                                                     | Condition keys                                                                                                     |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [customdetectionrule](../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources "../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources")            | arn:${Partition}:guardduty::aws:detection-rule/custom/${RuleId}                                                         |                                                                                                                    |
-| [customdetectionruleassociation](../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources "../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources") | arn:${Partition}:guardduty:${Region}:${Account}:detection-rule/custom/${RuleId}/association/${AssociationId}            | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_") |
-| [detector](../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources "../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources")                       | arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}                                                  | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_") |
-| [filter](../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources "../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources")                         | arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/filter/${FilterName}                             | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_") |
-| [ipset](../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources "../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources")                          | arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/ipset/${IPSetId}                                 | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_") |
-| [malwareprotectionplan](../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources "../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources")          | arn:${Partition}:guardduty:${Region}:${Account}:malware-protection-plan/${MalwareProtectionPlanId}                      | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_") |
-| [publishingDestination](../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources "../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources")          | arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/publishingdestination/${PublishingDestinationId} | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_") |
-| [threatentityset](../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources "../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources")                | arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/threatentityset/${ThreatEntitySetId}             | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_") |
-| [threatintelset](../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources "../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources")                 | arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/threatintelset/${ThreatIntelSetId}               | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_") |
-| [trustedentityset](../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources "../../../guardduty/latest/ug/guardduty_managing_access.md#guardduty-resources")               | arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/trustedentityset/${TrustedEntitySetId}           | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_ "#list_guardduty-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [customdetectionrule](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_managing_access.html#guardduty-resources)  | arn:${Partition}:guardduty::aws:detection-rule/custom/${RuleId} |   | 
+|  [customdetectionruleassociation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_managing_access.html#guardduty-resources)  | arn:${Partition}:guardduty:${Region}:${Account}:detection-rule/custom/${RuleId}/association/${AssociationId} | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_) | 
+|  [detector](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_managing_access.html#guardduty-resources)  | arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId} | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_) | 
+|  [filter](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_managing_access.html#guardduty-resources)  | arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/filter/${FilterName} | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_) | 
+|  [ipset](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_managing_access.html#guardduty-resources)  | arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/ipset/${IPSetId} | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_) | 
+|  [malwareprotectionplan](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_managing_access.html#guardduty-resources)  | arn:${Partition}:guardduty:${Region}:${Account}:malware-protection-plan/${MalwareProtectionPlanId} | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_) | 
+|  [publishingDestination](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_managing_access.html#guardduty-resources)  | arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/publishingdestination/${PublishingDestinationId} | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_) | 
+|  [threatentityset](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_managing_access.html#guardduty-resources)  | arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/threatentityset/${ThreatEntitySetId} | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_) | 
+|  [threatintelset](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_managing_access.html#guardduty-resources)  | arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/threatintelset/${ThreatIntelSetId} | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_) | 
+|  [trustedentityset](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_managing_access.html#guardduty-resources)  | arn:${Partition}:guardduty:${Region}:${Account}:detector/${DetectorId}/trustedentityset/${TrustedEntitySetId} | [aws:ResourceTag/${TagKey}](#list_guardduty-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon GuardDuty
+<a name="list_guardduty-policy-keys"></a>
 
-Amazon GuardDuty defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon GuardDuty defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                    | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by tag key-value pairs in the request           | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by tag key-value pairs attached to the resource | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by tag keys in the request                      | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by tag keys in the request | ArrayOfString | 

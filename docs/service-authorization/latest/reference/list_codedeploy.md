@@ -1,183 +1,629 @@
-# Actions, resources, and condition keys for AWS CodeDeploy
 
-AWS CodeDeploy (service prefix: `codedeploy`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS CodeDeploy
+<a name="list_codedeploy"></a>
+
+AWS CodeDeploy (service prefix: `codedeploy`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/codedeploy/latest/userguide/).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/codedeploy/latest/APIReference/).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/codedeploy/latest/userguide/auth-and-access-control.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/codedeploy/codedeploy.json) for this service.
 
-- Learn how to [configure this service](../../../codedeploy/latest/userguide.md "../../../codedeploy/latest/userguide.md").
-- View a list of the [API operations available for
-  this service](../../../codedeploy/latest/APIReference.md "../../../codedeploy/latest/APIReference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../codedeploy/latest/userguide/auth-and-access-control.md "../../../codedeploy/latest/userguide/auth-and-access-control.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/codedeploy/codedeploy.json "https://servicereference.us-east-1.amazonaws.com/v1/codedeploy/codedeploy.json") for this service.
-
-###### Topics
-
-- [API operations defined by AWS CodeDeploy](#list_codedeploy-operations "#list_codedeploy-operations")
-- [Actions defined by AWS CodeDeploy](#list_codedeploy-actions-as-permissions "#list_codedeploy-actions-as-permissions")
-- [Permission-only actions for AWS CodeDeploy](#list_codedeploy-permission-only-actions "#list_codedeploy-permission-only-actions")
-- [Resource types defined by AWS CodeDeploy](#list_codedeploy-resources-for-iam-policies "#list_codedeploy-resources-for-iam-policies")
-- [Condition keys for AWS CodeDeploy](#list_codedeploy-policy-keys "#list_codedeploy-policy-keys")
+**Topics**
++ [API operations defined by AWS CodeDeploy](#list_codedeploy-operations)
++ [Actions defined by AWS CodeDeploy](#list_codedeploy-actions-as-permissions)
++ [Permission-only actions for AWS CodeDeploy](#list_codedeploy-permission-only-actions)
++ [Resource types defined by AWS CodeDeploy](#list_codedeploy-resources-for-iam-policies)
++ [Condition keys for AWS CodeDeploy](#list_codedeploy-policy-keys)
 
 ## API operations defined by AWS CodeDeploy
+<a name="list_codedeploy-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_codedeploy-actions-as-permissions "#list_codedeploy-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_codedeploy-actions-as-permissions).
 
-| Operation                                                                                                                                                                      | IAM action                                                                                                                                                            | Condition key            | Possible value(s) | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ----------------- | -------------- |
-| AddTagsToOnPremisesInstances                                                                                                                                                   | [codedeploy:AddTagsToOnPremisesInstances](#list_codedeploy-action-AddTagsToOnPremisesInstances "#list_codedeploy-action-AddTagsToOnPremisesInstances")                |                          |                   | Tagging, Write |
-| BatchGetApplicationRevisions                                                                                                                                                   | [codedeploy:BatchGetApplicationRevisions](#list_codedeploy-action-BatchGetApplicationRevisions "#list_codedeploy-action-BatchGetApplicationRevisions")                |                          |                   | Read           |
-| BatchGetApplications                                                                                                                                                           | [codedeploy:BatchGetApplications](#list_codedeploy-action-BatchGetApplications "#list_codedeploy-action-BatchGetApplications")                                        |                          |                   | Read           |
-| BatchGetDeploymentGroups                                                                                                                                                       | [codedeploy:BatchGetDeploymentGroups](#list_codedeploy-action-BatchGetDeploymentGroups "#list_codedeploy-action-BatchGetDeploymentGroups")                            |                          |                   | Read           |
-| BatchGetDeploymentInstances                                                                                                                                                    | [codedeploy:BatchGetDeploymentInstances](#list_codedeploy-action-BatchGetDeploymentInstances "#list_codedeploy-action-BatchGetDeploymentInstances")                   |                          |                   | Read           |
-| BatchGetDeploymentTargets                                                                                                                                                      | [codedeploy:BatchGetDeploymentTargets](#list_codedeploy-action-BatchGetDeploymentTargets "#list_codedeploy-action-BatchGetDeploymentTargets")                         |                          |                   | Read           |
-| BatchGetDeployments                                                                                                                                                            | [codedeploy:BatchGetDeployments](#list_codedeploy-action-BatchGetDeployments "#list_codedeploy-action-BatchGetDeployments")                                           |                          |                   | Read           |
-| BatchGetOnPremisesInstances                                                                                                                                                    | [codedeploy:BatchGetOnPremisesInstances](#list_codedeploy-action-BatchGetOnPremisesInstances "#list_codedeploy-action-BatchGetOnPremisesInstances")                   |                          |                   | Read           |
-| ContinueDeployment                                                                                                                                                             | [codedeploy:ContinueDeployment](#list_codedeploy-action-ContinueDeployment "#list_codedeploy-action-ContinueDeployment")                                              |                          |                   | Write          |
-| [codedeploy:CreateCloudFormationDeployment](#list_codedeploy-action-CreateCloudFormationDeployment "#list_codedeploy-action-CreateCloudFormationDeployment")                   |                                                                                                                                                                       |                          | Write             |
-| CreateApplication                                                                                                                                                              | [codedeploy:CreateApplication](#list_codedeploy-action-CreateApplication "#list_codedeploy-action-CreateApplication")                                                 |                          |                   | Write          |
-| [codedeploy:TagResource](#list_codedeploy-action-TagResource "#list_codedeploy-action-TagResource")                                                                            |                                                                                                                                                                       |                          | Tagging, Write    |
-| CreateDeployment                                                                                                                                                               | [codedeploy:CreateDeployment](#list_codedeploy-action-CreateDeployment "#list_codedeploy-action-CreateDeployment")                                                    |                          |                   | Write          |
-| [codedeploy:GetApplicationRevision](#list_codedeploy-action-GetApplicationRevision "#list_codedeploy-action-GetApplicationRevision")                                           |                                                                                                                                                                       |                          | List              |
-| [codedeploy:GetDeploymentConfig](#list_codedeploy-action-GetDeploymentConfig "#list_codedeploy-action-GetDeploymentConfig")                                                    |                                                                                                                                                                       |                          | List              |
-| [codedeploy:RegisterApplicationRevision](#list_codedeploy-action-RegisterApplicationRevision "#list_codedeploy-action-RegisterApplicationRevision")                            |                                                                                                                                                                       |                          | Write             |
-| [codedeploy:UpdateDeploymentGroup](#list_codedeploy-action-UpdateDeploymentGroup "#list_codedeploy-action-UpdateDeploymentGroup")                                              |                                                                                                                                                                       |                          | Write             |
-| CreateDeploymentConfig                                                                                                                                                         | [codedeploy:CreateDeploymentConfig](#list_codedeploy-action-CreateDeploymentConfig "#list_codedeploy-action-CreateDeploymentConfig")                                  |                          |                   | Write          |
-| CreateDeploymentGroup                                                                                                                                                          | [codedeploy:CreateDeploymentGroup](#list_codedeploy-action-CreateDeploymentGroup "#list_codedeploy-action-CreateDeploymentGroup")                                     |                          |                   | Write          |
-| [codedeploy:TagResource](#list_codedeploy-action-TagResource "#list_codedeploy-action-TagResource")                                                                            |                                                                                                                                                                       |                          | Tagging, Write    |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                | iam:PassedToService                                                                                                                                                   | codedeploy.amazonaws.com | Write             |
-| DeleteApplication                                                                                                                                                              | [codedeploy:DeleteApplication](#list_codedeploy-action-DeleteApplication "#list_codedeploy-action-DeleteApplication")                                                 |                          |                   | Write          |
-| DeleteDeploymentConfig                                                                                                                                                         | [codedeploy:DeleteDeploymentConfig](#list_codedeploy-action-DeleteDeploymentConfig "#list_codedeploy-action-DeleteDeploymentConfig")                                  |                          |                   | Write          |
-| DeleteDeploymentGroup                                                                                                                                                          | [codedeploy:DeleteDeploymentGroup](#list_codedeploy-action-DeleteDeploymentGroup "#list_codedeploy-action-DeleteDeploymentGroup")                                     |                          |                   | Write          |
-| DeleteGitHubAccountToken                                                                                                                                                       | [codedeploy:DeleteGitHubAccountToken](#list_codedeploy-action-DeleteGitHubAccountToken "#list_codedeploy-action-DeleteGitHubAccountToken")                            |                          |                   | Write          |
-| DeleteResourcesByExternalId                                                                                                                                                    | [codedeploy:DeleteResourcesByExternalId](#list_codedeploy-action-DeleteResourcesByExternalId "#list_codedeploy-action-DeleteResourcesByExternalId")                   |                          |                   | Write          |
-| DeregisterOnPremisesInstance                                                                                                                                                   | [codedeploy:DeregisterOnPremisesInstance](#list_codedeploy-action-DeregisterOnPremisesInstance "#list_codedeploy-action-DeregisterOnPremisesInstance")                |                          |                   | Write          |
-| GetApplication                                                                                                                                                                 | [codedeploy:GetApplication](#list_codedeploy-action-GetApplication "#list_codedeploy-action-GetApplication")                                                          |                          |                   | List           |
-| GetApplicationRevision                                                                                                                                                         | [codedeploy:GetApplicationRevision](#list_codedeploy-action-GetApplicationRevision "#list_codedeploy-action-GetApplicationRevision")                                  |                          |                   | List           |
-| GetDeployment                                                                                                                                                                  | [codedeploy:GetDeployment](#list_codedeploy-action-GetDeployment "#list_codedeploy-action-GetDeployment")                                                             |                          |                   | List           |
-| GetDeploymentConfig                                                                                                                                                            | [codedeploy:GetDeploymentConfig](#list_codedeploy-action-GetDeploymentConfig "#list_codedeploy-action-GetDeploymentConfig")                                           |                          |                   | List           |
-| GetDeploymentGroup                                                                                                                                                             | [codedeploy:GetDeploymentGroup](#list_codedeploy-action-GetDeploymentGroup "#list_codedeploy-action-GetDeploymentGroup")                                              |                          |                   | List           |
-| GetDeploymentInstance                                                                                                                                                          | [codedeploy:GetDeploymentInstance](#list_codedeploy-action-GetDeploymentInstance "#list_codedeploy-action-GetDeploymentInstance")                                     |                          |                   | List           |
-| GetDeploymentTarget                                                                                                                                                            | [codedeploy:GetDeploymentTarget](#list_codedeploy-action-GetDeploymentTarget "#list_codedeploy-action-GetDeploymentTarget")                                           |                          |                   | Read           |
-| GetOnPremisesInstance                                                                                                                                                          | [codedeploy:GetOnPremisesInstance](#list_codedeploy-action-GetOnPremisesInstance "#list_codedeploy-action-GetOnPremisesInstance")                                     |                          |                   | List           |
-| ListApplicationRevisions                                                                                                                                                       | [codedeploy:ListApplicationRevisions](#list_codedeploy-action-ListApplicationRevisions "#list_codedeploy-action-ListApplicationRevisions")                            |                          |                   | List           |
-| ListApplications                                                                                                                                                               | [codedeploy:ListApplications](#list_codedeploy-action-ListApplications "#list_codedeploy-action-ListApplications")                                                    |                          |                   | List           |
-| ListDeploymentConfigs                                                                                                                                                          | [codedeploy:ListDeploymentConfigs](#list_codedeploy-action-ListDeploymentConfigs "#list_codedeploy-action-ListDeploymentConfigs")                                     |                          |                   | List           |
-| ListDeploymentGroups                                                                                                                                                           | [codedeploy:ListDeploymentGroups](#list_codedeploy-action-ListDeploymentGroups "#list_codedeploy-action-ListDeploymentGroups")                                        |                          |                   | List           |
-| ListDeploymentInstances                                                                                                                                                        | [codedeploy:ListDeploymentInstances](#list_codedeploy-action-ListDeploymentInstances "#list_codedeploy-action-ListDeploymentInstances")                               |                          |                   | List           |
-| ListDeploymentTargets                                                                                                                                                          | [codedeploy:ListDeploymentTargets](#list_codedeploy-action-ListDeploymentTargets "#list_codedeploy-action-ListDeploymentTargets")                                     |                          |                   | List           |
-| ListDeployments                                                                                                                                                                | [codedeploy:ListDeployments](#list_codedeploy-action-ListDeployments "#list_codedeploy-action-ListDeployments")                                                       |                          |                   | List           |
-| ListGitHubAccountTokenNames                                                                                                                                                    | [codedeploy:ListGitHubAccountTokenNames](#list_codedeploy-action-ListGitHubAccountTokenNames "#list_codedeploy-action-ListGitHubAccountTokenNames")                   |                          |                   | List           |
-| ListOnPremisesInstances                                                                                                                                                        | [codedeploy:ListOnPremisesInstances](#list_codedeploy-action-ListOnPremisesInstances "#list_codedeploy-action-ListOnPremisesInstances")                               |                          |                   | List           |
-| ListTagsForResource                                                                                                                                                            | [codedeploy:ListTagsForResource](#list_codedeploy-action-ListTagsForResource "#list_codedeploy-action-ListTagsForResource")                                           |                          |                   | List           |
-| PutLifecycleEventHookExecutionStatus                                                                                                                                           | [codedeploy:CreateCloudFormationDeployment](#list_codedeploy-action-CreateCloudFormationDeployment "#list_codedeploy-action-CreateCloudFormationDeployment")          |                          |                   | Write          |
-| [codedeploy:PutLifecycleEventHookExecutionStatus](#list_codedeploy-action-PutLifecycleEventHookExecutionStatus "#list_codedeploy-action-PutLifecycleEventHookExecutionStatus") |                                                                                                                                                                       |                          | Write             |
-| RegisterApplicationRevision                                                                                                                                                    | [codedeploy:RegisterApplicationRevision](#list_codedeploy-action-RegisterApplicationRevision "#list_codedeploy-action-RegisterApplicationRevision")                   |                          |                   | Write          |
-| RegisterOnPremisesInstance                                                                                                                                                     | [codedeploy:RegisterOnPremisesInstance](#list_codedeploy-action-RegisterOnPremisesInstance "#list_codedeploy-action-RegisterOnPremisesInstance")                      |                          |                   | Write          |
-| RemoveTagsFromOnPremisesInstances                                                                                                                                              | [codedeploy:RemoveTagsFromOnPremisesInstances](#list_codedeploy-action-RemoveTagsFromOnPremisesInstances "#list_codedeploy-action-RemoveTagsFromOnPremisesInstances") |                          |                   | Tagging, Write |
-| SkipWaitTimeForInstanceTermination                                                                                                                                             | [codedeploy:CreateCloudFormationDeployment](#list_codedeploy-action-CreateCloudFormationDeployment "#list_codedeploy-action-CreateCloudFormationDeployment")          |                          |                   | Write          |
-| [codedeploy:SkipWaitTimeForInstanceTermination](#list_codedeploy-action-SkipWaitTimeForInstanceTermination "#list_codedeploy-action-SkipWaitTimeForInstanceTermination")       |                                                                                                                                                                       |                          | Write             |
-| StopDeployment                                                                                                                                                                 | [codedeploy:CreateCloudFormationDeployment](#list_codedeploy-action-CreateCloudFormationDeployment "#list_codedeploy-action-CreateCloudFormationDeployment")          |                          |                   | Write          |
-| [codedeploy:StopDeployment](#list_codedeploy-action-StopDeployment "#list_codedeploy-action-StopDeployment")                                                                   |                                                                                                                                                                       |                          | Write             |
-| TagResource                                                                                                                                                                    | [codedeploy:TagResource](#list_codedeploy-action-TagResource "#list_codedeploy-action-TagResource")                                                                   |                          |                   | Tagging, Write |
-| UntagResource                                                                                                                                                                  | [codedeploy:UntagResource](#list_codedeploy-action-UntagResource "#list_codedeploy-action-UntagResource")                                                             |                          |                   | Tagging, Write |
-| UpdateApplication                                                                                                                                                              | [codedeploy:UpdateApplication](#list_codedeploy-action-UpdateApplication "#list_codedeploy-action-UpdateApplication")                                                 |                          |                   | Write          |
-| UpdateDeploymentGroup                                                                                                                                                          | [codedeploy:UpdateDeploymentGroup](#list_codedeploy-action-UpdateDeploymentGroup "#list_codedeploy-action-UpdateDeploymentGroup")                                     |                          |                   | Write          |
-| [iam:PassRole](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")                                                | iam:PassedToService                                                                                                                                                   | codedeploy.amazonaws.com | Write             |
+
+
+
+- **   AddTagsToOnPremisesInstances  **
+  - **IAM action:**  [codedeploy:AddTagsToOnPremisesInstances](#list_codedeploy-action-AddTagsToOnPremisesInstances) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   BatchGetApplicationRevisions  **
+  - **IAM action:**  [codedeploy:BatchGetApplicationRevisions](#list_codedeploy-action-BatchGetApplicationRevisions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetApplications  **
+  - **IAM action:**  [codedeploy:BatchGetApplications](#list_codedeploy-action-BatchGetApplications) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetDeploymentGroups  **
+  - **IAM action:**  [codedeploy:BatchGetDeploymentGroups](#list_codedeploy-action-BatchGetDeploymentGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetDeploymentInstances  **
+  - **IAM action:**  [codedeploy:BatchGetDeploymentInstances](#list_codedeploy-action-BatchGetDeploymentInstances) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetDeploymentTargets  **
+  - **IAM action:**  [codedeploy:BatchGetDeploymentTargets](#list_codedeploy-action-BatchGetDeploymentTargets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetDeployments  **
+  - **IAM action:**  [codedeploy:BatchGetDeployments](#list_codedeploy-action-BatchGetDeployments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   BatchGetOnPremisesInstances  **
+  - **IAM action:**  [codedeploy:BatchGetOnPremisesInstances](#list_codedeploy-action-BatchGetOnPremisesInstances) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ContinueDeployment  **
+  - **IAM action:**  [codedeploy:ContinueDeployment](#list_codedeploy-action-ContinueDeployment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [codedeploy:CreateCloudFormationDeployment](#list_codedeploy-action-CreateCloudFormationDeployment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   CreateApplication  **
+  - **IAM action:**  [codedeploy:CreateApplication](#list_codedeploy-action-CreateApplication)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [codedeploy:TagResource](#list_codedeploy-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateDeployment  **
+  - **IAM action:**  [codedeploy:CreateDeployment](#list_codedeploy-action-CreateDeployment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [codedeploy:GetApplicationRevision](#list_codedeploy-action-GetApplicationRevision)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [codedeploy:GetDeploymentConfig](#list_codedeploy-action-GetDeploymentConfig)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
+  - **IAM action:**  [codedeploy:RegisterApplicationRevision](#list_codedeploy-action-RegisterApplicationRevision)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [codedeploy:UpdateDeploymentGroup](#list_codedeploy-action-UpdateDeploymentGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   CreateDeploymentConfig  **
+  - **IAM action:**  [codedeploy:CreateDeploymentConfig](#list_codedeploy-action-CreateDeploymentConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateDeploymentGroup  **
+  - **IAM action:**  [codedeploy:CreateDeploymentGroup](#list_codedeploy-action-CreateDeploymentGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [codedeploy:TagResource](#list_codedeploy-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** codedeploy.amazonaws.com / **Access level:** Write
+
+- **   DeleteApplication  **
+  - **IAM action:**  [codedeploy:DeleteApplication](#list_codedeploy-action-DeleteApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDeploymentConfig  **
+  - **IAM action:**  [codedeploy:DeleteDeploymentConfig](#list_codedeploy-action-DeleteDeploymentConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteDeploymentGroup  **
+  - **IAM action:**  [codedeploy:DeleteDeploymentGroup](#list_codedeploy-action-DeleteDeploymentGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteGitHubAccountToken  **
+  - **IAM action:**  [codedeploy:DeleteGitHubAccountToken](#list_codedeploy-action-DeleteGitHubAccountToken) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteResourcesByExternalId  **
+  - **IAM action:**  [codedeploy:DeleteResourcesByExternalId](#list_codedeploy-action-DeleteResourcesByExternalId) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeregisterOnPremisesInstance  **
+  - **IAM action:**  [codedeploy:DeregisterOnPremisesInstance](#list_codedeploy-action-DeregisterOnPremisesInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetApplication  **
+  - **IAM action:**  [codedeploy:GetApplication](#list_codedeploy-action-GetApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetApplicationRevision  **
+  - **IAM action:**  [codedeploy:GetApplicationRevision](#list_codedeploy-action-GetApplicationRevision) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetDeployment  **
+  - **IAM action:**  [codedeploy:GetDeployment](#list_codedeploy-action-GetDeployment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetDeploymentConfig  **
+  - **IAM action:**  [codedeploy:GetDeploymentConfig](#list_codedeploy-action-GetDeploymentConfig) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetDeploymentGroup  **
+  - **IAM action:**  [codedeploy:GetDeploymentGroup](#list_codedeploy-action-GetDeploymentGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetDeploymentInstance  **
+  - **IAM action:**  [codedeploy:GetDeploymentInstance](#list_codedeploy-action-GetDeploymentInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   GetDeploymentTarget  **
+  - **IAM action:**  [codedeploy:GetDeploymentTarget](#list_codedeploy-action-GetDeploymentTarget) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetOnPremisesInstance  **
+  - **IAM action:**  [codedeploy:GetOnPremisesInstance](#list_codedeploy-action-GetOnPremisesInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListApplicationRevisions  **
+  - **IAM action:**  [codedeploy:ListApplicationRevisions](#list_codedeploy-action-ListApplicationRevisions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListApplications  **
+  - **IAM action:**  [codedeploy:ListApplications](#list_codedeploy-action-ListApplications) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDeploymentConfigs  **
+  - **IAM action:**  [codedeploy:ListDeploymentConfigs](#list_codedeploy-action-ListDeploymentConfigs) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDeploymentGroups  **
+  - **IAM action:**  [codedeploy:ListDeploymentGroups](#list_codedeploy-action-ListDeploymentGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDeploymentInstances  **
+  - **IAM action:**  [codedeploy:ListDeploymentInstances](#list_codedeploy-action-ListDeploymentInstances) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDeploymentTargets  **
+  - **IAM action:**  [codedeploy:ListDeploymentTargets](#list_codedeploy-action-ListDeploymentTargets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListDeployments  **
+  - **IAM action:**  [codedeploy:ListDeployments](#list_codedeploy-action-ListDeployments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListGitHubAccountTokenNames  **
+  - **IAM action:**  [codedeploy:ListGitHubAccountTokenNames](#list_codedeploy-action-ListGitHubAccountTokenNames) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListOnPremisesInstances  **
+  - **IAM action:**  [codedeploy:ListOnPremisesInstances](#list_codedeploy-action-ListOnPremisesInstances) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListTagsForResource  **
+  - **IAM action:**  [codedeploy:ListTagsForResource](#list_codedeploy-action-ListTagsForResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PutLifecycleEventHookExecutionStatus  **
+  - **IAM action:**  [codedeploy:CreateCloudFormationDeployment](#list_codedeploy-action-CreateCloudFormationDeployment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [codedeploy:PutLifecycleEventHookExecutionStatus](#list_codedeploy-action-PutLifecycleEventHookExecutionStatus)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   RegisterApplicationRevision  **
+  - **IAM action:**  [codedeploy:RegisterApplicationRevision](#list_codedeploy-action-RegisterApplicationRevision) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RegisterOnPremisesInstance  **
+  - **IAM action:**  [codedeploy:RegisterOnPremisesInstance](#list_codedeploy-action-RegisterOnPremisesInstance) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   RemoveTagsFromOnPremisesInstances  **
+  - **IAM action:**  [codedeploy:RemoveTagsFromOnPremisesInstances](#list_codedeploy-action-RemoveTagsFromOnPremisesInstances) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   SkipWaitTimeForInstanceTermination  **
+  - **IAM action:**  [codedeploy:CreateCloudFormationDeployment](#list_codedeploy-action-CreateCloudFormationDeployment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [codedeploy:SkipWaitTimeForInstanceTermination](#list_codedeploy-action-SkipWaitTimeForInstanceTermination)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   StopDeployment  **
+  - **IAM action:**  [codedeploy:CreateCloudFormationDeployment](#list_codedeploy-action-CreateCloudFormationDeployment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [codedeploy:StopDeployment](#list_codedeploy-action-StopDeployment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   TagResource  **
+  - **IAM action:**  [codedeploy:TagResource](#list_codedeploy-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [codedeploy:UntagResource](#list_codedeploy-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateApplication  **
+  - **IAM action:**  [codedeploy:UpdateApplication](#list_codedeploy-action-UpdateApplication) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateDeploymentGroup  **
+  - **IAM action:**  [codedeploy:UpdateDeploymentGroup](#list_codedeploy-action-UpdateDeploymentGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** codedeploy.amazonaws.com / **Access level:** Write
+
+
 
 ## Actions defined by AWS CodeDeploy
+<a name="list_codedeploy-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                           | Description                                                                                                                                                                                                                                                                                                             | Resource types (\*required)                                                                                   | Condition keys                                                                                                                                                                                                                                                                                                          | Access level   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [AddTagsToOnPremisesInstances](../../../codedeploy/latest/APIReference/API_AddTagsToOnPremisesInstances.md "../../../codedeploy/latest/APIReference/API_AddTagsToOnPremisesInstances.md")                         | Grants permission to add tags to one or more on-premises instances                                                                                                                                                                                                                                                      | [instance\*](#list_codedeploy-resource-instance "#list_codedeploy-resource-instance")                         |                                                                                                                                                                                                                                                                                                                         | Tagging, Write |
-| [BatchGetApplicationRevisions](../../../codedeploy/latest/APIReference/API_BatchGetApplicationRevisions.md "../../../codedeploy/latest/APIReference/API_BatchGetApplicationRevisions.md")                         | Grants permission to get information about one or more application revisions                                                                                                                                                                                                                                            | [application\*](#list_codedeploy-resource-application "#list_codedeploy-resource-application")                | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Read           |
-| [BatchGetApplications](../../../codedeploy/latest/APIReference/API_BatchGetApplications.md "../../../codedeploy/latest/APIReference/API_BatchGetApplications.md")                                                 | Grants permission to get information about multiple applications associated with the IAM user                                                                                                                                                                                                                           | [application\*](#list_codedeploy-resource-application "#list_codedeploy-resource-application")                | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Read           |
-| [BatchGetDeploymentGroups](../../../codedeploy/latest/APIReference/API_BatchGetDeploymentGroups.md "../../../codedeploy/latest/APIReference/API_BatchGetDeploymentGroups.md")                                     | Grants permission to get information about one or more deployment groups                                                                                                                                                                                                                                                | [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup "#list_codedeploy-resource-deploymentgroup")    | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Read           |
-| [BatchGetDeploymentInstances](../../../codedeploy/latest/APIReference/API_BatchGetDeploymentInstances.md "../../../codedeploy/latest/APIReference/API_BatchGetDeploymentInstances.md")                            | Grants permission to get information about one or more instance that are part of a deployment group                                                                                                                                                                                                                     | [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup "#list_codedeploy-resource-deploymentgroup")    | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Read           |
-| [BatchGetDeploymentTargets](../../../codedeploy/latest/APIReference/API_BatchGetDeploymentTargets.md "../../../codedeploy/latest/APIReference/API_BatchGetDeploymentTargets.md")                                  | Grants permission to return an array of one or more targets associated with a deployment. This method works with all compute types and should be used instead of the deprecated BatchGetDeploymentInstances. The maximum number of targets that can be returned is 25                                                   |                                                                                                               |                                                                                                                                                                                                                                                                                                                         | Read           |
-| [BatchGetDeployments](../../../codedeploy/latest/APIReference/API_BatchGetDeployments.md "../../../codedeploy/latest/APIReference/API_BatchGetDeployments.md")                                                    | Grants permission to get information about multiple deployments associated with the IAM user                                                                                                                                                                                                                            | [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup "#list_codedeploy-resource-deploymentgroup")    | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Read           |
-| [BatchGetOnPremisesInstances](../../../codedeploy/latest/APIReference/API_BatchGetOnPremisesInstances.md "../../../codedeploy/latest/APIReference/API_BatchGetOnPremisesInstances.md")                            | Grants permission to get information about one or more on-premises instances                                                                                                                                                                                                                                            | [instance\*](#list_codedeploy-resource-instance "#list_codedeploy-resource-instance")                         |                                                                                                                                                                                                                                                                                                                         | Read           |
-| [ContinueDeployment](../../../codedeploy/latest/APIReference/API_ContinueDeployment.md "../../../codedeploy/latest/APIReference/API_ContinueDeployment.md")                                                       | Grants permission to start the process of rerouting traffic from instances in the original environment to instances in thereplacement environment without waiting for a specified wait time to elapse                                                                                                                   |                                                                                                               |                                                                                                                                                                                                                                                                                                                         | Write          |
-| [CreateApplication](../../../codedeploy/latest/APIReference/API_CreateApplication.md "../../../codedeploy/latest/APIReference/API_CreateApplication.md")                                                          | Grants permission to create an application associated with the IAM user                                                                                                                                                                                                                                                 | [application\*](#list_codedeploy-resource-application "#list_codedeploy-resource-application")                | [aws:RequestTag/${TagKey}](#list_codedeploy-aws_RequestTag___TagKey_ "#list_codedeploy-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_codedeploy-aws_TagKeys "#list_codedeploy-aws_TagKeys") | Write          |
-| [CreateDeployment](../../../codedeploy/latest/APIReference/API_CreateDeployment.md "../../../codedeploy/latest/APIReference/API_CreateDeployment.md")                                                             | Grants permission to create a deployment for an application associated with the IAM user                                                                                                                                                                                                                                | [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup "#list_codedeploy-resource-deploymentgroup")    | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
-| [CreateDeploymentConfig](../../../codedeploy/latest/APIReference/API_CreateDeploymentConfig.md "../../../codedeploy/latest/APIReference/API_CreateDeploymentConfig.md")                                           | Grants permission to create a custom deployment configuration associated with the IAM user                                                                                                                                                                                                                              | [deploymentconfig\*](#list_codedeploy-resource-deploymentconfig "#list_codedeploy-resource-deploymentconfig") |                                                                                                                                                                                                                                                                                                                         | Write          |
-| [CreateDeploymentGroup](../../../codedeploy/latest/APIReference/API_CreateDeploymentGroup.md "../../../codedeploy/latest/APIReference/API_CreateDeploymentGroup.md")                                              | Grants permission to create a deployment group for an application associated with the IAM user                                                                                                                                                                                                                          | [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup "#list_codedeploy-resource-deploymentgroup")    | [aws:RequestTag/${TagKey}](#list_codedeploy-aws_RequestTag___TagKey_ "#list_codedeploy-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_codedeploy-aws_TagKeys "#list_codedeploy-aws_TagKeys") | Write          |
-| [DeleteApplication](../../../codedeploy/latest/APIReference/API_DeleteApplication.md "../../../codedeploy/latest/APIReference/API_DeleteApplication.md")                                                          | Grants permission to delete an application associated with the IAM user                                                                                                                                                                                                                                                 | [application\*](#list_codedeploy-resource-application "#list_codedeploy-resource-application")                | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
-| [DeleteDeploymentConfig](../../../codedeploy/latest/APIReference/API_DeleteDeploymentConfig.md "../../../codedeploy/latest/APIReference/API_DeleteDeploymentConfig.md")                                           | Grants permission to delete a custom deployment configuration associated with the IAM user                                                                                                                                                                                                                              | [deploymentconfig\*](#list_codedeploy-resource-deploymentconfig "#list_codedeploy-resource-deploymentconfig") |                                                                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteDeploymentGroup](../../../codedeploy/latest/APIReference/API_DeleteDeploymentGroup.md "../../../codedeploy/latest/APIReference/API_DeleteDeploymentGroup.md")                                              | Grants permission to delete a deployment group for an application associated with the IAM user                                                                                                                                                                                                                          | [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup "#list_codedeploy-resource-deploymentgroup")    | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
-| [DeleteGitHubAccountToken](../../../codedeploy/latest/APIReference/API_DeleteGitHubAccountToken.md "../../../codedeploy/latest/APIReference/API_DeleteGitHubAccountToken.md")                                     | Grants permission to delete a GitHub account connection                                                                                                                                                                                                                                                                 |                                                                                                               |                                                                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteResourcesByExternalId](../../../codedeploy/latest/APIReference/API_DeleteResourcesByExternalId.md "../../../codedeploy/latest/APIReference/API_DeleteResourcesByExternalId.md")                            | Grants permission to delete resources associated with the given external Id                                                                                                                                                                                                                                             |                                                                                                               |                                                                                                                                                                                                                                                                                                                         | Write          |
-| [DeregisterOnPremisesInstance](../../../codedeploy/latest/APIReference/API_DeregisterOnPremisesInstance.md "../../../codedeploy/latest/APIReference/API_DeregisterOnPremisesInstance.md")                         | Grants permission to deregister an on-premises instance                                                                                                                                                                                                                                                                 | [instance\*](#list_codedeploy-resource-instance "#list_codedeploy-resource-instance")                         |                                                                                                                                                                                                                                                                                                                         | Write          |
-| [GetApplication](../../../codedeploy/latest/APIReference/API_GetApplication.md "../../../codedeploy/latest/APIReference/API_GetApplication.md")                                                                   | Grants permission to get information about a single application associated with the IAM user                                                                                                                                                                                                                            | [application\*](#list_codedeploy-resource-application "#list_codedeploy-resource-application")                | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | List           |
-| [GetApplicationRevision](../../../codedeploy/latest/APIReference/API_GetApplicationRevision.md "../../../codedeploy/latest/APIReference/API_GetApplicationRevision.md")                                           | Grants permission to get information about a single application revision for an application associated with the IAM user                                                                                                                                                                                                | [application\*](#list_codedeploy-resource-application "#list_codedeploy-resource-application")                | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | List           |
-| [GetDeployment](../../../codedeploy/latest/APIReference/API_GetDeployment.md "../../../codedeploy/latest/APIReference/API_GetDeployment.md")                                                                      | Grants permission to get information about a single deployment to a deployment group for an application associated with the IAM user                                                                                                                                                                                    | [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup "#list_codedeploy-resource-deploymentgroup")    | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | List           |
-| [GetDeploymentConfig](../../../codedeploy/latest/APIReference/API_GetDeploymentConfig.md "../../../codedeploy/latest/APIReference/API_GetDeploymentConfig.md")                                                    | Grants permission to get information about a single deployment configuration associated with the IAM user                                                                                                                                                                                                               | [deploymentconfig\*](#list_codedeploy-resource-deploymentconfig "#list_codedeploy-resource-deploymentconfig") |                                                                                                                                                                                                                                                                                                                         | List           |
-| [GetDeploymentGroup](../../../codedeploy/latest/APIReference/API_GetDeploymentGroup.md "../../../codedeploy/latest/APIReference/API_GetDeploymentGroup.md")                                                       | Grants permission to get information about a single deployment group for an application associated with the IAM user                                                                                                                                                                                                    | [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup "#list_codedeploy-resource-deploymentgroup")    | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | List           |
-| [GetDeploymentInstance](../../../codedeploy/latest/APIReference/API_GetDeploymentInstance.md "../../../codedeploy/latest/APIReference/API_GetDeploymentInstance.md")                                              | Grants permission to get information about a single instance in a deployment associated with the IAM user                                                                                                                                                                                                               | [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup "#list_codedeploy-resource-deploymentgroup")    | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | List           |
-| [GetDeploymentTarget](../../../codedeploy/latest/APIReference/API_GetDeploymentTarget.md "../../../codedeploy/latest/APIReference/API_GetDeploymentTarget.md")                                                    | Grants permission to return information about a deployment target                                                                                                                                                                                                                                                       |                                                                                                               |                                                                                                                                                                                                                                                                                                                         | Read           |
-| [GetOnPremisesInstance](../../../codedeploy/latest/APIReference/API_GetOnPremisesInstance.md "../../../codedeploy/latest/APIReference/API_GetOnPremisesInstance.md")                                              | Grants permission to get information about a single on-premises instance                                                                                                                                                                                                                                                | [instance\*](#list_codedeploy-resource-instance "#list_codedeploy-resource-instance")                         |                                                                                                                                                                                                                                                                                                                         | List           |
-| [ListApplicationRevisions](../../../codedeploy/latest/APIReference/API_ListApplicationRevisions.md "../../../codedeploy/latest/APIReference/API_ListApplicationRevisions.md")                                     | Grants permission to get information about all application revisions for an application associated with the IAM user                                                                                                                                                                                                    | [application\*](#list_codedeploy-resource-application "#list_codedeploy-resource-application")                | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | List           |
-| [ListApplications](../../../codedeploy/latest/APIReference/API_ListApplications.md "../../../codedeploy/latest/APIReference/API_ListApplications.md")                                                             | Grants permission to get information about all applications associated with the IAM user                                                                                                                                                                                                                                |                                                                                                               |                                                                                                                                                                                                                                                                                                                         | List           |
-| [ListDeploymentConfigs](../../../codedeploy/latest/APIReference/API_ListDeploymentConfigs.md "../../../codedeploy/latest/APIReference/API_ListDeploymentConfigs.md")                                              | Grants permission to get information about all deployment configurations associated with the IAM user                                                                                                                                                                                                                   |                                                                                                               |                                                                                                                                                                                                                                                                                                                         | List           |
-| [ListDeploymentGroups](../../../codedeploy/latest/APIReference/API_ListDeploymentGroups.md "../../../codedeploy/latest/APIReference/API_ListDeploymentGroups.md")                                                 | Grants permission to get information about all deployment groups for an application associated with the IAM user                                                                                                                                                                                                        | [application\*](#list_codedeploy-resource-application "#list_codedeploy-resource-application")                | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | List           |
-| [ListDeploymentInstances](../../../codedeploy/latest/APIReference/API_ListDeploymentInstances.md "../../../codedeploy/latest/APIReference/API_ListDeploymentInstances.md")                                        | Grants permission to get information about all instances in a deployment associated with the IAM user                                                                                                                                                                                                                   | [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup "#list_codedeploy-resource-deploymentgroup")    | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | List           |
-| [ListDeploymentTargets](../../../codedeploy/latest/APIReference/API_ListDeploymentTargets.md "../../../codedeploy/latest/APIReference/API_ListDeploymentTargets.md")                                              | Grants permission to return an array of target IDs that are associated a deployment                                                                                                                                                                                                                                     |                                                                                                               |                                                                                                                                                                                                                                                                                                                         | List           |
-| [ListDeployments](../../../codedeploy/latest/APIReference/API_ListDeployments.md "../../../codedeploy/latest/APIReference/API_ListDeployments.md")                                                                | Grants permission to get information about all deployments to a deployment group associated with the IAM user, or to get all deployments associated with the IAM user                                                                                                                                                   | [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup "#list_codedeploy-resource-deploymentgroup")    | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | List           |
-| [ListGitHubAccountTokenNames](../../../codedeploy/latest/APIReference/API_ListGitHubAccountTokenNames.md "../../../codedeploy/latest/APIReference/API_ListGitHubAccountTokenNames.md")                            | Grants permission to list the names of stored connections to GitHub accounts                                                                                                                                                                                                                                            |                                                                                                               |                                                                                                                                                                                                                                                                                                                         | List           |
-| [ListOnPremisesInstances](../../../codedeploy/latest/APIReference/API_ListOnPremisesInstances.md "../../../codedeploy/latest/APIReference/API_ListOnPremisesInstances.md")                                        | Grants permission to get a list of one or more on-premises instance names                                                                                                                                                                                                                                               |                                                                                                               |                                                                                                                                                                                                                                                                                                                         | List           |
-| [ListTagsForResource](../../../codedeploy/latest/APIReference/API_ListTagsForResource.md "../../../codedeploy/latest/APIReference/API_ListTagsForResource.md")                                                    | Grants permission to return a list of tags for the resource identified by a specified ARN. Tags are used to organize and categorize your CodeDeploy resources                                                                                                                                                           | [application](#list_codedeploy-resource-application "#list_codedeploy-resource-application")                  | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | List           |
-| [deploymentgroup](#list_codedeploy-resource-deploymentgroup "#list_codedeploy-resource-deploymentgroup")                                                                                                          | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    |
-| [PutLifecycleEventHookExecutionStatus](../../../codedeploy/latest/APIReference/API_PutLifecycleEventHookExecutionStatus.md "../../../codedeploy/latest/APIReference/API_PutLifecycleEventHookExecutionStatus.md") | Grants permission to notify a lifecycle event hook execution status for associated deployment with the IAM user                                                                                                                                                                                                         |                                                                                                               |                                                                                                                                                                                                                                                                                                                         | Write          |
-| [RegisterApplicationRevision](../../../codedeploy/latest/APIReference/API_RegisterApplicationRevision.md "../../../codedeploy/latest/APIReference/API_RegisterApplicationRevision.md")                            | Grants permission to register information about an application revision for an application associated with the IAM user                                                                                                                                                                                                 | [application\*](#list_codedeploy-resource-application "#list_codedeploy-resource-application")                | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
-| [RegisterOnPremisesInstance](../../../codedeploy/latest/APIReference/API_RegisterOnPremisesInstance.md "../../../codedeploy/latest/APIReference/API_RegisterOnPremisesInstance.md")                               | Grants permission to register an on-premises instance                                                                                                                                                                                                                                                                   | [instance\*](#list_codedeploy-resource-instance "#list_codedeploy-resource-instance")                         |                                                                                                                                                                                                                                                                                                                         | Write          |
-| [RemoveTagsFromOnPremisesInstances](../../../codedeploy/latest/APIReference/API_RemoveTagsFromOnPremisesInstances.md "../../../codedeploy/latest/APIReference/API_RemoveTagsFromOnPremisesInstances.md")          | Grants permission to remove tags from one or more on-premises instances                                                                                                                                                                                                                                                 | [instance\*](#list_codedeploy-resource-instance "#list_codedeploy-resource-instance")                         |                                                                                                                                                                                                                                                                                                                         | Tagging, Write |
-| [SkipWaitTimeForInstanceTermination](../../../codedeploy/latest/APIReference/API_SkipWaitTimeForInstanceTermination.md "../../../codedeploy/latest/APIReference/API_SkipWaitTimeForInstanceTermination.md")       | Grants permission to override any specified wait time and starts terminating instances immediately after the traffic routing is complete. This action applies to blue-green deployments only                                                                                                                            |                                                                                                               |                                                                                                                                                                                                                                                                                                                         | Write          |
-| [StopDeployment](../../../codedeploy/latest/APIReference/API_StopDeployment.md "../../../codedeploy/latest/APIReference/API_StopDeployment.md")                                                                   | Grants permission to stop a deployment                                                                                                                                                                                                                                                                                  |                                                                                                               |                                                                                                                                                                                                                                                                                                                         | Write          |
-| [TagResource](../../../codedeploy/latest/APIReference/API_TagResource.md "../../../codedeploy/latest/APIReference/API_TagResource.md")                                                                            | Grants permission to associate the list of tags in the input Tags parameter with the resource identified by the ResourceArn input parameter                                                                                                                                                                             | [application](#list_codedeploy-resource-application "#list_codedeploy-resource-application")                  | [aws:RequestTag/${TagKey}](#list_codedeploy-aws_RequestTag___TagKey_ "#list_codedeploy-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_codedeploy-aws_TagKeys "#list_codedeploy-aws_TagKeys") | Tagging, Write |
-| [deploymentgroup](#list_codedeploy-resource-deploymentgroup "#list_codedeploy-resource-deploymentgroup")                                                                                                          | [aws:RequestTag/${TagKey}](#list_codedeploy-aws_RequestTag___TagKey_ "#list_codedeploy-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_codedeploy-aws_TagKeys "#list_codedeploy-aws_TagKeys") |
-| [UntagResource](../../../codedeploy/latest/APIReference/API_UntagResource.md "../../../codedeploy/latest/APIReference/API_UntagResource.md")                                                                      | Grants permission to disassociate a resource from a list of tags. The resource is identified by the ResourceArn input parameter. The tags are identfied by the list of keys in the TagKeys input parameter                                                                                                              | [application](#list_codedeploy-resource-application "#list_codedeploy-resource-application")                  | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_codedeploy-aws_TagKeys "#list_codedeploy-aws_TagKeys")                                                                                                                      | Tagging, Write |
-| [deploymentgroup](#list_codedeploy-resource-deploymentgroup "#list_codedeploy-resource-deploymentgroup")                                                                                                          | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_codedeploy-aws_TagKeys "#list_codedeploy-aws_TagKeys")                                                                                                                      |
-| [UpdateApplication](../../../codedeploy/latest/APIReference/API_UpdateApplication.md "../../../codedeploy/latest/APIReference/API_UpdateApplication.md")                                                          | Grants permission to update an application                                                                                                                                                                                                                                                                              | [application\*](#list_codedeploy-resource-application "#list_codedeploy-resource-application")                | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
-| [UpdateDeploymentGroup](../../../codedeploy/latest/APIReference/API_UpdateDeploymentGroup.md "../../../codedeploy/latest/APIReference/API_UpdateDeploymentGroup.md")                                              | Grants permission to change information about a single deployment group for an application associated with the IAM user                                                                                                                                                                                                 | [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup "#list_codedeploy-resource-deploymentgroup")    | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_")                                                                                                                                                                                                    | Write          |
+
+
+
+- **   [AddTagsToOnPremisesInstances](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_AddTagsToOnPremisesInstances.html)  **
+  - **Description:** Grants permission to add tags to one or more on-premises instances
+  - **Resource types (\*required):** [instance\*](#list_codedeploy-resource-instance)
+  - **Condition keys:**  
+  - **Access level:** Tagging, Write
+
+- **   [BatchGetApplicationRevisions](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetApplicationRevisions.html)  **
+  - **Description:** Grants permission to get information about one or more application revisions
+  - **Resource types (\*required):** [application\*](#list_codedeploy-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetApplications](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetApplications.html)  **
+  - **Description:** Grants permission to get information about multiple applications associated with the IAM user
+  - **Resource types (\*required):** [application\*](#list_codedeploy-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetDeploymentGroups](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetDeploymentGroups.html)  **
+  - **Description:** Grants permission to get information about one or more deployment groups
+  - **Resource types (\*required):** [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetDeploymentInstances](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetDeploymentInstances.html)  **
+  - **Description:** Grants permission to get information about one or more instance that are part of a deployment group
+  - **Resource types (\*required):** [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetDeploymentTargets](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetDeploymentTargets.html)  **
+  - **Description:** Grants permission to return an array of one or more targets associated with a deployment. This method works with all compute types and should be used instead of the deprecated BatchGetDeploymentInstances. The maximum number of targets that can be returned is 25
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [BatchGetDeployments](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetDeployments.html)  **
+  - **Description:** Grants permission to get information about multiple deployments associated with the IAM user
+  - **Resource types (\*required):** [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [BatchGetOnPremisesInstances](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetOnPremisesInstances.html)  **
+  - **Description:** Grants permission to get information about one or more on-premises instances
+  - **Resource types (\*required):** [instance\*](#list_codedeploy-resource-instance)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ContinueDeployment](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ContinueDeployment.html)  **
+  - **Description:** Grants permission to start the process of rerouting traffic from instances in the original environment to instances in thereplacement environment without waiting for a specified wait time to elapse
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateApplication](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateApplication.html)  **
+  - **Description:** Grants permission to create an application associated with the IAM user
+  - **Resource types (\*required):** [application\*](#list_codedeploy-resource-application)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_codedeploy-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_codedeploy-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateDeployment](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html)  **
+  - **Description:** Grants permission to create a deployment for an application associated with the IAM user
+  - **Resource types (\*required):** [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateDeploymentConfig](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentConfig.html)  **
+  - **Description:** Grants permission to create a custom deployment configuration associated with the IAM user
+  - **Resource types (\*required):** [deploymentconfig\*](#list_codedeploy-resource-deploymentconfig)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateDeploymentGroup](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentGroup.html)  **
+  - **Description:** Grants permission to create a deployment group for an application associated with the IAM user
+  - **Resource types (\*required):** [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_codedeploy-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_codedeploy-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteApplication](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteApplication.html)  **
+  - **Description:** Grants permission to delete an application associated with the IAM user
+  - **Resource types (\*required):** [application\*](#list_codedeploy-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteDeploymentConfig](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteDeploymentConfig.html)  **
+  - **Description:** Grants permission to delete a custom deployment configuration associated with the IAM user
+  - **Resource types (\*required):** [deploymentconfig\*](#list_codedeploy-resource-deploymentconfig)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteDeploymentGroup](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteDeploymentGroup.html)  **
+  - **Description:** Grants permission to delete a deployment group for an application associated with the IAM user
+  - **Resource types (\*required):** [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteGitHubAccountToken](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteGitHubAccountToken.html)  **
+  - **Description:** Grants permission to delete a GitHub account connection
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteResourcesByExternalId](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteResourcesByExternalId.html)  **
+  - **Description:** Grants permission to delete resources associated with the given external Id
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeregisterOnPremisesInstance](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeregisterOnPremisesInstance.html)  **
+  - **Description:** Grants permission to deregister an on-premises instance
+  - **Resource types (\*required):** [instance\*](#list_codedeploy-resource-instance)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [GetApplication](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetApplication.html)  **
+  - **Description:** Grants permission to get information about a single application associated with the IAM user
+  - **Resource types (\*required):** [application\*](#list_codedeploy-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [GetApplicationRevision](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetApplicationRevision.html)  **
+  - **Description:** Grants permission to get information about a single application revision for an application associated with the IAM user
+  - **Resource types (\*required):** [application\*](#list_codedeploy-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [GetDeployment](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeployment.html)  **
+  - **Description:** Grants permission to get information about a single deployment to a deployment group for an application associated with the IAM user
+  - **Resource types (\*required):** [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [GetDeploymentConfig](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentConfig.html)  **
+  - **Description:** Grants permission to get information about a single deployment configuration associated with the IAM user
+  - **Resource types (\*required):** [deploymentconfig\*](#list_codedeploy-resource-deploymentconfig)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [GetDeploymentGroup](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentGroup.html)  **
+  - **Description:** Grants permission to get information about a single deployment group for an application associated with the IAM user
+  - **Resource types (\*required):** [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [GetDeploymentInstance](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentInstance.html)  **
+  - **Description:** Grants permission to get information about a single instance in a deployment associated with the IAM user
+  - **Resource types (\*required):** [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [GetDeploymentTarget](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentTarget.html)  **
+  - **Description:** Grants permission to return information about a deployment target
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetOnPremisesInstance](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetOnPremisesInstance.html)  **
+  - **Description:** Grants permission to get information about a single on-premises instance
+  - **Resource types (\*required):** [instance\*](#list_codedeploy-resource-instance)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListApplicationRevisions](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplicationRevisions.html)  **
+  - **Description:** Grants permission to get information about all application revisions for an application associated with the IAM user
+  - **Resource types (\*required):** [application\*](#list_codedeploy-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListApplications](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplications.html)  **
+  - **Description:** Grants permission to get information about all applications associated with the IAM user
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDeploymentConfigs](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentConfigs.html)  **
+  - **Description:** Grants permission to get information about all deployment configurations associated with the IAM user
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDeploymentGroups](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentGroups.html)  **
+  - **Description:** Grants permission to get information about all deployment groups for an application associated with the IAM user
+  - **Resource types (\*required):** [application\*](#list_codedeploy-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDeploymentInstances](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentInstances.html)  **
+  - **Description:** Grants permission to get information about all instances in a deployment associated with the IAM user
+  - **Resource types (\*required):** [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListDeploymentTargets](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentTargets.html)  **
+  - **Description:** Grants permission to return an array of target IDs that are associated a deployment
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListDeployments](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeployments.html)  **
+  - **Description:** Grants permission to get information about all deployments to a deployment group associated with the IAM user, or to get all deployments associated with the IAM user
+  - **Resource types (\*required):** [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListGitHubAccountTokenNames](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListGitHubAccountTokenNames.html)  **
+  - **Description:** Grants permission to list the names of stored connections to GitHub accounts
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListOnPremisesInstances](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListOnPremisesInstances.html)  **
+  - **Description:** Grants permission to get a list of one or more on-premises instance names
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListTagsForResource.html)  **
+  - **Description:** Grants permission to return a list of tags for the resource identified by a specified ARN. Tags are used to organize and categorize your CodeDeploy resources
+  - **Resource types (\*required):** [application](#list_codedeploy-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [deploymentgroup](#list_codedeploy-resource-deploymentgroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [PutLifecycleEventHookExecutionStatus](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_PutLifecycleEventHookExecutionStatus.html)  **
+  - **Description:** Grants permission to notify a lifecycle event hook execution status for associated deployment with the IAM user
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RegisterApplicationRevision](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RegisterApplicationRevision.html)  **
+  - **Description:** Grants permission to register information about an application revision for an application associated with the IAM user
+  - **Resource types (\*required):** [application\*](#list_codedeploy-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RegisterOnPremisesInstance](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RegisterOnPremisesInstance.html)  **
+  - **Description:** Grants permission to register an on-premises instance
+  - **Resource types (\*required):** [instance\*](#list_codedeploy-resource-instance)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [RemoveTagsFromOnPremisesInstances](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RemoveTagsFromOnPremisesInstances.html)  **
+  - **Description:** Grants permission to remove tags from one or more on-premises instances
+  - **Resource types (\*required):** [instance\*](#list_codedeploy-resource-instance)
+  - **Condition keys:**  
+  - **Access level:** Tagging, Write
+
+- **   [SkipWaitTimeForInstanceTermination](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_SkipWaitTimeForInstanceTermination.html)  **
+  - **Description:** Grants permission to override any specified wait time and starts terminating instances immediately after the traffic routing is complete. This action applies to blue-green deployments only
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StopDeployment](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_StopDeployment.html)  **
+  - **Description:** Grants permission to stop a deployment
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_TagResource.html)  **
+  - **Description:** Grants permission to associate the list of tags in the input Tags parameter with the resource identified by the ResourceArn input parameter
+  - **Resource types (\*required):** [application](#list_codedeploy-resource-application) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_codedeploy-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_codedeploy-aws_TagKeys)
+  - **Resource types (\*required):** [deploymentgroup](#list_codedeploy-resource-deploymentgroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_codedeploy-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_codedeploy-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UntagResource.html)  **
+  - **Description:** Grants permission to disassociate a resource from a list of tags. The resource is identified by the ResourceArn input parameter. The tags are identfied by the list of keys in the TagKeys input parameter
+  - **Resource types (\*required):** [application](#list_codedeploy-resource-application) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_codedeploy-aws_TagKeys)
+  - **Resource types (\*required):** [deploymentgroup](#list_codedeploy-resource-deploymentgroup) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_codedeploy-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateApplication](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateApplication.html)  **
+  - **Description:** Grants permission to update an application
+  - **Resource types (\*required):** [application\*](#list_codedeploy-resource-application)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateDeploymentGroup](https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateDeploymentGroup.html)  **
+  - **Description:** Grants permission to change information about a single deployment group for an application associated with the IAM user
+  - **Resource types (\*required):** [deploymentgroup\*](#list_codedeploy-resource-deploymentgroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for AWS CodeDeploy
+<a name="list_codedeploy-permission-only-actions"></a>
 
-The following actions are defined by AWS CodeDeploy but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by AWS CodeDeploy but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                                                                                                                                                                                                                                 | Description                                                                                                       | Resource types (\*required) | Condition keys | Access level |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | --------------------------- | -------------- | ------------ |
-| [CreateCloudFormationDeployment](../../../codedeploy/latest/APIReference/codedeploy/latest/userguide/deployments-create-ecs-cfn.md "../../../codedeploy/latest/APIReference/codedeploy/latest/userguide/deployments-create-ecs-cfn.md") | Grants permission to create CloudFormation deployment to cooperate ochestration for a CloudFormation stack update |                             |                | Write        |
+
+
+| Actions | Description | Resource types (\*required) | Condition keys | Access level | 
+| --- | --- | --- | --- | --- | 
+|   [CreateCloudFormationDeployment](https://docs.aws.amazon.com/codedeploy/latest/APIReference/codedeploy/latest/userguide/deployments-create-ecs-cfn.html)  | Grants permission to create CloudFormation deployment to cooperate ochestration for a CloudFormation stack update |  |   | Write | 
 
 ## Resource types defined by AWS CodeDeploy
+<a name="list_codedeploy-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                                                    | ARN                                                                                                        | Condition keys                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| [application](../../../codedeploy/latest/userguide/auth-and-access-control-permissions-reference.md "../../../codedeploy/latest/userguide/auth-and-access-control-permissions-reference.md")      | arn:${Partition}:codedeploy:${Region}:${Account}:application:${ApplicationName}                            | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_") |
-| [deploymentconfig](../../../codedeploy/latest/userguide/auth-and-access-control-permissions-reference.md "../../../codedeploy/latest/userguide/auth-and-access-control-permissions-reference.md") | arn:${Partition}:codedeploy:${Region}:${Account}:deploymentconfig:${DeploymentConfigurationName}           |                                                                                                                      |
-| [deploymentgroup](../../../codedeploy/latest/userguide/auth-and-access-control-permissions-reference.md "../../../codedeploy/latest/userguide/auth-and-access-control-permissions-reference.md")  | arn:${Partition}:codedeploy:${Region}:${Account}:deploymentgroup:${ApplicationName}/${DeploymentGroupName} | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_ "#list_codedeploy-aws_ResourceTag___TagKey_") |
-| [instance](../../../codedeploy/latest/userguide/auth-and-access-control-permissions-reference.md "../../../codedeploy/latest/userguide/auth-and-access-control-permissions-reference.md")         | arn:${Partition}:codedeploy:${Region}:${Account}:instance:${InstanceName}                                  |                                                                                                                      |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [application](https://docs.aws.amazon.com/codedeploy/latest/userguide/auth-and-access-control-permissions-reference.html)  | arn:${Partition}:codedeploy:${Region}:${Account}:application:${ApplicationName} | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_) | 
+|  [deploymentconfig](https://docs.aws.amazon.com/codedeploy/latest/userguide/auth-and-access-control-permissions-reference.html)  | arn:${Partition}:codedeploy:${Region}:${Account}:deploymentconfig:${DeploymentConfigurationName} |   | 
+|  [deploymentgroup](https://docs.aws.amazon.com/codedeploy/latest/userguide/auth-and-access-control-permissions-reference.html)  | arn:${Partition}:codedeploy:${Region}:${Account}:deploymentgroup:${ApplicationName}/${DeploymentGroupName} | [aws:ResourceTag/${TagKey}](#list_codedeploy-aws_ResourceTag___TagKey_) | 
+|  [instance](https://docs.aws.amazon.com/codedeploy/latest/userguide/auth-and-access-control-permissions-reference.html)  | arn:${Partition}:codedeploy:${Region}:${Account}:instance:${InstanceName} |   | 
 
 ## Condition keys for AWS CodeDeploy
+<a name="list_codedeploy-policy-keys"></a>
 
-AWS CodeDeploy defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS CodeDeploy defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                                 | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters actions based on the presence of tag key-value pairs in the request | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters actions based on tag key-value pairs attached to the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters actions based on the presence of tag keys in the request            | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters actions based on the presence of tag key-value pairs in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters actions based on tag key-value pairs attached to the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters actions based on the presence of tag keys in the request | ArrayOfString | 

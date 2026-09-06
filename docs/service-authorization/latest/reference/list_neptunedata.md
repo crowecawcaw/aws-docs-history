@@ -1,83 +1,247 @@
-# Actions, resources, and condition keys for Amazon Neptune
 
-Amazon Neptune (service prefix: `neptune-db`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Neptune
+<a name="list_neptunedata"></a>
+
+Amazon Neptune (service prefix: `neptune-db`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/neptune/latest/userguide/intro.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/neptune/latest/userguide/api.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/neptune/latest/userguide/iam-auth.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/neptune-db/neptune-db.json) for this service.
 
-- Learn how to [configure this service](../../../neptune/latest/userguide/intro.md "../../../neptune/latest/userguide/intro.md").
-- View a list of the [API operations available for
-  this service](../../../neptune/latest/userguide/api.md "../../../neptune/latest/userguide/api.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../neptune/latest/userguide/iam-auth.md "../../../neptune/latest/userguide/iam-auth.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/neptune-db/neptune-db.json "https://servicereference.us-east-1.amazonaws.com/v1/neptune-db/neptune-db.json") for this service.
-
-###### Topics
-
-- [Actions defined by Amazon Neptune](#list_neptunedata-actions-as-permissions "#list_neptunedata-actions-as-permissions")
-- [Resource types defined by Amazon Neptune](#list_neptunedata-resources-for-iam-policies "#list_neptunedata-resources-for-iam-policies")
-- [Condition keys for Amazon Neptune](#list_neptunedata-policy-keys "#list_neptunedata-policy-keys")
+**Topics**
++ [Actions defined by Amazon Neptune](#list_neptunedata-actions-as-permissions)
++ [Resource types defined by Amazon Neptune](#list_neptunedata-resources-for-iam-policies)
++ [Condition keys for Amazon Neptune](#list_neptunedata-policy-keys)
 
 ## Actions defined by Amazon Neptune
+<a name="list_neptunedata-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                             | Description                                                                         | Resource types (\*required)                                                             | Condition keys                                                                                                      | Access level |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [CancelLoaderJob](../../../neptune/latest/userguide/iam-dp-actions.md#cancelloaderjob "../../../neptune/latest/userguide/iam-dp-actions.md#cancelloaderjob")                                        | Grants permission to cancel a loader job                                            | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Write        |
-| [CancelMLDataProcessingJob](../../../neptune/latest/userguide/iam-dp-actions.md#cancelmldataprocessingjob "../../../neptune/latest/userguide/iam-dp-actions.md#cancelmldataprocessingjob")          | Grants permission to cancel an ML data processing job                               | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Write        |
-| [CancelMLModelTrainingJob](../../../neptune/latest/userguide/iam-dp-actions.md#cancelmlmodeltrainingjob "../../../neptune/latest/userguide/iam-dp-actions.md#cancelmlmodeltrainingjob")             | Grants permission to cancel an ML model training job                                | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Write        |
-| [CancelMLModelTransformJob](../../../neptune/latest/userguide/iam-dp-actions.md#cancelmlmodeltransformjob "../../../neptune/latest/userguide/iam-dp-actions.md#cancelmlmodeltransformjob")          | Grants permission to cancel an ML model transform job                               | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Write        |
-| [CancelQuery](../../../neptune/latest/userguide/iam-dp-actions.md#cancelquery "../../../neptune/latest/userguide/iam-dp-actions.md#cancelquery")                                                    | Grants permission to cancel a query                                                 | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Write        |
-| [CreateMLEndpoint](../../../neptune/latest/userguide/iam-dp-actions.md#createmlendpoint "../../../neptune/latest/userguide/iam-dp-actions.md#createmlendpoint")                                     | Grants permission to create an ML endpoint                                          | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Write        |
-| [DeleteDataViaQuery](../../../neptune/latest/userguide/iam-dp-actions.md#deletedataviaquery "../../../neptune/latest/userguide/iam-dp-actions.md#deletedataviaquery")                               | Grants permission to run delete data via query APIs on database                     | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") | [neptune-db:QueryLanguage](#list_neptunedata-neptune-db_QueryLanguage "#list_neptunedata-neptune-db_QueryLanguage") | Write        |
-| [DeleteMLEndpoint](../../../neptune/latest/userguide/iam-dp-actions.md#deletemlendpoint "../../../neptune/latest/userguide/iam-dp-actions.md#deletemlendpoint")                                     | Grants permission to delete an ML endpoint                                          | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Write        |
-| [DeleteStatistics](../../../neptune/latest/userguide/iam-dp-actions.md#deletestatistics "../../../neptune/latest/userguide/iam-dp-actions.md#deletestatistics")                                     | Grants permission to delete all the statistics in the database                      | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Write        |
-| [GetEngineStatus](../../../neptune/latest/userguide/iam-dp-actions.md#getenginestatus "../../../neptune/latest/userguide/iam-dp-actions.md#getenginestatus")                                        | Grants permission to check the status of the Neptune engine                         | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Read         |
-| [GetGraphSummary](../../../neptune/latest/userguide/iam-dp-actions.md#getgraphsummary "../../../neptune/latest/userguide/iam-dp-actions.md#getgraphsummary")                                        | Grants permission to get the graph summary from the database                        | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Read         |
-| [GetLoaderJobStatus](../../../neptune/latest/userguide/iam-dp-actions.md#getloaderjobstatus "../../../neptune/latest/userguide/iam-dp-actions.md#getloaderjobstatus")                               | Grants permission to check the status of a loader job                               | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Read         |
-| [GetMLDataProcessingJobStatus](../../../neptune/latest/userguide/iam-dp-actions.md#getmldataprocessingjobstatus "../../../neptune/latest/userguide/iam-dp-actions.md#getmldataprocessingjobstatus") | Grants permission to check the status of an ML data processing job                  | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Read         |
-| [GetMLEndpointStatus](../../../neptune/latest/userguide/iam-dp-actions.md#getmlendpointstatus "../../../neptune/latest/userguide/iam-dp-actions.md#getmlendpointstatus")                            | Grants permission to check the status of an ML endpoint                             | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Read         |
-| [GetMLModelTrainingJobStatus](../../../neptune/latest/userguide/iam-dp-actions.md#getmlmodeltrainingjobstatus "../../../neptune/latest/userguide/iam-dp-actions.md#getmlmodeltrainingjobstatus")    | Grants permission to check the status of an ML model training job                   | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Read         |
-| [GetMLModelTransformJobStatus](../../../neptune/latest/userguide/iam-dp-actions.md#getmlmodeltransformjobstatus "../../../neptune/latest/userguide/iam-dp-actions.md#getmlmodeltransformjobstatus") | Grants permission to check the status of an ML model transform job                  | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Read         |
-| [GetQueryStatus](../../../neptune/latest/userguide/iam-dp-actions.md#getquerystatus "../../../neptune/latest/userguide/iam-dp-actions.md#getquerystatus")                                           | Grants permission to check the status of all active queries                         | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") | [neptune-db:QueryLanguage](#list_neptunedata-neptune-db_QueryLanguage "#list_neptunedata-neptune-db_QueryLanguage") | Read         |
-| [GetStatisticsStatus](../../../neptune/latest/userguide/iam-dp-actions.md#getstatisticsstatus "../../../neptune/latest/userguide/iam-dp-actions.md#getstatisticsstatus")                            | Grants permission to check the status of statistics of the database                 | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Read         |
-| [GetStreamRecords](../../../neptune/latest/userguide/iam-dp-actions.md#getstreamrecords "../../../neptune/latest/userguide/iam-dp-actions.md#getstreamrecords")                                     | Grants permission to fetch stream records from Neptune                              | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") | [neptune-db:QueryLanguage](#list_neptunedata-neptune-db_QueryLanguage "#list_neptunedata-neptune-db_QueryLanguage") | Read         |
-| [ListLoaderJobs](../../../neptune/latest/userguide/iam-dp-actions.md#listloaderjobs "../../../neptune/latest/userguide/iam-dp-actions.md#listloaderjobs")                                           | Grants permission to list all the loader jobs                                       | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | List         |
-| [ListMLDataProcessingJobs](../../../neptune/latest/userguide/iam-dp-actions.md#listmldataprocessingjobs "../../../neptune/latest/userguide/iam-dp-actions.md#listmldataprocessingjobs")             | Grants permission to list all the ML data processing jobs                           | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | List         |
-| [ListMLEndpoints](../../../neptune/latest/userguide/iam-dp-actions.md#listmlendpoints "../../../neptune/latest/userguide/iam-dp-actions.md#listmlendpoints")                                        | Grants permission to list all the ML endpoints                                      | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | List         |
-| [ListMLModelTrainingJobs](../../../neptune/latest/userguide/iam-dp-actions.md#listmlmodeltrainingjobs "../../../neptune/latest/userguide/iam-dp-actions.md#listmlmodeltrainingjobs")                | Grants permission to list all the ML model training jobs                            | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | List         |
-| [ListMLModelTransformJobs](../../../neptune/latest/userguide/iam-dp-actions.md#listmlmodeltransformjobs "../../../neptune/latest/userguide/iam-dp-actions.md#listmlmodeltransformjobs")             | Grants permission to list all the ML model transform jobs                           | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | List         |
-| [ManageStatistics](../../../neptune/latest/userguide/iam-dp-actions.md#managestatistics "../../../neptune/latest/userguide/iam-dp-actions.md#managestatistics")                                     | Grants permission to manage statistics in the database                              | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Write        |
-| [ReadDataViaQuery](../../../neptune/latest/userguide/iam-dp-actions.md#readdataviaquery "../../../neptune/latest/userguide/iam-dp-actions.md#readdataviaquery")                                     | Grants permission to run read data via query APIs on database                       | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") | [neptune-db:QueryLanguage](#list_neptunedata-neptune-db_QueryLanguage "#list_neptunedata-neptune-db_QueryLanguage") | Read         |
-| [ResetDatabase](../../../neptune/latest/userguide/iam-dp-actions.md#resetdatabase "../../../neptune/latest/userguide/iam-dp-actions.md#resetdatabase")                                              | Grants permission to get the token needed for reset and resets the Neptune database | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Write        |
-| [StartLoaderJob](../../../neptune/latest/userguide/iam-dp-actions.md#startloaderjob "../../../neptune/latest/userguide/iam-dp-actions.md#startloaderjob")                                           | Grants permission to start a loader job                                             | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Write        |
-| [StartMLDataProcessingJob](../../../neptune/latest/userguide/iam-dp-actions.md#startmldataprocessingjob "../../../neptune/latest/userguide/iam-dp-actions.md#startmldataprocessingjob")             | Grants permission to start an ML data processing job                                | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Write        |
-| [StartMLModelTrainingJob](../../../neptune/latest/userguide/iam-dp-actions.md#startmlmodeltrainingjob "../../../neptune/latest/userguide/iam-dp-actions.md#startmlmodeltrainingjob")                | Grants permission to start an ML model training job                                 | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Write        |
-| [StartMLModelTransformJob](../../../neptune/latest/userguide/iam-dp-actions.md#startmlmodeltransformjob "../../../neptune/latest/userguide/iam-dp-actions.md#startmlmodeltransformjob")             | Grants permission to start an ML model transform job                                | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Write        |
-| [WriteDataViaQuery](../../../neptune/latest/userguide/iam-dp-actions.md#writedataviaquery "../../../neptune/latest/userguide/iam-dp-actions.md#writedataviaquery")                                  | Grants permission to run write data via query APIs on database                      | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") | [neptune-db:QueryLanguage](#list_neptunedata-neptune-db_QueryLanguage "#list_neptunedata-neptune-db_QueryLanguage") | Write        |
-| [connect](../../../neptune/latest/userguide/iam-dp-actions.md "../../../neptune/latest/userguide/iam-dp-actions.md")                                                                                | Grants permission to all data-access actions in engine versions prior to 1.2.0.0    | [database\*](#list_neptunedata-resource-database "#list_neptunedata-resource-database") |                                                                                                                     | Write        |
+
+
+
+- **   [CancelLoaderJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelloaderjob)  **
+  - **Description:** Grants permission to cancel a loader job
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CancelMLDataProcessingJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelmldataprocessingjob)  **
+  - **Description:** Grants permission to cancel an ML data processing job
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CancelMLModelTrainingJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelmlmodeltrainingjob)  **
+  - **Description:** Grants permission to cancel an ML model training job
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CancelMLModelTransformJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelmlmodeltransformjob)  **
+  - **Description:** Grants permission to cancel an ML model transform job
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CancelQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelquery)  **
+  - **Description:** Grants permission to cancel a query
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateMLEndpoint](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#createmlendpoint)  **
+  - **Description:** Grants permission to create an ML endpoint
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletedataviaquery)  **
+  - **Description:** Grants permission to run delete data via query APIs on database
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:** [neptune-db:QueryLanguage](#list_neptunedata-neptune-db_QueryLanguage)
+  - **Access level:** Write
+
+- **   [DeleteMLEndpoint](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletemlendpoint)  **
+  - **Description:** Grants permission to delete an ML endpoint
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteStatistics](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#deletestatistics)  **
+  - **Description:** Grants permission to delete all the statistics in the database
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [GetEngineStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getenginestatus)  **
+  - **Description:** Grants permission to check the status of the Neptune engine
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetGraphSummary](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getgraphsummary)  **
+  - **Description:** Grants permission to get the graph summary from the database
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetLoaderJobStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getloaderjobstatus)  **
+  - **Description:** Grants permission to check the status of a loader job
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetMLDataProcessingJobStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmldataprocessingjobstatus)  **
+  - **Description:** Grants permission to check the status of an ML data processing job
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetMLEndpointStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlendpointstatus)  **
+  - **Description:** Grants permission to check the status of an ML endpoint
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetMLModelTrainingJobStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlmodeltrainingjobstatus)  **
+  - **Description:** Grants permission to check the status of an ML model training job
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetMLModelTransformJobStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getmlmodeltransformjobstatus)  **
+  - **Description:** Grants permission to check the status of an ML model transform job
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetQueryStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getquerystatus)  **
+  - **Description:** Grants permission to check the status of all active queries
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:** [neptune-db:QueryLanguage](#list_neptunedata-neptune-db_QueryLanguage)
+  - **Access level:** Read
+
+- **   [GetStatisticsStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstatisticsstatus)  **
+  - **Description:** Grants permission to check the status of statistics of the database
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetStreamRecords](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstreamrecords)  **
+  - **Description:** Grants permission to fetch stream records from Neptune
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:** [neptune-db:QueryLanguage](#list_neptunedata-neptune-db_QueryLanguage)
+  - **Access level:** Read
+
+- **   [ListLoaderJobs](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listloaderjobs)  **
+  - **Description:** Grants permission to list all the loader jobs
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMLDataProcessingJobs](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmldataprocessingjobs)  **
+  - **Description:** Grants permission to list all the ML data processing jobs
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMLEndpoints](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmlendpoints)  **
+  - **Description:** Grants permission to list all the ML endpoints
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMLModelTrainingJobs](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmlmodeltrainingjobs)  **
+  - **Description:** Grants permission to list all the ML model training jobs
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListMLModelTransformJobs](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listmlmodeltransformjobs)  **
+  - **Description:** Grants permission to list all the ML model transform jobs
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ManageStatistics](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#managestatistics)  **
+  - **Description:** Grants permission to manage statistics in the database
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [ReadDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#readdataviaquery)  **
+  - **Description:** Grants permission to run read data via query APIs on database
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:** [neptune-db:QueryLanguage](#list_neptunedata-neptune-db_QueryLanguage)
+  - **Access level:** Read
+
+- **   [ResetDatabase](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#resetdatabase)  **
+  - **Description:** Grants permission to get the token needed for reset and resets the Neptune database
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartLoaderJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#startloaderjob)  **
+  - **Description:** Grants permission to start a loader job
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartMLDataProcessingJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#startmldataprocessingjob)  **
+  - **Description:** Grants permission to start an ML data processing job
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartMLModelTrainingJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#startmlmodeltrainingjob)  **
+  - **Description:** Grants permission to start an ML model training job
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [StartMLModelTransformJob](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#startmlmodeltransformjob)  **
+  - **Description:** Grants permission to start an ML model transform job
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [WriteDataViaQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#writedataviaquery)  **
+  - **Description:** Grants permission to run write data via query APIs on database
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:** [neptune-db:QueryLanguage](#list_neptunedata-neptune-db_QueryLanguage)
+  - **Access level:** Write
+
+- **   [connect](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html)  **
+  - **Description:** Grants permission to all data-access actions in engine versions prior to 1.2.0.0
+  - **Resource types (\*required):** [database\*](#list_neptunedata-resource-database)
+  - **Condition keys:**  
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon Neptune
+<a name="list_neptunedata-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                | ARN                                                                      | Condition keys |
-| ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | -------------- |
-| [database](../../../neptune/latest/userguide/iam-data-resources.md "../../../neptune/latest/userguide/iam-data-resources.md") | arn:${Partition}:neptune-db:${Region}:${Account}:${ClusterResourceId}/\* |                |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [database](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-resources.html)  | arn:${Partition}:neptune-db:${Region}:${Account}:${ClusterResourceId}/\* |   | 
 
 ## Condition keys for Amazon Neptune
+<a name="list_neptunedata-policy-keys"></a>
 
-Amazon Neptune defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Neptune defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                | Description                   | Type   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ------ |
-| [neptune-db:QueryLanguage](../../../neptune/latest/userguide/iam-data-condition-keys.md#iam-neptune-condition-keys "../../../neptune/latest/userguide/iam-data-condition-keys.md#iam-neptune-condition-keys") | Filters access by graph model | String |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [neptune-db:QueryLanguage](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)  | Filters access by graph model | String | 

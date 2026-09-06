@@ -1,163 +1,443 @@
-# Actions, resources, and condition keys for AWS RoboMaker
 
-AWS RoboMaker (service prefix: `robomaker`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for AWS RoboMaker
+<a name="list_robomaker"></a>
+
+AWS RoboMaker (service prefix: `robomaker`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/robomaker/how-it-works.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/robomaker/latest/dg/API_Reference.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/robomaker/latest/dg/what-is-robomaker.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/robomaker/robomaker.json) for this service.
 
-- Learn how to [configure this service](../../../robomaker/how-it-works.md "../../../robomaker/how-it-works.md").
-- View a list of the [API operations available for
-  this service](../../../robomaker/latest/dg/API_Reference.md "../../../robomaker/latest/dg/API_Reference.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../robomaker/latest/dg/what-is-robomaker.md "../../../robomaker/latest/dg/what-is-robomaker.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/robomaker/robomaker.json "https://servicereference.us-east-1.amazonaws.com/v1/robomaker/robomaker.json") for this service.
-
-###### Topics
-
-- [Actions defined by AWS RoboMaker](#list_robomaker-actions-as-permissions "#list_robomaker-actions-as-permissions")
-- [Permission-only actions for AWS RoboMaker](#list_robomaker-permission-only-actions "#list_robomaker-permission-only-actions")
-- [Resource types defined by AWS RoboMaker](#list_robomaker-resources-for-iam-policies "#list_robomaker-resources-for-iam-policies")
-- [Condition keys for AWS RoboMaker](#list_robomaker-policy-keys "#list_robomaker-policy-keys")
+**Topics**
++ [Actions defined by AWS RoboMaker](#list_robomaker-actions-as-permissions)
++ [Permission-only actions for AWS RoboMaker](#list_robomaker-permission-only-actions)
++ [Resource types defined by AWS RoboMaker](#list_robomaker-resources-for-iam-policies)
++ [Condition keys for AWS RoboMaker](#list_robomaker-policy-keys)
 
 ## Actions defined by AWS RoboMaker
+<a name="list_robomaker-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                       | Resource types (\*required)                                                                                                | Condition keys                                                                                                                                                                                                                                                                                                    | Access level   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [BatchDeleteWorlds](../../../robomaker/latest/dg/API_BatchDeleteWorlds.md "../../../robomaker/latest/dg/API_BatchDeleteWorlds.md")                                                    | Delete one or more worlds in a batch operation                                                                                                                                                                                                                                                                    |                                                                                                                            |                                                                                                                                                                                                                                                                                                                   | Write          |
-| [BatchDescribeSimulationJob](../../../robomaker/latest/dg/API_BatchDescribeSimulationJob.md "../../../robomaker/latest/dg/API_BatchDescribeSimulationJob.md")                         | Describe multiple simulation jobs                                                                                                                                                                                                                                                                                 |                                                                                                                            |                                                                                                                                                                                                                                                                                                                   | Read           |
-| [CancelDeploymentJob](../../../robomaker/latest/dg/API_CancelDeploymentJob.md "../../../robomaker/latest/dg/API_CancelDeploymentJob.md")                                              | Cancel a deployment job                                                                                                                                                                                                                                                                                           | [deploymentJob\*](#list_robomaker-resource-deploymentJob "#list_robomaker-resource-deploymentJob")                         | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [CancelSimulationJob](../../../robomaker/latest/dg/API_CancelSimulationJob.md "../../../robomaker/latest/dg/API_CancelSimulationJob.md")                                              | Cancel a simulation job                                                                                                                                                                                                                                                                                           | [simulationJob\*](#list_robomaker-resource-simulationJob "#list_robomaker-resource-simulationJob")                         | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [CancelSimulationJobBatch](../../../robomaker/latest/dg/API_CancelSimulationJobBatch.md "../../../robomaker/latest/dg/API_CancelSimulationJobBatch.md")                               | Cancel a simulation job batch                                                                                                                                                                                                                                                                                     | [simulationJobBatch\*](#list_robomaker-resource-simulationJobBatch "#list_robomaker-resource-simulationJobBatch")          | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [CancelWorldExportJob](../../../robomaker/latest/dg/API_CancelWorldExportJob.md "../../../robomaker/latest/dg/API_CancelWorldExportJob.md")                                           | Cancel a world export job                                                                                                                                                                                                                                                                                         | [worldExportJob\*](#list_robomaker-resource-worldExportJob "#list_robomaker-resource-worldExportJob")                      | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [CancelWorldGenerationJob](../../../robomaker/latest/dg/API_CancelWorldGenerationJob.md "../../../robomaker/latest/dg/API_CancelWorldGenerationJob.md")                               | Cancel a world generation job                                                                                                                                                                                                                                                                                     | [worldGenerationJob\*](#list_robomaker-resource-worldGenerationJob "#list_robomaker-resource-worldGenerationJob")          | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [CreateDeploymentJob](../../../robomaker/latest/dg/API_CreateDeploymentJob.md "../../../robomaker/latest/dg/API_CreateDeploymentJob.md")                                              | Create a deployment job                                                                                                                                                                                                                                                                                           |                                                                                                                            | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                       | Write          |
-| [CreateFleet](../../../robomaker/latest/dg/API_CreateFleet.md "../../../robomaker/latest/dg/API_CreateFleet.md")                                                                      | Create a deployment fleet that represents a logical group of robots running the same robot application                                                                                                                                                                                                            |                                                                                                                            | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                       | Write          |
-| [CreateRobot](../../../robomaker/latest/dg/API_CreateRobot.md "../../../robomaker/latest/dg/API_CreateRobot.md")                                                                      | Create a robot that can be registered to a fleet                                                                                                                                                                                                                                                                  |                                                                                                                            | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                       | Write          |
-| [CreateRobotApplication](../../../robomaker/latest/dg/API_CreateRobotApplication.md "../../../robomaker/latest/dg/API_CreateRobotApplication.md")                                     | Create a robot application                                                                                                                                                                                                                                                                                        |                                                                                                                            | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                       | Write          |
-| [CreateRobotApplicationVersion](../../../robomaker/latest/dg/API_CreateRobotApplicationVersion.md "../../../robomaker/latest/dg/API_CreateRobotApplicationVersion.md")                | Create a snapshot of a robot application                                                                                                                                                                                                                                                                          | [robotApplication\*](#list_robomaker-resource-robotApplication "#list_robomaker-resource-robotApplication")                | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [CreateSimulationApplication](../../../robomaker/latest/dg/API_CreateSimulationApplication.md "../../../robomaker/latest/dg/API_CreateSimulationApplication.md")                      | Create a simulation application                                                                                                                                                                                                                                                                                   |                                                                                                                            | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                       | Write          |
-| [CreateSimulationApplicationVersion](../../../robomaker/latest/dg/API_CreateSimulationApplicationVersion.md "../../../robomaker/latest/dg/API_CreateSimulationApplicationVersion.md") | Create a snapshot of a simulation application                                                                                                                                                                                                                                                                     | [simulationApplication\*](#list_robomaker-resource-simulationApplication "#list_robomaker-resource-simulationApplication") | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [CreateSimulationJob](../../../robomaker/latest/dg/API_CreateSimulationJob.md "../../../robomaker/latest/dg/API_CreateSimulationJob.md")                                              | Create a simulation job                                                                                                                                                                                                                                                                                           |                                                                                                                            | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                       | Write          |
-| [CreateWorldExportJob](../../../robomaker/latest/dg/API_CreateWorldExportJob.md "../../../robomaker/latest/dg/API_CreateWorldExportJob.md")                                           | Create a world export job                                                                                                                                                                                                                                                                                         | [world\*](#list_robomaker-resource-world "#list_robomaker-resource-world")                                                 | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys") | Write          |
-| [CreateWorldGenerationJob](../../../robomaker/latest/dg/API_CreateWorldGenerationJob.md "../../../robomaker/latest/dg/API_CreateWorldGenerationJob.md")                               | Create a world generation job                                                                                                                                                                                                                                                                                     | [worldTemplate\*](#list_robomaker-resource-worldTemplate "#list_robomaker-resource-worldTemplate")                         | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys") | Write          |
-| [CreateWorldTemplate](../../../robomaker/latest/dg/API_CreateWorldTemplate.md "../../../robomaker/latest/dg/API_CreateWorldTemplate.md")                                              | Create a world template                                                                                                                                                                                                                                                                                           |                                                                                                                            | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                       | Write          |
-| [DeleteFleet](../../../robomaker/latest/dg/API_DeleteFleet.md "../../../robomaker/latest/dg/API_DeleteFleet.md")                                                                      | Delete a deployment fleet                                                                                                                                                                                                                                                                                         | [deploymentFleet\*](#list_robomaker-resource-deploymentFleet "#list_robomaker-resource-deploymentFleet")                   | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteRobot](../../../robomaker/latest/dg/API_DeleteRobot.md "../../../robomaker/latest/dg/API_DeleteRobot.md")                                                                      | Delete a robot                                                                                                                                                                                                                                                                                                    | [robot\*](#list_robomaker-resource-robot "#list_robomaker-resource-robot")                                                 | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteRobotApplication](../../../robomaker/latest/dg/API_DeleteRobotApplication.md "../../../robomaker/latest/dg/API_DeleteRobotApplication.md")                                     | Delete a robot application                                                                                                                                                                                                                                                                                        | [robotApplication\*](#list_robomaker-resource-robotApplication "#list_robomaker-resource-robotApplication")                | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteSimulationApplication](../../../robomaker/latest/dg/API_DeleteSimulationApplication.md "../../../robomaker/latest/dg/API_DeleteSimulationApplication.md")                      | Delete a simulation application                                                                                                                                                                                                                                                                                   | [simulationApplication\*](#list_robomaker-resource-simulationApplication "#list_robomaker-resource-simulationApplication") | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeleteWorldTemplate](../../../robomaker/latest/dg/API_DeleteWorldTemplate.md "../../../robomaker/latest/dg/API_DeleteWorldTemplate.md")                                              | Delete a world template                                                                                                                                                                                                                                                                                           | [worldTemplate\*](#list_robomaker-resource-worldTemplate "#list_robomaker-resource-worldTemplate")                         | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [DeregisterRobot](../../../robomaker/latest/dg/API_DeregisterRobot.md "../../../robomaker/latest/dg/API_DeregisterRobot.md")                                                          | Deregister a robot from a fleet                                                                                                                                                                                                                                                                                   | [deploymentFleet\*](#list_robomaker-resource-deploymentFleet "#list_robomaker-resource-deploymentFleet")                   | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [robot\*](#list_robomaker-resource-robot "#list_robomaker-resource-robot")                                                                                                            | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [DescribeDeploymentJob](../../../robomaker/latest/dg/API_DescribeDeploymentJob.md "../../../robomaker/latest/dg/API_DescribeDeploymentJob.md")                                        | Describe a deployment job                                                                                                                                                                                                                                                                                         | [deploymentJob\*](#list_robomaker-resource-deploymentJob "#list_robomaker-resource-deploymentJob")                         | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [DescribeFleet](../../../robomaker/latest/dg/API_DescribeFleet.md "../../../robomaker/latest/dg/API_DescribeFleet.md")                                                                | Describe a deployment fleet                                                                                                                                                                                                                                                                                       | [deploymentFleet\*](#list_robomaker-resource-deploymentFleet "#list_robomaker-resource-deploymentFleet")                   | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [DescribeRobot](../../../robomaker/latest/dg/API_DescribeRobot.md "../../../robomaker/latest/dg/API_DescribeRobot.md")                                                                | Describe a robot                                                                                                                                                                                                                                                                                                  | [robot\*](#list_robomaker-resource-robot "#list_robomaker-resource-robot")                                                 | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [DescribeRobotApplication](../../../robomaker/latest/dg/API_DescribeRobotApplication.md "../../../robomaker/latest/dg/API_DescribeRobotApplication.md")                               | Describe a robot application                                                                                                                                                                                                                                                                                      | [robotApplication\*](#list_robomaker-resource-robotApplication "#list_robomaker-resource-robotApplication")                | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [DescribeSimulationApplication](../../../robomaker/latest/dg/API_DescribeSimulationApplication.md "../../../robomaker/latest/dg/API_DescribeSimulationApplication.md")                | Describe a simulation application                                                                                                                                                                                                                                                                                 | [simulationApplication\*](#list_robomaker-resource-simulationApplication "#list_robomaker-resource-simulationApplication") | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [DescribeSimulationJob](../../../robomaker/latest/dg/API_DescribeSimulationJob.md "../../../robomaker/latest/dg/API_DescribeSimulationJob.md")                                        | Describe a simulation job                                                                                                                                                                                                                                                                                         | [simulationJob\*](#list_robomaker-resource-simulationJob "#list_robomaker-resource-simulationJob")                         | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [DescribeSimulationJobBatch](../../../robomaker/latest/dg/API_DescribeSimulationJobBatch.md "../../../robomaker/latest/dg/API_DescribeSimulationJobBatch.md")                         | Describe a simulation job batch                                                                                                                                                                                                                                                                                   | [simulationJobBatch\*](#list_robomaker-resource-simulationJobBatch "#list_robomaker-resource-simulationJobBatch")          | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [DescribeWorld](../../../robomaker/latest/dg/API_DescribeWorld.md "../../../robomaker/latest/dg/API_DescribeWorld.md")                                                                | Describe a world                                                                                                                                                                                                                                                                                                  | [world\*](#list_robomaker-resource-world "#list_robomaker-resource-world")                                                 | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [DescribeWorldExportJob](../../../robomaker/latest/dg/API_DescribeWorldExportJob.md "../../../robomaker/latest/dg/API_DescribeWorldExportJob.md")                                     | Describe a world export job                                                                                                                                                                                                                                                                                       | [worldExportJob\*](#list_robomaker-resource-worldExportJob "#list_robomaker-resource-worldExportJob")                      | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [DescribeWorldGenerationJob](../../../robomaker/latest/dg/API_DescribeWorldGenerationJob.md "../../../robomaker/latest/dg/API_DescribeWorldGenerationJob.md")                         | Describe a world generation job                                                                                                                                                                                                                                                                                   | [worldGenerationJob\*](#list_robomaker-resource-worldGenerationJob "#list_robomaker-resource-worldGenerationJob")          | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [DescribeWorldTemplate](../../../robomaker/latest/dg/API_DescribeWorldTemplate.md "../../../robomaker/latest/dg/API_DescribeWorldTemplate.md")                                        | Describe a world template                                                                                                                                                                                                                                                                                         | [worldTemplate\*](#list_robomaker-resource-worldTemplate "#list_robomaker-resource-worldTemplate")                         | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [GetWorldTemplateBody](../../../robomaker/latest/dg/API_GetWorldTemplateBody.md "../../../robomaker/latest/dg/API_GetWorldTemplateBody.md")                                           | Get the body of a world template                                                                                                                                                                                                                                                                                  | [worldTemplate\*](#list_robomaker-resource-worldTemplate "#list_robomaker-resource-worldTemplate")                         | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Read           |
-| [ListDeploymentJobs](../../../robomaker/latest/dg/API_ListDeploymentJobs.md "../../../robomaker/latest/dg/API_ListDeploymentJobs.md")                                                 | List deployment jobs                                                                                                                                                                                                                                                                                              |                                                                                                                            |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListFleets](../../../robomaker/latest/dg/API_ListFleets.md "../../../robomaker/latest/dg/API_ListFleets.md")                                                                         | List fleets                                                                                                                                                                                                                                                                                                       |                                                                                                                            |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListRobotApplications](../../../robomaker/latest/dg/API_ListRobotApplications.md "../../../robomaker/latest/dg/API_ListRobotApplications.md")                                        | List robot applications                                                                                                                                                                                                                                                                                           |                                                                                                                            |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListRobots](../../../robomaker/latest/dg/API_ListRobots.md "../../../robomaker/latest/dg/API_ListRobots.md")                                                                         | List robots                                                                                                                                                                                                                                                                                                       |                                                                                                                            |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListSimulationApplications](../../../robomaker/latest/dg/API_ListSimulationApplications.md "../../../robomaker/latest/dg/API_ListSimulationApplications.md")                         | List simulation applications                                                                                                                                                                                                                                                                                      |                                                                                                                            |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListSimulationJobBatches](../../../robomaker/latest/dg/API_ListSimulationJobBatches.md "../../../robomaker/latest/dg/API_ListSimulationJobBatches.md")                               | List simulation job batches                                                                                                                                                                                                                                                                                       |                                                                                                                            |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListSimulationJobs](../../../robomaker/latest/dg/API_ListSimulationJobs.md "../../../robomaker/latest/dg/API_ListSimulationJobs.md")                                                 | List simulation jobs                                                                                                                                                                                                                                                                                              |                                                                                                                            |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListTagsForResource](../../../robomaker/latest/dg/API_ListTagsForResource.md "../../../robomaker/latest/dg/API_ListTagsForResource.md")                                              | List tags for a RoboMaker resource                                                                                                                                                                                                                                                                                | [deploymentFleet](#list_robomaker-resource-deploymentFleet "#list_robomaker-resource-deploymentFleet")                     | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | List           |
-| [deploymentJob](#list_robomaker-resource-deploymentJob "#list_robomaker-resource-deploymentJob")                                                                                      | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [robot](#list_robomaker-resource-robot "#list_robomaker-resource-robot")                                                                                                              | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [robotApplication](#list_robomaker-resource-robotApplication "#list_robomaker-resource-robotApplication")                                                                             | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [simulationApplication](#list_robomaker-resource-simulationApplication "#list_robomaker-resource-simulationApplication")                                                              | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [simulationJob](#list_robomaker-resource-simulationJob "#list_robomaker-resource-simulationJob")                                                                                      | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [simulationJobBatch](#list_robomaker-resource-simulationJobBatch "#list_robomaker-resource-simulationJobBatch")                                                                       | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [world](#list_robomaker-resource-world "#list_robomaker-resource-world")                                                                                                              | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [worldExportJob](#list_robomaker-resource-worldExportJob "#list_robomaker-resource-worldExportJob")                                                                                   | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [worldGenerationJob](#list_robomaker-resource-worldGenerationJob "#list_robomaker-resource-worldGenerationJob")                                                                       | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [worldTemplate](#list_robomaker-resource-worldTemplate "#list_robomaker-resource-worldTemplate")                                                                                      | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [ListWorldExportJobs](../../../robomaker/latest/dg/API_ListWorldExportJobs.md "../../../robomaker/latest/dg/API_ListWorldExportJobs.md")                                              | List world export jobs                                                                                                                                                                                                                                                                                            |                                                                                                                            |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListWorldGenerationJobs](../../../robomaker/latest/dg/API_ListWorldGenerationJobs.md "../../../robomaker/latest/dg/API_ListWorldGenerationJobs.md")                                  | List world generation jobs                                                                                                                                                                                                                                                                                        |                                                                                                                            |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListWorldTemplates](../../../robomaker/latest/dg/API_ListWorldTemplates.md "../../../robomaker/latest/dg/API_ListWorldTemplates.md")                                                 | List world templates                                                                                                                                                                                                                                                                                              |                                                                                                                            |                                                                                                                                                                                                                                                                                                                   | List           |
-| [ListWorlds](../../../robomaker/latest/dg/API_ListWorlds.md "../../../robomaker/latest/dg/API_ListWorlds.md")                                                                         | List worlds                                                                                                                                                                                                                                                                                                       |                                                                                                                            |                                                                                                                                                                                                                                                                                                                   | List           |
-| [RegisterRobot](../../../robomaker/latest/dg/API_RegisterRobot.md "../../../robomaker/latest/dg/API_RegisterRobot.md")                                                                | Register a robot to a fleet                                                                                                                                                                                                                                                                                       | [deploymentFleet\*](#list_robomaker-resource-deploymentFleet "#list_robomaker-resource-deploymentFleet")                   | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [robot\*](#list_robomaker-resource-robot "#list_robomaker-resource-robot")                                                                                                            | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                |
-| [RestartSimulationJob](../../../robomaker/latest/dg/API_RestartSimulationJob.md "../../../robomaker/latest/dg/API_RestartSimulationJob.md")                                           | Restart a running simulation job                                                                                                                                                                                                                                                                                  | [simulationJob\*](#list_robomaker-resource-simulationJob "#list_robomaker-resource-simulationJob")                         | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [StartSimulationJobBatch](../../../robomaker/latest/dg/API_StartSimulationJobBatch.md "../../../robomaker/latest/dg/API_StartSimulationJobBatch.md")                                  | Create a simulation job batch                                                                                                                                                                                                                                                                                     |                                                                                                                            | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                       | Write          |
-| [SyncDeploymentJob](../../../robomaker/latest/dg/API_SyncDeploymentJob.md "../../../robomaker/latest/dg/API_SyncDeploymentJob.md")                                                    | Ensures the most recently deployed robot application is deployed to all robots in the fleet                                                                                                                                                                                                                       | [deploymentFleet\*](#list_robomaker-resource-deploymentFleet "#list_robomaker-resource-deploymentFleet")                   | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [TagResource](../../../robomaker/latest/dg/API_TagResource.md "../../../robomaker/latest/dg/API_TagResource.md")                                                                      | Add tags to a RoboMaker resource                                                                                                                                                                                                                                                                                  | [deploymentFleet](#list_robomaker-resource-deploymentFleet "#list_robomaker-resource-deploymentFleet")                     | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys") | Tagging, Write |
-| [deploymentJob](#list_robomaker-resource-deploymentJob "#list_robomaker-resource-deploymentJob")                                                                                      | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys") |
-| [robot](#list_robomaker-resource-robot "#list_robomaker-resource-robot")                                                                                                              | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys") |
-| [robotApplication](#list_robomaker-resource-robotApplication "#list_robomaker-resource-robotApplication")                                                                             | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys") |
-| [simulationApplication](#list_robomaker-resource-simulationApplication "#list_robomaker-resource-simulationApplication")                                                              | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys") |
-| [simulationJob](#list_robomaker-resource-simulationJob "#list_robomaker-resource-simulationJob")                                                                                      | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys") |
-| [simulationJobBatch](#list_robomaker-resource-simulationJobBatch "#list_robomaker-resource-simulationJobBatch")                                                                       | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys") |
-| [world](#list_robomaker-resource-world "#list_robomaker-resource-world")                                                                                                              | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys") |
-| [worldExportJob](#list_robomaker-resource-worldExportJob "#list_robomaker-resource-worldExportJob")                                                                                   | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys") |
-| [worldGenerationJob](#list_robomaker-resource-worldGenerationJob "#list_robomaker-resource-worldGenerationJob")                                                                       | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys") |
-| [worldTemplate](#list_robomaker-resource-worldTemplate "#list_robomaker-resource-worldTemplate")                                                                                      | [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_ "#list_robomaker-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys") |
-| [UntagResource](../../../robomaker/latest/dg/API_UntagResource.md "../../../robomaker/latest/dg/API_UntagResource.md")                                                                | Remove tags from a RoboMaker resource                                                                                                                                                                                                                                                                             | [deploymentFleet](#list_robomaker-resource-deploymentFleet "#list_robomaker-resource-deploymentFleet")                     | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                    | Tagging, Write |
-| [deploymentJob](#list_robomaker-resource-deploymentJob "#list_robomaker-resource-deploymentJob")                                                                                      | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                    |
-| [robot](#list_robomaker-resource-robot "#list_robomaker-resource-robot")                                                                                                              | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                    |
-| [robotApplication](#list_robomaker-resource-robotApplication "#list_robomaker-resource-robotApplication")                                                                             | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                    |
-| [simulationApplication](#list_robomaker-resource-simulationApplication "#list_robomaker-resource-simulationApplication")                                                              | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                    |
-| [simulationJob](#list_robomaker-resource-simulationJob "#list_robomaker-resource-simulationJob")                                                                                      | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                    |
-| [simulationJobBatch](#list_robomaker-resource-simulationJobBatch "#list_robomaker-resource-simulationJobBatch")                                                                       | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                    |
-| [world](#list_robomaker-resource-world "#list_robomaker-resource-world")                                                                                                              | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                    |
-| [worldExportJob](#list_robomaker-resource-worldExportJob "#list_robomaker-resource-worldExportJob")                                                                                   | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                    |
-| [worldGenerationJob](#list_robomaker-resource-worldGenerationJob "#list_robomaker-resource-worldGenerationJob")                                                                       | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                    |
-| [worldTemplate](#list_robomaker-resource-worldTemplate "#list_robomaker-resource-worldTemplate")                                                                                      | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_robomaker-aws_TagKeys "#list_robomaker-aws_TagKeys")                                                                                                                    |
-| [UpdateRobotApplication](../../../robomaker/latest/dg/API_UpdateRobotApplication.md "../../../robomaker/latest/dg/API_UpdateRobotApplication.md")                                     | Update a robot application                                                                                                                                                                                                                                                                                        | [robotApplication\*](#list_robomaker-resource-robotApplication "#list_robomaker-resource-robotApplication")                | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [UpdateSimulationApplication](../../../robomaker/latest/dg/API_UpdateSimulationApplication.md "../../../robomaker/latest/dg/API_UpdateSimulationApplication.md")                      | Update a simulation application                                                                                                                                                                                                                                                                                   | [simulationApplication\*](#list_robomaker-resource-simulationApplication "#list_robomaker-resource-simulationApplication") | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
-| [UpdateWorldTemplate](../../../robomaker/latest/dg/API_UpdateWorldTemplate.md "../../../robomaker/latest/dg/API_UpdateWorldTemplate.md")                                              | Update a world template                                                                                                                                                                                                                                                                                           | [worldTemplate\*](#list_robomaker-resource-worldTemplate "#list_robomaker-resource-worldTemplate")                         | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_")                                                                                                                                                                                                | Write          |
+
+
+
+- **   [BatchDeleteWorlds](https://docs.aws.amazon.com/robomaker/latest/dg/API_BatchDeleteWorlds.html)  **
+  - **Description:** Delete one or more worlds in a batch operation
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [BatchDescribeSimulationJob](https://docs.aws.amazon.com/robomaker/latest/dg/API_BatchDescribeSimulationJob.html)  **
+  - **Description:** Describe multiple simulation jobs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [CancelDeploymentJob](https://docs.aws.amazon.com/robomaker/latest/dg/API_CancelDeploymentJob.html)  **
+  - **Description:** Cancel a deployment job
+  - **Resource types (\*required):** [deploymentJob\*](#list_robomaker-resource-deploymentJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelSimulationJob](https://docs.aws.amazon.com/robomaker/latest/dg/API_CancelSimulationJob.html)  **
+  - **Description:** Cancel a simulation job
+  - **Resource types (\*required):** [simulationJob\*](#list_robomaker-resource-simulationJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelSimulationJobBatch](https://docs.aws.amazon.com/robomaker/latest/dg/API_CancelSimulationJobBatch.html)  **
+  - **Description:** Cancel a simulation job batch
+  - **Resource types (\*required):** [simulationJobBatch\*](#list_robomaker-resource-simulationJobBatch)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelWorldExportJob](https://docs.aws.amazon.com/robomaker/latest/dg/API_CancelWorldExportJob.html)  **
+  - **Description:** Cancel a world export job
+  - **Resource types (\*required):** [worldExportJob\*](#list_robomaker-resource-worldExportJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CancelWorldGenerationJob](https://docs.aws.amazon.com/robomaker/latest/dg/API_CancelWorldGenerationJob.html)  **
+  - **Description:** Cancel a world generation job
+  - **Resource types (\*required):** [worldGenerationJob\*](#list_robomaker-resource-worldGenerationJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateDeploymentJob](https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateDeploymentJob.html)  **
+  - **Description:** Create a deployment job
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateFleet](https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateFleet.html)  **
+  - **Description:** Create a deployment fleet that represents a logical group of robots running the same robot application
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRobot](https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateRobot.html)  **
+  - **Description:** Create a robot that can be registered to a fleet
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRobotApplication](https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateRobotApplication.html)  **
+  - **Description:** Create a robot application
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRobotApplicationVersion](https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateRobotApplicationVersion.html)  **
+  - **Description:** Create a snapshot of a robot application
+  - **Resource types (\*required):** [robotApplication\*](#list_robomaker-resource-robotApplication)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateSimulationApplication](https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateSimulationApplication.html)  **
+  - **Description:** Create a simulation application
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateSimulationApplicationVersion](https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateSimulationApplicationVersion.html)  **
+  - **Description:** Create a snapshot of a simulation application
+  - **Resource types (\*required):** [simulationApplication\*](#list_robomaker-resource-simulationApplication)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [CreateSimulationJob](https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateSimulationJob.html)  **
+  - **Description:** Create a simulation job
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateWorldExportJob](https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateWorldExportJob.html)  **
+  - **Description:** Create a world export job
+  - **Resource types (\*required):** [world\*](#list_robomaker-resource-world)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateWorldGenerationJob](https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateWorldGenerationJob.html)  **
+  - **Description:** Create a world generation job
+  - **Resource types (\*required):** [worldTemplate\*](#list_robomaker-resource-worldTemplate)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateWorldTemplate](https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateWorldTemplate.html)  **
+  - **Description:** Create a world template
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteFleet](https://docs.aws.amazon.com/robomaker/latest/dg/API_DeleteFleet.html)  **
+  - **Description:** Delete a deployment fleet
+  - **Resource types (\*required):** [deploymentFleet\*](#list_robomaker-resource-deploymentFleet)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRobot](https://docs.aws.amazon.com/robomaker/latest/dg/API_DeleteRobot.html)  **
+  - **Description:** Delete a robot
+  - **Resource types (\*required):** [robot\*](#list_robomaker-resource-robot)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRobotApplication](https://docs.aws.amazon.com/robomaker/latest/dg/API_DeleteRobotApplication.html)  **
+  - **Description:** Delete a robot application
+  - **Resource types (\*required):** [robotApplication\*](#list_robomaker-resource-robotApplication)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteSimulationApplication](https://docs.aws.amazon.com/robomaker/latest/dg/API_DeleteSimulationApplication.html)  **
+  - **Description:** Delete a simulation application
+  - **Resource types (\*required):** [simulationApplication\*](#list_robomaker-resource-simulationApplication)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteWorldTemplate](https://docs.aws.amazon.com/robomaker/latest/dg/API_DeleteWorldTemplate.html)  **
+  - **Description:** Delete a world template
+  - **Resource types (\*required):** [worldTemplate\*](#list_robomaker-resource-worldTemplate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeregisterRobot](https://docs.aws.amazon.com/robomaker/latest/dg/API_DeregisterRobot.html)  **
+  - **Description:** Deregister a robot from a fleet
+  - **Resource types (\*required):** [deploymentFleet\*](#list_robomaker-resource-deploymentFleet) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [robot\*](#list_robomaker-resource-robot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DescribeDeploymentJob](https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeDeploymentJob.html)  **
+  - **Description:** Describe a deployment job
+  - **Resource types (\*required):** [deploymentJob\*](#list_robomaker-resource-deploymentJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeFleet](https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeFleet.html)  **
+  - **Description:** Describe a deployment fleet
+  - **Resource types (\*required):** [deploymentFleet\*](#list_robomaker-resource-deploymentFleet)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeRobot](https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeRobot.html)  **
+  - **Description:** Describe a robot
+  - **Resource types (\*required):** [robot\*](#list_robomaker-resource-robot)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeRobotApplication](https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeRobotApplication.html)  **
+  - **Description:** Describe a robot application
+  - **Resource types (\*required):** [robotApplication\*](#list_robomaker-resource-robotApplication)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeSimulationApplication](https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeSimulationApplication.html)  **
+  - **Description:** Describe a simulation application
+  - **Resource types (\*required):** [simulationApplication\*](#list_robomaker-resource-simulationApplication)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeSimulationJob](https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeSimulationJob.html)  **
+  - **Description:** Describe a simulation job
+  - **Resource types (\*required):** [simulationJob\*](#list_robomaker-resource-simulationJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeSimulationJobBatch](https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeSimulationJobBatch.html)  **
+  - **Description:** Describe a simulation job batch
+  - **Resource types (\*required):** [simulationJobBatch\*](#list_robomaker-resource-simulationJobBatch)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeWorld](https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeWorld.html)  **
+  - **Description:** Describe a world
+  - **Resource types (\*required):** [world\*](#list_robomaker-resource-world)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeWorldExportJob](https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeWorldExportJob.html)  **
+  - **Description:** Describe a world export job
+  - **Resource types (\*required):** [worldExportJob\*](#list_robomaker-resource-worldExportJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeWorldGenerationJob](https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeWorldGenerationJob.html)  **
+  - **Description:** Describe a world generation job
+  - **Resource types (\*required):** [worldGenerationJob\*](#list_robomaker-resource-worldGenerationJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [DescribeWorldTemplate](https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeWorldTemplate.html)  **
+  - **Description:** Describe a world template
+  - **Resource types (\*required):** [worldTemplate\*](#list_robomaker-resource-worldTemplate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetWorldTemplateBody](https://docs.aws.amazon.com/robomaker/latest/dg/API_GetWorldTemplateBody.html)  **
+  - **Description:** Get the body of a world template
+  - **Resource types (\*required):** [worldTemplate\*](#list_robomaker-resource-worldTemplate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListDeploymentJobs](https://docs.aws.amazon.com/robomaker/latest/dg/API_ListDeploymentJobs.html)  **
+  - **Description:** List deployment jobs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListFleets](https://docs.aws.amazon.com/robomaker/latest/dg/API_ListFleets.html)  **
+  - **Description:** List fleets
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRobotApplications](https://docs.aws.amazon.com/robomaker/latest/dg/API_ListRobotApplications.html)  **
+  - **Description:** List robot applications
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListRobots](https://docs.aws.amazon.com/robomaker/latest/dg/API_ListRobots.html)  **
+  - **Description:** List robots
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSimulationApplications](https://docs.aws.amazon.com/robomaker/latest/dg/API_ListSimulationApplications.html)  **
+  - **Description:** List simulation applications
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSimulationJobBatches](https://docs.aws.amazon.com/robomaker/latest/dg/API_ListSimulationJobBatches.html)  **
+  - **Description:** List simulation job batches
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListSimulationJobs](https://docs.aws.amazon.com/robomaker/latest/dg/API_ListSimulationJobs.html)  **
+  - **Description:** List simulation jobs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListTagsForResource](https://docs.aws.amazon.com/robomaker/latest/dg/API_ListTagsForResource.html)  **
+  - **Description:** List tags for a RoboMaker resource
+  - **Resource types (\*required):** [deploymentFleet](#list_robomaker-resource-deploymentFleet) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [deploymentJob](#list_robomaker-resource-deploymentJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [robot](#list_robomaker-resource-robot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [robotApplication](#list_robomaker-resource-robotApplication) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [simulationApplication](#list_robomaker-resource-simulationApplication) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [simulationJob](#list_robomaker-resource-simulationJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [simulationJobBatch](#list_robomaker-resource-simulationJobBatch) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [world](#list_robomaker-resource-world) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [worldExportJob](#list_robomaker-resource-worldExportJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [worldGenerationJob](#list_robomaker-resource-worldGenerationJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [worldTemplate](#list_robomaker-resource-worldTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListWorldExportJobs](https://docs.aws.amazon.com/robomaker/latest/dg/API_ListWorldExportJobs.html)  **
+  - **Description:** List world export jobs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListWorldGenerationJobs](https://docs.aws.amazon.com/robomaker/latest/dg/API_ListWorldGenerationJobs.html)  **
+  - **Description:** List world generation jobs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListWorldTemplates](https://docs.aws.amazon.com/robomaker/latest/dg/API_ListWorldTemplates.html)  **
+  - **Description:** List world templates
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListWorlds](https://docs.aws.amazon.com/robomaker/latest/dg/API_ListWorlds.html)  **
+  - **Description:** List worlds
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [RegisterRobot](https://docs.aws.amazon.com/robomaker/latest/dg/API_RegisterRobot.html)  **
+  - **Description:** Register a robot to a fleet
+  - **Resource types (\*required):** [deploymentFleet\*](#list_robomaker-resource-deploymentFleet) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** [robot\*](#list_robomaker-resource-robot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [RestartSimulationJob](https://docs.aws.amazon.com/robomaker/latest/dg/API_RestartSimulationJob.html)  **
+  - **Description:** Restart a running simulation job
+  - **Resource types (\*required):** [simulationJob\*](#list_robomaker-resource-simulationJob)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartSimulationJobBatch](https://docs.aws.amazon.com/robomaker/latest/dg/API_StartSimulationJobBatch.html)  **
+  - **Description:** Create a simulation job batch
+  - **Resource types (\*required):** 
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [SyncDeploymentJob](https://docs.aws.amazon.com/robomaker/latest/dg/API_SyncDeploymentJob.html)  **
+  - **Description:** Ensures the most recently deployed robot application is deployed to all robots in the fleet
+  - **Resource types (\*required):** [deploymentFleet\*](#list_robomaker-resource-deploymentFleet)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [TagResource](https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html)  **
+  - **Description:** Add tags to a RoboMaker resource
+  - **Resource types (\*required):** [deploymentFleet](#list_robomaker-resource-deploymentFleet) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [deploymentJob](#list_robomaker-resource-deploymentJob) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [robot](#list_robomaker-resource-robot) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [robotApplication](#list_robomaker-resource-robotApplication) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [simulationApplication](#list_robomaker-resource-simulationApplication) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [simulationJob](#list_robomaker-resource-simulationJob) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [simulationJobBatch](#list_robomaker-resource-simulationJobBatch) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [world](#list_robomaker-resource-world) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [worldExportJob](#list_robomaker-resource-worldExportJob) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [worldGenerationJob](#list_robomaker-resource-worldGenerationJob) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [worldTemplate](#list_robomaker-resource-worldTemplate) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_robomaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/robomaker/latest/dg/API_UntagResource.html)  **
+  - **Description:** Remove tags from a RoboMaker resource
+  - **Resource types (\*required):** [deploymentFleet](#list_robomaker-resource-deploymentFleet) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [deploymentJob](#list_robomaker-resource-deploymentJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [robot](#list_robomaker-resource-robot) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [robotApplication](#list_robomaker-resource-robotApplication) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [simulationApplication](#list_robomaker-resource-simulationApplication) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [simulationJob](#list_robomaker-resource-simulationJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [simulationJobBatch](#list_robomaker-resource-simulationJobBatch) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [world](#list_robomaker-resource-world) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [worldExportJob](#list_robomaker-resource-worldExportJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [worldGenerationJob](#list_robomaker-resource-worldGenerationJob) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Resource types (\*required):** [worldTemplate](#list_robomaker-resource-worldTemplate) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_robomaker-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateRobotApplication](https://docs.aws.amazon.com/robomaker/latest/dg/API_UpdateRobotApplication.html)  **
+  - **Description:** Update a robot application
+  - **Resource types (\*required):** [robotApplication\*](#list_robomaker-resource-robotApplication)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateSimulationApplication](https://docs.aws.amazon.com/robomaker/latest/dg/API_UpdateSimulationApplication.html)  **
+  - **Description:** Update a simulation application
+  - **Resource types (\*required):** [simulationApplication\*](#list_robomaker-resource-simulationApplication)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [UpdateWorldTemplate](https://docs.aws.amazon.com/robomaker/latest/dg/API_UpdateWorldTemplate.html)  **
+  - **Description:** Update a world template
+  - **Resource types (\*required):** [worldTemplate\*](#list_robomaker-resource-worldTemplate)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+
 
 ## Permission-only actions for AWS RoboMaker
+<a name="list_robomaker-permission-only-actions"></a>
 
-The following actions are defined by AWS RoboMaker but are not directly
-invocable through any API operation. They can only be used in IAM policy statements
-to grant or deny permissions.
+The following actions are defined by AWS RoboMaker but are not directly invocable through any API operation. They can only be used in IAM policy statements to grant or deny permissions.
 
-| Actions                        | Description                                          | Resource types (\*required) | Condition keys | Access level |
-| ------------------------------ | ---------------------------------------------------- | --------------------------- | -------------- | ------------ |
-| ListSupportedAvailabilityZones | Lists supported availability zones                   |                             |                | List         |
-| UpdateRobotDeployment          | Report the deployment status for an individual robot |                             |                | Write        |
+
+
+| Actions | Description | Resource types (\*required) | Condition keys | Access level | 
+| --- | --- | --- | --- | --- | 
+|   ListSupportedAvailabilityZones  | Lists supported availability zones |  |   | List | 
+|   UpdateRobotDeployment  | Report the deployment status for an individual robot |  |   | Write | 
 
 ## Resource types defined by AWS RoboMaker
+<a name="list_robomaker-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                               | ARN                                                                                                         | Condition keys                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [deploymentFleet](../../../robomaker/latest/dg/managing-simulation-applications.md "../../../robomaker/latest/dg/managing-simulation-applications.md")       | arn:${Partition}:robomaker:${Region}:${Account}:deployment-fleet/${FleetName}/${CreatedOnEpoch}             | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_") |
-| [deploymentJob](../../../robomaker/latest/dg/deployment.md "../../../robomaker/latest/dg/deployment.md")                                                     | arn:${Partition}:robomaker:${Region}:${Account}:deployment-job/${DeploymentJobId}                           | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_") |
-| [robot](../../../robomaker/latest/dg/fleets.md "../../../robomaker/latest/dg/fleets.md")                                                                     | arn:${Partition}:robomaker:${Region}:${Account}:robot/${RobotName}/${CreatedOnEpoch}                        | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_") |
-| [robotApplication](../../../robomaker/latest/dg/managing-robot-applications.md "../../../robomaker/latest/dg/managing-robot-applications.md")                | arn:${Partition}:robomaker:${Region}:${Account}:robot-application/${ApplicationName}/${CreatedOnEpoch}      | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_") |
-| [simulationApplication](../../../robomaker/latest/dg/managing-simulation-applications.md "../../../robomaker/latest/dg/managing-simulation-applications.md") | arn:${Partition}:robomaker:${Region}:${Account}:simulation-application/${ApplicationName}/${CreatedOnEpoch} | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_") |
-| [simulationJob](../../../robomaker/latest/dg/simulation.md "../../../robomaker/latest/dg/simulation.md")                                                     | arn:${Partition}:robomaker:${Region}:${Account}:simulation-job/${SimulationJobId}                           | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_") |
-| [simulationJobBatch](../../../robomaker/latest/dg/simulation-job-batch.md "../../../robomaker/latest/dg/simulation-job-batch.md")                            | arn:${Partition}:robomaker:${Region}:${Account}:simulation-job-batch/${SimulationJobBatchId}                | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_") |
-| [world](../../../robomaker/latest/dg/worlds-managing-generated-worlds.md "../../../robomaker/latest/dg/worlds-managing-generated-worlds.md")                 | arn:${Partition}:robomaker:${Region}:${Account}:world/${WorldId}                                            | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_") |
-| [worldExportJob](../../../robomaker/latest/dg/worlds-managing-export-jobs.md "../../../robomaker/latest/dg/worlds-managing-export-jobs.md")                  | arn:${Partition}:robomaker:${Region}:${Account}:world-export-job/${WorldExportJobId}                        | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_") |
-| [worldGenerationJob](../../../robomaker/latest/dg/worlds-managing-generation-jobs.md "../../../robomaker/latest/dg/worlds-managing-generation-jobs.md")      | arn:${Partition}:robomaker:${Region}:${Account}:world-generation-job/${WorldGenerationJobId}                | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_") |
-| [worldTemplate](../../../robomaker/latest/dg/worlds-managing-simworld-templates.md "../../../robomaker/latest/dg/worlds-managing-simworld-templates.md")     | arn:${Partition}:robomaker:${Region}:${Account}:world-template/${WorldTemplateJobId}                        | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_ "#list_robomaker-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [deploymentFleet](https://docs.aws.amazon.com/robomaker/latest/dg/managing-simulation-applications.html)  | arn:${Partition}:robomaker:${Region}:${Account}:deployment-fleet/${FleetName}/${CreatedOnEpoch} | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_) | 
+|  [deploymentJob](https://docs.aws.amazon.com/robomaker/latest/dg/deployment.html)  | arn:${Partition}:robomaker:${Region}:${Account}:deployment-job/${DeploymentJobId} | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_) | 
+|  [robot](https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html)  | arn:${Partition}:robomaker:${Region}:${Account}:robot/${RobotName}/${CreatedOnEpoch} | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_) | 
+|  [robotApplication](https://docs.aws.amazon.com/robomaker/latest/dg/managing-robot-applications.html)  | arn:${Partition}:robomaker:${Region}:${Account}:robot-application/${ApplicationName}/${CreatedOnEpoch} | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_) | 
+|  [simulationApplication](https://docs.aws.amazon.com/robomaker/latest/dg/managing-simulation-applications.html)  | arn:${Partition}:robomaker:${Region}:${Account}:simulation-application/${ApplicationName}/${CreatedOnEpoch} | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_) | 
+|  [simulationJob](https://docs.aws.amazon.com/robomaker/latest/dg/simulation.html)  | arn:${Partition}:robomaker:${Region}:${Account}:simulation-job/${SimulationJobId} | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_) | 
+|  [simulationJobBatch](https://docs.aws.amazon.com/robomaker/latest/dg/simulation-job-batch.html)  | arn:${Partition}:robomaker:${Region}:${Account}:simulation-job-batch/${SimulationJobBatchId} | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_) | 
+|  [world](https://docs.aws.amazon.com/robomaker/latest/dg/worlds-managing-generated-worlds.html)  | arn:${Partition}:robomaker:${Region}:${Account}:world/${WorldId} | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_) | 
+|  [worldExportJob](https://docs.aws.amazon.com/robomaker/latest/dg/worlds-managing-export-jobs.html)  | arn:${Partition}:robomaker:${Region}:${Account}:world-export-job/${WorldExportJobId} | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_) | 
+|  [worldGenerationJob](https://docs.aws.amazon.com/robomaker/latest/dg/worlds-managing-generation-jobs.html)  | arn:${Partition}:robomaker:${Region}:${Account}:world-generation-job/${WorldGenerationJobId} | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_) | 
+|  [worldTemplate](https://docs.aws.amazon.com/robomaker/latest/dg/worlds-managing-simworld-templates.html)  | arn:${Partition}:robomaker:${Region}:${Account}:world-template/${WorldTemplateJobId} | [aws:ResourceTag/${TagKey}](#list_robomaker-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for AWS RoboMaker
+<a name="list_robomaker-policy-keys"></a>
 
-AWS RoboMaker defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+AWS RoboMaker defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                               | Description                                                         | Type          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../robomaker/latest/dg/tagging-resources-iam-policies.md "../../../robomaker/latest/dg/tagging-resources-iam-policies.md")  | Filters access based on the tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](../../../robomaker/latest/dg/tagging-resources-iam-policies.md "../../../robomaker/latest/dg/tagging-resources-iam-policies.md") | Filters access based on the tags associated with the resource       | String        |
-| [aws:TagKeys](../../../robomaker/latest/dg/tagging-resources-iam-policies.md "../../../robomaker/latest/dg/tagging-resources-iam-policies.md")               | Filters access based on the tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/robomaker/latest/dg/tagging-resources-iam-policies.html)  | Filters access based on the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/robomaker/latest/dg/tagging-resources-iam-policies.html)  | Filters access based on the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/robomaker/latest/dg/tagging-resources-iam-policies.html)  | Filters access based on the tag keys that are passed in the request | ArrayOfString | 

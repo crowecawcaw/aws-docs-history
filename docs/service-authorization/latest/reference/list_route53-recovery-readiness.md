@@ -1,137 +1,445 @@
-# Actions, resources, and condition keys for Amazon Route 53 Recovery Readiness
 
-Amazon Route 53 Recovery Readiness (service prefix: `route53-recovery-readiness`) provides the following
-service-specific operations, resources, actions, and condition keys for use in IAM permission
-policies.
+
+# Actions, resources, and condition keys for Amazon Route 53 Recovery Readiness
+<a name="list_route53-recovery-readiness"></a>
+
+Amazon Route 53 Recovery Readiness (service prefix: `route53-recovery-readiness`) provides the following service-specific operations, resources, actions, and condition keys for use in IAM permission policies.
 
 References:
++ Learn how to [configure this service](https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route53-recovery.html).
++ View a list of the [API operations available for this service](https://docs.aws.amazon.com/recovery-readiness/latest/api/resources.html).
++ Learn how to secure this service and its resources by [using IAM](https://docs.aws.amazon.com/r53recovery/latest/dg/security-iam.html) permission policies.
++ View the [programmatic service authorization reference](https://servicereference.us-east-1.amazonaws.com/v1/route53-recovery-readiness/route53-recovery-readiness.json) for this service.
 
-- Learn how to [configure this service](../../../r53recovery/latest/dg/what-is-route53-recovery.md "../../../r53recovery/latest/dg/what-is-route53-recovery.md").
-- View a list of the [API operations available for
-  this service](../../../recovery-readiness/latest/api/resources.md "../../../recovery-readiness/latest/api/resources.md").
-- Learn how to secure this service and its resources by
-  [using IAM](../../../r53recovery/latest/dg/security-iam.md "../../../r53recovery/latest/dg/security-iam.md") permission policies.
-- View the [programmatic service authorization
-  reference](https://servicereference.us-east-1.amazonaws.com/v1/route53-recovery-readiness/route53-recovery-readiness.json "https://servicereference.us-east-1.amazonaws.com/v1/route53-recovery-readiness/route53-recovery-readiness.json") for this service.
-
-###### Topics
-
-- [API operations defined by Amazon Route 53 Recovery Readiness](#list_route53-recovery-readiness-operations "#list_route53-recovery-readiness-operations")
-- [Actions defined by Amazon Route 53 Recovery Readiness](#list_route53-recovery-readiness-actions-as-permissions "#list_route53-recovery-readiness-actions-as-permissions")
-- [Resource types defined by Amazon Route 53 Recovery Readiness](#list_route53-recovery-readiness-resources-for-iam-policies "#list_route53-recovery-readiness-resources-for-iam-policies")
-- [Condition keys for Amazon Route 53 Recovery Readiness](#list_route53-recovery-readiness-policy-keys "#list_route53-recovery-readiness-policy-keys")
+**Topics**
++ [API operations defined by Amazon Route 53 Recovery Readiness](#list_route53-recovery-readiness-operations)
++ [Actions defined by Amazon Route 53 Recovery Readiness](#list_route53-recovery-readiness-actions-as-permissions)
++ [Resource types defined by Amazon Route 53 Recovery Readiness](#list_route53-recovery-readiness-resources-for-iam-policies)
++ [Condition keys for Amazon Route 53 Recovery Readiness](#list_route53-recovery-readiness-policy-keys)
 
 ## API operations defined by Amazon Route 53 Recovery Readiness
+<a name="list_route53-recovery-readiness-operations"></a>
 
-The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_route53-recovery-readiness-actions-as-permissions "#list_route53-recovery-readiness-actions-as-permissions").
+The following table maps API operations to the IAM actions they authorize. Only condition keys that have static values for the given API and action are listed; for the full set of condition keys supported by each action, see the [Actions table](#list_route53-recovery-readiness-actions-as-permissions).
 
-| Operation                                                                                                                                           | IAM action                                                                                                                                                                                                         | Condition key | Possible value(s) | Access level   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | ----------------- | -------------- |
-| CreateCell                                                                                                                                          | [route53-recovery-readiness:CreateCell](#list_route53-recovery-readiness-action-CreateCell "#list_route53-recovery-readiness-action-CreateCell")                                                                   |               |                   | Write          |
-| [route53-recovery-readiness:TagResource](#list_route53-recovery-readiness-action-TagResource "#list_route53-recovery-readiness-action-TagResource") |                                                                                                                                                                                                                    |               | Tagging, Write    |
-| CreateCrossAccountAuthorization                                                                                                                     | [route53-recovery-readiness:CreateCrossAccountAuthorization](#list_route53-recovery-readiness-action-CreateCrossAccountAuthorization "#list_route53-recovery-readiness-action-CreateCrossAccountAuthorization")    |               |                   | Write          |
-| CreateReadinessCheck                                                                                                                                | [route53-recovery-readiness:CreateReadinessCheck](#list_route53-recovery-readiness-action-CreateReadinessCheck "#list_route53-recovery-readiness-action-CreateReadinessCheck")                                     |               |                   | Write          |
-| [route53-recovery-readiness:TagResource](#list_route53-recovery-readiness-action-TagResource "#list_route53-recovery-readiness-action-TagResource") |                                                                                                                                                                                                                    |               | Tagging, Write    |
-| CreateRecoveryGroup                                                                                                                                 | [route53-recovery-readiness:CreateRecoveryGroup](#list_route53-recovery-readiness-action-CreateRecoveryGroup "#list_route53-recovery-readiness-action-CreateRecoveryGroup")                                        |               |                   | Write          |
-| [route53-recovery-readiness:TagResource](#list_route53-recovery-readiness-action-TagResource "#list_route53-recovery-readiness-action-TagResource") |                                                                                                                                                                                                                    |               | Tagging, Write    |
-| CreateResourceSet                                                                                                                                   | [route53-recovery-readiness:CreateResourceSet](#list_route53-recovery-readiness-action-CreateResourceSet "#list_route53-recovery-readiness-action-CreateResourceSet")                                              |               |                   | Write          |
-| [route53-recovery-readiness:TagResource](#list_route53-recovery-readiness-action-TagResource "#list_route53-recovery-readiness-action-TagResource") |                                                                                                                                                                                                                    |               | Tagging, Write    |
-| DeleteCell                                                                                                                                          | [route53-recovery-readiness:DeleteCell](#list_route53-recovery-readiness-action-DeleteCell "#list_route53-recovery-readiness-action-DeleteCell")                                                                   |               |                   | Write          |
-| DeleteCrossAccountAuthorization                                                                                                                     | [route53-recovery-readiness:DeleteCrossAccountAuthorization](#list_route53-recovery-readiness-action-DeleteCrossAccountAuthorization "#list_route53-recovery-readiness-action-DeleteCrossAccountAuthorization")    |               |                   | Write          |
-| DeleteReadinessCheck                                                                                                                                | [route53-recovery-readiness:DeleteReadinessCheck](#list_route53-recovery-readiness-action-DeleteReadinessCheck "#list_route53-recovery-readiness-action-DeleteReadinessCheck")                                     |               |                   | Write          |
-| DeleteRecoveryGroup                                                                                                                                 | [route53-recovery-readiness:DeleteRecoveryGroup](#list_route53-recovery-readiness-action-DeleteRecoveryGroup "#list_route53-recovery-readiness-action-DeleteRecoveryGroup")                                        |               |                   | Write          |
-| DeleteResourceSet                                                                                                                                   | [route53-recovery-readiness:DeleteResourceSet](#list_route53-recovery-readiness-action-DeleteResourceSet "#list_route53-recovery-readiness-action-DeleteResourceSet")                                              |               |                   | Write          |
-| GetArchitectureRecommendations                                                                                                                      | [route53-recovery-readiness:GetArchitectureRecommendations](#list_route53-recovery-readiness-action-GetArchitectureRecommendations "#list_route53-recovery-readiness-action-GetArchitectureRecommendations")       |               |                   | Read           |
-| GetCell                                                                                                                                             | [route53-recovery-readiness:GetCell](#list_route53-recovery-readiness-action-GetCell "#list_route53-recovery-readiness-action-GetCell")                                                                            |               |                   | Read           |
-| GetCellReadinessSummary                                                                                                                             | [route53-recovery-readiness:GetCellReadinessSummary](#list_route53-recovery-readiness-action-GetCellReadinessSummary "#list_route53-recovery-readiness-action-GetCellReadinessSummary")                            |               |                   | Read           |
-| GetReadinessCheck                                                                                                                                   | [route53-recovery-readiness:GetReadinessCheck](#list_route53-recovery-readiness-action-GetReadinessCheck "#list_route53-recovery-readiness-action-GetReadinessCheck")                                              |               |                   | Read           |
-| GetReadinessCheckResourceStatus                                                                                                                     | [route53-recovery-readiness:GetReadinessCheckResourceStatus](#list_route53-recovery-readiness-action-GetReadinessCheckResourceStatus "#list_route53-recovery-readiness-action-GetReadinessCheckResourceStatus")    |               |                   | Read           |
-| GetReadinessCheckStatus                                                                                                                             | [route53-recovery-readiness:GetReadinessCheckStatus](#list_route53-recovery-readiness-action-GetReadinessCheckStatus "#list_route53-recovery-readiness-action-GetReadinessCheckStatus")                            |               |                   | Read           |
-| GetRecoveryGroup                                                                                                                                    | [route53-recovery-readiness:GetRecoveryGroup](#list_route53-recovery-readiness-action-GetRecoveryGroup "#list_route53-recovery-readiness-action-GetRecoveryGroup")                                                 |               |                   | Read           |
-| GetRecoveryGroupReadinessSummary                                                                                                                    | [route53-recovery-readiness:GetRecoveryGroupReadinessSummary](#list_route53-recovery-readiness-action-GetRecoveryGroupReadinessSummary "#list_route53-recovery-readiness-action-GetRecoveryGroupReadinessSummary") |               |                   | Read           |
-| GetResourceSet                                                                                                                                      | [route53-recovery-readiness:GetResourceSet](#list_route53-recovery-readiness-action-GetResourceSet "#list_route53-recovery-readiness-action-GetResourceSet")                                                       |               |                   | Read           |
-| ListCells                                                                                                                                           | [route53-recovery-readiness:ListCells](#list_route53-recovery-readiness-action-ListCells "#list_route53-recovery-readiness-action-ListCells")                                                                      |               |                   | Read           |
-| ListCrossAccountAuthorizations                                                                                                                      | [route53-recovery-readiness:ListCrossAccountAuthorizations](#list_route53-recovery-readiness-action-ListCrossAccountAuthorizations "#list_route53-recovery-readiness-action-ListCrossAccountAuthorizations")       |               |                   | Read           |
-| ListReadinessChecks                                                                                                                                 | [route53-recovery-readiness:ListReadinessChecks](#list_route53-recovery-readiness-action-ListReadinessChecks "#list_route53-recovery-readiness-action-ListReadinessChecks")                                        |               |                   | Read           |
-| ListRecoveryGroups                                                                                                                                  | [route53-recovery-readiness:ListRecoveryGroups](#list_route53-recovery-readiness-action-ListRecoveryGroups "#list_route53-recovery-readiness-action-ListRecoveryGroups")                                           |               |                   | Read           |
-| ListResourceSets                                                                                                                                    | [route53-recovery-readiness:ListResourceSets](#list_route53-recovery-readiness-action-ListResourceSets "#list_route53-recovery-readiness-action-ListResourceSets")                                                 |               |                   | Read           |
-| ListRules                                                                                                                                           | [route53-recovery-readiness:ListRules](#list_route53-recovery-readiness-action-ListRules "#list_route53-recovery-readiness-action-ListRules")                                                                      |               |                   | Read           |
-| ListTagsForResources                                                                                                                                | [route53-recovery-readiness:ListTagsForResources](#list_route53-recovery-readiness-action-ListTagsForResources "#list_route53-recovery-readiness-action-ListTagsForResources")                                     |               |                   | Read           |
-| TagResource                                                                                                                                         | [route53-recovery-readiness:TagResource](#list_route53-recovery-readiness-action-TagResource "#list_route53-recovery-readiness-action-TagResource")                                                                |               |                   | Tagging, Write |
-| UntagResource                                                                                                                                       | [route53-recovery-readiness:UntagResource](#list_route53-recovery-readiness-action-UntagResource "#list_route53-recovery-readiness-action-UntagResource")                                                          |               |                   | Tagging, Write |
-| UpdateCell                                                                                                                                          | [route53-recovery-readiness:UpdateCell](#list_route53-recovery-readiness-action-UpdateCell "#list_route53-recovery-readiness-action-UpdateCell")                                                                   |               |                   | Write          |
-| UpdateReadinessCheck                                                                                                                                | [route53-recovery-readiness:UpdateReadinessCheck](#list_route53-recovery-readiness-action-UpdateReadinessCheck "#list_route53-recovery-readiness-action-UpdateReadinessCheck")                                     |               |                   | Write          |
-| UpdateRecoveryGroup                                                                                                                                 | [route53-recovery-readiness:UpdateRecoveryGroup](#list_route53-recovery-readiness-action-UpdateRecoveryGroup "#list_route53-recovery-readiness-action-UpdateRecoveryGroup")                                        |               |                   | Write          |
-| UpdateResourceSet                                                                                                                                   | [route53-recovery-readiness:UpdateResourceSet](#list_route53-recovery-readiness-action-UpdateResourceSet "#list_route53-recovery-readiness-action-UpdateResourceSet")                                              |               |                   | Write          |
+
+
+
+- **   CreateCell  **
+  - **IAM action:**  [route53-recovery-readiness:CreateCell](#list_route53-recovery-readiness-action-CreateCell)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [route53-recovery-readiness:TagResource](#list_route53-recovery-readiness-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateCrossAccountAuthorization  **
+  - **IAM action:**  [route53-recovery-readiness:CreateCrossAccountAuthorization](#list_route53-recovery-readiness-action-CreateCrossAccountAuthorization) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateReadinessCheck  **
+  - **IAM action:**  [route53-recovery-readiness:CreateReadinessCheck](#list_route53-recovery-readiness-action-CreateReadinessCheck)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [route53-recovery-readiness:TagResource](#list_route53-recovery-readiness-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateRecoveryGroup  **
+  - **IAM action:**  [route53-recovery-readiness:CreateRecoveryGroup](#list_route53-recovery-readiness-action-CreateRecoveryGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [route53-recovery-readiness:TagResource](#list_route53-recovery-readiness-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   CreateResourceSet  **
+  - **IAM action:**  [route53-recovery-readiness:CreateResourceSet](#list_route53-recovery-readiness-action-CreateResourceSet)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [route53-recovery-readiness:TagResource](#list_route53-recovery-readiness-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+
+- **   DeleteCell  **
+  - **IAM action:**  [route53-recovery-readiness:DeleteCell](#list_route53-recovery-readiness-action-DeleteCell) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteCrossAccountAuthorization  **
+  - **IAM action:**  [route53-recovery-readiness:DeleteCrossAccountAuthorization](#list_route53-recovery-readiness-action-DeleteCrossAccountAuthorization) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteReadinessCheck  **
+  - **IAM action:**  [route53-recovery-readiness:DeleteReadinessCheck](#list_route53-recovery-readiness-action-DeleteReadinessCheck) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteRecoveryGroup  **
+  - **IAM action:**  [route53-recovery-readiness:DeleteRecoveryGroup](#list_route53-recovery-readiness-action-DeleteRecoveryGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteResourceSet  **
+  - **IAM action:**  [route53-recovery-readiness:DeleteResourceSet](#list_route53-recovery-readiness-action-DeleteResourceSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetArchitectureRecommendations  **
+  - **IAM action:**  [route53-recovery-readiness:GetArchitectureRecommendations](#list_route53-recovery-readiness-action-GetArchitectureRecommendations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCell  **
+  - **IAM action:**  [route53-recovery-readiness:GetCell](#list_route53-recovery-readiness-action-GetCell) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetCellReadinessSummary  **
+  - **IAM action:**  [route53-recovery-readiness:GetCellReadinessSummary](#list_route53-recovery-readiness-action-GetCellReadinessSummary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReadinessCheck  **
+  - **IAM action:**  [route53-recovery-readiness:GetReadinessCheck](#list_route53-recovery-readiness-action-GetReadinessCheck) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReadinessCheckResourceStatus  **
+  - **IAM action:**  [route53-recovery-readiness:GetReadinessCheckResourceStatus](#list_route53-recovery-readiness-action-GetReadinessCheckResourceStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetReadinessCheckStatus  **
+  - **IAM action:**  [route53-recovery-readiness:GetReadinessCheckStatus](#list_route53-recovery-readiness-action-GetReadinessCheckStatus) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRecoveryGroup  **
+  - **IAM action:**  [route53-recovery-readiness:GetRecoveryGroup](#list_route53-recovery-readiness-action-GetRecoveryGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRecoveryGroupReadinessSummary  **
+  - **IAM action:**  [route53-recovery-readiness:GetRecoveryGroupReadinessSummary](#list_route53-recovery-readiness-action-GetRecoveryGroupReadinessSummary) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetResourceSet  **
+  - **IAM action:**  [route53-recovery-readiness:GetResourceSet](#list_route53-recovery-readiness-action-GetResourceSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListCells  **
+  - **IAM action:**  [route53-recovery-readiness:ListCells](#list_route53-recovery-readiness-action-ListCells) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListCrossAccountAuthorizations  **
+  - **IAM action:**  [route53-recovery-readiness:ListCrossAccountAuthorizations](#list_route53-recovery-readiness-action-ListCrossAccountAuthorizations) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListReadinessChecks  **
+  - **IAM action:**  [route53-recovery-readiness:ListReadinessChecks](#list_route53-recovery-readiness-action-ListReadinessChecks) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListRecoveryGroups  **
+  - **IAM action:**  [route53-recovery-readiness:ListRecoveryGroups](#list_route53-recovery-readiness-action-ListRecoveryGroups) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListResourceSets  **
+  - **IAM action:**  [route53-recovery-readiness:ListResourceSets](#list_route53-recovery-readiness-action-ListResourceSets) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListRules  **
+  - **IAM action:**  [route53-recovery-readiness:ListRules](#list_route53-recovery-readiness-action-ListRules) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTagsForResources  **
+  - **IAM action:**  [route53-recovery-readiness:ListTagsForResources](#list_route53-recovery-readiness-action-ListTagsForResources) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   TagResource  **
+  - **IAM action:**  [route53-recovery-readiness:TagResource](#list_route53-recovery-readiness-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **IAM action:**  [route53-recovery-readiness:UntagResource](#list_route53-recovery-readiness-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateCell  **
+  - **IAM action:**  [route53-recovery-readiness:UpdateCell](#list_route53-recovery-readiness-action-UpdateCell) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateReadinessCheck  **
+  - **IAM action:**  [route53-recovery-readiness:UpdateReadinessCheck](#list_route53-recovery-readiness-action-UpdateReadinessCheck) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateRecoveryGroup  **
+  - **IAM action:**  [route53-recovery-readiness:UpdateRecoveryGroup](#list_route53-recovery-readiness-action-UpdateRecoveryGroup) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateResourceSet  **
+  - **IAM action:**  [route53-recovery-readiness:UpdateResourceSet](#list_route53-recovery-readiness-action-UpdateResourceSet) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+
 
 ## Actions defined by Amazon Route 53 Recovery Readiness
+<a name="list_route53-recovery-readiness-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM
-policy statement. Use policies to grant permissions to perform an operation in AWS. When
-you use an action in a policy, you usually allow or deny access to the API operation or CLI
-command with the same name. However, in some cases, a single action controls access to more
-than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
-| Actions                                                                                                                                                                                                                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                             | Resource types (\*required)                                                                                                             | Condition keys                                                                                                                                                                                                                                                                                                                                                                                                          | Access level   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [CreateCell](../../../recovery-readiness/latest/api/cells.md "../../../recovery-readiness/latest/api/cells.md")                                                                                                                                                      | Grants permission to create a new cell                                                                                                                                                                                                                                                                                                                                                                                  | [cell\*](#list_route53-recovery-readiness-resource-cell "#list_route53-recovery-readiness-resource-cell")                               | [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_ "#list_route53-recovery-readiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys "#list_route53-recovery-readiness-aws_TagKeys") | Write          |
-| [CreateCrossAccountAuthorization](../../../recovery-readiness/latest/api/crossaccountauthorizations.md "../../../recovery-readiness/latest/api/crossaccountauthorizations.md")                                                                                       | Grants permission to create a cross account authorization                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                         | Write          |
-| [CreateReadinessCheck](../../../recovery-readiness/latest/api/readinesschecks.md "../../../recovery-readiness/latest/api/readinesschecks.md")                                                                                                                        | Grants permission to create a readiness check                                                                                                                                                                                                                                                                                                                                                                           | [readinesscheck\*](#list_route53-recovery-readiness-resource-readinesscheck "#list_route53-recovery-readiness-resource-readinesscheck") | [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_ "#list_route53-recovery-readiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys "#list_route53-recovery-readiness-aws_TagKeys") | Write          |
-| [CreateRecoveryGroup](../../../recovery-readiness/latest/api/recoverygroups.md "../../../recovery-readiness/latest/api/recoverygroups.md")                                                                                                                           | Grants permission to create a recovery group                                                                                                                                                                                                                                                                                                                                                                            | [recoverygroup\*](#list_route53-recovery-readiness-resource-recoverygroup "#list_route53-recovery-readiness-resource-recoverygroup")    | [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_ "#list_route53-recovery-readiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys "#list_route53-recovery-readiness-aws_TagKeys") | Write          |
-| [CreateResourceSet](../../../recovery-readiness/latest/api/resourcesets.md "../../../recovery-readiness/latest/api/resourcesets.md")                                                                                                                                 | Grants permission to create a resource set                                                                                                                                                                                                                                                                                                                                                                              | [resourceset\*](#list_route53-recovery-readiness-resource-resourceset "#list_route53-recovery-readiness-resource-resourceset")          | [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_ "#list_route53-recovery-readiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys "#list_route53-recovery-readiness-aws_TagKeys") | Write          |
-| [DeleteCell](../../../recovery-readiness/latest/api/cells-cellname.md "../../../recovery-readiness/latest/api/cells-cellname.md")                                                                                                                                    | Grants permission to delete a cell                                                                                                                                                                                                                                                                                                                                                                                      | [cell\*](#list_route53-recovery-readiness-resource-cell "#list_route53-recovery-readiness-resource-cell")                               | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                    | Write          |
-| [DeleteCrossAccountAuthorization](../../../recovery-readiness/latest/api/crossaccountauthorizations-crossaccountauthorization.md "../../../recovery-readiness/latest/api/crossaccountauthorizations-crossaccountauthorization.md")                                   | Grants permission to delete a cross account authorization                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                         | Write          |
-| [DeleteReadinessCheck](../../../recovery-readiness/latest/api/readinesschecks-readinesscheckname.md "../../../recovery-readiness/latest/api/readinesschecks-readinesscheckname.md")                                                                                  | Grants permission to delete a readiness check                                                                                                                                                                                                                                                                                                                                                                           | [readinesscheck\*](#list_route53-recovery-readiness-resource-readinesscheck "#list_route53-recovery-readiness-resource-readinesscheck") | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                    | Write          |
-| [DeleteRecoveryGroup](../../../recovery-readiness/latest/api/recoverygroups-recoverygroupname.md "../../../recovery-readiness/latest/api/recoverygroups-recoverygroupname.md")                                                                                       | Grants permission to delete a recovery group                                                                                                                                                                                                                                                                                                                                                                            | [recoverygroup\*](#list_route53-recovery-readiness-resource-recoverygroup "#list_route53-recovery-readiness-resource-recoverygroup")    | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                    | Write          |
-| [DeleteResourceSet](../../../recovery-readiness/latest/api/resourcesets-resourcesetname.md "../../../recovery-readiness/latest/api/resourcesets-resourcesetname.md")                                                                                                 | Grants permission to delete a resource set                                                                                                                                                                                                                                                                                                                                                                              | [resourceset\*](#list_route53-recovery-readiness-resource-resourceset "#list_route53-recovery-readiness-resource-resourceset")          | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                    | Write          |
-| [GetArchitectureRecommendations](../../../recovery-readiness/latest/api/recoverygroups-recoverygroupname-architecturerecommendations.md "../../../recovery-readiness/latest/api/recoverygroups-recoverygroupname-architecturerecommendations.md")                    | Grants permission to get architecture recommendations for a recovery group                                                                                                                                                                                                                                                                                                                                              | [recoverygroup\*](#list_route53-recovery-readiness-resource-recoverygroup "#list_route53-recovery-readiness-resource-recoverygroup")    | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                    | Read           |
-| [GetCell](../../../recovery-readiness/latest/api/cells-cellname.md "../../../recovery-readiness/latest/api/cells-cellname.md")                                                                                                                                       | Grants permission to get information about a cell                                                                                                                                                                                                                                                                                                                                                                       | [cell\*](#list_route53-recovery-readiness-resource-cell "#list_route53-recovery-readiness-resource-cell")                               | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                    | Read           |
-| [GetCellReadinessSummary](../../../recovery-readiness/latest/api/cellreadiness-cellname.md "../../../recovery-readiness/latest/api/cellreadiness-cellname.md")                                                                                                       | Grants permission to get a readiness summary for a cell                                                                                                                                                                                                                                                                                                                                                                 | [cell\*](#list_route53-recovery-readiness-resource-cell "#list_route53-recovery-readiness-resource-cell")                               | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                    | Read           |
-| [GetReadinessCheck](../../../recovery-readiness/latest/api/readinesschecks-readinesscheckname.md "../../../recovery-readiness/latest/api/readinesschecks-readinesscheckname.md")                                                                                     | Grants permission to get information about a readiness check                                                                                                                                                                                                                                                                                                                                                            | [readinesscheck\*](#list_route53-recovery-readiness-resource-readinesscheck "#list_route53-recovery-readiness-resource-readinesscheck") | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                    | Read           |
-| [GetReadinessCheckResourceStatus](../../../recovery-readiness/latest/api/readinesschecks-readinesscheckname-resource-resourceidentifier-status.md "../../../recovery-readiness/latest/api/readinesschecks-readinesscheckname-resource-resourceidentifier-status.md") | Grants permission to get the readiness status for an individual resource                                                                                                                                                                                                                                                                                                                                                | [readinesscheck\*](#list_route53-recovery-readiness-resource-readinesscheck "#list_route53-recovery-readiness-resource-readinesscheck") | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                    | Read           |
-| [GetReadinessCheckStatus](../../../recovery-readiness/latest/api/readinesschecks-readinesscheckname-status.md "../../../recovery-readiness/latest/api/readinesschecks-readinesscheckname-status.md")                                                                 | Grants permission to get the status of a readiness check (for a resource set)                                                                                                                                                                                                                                                                                                                                           | [readinesscheck\*](#list_route53-recovery-readiness-resource-readinesscheck "#list_route53-recovery-readiness-resource-readinesscheck") | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                    | Read           |
-| [GetRecoveryGroup](../../../recovery-readiness/latest/api/recoverygroups-recoverygroupname.md "../../../recovery-readiness/latest/api/recoverygroups-recoverygroupname.md")                                                                                          | Grants permission to get information about a recovery group                                                                                                                                                                                                                                                                                                                                                             | [recoverygroup\*](#list_route53-recovery-readiness-resource-recoverygroup "#list_route53-recovery-readiness-resource-recoverygroup")    | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                    | Read           |
-| [GetRecoveryGroupReadinessSummary](../../../recovery-readiness/latest/api/recoverygroupreadiness-recoverygroupname.md "../../../recovery-readiness/latest/api/recoverygroupreadiness-recoverygroupname.md")                                                          | Grants permission to get a readiness summary for a recovery group                                                                                                                                                                                                                                                                                                                                                       | [recoverygroup\*](#list_route53-recovery-readiness-resource-recoverygroup "#list_route53-recovery-readiness-resource-recoverygroup")    | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                    | Read           |
-| [GetResourceSet](../../../recovery-readiness/latest/api/resourcesets-resourcesetname.md "../../../recovery-readiness/latest/api/resourcesets-resourcesetname.md")                                                                                                    | Grants permission to get information about a resource set                                                                                                                                                                                                                                                                                                                                                               | [resourceset\*](#list_route53-recovery-readiness-resource-resourceset "#list_route53-recovery-readiness-resource-resourceset")          | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")                                                                                                                                                                                                                                                                    | Read           |
-| [ListCells](../../../recovery-readiness/latest/api/cells.md "../../../recovery-readiness/latest/api/cells.md")                                                                                                                                                       | Grants permission to list cells                                                                                                                                                                                                                                                                                                                                                                                         |                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                         | Read           |
-| [ListCrossAccountAuthorizations](../../../recovery-readiness/latest/api/crossaccountauthorizations.md "../../../recovery-readiness/latest/api/crossaccountauthorizations.md")                                                                                        | Grants permission to list cross account authorizations                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                         | Read           |
-| [ListReadinessChecks](../../../recovery-readiness/latest/api/readinesschecks.md "../../../recovery-readiness/latest/api/readinesschecks.md")                                                                                                                         | Grants permission to list readiness checks                                                                                                                                                                                                                                                                                                                                                                              |                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                         | Read           |
-| [ListRecoveryGroups](../../../recovery-readiness/latest/api/recoverygroups.md "../../../recovery-readiness/latest/api/recoverygroups.md")                                                                                                                            | Grants permission to list recovery groups                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                         | Read           |
-| [ListResourceSets](../../../recovery-readiness/latest/api/resourcesets.md "../../../recovery-readiness/latest/api/resourcesets.md")                                                                                                                                  | Grants permission to list resource sets                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                         | Read           |
-| [ListRules](../../../recovery-readiness/latest/api/rules.md "../../../recovery-readiness/latest/api/rules.md")                                                                                                                                                       | Grants permission to list readiness rules                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                         | Read           |
-| [ListTagsForResources](../../../recovery-readiness/latest/api/tags-resource-arn.md "../../../recovery-readiness/latest/api/tags-resource-arn.md")                                                                                                                    | Grants permission to list tags for a resource                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                         | Read           |
-| [TagResource](../../../recovery-readiness/latest/api/tags-resource-arn.md "../../../recovery-readiness/latest/api/tags-resource-arn.md")                                                                                                                             | Grants permission to add a tag to a resource                                                                                                                                                                                                                                                                                                                                                                            | [cell](#list_route53-recovery-readiness-resource-cell "#list_route53-recovery-readiness-resource-cell")                                 | [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_ "#list_route53-recovery-readiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys "#list_route53-recovery-readiness-aws_TagKeys") | Tagging, Write |
-| [readinesscheck](#list_route53-recovery-readiness-resource-readinesscheck "#list_route53-recovery-readiness-resource-readinesscheck")                                                                                                                                | [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_ "#list_route53-recovery-readiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys "#list_route53-recovery-readiness-aws_TagKeys") |
-| [recoverygroup](#list_route53-recovery-readiness-resource-recoverygroup "#list_route53-recovery-readiness-resource-recoverygroup")                                                                                                                                   | [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_ "#list_route53-recovery-readiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys "#list_route53-recovery-readiness-aws_TagKeys") |
-| [resourceset](#list_route53-recovery-readiness-resource-resourceset "#list_route53-recovery-readiness-resource-resourceset")                                                                                                                                         | [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_ "#list_route53-recovery-readiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys "#list_route53-recovery-readiness-aws_TagKeys") |
-| [UntagResource](../../../recovery-readiness/latest/api/tags-resource-arn.md "../../../recovery-readiness/latest/api/tags-resource-arn.md")                                                                                                                           | Grants permission to remove a tag from a resource                                                                                                                                                                                                                                                                                                                                                                       | [cell](#list_route53-recovery-readiness-resource-cell "#list_route53-recovery-readiness-resource-cell")                                 | [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_ "#list_route53-recovery-readiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys "#list_route53-recovery-readiness-aws_TagKeys") | Tagging, Write |
-| [readinesscheck](#list_route53-recovery-readiness-resource-readinesscheck "#list_route53-recovery-readiness-resource-readinesscheck")                                                                                                                                | [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_ "#list_route53-recovery-readiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys "#list_route53-recovery-readiness-aws_TagKeys") |
-| [recoverygroup](#list_route53-recovery-readiness-resource-recoverygroup "#list_route53-recovery-readiness-resource-recoverygroup")                                                                                                                                   | [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_ "#list_route53-recovery-readiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys "#list_route53-recovery-readiness-aws_TagKeys") |
-| [resourceset](#list_route53-recovery-readiness-resource-resourceset "#list_route53-recovery-readiness-resource-resourceset")                                                                                                                                         | [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_ "#list_route53-recovery-readiness-aws_RequestTag___TagKey_")<br>[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys "#list_route53-recovery-readiness-aws_TagKeys") |
-| [UpdateCell](../../../recovery-readiness/latest/api/cells-cellname.md "../../../recovery-readiness/latest/api/cells-cellname.md")                                                                                                                                    | Grants permission to update a cell                                                                                                                                                                                                                                                                                                                                                                                      | [cell\*](#list_route53-recovery-readiness-resource-cell "#list_route53-recovery-readiness-resource-cell")                               | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys "#list_route53-recovery-readiness-aws_TagKeys")                                                                                                                                                      | Write          |
-| [UpdateReadinessCheck](../../../recovery-readiness/latest/api/readinesschecks-readinesscheckname.md "../../../recovery-readiness/latest/api/readinesschecks-readinesscheckname.md")                                                                                  | Grants permission to update a readiness check                                                                                                                                                                                                                                                                                                                                                                           | [readinesscheck\*](#list_route53-recovery-readiness-resource-readinesscheck "#list_route53-recovery-readiness-resource-readinesscheck") | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys "#list_route53-recovery-readiness-aws_TagKeys")                                                                                                                                                      | Write          |
-| [UpdateRecoveryGroup](../../../recovery-readiness/latest/api/recoverygroups-recoverygroupname.md "../../../recovery-readiness/latest/api/recoverygroups-recoverygroupname.md")                                                                                       | Grants permission to update a recovery group                                                                                                                                                                                                                                                                                                                                                                            | [recoverygroup\*](#list_route53-recovery-readiness-resource-recoverygroup "#list_route53-recovery-readiness-resource-recoverygroup")    | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys "#list_route53-recovery-readiness-aws_TagKeys")                                                                                                                                                      | Write          |
-| [UpdateResourceSet](../../../recovery-readiness/latest/api/resourcesets-resourcesetname.md "../../../recovery-readiness/latest/api/resourcesets-resourcesetname.md")                                                                                                 | Grants permission to update a resource set                                                                                                                                                                                                                                                                                                                                                                              | [resourceset\*](#list_route53-recovery-readiness-resource-resourceset "#list_route53-recovery-readiness-resource-resourceset")          | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_")<br>[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys "#list_route53-recovery-readiness-aws_TagKeys")                                                                                                                                                      | Write          |
+
+
+
+- **   [CreateCell](https://docs.aws.amazon.com/recovery-readiness/latest/api/cells.html)  **
+  - **Description:** Grants permission to create a new cell
+  - **Resource types (\*required):** [cell\*](#list_route53-recovery-readiness-resource-cell)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateCrossAccountAuthorization](https://docs.aws.amazon.com/recovery-readiness/latest/api/crossaccountauthorizations.html)  **
+  - **Description:** Grants permission to create a cross account authorization
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CreateReadinessCheck](https://docs.aws.amazon.com/recovery-readiness/latest/api/readinesschecks.html)  **
+  - **Description:** Grants permission to create a readiness check
+  - **Resource types (\*required):** [readinesscheck\*](#list_route53-recovery-readiness-resource-readinesscheck)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateRecoveryGroup](https://docs.aws.amazon.com/recovery-readiness/latest/api/recoverygroups.html)  **
+  - **Description:** Grants permission to create a recovery group
+  - **Resource types (\*required):** [recoverygroup\*](#list_route53-recovery-readiness-resource-recoverygroup)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateResourceSet](https://docs.aws.amazon.com/recovery-readiness/latest/api/resourcesets.html)  **
+  - **Description:** Grants permission to create a resource set
+  - **Resource types (\*required):** [resourceset\*](#list_route53-recovery-readiness-resource-resourceset)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [DeleteCell](https://docs.aws.amazon.com/recovery-readiness/latest/api/cells-cellname.html)  **
+  - **Description:** Grants permission to delete a cell
+  - **Resource types (\*required):** [cell\*](#list_route53-recovery-readiness-resource-cell)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteCrossAccountAuthorization](https://docs.aws.amazon.com/recovery-readiness/latest/api/crossaccountauthorizations-crossaccountauthorization.html)  **
+  - **Description:** Grants permission to delete a cross account authorization
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [DeleteReadinessCheck](https://docs.aws.amazon.com/recovery-readiness/latest/api/readinesschecks-readinesscheckname.html)  **
+  - **Description:** Grants permission to delete a readiness check
+  - **Resource types (\*required):** [readinesscheck\*](#list_route53-recovery-readiness-resource-readinesscheck)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteRecoveryGroup](https://docs.aws.amazon.com/recovery-readiness/latest/api/recoverygroups-recoverygroupname.html)  **
+  - **Description:** Grants permission to delete a recovery group
+  - **Resource types (\*required):** [recoverygroup\*](#list_route53-recovery-readiness-resource-recoverygroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteResourceSet](https://docs.aws.amazon.com/recovery-readiness/latest/api/resourcesets-resourcesetname.html)  **
+  - **Description:** Grants permission to delete a resource set
+  - **Resource types (\*required):** [resourceset\*](#list_route53-recovery-readiness-resource-resourceset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [GetArchitectureRecommendations](https://docs.aws.amazon.com/recovery-readiness/latest/api/recoverygroups-recoverygroupname-architecturerecommendations.html)  **
+  - **Description:** Grants permission to get architecture recommendations for a recovery group
+  - **Resource types (\*required):** [recoverygroup\*](#list_route53-recovery-readiness-resource-recoverygroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCell](https://docs.aws.amazon.com/recovery-readiness/latest/api/cells-cellname.html)  **
+  - **Description:** Grants permission to get information about a cell
+  - **Resource types (\*required):** [cell\*](#list_route53-recovery-readiness-resource-cell)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetCellReadinessSummary](https://docs.aws.amazon.com/recovery-readiness/latest/api/cellreadiness-cellname.html)  **
+  - **Description:** Grants permission to get a readiness summary for a cell
+  - **Resource types (\*required):** [cell\*](#list_route53-recovery-readiness-resource-cell)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetReadinessCheck](https://docs.aws.amazon.com/recovery-readiness/latest/api/readinesschecks-readinesscheckname.html)  **
+  - **Description:** Grants permission to get information about a readiness check
+  - **Resource types (\*required):** [readinesscheck\*](#list_route53-recovery-readiness-resource-readinesscheck)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetReadinessCheckResourceStatus](https://docs.aws.amazon.com/recovery-readiness/latest/api/readinesschecks-readinesscheckname-resource-resourceidentifier-status.html)  **
+  - **Description:** Grants permission to get the readiness status for an individual resource
+  - **Resource types (\*required):** [readinesscheck\*](#list_route53-recovery-readiness-resource-readinesscheck)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetReadinessCheckStatus](https://docs.aws.amazon.com/recovery-readiness/latest/api/readinesschecks-readinesscheckname-status.html)  **
+  - **Description:** Grants permission to get the status of a readiness check (for a resource set)
+  - **Resource types (\*required):** [readinesscheck\*](#list_route53-recovery-readiness-resource-readinesscheck)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRecoveryGroup](https://docs.aws.amazon.com/recovery-readiness/latest/api/recoverygroups-recoverygroupname.html)  **
+  - **Description:** Grants permission to get information about a recovery group
+  - **Resource types (\*required):** [recoverygroup\*](#list_route53-recovery-readiness-resource-recoverygroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetRecoveryGroupReadinessSummary](https://docs.aws.amazon.com/recovery-readiness/latest/api/recoverygroupreadiness-recoverygroupname.html)  **
+  - **Description:** Grants permission to get a readiness summary for a recovery group
+  - **Resource types (\*required):** [recoverygroup\*](#list_route53-recovery-readiness-resource-recoverygroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetResourceSet](https://docs.aws.amazon.com/recovery-readiness/latest/api/resourcesets-resourcesetname.html)  **
+  - **Description:** Grants permission to get information about a resource set
+  - **Resource types (\*required):** [resourceset\*](#list_route53-recovery-readiness-resource-resourceset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [ListCells](https://docs.aws.amazon.com/recovery-readiness/latest/api/cells.html)  **
+  - **Description:** Grants permission to list cells
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListCrossAccountAuthorizations](https://docs.aws.amazon.com/recovery-readiness/latest/api/crossaccountauthorizations.html)  **
+  - **Description:** Grants permission to list cross account authorizations
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListReadinessChecks](https://docs.aws.amazon.com/recovery-readiness/latest/api/readinesschecks.html)  **
+  - **Description:** Grants permission to list readiness checks
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListRecoveryGroups](https://docs.aws.amazon.com/recovery-readiness/latest/api/recoverygroups.html)  **
+  - **Description:** Grants permission to list recovery groups
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListResourceSets](https://docs.aws.amazon.com/recovery-readiness/latest/api/resourcesets.html)  **
+  - **Description:** Grants permission to list resource sets
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListRules](https://docs.aws.amazon.com/recovery-readiness/latest/api/rules.html)  **
+  - **Description:** Grants permission to list readiness rules
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListTagsForResources](https://docs.aws.amazon.com/recovery-readiness/latest/api/tags-resource-arn.html)  **
+  - **Description:** Grants permission to list tags for a resource
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [TagResource](https://docs.aws.amazon.com/recovery-readiness/latest/api/tags-resource-arn.html)  **
+  - **Description:** Grants permission to add a tag to a resource
+  - **Resource types (\*required):** [cell](#list_route53-recovery-readiness-resource-cell) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys)
+  - **Resource types (\*required):** [readinesscheck](#list_route53-recovery-readiness-resource-readinesscheck) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys)
+  - **Resource types (\*required):** [recoverygroup](#list_route53-recovery-readiness-resource-recoverygroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys)
+  - **Resource types (\*required):** [resourceset](#list_route53-recovery-readiness-resource-resourceset) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UntagResource](https://docs.aws.amazon.com/recovery-readiness/latest/api/tags-resource-arn.html)  **
+  - **Description:** Grants permission to remove a tag from a resource
+  - **Resource types (\*required):** [cell](#list_route53-recovery-readiness-resource-cell) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys)
+  - **Resource types (\*required):** [readinesscheck](#list_route53-recovery-readiness-resource-readinesscheck) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys)
+  - **Resource types (\*required):** [recoverygroup](#list_route53-recovery-readiness-resource-recoverygroup) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys)
+  - **Resource types (\*required):** [resourceset](#list_route53-recovery-readiness-resource-resourceset) / **Condition keys:** [aws:RequestTag/${TagKey}](#list_route53-recovery-readiness-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys)
+  - **Access level:** Tagging, Write
+
+- **   [UpdateCell](https://docs.aws.amazon.com/recovery-readiness/latest/api/cells-cellname.html)  **
+  - **Description:** Grants permission to update a cell
+  - **Resource types (\*required):** [cell\*](#list_route53-recovery-readiness-resource-cell)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [UpdateReadinessCheck](https://docs.aws.amazon.com/recovery-readiness/latest/api/readinesschecks-readinesscheckname.html)  **
+  - **Description:** Grants permission to update a readiness check
+  - **Resource types (\*required):** [readinesscheck\*](#list_route53-recovery-readiness-resource-readinesscheck)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [UpdateRecoveryGroup](https://docs.aws.amazon.com/recovery-readiness/latest/api/recoverygroups-recoverygroupname.html)  **
+  - **Description:** Grants permission to update a recovery group
+  - **Resource types (\*required):** [recoverygroup\*](#list_route53-recovery-readiness-resource-recoverygroup)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [UpdateResourceSet](https://docs.aws.amazon.com/recovery-readiness/latest/api/resourcesets-resourcesetname.html)  **
+  - **Description:** Grants permission to update a resource set
+  - **Resource types (\*required):** [resourceset\*](#list_route53-recovery-readiness-resource-resourceset)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_route53-recovery-readiness-aws_TagKeys)
+  - **Access level:** Write
+
+
 
 ## Resource types defined by Amazon Route 53 Recovery Readiness
+<a name="list_route53-recovery-readiness-resources-for-iam-policies"></a>
 
-The following resource types are defined by this service and can be used in the
-`Resource` element of IAM permission policy statements.
+The following resource types are defined by this service and can be used in the `Resource` element of IAM permission policy statements.
 
-| Resource types                                                                                                                                                  | ARN                                                                                   | Condition keys                                                                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [cell](../../../r53recovery/latest/dg/recovery-readiness.recovery-groups.md "../../../r53recovery/latest/dg/recovery-readiness.recovery-groups.md")             | arn:${Partition}:route53-recovery-readiness::${Account}:cell/${ResourceId}            | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_") |
-| [readinesscheck](../../../r53recovery/latest/dg/recovery-readiness.readiness-checks.md "../../../r53recovery/latest/dg/recovery-readiness.readiness-checks.md") | arn:${Partition}:route53-recovery-readiness::${Account}:readiness-check/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_") |
-| [recoverygroup](../../../r53recovery/latest/dg/recovery-readiness.recovery-groups.md "../../../r53recovery/latest/dg/recovery-readiness.recovery-groups.md")    | arn:${Partition}:route53-recovery-readiness::${Account}:recovery-group/${ResourceId}  | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_") |
-| [resourceset](../../../r53recovery/latest/dg/recovery-readiness.readiness-checks.md "../../../r53recovery/latest/dg/recovery-readiness.readiness-checks.md")    | arn:${Partition}:route53-recovery-readiness::${Account}:resource-set/${ResourceId}    | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_ "#list_route53-recovery-readiness-aws_ResourceTag___TagKey_") |
+
+
+| Resource types | ARN | Condition keys | 
+| --- | --- | --- | 
+|  [cell](https://docs.aws.amazon.com/r53recovery/latest/dg/recovery-readiness.recovery-groups.html)  | arn:${Partition}:route53-recovery-readiness::${Account}:cell/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_) | 
+|  [readinesscheck](https://docs.aws.amazon.com/r53recovery/latest/dg/recovery-readiness.readiness-checks.html)  | arn:${Partition}:route53-recovery-readiness::${Account}:readiness-check/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_) | 
+|  [recoverygroup](https://docs.aws.amazon.com/r53recovery/latest/dg/recovery-readiness.recovery-groups.html)  | arn:${Partition}:route53-recovery-readiness::${Account}:recovery-group/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_) | 
+|  [resourceset](https://docs.aws.amazon.com/r53recovery/latest/dg/recovery-readiness.readiness-checks.html)  | arn:${Partition}:route53-recovery-readiness::${Account}:resource-set/${ResourceId} | [aws:ResourceTag/${TagKey}](#list_route53-recovery-readiness-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon Route 53 Recovery Readiness
+<a name="list_route53-recovery-readiness-policy-keys"></a>
 
-Amazon Route 53 Recovery Readiness defines the following condition keys that can be used in the
-`Condition` element of an IAM policy.
+Amazon Route 53 Recovery Readiness defines the following condition keys that can be used in the `Condition` element of an IAM policy.
 
-| Condition keys                                                                                                                                                                                                             | Description                                                   | Type          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------- |
-| [aws:RequestTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-requesttag")    | Filters access by the tags that are passed in the request     | String        |
-| [aws:ResourceTag/${TagKey}](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag") | Filters access by the tags associated with the resource       | String        |
-| [aws:TagKeys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-tagkeys")                       | Filters access by the tag keys that are passed in the request | ArrayOfString |
+
+
+| Condition keys | Description | Type | 
+| --- | --- | --- | 
+|   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
+|   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 
